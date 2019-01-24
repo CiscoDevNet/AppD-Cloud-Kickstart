@@ -1,0 +1,2 @@
+# ignore appdynamics 'live' license file.
+/tools/appd-controller-license.lic

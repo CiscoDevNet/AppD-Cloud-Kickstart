@@ -1,7 +1,7 @@
 # AppD-Cloud-Kickstart
 
-Introduction to cloud monitoring workshops using AppDynamics featuring AWS, Azure, GCP workloads. 
+Cloud Monitoring workshops with AppDynamics featuring AWS, Azure, and GCP workloads.
 
 ## Overview
 
-This is still a work-in-progress.
+This is a work-in-progress.

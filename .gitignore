@@ -1,0 +1,18 @@
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
+
+/artifacts/
+/builders/**/shared
+/provisioners/**/*.live
+/provisioners/**/*.orig
+
+# ignore 'live' bash resource configuration file for appdynamics cloud kickstart users.
+/bin/set-appd-cloud-kickstart-env.sh

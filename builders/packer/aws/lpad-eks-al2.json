@@ -1,0 +1,115 @@
+{
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "{{user `aws_ami_region`}}",
+      "source_ami": "{{user `aws_ami_source`}}",
+      "ami_description": "{{user `aws_ami_description`}}",
+      "instance_type": "{{user `aws_ec2_instance_type`}}",
+      "ssh_username": "{{user `aws_ec2_username`}}",
+      "ami_name": "{{user `aws_ami_name`}}-{{timestamp}}",
+      "launch_block_device_mappings": [
+        {
+          "device_name": "/dev/xvda",
+          "volume_size": "{{user `aws_ec2_boot_disk_size`}}",
+          "volume_type": "gp2",
+          "delete_on_termination": "true"
+        }
+      ],
+      "tags": {
+        "Name": "{{user `aws_ami_name`}}",
+        "Owner": "{{user `aws_ami_owner`}}",
+        "Project": "AppDynamics Cloud Kickstart",
+        "Base_AMI_Name": "{{.SourceAMIName}}"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "inline": [
+        "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_username`}} {{user `kickstart_home`}}"
+      ],
+      "type": "shell"
+    },
+    {
+      "destination": "{{user `kickstart_home`}}/provisioners/scripts",
+      "source": "../../../provisioners/scripts/",
+      "type": "file"
+    },
+    {
+      "inline": [
+        "sudo chown -R root:root {{user `kickstart_home`}}"
+      ],
+      "type": "shell"
+    },
+    {
+      "environment_vars": [
+        "aws_hostname={{user `aws_ec2_hostname`}}",
+        "kickstart_home={{user `kickstart_home`}}",
+        "HOME_DIR=/home/{{user `aws_ec2_username`}}"
+      ],
+      "execute_command": "echo '{{user `aws_ec2_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "scripts": [
+        "../../../provisioners/scripts/aws/config_al2_system_hostname.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "expect_disconnect": true,
+      "inline": [
+        "sudo yum -y update",
+        "sudo systemctl reboot"
+      ],
+      "type": "shell"
+    },
+    {
+      "environment_vars": [
+        "AWS_ACCESS_KEY_ID={{user `aws_access_key`}}",
+        "AWS_SECRET_ACCESS_KEY={{user `aws_secret_key`}}",
+        "aws_cli_user_config={{user `aws_cli_user_config`}}",
+        "aws_cli_default_region_name={{user `aws_cli_default_region_name`}}",
+        "aws_cli_default_output_format={{user `aws_cli_default_output_format`}}",
+        "user_name={{user `aws_ec2_username`}}",
+        "kickstart_home={{user `kickstart_home`}}",
+        "HOME_DIR=/home/{{user `aws_ec2_username`}}"
+      ],
+      "execute_command": "echo '{{user `aws_ec2_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "expect_disconnect": true,
+      "pause_before": "10s",
+      "scripts": [
+        "../../../provisioners/scripts/aws/install_al2_kickstart_tools.sh",
+        "../../../provisioners/scripts/common/install_oracle_java_jdk_8.sh",
+        "../../../provisioners/scripts/aws/install_al2_docker.sh",
+        "../../../provisioners/scripts/common/install_docker_compose.sh",
+        "../../../provisioners/scripts/common/install_users_env.sh",
+        "../../../provisioners/scripts/common/install_jq_json_processor.sh",
+        "../../../provisioners/scripts/centos/install_centos7_git.sh",
+        "../../../provisioners/scripts/common/install_aws_cli.sh",
+        "../../../provisioners/scripts/common/install_aws_eksctl_cli.sh",
+        "../../../provisioners/scripts/common/install_aws_kubectl_cli.sh",
+        "../../../provisioners/scripts/common/install_aws_iam_authenticator.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+    "aws_ami_name": "LPAD-EKS-AL2-AMI",
+    "aws_ami_description": "AWS EKS 'launchpad' with pre-configured tooling for AWS CLI Operations on Amazon Linux 2. Log-in with user 'ec2-user' using an SSH key-pair. AMI generated using the AppDynamics Cloud Kickstart Project.",
+    "aws_ami_owner": "{{env `aws_ami_owner`}}",
+    "aws_ami_region": "{{env `aws_ami_region`}}",
+    "aws_ami_source": "{{env `aws_ami_source`}}",
+    "aws_cli_user_config": "{{env `aws_cli_user_config`}}",
+    "aws_cli_default_region_name": "{{env `aws_cli_default_region_name`}}",
+    "aws_cli_default_output_format": "{{env `aws_cli_default_output_format`}}",
+    "aws_ec2_boot_disk_size": "48",
+    "aws_ec2_hostname": "lpad",
+    "aws_ec2_instance_type": "t2.micro",
+    "aws_ec2_username": "ec2-user",
+    "kickstart_home": "/opt/appd-cloud-kickstart"
+  }
+}

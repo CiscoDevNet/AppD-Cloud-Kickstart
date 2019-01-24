@@ -1,0 +1,22 @@
+# Detect text files automatically
+* text=auto
+
+# Force LF line ending on these files
+*.awk eol=lf
+*.desktop eol=lf
+*.rb eol=lf
+*.sh eol=lf
+*.template eol=lf
+
+*ks.cfg eol=lf
+preseed.cfg eol=lf
+
+# Force CRLF line ending on these files
+*.bat eol=crlf
+Autounattend.xml eol=crlf
+
+# Force binary on these files
+*.cer binary
+*.gz binary
+*.png binary
+*.zip binary

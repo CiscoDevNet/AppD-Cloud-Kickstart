@@ -1,0 +1,347 @@
+#!/bin/sh
+# bash resource configuration template for appdynamics cloud kickstart users.
+# rename and remove the '.template'.
+
+# ------------------------------------------------------------------------------
+# set kickstart home.
+# ------------------------------------------------------------------------------
+# [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
+kickstart_home="/opt/appd-cloud-kickstart"
+export kickstart_home
+
+# ------------------------------------------------------------------------------
+# set appdynamics account credentials.
+# ------------------------------------------------------------------------------
+# user name for downloading binaries.
+appd_username="<your_appd_account_email_here>"
+export appd_username
+
+# user password.
+appd_password="<your_appd_account_password_here>"
+export appd_password
+
+# ------------------------------------------------------------------------------
+# [OPTIONAL] appdynamics platform install parameters [w/ defaults].
+# ------------------------------------------------------------------------------
+# [optional] appd home (defaults to '/opt/appdynamics').
+#appd_home="/opt/appdynamics"
+#export appd_home
+
+# [optional] platform home folder (defaults to 'platform').
+#appd_platform_home="platform"
+#export appd_platform_home
+
+# [optional] platform release (defaults to '4.5.5.16839').
+#appd_platform_release="4.5.5.16839"
+#export appd_platform_release
+
+# [optional] platform admin user name (defaults to user 'admin').
+#appd_platform_admin_username="admin"
+#export appd_platform_admin_username
+
+# [optional] platform admin password (defaults to 'welcome1').
+#appd_platform_admin_password="welcome1"
+#export appd_platform_admin_password
+
+# [optional] platform database password (defaults to 'welcome1').
+#appd_platform_db_password="welcome1"
+#export appd_platform_db_password
+
+# [optional] platform database root password (defaults to 'welcome1').
+#appd_platform_db_root_password="welcome1"
+#export appd_platform_db_root_password
+
+# [optional] platform server hostname (defaults to 'uname -n').
+#appd_platform_server_host="apm"
+#export appd_platform_server_host
+
+# [optional] platform server port (defaults to '9191').
+#appd_platform_server_port="9191"
+#export appd_platform_server_port
+
+# [optional] platform name (defaults to 'My Platform').
+appd_platform_name="AppDynamics Cloud Kickstart Project"
+export appd_platform_name
+
+# [optional] platform description (defaults to 'My platform config.').
+appd_platform_description="This is a demo configuration for the AppDynamics Cloud Kickstart Project."
+export appd_platform_description
+
+# [optional] platform base installation directory for products (defaults to 'product').
+#appd_platform_product_home="product"
+#export appd_platform_product_home
+
+# [optional] platform hosts (defaults to 'platformadmin' which is the localhost).
+#appd_platform_hosts="platformadmin"
+#export appd_platform_hosts
+
+# ------------------------------------------------------------------------------
+# [OPTIONAL] appdynamics events service install parameters [w/ defaults].
+# ------------------------------------------------------------------------------
+# [optional] events service hosts (defaults to 'platformadmin' which is the localhost).
+#appd_events_service_hosts="platformadmin"
+#export appd_events_service_hosts
+
+# [optional] appd events service profile (defaults to 'DEV').
+#            valid profiles are:
+#              'DEV', 'dev', 'PROD', 'prod'
+#appd_events_service_profile="DEV"
+#export appd_events_service_profile
+
+# ------------------------------------------------------------------------------
+# [OPTIONAL] appdynamics controller install parameters [w/ defaults].
+# ------------------------------------------------------------------------------
+# [optional] controller host (defaults to 'apm').
+appd_controller_host="apm"
+export appd_controller_host
+
+# [optional] controller port (defaults to '8090').
+#appd_controller_port="8090"
+#export appd_controller_port
+
+# [optional] controller primary host (defaults to 'platformadmin' which is the localhost).
+#appd_controller_primary_host="platformadmin"
+#export appd_controller_primary_host
+
+# [optional] controller admin user name (defaults to 'admin').
+#appd_controller_admin_username="admin"
+#export appd_controller_admin_username
+
+# [optional] controller admin password (defaults to 'welcome1').
+#appd_controller_admin_password="welcome1"
+#export appd_controller_admin_password
+
+# [optional] controller root password (defaults to 'welcome1').
+#appd_controller_root_password="welcome1"
+#export appd_controller_root_password
+
+# [optional] controller mysql root password (defaults to 'welcome1').
+#appd_controller_mysql_password="welcome1"
+#export appd_controller_mysql_password
+
+# ------------------------------------------------------------------------------
+# [OPTIONAL] appdynamics java agent install parameters [w/ defaults].
+# ------------------------------------------------------------------------------
+# [optional] java agent home (defaults to 'appagent').
+#appd_java_agent_home="appagent"
+#export appd_java_agent_home
+
+# [optional] java agent user (defaults to user 'ec2-user').
+#appd_java_agent_user="ec2-user"
+#export appd_java_agent_user
+
+# [optional] java agent release (defaults to '4.5.6.24621').
+#appd_java_agent_release="4.5.6.24621"
+#export appd_java_agent_release
+
+# ------------------------------------------------------------------------------
+# [OPTIONAL] appdynamics java agent config parameters [w/ defaults].
+# ------------------------------------------------------------------------------
+# [optional] configure appd java agent? [boolean] (defaults to 'false').
+appd_java_agent_config="true"
+export appd_java_agent_config
+
+# NOTE: Setting 'appd_java_agent_config' to 'true' allows you to perform the Java Agent configuration
+#       concurrently with the installation. When 'true', the following environment variables are used for
+#       the configuration. To successfully connect to the Controller, you should override the
+#       'appd_controller_host' and 'appd_controller_port' parameters
+#       using valid entries for your environment.
+#
+#       In either case, you will need to validate the configuration before starting the Java Agent. The
+#       configuration file can be found here: '<java_agent_home>/appagent/ver4.5.6.24621/conf/controller-info.xml'
+
+# [optional] associate java agent with application (defaults to ''My App).
+#appd_java_agent_application_name="My App"
+#export appd_java_agent_application_name
+
+# [optional] associate java agent with tier (defaults to 'My App Web Tier').
+#appd_java_agent_tier_name="My App Web Tier"
+#export appd_java_agent_tier_name
+
+# [optional] associate java agent with node (defaults to 'Development').
+#appd_java_agent_node_name="Development"
+#export appd_java_agent_node_name
+
+# [optional] account name (defaults to 'customer1').
+#appd_java_agent_account_name="customer1"
+#export appd_java_agent_account_name
+
+# [optional] account access key (defaults to <placeholder_value>).
+appd_java_agent_account_access_key="abcdef01-2345-6789-abcd-ef0123456789"
+export appd_java_agent_account_access_key
+
+# ------------------------------------------------------------------------------
+# [OPTIONAL] appdynamics machine agent install parameters [w/ defaults].
+# ------------------------------------------------------------------------------
+# [optional] machine agent home folder (defaults to 'machine-agent').
+#appd_machine_agent_home="machine-agent"
+#export appd_machine_agent_home
+
+# [optional] machine agent user name (defaults to user 'ec2-user').
+#appd_machine_agent_user="ec2-user"
+#export appd_machine_agent_user
+
+# [optional] machine agent release (defaults to '4.5.6.1859').
+#appd_machine_agent_release="4.5.6.1859"
+#export appd_machine_agent_release
+
+# ------------------------------------------------------------------------------
+# [OPTIONAL] appdynamics machine agent config parameters [w/ defaults].
+# ------------------------------------------------------------------------------
+# [optional] configure appd machine agent? [boolean] (defaults to 'false').
+appd_machine_agent_config="true"
+export appd_machine_agent_config
+
+# NOTE: Setting 'appd_machine_agent_config' to 'true' allows you to perform the Machine Agent configuration
+#       concurrently with the installation. When 'true', the following environment variables are used for
+#       the configuration. To successfully connect to the Controller, you should override the
+#       'appd_controller_host' and 'appd_controller_port' parameters
+#       using valid entries for your environment.
+#
+#       In either case, you will need to validate the configuration before starting the Machine Agent. The
+#       configuration file can be found here: '<machine_agent_home>/conf/controller-info.xml'
+
+# [optional] controller ssl enabled? [boolean] (defaults to 'false').
+#appd_machine_agent_controller_ssl_enabled="false"
+#export appd_machine_agent_controller_ssl_enabled
+
+# [optional] enable orchestration? [boolean] (defaults to 'false').
+#appd_machine_agent_enable_orchestration="false"
+#export appd_machine_agent_enable_orchestration
+
+# [optional] unique host id (defaults to '').
+#appd_machine_agent_unique_host_id=""
+#export appd_machine_agent_unique_host_id
+
+# [optional] sim enabled? [boolean] (defaults to 'true').
+#appd_machine_agent_sim_enabled="true"
+#export appd_machine_agent_sim_enabled
+
+# [optional] machine path (defaults to '').
+#appd_machine_agent_machine_path=""
+#export appd_machine_agent_machine_path
+
+# [optional] account name (defaults to 'customer1').
+#appd_machine_agent_account_name="customer1"
+#export appd_machine_agent_account_name
+
+# [optional] account access key (defaults to <placeholder_value>).
+appd_machine_agent_account_access_key="abcdef01-2345-6789-abcd-ef0123456789"
+export appd_machine_agent_account_access_key
+
+# [optional] machine agent java options (defaults to '').
+#appd_machine_agent_java_opts="-Dappdynamics.agent.maxMetrics=600000"
+#export appd_machine_agent_java_opts
+
+# [optional] associate machine agent with application (defaults to '').
+appd_machine_agent_application_name="<your_app_here>"
+export appd_machine_agent_application_name
+
+# [optional] associate machine agent with tier (defaults to '').
+appd_machine_agent_tier_name="AWS_Extensions"
+export appd_machine_agent_tier_name
+
+# [optional] associate machine agent with node (defaults to '').
+appd_machine_agent_node_name="AWS_Ext_Node"
+export appd_machine_agent_node_name
+
+# [optional] enable service to start at boot? [boolean] (defaults to 'false').
+#appd_machine_agent_enable_service="false"
+#export appd_machine_agent_enable_service
+
+# --------------------------------------------------------------------------------------------------
+# [OPTIONAL] appdynamics aws ec2 monitoring extension install parameters [w/ defaults].
+# --------------------------------------------------------------------------------------------------
+# [optional] aws ec2 extension release (defaults to user '2.0.0').
+#appd_aws_ec2_extension_release="2.0.0"
+#export appd_aws_ec2_extension_release
+
+# [optional] aws ec2 extension build (defaults to user '1526042422').
+#appd_aws_ec2_extension_build="1526042422"
+#export appd_aws_ec2_extension_build
+
+# --------------------------------------------------------------------------------------------------
+# [OPTIONAL] appdynamics aws ec2 monitoring extension config parameters [w/ defaults].
+# --------------------------------------------------------------------------------------------------
+# [optional] configure aws ec2 extension? [boolean] (defaults to 'false').
+appd_aws_ec2_extension_config="true"
+export appd_aws_ec2_extension_config
+
+# NOTE: Setting 'appd_aws_ec2_extension_config' to 'true' allows you to perform the Monitoring Extension
+#       configuration concurrently with the installation. When 'true', the following environment variables
+#       are used for the configuration. To successfully connect to your AWS environment, you should set
+#       'AWS_ACCESS_KEY_ID' and 'AWS_SECRET_ACCESS_KEY'.
+
+# [optional] account name to display (defaults to '').
+appd_aws_ec2_extension_display_account_name="<your_account_name>"
+export appd_aws_ec2_extension_display_account_name
+
+# [optional] whitespace separated list of aws regions to monitor (defaults to 'us-east-1').
+appd_aws_ec2_extension_aws_regions="us-east-1 us-east-2 us-west-1 us-west-2"
+export appd_aws_ec2_extension_aws_regions
+
+# [optional] aws cloudwatch monitoring type (defaults to 'Basic').
+#            valid types:
+#              'Basic', 'Detailed'
+#appd_aws_ec2_extension_cloudwatch_monitoring="Basic"
+#export appd_aws_ec2_extension_cloudwatch_monitoring
+
+# [optional] tier component id for aws metric prefix (defaults to '8').
+#appd_aws_ec2_extension_tier_component_id="8"
+#export appd_aws_ec2_extension_tier_component_id
+
+# ------------------------------------------------------------------------------
+# amazon aws environment parameters.
+# ------------------------------------------------------------------------------
+# set amazon aws cli credentials (appdynamics).
+AWS_ACCESS_KEY_ID="<your_AWS_ACCESS_KEY_ID_here>"
+export AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY="<your_AWS_SECRET_ACCESS_KEY_here>"
+export AWS_SECRET_ACCESS_KEY
+
+# [optional] configure aws cli for user? [boolean] (defaults to 'false').
+aws_cli_user_config="true"
+export aws_cli_user_config
+
+# NOTE: Setting 'aws_cli_user_config' to 'true' allows you to perform the AWS CLI configuration concurrently
+#       with the installation. When 'true', the following environment variables are used for the
+#       configuration. To successfully connect to your AWS environment, you should set 'AWS_ACCESS_KEY_ID'
+#       and 'AWS_SECRET_ACCESS_KEY'.
+
+# [optional] aws cli default region name (defaults to 'us-west-2' [Oregon]).
+aws_cli_default_region_name="us-west-2"
+export aws_cli_default_region_name
+
+# [optional] aws cli default output format (defaults to 'json').
+#            valid output formats:
+#              'json', 'text', 'table'
+#aws_cli_default_output_format="json"
+#export aws_cli_default_output_format
+
+# aws ami owner tag for packer build ami's.
+aws_ami_owner="<your_firstname_here> <your_lastname_Here>"
+export aws_ami_owner
+
+# aws region to create packer build ami's.
+#aws_ami_region="ca-central-1"
+#aws_ami_region="eu-central-1"
+#aws_ami_region="eu-west-1"
+#aws_ami_region="eu-west-2"
+#aws_ami_region="eu-west-3"
+#aws_ami_region="us-west-1"
+aws_ami_region="us-west-2"
+#aws_ami_region="us-east-1"
+#aws_ami_region="us-east-2"
+export aws_ami_region
+
+# AWS AMI Image IDs as of: 22 Jan 2019.
+#aws_ami_source="ami-0de8b8e4bc1f125fe"     # Amazon Linux AMI (HVM), SSD Volume Type: ca-central-1 [Central]
+#aws_ami_source="ami-0eaec5838478eb0ba"     # Amazon Linux AMI (HVM), SSD Volume Type: eu-central-1 [Frankfurt]
+#aws_ami_source="ami-0fad7378adf284ce0"     # Amazon Linux AMI (HVM), SSD Volume Type: eu-west-1    [Ireland]
+#aws_ami_source="ami-0664a710233d7c148"     # Amazon Linux AMI (HVM), SSD Volume Type: eu-west-2    [London]
+#aws_ami_source="ami-0854d53ce963f69d8"     # Amazon Linux AMI (HVM), SSD Volume Type: eu-west-3    [Paris]
+#aws_ami_source="ami-0799ad445b5727125"     # Amazon Linux AMI (HVM), SSD Volume Type: us-west-1    [N. California]
+aws_ami_source="ami-032509850cf9ee54e"      # Amazon Linux AMI (HVM), SSD Volume Type: us-west-2    [Oregon]
+#aws_ami_source="ami-035be7bafff33b6b6"     # Amazon Linux AMI (HVM), SSD Volume Type: us-east-1    [N. Virginia]
+#aws_ami_source="ami-04328208f4f0cf1fe"     # Amazon Linux AMI (HVM), SSD Volume Type: us-east-2    [Ohio]
+export aws_ami_source

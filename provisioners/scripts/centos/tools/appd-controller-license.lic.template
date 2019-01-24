@@ -1,0 +1,6 @@
+This template is a placeholder for the AppDynamics Controller license file.
+
+To apply your AppDynamics Controller license file:
+
+    o Copy your AppDynamics Controller 'license.lic' and rename it
+      to 'provisioners/scripts/centos/tools/appd-controller-license.lic'.
