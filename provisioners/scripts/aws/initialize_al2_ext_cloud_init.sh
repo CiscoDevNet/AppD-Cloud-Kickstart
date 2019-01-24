@@ -1,45 +1,60 @@
 #!/bin/sh -eux
 # appdynamics ext cloud-init script to initialize amazon linux 2 vm imported from ami.
 
+# set default values for input environment variables if not set. -----------------------------------
+appd_home="${appd_home:-/opt/appdynamics}"
+aws_hostname="${aws_hostname:-ext}"
+
+# set appdynamics controller parameters.
+appd_controller_host="${appd_controller_host:-apm}"
+appd_controller_port="${appd_controller_port:-8090}"
+appd_controller_account_name="${appd_controller_account_name:-customer1}"
+set +x  # temporarily turn command display OFF.
+appd_controller_root_password="${appd_controller_root_password:-welcome1}"
+set -x  # turn command display back ON.
+appd_controller_account_access_key="${appd_controller_account_access_key:-abcdef01-2345-6789-abcd-ef0123456789}"
+
+# override appdynamics java agent config parameters.
+appd_java_agent_home="${appd_java_agent_home:-appagent}"
+appd_java_agent_release="${appd_java_agent_release:-4.5.6.24621}"
+
+# override appdynamics machine agent config parameters.
+appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"
+appd_machine_agent_application_name="${appd_machine_agent_application_name:-}"
+appd_machine_agent_tier_name="${appd_machine_agent_tier_name:-}"
+appd_machine_agent_tier_component_id="${appd_machine_agent_tier_component_id:-8}"
+
+# override aws ec2 monitoring extension config parameters.
+appd_aws_ec2_extension_display_account_name="${appd_aws_ec2_extension_display_account_name:-}"
+appd_aws_ec2_extension_aws_regions="${appd_aws_ec2_extension_aws_regions:-us-east-1}"
+appd_aws_ec2_extension_cloudwatch_monitoring="${appd_aws_ec2_extension_cloudwatch_monitoring:-Basic}"
+
+# set amazon aws cli credentials (appdynamics).
+set +x  # temporarily turn command display OFF.
+AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID:-}"
+AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY:-}"
+set -x  # turn command display back ON.
+
+# validate mandatory environment variables. --------------------------------------------------------
+set +x  # temporarily turn command display OFF.
+if [ -z "$AWS_ACCESS_KEY_ID" ]; then
+  echo "Error: 'AWS_ACCESS_KEY_ID' environment variable not set."
+  usage
+  exit 1
+fi
+
+if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
+  echo "Error: 'AWS_SECRET_ACCESS_KEY' environment variable not set."
+  usage
+  exit 1
+fi
+set -x  # turn command display back ON.
+
 # add public keys for ec2-user user. ---------------------------------------------------------------
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCBsZpmGJhDGK7OHT7Q5oALQqQaniIiacJgr8EM8rQ6Sv6B2te1G5UTdX45IKFDl54FDrwJ479RDaFRYcvd4QWWzIJ8dhUERESyQRSyb9MXd8R+MDc4iL+2/R23vWLNsFSA01D79Z50Q1ujvDJxzXGY86zJCsRRbkn8ODayUeNJZ5s+f4ACnti6OdjEIZGawZ3Y8ERRb1ZTVG/SbG2KZQxLWQpJSTT4mOB7M/i+RqTl8vB5Gd5j2fQSvLvzhX1sgUvacD6YpIv5YqLPRurnE0Hi/PtcshmJo50/PC0Qypg5q5VJYN5IP5x62iRpnbDBUOe9rpNpp1YqbGXGFQ3TuYPJ AppD-Cloud-Kickstart-AWS" >> /home/ec2-user/.ssh/authorized_keys
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeG1qPuiVxXkhlawv3F/PtG2IB3UnGrecCN/0Y4GzIqrNwCcA6MDH5UH1IeBGaCgkm8jXZaOimwkwK4eROSJgJYNtXkYqooVC7SqoIgAbQGKykY9dpgi+ngi9uqALj1l7oUMqAkz6JRO5pueYtoiqo+me8Wbz9Kq6345flqQUh2vDjPfA2xBRGHfUYePQL3nvrc6jX5ad1i8lPuKrp5lXcYUdSP4FBDbEv1zJwi/d6M9irhlptOSGYqQH/zVvZnb1lrYSRv79Gz/WQnce4hKG5GCo5fohbfzlwsqgyFpm6uEu/yjpq/fkPxneNbH1VuljWFsDOjY9xqx8g331cJmbr ADFinancialAWS" >> /home/ec2-user/.ssh/authorized_keys
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCUdqQb2fMOX8XzTtqMORY674lELuv2e01EtkoI6enfmB6dqd7mG/Njcko/kznGoWu/6R7nPQnZ8RGXH+Tq0Z+BfBeuR78dPYyBr0r/tORxCGqIgl1NOOuslp3opl4Hz+ec71MlzoQf/k8rVPpGtSHXeaiKEGBuW9niFVboM1oA+eo3Hmpn10IZK2SQ6LcfHqEPURWr7tJ9HkdJ4K7MRoO/HQ6WC1KJI8b4M8U3jGpbG2CjtI3hZ6s58I+53cHULx00T5xbp3+42A49ldwSAF0NUKjWJMH33KRDt4ZN74C36DkXcLzms28k19DGtsqo/reh4ss3mh57QgHDSoxizB7V EdBarberis" >> /home/ec2-user/.ssh/authorized_keys
 chmod 600 /home/ec2-user/.ssh/authorized_keys
-
-# set default values for input environment variables if not set. -----------------------------------
-appd_home="/opt/appdynamics"
-aws_hostname="ext"
-
-# set appdynamics controller parameters.
-appd_controller_host="${appd_controller_host:-apm}"
-appd_controller_port="8090"
-appd_controller_account_name="customer1"
-set +x  # temporarily turn command display OFF.
-appd_controller_root_password="welcome1"
-set -x  # turn command display back ON.
-appd_controller_account_access_key="abcdef01-2345-6789-abcd-ef0123456789"
-
-# override appdynamics java agent config parameters.
-appd_java_agent_home="appagent"
-appd_java_agent_release="4.5.6.24621"
-
-# override appdynamics machine agent config parameters.
-appd_machine_agent_home="machine-agent"
-appd_machine_agent_application_name="AD-Financial"
-appd_machine_agent_tier_name="AWS_Extensions"
-appd_machine_agent_tier_component_id="8"
-
-# override aws ec2 monitoring extension config parameters.
-appd_aws_ec2_extension_display_account_name="adfin-prd-acct"
-appd_aws_ec2_extension_aws_regions="us-east-1 us-east-2 us-west-1 us-west-2"
-appd_aws_ec2_extension_cloudwatch_monitoring="Basic"
-
-# set amazon aws cli credentials (appdynamics).
-set +x  # temporarily turn command display OFF.
-AWS_ACCESS_KEY_ID="AKIAI33ELY7UNTREFZWQ"
-AWS_SECRET_ACCESS_KEY="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"
-set -x  # turn command display back ON.
 
 # set the system hostname. -------------------------------------------------------------------------
 hostnamectl set-hostname "${aws_hostname}.localdomain" --static
