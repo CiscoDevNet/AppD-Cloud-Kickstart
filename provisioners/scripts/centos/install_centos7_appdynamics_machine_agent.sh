@@ -82,8 +82,8 @@ Usage:
     NOTE: Setting 'appd_machine_agent_config' to 'true' allows you to perform the Machine Agent configuration
           concurrently with the installation. When 'true', the following environment variables are used for
           the configuration. To successfully connect to the Controller, you should override the
-          'appd_controller_host' and 'appd_controller_port' parameters
-          using valid entries for your environment.
+          'appd_controller_host' and 'appd_controller_port' parameters using valid entries for your
+          environment.
 
           In either case, you will need to validate the configuration before starting the Machine Agent. The
           configuration file can be found here: '<machine_agent_home>/conf/controller-info.xml'
@@ -287,9 +287,9 @@ if [ "$appd_machine_agent_config" == "true" ]; then
     # retrieve the account access key from the returned json string.
     set +x    # temporarily turn command display OFF.
     controller_credentials="--user root@system:${appd_controller_root_password}"
-    access_key=$(curl --silent ${controller_credentials} ${access_key_url} | awk 'match($0,"accessKey") {print substr($0,RSTART-1,51)}')
+    access_key_record=$(curl --silent ${controller_credentials} ${access_key_url} | awk 'match($0,"accessKey") {print substr($0,RSTART-1,length($0)-2)}')
     set -x    # turn command display back ON.
-    appd_machine_agent_account_access_key=$(echo ${access_key} | awk -F '"' '/accessKey/ {print $4}')
+    appd_machine_agent_account_access_key=$(echo ${access_key_record} | awk -F '"' '/accessKey/ {print $4}')
   fi
 
   # use the stream editor to substitute the new values.
