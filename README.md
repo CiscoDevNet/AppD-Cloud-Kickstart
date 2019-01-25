@@ -1,7 +1,3 @@
 # AppD-Cloud-Kickstart
 
-Cloud Monitoring workshops with AppDynamics featuring AWS, Azure, and GCP workloads.
-
-## Overview
-
-This is a work-in-progress.
+Monitoring cloud applications is an area that remains challenging for cloud consumers. Over the past few years AppDynamics has released significant capabilities to address cloud monitoring. AppD-Cloud-KickStart is a program that contains smaller enablement workshops to showcase AppDynamics' ability to monitor cloud native workload. Purpose of these workshops are to have our customers, partners and sellers gain hands on experience around monitoring cloud native applications using AppDynamics. Vision of this program is to cover variety of monitoring usecases across AWS, Azure and GCP.
