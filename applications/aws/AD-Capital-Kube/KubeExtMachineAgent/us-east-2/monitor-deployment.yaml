@@ -1,0 +1,71 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: adcapital-clusteragent
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: adcapital-clusteragent
+    spec:
+      serviceAccountName: appd-k8s  
+      containers:
+      - env:
+        - name: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              key: accesskey
+              name: mysecret
+        - name: APPDYNAMICS_AGENT_ACCOUNT_NAME
+          valueFrom:
+            secretKeyRef:
+              key: accountname
+              name: mysecret
+        - name: APPD_ANALYTICS_MONITOR
+          value: "false"
+        - name: APPD_DOCKER_VISIBILITY
+          value: "false"
+        - name: MACHINE_AGENT_PROPERTIES
+          value:
+        image: 975944588697.dkr.ecr.us-east-2.amazonaws.com/appd-eks-snapshot-ext-ma
+        envFrom:
+          - configMapRef:
+              name: env-map
+        imagePullPolicy: Always
+        name: adcapital-clusteragent
+        volumeMounts:
+        - mountPath: /hostroot
+          name: hostroot
+          readOnly: false
+        - mountPath: /var/run/docker.sock
+          name: docker-sock
+        - mountPath: /var/lib/docker/containers
+          name: docker-containers
+        - mountPath: /var/log
+          name: docker-logs
+        - mountPath: /project
+          name: project
+        - mountPath: /appdynamics
+          name: appdynamics
+      restartPolicy: Always
+      volumes:
+      - name: hostroot
+        hostPath:
+          path: /
+          type: Directory
+      - name: docker-sock
+        hostPath:
+          path: /var/run/docker.sock
+          type: Socket
+      - name: docker-containers
+        hostPath:
+          path: /var/lib/docker/containers
+          type: Directory
+      - name: docker-logs
+        hostPath:
+            path: /var/log
+            type: Directory
+      - name: project
+      - name: appdynamics
