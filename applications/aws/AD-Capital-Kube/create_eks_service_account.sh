@@ -12,6 +12,9 @@
 #       Script should be run with 'root' privilege.
 #---------------------------------------------------------------------------------------------------
 
+# ensure the KUBECONFIG variable is set appropriately 
+export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
+
 # run kubectl command to create the eks service account cluster. ----------------------------------------------
 
 echo "Creating EKS service account..."
@@ -38,3 +41,4 @@ subjects:
   name: appd-k8s
   namespace: default
 EOF
+
