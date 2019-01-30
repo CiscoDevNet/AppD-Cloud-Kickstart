@@ -2,7 +2,7 @@
 #---------------------------------------------------------------------------------------------------
 # Create an AWS EKS cluster with eksctl utility
 # 
-# export appd_aws_eks_user_name=user-01
+# export appd_aws_eks_user_name=User-0X
 # export appd_aws_eks_region=us-west-2
 # 
 # For more details, please visit:
@@ -35,12 +35,12 @@ Usage:
   Description of Environment Variables:
   -------------------------------------
   [MANDATORY] eksctl command parameters
-    [root]# export appd_aws_eks_user_name="user-01"                        # lab participant user name
+    [root]# export appd_aws_eks_user_name="User-0X"                        # lab participant user name
     [root]# export appd_aws_eks_region="us-west-2"                         # AWS region (us-west-2 or us-east-2)
 
   [OPTIONAL] eksctl command parameters [w/ defaults].
-    [root]# export appd_aws_eks_name="AD-Capital-user-01"                  # [optional] eks cluster name (defaults to 'AD-Capital-${appd_aws_eks_user_name}')
-    [root]# export appd_aws_eks_environment="Lab-Env-user-01"              # [optional] eks environment decription (defaults to 'Lab-Env-${appd_aws_eks_user_name}')
+    [root]# export appd_aws_eks_name="AD-Capital-User-0X"                  # [optional] eks cluster name (defaults to 'AD-Capital-${appd_aws_eks_user_name}')
+    [root]# export appd_aws_eks_environment="Lab-Env-User-0X"              # [optional] eks environment decription (defaults to 'Lab-Env-${appd_aws_eks_user_name}')
     [root]# export appd_aws_eks_nodes="2"                                  # [optional] number of eks worker nodes (defaults to '2')
     [root]# export appd_aws_eks_node_type="m4.large"                       # [optional] type of EC2 instance for nodes (defaults to user 'm4.large')
     [root]# export appd_aws_eks_ssh_public_key="AppD-Cloud-Kickstart-AWS"  # [optional] public key used to ssh to eks cluster (defaults to 'AppD-Cloud-Kickstart-AWS')

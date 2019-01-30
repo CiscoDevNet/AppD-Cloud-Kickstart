@@ -2,7 +2,7 @@
 #---------------------------------------------------------------------------------------------------
 # Delete an AWS EKS cluster with eksctl utility
 # 
-# export appd_aws_eks_user_name=user-01
+# export appd_aws_eks_user_name=User-0X
 # export appd_aws_eks_region=us-west-2
 # 
 # For more details, please visit:
@@ -35,7 +35,7 @@ Usage:
   Description of Environment Variables:
   -------------------------------------
   [MANDATORY] eksctl command parameters
-    [root]# export appd_aws_eks_user_name="user-01"                        # lab participant user name
+    [root]# export appd_aws_eks_user_name="User-0X"                        # lab participant user name
     [root]# export appd_aws_eks_region="us-west-2"                         # AWS region (us-west-2 or us-east-2)
 
   [OPTIONAL] eksctl command parameters [w/ defaults].
