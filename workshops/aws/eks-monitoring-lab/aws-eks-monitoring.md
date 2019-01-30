@@ -7,18 +7,18 @@ AWS EKS Monitoring Lab Guide.
 This is a work-in-progress.
 <br><br>
 
-## Lab Steps
+## Lab Exercises
 <br>
 
 
-| Lab Step | Description                             | Estimated Time |
-| :------: | :-------------------------------------- | :------------: |
-|    1     | Launch First EC2 Instance               |   10 minutes   |
-|    2     | Clone Github Repos & Create EKS Cluster |   15 minutes   |
-|    3     | Launch Second EC2 Instance              |   10 minutes   |
-|    4     | Delpoy AD-Capital Application to EKS    |   30 minutes   |
-|    5     | Delpoy Two Agents to EKS                |   25 minutes   |
-|    6     | Delpoy the Kubernetes Extension to EKS  |   30 minutes   |
+| Lab Exercise | Description                             | Estimated Time |
+| :----------: | :-------------------------------------- | :------------: |
+|      1       | Launch First EC2 Instance               |   10 minutes   |
+|      2       | Clone Github Repos & Create EKS Cluster |   15 minutes   |
+|      3       | Launch Second EC2 Instance              |   10 minutes   |
+|      4       | Delpoy AD-Capital Application to EKS    |   30 minutes   |
+|      5       | Delpoy Two Agents to EKS                |   25 minutes   |
+|      6       | Delpoy the Kubernetes Extension to EKS  |   30 minutes   |
 
 <br><br>
 

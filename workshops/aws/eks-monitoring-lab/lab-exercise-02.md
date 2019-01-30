@@ -1,40 +1,12 @@
-# AWS EKS Monitoring
+# Lab Exercise 2
+## Clone Github Repositories & Create EKS Cluster
 
-AWS EKS Monitoring Lab Guide.
+In this step you will need to do the following:
 
-## Overview
+- SSH into the Launch Pad EC2 instance
+- Clone two Github repositories
+- Run commands to create a new EKS cluster
 
-This is a work-in-progress.
-
-### Launch EC2 Instance for Controller
-
-In this step you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch a new EC2 instance that will have the AppDynamics Enterprise Console, Controller, and Events Service running on it.
-
-based on an existing AMI which can be found here...???
-
-
-```
-#!/bin/sh
-cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
-chmod 755 ./initialize_al2_apm_platform_cloud_init.sh
-./initialize_al2_apm_platform_cloud_init.sh
-
-```
-
-### Launch EC2 Instance for Launch Pad
-
-
-```
-#!/bin/sh
-cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
-chmod 755 ./initialize_al2_lpad_eks_cloud_init.sh
-./initialize_al2_lpad_eks_cloud_init.sh
-
-```
-
-### SSH into Launch Pad 
-
-TODO...
 
 
 ### Clone Github Repositories
@@ -71,3 +43,8 @@ TODO...
 
 
 ![Installation Options](./images/2.png)
+
+
+<br>
+
+[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-01.md) | [Next](lab-exercise-03.md)
