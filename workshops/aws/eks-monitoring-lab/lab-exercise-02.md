@@ -7,31 +7,107 @@ In this step you will need to do the following:
 - Clone two Github repositories
 - Run commands to create a new EKS cluster
 
+<br>
+
+### **1.** SSH Into the Launch Pad EC2 Instance
+You will need a copy of the 'AppD-Kickstarter-AWS.pem' file in order to SSH into your Launch Pad EC2 instance.
+<br>
+
+You will use the user name ec2-user with no password to SSH into the Launch Pad EC2 instance,
+<br>
+
+You can obtain a copy of the 'AppD-Kickstarter-AWS.pem' file **by...???**
+<br><br>
 
 
-### Clone Github Repositories
+***For Mac Users:***
+<br>
+Run the command below from a terminal window, with the path to your copy of the 'AppD-Kickstarter-AWS.pem' file and the host name or IP Address of your Launch Pad EC2 instance
+```
+ssh -i <path-to-file>/AppD-Kickstarter-AWS.pem <hostname-of-your-launch-pad-ec2-instance>
+```
 
-Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone two Github repositories by issuing the commands below:
+Example: 
+```
+ssh -i /Users/john.smith/Documents/AppD-Kickstarter-AWS.pem ec2-user@ec2-54-214-99-204.us-west-2.compute.amazonaws.com
+```
+
+<br>
+
+***For Windows Users:***
+
+You will need [PuTTY](https://www.putty.org/) or another SSH client installed to SSH into the Launch Pad EC2 instance
+<br>
+
+If you are using PuTTY, you can find the instructions to convert the pem file to a ppk file in the link provided below:
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html#putty-private-key
+
+
+
+<br>
+
+### **2.** Clone Github Repositories
+
+Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone two Github repositories by running the commands below:
 
 ```
 cd /home/ec2-user
+
 git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
+
+cd /home/ec2-user
+
 git clone https://github.com/Appdynamics/AD-Capital-Kube.git
 ```
 
-### Create EKS Cluster
+After you run the commands, you should have two new folders in your home directory
 
-TODO...
+*/home/ec2-user/AD-Capital-Kube*
+
+*/home/ec2-user/AppD-Cloud-Kickstart*
+
+![Git Repos Pulled](./images/2.png)
+
+<br>
+
+### **3.** Create EKS Cluster
+
+Change to the directory where you will set permissions on the scripts used in the next steps by running the commands below:
 
 ```
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 chmod -R 775 .
 ```
 
-TODO... Explain usage of user name and region
+Next you will need to set two environment variables before you run the script to create the EKS cluster.  
+
+**It is VERY IMPORTANT that the 'appd_aws_eks_user_name' variable BE UNIQUE TO YOU !!!**  
+
+This variable is used as the name of the EKS cluster and the cluster creation will fail if there is any existing cluster with the same name and could also interfere with another persons cluster with the same name if they are running the script to create the cluster when you are.
+
+It is advisable to set the 'appd_aws_eks_user_name' variable to a value that is a combination of your name or initials combined with a random number sequence to ensure a unique cluster name.
+
+Example: 
+<br>
+
+Users Name: **John Calvin Smith**
+
+Random Number Sequence: **19-51-28**
 
 ```
-export appd_aws_eks_user_name=User-0X
+example command based on users name and random number sequence show above
+export appd_aws_eks_user_name=User-JCS-19-51-28
+```
+
+<br>
+
+The second variable needs to be one of the two AWS regions below that you are working in:
+- us-west-2
+- us-east-2
+
+```
+export appd_aws_eks_user_name=User-<your-unique-user-id>
 export appd_aws_eks_region=us-west-2
 ```
 
@@ -42,7 +118,7 @@ TODO...
 ```
 
 
-![Installation Options](./images/2.png)
+![EKS Cluster Created](./images/3.png)
 
 
 <br>
