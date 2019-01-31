@@ -117,7 +117,7 @@ You should then see output similar to the image seen below:
 
 ![AD-Capital Deploy](./images/10.png)
 
-Now wait two minutes and run the command below so validate that the EKS pods are running:
+Now wait two minutes and run the command below to validate that the EKS pods are running:
 
 ```
 kubectl get pods -n default
@@ -134,6 +134,10 @@ You should then see output similar to the image seen below:
 Wait two more minutes and go to your web browser and check the controller to see if the AD-Capital application is reporting to the controller.  You should see what the image below shows when you click on the Applications tab:
 
 ![Controller Apps](./images/12.png)
+
+Wait a few more minutes and you should see the flow map that looks like the image below:
+
+![Flow Map](./images/13.png)
 
 <br>
 
