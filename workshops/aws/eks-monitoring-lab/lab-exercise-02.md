@@ -135,7 +135,7 @@ cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 <br>
 You should see the output as seen in the image below after 15 minutes or so. 
 
-You **do not have to wait** for the command to completely finish as it will take roughly 15 minutes.  You can proceed to [Lab Exercise 3](lab-exercise-03.md) at this point but **start Lab Exercise 3 by opening up a new SSH terminal window** to work with while leaving the exiting SSH terminal window open.
+You **do not have to wait** for the command to completely finish as it will take roughly 15 minutes.  You can proceed to [Lab Exercise 3](lab-exercise-03.md) at this point but **start Lab Exercise 3 by opening up a new SSH terminal window** for the Launch Pad EC2 instance to work with while leaving the exiting SSH terminal window open.
 
 ![EKS Cluster Created](./images/3.png)
 
