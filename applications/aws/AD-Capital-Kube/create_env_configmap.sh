@@ -106,7 +106,7 @@ sed -i '/^  APPDYNAMICS_CONTROLLER_SSL_ENABLED:/c\  APPDYNAMICS_CONTROLLER_SSL_E
 sed -i '/^  APPD_ES_API_KEY:/c\  APPD_ES_API_KEY: "'${appd_es_api_key}'"' ${env_config_map}
 sed -i '/^  APPDYNAMICS_CONTROLLER_LOGIN:/c\  APPDYNAMICS_CONTROLLER_LOGIN: "'${appd_controller_username}'@'${appd_controller_account_name}':'${appd_controller_password}'"' ${env_config_map}
 
-mv ./env-configmap.yaml /home/ec2-user/AD-Capital-Kube/Kubrenetes/env-configmap.yaml
+mv ./env-configmap.yaml /home/ec2-user/AD-Capital-Kube/Kubernetes/env-configmap.yaml
 
 # create encoded account name and access key for secret.yaml file
 cp ./secret-template.yaml ./secret.yaml
@@ -123,4 +123,4 @@ echo "Controller encoded access key: ${appd_encoded_access_key}"
 sed -i '/^  accountname:/c\  accountname: '${appd_encoded_account_name} ${secretyaml}
 sed -i '/^  accesskey:/c\  accesskey: '${appd_encoded_access_key} ${secretyaml}
 
-mv ./secret.yaml /home/ec2-user/AD-Capital-Kube/Kubrenetes/secret.yaml
+mv ./secret.yaml /home/ec2-user/AD-Capital-Kube/Kubernetes/secret.yaml
