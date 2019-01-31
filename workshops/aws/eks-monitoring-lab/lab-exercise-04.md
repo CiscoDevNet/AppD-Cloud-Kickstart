@@ -47,7 +47,7 @@ You should see output from the commands similar to the image seen below.
 <br>
 
 ### **3.** Create an API Key using AppDynamics Controller
-Open your web browser and login to your controller.  The URL you need to use is like the one below.  You can find your controller's public IP Address or public host name in the AWS console.
+Open your web browser and login to your controller.  The URL you need to use is like the one below.  You can find your controller's public IP address or public host name in the AWS console.
 
 *http://controller-ip-or-hostname:8090/controller/*
 
@@ -60,7 +60,7 @@ You should see the controller's login screen as seen in the image below.  The de
 
 <br>
 
-Once logged into the controller, navigate to the Analytics module using the steps below:
+Once logged into the controller, navigate to the Analytics module and create the API key using the steps below:
 
 1. Click on the Analytics tab on the top menu
 2. Click on the Configuration tab on the left menu
@@ -71,6 +71,34 @@ Once logged into the controller, navigate to the Analytics module using the step
 
 
 ![Controller Login](./images/7.png)
+
+<br>
+After you click the Create button you will see the next screen below.  Copy the API key and save it in a text file for the next step.
+
+![Controller Login](./images/8.png)
+
+<br>
+
+### **4.** Set Environment Variables for EKS Deployment
+Run the command below to set the variable for the controller host, replacing 'your-controller-host-name-or-ip' with the public IP address or public host name of your controller: 
+
+```
+export appd_controller_host=your-controller-host-name-or-ip
+```
+
+Now run the next command below to set the variable for your API key, replacing 'your-api-key' with the API key you just created:
+
+```
+export appd_es_api_key=your-api-key
+```
+Run the commands below to complete the process of setting all the variables needed to deploy to the EKS cluster:
+
+```
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+
+./create_env_configmap.sh
+```
+
 
 <br>
 

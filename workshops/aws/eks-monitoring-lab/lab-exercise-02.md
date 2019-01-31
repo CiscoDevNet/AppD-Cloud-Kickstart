@@ -135,6 +135,8 @@ cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 <br>
 You should start to see output from the command that is similar to the image seen below. 
 
+<br>
+
 - Leave the exiting SSH terminal window open and running
 - The cluster creation command will take roughly 15 minutes to finish 
 - You can proceed to [Lab Exercise 3](lab-exercise-03.md) at this point
