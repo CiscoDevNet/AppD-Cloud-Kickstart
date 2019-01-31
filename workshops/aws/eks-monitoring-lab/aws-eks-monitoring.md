@@ -16,8 +16,8 @@ This is a work-in-progress.
 |      1       | Launch First EC2 Instance               |   10 minutes   |
 |      2       | Clone Github Repos & Create EKS Cluster |   15 minutes   |
 |      3       | Launch Second EC2 Instance              |   10 minutes   |
-|      4       | Delpoy AD-Capital Application to EKS    |   30 minutes   |
-|      5       | Delpoy Two Agents to EKS                |   25 minutes   |
+|      4       | Delpoy AD-Capital Application to EKS    |   35 minutes   |
+|      5       | Delpoy Two Agents to EKS                |   20 minutes   |
 |      6       | Delpoy the Kubernetes Extension to EKS  |   30 minutes   |
 
 <br><br>

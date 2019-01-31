@@ -1,11 +1,11 @@
 # Lab Exercise 2
 ## Clone Github Repositories & Create EKS Cluster
 
-In this step you will need to do the following:
+In this exercise you will need to do the following:
 
 - SSH into the Launch Pad EC2 instance
 - Clone two Github repositories
-- Run commands to create a new EKS cluster
+- Run a script to create a new EKS cluster
 
 <br>
 
@@ -133,9 +133,15 @@ cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 ```
 
 <br>
-You should see the output as seen in the image below after 15 minutes or so. 
+You should start to see output from the command that is similar to the image seen below. 
 
-You **do not have to wait** for the command to completely finish as it will take roughly 15 minutes.  You can proceed to [Lab Exercise 3](lab-exercise-03.md) at this point but **start Lab Exercise 3 by opening up a new SSH terminal window** for the Launch Pad EC2 instance to work with while leaving the exiting SSH terminal window open.
+- Leave the exiting SSH terminal window open and running
+- The cluster creation command will take roughly 15 minutes to finish 
+- You can proceed to [Lab Exercise 3](lab-exercise-03.md) at this point
+
+<br>
+
+
 
 ![EKS Cluster Created](./images/3.png)
 

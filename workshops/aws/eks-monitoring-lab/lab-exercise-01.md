@@ -3,7 +3,7 @@
 
 
 
-In this step you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two Github repositories and create the EKS cluster in the next lab step.
+In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two Github repositories and create the EKS cluster in the next lab step.
 
 This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'. 
 

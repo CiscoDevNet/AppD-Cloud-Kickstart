@@ -3,7 +3,7 @@
 
 
 
-In this step you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the second EC2 instance that will have the AppDynamics Enterprise Console, Controller, and Events Service running on it.
+In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the second EC2 instance that will have the AppDynamics Enterprise Console, Controller, and Events Service running on it.
 
 This EC2 instance will be referenced in the lab steps as the 'Controller EC2'. 
 
