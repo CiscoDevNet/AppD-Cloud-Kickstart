@@ -47,7 +47,7 @@ You should see output from the commands similar to the image seen below.
 <br>
 
 ### **3.** Create an API Key using AppDynamics Controller
-Open your web browser and login to your controller.  The URL you need to use is like the one below.  You can find your controller's public IP address or public host name in the AWS console.
+Open your web browser and login to your controller.  The URL you need to use is like the one below.  You can find your controller's public IP address or public host name in the AWS EC2 console.
 
 *http://controller-ip-or-hostname:8090/controller/*
 
@@ -70,12 +70,12 @@ Once logged into the controller, navigate to the Analytics module and create the
 6. Click the Create button
 
 
-![Controller Login](./images/7.png)
+![Analytics API Key 1](./images/7.png)
 
 <br>
 After you click the Create button you will see the next screen below.  Copy the API key and save it in a text file for the next step.
 
-![Controller Login](./images/8.png)
+![Analytics API Key 2](./images/8.png)
 
 <br>
 
@@ -98,7 +98,42 @@ cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 ./create_env_configmap.sh
 ```
+You should then see output similar to the image seen below:
 
+![EKS Configmap](./images/9.png)
+
+<br>
+
+### **5.** Deploy the AD-Capital Application to EKS
+
+To deploy the AD-Capital application to the EKS cluster, run the commands below:
+
+```
+cd /home/ec2-user/AD-Capital-Kube
+
+kubectl create -f Kubernetes/
+```
+You should then see output similar to the image seen below:
+
+![AD-Capital Deploy](./images/10.png)
+
+Now wait two minutes and run the command below so validate that the EKS pods are running:
+
+```
+kubectl get pods -n default
+```
+You should then see output similar to the image seen below:
+
+![EKS Pods](./images/11.png)
+
+
+<br>
+
+### **6.** Monitor Deployment in the AppDynamics Controller
+
+Wait two more minutes and go to your web browser and check the controller to see if the AD-Capital application is reporting to the controller.  You should see what the image below shows when you click on the Applications tab:
+
+![Controller Apps](./images/12.png)
 
 <br>
 

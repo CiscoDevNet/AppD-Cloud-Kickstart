@@ -10,13 +10,18 @@ In this exercise you will need to do the following:
 <br>
 
 ### **1.** SSH Into the Launch Pad EC2 Instance
-You will need a copy of the 'AppD-Kickstarter-AWS.pem' file in order to SSH into your Launch Pad EC2 instance.
-<br>
+You will need a copy of the 'AppD-Kickstarter-AWS.pem' file in order to SSH into your Launch Pad EC2 instance.  
 
+You can obtain a copy of the 'AppD-Kickstarter-AWS.pem' file from your lab instructor.
+
+If you can't get a copy of the 'AppD-Kickstarter-AWS.pem' file, you will need to do the following:
+
+- Create your own key pair in the AWS EC2 console
+- Launch an instance of the Launch Pad EC2 that uses your key pair
+- Modify the value of the 'appd_aws_eks_ssh_public_key' variable in the 'create_eks_cluster.sh' script found in */home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube* so the value is the name of the key pair you created in the AWS EC2 console
+
+<br>
 You will use the user name ec2-user with no password to SSH into the Launch Pad EC2 instance,
-<br>
-
-You can obtain a copy of the 'AppD-Kickstarter-AWS.pem' file **by...???**
 <br><br>
 
 
