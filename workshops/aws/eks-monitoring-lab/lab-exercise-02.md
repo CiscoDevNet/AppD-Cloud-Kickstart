@@ -79,8 +79,8 @@ Change to the directory where you will set permissions on the scripts used in th
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 chmod -R 775 .
 ```
-
-Next you will need to set two environment variables before you run the script to create the EKS cluster.  
+<br>
+Next you will need to set two environment variables before you run the script to create the EKS cluster. The first variable ('appd_aws_eks_user_name') needs special instructions, read carefully.
 
 **It is VERY IMPORTANT that the 'appd_aws_eks_user_name' variable BE UNIQUE TO YOU !!!**  
 
@@ -95,28 +95,47 @@ Users Name: **John Calvin Smith**
 
 Random Number Sequence: **19-51-28**
 
-```
 example command based on users name and random number sequence show above
-export appd_aws_eks_user_name=User-JCS-19-51-28
-```
+
+*export appd_aws_eks_user_name=User-JCS-19-51-28*
 
 <br>
 
-The second variable needs to be one of the two AWS regions below that you are working in:
+Run the command below, replacing 'your-unique-user-id' with the unique user id you created based on the instructions above: 
+```
+export appd_aws_eks_user_name=your-unique-user-id
+```
+<br>
+
+The second variable ('appd_aws_eks_region') needs to be one of the two AWS regions below that you are working in.  Currently, only the two regions below are supported.
 - us-west-2
 - us-east-2
 
+If you are working in the us-west-2 region, run the command below:
+
 ```
-export appd_aws_eks_user_name=User-<your-unique-user-id>
 export appd_aws_eks_region=us-west-2
 ```
-
-TODO...
+If you are working in the us-east-2 region, run the command below:
 
 ```
+export appd_aws_eks_region=us-east-2
+```
+
+
+<br>
+Once both variables have been set, run the commands below to create the EKS cluster. 
+
+```
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+
 ./create_eks_cluster.sh
 ```
 
+<br>
+You should see the output as seen in the image below after 15 minutes or so. 
+
+You **do not have to wait** for the command to completely finish as it will take roughly 15 minutes.  You can proceed to [Lab Exercise 3](lab-exercise-03.md) at this point but **start Lab Exercise 3 by opening up a new SSH terminal window** to work with while leaving the exiting SSH terminal window open.
 
 ![EKS Cluster Created](./images/3.png)
 
