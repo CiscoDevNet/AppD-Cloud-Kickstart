@@ -122,8 +122,8 @@ If you are working in the us-east-2 region, run the command below:
 export appd_aws_eks_region=us-east-2
 ```
 
-
 <br>
+
 Once both variables have been set, run the commands below to create the EKS cluster. 
 
 ```
