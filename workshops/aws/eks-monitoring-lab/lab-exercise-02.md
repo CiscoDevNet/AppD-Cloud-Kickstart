@@ -26,7 +26,7 @@ You will use the user name ec2-user with no password to SSH into the Launch Pad 
 
 
 ***For Mac Users:***
-<br>
+
 Run the command below from a terminal window, with the path to your copy of the 'AppD-Kickstarter-AWS.pem' file and the host name or IP Address of your Launch Pad EC2 instance
 ```
 ssh -i <path-to-file>/AppD-Kickstarter-AWS.pem <hostname-of-your-launch-pad-ec2-instance>
