@@ -73,6 +73,8 @@ Once logged into the controller, navigate to the Analytics module and create the
 <br>
 After you click the Create button you will see the next screen below.  Copy the API key and save it in a text file for the next step.
 
+<br>
+
 ![Analytics API Key 2](./images/8.png)
 
 <br>
