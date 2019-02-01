@@ -15,9 +15,7 @@ In this exercise you will need to do the following:
 <br>
 
 ### **1.** Validate Your EKS Cluster
-Using the SSH terminal for the Launch Pad EC2 instance, run the commands below to validate your EKS cluster creation is complete and running.
-
-<br>
+Using the SSH terminal for the Launch Pad EC2 instance, run the commands below to validate your EKS cluster creation is complete and running:
 
 ```
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
@@ -26,21 +24,21 @@ kubectl get nodes
 
 kubectl get namespace
 ```
-You should see output from the commands similar to the image seen below.
+You should see output from the commands similar to the image seen below:
 
 ![EKS Cluster Validation](./images/4.png)
 
 <br>
 
 ### **2.** Create a Service Account in EKS Cluster
-Now run the commands below to create a service account in your EKS cluster.
+Now run the commands below to create a service account in your EKS cluster:
 
 ```
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 ./create_eks_service_account.sh
 ```
-You should see output from the commands similar to the image seen below.
+You should see output from the commands similar to the image seen below:
 
 ![EKS Service Account](./images/5.png)
 
