@@ -1,18 +1,72 @@
 #!/bin/sh -eux
 # appdynamics lpad cloud-init script to initialize amazon linux 2 vm imported from ami.
 
-# add public keys for ec2-user user. ---------------------------------------------------------------
-echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCBsZpmGJhDGK7OHT7Q5oALQqQaniIiacJgr8EM8rQ6Sv6B2te1G5UTdX45IKFDl54FDrwJ479RDaFRYcvd4QWWzIJ8dhUERESyQRSyb9MXd8R+MDc4iL+2/R23vWLNsFSA01D79Z50Q1ujvDJxzXGY86zJCsRRbkn8ODayUeNJZ5s+f4ACnti6OdjEIZGawZ3Y8ERRb1ZTVG/SbG2KZQxLWQpJSTT4mOB7M/i+RqTl8vB5Gd5j2fQSvLvzhX1sgUvacD6YpIv5YqLPRurnE0Hi/PtcshmJo50/PC0Qypg5q5VJYN5IP5x62iRpnbDBUOe9rpNpp1YqbGXGFQ3TuYPJ AppD-Cloud-Kickstart-AWS" >> /home/ec2-user/.ssh/authorized_keys
-echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeG1qPuiVxXkhlawv3F/PtG2IB3UnGrecCN/0Y4GzIqrNwCcA6MDH5UH1IeBGaCgkm8jXZaOimwkwK4eROSJgJYNtXkYqooVC7SqoIgAbQGKykY9dpgi+ngi9uqALj1l7oUMqAkz6JRO5pueYtoiqo+me8Wbz9Kq6345flqQUh2vDjPfA2xBRGHfUYePQL3nvrc6jX5ad1i8lPuKrp5lXcYUdSP4FBDbEv1zJwi/d6M9irhlptOSGYqQH/zVvZnb1lrYSRv79Gz/WQnce4hKG5GCo5fohbfzlwsqgyFpm6uEu/yjpq/fkPxneNbH1VuljWFsDOjY9xqx8g331cJmbr ADFinancialAWS" >> /home/ec2-user/.ssh/authorized_keys
-echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCUdqQb2fMOX8XzTtqMORY674lELuv2e01EtkoI6enfmB6dqd7mG/Njcko/kznGoWu/6R7nPQnZ8RGXH+Tq0Z+BfBeuR78dPYyBr0r/tORxCGqIgl1NOOuslp3opl4Hz+ec71MlzoQf/k8rVPpGtSHXeaiKEGBuW9niFVboM1oA+eo3Hmpn10IZK2SQ6LcfHqEPURWr7tJ9HkdJ4K7MRoO/HQ6WC1KJI8b4M8U3jGpbG2CjtI3hZ6s58I+53cHULx00T5xbp3+42A49ldwSAF0NUKjWJMH33KRDt4ZN74C36DkXcLzms28k19DGtsqo/reh4ss3mh57QgHDSoxizB7V EdBarberis" >> /home/ec2-user/.ssh/authorized_keys
-chmod 600 /home/ec2-user/.ssh/authorized_keys
-
 # set default values for input environment variables if not set. -----------------------------------
-aws_hostname="lpad"
+# [MANDATORY] aws cli config parameters [w/ defaults].
+set +x  # temporarily turn command display OFF.
+AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID:-}"
+AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY:-}"
+set -x  # turn command display back ON.
+
+# [OPTIONAL] aws cli config parameters [w/ defaults].
+aws_cli_default_region_name="${aws_cli_default_region_name:-us-west-2}"
+aws_cli_default_output_format="${aws_cli_default_output_format:-json}"
+
+# [OPTIONAL] aws user and host name config parameters [w/ defaults].
+user_name="${user_name:-ec2-user}"
+aws_ec2_hostname="${aws_ec2_hostname:-lpad}"
+
+# validate environment variables. ------------------------------------------------------------------
+set +x    # temporarily turn command display OFF.
+if [ -z "$AWS_ACCESS_KEY_ID" ]; then
+  echo "Error: 'AWS_ACCESS_KEY_ID' environment variable not set."
+  exit 1
+fi
+
+if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
+  echo "Error: 'AWS_SECRET_ACCESS_KEY' environment variable not set."
+  exit 1
+fi
+set -x    # turn command display back ON.
+
+if [ -n "$aws_cli_default_output_format" ]; then
+  case $aws_cli_default_output_format in
+      json|text|table)
+        ;;
+      *)
+        echo "Error: invalid 'aws_cli_default_output_format'."
+        exit 1
+        ;;
+  esac
+fi
+
+# configure the aws cli client. --------------------------------------------------------------------
+# remove current configuration if it exists.
+aws_cli_config_dir="/home/${user_name}/.aws"
+if [ -d "$aws_cli_config_dir" ]; then
+  rm -Rf ${aws_cli_config_dir}
+fi
+
+set +x    # temporarily turn command display OFF.
+aws_config_cmd=$(printf "aws configure <<< \$\'%s\\\\n%s\\\\n%s\\\\n%s\\\\n\'\n" ${AWS_ACCESS_KEY_ID} ${AWS_SECRET_ACCESS_KEY} ${aws_cli_default_region_name} ${aws_cli_default_output_format})
+runuser -c "PATH=/home/${user_name}/.local/bin:${PATH} eval ${aws_config_cmd}" - ${user_name}
+set -x    # turn command display back ON.
+
+# verify the aws cli configuration by displaying a list of aws regions in table format.
+runuser -c "PATH=/home/${user_name}/.local/bin:${PATH} aws ec2 describe-regions --output table" - ${user_name}
+
+# add public keys for specificed user. -------------------------------------------------------------
+user_authorized_keys_file="/home/${user_name}/.ssh/authorized_keys"
+user_key_name="AppD-Cloud-Kickstart-AWS"
+user_public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCBsZpmGJhDGK7OHT7Q5oALQqQaniIiacJgr8EM8rQ6Sv6B2te1G5UTdX45IKFDl54FDrwJ479RDaFRYcvd4QWWzIJ8dhUERESyQRSyb9MXd8R+MDc4iL+2/R23vWLNsFSA01D79Z50Q1ujvDJxzXGY86zJCsRRbkn8ODayUeNJZ5s+f4ACnti6OdjEIZGawZ3Y8ERRb1ZTVG/SbG2KZQxLWQpJSTT4mOB7M/i+RqTl8vB5Gd5j2fQSvLvzhX1sgUvacD6YpIv5YqLPRurnE0Hi/PtcshmJo50/PC0Qypg5q5VJYN5IP5x62iRpnbDBUOe9rpNpp1YqbGXGFQ3TuYPJ AppD-Cloud-Kickstart-AWS"
+
+# 'grep' to see if the user's public is already present, if not, append to the file.
+grep -qF "${user_key_name}" ${user_authorized_keys_file} || echo "${user_public_key}}" >> ${user_authorized_keys_file}
+chmod 600 ${user_authorized_keys_file}
 
 # set the system hostname. -------------------------------------------------------------------------
-hostnamectl set-hostname "${aws_hostname}.localdomain" --static
-hostnamectl set-hostname "${aws_hostname}.localdomain"
+hostnamectl set-hostname "${aws_ec2_hostname}.localdomain" --static
+hostnamectl set-hostname "${aws_ec2_hostname}.localdomain"
 
 # verify configuration.
 hostnamectl status
