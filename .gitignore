@@ -15,4 +15,4 @@ tags
 /provisioners/**/*.orig
 
 # ignore 'live' bash resource configuration file for appdynamics cloud kickstart users.
-/bin/set-appd-cloud-kickstart-env.sh
+/bin/set_appd_cloud_kickstart_env.sh
