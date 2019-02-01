@@ -7,10 +7,10 @@ In this exercise you will use the [AWS Management Console](https://aws.amazon.co
 
 This EC2 instance will be referenced in the lab steps as the 'Controller EC2'. 
 
-You will need to use an existing AMI image located in the AWS region that you are working in:
+You will need to use an existing AMI image named **APM-Platform-455-AL2-AMI** and located in the AWS region that you are working in:
 
-- The AMI image for the **us-west-2** region is named **APM-Platform-455-AL2-AMI** and can be found [here](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=tag:Name).
-- The AMI image for the **us-east-2** region is named **APM-Platform-455-AL2-AMI** and can be found [here](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Images:sort=tag:Name).
+- The AMI image for the **us-west-2** region can be found [here](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=tag:Name).
+- The AMI image for the **us-east-2** region can be found [here](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Images:sort=tag:Name).
 
 <br>
 
