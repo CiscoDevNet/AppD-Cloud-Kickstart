@@ -32,8 +32,8 @@ This is a work-in-progress.
    - In this step you will launch the second EC2 instance that will run the AppDynamics Enterpise Console, Controller, and Events Service<br><br> 
 4. [Delpoy AD-Capital Application to EKS](lab-exercise-04.md)
    - In this step you will use the Launch Pad EC2 instance to deploy the AD-Capital application to the EKS cluster and monitor the results of the deployment in the AppDynamics Controller<br><br>
-5. [Delpoy the Machine Agent & Network Agent to EKS](lab-exercise-05.md)
-   - In this step you will use the Launch Pad EC2 instance to deploy the Machine Agent and Network Agent to the EKS cluster  and monitor the results of the deployment in the AppDynamics Controller<br><br>
+5. [Delpoy the Server Agent & Network Agent to EKS](lab-exercise-05.md)
+   - In this step you will use the Launch Pad EC2 instance to deploy the Server Agent and Network Agent to the EKS cluster  and monitor the results of the deployment in the AppDynamics Controller<br><br>
 6. [Delpoy the Kubernetes Extension to EKS](lab-exercise-06.md)
    - In this step you will use the Launch Pad EC2 instance to deploy the AppDynamics Kubernetes extension to the EKS cluster,  and monitor the results of the deployment in the AppDynamics Controller, and create a custom dashboard <br><br>  
 <br>

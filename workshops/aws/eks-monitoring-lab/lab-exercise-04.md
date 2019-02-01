@@ -117,7 +117,7 @@ You should then see output similar to the image seen below:
 
 ![AD-Capital Deploy](./images/10.png)
 
-Now wait two minutes and run the command below to validate that the EKS pods are running:
+Now wait four minutes and run the command below to validate that the EKS pods are running:
 
 ```
 kubectl get pods -n default
@@ -131,7 +131,7 @@ You should then see output similar to the image seen below:
 
 ### **6.** Monitor Deployment in the AppDynamics Controller
 
-Wait two more minutes and go to your web browser and check the controller to see if the AD-Capital application is reporting to the controller.  You should see what the image below shows when you click on the Applications tab:
+Wait four more minutes and go to your web browser and check the controller to see if the AD-Capital application is reporting to the controller.  You should see what the image below shows when you click on the Applications tab:
 
 ![Controller Apps](./images/12.png)
 
