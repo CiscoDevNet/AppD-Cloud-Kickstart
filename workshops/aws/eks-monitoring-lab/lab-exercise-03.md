@@ -9,21 +9,21 @@ This EC2 instance will be referenced in the lab steps as the 'Controller EC2'.
 
 You will need to use an existing AMI image located in the AWS region that you are working in:
 
-- The AMI image for the **us-west-2** region can be found [here ???](???)
-- The AMI image for the **us-east-2** region can be found [here ???](???)
+- The AMI image for the **us-west-2** region is named **APM-Platform-455-AL2-AMI** and can be found [here](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=tag:Name).
+- The AMI image for the **us-east-2** region is named **APM-Platform-455-AL2-AMI** and can be found [here](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Images:sort=tag:Name).
 
 <br>
 
 .......
 
-Click on the 'Advanced' link on the bottom left of the console screen to enter the following commands:
+Click on the 'Advanced' link on the bottom left of the console screen to enter the following 'User data' commands.
+This allows you to configure the EC2 instance during launch:
 
 ```
 #!/bin/sh
 cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
 chmod 755 ./initialize_al2_apm_platform_cloud_init.sh
 ./initialize_al2_apm_platform_cloud_init.sh
-
 ```
 
 <br>

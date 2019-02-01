@@ -64,6 +64,9 @@ user_public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCBsZpmGJhDGK7OHT7Q5oALQqQ
 grep -qF "${user_key_name}" ${user_authorized_keys_file} || echo "${user_public_key}}" >> ${user_authorized_keys_file}
 chmod 600 ${user_authorized_keys_file}
 
+# delete public key inserted by packer during the ami build.
+sed -i -e "/packer/d" ${user_authorized_keys_file}
+
 # set the system hostname. -------------------------------------------------------------------------
 hostnamectl set-hostname "${aws_ec2_hostname}.localdomain" --static
 hostnamectl set-hostname "${aws_ec2_hostname}.localdomain"
