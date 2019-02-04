@@ -51,4 +51,70 @@ After 12 minutes, you will see a new dashboard created like the image seen below
 
 <br>
 
+### **3.** Create a Custom Dashboard for Kubernetes Extension
+
+In the AppDynamics UI, create a new Analytics search by doing the following steps:
+
+1. Navigate to the Analytics tab on the top menu
+2. Click on the Searches tab on the left menu
+3. Click on the Add button and
+4. Choose the Drag and Drop Search option
+
+![Kubernetes Events Dash-1](./images/23.png)
+
+<br>
+
+Follow the steps below to see the Kubernetes events:
+
+1. Choose the k8s events in the drop down on the left
+2. Choose the Last 3 Hours in the time slector on the top right
+3. Click on the Visualization button
+4. Click the Add Widget button
+5. Choose the Custom Widget Builder option 
+
+![Kubernetes Events Dash-2](./images/24.png)
+
+![Kubernetes Events Dash-3](./images/25.png)
+
+<br>
+
+Next, follow the steps below to see create the first widget:
+
+1. Choose the Table widget under chart types on the top right
+2. Click on the Message field in the fields list and drag it to the X Axis
+3. Click on the object_kind field in the fields list and drag it to the X Axis
+4. Click on the reason field in the fields list and drag it to the X Axis
+5. Click the down arrow in the Message field and change the top limit to 100, for object_kind and reason, change the top limit to 20
+6. Click on the Apply & Close Widget Builder button 
+
+![Kubernetes Events Dash-4](./images/26.png)
+
+<br>
+
+Follow the steps below to save the dashboard and create the second widget:
+
+1. Click on the Save button and name the dashboard 'EKS Events Summary'
+2. Click the Add Widget button
+3. Choose the Custom Widget Builder option
+
+![Kubernetes Events Dash-5](./images/27.png)
+
+<br>
+
+Now follow the steps below to save the dashboard and create the second widget:
+
+1. Choose the Column widget under chart types on the top right
+2. Click on the object_kind field in the fields list and drag it to the X Axis
+3. Click on the reason field in the fields list and drag it to the X Axis
+4. Click the down arrow in the object_kind field and change the top limit to 20 and do the same for reason field
+5. Click on the Apply & Close Widget Builder button 
+
+![Kubernetes Events Dash-6](./images/28.png)
+
+You should now have a finished dashboard that looks like the one seen below:
+
+![Kubernetes Events Dash-7](./images/29.png)
+
+<br>
+
 [Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-05.md)
