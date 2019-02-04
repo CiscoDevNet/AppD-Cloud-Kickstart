@@ -32,6 +32,10 @@ You should see output from the command similar to the image seen below:
 
 ![Create KubeExt](./images/20.png)
 
+<br>
+
+### **2.** Monitor the Results of Deploying the Kubernetes Extension to EKS
+
 Now wait two minutes and run the command below to validate that the extension has been deployed to the cluster:
 
 ```
