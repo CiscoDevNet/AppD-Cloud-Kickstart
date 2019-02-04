@@ -5,9 +5,43 @@
 
 In this exercise you will need to do the following:
 
-- step 1 ...
-- step 2 ...
-- step 3 ...
+- Deploy the Kubernetes Extension to the EKS cluster
+- Monitor the results of delpoying the Kubernetes Extension
+- Create a new custom dashboard for Kubernetes events
+
+<br>
+
+### **1.** Deploy the Kubernetes Extension to EKS
+
+Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Kubernetes Extension by running the command below:
+
+```
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/KubeExtMachineAgent
+```
+Depending on what AWS region you deployed the AD-Capital application to in the previous exercise, **run only one** of the following commands below which correspond to your AWS region to deploy the Kubernetes Extension:
+
+```
+kubectl create -f us-west-2/
+```
+
+```
+kubectl create -f us-east-2/
+```
+
+You should see output from the command similar to the image seen below:
+
+![Create KubeExt](./images/20.png)
+
+Now wait two minutes and run the command below to validate that the extension has been deployed to the cluster:
+
+```
+kubectl get pods -n default
+```
+You should then see output similar to the image seen below:
+
+![EKS Pods](./images/21.png)
+
+
 
 <br>
 
