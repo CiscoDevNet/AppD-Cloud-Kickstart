@@ -49,7 +49,33 @@ You should then see output similar to the image seen below:
 
 Wait four minutes and go to your web browser and check the controller to see if the servers are reporting to the controller.  You should see what the image below shows when you click on the Servers tab on the top menu:
 
-![Controller Apps](./images/16.png)
+![Controller Apps-1](./images/16.png)
+
+<br>
+
+Navigate into the AD-Capital application and click on the Servers tab on the left menu.  You should see what the image shows below.  The AppDynamics server agent has automatically associated the servers with the application:
+
+![Controller Apps-2](./images/30.png)
+
+<br>
+
+Double click on one the servers in the view.  You should see what the image shows below. Explore the different dashboards across the horizontal tab for the server (e.g. Processes, Volumes, Containers):
+
+![Controller Apps-3](./images/31.png)
+
+<br>
+
+Drill into the Containers tab and double click on one of the containers to view the detail of the container as seen in the image below:
+
+![Controller Apps-4](./images/32.png)
+
+<br>
+
+Navigate back into the AD-Capital application and click on the Containers tab on the left menu to see a summary of all the running containers for the application:
+
+![Controller Apps-5](./images/33.png)
+
+
 
 <br>
 
@@ -86,8 +112,27 @@ You should then see output similar to the image seen below:
 
 Wait six minutes and go to your web browser and check the controller to see if the network agents are reporting to the controller.  You should see what the image below shows when you click on the Network Dashboard tab within the AD-Capital Application Dashboard view:
 
-![NetViz Dashboard](./images/19.png)
+![NetViz Dashboard-1](./images/19.png)
 
+<br>
+
+Now right click on the blue line connecting the 'Verification-Service' tier to the 'LOAN-MySQL DB-ADCAPITALDB-5.7.25' database and click on the 'View Network Metrics' option:
+
+![NetViz Dashboard-2](./images/34.png)
+
+
+<br>
+
+You should see an image like the one below that shows the network metrics for the connection between the Verification-Service and the database:
+
+![NetViz Dashboard-3](./images/35.png)
+
+
+<br>
+
+Back on the main Network Dashboard, click on the Explorer link under Connections near the top right of the scrren to see a summary of all the connections like the image below:
+
+![NetViz Dashboard-4](./images/36.png)
 
 <br>
 
