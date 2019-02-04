@@ -45,6 +45,8 @@ You should then see output similar to the image seen below:
 
 ![EKS Pods](./images/21.png)
 
+<br>
+
 After 12 minutes, you will see a new dashboard created like the image seen below.  You can find it by navigating to the Dashboards & Reports tab at the top menu in the AppDynamics UI:
 
 ![Kubernetes Ext Dashboard](./images/22.png)
