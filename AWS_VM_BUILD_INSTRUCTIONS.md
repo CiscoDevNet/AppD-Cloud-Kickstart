@@ -1,0 +1,117 @@
+# AWS Amazon Linux 2 VM Build Instructions
+
+Follow these instructions to build the AWS Amazon Linux 2 VM images.
+
+## Prepare for the Build
+
+All user credentials and installation inputs are driven by environment variables and can
+be configured in the '`set_appd_cloud_kickstart_env.sh`' script located in '`./bin`'. There
+are LOTS of options, but most have acceptable defaults. You only need to concentrate
+on a handful that are uncommented in the environment template file.
+
+In particular, you will need to supply your AppDynamics login credentials to the 
+[download site](https://download.appdynamics.com/download/). You will also need to
+provide an AWS Access Key ID and Secret Access Key from a valid AWS account.
+
+The build will __fail__ if they are not set.
+
+To prepare for the build, perform the following steps:
+
+1.	Customize your AppD Cloud Kickstart project environment:
+
+    Copy and edit the '`set_appd_cloud_kickstart_env.sh`' file located in '`./bin`'.
+
+    ```
+    $ cd /<drive>/projects/AppD-Cloud-Kickstart/bin
+    $ cp -p set_appd_cloud_kickstart_env.sh.template set_appd_cloud_kickstart_env.sh
+    $ vi set_appd_cloud_kickstart_env.sh
+    ```
+
+    The following environment variables are the most common to be overridden. They are
+    grouped by section in the file, so you will have to search to locate the exact line.
+    For example, the AWS-related variables are at the end of the file.
+
+    The first 4 are manditory and the others are optional, but helpful. If you are
+    building the AMI images in the '`us-west-2`' region, the two region-related variables
+    and the AMI source variable can be left alone.
+
+    ```
+    appd_username="<Your_AppDynamics_Download_Site_Email>"
+    appd_password="<Your_AppDynamics_Download_Site_Password>"
+
+    AWS_ACCESS_KEY_ID="<Your_AWS_ACCESS_KEY_ID>"
+    AWS_SECRET_ACCESS_KEY="<Your_AWS_SECRET_ACCESS_KEY>"
+
+    aws_cli_default_region_name="us-east-2"
+    aws_ami_owner="<Your Firstname> <Your Lastname>"
+
+    # for these two, comment/uncomment the correct lines in the file.
+    aws_ami_region="us-east-2"
+    aws_ami_source="ami-04328208f4f0cf1fe"      # Amazon Linux AMI (HVM), SSD Volume Type: us-east-2 [Ohio]
+    ```
+
+    Save and source the environment variables file:
+
+    ```
+    $ source ./set_appd_cloud_kickstart_env.sh
+    ```
+
+2.	Supply a valid AppDynamics Controller license file:
+
+	-	Copy your AppDynamics Controller '`license.lic`' and rename it to '`provisioners/scripts/centos/tools/appd-controller-license.lic`'.
+
+## Build the Amazon Machine Images (AMIs) with Packer
+
+1.	Build the __APM-Platform VM__ Amazon Linux 2 AMI image:
+
+    This will take several minutes to run.
+
+    ```
+    $ cd /<drive>/projects/AppD-Cloud-Kickstart/builders/packer/aws
+    $ packer build apm-platform-al2.json
+    ```
+
+2.	Build the __LPAD-EKS VM__ Amazon Linux 2 AMI image:
+
+    This will take several minutes to run. However, this build will be shorter
+    because the size of the root volume for the AMI image is much smaller.
+
+    ```
+    $ packer build lpad-eks-al2.json
+    ```
+
+## AWS Amazon Linux 2 Bill-of-Materials
+
+The following utilities and application performance management applications are pre-installed in the __APM-Platform VM__:
+
+-	AppDynamics Enterprise Console 4.5.5.0 Build 16989
+	-	AppDynamics Controller 4.5.5.1 Build 10390
+	-	AppDynamics Event Service 4.5.2.0 Build 20201
+-	Docker 18.06.1-ce
+	-	Docker Bash Completion
+	-	Docker Compose 1.23.2
+	-	Docker Compose Bash Completion
+-	Java SE JDK 8 Update 202
+-	jq 1.6 (command-line JSON processor)
+-	MySQL Shell 8.0.15
+-	Python 2.7.14
+	-	Pip 19.0.1
+
+The following AWS CLI command-line tools and utilities are pre-installed in the __LPAD-EKS VM__:
+
+-	Amazon AWS CLI 1.16.96 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 1.11.5 (command-line interface)
+-	Amazon AWS IAM Authenticator 1.11.5 for AWS EKS CLI and kubectl.
+-	Amazon AWS Kubernetes Control CLI [kubectl] 1.11.5 (command-line interface)
+-	Docker 18.06.1-ce
+	-	Docker Bash Completion
+	-	Docker Compose 1.23.2
+	-	Docker Compose Bash Completion
+-	Git 2.20.1
+	-	Git Bash Completion
+	-	Git-Flow 1.12.0 (AVH Edition)
+	-	Git-Flow Bash Completion
+-	Java SE JDK 8 Update 202
+-	jq 1.6 (command-line JSON processor)
+-	Python 2.7.14
+	-	Pip 19.0.1
