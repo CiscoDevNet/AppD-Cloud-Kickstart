@@ -4,18 +4,20 @@
 
 The AppDynamics Cloud Kickstart project enables an IT Administrator, Software Developer, or DevOps engineer to automate the building of immutable VM images using open source tools from [Hashicorp](https://www.hashicorp.com/). Currently, these VMs consist of two types:
 
--	__APM-Platform VM__: An APM Platform stand-alone VM designed for Application Performance Monitoring. It consists of the Enterprise Console, Controller, and Events Service.
+-	__APM-Platform VM__: An APM Platform stand-alone VM designed for Application Performance Monitoring. It consists of the AppDynamics Enterprise Console, Controller, and Events Service.
 -	__LPAD-EKS VM__: 'Launchpad' VM with pre-configured tooling for Cloud and Kubernetes CLI Operations.
 
 ## Installation Instructions - macOS
 
-To build the AppD Cloud Kickstart immutable VM images, the following open source software needs to be installed on the host macOS machine:
+To build the AppD Cloud Kickstart VM images, the following open source software needs to be installed on the host macOS machine:
 
 -	Homebrew 2.0.0
 -	Packer 1.3.4
 -	Git 2.20.1
 
-1.	Install [Homebrew 2.0.0](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
+Perform the following steps to install the needed software:
+
+1.	Install the [Homebrew 2.0.0](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`  
 
 2.	Install [Packer 1.3.4](https://packer.io/) for macOS 64-bit.  
@@ -53,6 +55,8 @@ To build the AppD Cloud Kickstart immutable VM images, the following open source
 
 -	Packer 1.3.4
 -	Git 2.20.1 for Win64
+
+Perform the following steps to install the needed software:
 
 1.	Install [Packer 1.3.4](https://releases.hashicorp.com/packer/1.3.4/packer_1.3.4_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
@@ -103,23 +107,8 @@ To build the AppD Cloud Kickstart immutable VM images, the following open source
 2.	Get the code from GitHub:
 
     ```
-    $ git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git AppD-Cloud-Kickstart
+    $ git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
     $ cd AppD-Cloud-Kickstart
-    ```
-
-4.	Build the CentOS Linux 7.6 'dev' box (desktop):
-
-    NOTE: By default, the __DEV VM__ build provisions the AppDynamics Java Agent
-    which requires external credentials to download the installer. You will need
-    to provide your AppDynamics account user name and password as external
-    environment variables.
-
-    The build will __fail__ if they are not set.
-
-    ```
-    $ export appd_username="name@example.com"
-    $ export appd_password="password"
-    $ packer build dev-centos76-x86_64.json
     ```
 
 ## Build the Immutable VM Images with Packer

@@ -1,11 +1,11 @@
-# AWS Amazon Linux 2 VM Build Instructions
+# AWS Amazon Linux 2 AMI Build Instructions
 
-Follow these instructions to build the AWS Amazon Linux 2 VM images.
+Follow these instructions to build the AWS Amazon Linux 2 AMI images.
 
 ## Prepare for the Build
 
 All user credentials and installation inputs are driven by environment variables and can
-be configured in the '`set_appd_cloud_kickstart_env.sh`' script located in '`./bin`'. There
+be configured in the `set_appd_cloud_kickstart_env.sh` script located in `./bin`. There
 are LOTS of options, but most have acceptable defaults. You only need to concentrate
 on a handful that are uncommented in the environment template file.
 
@@ -19,7 +19,7 @@ To prepare for the build, perform the following steps:
 
 1.	Customize your AppD Cloud Kickstart project environment:
 
-    Copy and edit the '`set_appd_cloud_kickstart_env.sh`' file located in '`./bin`'.
+    Copy and edit the `set_appd_cloud_kickstart_env.sh` file located in `./bin`.
 
     ```
     $ cd /<drive>/projects/AppD-Cloud-Kickstart/bin
@@ -28,11 +28,11 @@ To prepare for the build, perform the following steps:
     ```
 
     The following environment variables are the most common to be overridden. They are
-    grouped by section in the file, so you will have to search to locate the exact line.
+    grouped by sections in the file, so you will have to search to locate the exact line.
     For example, the AWS-related variables are at the end of the file.
 
     The first 4 are manditory and the others are optional, but helpful. If you are
-    building the AMI images in the '`us-west-2`' region, the two region-related variables
+    building the AMI images in the `us-west-2` region, the two region-related variables
     and the AMI source variable can be left alone.
 
     ```
@@ -58,7 +58,7 @@ To prepare for the build, perform the following steps:
 
 2.	Supply a valid AppDynamics Controller license file:
 
-	-	Copy your AppDynamics Controller '`license.lic`' and rename it to '`provisioners/scripts/centos/tools/appd-controller-license.lic`'.
+	-	Copy your AppDynamics Controller `license.lic` and rename it to `provisioners/scripts/centos/tools/appd-controller-license.lic`.
 
 ## Build the Amazon Machine Images (AMIs) with Packer
 
