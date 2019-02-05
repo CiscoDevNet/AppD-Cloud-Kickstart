@@ -112,20 +112,35 @@ export appd_aws_eks_user_name=your-unique-user-id
 ```
 <br>
 
-The second variable ('appd_aws_eks_region') needs to be one of the two AWS regions below that you are working in.  Currently, only the two regions below are supported.
-- us-west-2
+The second variable ('appd_aws_eks_region') needs to specify the AWS region that you are working in.  Currently, only the four regions below are supported.
+
+- us-east-1
 - us-east-2
+- us-west-1
+- us-west-2
 
-If you are working in the us-west-2 region, run the command below:
+<br>
 
+If you are working in the **us-east-1** region, run the command below:
 ```
-export appd_aws_eks_region=us-west-2
+export appd_aws_eks_region=us-east-1
 ```
-If you are working in the us-east-2 region, run the command below:
 
+If you are working in the **us-east-2** region, run the command below:
 ```
 export appd_aws_eks_region=us-east-2
 ```
+
+If you are working in the **us-west-1** region, run the command below:
+```
+export appd_aws_eks_region=us-west-1
+```
+
+If you are working in the **us-west-2** region, run the command below:
+```
+export appd_aws_eks_region=us-west-2
+```
+
 
 <br>
 

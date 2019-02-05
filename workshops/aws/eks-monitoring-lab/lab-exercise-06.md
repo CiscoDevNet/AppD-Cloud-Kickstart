@@ -18,15 +18,32 @@ Using the SSH terminal for the Launch Pad EC2 instance, change to the directory 
 ```
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/KubeExtMachineAgent
 ```
-Depending on what AWS region you deployed the AD-Capital application to in the previous exercise, **run only one** of the following commands below which correspond to your AWS region to deploy the Kubernetes Extension:
 
+<br>
+
+Depending on what AWS region you deployed the AD-Capital application to in the previous exercise, **run only one of the following commands** below:
+
+If you are working in the **us-east-1** region, run the command below:
+```
+kubectl create -f us-east-1/
+```
+
+If you are working in the **us-east-2** region, run the command below:
+```
+kubectl create -f us-east-2/
+```
+
+If you are working in the **us-west-1** region, run the command below:
+```
+kubectl create -f us-west-1/
+```
+
+If you are working in the **us-west-2** region, run the command below:
 ```
 kubectl create -f us-west-2/
 ```
 
-```
-kubectl create -f us-east-2/
-```
+<br>
 
 You should see output from the command similar to the image seen below:
 
