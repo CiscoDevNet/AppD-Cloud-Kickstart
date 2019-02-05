@@ -46,6 +46,6 @@ To get started building the immutable workshop VM images, click on the following
 
 -	[Build Steps for Creating Immutable VM Images](BUILD_STEPS_FOR_CREATING_IMMUTABLE_VM_IMAGES.md)
 
-To get started with the enablement workshop, click on a the link below:
+To get started with the enablement workshop, click on the link below:
 
 -	[AWS EKS Monitoring Lab Guide](workshops/aws/eks-monitoring-lab/aws-eks-monitoring.md)
