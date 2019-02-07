@@ -323,25 +323,14 @@ aws_ami_owner="<your_firstname_here> <your_lastname_Here>"
 export aws_ami_owner
 
 # aws region to create packer build ami's.
-#aws_ami_region="ca-central-1"
-#aws_ami_region="eu-central-1"
-#aws_ami_region="eu-west-1"
-#aws_ami_region="eu-west-2"
-#aws_ami_region="eu-west-3"
-#aws_ami_region="us-west-1"
+# current valid regions are:
+#   'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'
 aws_ami_region="us-west-2"
-#aws_ami_region="us-east-1"
-#aws_ami_region="us-east-2"
 export aws_ami_region
 
-# AWS AMI Image IDs as of: 01 Feb 2019.
-#aws_ami_source="ami-0de8b8e4bc1f125fe"     # Amazon Linux AMI (HVM), SSD Volume Type: ca-central-1 [Central]
-#aws_ami_source="ami-0eaec5838478eb0ba"     # Amazon Linux AMI (HVM), SSD Volume Type: eu-central-1 [Frankfurt]
-#aws_ami_source="ami-0fad7378adf284ce0"     # Amazon Linux AMI (HVM), SSD Volume Type: eu-west-1 [Ireland]
-#aws_ami_source="ami-0664a710233d7c148"     # Amazon Linux AMI (HVM), SSD Volume Type: eu-west-2 [London]
-#aws_ami_source="ami-0854d53ce963f69d8"     # Amazon Linux AMI (HVM), SSD Volume Type: eu-west-3 [Paris]
-#aws_ami_source="ami-0799ad445b5727125"     # Amazon Linux AMI (HVM), SSD Volume Type: us-west-1 [N. California]
-aws_ami_source="ami-032509850cf9ee54e"      # Amazon Linux AMI (HVM), SSD Volume Type: us-west-2 [Oregon]
+# AWS AL2 AMI Image IDs as of: 07 Feb 2019.
 #aws_ami_source="ami-035be7bafff33b6b6"     # Amazon Linux AMI (HVM), SSD Volume Type: us-east-1 [N. Virginia]
 #aws_ami_source="ami-04328208f4f0cf1fe"     # Amazon Linux AMI (HVM), SSD Volume Type: us-east-2 [Ohio]
+#aws_ami_source="ami-0799ad445b5727125"     # Amazon Linux AMI (HVM), SSD Volume Type: us-west-1 [N. California]
+aws_ami_source="ami-032509850cf9ee54e"      # Amazon Linux AMI (HVM), SSD Volume Type: us-west-2 [Oregon]
 export aws_ami_source
