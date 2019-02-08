@@ -12,7 +12,7 @@ Customers, partners, and sellers are free to leverage these materials and gain v
 
 ## Workshop Delivery Approach
 
-Immutable infrastructure is an approach to managing services and deployments of IT resources (applications and infrastructure), where components are replaced rather than changed. This capability is deemed absolutely critical to support reproducibility and scale.
+Immutable infrastructure is an approach to managing services and deployments of IT resources (applications and infrastructure) where components are replaced rather than changed. This capability is deemed absolutely critical to support reproducibility and scale.
 
 The workshop leverages this approach by automating the build and deployment of workshop VM images.
 

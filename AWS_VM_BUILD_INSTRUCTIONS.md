@@ -99,8 +99,8 @@ The following utilities and application performance management applications are 
 
 The following AWS CLI command-line tools and utilities are pre-installed in the __LPAD-EKS VM__:
 
--	Amazon AWS CLI 1.16.96 (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 1.11.5 (command-line interface)
+-	Amazon AWS CLI 1.16.100 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.1.20-rc.4 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.11.5 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.11.5 (command-line interface)
 -	Docker 18.06.1-ce
