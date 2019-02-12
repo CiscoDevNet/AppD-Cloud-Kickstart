@@ -4,9 +4,8 @@ AWS EKS Monitoring Lab Guide.
 
 ## Overview
 
-We had a multi-service application wrapped in docker that we wanted to deploy to AWS using EKS. As part of the workshop we will deploy application on EKS and walkthrough steps to establish full stack monitoring for the application.
+We had a multi-service application wrapped in docker that we wanted to deploy to AWS using EKS. As part of the workshop we will deploy application on EKS and walkthrough steps to establish full stack monitoring for the application. To ease the effort we have created a few AMI and automated toolings.
 
-![Lab Workflow](./images/37.png)
 <br><br>
 
 ## Lab Exercises
@@ -25,6 +24,8 @@ We had a multi-service application wrapped in docker that we wanted to deploy to
 
 <br><br>
 
+To ease the effort we have created a few AMI and automated toolings. Follow diagram  explains the workflow of the labs and how participants will interact.
+![Lab Workflow](./images/37.png)
 
 1. [Launch First EC2 Instance (e.g. Launch Pad EC2)](lab-exercise-01.md)
    - In this step you will launch the first EC2 instance
@@ -43,4 +44,4 @@ We had a multi-service application wrapped in docker that we wanted to deploy to
     - In this step you will use the controller to monitor application and out of the box Kubernetes dashboard.<br><br>
 <br>
 
-[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md), [7](lab-exercise-07.md) | [Back](aws-eks-monitoring.md) | [Next](lab-exercise-01.md)
+[Introduction](Introduction.md)[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md), [7](lab-exercise-07.md) | [Back](aws-eks-monitoring.md) | [Next](lab-exercise-01.md)
