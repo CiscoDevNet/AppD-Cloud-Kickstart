@@ -16,11 +16,8 @@ AppDynamics seamlessly integrates into EKS environments. The machine agent runs 
 We had a multi-service application wrapped in docker that we wanted to deploy to AWS using EKS. As part of the workshop we will deploy application on EKS and walkthrough steps to establish full stack monitoring for the application. To ease the effort we have created a few AMI and automated toolings.
 
 <br><br>
-
 ## Lab Exercises
 <br>
-
-
 | Lab Exercise | Description                             | Estimated Time |
 | :----------: | :-------------------------------------- | :------------: |
 |      1       | Launch First EC2 Instance               |   10 minutes   |
@@ -34,7 +31,6 @@ We had a multi-service application wrapped in docker that we wanted to deploy to
 <br><br>
 To ease the effort we have created a few AMI and automated toolings. Follow diagram  explains the workflow of the labs and how participants will interact.
 ![Lab Workflow](./images/37.png)
-
 1. [Launch First EC2 Instance (e.g. Launch Pad EC2)](lab-exercise-01.md)
    - In this step you will launch the first EC2 instance
    that will be used to clone two Github repositories and create the EKS cluster in the next step.<br><br>
