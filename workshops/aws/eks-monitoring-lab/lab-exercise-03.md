@@ -1,11 +1,11 @@
 # Lab Exercise 3
 ## Launch the Second EC2 Instance (e.g. Controller EC2)
 
-
+The AppDynamics Controller is the central management server where all data is stored and analyzed. All AppDynamics Agents connect to the Controller to report data, and the Controller provides a browser-based user interface for monitoring and troubleshooting application performance.
 
 In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the second EC2 instance that will have the AppDynamics Enterprise Console, Controller, and Events Service running on it.
 
-This EC2 instance will be referenced in the lab steps as the 'Controller EC2'. 
+This EC2 instance will be referenced in the lab steps as the 'Controller EC2'.
 
 You will need to use an existing AMI image named **APM-Platform-455-AL2-AMI** and located in the AWS region that you are working in:
 

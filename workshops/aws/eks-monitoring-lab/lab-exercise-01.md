@@ -1,11 +1,11 @@
 # Lab Exercise 1
-## Launch the First EC2 Instance (e.g. Launch Pad EC2)
+## Launch the First EC2 Instance (e.g. Launch Pad EC2). This is going to be used to execute all the steps needed for installation.
 
 
 
 In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two Github repositories and create the EKS cluster in the next lab step.
 
-This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'. 
+This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'.
 
 You will need to use an existing AMI image named **LPAD-EKS-AL2-AMI** and located in the AWS region that you are working in:
 
@@ -17,7 +17,7 @@ You will need to use an existing AMI image named **LPAD-EKS-AL2-AMI** and locate
 .......
 
 Click on the 'Advanced' link on the bottom left of the console screen to enter the following 'User data' commands.
-This allows you to configure the EC2 instance during launch. 
+This allows you to configure the EC2 instance during launch.
 
 Before continuing, you will need to define the **AWS_ACCESS_KEY_ID** and **AWS_SECRET_ACCESS_KEY** environment
 variables with valid credentials for your environment. If you are NOT working in the 'us-west-2' region, also
