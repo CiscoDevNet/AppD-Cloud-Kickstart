@@ -1,6 +1,8 @@
 # Lab Exercise 2
 ## Clone Github Repositories & Create EKS Cluster
 
+This workshop takes previously configured docker-compose applications (AD-Capital-Kube) and makes them deployable to a kubernetes cluster. If you are curious about any of the repositiories, either the original java application code itself or the dockerized version, they are publicly available with detailed explanations as to what they contain. For the purpose of this walkthrough, it will be focused solely on Kubernetes.
+
 In this exercise you will need to do the following:
 
 - SSH into the Launch Pad EC2 instance
@@ -32,7 +34,7 @@ Run the command below from a terminal window, with the path to your copy of the 
 ssh -i <path-to-file>/AppD-Kickstarter-AWS.pem <hostname-of-your-launch-pad-ec2-instance>
 ```
 
-Example: 
+Example:
 ```
 ssh -i /Users/john.smith/Documents/AppD-Kickstarter-AWS.pem ec2-user@ec2-54-214-99-204.us-west-2.compute.amazonaws.com
 ```
@@ -93,7 +95,7 @@ This variable is used as the name of the EKS cluster and the cluster creation wi
 
 It is advisable to set the 'appd_aws_eks_user_name' variable to a value that is a combination of your name or initials combined with a random number sequence to ensure a unique cluster name.
 
-Example: 
+Example:
 <br>
 
 Users Name: **John Calvin Smith**
@@ -106,7 +108,7 @@ example command based on users name and random number sequence show above
 
 <br>
 
-Run the command below, replacing 'your-unique-user-id' with the unique user id you created based on the instructions above: 
+Run the command below, replacing 'your-unique-user-id' with the unique user id you created based on the instructions above:
 ```
 export appd_aws_eks_user_name=your-unique-user-id
 ```
@@ -144,7 +146,7 @@ export appd_aws_eks_region=us-west-2
 
 <br>
 
-Once both variables have been set, run the commands below to create the EKS cluster. 
+Once both variables have been set, run the commands below to create the EKS cluster.
 
 ```
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
@@ -154,10 +156,10 @@ cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 <br>
 
-You should start to see output from the command that is similar to the image seen below: 
+You should start to see output from the command that is similar to the image seen below:
 
 - Leave the exiting SSH terminal window open and running
-- The cluster creation command will take roughly 15 minutes to finish 
+- The cluster creation command will take roughly 15 minutes to finish
 - You can proceed to [Lab Exercise 3](lab-exercise-03.md) at this point
 
 <br>

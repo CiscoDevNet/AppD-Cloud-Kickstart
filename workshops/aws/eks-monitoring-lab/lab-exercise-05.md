@@ -14,6 +14,8 @@ In this exercise you will need to do the following:
 
 ### **1.** Deploy the Server Monitoring Agent to EKS
 
+Server monitoring Agents collect machine and infrastructure-level metrics like Disk I/O, throughput, CPU utilization, and memory usage. These metrics help operations teams get a pulse on their infrastructure, but they fall short when it comes to finding, isolating and troubleshooting problems that originate in the application code. Machine agent is required to host extension. In this workshop we will Kubernetes Extension which requires Machine agent as well.
+
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Server Monitoring Agent by running the command below:
 
 ```
