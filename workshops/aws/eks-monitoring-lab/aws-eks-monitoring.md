@@ -1,8 +1,17 @@
-# AWS EKS Monitoring
-
-AWS EKS Monitoring Lab Guide.
-
 ## Overview
+
+Amazon Elastic Container Service for Kubernetes (EKS) makes it easier to operate Kubernetes clusters, but performance monitoring remains a top challenge. AppDynamics seamlessly integrates into EKS environments, providing insights into the performance of every microservice deployed and bring container and K8 visibility, all through a single pane of glass. On the heels of announcing the general availability of AppDynamics for Kubernetes at KubeCon Europe, we’ve partnered with Amazon Web Services (AWS) to bring Amazon EKS to the broader Kubernetes community. AppDynamics provides enterprise-grade, end-to-end performance monitoring for applications orchestrated by Kubernetes.
+
+## Monitoring Amazon EKS with AppDynamics
+
+EKS makes it easier to operate Kubernetes clusters; however, performance monitoring remains one of the top challenges in Kubernetes adoption. In fact, according to a recent CNCF survey, 46% of enterprises reported monitoring as their biggest challenge. Specifically, organizations deploying containers on the public cloud, cite monitoring as a big challenge. Perhaps because cloud providers monitoring tools may not play well with organization’s existing tools which are used to monitor on-premises resources.
+
+## How Does it Work?
+
+AppDynamics seamlessly integrates into EKS environments. The machine agent runs as a DaemonSet on EKS worker nodes, and application agents are deployed alongside your application binaries within the application pods. Out-of-the-box integration gives you the deepest visibility into EKS cluster health, AWS resources and Docker containers, and provides insights into the performance of every microservice deployed—all through a single pane of glass.
+![Installation Options](./images/1.png)
+
+## Workshop Overview
 
 We had a multi-service application wrapped in docker that we wanted to deploy to AWS using EKS. As part of the workshop we will deploy application on EKS and walkthrough steps to establish full stack monitoring for the application. To ease the effort we have created a few AMI and automated toolings.
 
@@ -23,7 +32,6 @@ We had a multi-service application wrapped in docker that we wanted to deploy to
 |      7       | Monitoring the Application              |   15 minutes   |
 
 <br><br>
-
 To ease the effort we have created a few AMI and automated toolings. Follow diagram  explains the workflow of the labs and how participants will interact.
 ![Lab Workflow](./images/37.png)
 
@@ -44,4 +52,4 @@ To ease the effort we have created a few AMI and automated toolings. Follow diag
     - In this step you will use the controller to monitor application and out of the box Kubernetes dashboard.<br><br>
 <br>
 
-[Introduction](Introduction.md)[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md), [7](lab-exercise-07.md) | [Back](aws-eks-monitoring.md) | [Next](lab-exercise-01.md)
+[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md), [7](lab-exercise-07.md) | [Back](aws-eks-monitoring.md) | [Next](lab-exercise-01.md)
