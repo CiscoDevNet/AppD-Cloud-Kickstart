@@ -6,7 +6,7 @@ AWS EKS Monitoring Lab Guide.
 
 We had a multi-service application wrapped in docker that we wanted to deploy to AWS using EKS. As part of the workshop we will deploy application on EKS and walkthrough steps to establish full stack monitoring for the application.
 
-![Lab Workflow](./images/0.png)
+![Lab Workflow](./images/37.png)
 <br><br>
 
 ## Lab Exercises
