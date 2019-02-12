@@ -1,7 +1,7 @@
 # Lab Exercise 1
-## Launch the First EC2 Instance (e.g. Launch Pad EC2). This is going to be used to execute all the steps needed for installation.
+## Launch the First EC2 Instance (e.g. Launch Pad EC2).
 
-
+This is going to be used to execute all the steps needed for installation. The Launch Pad Comes preinstalled with utilities like AWSCLI, kubectl etc.
 
 In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two Github repositories and create the EKS cluster in the next lab step.
 
