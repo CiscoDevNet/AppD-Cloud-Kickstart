@@ -36,7 +36,9 @@ This is a work-in-progress.
 5. [Delpoy the Server Agent & Network Agent to EKS](lab-exercise-05.md)
    - In this step you will use the Launch Pad EC2 instance to deploy the Server Agent and Network Agent to the EKS cluster  and monitor the results of the deployment in the AppDynamics Controller<br><br>
 6. [Delpoy the Kubernetes Extension to EKS](lab-exercise-06.md)
-   - In this step you will use the Launch Pad EC2 instance to deploy the AppDynamics Kubernetes extension to the EKS cluster,  and monitor the results of the deployment in the AppDynamics Controller, and create a custom dashboard <br><br>  
+    - In this step you will use the Launch Pad EC2 instance to deploy the AppDynamics Kubernetes extension to the EKS cluster, and monitor the results of the deployment in the AppDynamics Controller, and create a custom dashboard<br><br>
+7. [Monitoring the Application](lab-exercise-07.md)
+    - In this step you will use the controller to monitor application and out of the box Kubernetes dashboard <br><br>
 <br>
 
 [Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](aws-eks-monitoring.md) | [Next](lab-exercise-01.md)
