@@ -45,7 +45,7 @@ You should see output from the commands similar to the image seen below:
 <br>
 
 ### **3.** Create an API Key using AppDynamics Controller
-AppDynamics analytics engine provides a mechanism to communicate with 3rd Party data consumer or producr through REST API. The Analytics Events REST API provides Publish Events endpoints to receive events. We need to configure the API to receive events from Kubernetes Agent. API Keys provide a secure authentication mechanism for a caller to prove identity when using these public REST APIs.
+AppDynamics analytics engine provides a mechanism to communicate with 3rd Party data consumer or producer through REST API. The Analytics Events REST API provides Publish Events endpoints to receive events. We need to configure the API to receive events from Kubernetes Agent. API Keys provide a secure authentication mechanism for a caller to prove identity when using these public REST APIs.
 
 Open your web browser and login to your controller.  The URL you need to use is like the one below.  You can find your controller's public IP address or public host name in the AWS EC2 console.
 
