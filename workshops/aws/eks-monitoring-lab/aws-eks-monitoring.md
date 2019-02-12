@@ -29,7 +29,6 @@ We had a multi-service application wrapped in docker that we wanted to deploy to
 |      4       | Delpoy AD-Capital Application to EKS    |   35 minutes   |
 |      5       | Delpoy Machine Agents to EKS            |   20 minutes   |
 |      6       | Delpoy the Kubernetes Extension to EKS  |   30 minutes   |
-|      7       | Monitoring the Application              |   15 minutes   |
 
 <br><br>
 To ease the effort we have created a few AMI and automated toolings. Follow diagram  explains the workflow of the labs and how participants will interact.
