@@ -31,8 +31,8 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '4.5.5.16989').
-#appd_platform_release="4.5.5.16989"
+# [optional] platform release (defaults to '4.5.6.17299').
+#appd_platform_release="4.5.6.17299"
 #export appd_platform_release
 
 # [optional] platform admin user name (defaults to user 'admin').
@@ -328,7 +328,7 @@ export aws_ami_owner
 aws_ami_region="us-west-2"
 export aws_ami_region
 
-# AWS AL2 AMI Image IDs as of: 07 Feb 2019.
+# AWS AL2 AMI Image IDs as of: 15 Feb 2019.
 #aws_ami_source="ami-035be7bafff33b6b6"     # Amazon Linux AMI (HVM), SSD Volume Type: us-east-1 [N. Virginia]
 #aws_ami_source="ami-04328208f4f0cf1fe"     # Amazon Linux AMI (HVM), SSD Volume Type: us-east-2 [Ohio]
 #aws_ami_source="ami-0799ad445b5727125"     # Amazon Linux AMI (HVM), SSD Volume Type: us-west-1 [N. California]
