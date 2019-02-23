@@ -1,6 +1,6 @@
 ## Overview
 
-Amazon Elastic Container Service for Kubernetes (EKS) makes it easier to operate Kubernetes clusters, but performance monitoring remains a top challenge. AppDynamics seamlessly integrates into EKS environments, providing insights into the performance of every microservice deployed and bring container and K8 visibility, all through a single pane of glass. On the heels of announcing the general availability of AppDynamics for Kubernetes at KubeCon Europe, we’ve partnered with Amazon Web Services (AWS) to bring Amazon EKS to the broader Kubernetes community. AppDynamics provides enterprise-grade, end-to-end performance monitoring for applications orchestrated by Kubernetes.
+Amazon Elastic Container Service for Kubernetes (EKS) makes it easy to operate Kubernetes clusters, but performance monitoring remains a top challenge. AppDynamics seamlessly integrates into EKS environments, providing insights into the performance of every microservice deployed and bring container and K8s visibility, all through a single pane of glass. On the heels of announcing the general availability of AppDynamics for Kubernetes at KubeCon Europe, we’ve partnered with Amazon Web Services (AWS) to bring Amazon EKS to the broader Kubernetes community. AppDynamics provides enterprise-grade, end-to-end performance monitoring for applications orchestrated by Kubernetes.
 
 ## Monitoring Amazon EKS with AppDynamics
 
@@ -13,7 +13,7 @@ AppDynamics seamlessly integrates into EKS environments. The machine agent runs 
 
 ## Workshop Overview
 
-We had a multi-service application wrapped in docker that we wanted to deploy to AWS using EKS. As part of the workshop we will deploy application on EKS and walkthrough steps to establish full stack monitoring for the application. To ease the effort we have created a few AMI and automated toolings.
+We have created a multi-service application containerized with Docker that is ready to deploy to AWS using EKS. As part of the workshop, you will deploy the application on EKS and walkthrough the steps to establish full stack monitoring for the application.
 
 <br><br>
 
@@ -26,12 +26,13 @@ We had a multi-service application wrapped in docker that we wanted to deploy to
 |      1       | Launch First EC2 Instance               |   10 minutes   |
 |      2       | Clone Github Repos & Create EKS Cluster |   15 minutes   |
 |      3       | Launch Second EC2 Instance              |   10 minutes   |
-|      4       | Delpoy AD-Capital Application to EKS    |   35 minutes   |
-|      5       | Delpoy Machine Agents to EKS            |   20 minutes   |
-|      6       | Delpoy the Kubernetes Extension to EKS  |   30 minutes   |
+|      4       | Deploy AD-Capital Application to EKS    |   35 minutes   |
+|      5       | Deploy Machine Agents to EKS            |   20 minutes   |
+|      6       | Deploy the Kubernetes Extension to EKS  |   30 minutes   |
 
 <br><br>
-To ease the effort we have created a few AMI and automated toolings. Follow diagram  explains the workflow of the labs and how participants will interact.
+To ease the effort, we have created a couple of AMIs using automated tooling. The following diagram explains the workflow of the labs and how participants will interact:
+
 ![Lab Workflow](./images/37.png)
 1. [Launch First EC2 Instance (e.g. Launch Pad EC2)](lab-exercise-01.md)
    - In this step you will launch the first EC2 instance
@@ -40,11 +41,11 @@ To ease the effort we have created a few AMI and automated toolings. Follow diag
    - In this step you will use the Launch Pad EC2 instance to clone two Github repositiories and create a new Kubernetes cluster within AWS EKS.<br><br>
 3. [Launch Second EC2 Instance (e.g. Controller EC2)](lab-exercise-03.md)
    - In this step you will launch the second EC2 instance that will run the AppDynamics Enterpise Console, Controller, and Events Service.<br><br>
-4. [Delpoy AD-Capital Application to EKS](lab-exercise-04.md)
+4. [Deploy AD-Capital Application to EKS](lab-exercise-04.md)
    - In this step you will use the Launch Pad EC2 instance to deploy the AD-Capital application to the EKS cluster and monitor the results of the deployment in the AppDynamics Controller.<br><br>
-5. [Delpoy the Server Agent & Network Agent to EKS](lab-exercise-05.md)
-   - In this step you will use the Launch Pad EC2 instance to deploy the Server Agent and Network Agent to the EKS cluster  and monitor the results of the deployment in the AppDynamics Controller.<br><br>
-6. [Delpoy the Kubernetes Extension to EKS](lab-exercise-06.md)
+5. [Deploy the Server Agent & Network Agent to EKS](lab-exercise-05.md)
+   - In this step you will use the Launch Pad EC2 instance to deploy the Server Agent and Network Agent to the EKS cluster and monitor the results of the deployment in the AppDynamics Controller.<br><br>
+6. [Deploy the Kubernetes Extension to EKS](lab-exercise-06.md)
     - In this step you will use the Launch Pad EC2 instance to deploy the AppDynamics Kubernetes extension to the EKS cluster, and monitor the results of the deployment in the AppDynamics Controller, and create a custom dashboard.<br><br>
 <br>
 

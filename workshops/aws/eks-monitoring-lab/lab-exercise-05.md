@@ -1,5 +1,5 @@
 # Lab Exercise 5
-## Delpoy the Server Agent & Network Agent to EKS
+## Deploy the Server Agent & Network Agent to EKS
 
 
 

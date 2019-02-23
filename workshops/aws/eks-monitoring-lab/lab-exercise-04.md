@@ -1,5 +1,5 @@
 # Lab Exercise 4
-## Delpoy AD-Capital Application to EKS
+## Deploy AD-Capital Application to EKS
 
 
 

@@ -1,12 +1,12 @@
 # Lab Exercise 6
-## Delpoy the Kubernetes Extension to EKS
+## Deploy the Kubernetes Extension to EKS
 
 
 
 In this exercise you will need to do the following:
 
 - Deploy the Kubernetes Extension to the EKS cluster
-- Monitor the results of delpoying the Kubernetes Extension
+- Monitor the results of deploying the Kubernetes Extension
 - Create a new custom dashboard for Kubernetes events
 
 <br>
