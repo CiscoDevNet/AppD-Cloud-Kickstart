@@ -11,13 +11,13 @@ The AppDynamics Cloud Kickstart project enables an IT Administrator, Software De
 
 To build the AppD Cloud Kickstart VM images, the following open source software needs to be installed on the host macOS machine:
 
--	Homebrew 2.0.1
+-	Homebrew 2.0.2
 -	Packer 1.3.4
 -	Git 2.20.1
 
 Perform the following steps to install the needed software:
 
-1.	Install the [Homebrew 2.0.1](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
+1.	Install the [Homebrew 2.0.2](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`  
 
 2.	Install [Packer 1.3.4](https://packer.io/) for macOS 64-bit.  
@@ -32,7 +32,7 @@ Perform the following steps to install the needed software:
 
     ```
     $ brew --version
-    Homebrew 2.0.1
+    Homebrew 2.0.2
 
     $ packer --version
     1.3.4

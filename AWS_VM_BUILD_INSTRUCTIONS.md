@@ -95,12 +95,12 @@ The following utilities and application performance management applications are 
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.15
 -	Python 2.7.14
-	-	Pip 19.0.2
+	-	Pip 19.0.3
 
 The following AWS CLI command-line tools and utilities are pre-installed in the __LPAD-EKS VM__:
 
--	Amazon AWS CLI 1.16.105 (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.1.21 (command-line interface)
+-	Amazon AWS CLI 1.16.111 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.1.22 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.11.5 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.11.5 (command-line interface)
 -	Docker 18.06.1-ce
@@ -114,4 +114,4 @@ The following AWS CLI command-line tools and utilities are pre-installed in the 
 -	Java SE JDK 8 Update 202
 -	jq 1.6 (command-line JSON processor)
 -	Python 2.7.14
-	-	Pip 19.0.2
+	-	Pip 19.0.3
