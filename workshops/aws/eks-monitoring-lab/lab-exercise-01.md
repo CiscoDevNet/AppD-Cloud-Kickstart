@@ -9,14 +9,23 @@ This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'.
 
 You will need to use an existing AMI image named **LPAD-EKS-AL2-AMI** and located in the AWS region that you are working in:
 
+**NOTE:** Though any region can be utilized, this workshop does create a VPC and utilizes an elastic IP address. You may run into issues with these default limits. In the AppDynamics AWS environment, these limits have been increased in us-east-1. If you are internal to AppD, it is recommended to utilize this region. For clients, know these limits may impact the ability to create a EKS Cluster later on.
+
+- The AMI image for the **us-west-1** region can be found [here](https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#Images:sort=tag:Name).
 - The AMI image for the **us-west-2** region can be found [here](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=tag:Name).
+- The AMI image for the **us-east-1** region can be found [here](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:sort=tag:Name).
 - The AMI image for the **us-east-2** region can be found [here](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Images:sort=tag:Name).
 
 <br>
 
-.......
+Once you have identified the appropriate AMI, launch an instance of it via:
 
-Click on the 'Advanced' link on the bottom left of the console screen to enter the following 'User data' commands.
+  1. Select the AMI > Launch
+  2. Click "Configure Instance Details" in the bottom right
+  3. Scroll to the bottom and Expand Advanced
+
+Once 'Advanced' is expanded, enter the following 'User data' commands.
+
 This allows you to configure the EC2 instance during launch.
 
 Before continuing, you will need to define the **AWS_ACCESS_KEY_ID** and **AWS_SECRET_ACCESS_KEY** environment
@@ -38,6 +47,12 @@ export AWS_SECRET_ACCESS_KEY
 
 ./initialize_al2_lpad_eks_cloud_init.sh
 ```
+
+If the above section is not completed at VM creation, the launchpad server will not function as intended.
+
+Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the KickStarter pem if you have access to it.  You can request this key from the workshop creators, and / or provide it to associates taking the workshop. 
+
+**NOTE:** Once the VM is launched, take note of the FQDN of the server. You will be leveraging this server in the remainder of the lab.
 
 <br>
 

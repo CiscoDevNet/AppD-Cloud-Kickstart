@@ -2,6 +2,10 @@
 
 Follow these instructions to build the AWS Amazon Linux 2 AMI images.
 
+The fist images purpose is: An AppDynamics Controller
+
+The second images purpose is: The AWS EKS LaunchPad to run sample apps
+
 ## Prepare for the Build
 
 All user credentials and installation inputs are driven by environment variables and can
@@ -9,7 +13,7 @@ be configured in the `set_appd_cloud_kickstart_env.sh` script located in `./bin`
 are LOTS of options, but most have acceptable defaults. You only need to concentrate
 on a handful that are uncommented in the environment template file.
 
-In particular, you will need to supply your AppDynamics login credentials to the 
+In particular, you will need to supply your AppDynamics login credentials to the
 [download site](https://download.appdynamics.com/download/). You will also need to
 provide an AWS Access Key ID and Secret Access Key from a valid AWS account.
 
@@ -50,15 +54,24 @@ To prepare for the build, perform the following steps:
     aws_ami_source="ami-04328208f4f0cf1fe"      # Amazon Linux AMI (HVM), SSD Volume Type: us-east-2 [Ohio]
     ```
 
-    Save and source the environment variables file:
+    Save and source the environment variables file in order to define the variables in your shell.
 
     ```
     $ source ./set_appd_cloud_kickstart_env.sh
     ```
 
+    Validate the sourcing of the file was successful via the following command which should return environment variances:
+
+    ```
+    $ env | grep -i "appd"
+    ```
+
 2.	Supply a valid AppDynamics Controller license file:
 
+  -	This license can be supplied by any AppDynamics SE
+  -	It is recommended to have at least 10 APM, 10 server, 10 network, 5 DB, 1 unit of each Analytics and 1 unit of each RUM within the license key
 	-	Copy your AppDynamics Controller `license.lic` and rename it to `provisioners/scripts/centos/tools/appd-controller-license.lic`.
+
 
 ## Build the Amazon Machine Images (AMIs) with Packer
 
@@ -71,6 +84,8 @@ To prepare for the build, perform the following steps:
     $ packer build apm-platform-al2.json
     ```
 
+    If the build fails, check to ensure the accuracy of all variables edited above--including items such as spaces between access keys and the ending parentheses.
+
 2.	Build the __LPAD-EKS VM__ Amazon Linux 2 AMI image:
 
     This will take several minutes to run. However, this build will be shorter
@@ -79,6 +94,8 @@ To prepare for the build, perform the following steps:
     ```
     $ packer build lpad-eks-al2.json
     ```
+
+3. The steps for creating the AMI's are completed. 
 
 ## AWS Amazon Linux 2 Bill-of-Materials
 

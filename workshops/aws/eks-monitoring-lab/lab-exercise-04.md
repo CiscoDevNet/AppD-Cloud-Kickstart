@@ -1,10 +1,11 @@
 # Lab Exercise 4
-## Deploy AD-Capital Application to EKS
+## Deploy AD-Capital Application to EKS on the LaunchPad Server
 
 
 
 In this exercise you will need to do the following:
 
+- Connect to your LaunchPad Server via SSH
 - Validate that your EKS cluster has deployed properly
 - Run a script to create a service account in your EKS cluster
 - Create an API Key using the AppDynamics Controller
@@ -15,6 +16,12 @@ In this exercise you will need to do the following:
 <br>
 
 ### **1.** Validate Your EKS Cluster
+ssh into the launchpad Server
+
+```
+ssh -i kickstarter.pem ec2-user@FQDN_OF_MACHINE
+```
+
 Using the SSH terminal for the Launch Pad EC2 instance, run the commands below to validate your EKS cluster creation is complete and running:
 
 ```
@@ -55,7 +62,7 @@ You should see the controller's login screen as seen in the image below.  The de
 
 - Username: admin
 - Password: welcome1
-  
+
 ![Controller Login](./images/6.png)
 
 <br>
@@ -82,7 +89,7 @@ After you click the Create button you will see the next screen below.  Copy the 
 <br>
 
 ### **4.** Set Environment Variables for EKS Deployment
-Run the command below to set the variable for the controller host, replacing 'your-controller-host-name-or-ip' with the public IP address or public host name of your controller: 
+Run the command below to set the variable for the controller host, replacing 'your-controller-host-name-or-ip' with the public IP address or public host name of your controller:
 
 ```
 export appd_controller_host=your-controller-host-name-or-ip
@@ -103,6 +110,14 @@ cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 You should then see output similar to the image seen below:
 
 ![EKS Configmap](./images/9.png)
+
+**NOTE:** If your application does not show up in AppD, there was likely an issue with the IP / FQDN passed along or the config map. You will need to delete your cluster and recreate after verifying those steps.  
+
+The command to delete your cluster and rerun after variables have been reviewed is:
+
+```
+kubectl delete -f Kubernetes/
+```
 
 <br>
 

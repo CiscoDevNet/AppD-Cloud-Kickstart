@@ -20,7 +20,7 @@ If you can't get a copy of the 'AppD-Kickstarter-AWS.pem' file, you will need to
 
 - Create your own key pair in the AWS EC2 console
 - Launch an instance of the Launch Pad EC2 that uses your key pair
-- Modify the value of the 'appd_aws_eks_ssh_public_key' variable in the 'create_eks_cluster.sh' script found in */home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube* so the value is the name of the key pair you created in the AWS EC2 console
+- Modify the value of the 'appd_aws_eks_ssh_public_key' variable in the 'create_eks_cluster.sh' script found in */home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube* so the value is the name of the key pair you created in the AWS EC2 console on your AWS instance after the GIT packages have been cloned — they are not there initially
 
 <br>
 You will use the user name ec2-user with no password to SSH into the Launch Pad EC2 instance,
@@ -168,7 +168,9 @@ You should start to see output from the command that is similar to the image see
 
 ![EKS Cluster Created](./images/3.png)
 
+**NOTE:** If you run into an error similar to the below, check CloudFormation on AWS and see why the rollback occurred. This may be a VPC / Elastic IP limit or due to some other reason.
 
+unexpected status "ROLLBACK_IN_PROGRESS" while waiting for CloudFormation stack "eksctl-AD-Capital-partain2019a1-cluster" to reach "CREATE_COMPLETE" status
 <br>
 
 [Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-01.md) | [Next](lab-exercise-03.md)
