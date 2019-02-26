@@ -5,7 +5,15 @@
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "{{user `aws_ami_region`}}",
-      "source_ami": "{{user `aws_ami_source`}}",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "name": "*amzn2-ami-hvm-2.0.*-x86_64-gp2",
+          "root-device-type": "ebs"
+        },
+        "owners": ["amazon"],
+        "most_recent": true
+      },
       "ami_description": "{{user `aws_ami_description`}}",
       "instance_type": "{{user `aws_ec2_instance_type`}}",
       "ssh_username": "{{user `aws_ec2_username`}}",
@@ -148,7 +156,6 @@
     "aws_ami_description": "Machine Agent 4.5.8 deployment with AWS Extensions on Amazon Linux 2. Log-in with user 'ec2-user' using an SSH key-pair. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",
     "aws_ami_region": "{{env `aws_ami_region`}}",
-    "aws_ami_source": "{{env `aws_ami_source`}}",
     "aws_ec2_boot_disk_size": "64",
     "aws_ec2_hostname": "ext",
     "aws_ec2_instance_type": "t2.medium",

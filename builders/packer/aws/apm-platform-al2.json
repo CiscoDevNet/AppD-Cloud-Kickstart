@@ -5,7 +5,15 @@
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "{{user `aws_ami_region`}}",
-      "source_ami": "{{user `aws_ami_source`}}",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "name": "*amzn2-ami-hvm-2.0.*-x86_64-gp2",
+          "root-device-type": "ebs"
+        },
+        "owners": ["amazon"],
+        "most_recent": true
+      },
       "ami_description": "{{user `aws_ami_description`}}",
       "instance_type": "{{user `aws_ec2_instance_type`}}",
       "ssh_username": "{{user `aws_ec2_username`}}",
@@ -116,11 +124,10 @@
     "appd_controller_mysql_password": "{{env `appd_controller_mysql_password`}}",
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
-    "aws_ami_name": "APM-Platform-456-AL2-AMI",
-    "aws_ami_description": "APM Platform 4.5.6 on Amazon Linux 2. Log-in with user 'ec2-user' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. AMI generated using the AppDynamics Cloud Kickstart Project.",
+    "aws_ami_name": "APM-Platform-457-AL2-AMI",
+    "aws_ami_description": "APM Platform 4.5.7 on Amazon Linux 2. Log-in with user 'ec2-user' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",
     "aws_ami_region": "{{env `aws_ami_region`}}",
-    "aws_ami_source": "{{env `aws_ami_source`}}",
     "aws_ec2_boot_disk_size": "128",
     "aws_ec2_hostname": "apm",
     "aws_ec2_instance_type": "t2.large",
