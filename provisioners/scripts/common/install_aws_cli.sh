@@ -94,21 +94,21 @@ if [ "$aws_cli_user_config" == "true" ]; then
 fi
 
 # verify pip installation. -------------------------------------------------------------------------
-runuser -c "PATH=/home/${user_name}/.local/bin:${PATH} pip --version" - ${user_name}
+runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} pip --version" - ${user_name}
 
 # install aws cli. ---------------------------------------------------------------------------------
-runuser -c "PATH=/home/${user_name}/.local/bin:${PATH} pip install awscli --upgrade --user" - ${user_name}
+runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} pip install awscli --upgrade --user" - ${user_name}
 
 # verify installation.
-runuser -c "PATH=/home/${user_name}/.local/bin:${PATH} aws --version" - ${user_name}
+runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} aws --version" - ${user_name}
 
 # configure the aws cli client. --------------------------------------------------------------------
 if [ "$aws_cli_user_config" == "true" ]; then
   set +x    # temporarily turn command display OFF.
   aws_config_cmd=$(printf "aws configure <<< \$\'%s\\\\n%s\\\\n%s\\\\n%s\\\\n\'\n" ${AWS_ACCESS_KEY_ID} ${AWS_SECRET_ACCESS_KEY} ${aws_cli_default_region_name} ${aws_cli_default_output_format})
-  runuser -c "PATH=/home/${user_name}/.local/bin:${PATH} eval ${aws_config_cmd}" - ${user_name}
+  runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} eval ${aws_config_cmd}" - ${user_name}
   set -x    # turn command display back ON.
 
   # verify the aws cli configuration by displaying a list of aws regions in table format.
-  runuser -c "PATH=/home/${user_name}/.local/bin:${PATH} aws ec2 describe-regions --output table" - ${user_name}
+  runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} aws ec2 describe-regions --output table" - ${user_name}
 fi
