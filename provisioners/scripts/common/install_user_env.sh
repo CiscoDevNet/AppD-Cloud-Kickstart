@@ -97,7 +97,7 @@ if [ "$user_docker_profile" == "true" ] && [ "$user_name" != "root" ]; then
   usermod -aG docker ${user_name}
 
   # install docker completion for bash.
-  dcompletion_release="18.09.0"
+  dcompletion_release="18.09.3"
   dcompletion_binary=".docker-completion.sh"
 
   # download docker completion for bash from github.com.
