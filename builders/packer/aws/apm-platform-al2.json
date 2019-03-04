@@ -30,6 +30,7 @@
         "Name": "{{user `aws_ami_name`}}",
         "Owner": "{{user `aws_ami_owner`}}",
         "Project": "AppDynamics Cloud Kickstart",
+        "Project_Image_Type": "APM-Platform",
         "Base_AMI_Name": "{{.SourceAMIName}}"
       }
     }

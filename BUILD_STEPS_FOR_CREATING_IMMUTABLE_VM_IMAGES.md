@@ -12,7 +12,7 @@ The AppDynamics Cloud Kickstart project enables an IT Administrator, Software De
 To build the AppD Cloud Kickstart VM images, the following open source software needs to be installed on the host macOS machine:
 
 -	Homebrew 2.0.2
--	Packer 1.3.4
+-	Packer 1.3.5
 -	Git 2.20.1
 
 Perform the following steps to install the needed software:
@@ -20,7 +20,7 @@ Perform the following steps to install the needed software:
 1.	Install the [Homebrew 2.0.2](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`  
 
-2.	Install [Packer 1.3.4](https://packer.io/) for macOS 64-bit.  
+2.	Install [Packer 1.3.5](https://packer.io/) for macOS 64-bit.  
     `$ brew install packer`  
 
 3.	Install [Git 2.20.1](https://git-scm.com/downloads) for macOS 64-bit.  
@@ -35,7 +35,7 @@ Perform the following steps to install the needed software:
     Homebrew 2.0.2
 
     $ packer --version
-    1.3.4
+    1.3.5
 
     $ git --version
     git version 2.20.1
@@ -53,12 +53,12 @@ Perform the following steps to install the needed software:
 
 To build the AppD Cloud Kickstart immutable VM images, the following open source software needs to be installed on the host Windows machine:
 
--	Packer 1.3.4
+-	Packer 1.3.5
 -	Git 2.20.1 for Win64
 
 Perform the following steps to install the needed software:
 
-1.	Install [Packer 1.3.4](https://releases.hashicorp.com/packer/1.3.4/packer_1.3.4_windows_amd64.zip) for Windows 64-bit.  
+1.	Install [Packer 1.3.5](https://releases.hashicorp.com/packer/1.3.5/packer_1.3.5_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\Packer\bin`  
 
@@ -81,7 +81,7 @@ Perform the following steps to install the needed software:
 
     ```
     $ packer --version
-    1.3.4
+    1.3.5
 
     $ git --version
     git version 2.20.1.windows.1

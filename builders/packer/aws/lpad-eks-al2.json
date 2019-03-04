@@ -30,6 +30,7 @@
         "Name": "{{user `aws_ami_name`}}",
         "Owner": "{{user `aws_ami_owner`}}",
         "Project": "AppDynamics Cloud Kickstart",
+        "Project_Image_Type": "LPAD-EKS",
         "Base_AMI_Name": "{{.SourceAMIName}}"
       }
     }
@@ -92,9 +93,11 @@
         "../../../provisioners/scripts/common/install_oracle_java_jdk_8.sh",
         "../../../provisioners/scripts/aws/install_al2_docker.sh",
         "../../../provisioners/scripts/common/install_docker_compose.sh",
+        "../../../provisioners/scripts/aws/install_al2_python3.sh",
         "../../../provisioners/scripts/common/install_users_env.sh",
         "../../../provisioners/scripts/common/install_jq_json_processor.sh",
         "../../../provisioners/scripts/centos/install_centos7_git.sh",
+        "../../../provisioners/scripts/common/install_git_flow.sh",
         "../../../provisioners/scripts/common/install_aws_cli.sh",
         "../../../provisioners/scripts/common/install_aws_eksctl_cli.sh",
         "../../../provisioners/scripts/common/install_aws_kubectl_cli.sh",

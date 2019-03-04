@@ -113,7 +113,7 @@ The following utilities and application performance management applications are 
 
 The following AWS CLI command-line tools and utilities are pre-installed in the __LPAD-EKS VM__:
 
--	Amazon AWS CLI 1.16.112 (command-line interface)
+-	Amazon AWS CLI 1.16.117 (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.1.23 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.11.5 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.11.5 (command-line interface)
@@ -123,9 +123,11 @@ The following AWS CLI command-line tools and utilities are pre-installed in the 
 	-	Docker Compose Bash Completion
 -	Git 2.21.0
 	-	Git Bash Completion
-	-	Git-Flow 1.12.0 (AVH Edition)
+	-	Git-Flow 1.12.1 (AVH Edition)
 	-	Git-Flow Bash Completion
 -	Java SE JDK 8 Update 202
 -	jq 1.6 (command-line JSON processor)
 -	Python 2.7.14
+	-	Pip 19.0.3
+-	Python 3.7.1
 	-	Pip 19.0.3

@@ -60,7 +60,7 @@ export appd_password
 #export appd_platform_server_port
 
 # [optional] platform name (defaults to 'My Platform').
-appd_platform_name="AppDynamics Cloud Kickstart Project"
+appd_platform_name="AppDynamics Cloud Kickstart"
 export appd_platform_name
 
 # [optional] platform description (defaults to 'My platform config.').
