@@ -20,6 +20,8 @@ export JAVA_HOME
 # set git home paths.
 GIT_HOME=/usr/local/git/git
 export GIT_HOME
+GIT_FLOW_HOME=/usr/local/git/gitflow
+export GIT_FLOW_HOME
 
 # set appd kickstarter home path.
 kickstarter_home=/opt/appd-kickstarter
@@ -49,7 +51,7 @@ PS1="${reset}${cyan}\h${blue}[${green}\u${blue}]${white}\$ "
 export PS1
 
 # add local applications to main PATH.
-PATH=$JAVA_HOME/bin:$GIT_HOME/bin:$HOME/.local/bin:$PATH
+PATH=$JAVA_HOME/bin:$GIT_HOME/bin:$GIT_FLOW_HOME/bin:$HOME/.local/bin:$PATH
 export PATH
 
 # set options.
