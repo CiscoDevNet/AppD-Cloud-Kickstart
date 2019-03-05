@@ -21,6 +21,8 @@ Perform the following steps to install the needed software:
 
 1.	Install the [Homebrew 2.0.3](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`  
+    `$ brew doctor`
+    `Your system is ready to brew.`
 
 2.	Install [Command Line Tools (CLT) for Xcode](https://developer.apple.com/downloads).  
     `$ xcode-select --install`  
@@ -46,8 +48,6 @@ Perform the following steps to install the needed software:
     ```
     $ brew --version
     Homebrew 2.0.3
-    $ brew doctor
-    Your system is ready to brew.
 
     $ packer --version
     1.3.5
