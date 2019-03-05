@@ -1,10 +1,9 @@
 # AWS Amazon Linux 2 AMI Build Instructions
 
-Follow these instructions to build the AWS Amazon Linux 2 AMI images.
+Follow these instructions to build the AWS Amazon Linux 2 AMI images:
 
-The fist images purpose is: An AppDynamics Controller
-
-The second images purpose is: The AWS EKS LaunchPad to run sample apps
+-	__APM-Platform VM__: An APM Platform stand-alone VM with an AppDynamics Controller.
+-	__LPAD-EKS VM__: An AWS EKS 'Launchpad' VM needed for Kubernetes CLI Operations and running the sample apps.
 
 ## Prepare for the Build
 
@@ -35,7 +34,7 @@ To prepare for the build, perform the following steps:
     grouped by sections in the file, so you will have to search to locate the exact line.
     For example, the AWS-related variables are at the end of the file.
 
-    The first 4 are manditory and the others are optional, but helpful. If you are
+    The first 4 are mandatory and the others are optional, but helpful. If you are
     building the AMI images in the `us-west-2` region, the region-related variables
     can be left alone.
 

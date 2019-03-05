@@ -1,6 +1,6 @@
 # AppD-Cloud-Kickstart
 
-The Cloud Kickstart is an enablement workshop demonstrating AppDynamics ability to monitor cloud native workloads. AWS support is currently available, with Azure and GCP to follow. Idea is to deliver different chapters within each cloud provider bucket. First chapter within AWS bucket that is available is "AWS EKS Monitoring". More chapters will be added soon.
+The Cloud Kickstart is an enablement workshop demonstrating AppDynamics ability to monitor cloud native workloads. AWS support is currently available, with Azure and GCP to follow. The idea is to deliver different chapters within each cloud provider bucket. The first chapter available within the AWS bucket is "AWS EKS Monitoring". More chapters will be added soon.
 
 ## Overview
 
@@ -10,7 +10,7 @@ Cloud Kickstart showcases these capabilities. The project consists of a collecti
 
 Customers, partners, and sellers are free to leverage these materials and gain valuable hands-on experience monitoring cloud native applications using AppDynamics.
 
-This same content can also be delivered as community or corporate WebInners.
+This same content can also be delivered as community or corporate webinars.
 
 ## Workshop Delivery Approach
 
