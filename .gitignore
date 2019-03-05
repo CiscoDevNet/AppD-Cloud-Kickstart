@@ -16,3 +16,6 @@ tags
 
 # ignore 'live' bash resource configuration file for appdynamics cloud kickstart users.
 /bin/set_appd_cloud_kickstart_env.sh
+
+# macOS .DS_Store files.
+.DS_Store
