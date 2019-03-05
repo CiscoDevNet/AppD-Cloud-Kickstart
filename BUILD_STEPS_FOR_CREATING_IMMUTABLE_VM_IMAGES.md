@@ -19,18 +19,20 @@ To build the AppD Cloud Kickstart VM images, the following open source software 
 
 Perform the following steps to install the needed software:
 
-1.	Install the [Homebrew 2.0.3](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
-    `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`  
-    `$ brew doctor`
-    `Your system is ready to brew.`
-
-2.	Install [Command Line Tools (CLT) for Xcode](https://developer.apple.com/downloads).  
+1.	Install [Command Line Tools (CLT) for Xcode](https://developer.apple.com/downloads).  
     `$ xcode-select --install`  
 
     **NOTE:** Most Homebrew formulae require a compiler. A handful require a full Xcode installation.
     You can install [Xcode](https://itunes.apple.com/us/app/xcode/id497799835), the [CLT](https://developer.apple.com/downloads),
     or both; Homebrew supports all three configurations. Downloading Xcode may require an Apple Developer account
     on older versions of Mac OS X. Sign up for free [here](https://developer.apple.com/register/index.action).  
+
+2.	Install the [Homebrew 2.0.3](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
+    ```
+    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    $ brew doctor
+    Your system is ready to brew.
+    ```
 
 3.	Install [Packer 1.3.5](https://packer.io/) for macOS 64-bit.  
     `$ brew install packer`  
