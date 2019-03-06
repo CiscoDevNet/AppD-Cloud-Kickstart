@@ -38,7 +38,7 @@ chmod 755 ./initialize_al2_apm_platform_cloud_init.sh
   7. Next Select on "Add Tags" tab. Add one tag. [Key = Name , Value = User_Ctlr_Initials].
 
     Example of Value field:
-    Users Name: John Calvin Smith
+    User Name: John Calvin Smith
     
     Key = Name
     Value=User-Ctlr-JCS
