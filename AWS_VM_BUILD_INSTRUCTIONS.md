@@ -97,8 +97,8 @@ To prepare for the build, perform the following steps:
 
 The following utilities and application performance management applications are pre-installed in the __APM-Platform VM__:
 
--	AppDynamics Enterprise Console 4.5.7.0 Build 17784
-	-	AppDynamics Controller 4.5.7.1 Build 17076
+-	AppDynamics Enterprise Console 4.5.7.0 Build 18225
+	-	AppDynamics Controller 4.5.7.1 Build 17128
 	-	AppDynamics Event Service 4.5.2.0 Build 20201
 -	Docker 18.06.1-ce
 	-	Docker Bash Completion
@@ -112,7 +112,7 @@ The following utilities and application performance management applications are 
 
 The following AWS CLI command-line tools and utilities are pre-installed in the __LPAD-EKS VM__:
 
--	Amazon AWS CLI 1.16.117 (command-line interface)
+-	Amazon AWS CLI 1.16.118 (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.1.23 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.11.5 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.11.5 (command-line interface)

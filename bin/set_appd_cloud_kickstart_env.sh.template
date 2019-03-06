@@ -31,8 +31,8 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '4.5.7.17784').
-#appd_platform_release="4.5.7.17784"
+# [optional] platform release (defaults to '4.5.7.18225').
+#appd_platform_release="4.5.7.18225"
 #export appd_platform_release
 
 # [optional] platform admin user name (defaults to user 'admin').
