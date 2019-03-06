@@ -12,11 +12,11 @@ In this exercise you will need to do the following:
 <br>
 
 ### **1.** SSH Into the Launch Pad EC2 Instance
-You will need a copy of the 'AppD-Kickstarter-AWS.pem' file in order to SSH into your Launch Pad EC2 instance.  
+You will need a copy of the `AppD-Cloud-Kickstart-AWS.pem` file in order to SSH into your Launch Pad EC2 instance.  
 
-You can obtain a copy of the 'AppD-Kickstarter-AWS.pem' file from your lab instructor.
+You can obtain a copy of the `AppD-Cloud-Kickstart-AWS.pem` file from your lab instructor.
 
-If you can't get a copy of the 'AppD-Kickstarter-AWS.pem' file, you will need to do the following:
+If you can't get a copy of the `AppD-Cloud-Kickstart-AWS.pem` file, you will need to do the following:
 
 - Create your own key pair in the AWS EC2 console
 - Launch an instance of the Launch Pad EC2 that uses your key pair
@@ -29,14 +29,15 @@ You will use the user name ec2-user with no password to SSH into the Launch Pad 
 
 ***For Mac Users:***
 
-Run the command below from a terminal window, with the path to your copy of the 'AppD-Kickstarter-AWS.pem' file and the host name or IP Address of your Launch Pad EC2 instance
+Run the command below from a terminal window, with the path to your copy of the `AppD-Cloud-Kickstart-AWS.pem` file and the host name or IP Address of your Launch Pad EC2 instance
 ```
-ssh -i <path-to-file>/AppD-Kickstarter-AWS.pem <hostname-of-your-launch-pad-ec2-instance>
+chmod 400 <path-to-file>/AppD-Cloud-Kickstart-AWS.pem
+ssh -i <path-to-file>/AppD-Cloud-Kickstart-AWS.pem <hostname-of-your-launch-pad-ec2-instance>
 ```
 
 Example:
 ```
-ssh -i /Users/john.smith/Documents/AppD-Kickstarter-AWS.pem ec2-user@ec2-54-214-99-204.us-west-2.compute.amazonaws.com
+ssh -i /Users/john.smith/Documents/AppD-Cloud-Kickstart-AWS.pem ec2-user@ec2-54-214-99-204.us-west-2.compute.amazonaws.com
 ```
 
 <br>

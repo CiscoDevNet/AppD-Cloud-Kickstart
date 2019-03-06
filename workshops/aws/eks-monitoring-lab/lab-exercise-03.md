@@ -31,7 +31,7 @@ cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
 chmod 755 ./initialize_al2_apm_platform_cloud_init.sh
 ./initialize_al2_apm_platform_cloud_init.sh
 ```
-Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the KickStarter pem if you have access to it.  You can request this key from the workshop creators, and / or provide it to associates taking the workshop.
+Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the `AppD-Cloud-Kickstart-AWS.pem` if you have access to it. You can request this key from the workshop creators, and/or provide it to associates taking the workshop. Otherwise, you can create your own key pair.
 
 **NOTE:** Once the VM is launched, take note of the FQDN of the server. You will be leveraging this server in the remainder of the lab.
 

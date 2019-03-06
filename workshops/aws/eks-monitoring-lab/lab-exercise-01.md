@@ -50,7 +50,7 @@ export AWS_SECRET_ACCESS_KEY
 
 If the above section is not completed at VM creation, the launchpad server will not function as intended.
 
-Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the KickStarter pem if you have access to it.  You can request this key from the workshop creators, and / or provide it to associates taking the workshop. 
+Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the `AppD-Cloud-Kickstart-AWS.pem` if you have access to it. You can request this key from the workshop creators, and/or provide it to associates taking the workshop. Otherwise, you can create your own key pair.
 
 **NOTE:** Once the VM is launched, take note of the FQDN of the server. You will be leveraging this server in the remainder of the lab.
 
