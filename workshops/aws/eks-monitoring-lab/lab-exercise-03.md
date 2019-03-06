@@ -19,8 +19,10 @@ You will need to use an existing AMI image named **APM-Platform-455-AL2-AMI** an
 Once you have identified the appropriate AMI, launch an instance of it via:
 
   1. Select the AMI > Launch
-  2. Click "Configure Instance Details" in the bottom right
-  3. Scroll to the bottom and Expand Advanced
+  2. Select General Purpose "t2.micro"
+  3. Click "Configure Instance Details" in the bottom right
+  4. Keep all default values
+  5. Scroll to the bottom and Expand Advanced
 
 Click on the 'Advanced' link on the bottom left of the console screen to enter the following 'User data' commands.
 This allows you to configure the EC2 instance during launch:
@@ -31,7 +33,14 @@ cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
 chmod 755 ./initialize_al2_apm_platform_cloud_init.sh
 ./initialize_al2_apm_platform_cloud_init.sh
 ```
-Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the `AppD-Cloud-Kickstart-AWS.pem` if you have access to it. You can request this key from the workshop creators, and/or provide it to associates taking the workshop. Otherwise, you can create your own key pair.
+
+  6. Select on "Add Storage" tab and chose default options.
+  7. Next Select on "Add Tags" tab. Add one tag. [Key = Name , Value = User_Ctlr_Initials].
+  8. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
+
+![Security Group](./images/38.png)
+
+  9. Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the `AppD-Cloud-Kickstart-AWS.pem` if you have access to it. You can request this key from the workshop creators, and/or provide it to associates taking the workshop. Otherwise, you can create your own key pair.
 
 **NOTE:** Once the VM is launched, take note of the FQDN of the server. You will be leveraging this server in the remainder of the lab.
 

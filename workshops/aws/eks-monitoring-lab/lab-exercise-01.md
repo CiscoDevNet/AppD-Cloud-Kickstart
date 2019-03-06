@@ -52,13 +52,13 @@ export AWS_SECRET_ACCESS_KEY
 
 If the above section is not completed at VM creation, the launchpad server will not function as intended.
 
-   5. Select on "Add Storage" tab and chose default options.
-   6. Next Select on "Add Tags" tab. Add one tag. [Key = Name , Value = User_Initials]
-   7. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
+   6. Select on "Add Storage" tab and chose default options.
+   7. Next Select on "Add Tags" tab. Add one tag. [Key = Name , Value = User_Lapad_Initials].
+   8. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
 
 ![Security Group](./images/38.png)
 
-   8. Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the KickStarter pem if you have access to it.  You can request this key from the workshop creators, and / or provide it to associates taking the workshop.
+   9. Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the KickStarter pem if you have access to it.  You can request this key from the workshop creators, and / or provide it to associates taking the workshop.
 
 **NOTE:** Once the VM is launched, take note of the FQDN of the server. You will be leveraging this server in the remainder of the lab.
 
