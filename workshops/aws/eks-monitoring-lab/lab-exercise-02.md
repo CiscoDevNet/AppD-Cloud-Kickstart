@@ -8,8 +8,8 @@ In this exercise you will need to do the following:
 - SSH into the Launch Pad EC2 instance
 - Clone two Github repositories
 - Run a script to create a new EKS cluster
-
 <br>
+
 ### **1.** SSH Into the Launch Pad EC2 Instance
 You will need a copy of the `AppD-Cloud-Kickstart-AWS.pem` file in order to SSH into your Launch Pad EC2 instance.  
 
@@ -48,8 +48,8 @@ If you are using PuTTY, you can find the instructions to convert the pem file to
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html#putty-private-key
 
 - Once logged in , modify the value of the 'appd_aws_eks_ssh_public_key' variable in the 'create_eks_cluster.sh' script found in */home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube* so the value is the name of the key pair you created in the AWS EC2 console on your AWS instance after the GIT packages have been cloned — they are not there initially
-
 <br>
+
 ### **2.** Clone Github Repositories
 
 Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone two Github repositories by running the commands below:
