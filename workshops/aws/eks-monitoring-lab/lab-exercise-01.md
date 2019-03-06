@@ -53,7 +53,7 @@ export AWS_SECRET_ACCESS_KEY
 If the above section is not completed at VM creation, the launchpad server will not function as intended.
 
    5. Select on "Add Storage" tab and chose default options.
-   6. Next Select on "Add Tags" tab. Add one tag. [Key = Name , Value = User_<Initials>]
+   6. Next Select on "Add Tags" tab. Add one tag. [Key = Name , Value = User_Initials]
    7. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
 
 ![Security Group](./images/38.png)
