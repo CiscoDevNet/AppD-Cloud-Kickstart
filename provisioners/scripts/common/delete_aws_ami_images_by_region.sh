@@ -22,11 +22,12 @@ if [ ! -f "/usr/local/bin/jq" ]; then
   echo "      For more information, visit: https://github.com/stedolan/jq/releases/"
 fi
 
-# loop for each project image type. ----------------------------------------------------------------
+# delete the project-specific aws ami's for the specified region. ----------------------------------
 # initialize project image types array.
 appd_project_image_types_array=( ${appd_project_image_types} )
 appd_project_image_types_array_length=${#appd_project_image_types_array[@]}
 
+# loop for each project image type.
 for image_type in "${appd_project_image_types_array[@]}"; do
   # retrieve ami image data.
   ami_image_data=$(aws ec2 describe-images --region ${aws_ami_region} --filters "Name=tag:Project,Values=${appd_platform_name}, Name=tag:Project_Image_Type,Values=${image_type}" --output json | jq '[.Images[] | {Name: .Name, ImageId: .ImageId, SnapshotId: .BlockDeviceMappings[].Ebs.SnapshotId, CreationDate: .CreationDate}] | sort_by(.CreationDate)')
@@ -50,16 +51,14 @@ for image_type in "${appd_project_image_types_array[@]}"; do
       image_id=$(echo "ImageId: ${image_id_array[$ii]}" | awk -F '"' '{print $2}')
       snapshot_id=$(echo "SnapshotId: ${snapshot_id_array[$ii]}" | awk -F '"' '{print $2}')
 
-      echo "Deleting AMI image: '${image_name}' in '${aws_ami_region}':"
-      echo "aws ec2 deregister-image --region ${aws_ami_region} --image-id ${image_id}"
+      echo "Deleting AMI image: '${image_name}':"
+      echo "  aws ec2 deregister-image --region ${aws_ami_region} --image-id ${image_id}"
       aws ec2 deregister-image --region ${aws_ami_region} --image-id ${image_id}
-      echo "aws ec2 delete-snapshot --region ${aws_ami_region} --snapshot-id ${snapshot_id}"
+      echo "  aws ec2 delete-snapshot --region ${aws_ami_region} --snapshot-id ${snapshot_id}"
       aws ec2 delete-snapshot --region ${aws_ami_region} --snapshot-id ${snapshot_id}
-      echo ""
     fi
 
     # increment array index.
     ii=$(($ii + 1))
   done
-
 done
