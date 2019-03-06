@@ -21,8 +21,10 @@ You will need to use an existing AMI image named **LPAD-EKS-AL2-AMI** and locate
 Once you have identified the appropriate AMI, launch an instance of it via:
 
   1. Select the AMI > Launch
-  2. Click "Configure Instance Details" in the bottom right
-  3. Scroll to the bottom and Expand Advanced
+  2. Select General Purpose "t2.micro"
+  3. Click "Configure Instance Details" in the bottom right
+  4. Keep all default values
+  5. Scroll to the bottom and Expand Advanced
 
 Once 'Advanced' is expanded, enter the following 'User data' commands.
 
@@ -50,9 +52,18 @@ export AWS_SECRET_ACCESS_KEY
 
 If the above section is not completed at VM creation, the launchpad server will not function as intended.
 
-Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the `AppD-Cloud-Kickstart-AWS.pem` if you have access to it. You can request this key from the workshop creators, and/or provide it to associates taking the workshop. Otherwise, you can create your own key pair.
+   5. Select on "Add Storage" tab and chose default options.
+   6. Next Select on "Add Tags" tab. Add one tag. [Key = Name , Value = User_<Initials>]
+   7. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
+
+![Security Group](./images/38.png)
+
+   8. Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the KickStarter pem if you have access to it.  You can request this key from the workshop creators, and / or provide it to associates taking the workshop.
 
 **NOTE:** Once the VM is launched, take note of the FQDN of the server. You will be leveraging this server in the remainder of the lab.
+
+   9. Update Security group
+   .......
 
 <br>
 
