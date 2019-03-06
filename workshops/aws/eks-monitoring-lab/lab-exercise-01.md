@@ -55,12 +55,11 @@ If the above section is not completed at VM creation, the launchpad server will 
    6. Select on "Add Storage" tab and chose default options.
    7. Next Select on "Add Tags" tab. Add one tag. [Key = Name , Value = User_Lapad_Initials].
 
-   Example of Value field:
-   Users Name: John Calvin Smith
-   Key = Name
-   Value=User-Lpad-JCS
-
-
+     Example of Value field:
+     User Name: John Calvin Smith
+     
+     Key = Name
+     Value=User-Lpad-JCS
 
    8. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
 
