@@ -6,7 +6,7 @@ The Cloud Kickstart is an enablement workshop demonstrating AppDynamics ability 
 
 End-to-end monitoring of cloud applications remains a challenge for most cloud consumers. Over the last few years, AppDynamics has released significant capabilities to meet this challenge.
 
-Cloud Kickstart showcases these capabilities. The project consists of a collection of build, deploy, and provisioning assets; sample application; and instructions to aid in the delivery of the workshop.
+Cloud Kickstart showcases these capabilities. The project consists of a collection of build, deploy, and provisioning assets; sample application; lab guides; and instructions to aid in the delivery of the workshop.
 
 Customers, partners, and sellers are free to leverage these materials and gain valuable hands-on experience monitoring cloud native applications using AppDynamics.
 
