@@ -5,7 +5,7 @@ Follow these instructions to build the AWS Amazon Linux 2 AMI images:
 -	__APM-Platform VM__: An APM Platform stand-alone VM with an AppDynamics Controller.
 -	__LPAD-EKS VM__: An AWS EKS 'Launchpad' VM needed for Kubernetes CLI Operations and running the sample apps.
 
-**NOTE:** Before building the AppD Cloud Kickstart VM images for AWS, it is recommended that you install the AWS CLI and Python3. This will allow you to cleanup and delete any resources created by the Packer builds when you are finished. It will also provide the ability to easily purge old AMI images and while keeping the latest.
+Before building the AppD Cloud Kickstart VM images for AWS, it is recommended that you install the AWS CLI and Python3. This will allow you to cleanup and delete any resources created by the Packer builds when you are finished. It will also provide the ability to easily purge old AMI images while keeping the latest.
 
 ## AWS-Specific Installation Instructions - macOS
 
@@ -57,8 +57,6 @@ Perform the following steps to install the needed software:
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
 -	Amazon AWS CLI 1.16.120 (command-line interface)
--	Python 3.7.2
-	-	Pip 19.0.3
 
 Perform the following steps to install the needed software:
 
@@ -116,7 +114,7 @@ To prepare for the build, perform the following steps:
     $ source ./set_appd_cloud_kickstart_env.sh
     ```
 
-    Validate the sourcing of the file was successful via the following commands which return the newly-defined environment variables:
+    Validate the newly-defined environment variables via the following commands:
 
     ```
     $ env | grep -i ^aws | sort
