@@ -3,7 +3,7 @@
 
 # install java se 11 development kit. --------------------------------------------------------------
 jdkhome="jdk11"
-jdkbuild="11.0.2+7"
+jdkbuild="11.0.2+9"
 jdkhash="f51449fcd52f4d52b93a989c5c56ed3c"
 jdkfolder="jdk-11.0.2"
 jdkbinary="${jdkfolder}_linux-x64_bin.tar.gz"
