@@ -1,6 +1,6 @@
 ## Overview
 
-Amazon Elastic Container Service for Kubernetes (EKS) makes it easy to operate Kubernetes clusters, but performance monitoring remains a top challenge. AppDynamics seamlessly integrates into EKS environments, providing insights into the performance of every microservice deployed and bring container and K8s visibility, all through a single pane of glass. On the heels of announcing the general availability of AppDynamics for Kubernetes at KubeCon Europe, we’ve partnered with Amazon Web Services (AWS) to bring Amazon EKS to the broader Kubernetes community. AppDynamics provides enterprise-grade, end-to-end performance monitoring for applications orchestrated by Kubernetes.
+Amazon Elastic Container Service for Kubernetes (EKS) makes it easy to operate Kubernetes clusters, but performance monitoring remains a top challenge. AppDynamics seamlessly integrates into EKS environments, providing insights into the performance of every microservice deployed, along with container and K8s visibility, all through a single pane of glass. On the heels of announcing the general availability of AppDynamics for Kubernetes at KubeCon Europe, we’ve partnered with Amazon Web Services (AWS) to bring Amazon EKS to the broader Kubernetes community. AppDynamics provides enterprise-grade, end-to-end performance monitoring for applications orchestrated by Kubernetes.
 
 ## Monitoring Amazon EKS with AppDynamics
 
