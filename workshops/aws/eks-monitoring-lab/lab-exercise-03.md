@@ -19,7 +19,7 @@ You will need to use an existing AMI image named **APM-Platform-455-AL2-AMI** an
 Once you have identified the appropriate AMI, launch an instance of it via:
 
   1. Select the AMI > Launch
-  2. Select General Purpose "t2.micro"
+  2. Select General Purpose "t2.large"
   3. Click "Configure Instance Details" in the bottom right
   4. Keep all default values
   5. Scroll to the bottom and Expand Advanced
@@ -57,4 +57,4 @@ http://FQDN_OF_MACHINE:8090/controller
 
 <br>
 
-[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-02.md) | [Next](lab-exercise-04.md)
+[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), 3, [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-02.md) | [Next](lab-exercise-04.md)

@@ -149,10 +149,10 @@ You should see an image like the one below that shows the network metrics for th
 
 <br>
 
-Back on the main Network Dashboard, click on the Explorer link under Connections near the top right of the scrren to see a summary of all the connections like the image below:
+Back on the main Network Dashboard, click on the Explorer link under Connections near the top right of the screen to see a summary of all the connections like the image below:
 
 ![NetViz Dashboard-4](./images/36.png)
 
 <br>
 
-[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-04.md) | [Next](lab-exercise-06.md)
+[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), 5, [6](lab-exercise-06.md) | [Back](lab-exercise-04.md) | [Next](lab-exercise-06.md)
