@@ -45,7 +45,7 @@ chmod 755 ./initialize_al2_apm_platform_cloud_init.sh
 
   8. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
 
-![Security Group](./images/38.png)
+![Security Group](./images/security-group-01.png)
 
   9. Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the `AppD-Cloud-Kickstart-AWS.pem` if you have access to it. You can request this key from the workshop creators, and/or provide it to associates taking the workshop. Otherwise, you can create your own key pair.
 
