@@ -1,7 +1,7 @@
 # Lab Exercise 1
 ## Launch the First EC2 Instance (e.g. Launch Pad EC2).
 
-This is going to be used to execute all the steps needed for installation. The Launch Pad Comes preinstalled with utilities like AWSCLI, kubectl etc.
+This is going to be used to execute all the steps needed for installation. The Launch Pad Comes preinstalled with utilities like AWS CLI, kubectl, etc.
 
 In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two Github repositories and create the EKS cluster in the next lab step.
 
@@ -63,14 +63,11 @@ If the above section is not completed at VM creation, the launchpad server will 
 
    8. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
 
-![Security Group](./images/38.png)
+![Security Group](./images/security-group-01.png)
 
    9. Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the KickStarter pem if you have access to it.  You can request this key from the workshop creators, and / or provide it to associates taking the workshop.
 
 **NOTE:** Once the VM is launched, take note of the FQDN of the server. You will be leveraging this server in the remainder of the lab.
-
-   9. Update Security group
-   .......
 
 <br>
 
