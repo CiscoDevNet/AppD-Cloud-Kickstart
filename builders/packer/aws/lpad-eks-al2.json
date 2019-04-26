@@ -90,7 +90,7 @@
       "pause_before": "10s",
       "scripts": [
         "../../../provisioners/scripts/aws/install_al2_kickstart_tools.sh",
-        "../../../provisioners/scripts/common/install_oracle_java_jdk_8.sh",
+        "../../../provisioners/scripts/common/install_aws_corretto_java_jdk_8.sh",
         "../../../provisioners/scripts/aws/install_al2_docker.sh",
         "../../../provisioners/scripts/common/install_docker_compose.sh",
         "../../../provisioners/scripts/aws/install_al2_python3.sh",
