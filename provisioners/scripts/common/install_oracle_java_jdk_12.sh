@@ -3,9 +3,9 @@
 
 # install java se 12 development kit. --------------------------------------------------------------
 jdkhome="jdk12"
-jdkbuild="12+33"
-jdkhash="312335d836a34c7c8bba9d963e26dc23"
-jdkfolder="jdk-12"
+jdkbuild="12.0.1+12"
+jdkhash="69cfe15208a647278a19ef0990eea691"
+jdkfolder="jdk-12.0.1"
 jdkbinary="${jdkfolder}_linux-x64_bin.tar.gz"
 
 # create java home parent folder.
