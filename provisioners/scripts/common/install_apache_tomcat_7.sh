@@ -4,7 +4,7 @@
 # set default values for input environment variables if not set. ---------------
 # tomcat web server install parameters.
 tomcat_home="${tomcat_home:-apache-tomcat-7}"                       # [optional] tomcat home (defaults to 'apache-tomcat-7').
-tomcat_release="${tomcat_release:-7.0.93}"                          # [optional] tomcat release (defaults to '7.0.93').
+tomcat_release="${tomcat_release:-7.0.94}"                          # [optional] tomcat release (defaults to '7.0.94').
 
 tomcat_username="${tomcat_username:-ec2-user}"                      # [optional] tomcat user name (defaults to 'ec2-user').
 tomcat_group="${tomcat_group:-ec2-user}"                            # [optional] tomcat group (defaults to 'ec2-user').
@@ -29,7 +29,7 @@ Usage:
   Example:
    # tomcat web server install parameters.
     [root]# export tomcat_home="apache-tomcat-7"                # [optional] tomcat home (defaults to 'apache-tomcat-7').
-    [root]# export tomcat_release="7.0.93"                      # [optional] tomcat release (defaults to '7.0.93').
+    [root]# export tomcat_release="7.0.94"                      # [optional] tomcat release (defaults to '7.0.94').
    #
     [root]# export tomcat_username="ec2-user"                   # [optional] tomcat user name (defaults to 'ec2-user').
     [root]# export tomcat_group="ec2-user"                      # [optional] tomcat group (defaults to 'ec2-user').
