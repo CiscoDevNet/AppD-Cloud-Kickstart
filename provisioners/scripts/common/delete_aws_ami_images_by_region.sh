@@ -10,7 +10,7 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 appd_platform_name="${appd_platform_name-AppDynamics Cloud Kickstart}"
-appd_project_image_types="${appd_project_image_types-APM-Platform EXT LPAD-EKS}"
+appd_project_image_types="${appd_project_image_types-APM-Platform EXT LPAD-EKS APM-Platform-CentOS EXT-CentOS LPAD-EKS-CentOS}"
 aws_ami_region="${aws_ami_region-us-west-2}"
 aws_ami_keep_last="${aws_ami_keep_last-true}"
 
