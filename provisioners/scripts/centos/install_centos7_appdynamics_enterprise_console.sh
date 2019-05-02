@@ -29,7 +29,7 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-4.5.7.18512}"
+appd_platform_release="${appd_platform_release:-4.5.9.19152}"
 set +x  # temporarily turn command display OFF.
 appd_platform_admin_username="${appd_platform_admin_username:-admin}"
 appd_platform_admin_password="${appd_platform_admin_password:-welcome1}"
@@ -62,7 +62,7 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="4.5.7.18512"                  # [optional] platform release (defaults to '4.5.7.18512').
+    [root]# export appd_platform_release="4.5.9.19152"                  # [optional] platform release (defaults to '4.5.9.19152').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
     [root]# export appd_platform_admin_password="welcome1"              # [optional] platform admin password (defaults to 'welcome1').
     [root]# export appd_platform_db_password="welcome1"                 # [optional] platform database password (defaults to 'welcome1').
@@ -108,6 +108,23 @@ yum -y install libaio
 
 # install the simple non-uniform memory access (numa) policy support package.
 yum -y install numactl
+
+# install the time zone data files with rules for various time zones around the world.
+yum -y install tzdata
+
+# install the ncurses (new curses) text-based ui library.
+yum -y install ncurses-libs
+
+# mysql 5.5.57 and 5.7.19 require ncurses-libs version 5, which is NOT the default on amazon linux 2.
+# the 'ncurses-compat-libs' will install version 5 on amazon linux 2.
+distro_name=$(cat /etc/system-release | awk 'NR==1 {print $1}')
+if [ "$distro_name" = "Amazon" ]; then
+  ncurses_library="/lib64/libtinfo.so.5"
+  if [ ! -f "$ncurses_library" ]; then
+    # works on amazon linux 2 only.
+    yum -y install ncurses-compat-libs
+  fi
+fi
 
 # configure file and process limits for user 'root'.
 ulimit -S -n
