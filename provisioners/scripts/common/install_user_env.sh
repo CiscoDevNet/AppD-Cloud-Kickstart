@@ -2,16 +2,16 @@
 # create default command-line environment profile for appdynamics cloud kickstart user.
 
 # set default values for input environment variables if not set. -----------------------------------
-user_name="${user_name:-}"                                      # user name.
-user_group="${user_group:-}"                                    # user login group.
-user_home="${user_home:-/home/$user_name}"                      # [optional] user home (defaults to '/home/user_name').
-user_docker_profile="${user_docker_profile:-false}"             # [optional] user docker profile (defaults to 'false').
-user_prompt_color="${user_prompt_color:-green}"                 # [optional] user prompt color (defaults to 'green').
-                                                                #            valid colors are:
-                                                                #              'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
+user_name="${user_name:-}"
+user_group="${user_group:-}"
+user_home="${user_home:-/home/$user_name}"
+user_docker_profile="${user_docker_profile:-false}"
+user_prompt_color="${user_prompt_color:-green}"
+d_completion_release="${d_completion_release:-18.06.1-ce}"
+dc_completion_release="${dc_completion_release:-1.24.0}"
 
 # set default value for kickstart home environment variable if not set. ----------------------------
-kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
+kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"
 
 # define usage function. ---------------------------------------------------------------------------
 usage() {
@@ -28,6 +28,8 @@ Usage:
                                                                 #            valid colors:
                                                                 #              'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
                                                                 #
+    [root]# export d_completion_release="18.06.1-ce"            # [optional] docker completion for bash release (defaults to '18.06.1-ce').
+    [root]# export dc_completion_release="1.24.0"               # [optional] docker compose completion for bash release (defaults to '1.24.0').
     [root]# export kickstart_home="/opt/appd-cloud-kickstart"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
     [root]# $0
 EOF
@@ -64,8 +66,8 @@ if [ "$user_name" == "root" ]; then
   master_bashrc="${kickstart_home}/provisioners/scripts/common/users/user-root-bashrc.sh"
   user_home="/root"                                         # override user home for 'root' user.
 else
-  master_bashprofile="${kickstart_home}/provisioners/scripts/common/users/user-ec2-user-bash_profile.sh"
-  master_bashrc="${kickstart_home}/provisioners/scripts/common/users/user-ec2-user-bashrc.sh"
+  master_bashprofile="${kickstart_home}/provisioners/scripts/common/users/user-kickstart-bash_profile.sh"
+  master_bashrc="${kickstart_home}/provisioners/scripts/common/users/user-kickstart-bashrc.sh"
 fi
 
 # copy environment profiles to user home.
@@ -97,22 +99,20 @@ if [ "$user_docker_profile" == "true" ] && [ "$user_name" != "root" ]; then
   usermod -aG docker ${user_name}
 
   # install docker completion for bash.
-  dcompletion_release="18.09.3"
-  dcompletion_binary=".docker-completion.sh"
+  d_completion_binary=".docker-completion.sh"
 
   # download docker completion for bash from github.com.
-  rm -f ${user_home}/${dcompletion_binary}
-  curl --silent --location "https://github.com/docker/cli/raw/v${dcompletion_release}/contrib/completion/bash/docker" --output ${user_home}/${dcompletion_binary}
-  chown -R ${user_name}:${user_group} ${user_home}/${dcompletion_binary}
-  chmod 644 ${user_home}/${dcompletion_binary}
+  rm -f ${user_home}/${d_completion_binary}
+  curl --silent --location "https://github.com/docker/cli/raw/v${d_completion_release}/contrib/completion/bash/docker" --output ${user_home}/${d_completion_binary}
+  chown -R ${user_name}:${user_group} ${user_home}/${d_completion_binary}
+  chmod 644 ${user_home}/${d_completion_binary}
 
   # install docker compose completion for bash.
-  dcrelease="1.23.2"
-  dccompletion_binary=".docker-compose-completion.sh"
+  dc_completion_binary=".docker-compose-completion.sh"
 
   # download docker completion for bash from github.com.
-  rm -f ${user_home}/${dccompletion_binary}
-  curl --silent --location "https://github.com/docker/compose/raw/${dcrelease}/contrib/completion/bash/docker-compose" --output ${user_home}/${dccompletion_binary}
-  chown -R ${user_name}:${user_group} ${user_home}/${dccompletion_binary}
-  chmod 644 ${user_home}/${dccompletion_binary}
+  rm -f ${user_home}/${dc_completion_binary}
+  curl --silent --location "https://github.com/docker/compose/raw/${dc_completion_release}/contrib/completion/bash/docker-compose" --output ${user_home}/${dc_completion_binary}
+  chown -R ${user_name}:${user_group} ${user_home}/${dc_completion_binary}
+  chmod 644 ${user_home}/${dc_completion_binary}
 fi

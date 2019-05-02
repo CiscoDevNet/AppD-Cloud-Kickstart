@@ -1,5 +1,5 @@
 # .bashrc
-# bash resource configuration for kickstarter users.
+# bash resource configuration for kickstart users.
 
 # source global definitions.
 if [ -f /etc/bashrc ]; then
@@ -23,9 +23,9 @@ export GIT_HOME
 GIT_FLOW_HOME=/usr/local/git/gitflow
 export GIT_FLOW_HOME
 
-# set appd kickstarter home path.
-kickstarter_home=/opt/appd-kickstarter
-export kickstarter_home
+# set appd kickstart home path.
+kickstart_home=/opt/appd-cloud-kickstart
+export kickstart_home
 
 # set kubectl config path.
 KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
@@ -70,7 +70,7 @@ alias back='cd $OLDPWD; pwd'
 alias c=clear
 #alias gvim='gvim -u $HOME/.vim/vimrc.vim'
 alias here='cd $here; pwd'
-alias kickstarterhome='cd $kickstarter_home; pwd'
+alias kickstarthome='cd $kickstart_home; pwd'
 alias more='less'
 alias there='cd $there; pwd'
 alias vi='vim -u $HOME/.vim/vimrc.vim'

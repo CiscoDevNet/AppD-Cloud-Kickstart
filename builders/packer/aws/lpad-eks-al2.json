@@ -82,6 +82,9 @@
         "aws_cli_default_region_name={{user `aws_cli_default_region_name`}}",
         "aws_cli_default_output_format={{user `aws_cli_default_output_format`}}",
         "user_name={{user `aws_ec2_username`}}",
+        "user_group={{user `aws_ec2_username`}}",
+        "user_docker_profile={{user `user_docker_profile`}}",
+        "d_completion_release={{user `docker_completion_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -91,10 +94,13 @@
       "scripts": [
         "../../../provisioners/scripts/aws/install_al2_kickstart_tools.sh",
         "../../../provisioners/scripts/common/install_aws_corretto_java_jdk_8.sh",
+        "../../../provisioners/scripts/common/install_aws_corretto_java_jdk_11.sh",
+        "../../../provisioners/scripts/common/install_oracle_java_jdk_12.sh",
         "../../../provisioners/scripts/aws/install_al2_docker.sh",
         "../../../provisioners/scripts/common/install_docker_compose.sh",
         "../../../provisioners/scripts/aws/install_al2_python3.sh",
-        "../../../provisioners/scripts/common/install_users_env.sh",
+        "../../../provisioners/scripts/common/install_root_user_env.sh",
+        "../../../provisioners/scripts/common/install_user_env.sh",
         "../../../provisioners/scripts/common/install_jq_json_processor.sh",
         "../../../provisioners/scripts/centos/install_centos7_git.sh",
         "../../../provisioners/scripts/common/install_git_flow.sh",
@@ -120,6 +126,8 @@
     "aws_ec2_hostname": "lpad",
     "aws_ec2_instance_type": "t2.micro",
     "aws_ec2_username": "ec2-user",
+    "user_docker_profile": "true",
+    "docker_completion_release": "18.06.1-ce",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }

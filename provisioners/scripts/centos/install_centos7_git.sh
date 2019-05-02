@@ -1,11 +1,16 @@
 #!/bin/sh -eux
 # install git distributed version control system.
 
-# install tools needed to build git from source. -------------------------------
+# set default values for input environment variables if not set. -----------------------------------
+# [OPTIONAL] git flow install parameters [w/ defaults].
+user_name="${user_name:-ec2-user}"                              # user name.
+user_group="${user_group:-ec2-user}"                            # user login group.
+
+# install tools needed to build git from source. ---------------------------------------------------
 yum -y install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
 yum -y install gcc perl-ExtUtils-MakeMaker
 
-# install git binaries from source. --------------------------------------------
+# install git binaries from source. ----------------------------------------------------------------
 githome="git"
 gitrelease="2.21.0"
 gitfolder="git-${gitrelease}"
@@ -45,7 +50,7 @@ export PATH
 # verify installation.
 git --version
 
-# install git man pages. -------------------------------------------------------
+# install git man pages. ---------------------------------------------------------------------------
 gitmanbinary="git-manpages-${gitrelease}.tar.gz"
 
 # create git man pages parent folder if needed.
@@ -59,13 +64,13 @@ wget --no-verbose https://www.kernel.org/pub/software/scm/git/${gitmanbinary}
 tar -zxvf ${gitmanbinary} --no-same-owner --no-overwrite-dir
 rm -f ${gitmanbinary}
 
-# install git completion for bash. ---------------------------------------------
+# install git completion for bash. -----------------------------------------------------------------
 gcbin=".git-completion.bash"
-gcfolder="/home/ec2-user"
+gcfolder="/home/${user_name}"
 
 # download git completion for bash from github.com.
 rm -f ${gcfolder}/${gcbin}
 curl --silent --location "https://raw.githubusercontent.com/git/git/v${gitrelease}/contrib/completion/git-completion.bash" --output ${gcfolder}/${gcbin}
 
-chown -R ec2-user:ec2-user ${gcfolder}/${gcbin}
+chown -R ${user_name}:${user_group} ${gcfolder}/${gcbin}
 chmod 644 ${gcfolder}/${gcbin}
