@@ -11,19 +11,19 @@ Before building the AppD Cloud Kickstart VM images for AWS, it is recommended th
 
 Here is a list of the recommended open source software to be installed on the host macOS machine:
 
--	Amazon AWS CLI 1.16.150 (command-line interface)
--	Python 3.7.2
-	-	Pip 19.0.3
+-	Amazon AWS CLI 1.16.153 (command-line interface)
+-	Python 3.7.3
+	-	Pip 19.1.1
 
 Perform the following steps to install the needed software:
 
-1.	Install [Python 3.7.2](https://www.python.org/downloads/release/python-372/) for macOS 64-bit.  
+1.	Install [Python 3.7.3](https://www.python.org/downloads/release/python-372/) for macOS 64-bit.  
     `$ brew install python3`  
 
-2.	Upgrade [Pip 19.0.3](https://pypi.org/project/pip/) for macOS 64-bit.  
+2.	Upgrade [Pip 19.1.1](https://pypi.org/project/pip/) for macOS 64-bit.  
     `$ pip3 install --upgrade pip`  
 
-3.	Install [AWS CLI 1.16.150](https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-pip).  
+3.	Install [AWS CLI 1.16.153](https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-pip).  
     `$ pip3 install awscli --upgrade --user`  
 
 4.	Add AWS CLI to shell environment `PATH`:
@@ -43,24 +43,24 @@ Perform the following steps to install the needed software:
 
     ```
     $ python3 --version
-    Python 3.7.2
+    Python 3.7.3
 
     $ pip3 --version
-    pip 19.0.3 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
+    pip 19.1 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
 
     $ aws --version
-    aws-cli/1.16.150 Python/3.7.2 Darwin/18.2.0 botocore/1.12.140
+    aws-cli/1.16.153 Python/3.7.3 Darwin/18.5.0 botocore/1.12.143
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
 
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
--	Amazon AWS CLI 1.16.150 (command-line interface)
+-	Amazon AWS CLI 1.16.153 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 1.16.150](https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi) for Windows 64-bit.  
+1.	Install [AWS CLI 1.16.153](https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi) for Windows 64-bit.  
     Run the downloaded MSI installer and follow the on-screen instructions.  
 
     **NOTE:** For Windows users, the MSI installation package offers a familiar and convenient way to install the AWS CLI without installing any other prerequisites. However, when updates are released, you must repeat the installation process to get the latest version of the AWS CLI. If you prefer more frequent updates, consider using `pip` as described in the AWS CLI [install guide](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html).
@@ -69,7 +69,7 @@ Perform the following steps to install the needed software:
 
     ```
     $ aws --version
-    aws-cli/1.16.150 Python/3.6.0 Windows/10 botocore/1.12.140
+    aws-cli/1.16.153 Python/3.6.0 Windows/10 botocore/1.12.143
     ```
 
 ## Prepare for the Build
@@ -163,15 +163,15 @@ The following utilities and application performance management applications are 
 	-	Docker Bash Completion
 	-	Docker Compose 1.24.0
 	-	Docker Compose Bash Completion
--	Java SE JDK 8 Update 212
+-	Java SE JDK 8 Update 212 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.16
 -	Python 2.7.14
-	-	Pip 19.0.3
+	-	Pip 19.1.1
 
 The following AWS CLI command-line tools and utilities are pre-installed in the __LPAD-EKS VM__:
 
--	Amazon AWS CLI 1.16.150 (command-line interface)
+-	Amazon AWS CLI 1.16.153 (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.1.31 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.12.7 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.12.7 (command-line interface)
@@ -183,9 +183,12 @@ The following AWS CLI command-line tools and utilities are pre-installed in the 
 	-	Git Bash Completion
 	-	Git-Flow 1.12.1 (AVH Edition)
 	-	Git-Flow Bash Completion
+-	Helm CLI [helm/tiller] 2.13.1 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 212 (Amazon Corretto 8)
+-	Java SE JDK 11.0.3 (Amazon Corretto 11)
+-	Java SE JDK 12.0.1 (Oracle)
 -	jq 1.6 (command-line JSON processor)
 -	Python 2.7.14
-	-	Pip 19.0.3
+	-	Pip 19.1.1
 -	Python 3.7.1
-	-	Pip 19.0.3
+	-	Pip 19.1.1

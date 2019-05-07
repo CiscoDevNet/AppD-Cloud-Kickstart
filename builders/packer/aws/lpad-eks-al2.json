@@ -107,7 +107,8 @@
         "../../../provisioners/scripts/common/install_aws_cli.sh",
         "../../../provisioners/scripts/common/install_aws_eksctl_cli.sh",
         "../../../provisioners/scripts/common/install_aws_kubectl_cli.sh",
-        "../../../provisioners/scripts/common/install_aws_iam_authenticator.sh"
+        "../../../provisioners/scripts/common/install_aws_iam_authenticator.sh",
+        "../../../provisioners/scripts/common/install_helm_cli.sh"
       ],
       "type": "shell"
     }
