@@ -62,5 +62,5 @@ PATH=/usr/local/bin:$PATH
 export PATH
 
 # verify installation.
-helm version --client
+helm version --short --client
 tiller -version
