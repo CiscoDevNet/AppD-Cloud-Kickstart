@@ -5,43 +5,19 @@
 user_name="root"                                                # user name for 'root' user.
 user_group="root"                                               # user login group for 'root' user.
 user_home="/root"                                               # user home for 'root' user.
-user_prompt_color="${user_prompt_color:-red}"
+user_prompt_color="red"                                         # user prompt color (defaults to 'red').
+                                                                #   valid colors:
+                                                                #     'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
 
 # set default value for kickstart home environment variable if not set. ----------------------------
-kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"
-
-# define usage function. ---------------------------------------------------------------------------
-usage() {
-  cat <<EOF
-Usage:
-  All inputs are defined by external environment variables.
-  Script should be run with correct privilege for the given user name.
-  Example:
-    [root]# export user_prompt_color="red"                      # [optional] user prompt color (defaults to 'green').
-                                                                #            valid colors:
-                                                                #              'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
-                                                                #
-    [root]# export kickstart_home="/opt/appd-cloud-kickstart"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
-    [root]# $0
-EOF
-}
-
-# validate environment variables. ------------------------------------------------------------------
-if [ -n "$user_prompt_color" ]; then
-  case $user_prompt_color in
-      black|blue|cyan|green|magenta|red|white|yellow)
-        ;;
-      *)
-        echo "Error: invalid 'user_prompt_color'."
-        usage
-        exit 1
-        ;;
-  esac
-fi
+kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
 
 # create default environment profile for the user. -------------------------------------------------
 root_bashprofile="${kickstart_home}/provisioners/scripts/common/users/user-root-bash_profile.sh"
 root_bashrc="${kickstart_home}/provisioners/scripts/common/users/user-root-bashrc.sh"
+
+# set user prompt color.
+sed -i "s/{red}/{${user_prompt_color}}/g" ${root_bashrc}
 
 # copy environment profiles to user home.
 cd ${user_home}
@@ -50,9 +26,6 @@ cp -p .bashrc .bashrc.orig
 
 cp -f ${root_bashprofile} .bash_profile
 cp -f ${root_bashrc} .bashrc
-
-# set user prompt color.
-sed -i "s/{green}/{${user_prompt_color}}/g" .bashrc
 
 # remove existing vim profile if it exists.
 if [ -d ".vim" ]; then

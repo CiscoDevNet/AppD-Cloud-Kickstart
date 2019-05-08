@@ -60,26 +60,26 @@ if [ -n "$user_prompt_color" ]; then
   esac
 fi
 
-# create default environment profile for the user. -------------------------------------------------
 if [ "$user_name" == "root" ]; then
-  master_bashprofile="${kickstart_home}/provisioners/scripts/common/users/user-root-bash_profile.sh"
-  master_bashrc="${kickstart_home}/provisioners/scripts/common/users/user-root-bashrc.sh"
-  user_home="/root"                                         # override user home for 'root' user.
-else
-  master_bashprofile="${kickstart_home}/provisioners/scripts/common/users/user-kickstart-bash_profile.sh"
-  master_bashrc="${kickstart_home}/provisioners/scripts/common/users/user-kickstart-bashrc.sh"
+  echo "Error: 'user_name' should NOT be 'root'."
+  usage
+  exit 1
 fi
+
+# create default environment profile for the user. -------------------------------------------------
+user_bashprofile="${kickstart_home}/provisioners/scripts/common/users/user-kickstart-bash_profile.sh"
+user_bashrc="${kickstart_home}/provisioners/scripts/common/users/user-kickstart-bashrc.sh"
+
+# set user prompt color.
+sed -i "s/{green}/{${user_prompt_color}}/g" ${user_bashrc}
 
 # copy environment profiles to user home.
 cd ${user_home}
 cp -p .bash_profile .bash_profile.orig
 cp -p .bashrc .bashrc.orig
 
-cp -f ${master_bashprofile} .bash_profile
-cp -f ${master_bashrc} .bashrc
-
-# set user prompt color.
-sed -i "s/{green}/{${user_prompt_color}}/g" .bashrc
+cp -f ${user_bashprofile} .bash_profile
+cp -f ${user_bashrc} .bashrc
 
 # remove existing vim profile if it exists.
 if [ -d ".vim" ]; then
@@ -94,7 +94,7 @@ chown -R ${user_name}:${user_group} .
 chmod 644 .bash_profile .bashrc
 
 # create docker profile for the user. --------------------------------------------------------------
-if [ "$user_docker_profile" == "true" ] && [ "$user_name" != "root" ]; then
+if [ "$user_docker_profile" == "true" ]; then
   # add user to the 'docker' group.
   usermod -aG docker ${user_name}
 
