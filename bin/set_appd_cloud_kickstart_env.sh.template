@@ -130,8 +130,8 @@ export appd_controller_host
 #appd_java_agent_user="ec2-user"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '4.5.9.25648').
-#appd_java_agent_release="4.5.9.25648"
+# [optional] java agent release (defaults to '4.5.10.25916').
+#appd_java_agent_release="4.5.10.25916"
 #export appd_java_agent_release
 
 # ------------------------------------------------------------------------------
@@ -148,7 +148,7 @@ export appd_controller_host
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver4.5.9.25648/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver4.5.10.25916/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
@@ -181,8 +181,8 @@ export appd_controller_host
 #appd_machine_agent_user="ec2-user"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '4.5.10.2131').
-#appd_machine_agent_release="4.5.10.2131"
+# [optional] machine agent release (defaults to '4.5.11.2163').
+#appd_machine_agent_release="4.5.11.2163"
 #export appd_machine_agent_release
 
 # ------------------------------------------------------------------------------
