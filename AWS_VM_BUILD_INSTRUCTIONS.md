@@ -94,7 +94,7 @@ To prepare for the build, perform the following steps:
 
     The following environment variables are the most common to be overridden. They are grouped by sections in the file, so you will have to search to locate the exact line. For example, the AWS-related variables are at the end of the file.
 
-    The first 4 are mandatory and the others are optional, but helpful. If you are building the AMI images in the `us-west-2`region (Oregon), the region-related variables can be left alone.
+    The first 4 are mandatory and the others are optional, but helpful. If you are building the AMI images in the `us-east-1` region (N. Virginia), the region-related variables can be left alone.
 
     ```
     appd_username="<Your_AppDynamics_Download_Site_Email>"

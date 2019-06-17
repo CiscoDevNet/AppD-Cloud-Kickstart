@@ -33,7 +33,7 @@ ssh -i <path-to-file>/AppD-Cloud-Kickstart-AWS.pem <hostname-of-your-launch-pad-
 
 Example:
 ```
-ssh -i /Users/john.smith/Documents/AppD-Cloud-Kickstart-AWS.pem centos@ec2-54-214-99-204.us-west-2.compute.amazonaws.com
+ssh -i /Users/john.smith/Documents/AppD-Cloud-Kickstart-AWS.pem centos@ec2-54-214-99-204.us-east-1.compute.amazonaws.com
 ```
 
 <br>
