@@ -31,21 +31,22 @@ Once 'Advanced' is expanded, enter the following 'User data' commands.
 This allows you to configure the EC2 instance during launch.
 
 Before continuing, you will need to define the **AWS_ACCESS_KEY_ID** and **AWS_SECRET_ACCESS_KEY** environment
-variables with valid credentials for your environment. If you are NOT working in the 'us-west-2' region, also
-uncomment and set the **aws_cli_default_region_name**. Please note the variables are case sensitive:
+variables with valid credentials for your environment. Also modify and set **user_name** and **aws_cli_default_region_name**
+as needed. Please note the variables are case sensitive:
 
 ```
 #!/bin/sh
 cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
 chmod 755 ./initialize_al2_lpad_eks_cloud_init.sh
 
-# Set unique AWS CLI config parameters.
+user_name="centos"                          # Default is 'centos'. Modify if using another username.
+export user_name
 AWS_ACCESS_KEY_ID=""
 export AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY=""
 export AWS_SECRET_ACCESS_KEY
-#aws_cli_default_region_name="us-east-2"    # Default is 'us-west-2'. Uncomment if in 'us-east-2'.
-#export aws_cli_default_region_name
+aws_cli_default_region_name="us-east-1"     # Default is 'us-east-1'. Modify if in another region.
+export aws_cli_default_region_name
 
 ./initialize_al2_lpad_eks_cloud_init.sh
 ```

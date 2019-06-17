@@ -31,6 +31,10 @@ This allows you to configure the EC2 instance during launch:
 #!/bin/sh
 cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
 chmod 755 ./initialize_al2_apm_platform_cloud_init.sh
+
+user_name="centos"                          # Default is 'centos'. Modify if using another username.
+export user_name
+
 ./initialize_al2_apm_platform_cloud_init.sh
 ```
 
