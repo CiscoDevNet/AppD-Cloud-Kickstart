@@ -3,8 +3,8 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] git flow install parameters [w/ defaults].
-user_name="${user_name:-ec2-user}"                              # user name.
-user_group="${user_group:-ec2-user}"                            # user login group.
+user_name="${user_name:-centos}"                                # user name.
+user_group="${user_group:-centos}"                              # user login group.
 
 # install tools needed to build git from source. ---------------------------------------------------
 yum -y install curl-devel expat-devel gettext-devel openssl-devel zlib-devel

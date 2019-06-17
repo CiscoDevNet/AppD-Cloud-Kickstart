@@ -126,8 +126,8 @@ export appd_controller_host
 #appd_java_agent_home="appagent"
 #export appd_java_agent_home
 
-# [optional] java agent user (defaults to user 'ec2-user').
-#appd_java_agent_user="ec2-user"
+# [optional] java agent user (defaults to user 'centos').
+#appd_java_agent_user="centos"
 #export appd_java_agent_user
 
 # [optional] java agent release (defaults to '4.5.11.26665').
@@ -177,8 +177,8 @@ export appd_controller_host
 #appd_machine_agent_home="machine-agent"
 #export appd_machine_agent_home
 
-# [optional] machine agent user name (defaults to user 'ec2-user').
-#appd_machine_agent_user="ec2-user"
+# [optional] machine agent user name (defaults to user 'centos').
+#appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
 # [optional] machine agent release (defaults to '4.5.11.2163').

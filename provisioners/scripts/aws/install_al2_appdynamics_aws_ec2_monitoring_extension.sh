@@ -26,7 +26,7 @@ set -x  # turn command display back ON.
 # [OPTIONAL] appdynamics aws ec2 monitoring extension install parameters [w/ defaults].
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"
-appd_machine_agent_user="${appd_machine_agent_user:-ec2-user}"
+appd_machine_agent_user="${appd_machine_agent_user:-centos}"
 appd_machine_agent_account_name="${appd_machine_agent_account_name:-customer1}"
 appd_aws_ec2_extension_release="${appd_aws_ec2_extension_release:-2.0.1}"
 appd_aws_ec2_extension_build="${appd_aws_ec2_extension_build:-1553249199}"
@@ -62,7 +62,7 @@ Usage:
   [OPTIONAL] appdynamics aws ec2 monitoring extension install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_machine_agent_home="machine-agent"              # [optional] machine agent home folder (defaults to 'machine-agent').
-    [root]# export appd_machine_agent_user="ec2-user"                   # [optional] machine agent user name (defaults to user 'ec2-user').
+    [root]# export appd_machine_agent_user="centos"                     # [optional] machine agent user name (defaults to user 'centos').
     [root]# export appd_machine_agent_account_name="customer1"          # [optional] account name (defaults to 'customer1').
     [root]# export appd_aws_ec2_extension_release="2.0.1"               # [optional] aws ec2 extension release (defaults to user '2.0.1').
     [root]# export appd_aws_ec2_extension_build="1553249199"            # [optional] aws ec2 extension build (defaults to user '1553249199').

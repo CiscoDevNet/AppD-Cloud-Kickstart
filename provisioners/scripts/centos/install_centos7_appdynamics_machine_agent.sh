@@ -32,7 +32,7 @@ set +x  # temporarily turn command display OFF.
 appd_controller_root_password="${appd_controller_root_password:-welcome1}"
 set -x  # turn command display back ON.
 appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"
-appd_machine_agent_user="${appd_machine_agent_user:-ec2-user}"
+appd_machine_agent_user="${appd_machine_agent_user:-centos}"
 appd_machine_agent_release="${appd_machine_agent_release:-4.5.11.2163}"
 
 # [OPTIONAL] appdynamics machine agent config parameters [w/ defaults].
@@ -73,7 +73,7 @@ Usage:
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_controller_root_password="welcome1"             # [optional] controller root password (defaults to 'welcome1').
     [root]# export appd_machine_agent_home="machine-agent"              # [optional] machine agent home folder (defaults to 'machine-agent').
-    [root]# export appd_machine_agent_user="ec2-user"                   # [optional] machine agent user name (defaults to user 'ec2-user').
+    [root]# export appd_machine_agent_user="centos"                     # [optional] machine agent user name (defaults to user 'centos').
     [root]# export appd_machine_agent_release="4.5.11.2163"             # [optional] machine agent release (defaults to '4.5.11.2163').
 
   [OPTIONAL] appdynamics machine agent config parameters [w/ defaults].

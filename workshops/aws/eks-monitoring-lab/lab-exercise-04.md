@@ -19,13 +19,13 @@ In this exercise you will need to do the following:
 ssh into the launchpad Server
 
 ```
-ssh -i AppD-Cloud-Kickstart-AWS.pem ec2-user@FQDN_OF_MACHINE
+ssh -i AppD-Cloud-Kickstart-AWS.pem centos@FQDN_OF_MACHINE
 ```
 
 Using the SSH terminal for the Launch Pad EC2 instance, run the commands below to validate your EKS cluster creation is complete and running:
 
 ```
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 kubectl get nodes
 
@@ -41,7 +41,7 @@ You should see output from the commands similar to the image seen below:
 Now run the commands below to create a service account in your EKS cluster:
 
 ```
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 ./create_eks_service_account.sh
 ```
@@ -103,7 +103,7 @@ export appd_es_api_key=your-api-key
 Run the commands below to complete the process of setting all the variables needed to deploy to the EKS cluster:
 
 ```
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 ./create_env_configmap.sh
 ```
@@ -126,7 +126,7 @@ kubectl delete -f Kubernetes/
 To deploy the AD-Capital application to the EKS cluster, run the commands below:
 
 ```
-cd /home/ec2-user/AD-Capital-Kube
+cd /home/centos/AD-Capital-Kube
 
 kubectl create -f Kubernetes/
 ```

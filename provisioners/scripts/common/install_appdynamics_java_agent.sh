@@ -26,7 +26,7 @@ set +x  # temporarily turn command display OFF.
 appd_controller_root_password="${appd_controller_root_password:-welcome1}"
 set -x  # turn command display back ON.
 appd_java_agent_home="${appd_java_agent_home:-appagent}"
-appd_java_agent_user="${appd_java_agent_user:-ec2-user}"
+appd_java_agent_user="${appd_java_agent_user:-centos}"
 appd_java_agent_release="${appd_java_agent_release:-4.5.11.26665}"
 
 # [OPTIONAL] appdynamics java agent config parameters [w/ defaults].
@@ -60,7 +60,7 @@ Usage:
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_controller_root_password="welcome1"             # [optional] controller root password (defaults to 'welcome1').
     [root]# export appd_java_agent_home="appagent"                      # [optional] java agent home (defaults to 'appagent').
-    [root]# export appd_java_agent_user="ec2-user"                      # [optional] java agent user (defaults to user 'ec2-user').
+    [root]# export appd_java_agent_user="centos"                        # [optional] java agent user (defaults to user 'centos').
     [root]# export appd_java_agent_release="4.5.11.26665"               # [optional] java agent release (defaults to '4.5.11.26665').
 
   [OPTIONAL] appdynamics java agent config parameters [w/ defaults].

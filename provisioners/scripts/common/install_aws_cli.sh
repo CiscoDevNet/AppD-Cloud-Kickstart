@@ -20,7 +20,7 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] aws cli install parameters [w/ defaults].
-user_name="${user_name:-ec2-user}"
+user_name="${user_name:-centos}"
 aws_cli_user_config="${aws_cli_user_config:-false}"
 set +x  # temporarily turn command display OFF.
 AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID:-}"
@@ -43,7 +43,7 @@ Usage:
   Description of Environment Variables:
   -------------------------------------
   [OPTIONAL] aws cli install parameters [w/ defaults].
-    [root]# export user_name="ec2-user"                         # [optional] user name (defaults to 'ec2-user').
+    [root]# export user_name="centos"                           # [optional] user name (defaults to 'centos').
     [root]# export aws_cli_user_config="true"                   # [optional] configure aws cli for user? [boolean] (defaults to 'false').
 
     NOTE: Setting 'aws_cli_user_config' to 'true' allows you to perform the AWS CLI configuration concurrently

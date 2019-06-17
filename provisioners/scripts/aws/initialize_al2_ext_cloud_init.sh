@@ -4,7 +4,7 @@
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] aws user and host name config parameters [w/ defaults].
 appd_home="${appd_home:-/opt/appdynamics}"
-user_name="${user_name:-ec2-user}"
+user_name="${user_name:-centos}"
 aws_ec2_hostname="${aws_ec2_hostname:-ext}"
 
 # set appdynamics controller parameters.

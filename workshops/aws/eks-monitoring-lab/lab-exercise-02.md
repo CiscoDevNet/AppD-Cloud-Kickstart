@@ -20,7 +20,7 @@ If you can't get a copy of the `AppD-Cloud-Kickstart-AWS.pem` file, you will nee
 - Create your own key pair in the AWS EC2 console
 - Launch an instance of the Launch Pad EC2 that uses your key pair
 <br>
-You will use the user name ec2-user with no password to SSH into the Launch Pad EC2 instance,
+You will use the user name centos with no password to SSH into the Launch Pad EC2 instance,
 <br><br>
 
 ***For Mac Users:***
@@ -33,7 +33,7 @@ ssh -i <path-to-file>/AppD-Cloud-Kickstart-AWS.pem <hostname-of-your-launch-pad-
 
 Example:
 ```
-ssh -i /Users/john.smith/Documents/AppD-Cloud-Kickstart-AWS.pem ec2-user@ec2-54-214-99-204.us-west-2.compute.amazonaws.com
+ssh -i /Users/john.smith/Documents/AppD-Cloud-Kickstart-AWS.pem centos@ec2-54-214-99-204.us-west-2.compute.amazonaws.com
 ```
 
 <br>
@@ -47,7 +47,7 @@ If you are using PuTTY, you can find the instructions to convert the pem file to
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html#putty-private-key
 
-- Once logged in , modify the value of the 'appd_aws_eks_ssh_public_key' variable in the 'create_eks_cluster.sh' script found in */home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube* so the value is the name of the key pair you created in the AWS EC2 console on your AWS instance after the GIT packages have been cloned — they are not there initially
+- Once logged in , modify the value of the 'appd_aws_eks_ssh_public_key' variable in the 'create_eks_cluster.sh' script found in */home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube* so the value is the name of the key pair you created in the AWS EC2 console on your AWS instance after the GIT packages have been cloned — they are not there initially
 <br>
 
 ### **2.** Clone Github Repositories
@@ -55,20 +55,20 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html#putty-private-key
 Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone two Github repositories by running the commands below:
 
 ```
-cd /home/ec2-user
+cd /home/centos
 
 git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
 
-cd /home/ec2-user
+cd /home/centos
 
 git clone https://github.com/Appdynamics/AD-Capital-Kube.git
 ```
 
 After you run the commands, you should have two new folders in your home directory
 
-*/home/ec2-user/AD-Capital-Kube*
+*/home/centos/AD-Capital-Kube*
 
-*/home/ec2-user/AppD-Cloud-Kickstart*
+*/home/centos/AppD-Cloud-Kickstart*
 
 ![Git Repos Pulled](./images/2.png)
 
@@ -79,7 +79,7 @@ After you run the commands, you should have two new folders in your home directo
 Change to the directory where you will set permissions on the scripts used in the next steps by running the commands below:
 
 ```
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 chmod -R 775 .
 ```
 <br>
@@ -145,7 +145,7 @@ export appd_aws_eks_region=us-west-2
 Once both variables have been set, run the commands below to create the EKS cluster.
 
 ```
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 ./create_eks_cluster.sh
 ```

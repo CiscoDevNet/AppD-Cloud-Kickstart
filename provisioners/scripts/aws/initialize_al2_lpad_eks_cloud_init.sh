@@ -13,7 +13,7 @@ aws_cli_default_region_name="${aws_cli_default_region_name:-us-west-2}"
 aws_cli_default_output_format="${aws_cli_default_output_format:-json}"
 
 # [OPTIONAL] aws user and host name config parameters [w/ defaults].
-user_name="${user_name:-ec2-user}"
+user_name="${user_name:-centos}"
 aws_ec2_hostname="${aws_ec2_hostname:-lpad}"
 
 # validate environment variables. ------------------------------------------------------------------

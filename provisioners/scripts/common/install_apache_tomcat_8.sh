@@ -7,8 +7,8 @@
 tomcat_home="${tomcat_home:-apache-tomcat-8}"                       # [optional] tomcat home (defaults to 'apache-tomcat-8').
 tomcat_release="${tomcat_release:-8.5.42}"                          # [optional] tomcat release (defaults to '8.5.42').
 
-tomcat_username="${tomcat_username:-ec2-user}"                      # [optional] tomcat user name (defaults to 'ec2-user').
-tomcat_group="${tomcat_group:-ec2-user}"                            # [optional] tomcat group (defaults to 'ec2-user').
+tomcat_username="${tomcat_username:-centos}"                        # [optional] tomcat user name (defaults to 'centos').
+tomcat_group="${tomcat_group:-centos}"                              # [optional] tomcat group (defaults to 'centos').
 
 tomcat_admin_username="${tomcat_admin_username:-admin}"             # [optional] tomcat admin user name (defaults to 'admin').
 tomcat_admin_password="${tomcat_admin_password:-welcome1}"          # [optional] tomcat admin password (defaults to 'welcome1').
@@ -32,8 +32,8 @@ Usage:
     [root]# export tomcat_home="apache-tomcat-8"                # [optional] tomcat home (defaults to 'apache-tomcat-8').
     [root]# export tomcat_release="8.5.42"                      # [optional] tomcat release (defaults to '8.5.42').
    #
-    [root]# export tomcat_username="ec2-user"                   # [optional] tomcat user name (defaults to 'ec2-user').
-    [root]# export tomcat_group="ec2-user"                      # [optional] tomcat group (defaults to 'ec2-user').
+    [root]# export tomcat_username="centos"                     # [optional] tomcat user name (defaults to 'centos').
+    [root]# export tomcat_group="centos"                        # [optional] tomcat group (defaults to 'centos').
    #
     [root]# export tomcat_admin_username="admin"                # [optional] tomcat admin user name (defaults to 'admin').
     [root]# export tomcat_admin_password="welcome1"             # [optional] tomcat admin password (defaults to 'welcome1').

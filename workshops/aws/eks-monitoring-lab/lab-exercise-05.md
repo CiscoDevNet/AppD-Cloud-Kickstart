@@ -19,7 +19,7 @@ Server monitoring Agents collect machine and infrastructure-level metrics like D
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Server Monitoring Agent by running the command below:
 
 ```
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/KubeMachineAgent
+cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/KubeMachineAgent
 ```
 
 <br>
@@ -103,7 +103,7 @@ Navigate back into the AD-Capital application and click on the Containers tab on
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Network Monitoring Agent by running the command below:
 
 ```
-cd /home/ec2-user/AD-Capital-Kube
+cd /home/centos/AD-Capital-Kube
 ```
 Now run the following command below to deploy the Server Monitoring agent:
 
