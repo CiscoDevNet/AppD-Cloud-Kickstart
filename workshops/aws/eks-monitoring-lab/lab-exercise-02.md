@@ -172,14 +172,13 @@ unexpected status "ROLLBACK_IN_PROGRESS" while waiting for CloudFormation stack 
 If the error is related to the # of VPC's or the # of Elastic IP addresses you may either delete existing VPC's / Elastic IP addresses, or ask Amazon to increase your limit.
 
 **To View**
-1. Chose the URL appropriate to your region.  
-  For VPC's  
+1. For VPC's, chose the URL appropriate to your region:  
     a. [us-east-1](https://console.aws.amazon.com/vpc/home?region=us-east-1#vpcs:sort=VpcId)  
     b. [us-east-2](https://console.aws.amazon.com/vpc/home?region=us-east-2#vpcs:sort=VpcId)  
     c. [us-west-1](https://console.aws.amazon.com/vpc/home?region=us-west-1#vpcs:sort=VpcId)  
     d. [us-west-2](https://console.aws.amazon.com/vpc/home?region=us-west-2#vpcs:sort=VpcId)  
 
-  For Elastic IP's  
+2. For Elastic IPC's, chose the URL appropriate to your region:  
     a. [us-east-1](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Addresses:sort=InstanceId)  
     b. [us-east-2](https://console.aws.amazon.com/ec2/v2/home?region=us-east-2#Addresses:sort=InstanceId)  
     c. [us-west-1](https://console.aws.amazon.com/ec2/v2/home?region=us-west-1#Addresses:sort=InstanceId)  
