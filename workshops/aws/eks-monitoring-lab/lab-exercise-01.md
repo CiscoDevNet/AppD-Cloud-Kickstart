@@ -21,7 +21,7 @@ You will need to use an existing AMI image named **LPAD-EKS-CentOS76-AMI** and l
 Once you have identified the appropriate AMI, launch an instance of it via:
 
   1. Select the AMI > Launch
-  2. Select General Purpose "t2.micro"
+  2. Select General Purpose **t2.micro**
   3. Click "Configure Instance Details" in the bottom right
   4. Keep all default values
   5. Scroll to the bottom and Expand Advanced
@@ -30,22 +30,22 @@ Once 'Advanced' is expanded, enter the following 'User data' commands.
 
 This allows you to configure the EC2 instance during launch.
 
-Before continuing, you will need to define the **AWS_ACCESS_KEY_ID** and **AWS_SECRET_ACCESS_KEY** environment
-variables with valid credentials for your environment. Also modify and set **user_name** and **aws_cli_default_region_name**
-as needed. Please note the variables are case sensitive:
+Before continuing, you need to define the **AWS_ACCESS_KEY_ID** and **AWS_SECRET_ACCESS_KEY** environment
+variables with valid credentials for your environment. Also set **user_name** and **aws_cli_default_region_name**
+environment variables as needed (defaults are shown). Please note the variables are case sensitive:
 
 ```
 #!/bin/sh
 cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
 chmod 755 ./initialize_al2_lpad_eks_cloud_init.sh
 
-user_name="centos"                          # Default is 'centos'. Modify if using another username.
+user_name="centos"                      # Modify username as needed.
 export user_name
-AWS_ACCESS_KEY_ID=""
+AWS_ACCESS_KEY_ID=""                    # Set AWS Access Key ID.
 export AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY=""
+AWS_SECRET_ACCESS_KEY=""                # Set AWS Secret Access Key.
 export AWS_SECRET_ACCESS_KEY
-aws_cli_default_region_name="us-east-1"     # Default is 'us-east-1'. Modify if in another region.
+aws_cli_default_region_name="us-east-1" # Modify region name as needed.
 export aws_cli_default_region_name
 
 ./initialize_al2_lpad_eks_cloud_init.sh
@@ -54,19 +54,22 @@ export aws_cli_default_region_name
 If the above section is not completed at VM creation, the launchpad server will not function as intended.
 
    6. Select on "Add Storage" tab and chose default options.
-   7. Next Select on "Add Tags" tab. Add one tag. [Key = Name , Value = User_Lapad_Initials].
+   7. Next Select on "Add Tags" tab. Add one tag. [Key = Name , Value = User-Lpad-Initials].
 
      Example of Value field:
      User Name: John Calvin Smith
      
-     Key = Name
-     Value=User-Lpad-JCS
+     Key: Name
+     Value: User-Lpad-JCS
 
    8. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
 
 ![Security Group](./images/security-group-01.png)
 
-   9. Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the KickStarter pem if you have access to it.  You can request this key from the workshop creators, and / or provide it to associates taking the workshop.
+   9. Review and Launch your VM. When prompted for a key pair:  
+
+       a. If you are internal to AppD: Select the **AppD-Cloud-Kickstart-AWS** pem if you have access to it. You can request this key from the workshop creators.  
+       b. If you are external: Select **Create a new key pair** and give it a name. Remember to download it and save it locally.  
 
 **NOTE:** Once the VM is launched, take note of the FQDN of the server. You will be leveraging this server in the remainder of the lab.
 
