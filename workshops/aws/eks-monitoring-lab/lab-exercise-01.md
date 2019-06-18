@@ -1,27 +1,27 @@
 # Lab Exercise 1
 ## Launch the First EC2 Instance (e.g. Launch Pad EC2).
 
-This is going to be used to execute all the steps needed for installation. The Launch Pad Comes preinstalled with utilities like AWS CLI, kubectl, etc.
+The Launch Pad EC2 instance is used to execute all the steps needed for creation and management of the Kubernetes (AWS EKS) cluster. It comes pre-installed with utilities like AWS CLI, kubectl, eksctl, etc.
 
 In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two Github repositories and create the EKS cluster in the next lab step.
 
 This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'.
 
-You will need to use an existing AMI image named **LPAD-EKS-CentOS76-AMI** and located in the AWS region that you are working in:
+You will need to use an existing AMI image named **LPAD-EKS-CentOS76-AMI** located in the AWS region that you are working in:
 
-**NOTE:** Though any region can be utilized, this workshop does create a VPC and utilizes an elastic IP address. You may run into issues with these default limits. In the AppDynamics AWS environment, these limits have been increased in us-east-1. If you are internal to AppD, it is recommended to utilize this region. For clients, know these limits may impact the ability to create a EKS Cluster later on.
+**NOTE:** Though any region can be utilized, this workshop creates a VPC and utilizes an elastic IP address. You may run into issues with default limits for these resources. In the AppDynamics AWS environment, these limits have been increased in **us-east-1**. If you are internal to AppD, it is recommended to utilize this region. For clients, know these limits may impact your ability to create a EKS Cluster later on.
 
-- The AMI image for the **us-west-1** region can be found [here](https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#Images:sort=tag:Name).
-- The AMI image for the **us-west-2** region can be found [here](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=tag:Name).
 - The AMI image for the **us-east-1** region can be found [here](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:sort=tag:Name).
 - The AMI image for the **us-east-2** region can be found [here](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Images:sort=tag:Name).
+- The AMI image for the **us-west-1** region can be found [here](https://us-west-1.console.aws.amazon.com/ec2/v2/home?region=us-west-1#Images:sort=tag:Name).
+- The AMI image for the **us-west-2** region can be found [here](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=tag:Name).
 
 <br>
 
 Once you have identified the appropriate AMI, launch an instance of it via:
 
   1. Select the AMI > Launch
-  2. Select General Purpose **t2.micro**
+  2. Select General Purpose: **t2.micro**
   3. Click "Configure Instance Details" in the bottom right
   4. Keep all default values
   5. Scroll to the bottom and Expand Advanced
@@ -51,14 +51,12 @@ export aws_cli_default_region_name
 ./initialize_al2_lpad_eks_cloud_init.sh
 ```
 
-If the above section is not completed at VM creation, the launchpad server will not function as intended.
+If the above section is not completed at VM creation, the Launch Pad instance will not function as intended.
 
    6. Select on "Add Storage" tab and chose default options.
-   7. Next Select on "Add Tags" tab. Add one tag. [Key = Name , Value = User-Lpad-Initials].
+   7. Next, select the "Add Tags" tab. Add one tag. [Key = Name , Value = User-Lpad-Initials].
+      For example, if your user name is 'John Calvin Smith', enter the following:
 
-     Example of Value field:
-     User Name: John Calvin Smith
-     
      Key: Name
      Value: User-Lpad-JCS
 
