@@ -1,0 +1,6 @@
+This template is a placeholder for the Cisco Workload Optimization Manager (CWOM) license file.
+
+To apply your CWOM license file:
+
+    o Copy your CWOM '*.lic' and rename it
+      to 'provisioners/scripts/centos/tools/UCSPMFEAT20190409133840574.lic'.
