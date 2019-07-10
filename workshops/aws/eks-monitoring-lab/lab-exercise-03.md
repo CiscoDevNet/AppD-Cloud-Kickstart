@@ -19,7 +19,7 @@ You will need to use an existing AMI image named **APM-Platform-4511-CentOS76-AM
 Once you have identified the appropriate AMI, launch an instance of it via:
 
   1. Select the AMI > Launch
-  2. Select General Purpose "t2.large"
+  2. Select General Purpose "r5a.large"
   3. Click "Configure Instance Details" in the bottom right
   4. Keep all default values
   5. Scroll to the bottom and Expand Advanced
