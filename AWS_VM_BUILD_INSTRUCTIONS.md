@@ -166,7 +166,7 @@ To prepare for the build, perform the following steps:
 
 ## AWS CentOS 7.6 Bill-of-Materials
 
-The following utilities and application performance management applications are pre-installed in the __APM-Platform VM__:
+__APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	AppDynamics Enterprise Console 4.5.11.0 Build 20403
 	-	AppDynamics Controller 4.5.11.2 Build 3819
@@ -181,7 +181,7 @@ The following utilities and application performance management applications are 
 -	Python 2.7.5
 	-	Pip 19.1.1
 
-The following utilities and application performance management applications are pre-installed in the __CWOM-Platform VM__:
+__CWOM-Platform VM__ - The following utilities and workload optimization management applications are pre-installed:
 
 -	Cisco Workload Optimization Manager (CWOM) 2.2.3
 -	Docker 18.09.7 CE
@@ -196,7 +196,7 @@ The following utilities and application performance management applications are 
 -	Python 3.6.3
 	-	Pip 19.1.1
 
-The following AWS CLI command-line tools and utilities are pre-installed in the __LPAD-EKS VM__:
+__LPAD-EKS VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
 -	Amazon AWS CLI 1.16.197 (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.1.40 (command-line interface)
