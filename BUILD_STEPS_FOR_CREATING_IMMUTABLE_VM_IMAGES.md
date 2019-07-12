@@ -2,7 +2,7 @@
 
 ## Overview
 
-The AppDynamics Cloud Kickstart project enables an IT Administrator, Software Developer, or DevOps engineer to automate the building of immutable VM images using open source tools from [Hashicorp](https://www.hashicorp.com/). Currently, these VMs consist of these types:
+The AppDynamics Cloud Kickstart project enables an IT Administrator, Software Developer, or DevOps engineer to automate the building of immutable VM images using open source tools from [Hashicorp](https://www.hashicorp.com/). Currently, the VMs consist of these types:
 
 -	__APM-Platform VM__: An APM Platform stand-alone VM designed for Application Performance Monitoring. It consists of the AppDynamics Enterprise Console, Controller, and Events Service.
 -	__CWOM-Platform VM__: A Cisco Workload Optimization Manager (CWOM) stand-alone VM designed for Intelligent Workload Management. It consists of the CWOM Platform server.
@@ -139,4 +139,4 @@ Perform the following steps to install the needed software:
 
 The AppDynamics Cloud Kickstart project currently supports immutable VM image builds for Amazon AWS. In the future, we will be adding support for Microsoft Azure and Google Cloud Platform (GCP). Click on a link below for platform-specific instructions and Bill-of-Materials.
 
--	[AWS Amazon Linux 2 VMs](AWS_VM_BUILD_INSTRUCTIONS.md): Instructions
+-	[AWS CentOS 7.6 VMs](AWS_VM_BUILD_INSTRUCTIONS.md): Instructions

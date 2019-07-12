@@ -1,6 +1,6 @@
-# AWS Amazon Linux 2 AMI Build Instructions
+# AWS CentOS 7.6 AMI Build Instructions
 
-Follow these instructions to build the AWS Amazon Linux 2 AMI images:
+Follow these instructions to build the AWS CentOS 7.6 AMI images:
 
 -	__APM-Platform VM__: An APM Platform stand-alone VM with an AppDynamics Controller.
 -	__CWOM-Platform VM__: A Cisco Workload Optimization Manager (CWOM) stand-alone VM with a CWOM Platform server.
@@ -131,7 +131,7 @@ To prepare for the build, perform the following steps:
 
 ## Build the Amazon Machine Images (AMIs) with Packer
 
-1.	Build the __APM-Platform VM__ Amazon Linux 2 AMI image:
+1.	Build the __APM-Platform VM__ CentOS 7.6 AMI image:
 
     This will take several minutes to run.
 
@@ -142,7 +142,7 @@ To prepare for the build, perform the following steps:
 
     If the build fails, check to ensure the accuracy of all variables edited above--including items such as spaces between access keys and the ending parentheses.
 
-2.	Build the __CWOM-Platform VM__ Amazon Linux 2 AMI image:
+2.	Build the __CWOM-Platform VM__ CentOS 7.6 AMI image:
 
     This will take several minutes to run.
 
@@ -153,7 +153,7 @@ To prepare for the build, perform the following steps:
 
     If the build fails, check to ensure the accuracy of all variables edited above--including items such as spaces between access keys and the ending parentheses.
 
-3.	Build the __LPAD-EKS VM__ Amazon Linux 2 AMI image:
+3.	Build the __LPAD-EKS VM__ CentOS 7.6 AMI image:
 
     This will take several minutes to run. However, this build will be shorter
     because the size of the root volume for the AMI image is much smaller.
@@ -164,34 +164,34 @@ To prepare for the build, perform the following steps:
 
 4. The steps for creating the AMI's are completed. 
 
-## AWS Amazon Linux 2 Bill-of-Materials
+## AWS CentOS 7.6 Bill-of-Materials
 
 The following utilities and application performance management applications are pre-installed in the __APM-Platform VM__:
 
 -	AppDynamics Enterprise Console 4.5.11.0 Build 20403
 	-	AppDynamics Controller 4.5.11.2 Build 3819
 	-	AppDynamics Event Service 4.5.2.0 Build 20201
--	Docker 18.07.1-ce
+-	Docker 18.09.7 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.24.1
 	-	Docker Compose Bash Completion
 -	Java SE JDK 8 Update 212 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.16
--	Python 2.7.14
+-	Python 2.7.5
 	-	Pip 19.1.1
 
 The following utilities and application performance management applications are pre-installed in the __CWOM-Platform VM__:
 
 -	Cisco Workload Optimization Manager (CWOM) 2.2.3
--	Docker 18.07.1-ce
+-	Docker 18.09.7 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.24.1
 	-	Docker Compose Bash Completion
 -	Java SE JDK 8 Update 212 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.16
--	Python 2.7.14
+-	Python 2.7.5
 	-	Pip 19.1.1
 -	Python 3.6.3
 	-	Pip 19.1.1
@@ -202,9 +202,9 @@ The following AWS CLI command-line tools and utilities are pre-installed in the 
 -	Amazon AWS EKS CLI [eksctl] 0.1.40 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.13.7 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.13.7 (command-line interface)
--	Docker 18.07.1-ce
+-	Docker 18.09.7 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.24.0
+	-	Docker Compose 1.24.1
 	-	Docker Compose Bash Completion
 -	Git 2.22.0
 	-	Git Bash Completion
@@ -215,7 +215,7 @@ The following AWS CLI command-line tools and utilities are pre-installed in the 
 -	Java SE JDK 11.0.3 (Amazon Corretto 11)
 -	Java SE JDK 12.0.1 (Oracle)
 -	jq 1.6 (command-line JSON processor)
--	Python 2.7.14
+-	Python 2.7.5
 	-	Pip 19.1.1
 -	Python 3.6.3
 	-	Pip 19.1.1
