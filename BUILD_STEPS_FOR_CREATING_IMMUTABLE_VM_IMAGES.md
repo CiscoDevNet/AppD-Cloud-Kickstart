@@ -2,7 +2,7 @@
 
 ## Overview
 
-The AppDynamics Cloud Kickstart project enables an IT Administrator, Software Developer, or DevOps engineer to automate the building of immutable VM images using open source tools from [Hashicorp](https://www.hashicorp.com/). Currently, these VMs consist of two types:
+The AppDynamics Cloud Kickstart project enables an IT Administrator, Software Developer, or DevOps engineer to automate the building of immutable VM images using open source tools from [Hashicorp](https://www.hashicorp.com/). Currently, these VMs consist of these types:
 
 -	__APM-Platform VM__: An APM Platform stand-alone VM designed for Application Performance Monitoring. It consists of the AppDynamics Enterprise Console, Controller, and Events Service.
 -	__CWOM-Platform VM__: A Cisco Workload Optimization Manager (CWOM) stand-alone VM designed for Intelligent Workload Management. It consists of the CWOM Platform server.
