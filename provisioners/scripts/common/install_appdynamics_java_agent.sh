@@ -135,7 +135,7 @@ echo "}" >> ${post_data_filename}
 set -x  # turn command display back ON.
 
 curl --silent --request POST --data @${post_data_filename} https://identity.msrv.saas.appdynamics.com/v2.0/oauth/token --output ${oauth_token_filename}
-oauth_token=$(awk -F '"' '{print $4}' ${oauth_token_filename})
+oauth_token=$(awk -F '"' '{print $10}' ${oauth_token_filename})
 
 # download the appdynamics java agent binary.
 rm -f ${appd_java_agent_binary}
