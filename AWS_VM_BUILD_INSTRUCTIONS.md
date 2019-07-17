@@ -168,14 +168,14 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	AppDynamics Enterprise Console 4.5.11.0 Build 20403
-	-	AppDynamics Controller 4.5.11.2 Build 3819
+-	AppDynamics Enterprise Console 4.5.11.0 Build 20523
+	-	AppDynamics Controller 4.5.11.2 Build 3828
 	-	AppDynamics Event Service 4.5.2.0 Build 20201
 -	Docker 18.09.7 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.24.1
 	-	Docker Compose Bash Completion
--	Java SE JDK 8 Update 212 (Amazon Corretto 8)
+-	Java SE JDK 8 Update 222 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.16
 -	Python 2.7.5
@@ -188,7 +188,7 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 	-	Docker Bash Completion
 	-	Docker Compose 1.24.1
 	-	Docker Compose Bash Completion
--	Java SE JDK 8 Update 212 (Amazon Corretto 8)
+-	Java SE JDK 8 Update 222 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.16
 -	Python 2.7.5
@@ -211,9 +211,9 @@ __LPAD-EKS VM__ - The following AWS CLI command-line tools and utilities are pre
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
 -	Helm CLI [helm/tiller] 2.14.2 (Package Manager for Kubernetes)
--	Java SE JDK 8 Update 212 (Amazon Corretto 8)
--	Java SE JDK 11.0.3 (Amazon Corretto 11)
--	Java SE JDK 12.0.1 (Oracle)
+-	Java SE JDK 8 Update 222 (Amazon Corretto 8)
+-	Java SE JDK 11.0.4 (Amazon Corretto 11)
+-	Java SE JDK 12.0.2 (Oracle)
 -	jq 1.6 (command-line JSON processor)
 -	Python 2.7.5
 	-	Pip 19.1.1
