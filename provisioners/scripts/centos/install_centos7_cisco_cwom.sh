@@ -76,12 +76,6 @@ rm -f /tmp/cisco_temp.repo
 rm -Rf /tmp/cisco
 unzip ${cwom_platform_installer} -d /tmp/
 
-#***************************************************************************************************
-# curl -O https://cspg.cisco.com/attachments/article/1568/UCSPMFEAT20190409133840574.zip
-# curl -O https://appd-cloud-kickstart-tools.s3.us-east-2.amazonaws.com/cwom/update64_package-v2.2.2.zip
-# curl -O https://appd-cloud-kickstart-tools.s3.us-east-2.amazonaws.com/cwom/update64_package-v2.2.3.zip
-#***************************************************************************************************
-
 # install the cwom platform binaries. --------------------------------------------------------------
 # create a local cwom metadata repository.
 createrepo --database /tmp/cisco
@@ -128,16 +122,49 @@ EOF
 sed -i '0,/^SSLCipherSuite/{//d;}' /etc/httpd/conf.d/ssl.conf
 sed -i 's/^SSLCipherSuite.*/SSLCipherSuite ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:!DSS/g' /etc/httpd/conf.d/ssl.conf
 
+# start the cwom platform. -------------------------------------------------------------------------
 # start the httpd service and configure it to start at boot time.
 systemctl start httpd
 systemctl enable httpd
-
-# check that the httpd service is running.
 systemctl status httpd
 
 # start the tomcat service and configure it to start at boot time.
 systemctl start tomcat
 systemctl enable tomcat
-
-# check that the tomcat service is running.
 systemctl status tomcat
+
+# configure the cwom administrator and apply the license file. ------------------------------------
+cd ${kickstart_home}/provisioners/scripts/centos/tools
+
+# install administrator user config file.
+cwom_login_config_file="cwom-login.config.topology"
+if [ -f "$cwom_login_config_file" ]; then
+  cp $cwom_login_config_file /srv/tomcat/data/config/login.config.topology
+fi
+
+# install cwom license file.
+cwom_license_config_file="cwom-license.config.topology"
+if [ -f "$cwom_license_config_file" ]; then
+  cp $cwom_license_config_file /srv/tomcat/data/config/license.config.topology
+fi
+
+# apply cwom license file.
+#cd ${kickstart_home}/provisioners/scripts/centos/tools
+#cwom_admin_username="administrator"
+#cwom_admin_password="<your_admin_password>"
+#cwom_license_file="UCSPMFEAT20190409133840574.lic"
+
+# create systemd service file.
+#if [ -f "$cwom_license_file" ]; then
+#  curl --insecure -u "${cwom_admin_username}:${cwom_admin_password}" -X POST https://localhost/vmturbo/rest/licenses -H 'Accept: application/json' -H 'Content-Type: multipart/form-data' -F file=@${cwom_license_file}
+#fi
+
+# shutdown the cwom platform components. -----------------------------------------------------------
+# stop the tomcat serice.
+systemctl stop tomcat
+
+# stop the apache http server.
+systemctl stop httpd
+
+# stop the mariadb service.
+systemctl stop mariadb
