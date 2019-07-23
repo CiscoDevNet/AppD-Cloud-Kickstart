@@ -1,0 +1,7 @@
+This template is a placeholder for the Cisco Workload Optimization Manager (CWOM) license configuration file.
+
+To apply your CWOM license configuration file:
+
+    o Obtain a copy of the CWOM 'cwom-license.config.topology' from the AppDynamics SE leading the workshop, OR
+      copy the file from the '/srv/tomcat/data/config' directory in an existing CWOM installation.
+    o Rename it to 'provisioners/scripts/centos/tools/cwom-license.config.topology'.
