@@ -12,19 +12,19 @@ Before building the AppD Cloud Kickstart VM images for AWS, it is recommended th
 
 Here is a list of the recommended open source software to be installed on the host macOS machine:
 
--	Amazon AWS CLI 1.16.210 (command-line interface)
+-	Amazon AWS CLI 1.16.218 (command-line interface)
 -	Python 3.7.4
-	-	Pip 19.2.1
+	-	Pip 19.2.2
 
 Perform the following steps to install the needed software:
 
 1.	Install [Python 3.7.4](https://www.python.org/downloads/release/python-372/) for macOS 64-bit.  
     `$ brew install python3`  
 
-2.	Upgrade [Pip 19.2.1](https://pypi.org/project/pip/) for macOS 64-bit.  
+2.	Upgrade [Pip 19.2.2](https://pypi.org/project/pip/) for macOS 64-bit.  
     `$ pip3 install --upgrade pip`  
 
-3.	Install [AWS CLI 1.16.210](https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-pip).  
+3.	Install [AWS CLI 1.16.218](https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-pip).  
     `$ pip3 install awscli --upgrade --user`  
 
 4.	Add AWS CLI to shell environment `PATH`:
@@ -50,18 +50,18 @@ Perform the following steps to install the needed software:
     pip 19.1 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
 
     $ aws --version
-    aws-cli/1.16.210 Python/3.7.4 Darwin/18.7.0 botocore/1.12.200
+    aws-cli/1.16.218 Python/3.7.4 Darwin/18.7.0 botocore/1.12.208
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
 
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
--	Amazon AWS CLI 1.16.210 (command-line interface)
+-	Amazon AWS CLI 1.16.218 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 1.16.210](https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi) for Windows 64-bit.  
+1.	Install [AWS CLI 1.16.218](https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi) for Windows 64-bit.  
     Run the downloaded MSI installer and follow the on-screen instructions.  
 
     **NOTE:** For Windows users, the MSI installation package offers a familiar and convenient way to install the AWS CLI without installing any other prerequisites. However, when updates are released, you must repeat the installation process to get the latest version of the AWS CLI. If you prefer more frequent updates, consider using `pip` as described in the AWS CLI [install guide](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html).
@@ -70,7 +70,7 @@ Perform the following steps to install the needed software:
 
     ```
     $ aws --version
-    aws-cli/1.16.210 Python/3.6.0 Windows/10 botocore/1.12.200
+    aws-cli/1.16.218 Python/3.6.0 Windows/10 botocore/1.12.208
     ```
 
 ## Prepare for the Build
@@ -168,8 +168,8 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	AppDynamics Enterprise Console 4.5.12.0 Build 20349
-	-	AppDynamics Controller 4.5.12.1 Build 2235
+-	AppDynamics Enterprise Console 4.5.12.0 Build 20353
+	-	AppDynamics Controller 4.5.12.1 Build 2241
 	-	AppDynamics Event Service 4.5.2.0 Build 20201
 -	Docker 19.03.1 CE
 	-	Docker Bash Completion
@@ -179,7 +179,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.17
 -	Python 2.7.5
-	-	Pip 19.2.1
+	-	Pip 19.2.2
 
 __CWOM-Platform VM__ - The following utilities and workload optimization management applications are pre-installed:
 
@@ -192,14 +192,14 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.17
 -	Python 2.7.5
-	-	Pip 19.2.1
+	-	Pip 19.2.2
 -	Python 3.6.3
-	-	Pip 19.2.1
+	-	Pip 19.2.2
 
 __LPAD-EKS VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 1.16.210 (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.3.0 (command-line interface)
+-	Amazon AWS CLI 1.16.218 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.3.1 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.13.7 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.13.7 (command-line interface)
 -	Docker 19.03.1 CE
@@ -216,6 +216,6 @@ __LPAD-EKS VM__ - The following AWS CLI command-line tools and utilities are pre
 -	Java SE JDK 12.0.2 (Oracle)
 -	jq 1.6 (command-line JSON processor)
 -	Python 2.7.5
-	-	Pip 19.2.1
+	-	Pip 19.2.2
 -	Python 3.6.3
-	-	Pip 19.2.1
+	-	Pip 19.2.2
