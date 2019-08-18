@@ -14,8 +14,8 @@ To build the AppD Cloud Kickstart VM images, the following open source software 
 
 -	Homebrew 2.1.10
 	-	Command Line Tools (CLT) for Xcode
--	Packer 1.4.2
--	Git 2.22.0
+-	Packer 1.4.3
+-	Git 2.23.0
 -	jq 1.6
 
 Perform the following steps to install the needed software:
@@ -28,10 +28,10 @@ Perform the following steps to install the needed software:
 2.	Install the [Homebrew 2.1.10](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-3.	Install [Packer 1.4.2](https://packer.io/) for macOS 64-bit.  
+3.	Install [Packer 1.4.3](https://packer.io/) for macOS 64-bit.  
     `$ brew install packer`  
 
-4.	Install [Git 2.22.0](https://git-scm.com/downloads) for macOS 64-bit.  
+4.	Install [Git 2.23.0](https://git-scm.com/downloads) for macOS 64-bit.  
     `$ brew install git`  
 
 5.	Install [jq 1.6](https://stedolan.github.io/jq/) for macOS 64-bit.  
@@ -48,10 +48,10 @@ Perform the following steps to install the needed software:
     Your system is ready to brew.
 
     $ packer --version
-    1.4.2
+    1.4.3
 
     $ git --version
-    git version 2.22.0
+    git version 2.23.0
 
     $ jq --version
     jq-1.6
@@ -69,17 +69,17 @@ Perform the following steps to install the needed software:
 
 To build the AppD Cloud Kickstart immutable VM images, the following open source software needs to be installed on the host Windows machine:
 
--	Packer 1.4.2
--	Git 2.22.0 for Win64
+-	Packer 1.4.3
+-	Git 2.23.0 for Win64
 -	jq 1.6
 
 Perform the following steps to install the needed software:
 
-1.	Install [Packer 1.4.2](https://releases.hashicorp.com/packer/1.4.2/packer_1.4.2_windows_amd64.zip) for Windows 64-bit.  
+1.	Install [Packer 1.4.3](https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\Packer\bin`  
 
-2.	Install [Git 2.22.0](https://github.com/git-for-windows/git/releases/download/v2.22.0.windows.1/Git-2.22.0-64-bit.exe) for Windows 64-bit.
+2.	Install [Git 2.23.0](https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/Git-2.23.0-64-bit.exe) for Windows 64-bit.
 
 3.	Install [jq 1.6](https://github.com/stedolan/jq/releases/download/jq-1.6/jq-win64.exe) for Windows 64-bit.  
     Create suggested install folder and rename binary to:  
@@ -102,10 +102,10 @@ Perform the following steps to install the needed software:
 
     ```
     $ packer --version
-    1.4.2
+    1.4.3
 
     $ git --version
-    git version 2.22.0.windows.1
+    git version 2.23.0.windows.1
 
     $ jq --version
     jq-1.6

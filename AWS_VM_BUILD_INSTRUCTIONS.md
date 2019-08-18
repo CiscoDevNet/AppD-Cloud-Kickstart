@@ -12,7 +12,7 @@ Before building the AppD Cloud Kickstart VM images for AWS, it is recommended th
 
 Here is a list of the recommended open source software to be installed on the host macOS machine:
 
--	Amazon AWS CLI 1.16.218 (command-line interface)
+-	Amazon AWS CLI 1.16.220 (command-line interface)
 -	Python 3.7.4
 	-	Pip 19.2.2
 
@@ -24,7 +24,7 @@ Perform the following steps to install the needed software:
 2.	Upgrade [Pip 19.2.2](https://pypi.org/project/pip/) for macOS 64-bit.  
     `$ pip3 install --upgrade pip`  
 
-3.	Install [AWS CLI 1.16.218](https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-pip).  
+3.	Install [AWS CLI 1.16.220](https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-pip).  
     `$ pip3 install awscli --upgrade --user`  
 
 4.	Add AWS CLI to shell environment `PATH`:
@@ -50,18 +50,18 @@ Perform the following steps to install the needed software:
     pip 19.1 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
 
     $ aws --version
-    aws-cli/1.16.218 Python/3.7.4 Darwin/18.7.0 botocore/1.12.208
+    aws-cli/1.16.220 Python/3.7.4 Darwin/18.7.0 botocore/1.12.210
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
 
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
--	Amazon AWS CLI 1.16.218 (command-line interface)
+-	Amazon AWS CLI 1.16.220 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 1.16.218](https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi) for Windows 64-bit.  
+1.	Install [AWS CLI 1.16.220](https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi) for Windows 64-bit.  
     Run the downloaded MSI installer and follow the on-screen instructions.  
 
     **NOTE:** For Windows users, the MSI installation package offers a familiar and convenient way to install the AWS CLI without installing any other prerequisites. However, when updates are released, you must repeat the installation process to get the latest version of the AWS CLI. If you prefer more frequent updates, consider using `pip` as described in the AWS CLI [install guide](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html).
@@ -70,7 +70,7 @@ Perform the following steps to install the needed software:
 
     ```
     $ aws --version
-    aws-cli/1.16.218 Python/3.6.0 Windows/10 botocore/1.12.208
+    aws-cli/1.16.220 Python/3.6.0 Windows/10 botocore/1.12.210
     ```
 
 ## Prepare for the Build
@@ -198,7 +198,7 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 
 __LPAD-EKS VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 1.16.218 (command-line interface)
+-	Amazon AWS CLI 1.16.220 (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.3.1 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.13.7 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.13.7 (command-line interface)
@@ -206,7 +206,7 @@ __LPAD-EKS VM__ - The following AWS CLI command-line tools and utilities are pre
 	-	Docker Bash Completion
 	-	Docker Compose 1.24.1
 	-	Docker Compose Bash Completion
--	Git 2.22.0
+-	Git 2.23.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
