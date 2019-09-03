@@ -15,8 +15,8 @@
 #---------------------------------------------------------------------------------------------------
 
 # install kubectl cli. -----------------------------------------------------------------------------
-kubectl_release="1.13.7"
-kubectl_date="2019-06-11"
+kubectl_release="1.13.8"
+kubectl_date="2019-08-14"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
