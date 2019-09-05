@@ -15,8 +15,9 @@
 #---------------------------------------------------------------------------------------------------
 
 # install kubectl cli. -----------------------------------------------------------------------------
-kubectl_release="1.13.8"
-kubectl_date="2019-08-14"
+kubectl_release="1.14.6"
+kubectl_date="2019-08-22"
+kubectl_sha256="007966951d172dd79bfe55cd4d6a77955d5702c729bffeb0d88edf8c688d4474"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
@@ -26,6 +27,10 @@ cd /usr/local/bin
 rm -f kubectl
 curl --silent --location "https://amazon-eks.s3-us-west-2.amazonaws.com/${kubectl_release}/${kubectl_date}/bin/linux/amd64/kubectl" --output kubectl 
 chown root:root kubectl
+
+# verify the downloaded binary.
+echo "${kubectl_sha256} kubectl" | sha256sum --check
+# kubectl: OK
 
 # change execute permissions.
 chmod 755 kubectl
