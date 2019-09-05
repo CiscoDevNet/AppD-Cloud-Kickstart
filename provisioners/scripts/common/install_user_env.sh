@@ -7,7 +7,7 @@ user_group="${user_group:-}"
 user_home="${user_home:-/home/$user_name}"
 user_docker_profile="${user_docker_profile:-false}"
 user_prompt_color="${user_prompt_color:-green}"
-d_completion_release="${d_completion_release:-19.03.1}"
+d_completion_release="${d_completion_release:-19.03.2}"
 dc_completion_release="${dc_completion_release:-1.24.1}"
 
 # set default value for kickstart home environment variable if not set. ----------------------------
@@ -28,7 +28,7 @@ Usage:
                                                                 #            valid colors:
                                                                 #              'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
                                                                 #
-    [root]# export d_completion_release="19.03.1"               # [optional] docker completion for bash release (defaults to '19.03.1').
+    [root]# export d_completion_release="19.03.2"               # [optional] docker completion for bash release (defaults to '19.03.2').
     [root]# export dc_completion_release="1.24.1"               # [optional] docker compose completion for bash release (defaults to '1.24.1').
     [root]# export kickstart_home="/opt/appd-cloud-kickstart"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
     [root]# $0
