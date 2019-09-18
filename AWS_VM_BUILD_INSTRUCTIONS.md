@@ -1,6 +1,6 @@
-# AWS CentOS 7.6 AMI Build Instructions
+# AWS CentOS 7.7 AMI Build Instructions
 
-Follow these instructions to build the AWS CentOS 7.6 AMI images:
+Follow these instructions to build the AWS CentOS 7.7 AMI images:
 
 -	__APM-Platform VM__: An APM Platform stand-alone VM with an AppDynamics Controller.
 -	__CWOM-Platform VM__: A Cisco Workload Optimization Manager (CWOM) stand-alone VM with a CWOM Platform server.
@@ -131,40 +131,40 @@ To prepare for the build, perform the following steps:
 
 ## Build the Amazon Machine Images (AMIs) with Packer
 
-1.	Build the __APM-Platform VM__ CentOS 7.6 AMI image:
+1.	Build the __APM-Platform VM__ CentOS 7.7 AMI image:
 
     This will take several minutes to run.
 
     ```
     $ cd /<drive>/projects/AppD-Cloud-Kickstart/builders/packer/aws
-    $ packer build apm-platform-centos76.json
+    $ packer build apm-platform-centos77.json
     ```
 
     If the build fails, check to ensure the accuracy of all variables edited above--including items such as spaces between access keys and the ending parentheses.
 
-2.	Build the __CWOM-Platform VM__ CentOS 7.6 AMI image:
+2.	Build the __CWOM-Platform VM__ CentOS 7.7 AMI image:
 
     This will take several minutes to run.
 
     ```
     $ cd /<drive>/projects/AppD-Cloud-Kickstart/builders/packer/aws
-    $ packer build cwom-platform-centos76.json
+    $ packer build cwom-platform-centos77.json
     ```
 
     If the build fails, check to ensure the accuracy of all variables edited above--including items such as spaces between access keys and the ending parentheses.
 
-3.	Build the __LPAD-EKS VM__ CentOS 7.6 AMI image:
+3.	Build the __LPAD-EKS VM__ CentOS 7.7 AMI image:
 
     This will take several minutes to run. However, this build will be shorter
     because the size of the root volume for the AMI image is much smaller.
 
     ```
-    $ packer build lpad-eks-centos76.json
+    $ packer build lpad-eks-centos77.json
     ```
 
 4. The steps for creating the AMI's are completed. 
 
-## AWS CentOS 7.6 Bill-of-Materials
+## AWS CentOS 7.7 Bill-of-Materials
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
