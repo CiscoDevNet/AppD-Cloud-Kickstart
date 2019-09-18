@@ -214,6 +214,7 @@ __LPAD-EKS VM__ - The following AWS CLI command-line tools and utilities are pre
 -	Java SE JDK 8 Update 222 (Amazon Corretto 8)
 -	Java SE JDK 11.0.4 (Amazon Corretto 11)
 -	Java SE JDK 12.0.2 (Oracle)
+-	Java SE JDK 13 (Oracle)
 -	jq 1.6 (command-line JSON processor)
 -	Python 2.7.5
 	-	Pip 19.2.3
