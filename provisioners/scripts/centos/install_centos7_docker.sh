@@ -1,28 +1,35 @@
 #!/bin/sh -eux
 # install the docker engine on centos 7.x.
 
-# install the docker prerequisites. --------------------------------------------
-yum -y install yum-utils
-yum -y install device-mapper-persistent-data
-yum -y install lvm2
+# install the docker prerequisites. ----------------------------------------------------------------
+yum -y install yum-utils device-mapper-persistent-data lvm2
 
-# install the docker repository. -----------------------------------------------
+# install the docker repository. -------------------------------------------------------------------
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
 # enable/disable optional docker repositories.
-# note: starting with docker 17.06, stable releases are also pushed to the
-# edge and test repositories.
-#yum-config-manager --enable docker-ce-edge      # optional.
+# note: these repositories are included in the docker.repo file above but are disabled by default.
+#       you can enable them alongside the stable repository.
+#yum-config-manager --enable docker-ce-nightly   # optional.
 #yum-config-manager --enable docker-ce-test      # optional.
 
-#yum-config-manager --disable docker-ce-edge     # optional.
+#yum-config-manager --disable docker-ce-nightly  # optional.
 #yum-config-manager --disable docker-ce-test     # optional.
+
+# list and sort the versions available in your repo.
+# sort results by version number, highest to lowest, and truncate the results.
 #yum list docker-ce --showduplicates | sort -r
 
-# install the docker community edition engine. ---------------------------------
-yum -y install docker-ce
+# build yum cache for docker repository.
+yum -y makecache fast
 
-# configure docker. ------------------------------------------------------------
+# install the docker community edition engine. -----------------------------------------------------
+yum -y install docker-ce docker-ce-cli containerd.io
+
+# install a specific version by its fully qualified package name.
+#yum -y install docker-ce-18.09.9 docker-ce-cli-18.09.9 containerd.io
+
+# configure docker. --------------------------------------------------------------------------------
 # enable ip forwarding if not set.
 sysctlfile="/etc/sysctl.conf"
 ipv4cmd="net.ipv4.ip_forward = 1"
