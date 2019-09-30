@@ -31,8 +31,8 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '4.5.13.20661').
-#appd_platform_release="4.5.13.20661"
+# [optional] platform release (defaults to '4.5.14.20822').
+#appd_platform_release="4.5.14.20822"
 #export appd_platform_release
 
 # [optional] platform admin user name (defaults to user 'admin').
@@ -181,8 +181,8 @@ export appd_controller_host
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '4.5.14.2293').
-#appd_machine_agent_release="4.5.14.2293"
+# [optional] machine agent release (defaults to '4.5.15.2316').
+#appd_machine_agent_release="4.5.15.2316"
 #export appd_machine_agent_release
 
 # ------------------------------------------------------------------------------
