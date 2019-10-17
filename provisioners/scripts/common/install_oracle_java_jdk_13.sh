@@ -3,9 +3,9 @@
 
 # install java se 13 development kit. --------------------------------------------------------------
 jdkhome="jdk13"
-jdkbuild="13+33"
-jdkhash="5b8a42f3905b406298b72d750b6919f6"
-jdkfolder="jdk-13"
+jdkbuild="13.0.1+9"
+jdkhash="cec27d702aa74d5a8630c65ae61e4305"
+jdkfolder="jdk-13.0.1"
 jdkbinary="${jdkfolder}_linux-x64_bin.tar.gz"
 
 # create java home parent folder.

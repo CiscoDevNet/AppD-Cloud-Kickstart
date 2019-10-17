@@ -97,7 +97,6 @@
         "../../../provisioners/scripts/centos/install_centos7_kickstart_tools.sh",
         "../../../provisioners/scripts/common/install_aws_corretto_java_jdk_8.sh",
         "../../../provisioners/scripts/common/install_aws_corretto_java_jdk_11.sh",
-        "../../../provisioners/scripts/common/install_oracle_java_jdk_12.sh",
         "../../../provisioners/scripts/common/install_oracle_java_jdk_13.sh",
         "../../../provisioners/scripts/centos/install_centos7_docker.sh",
         "../../../provisioners/scripts/common/install_docker_compose.sh",
