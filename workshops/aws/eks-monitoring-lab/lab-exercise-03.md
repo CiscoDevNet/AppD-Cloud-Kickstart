@@ -51,7 +51,10 @@ export user_name
 
 ![Security Group](./images/security-group-01.png)
 
-  9. Review and Launch your VM. When prompted for a KeyValue pair--and if you are internal to AppD--select the `AppD-Cloud-Kickstart-AWS.pem` if you have access to it. You can request this key from the workshop creators, and/or provide it to associates taking the workshop. Otherwise, you can create your own key pair.
+  9. Review and Launch your VM. When prompted for a key pair:  
+
+     a. If you are internal to AppD: Select the **AppD-Cloud-Kickstart-AWS** pem if you have access to it. You can request this key from the workshop creators.  
+     b. If you are external: Use the same key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the remaining lab exercises.
 
 **NOTE:** Once the VM is launched, take note of the FQDN of the server. You will be leveraging this server in the remainder of the lab.
 

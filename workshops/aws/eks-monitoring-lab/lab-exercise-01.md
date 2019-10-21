@@ -24,9 +24,9 @@ Once you have identified the appropriate AMI, launch an instance of it via:
   2. Select General Purpose: **t2.micro**
   3. Click "Configure Instance Details" in the bottom right
   4. Keep all default values
-  5. Scroll to the bottom and Expand Advanced
+  5. Scroll to the bottom and expand "Advanced Details"
 
-Once 'Advanced' is expanded, enter the following 'User data' commands.
+Once 'Advance Details' is expanded, enter the following 'User data' commands 'As text'.
 
 This allows you to configure the EC2 instance during launch.
 
@@ -53,21 +53,21 @@ export aws_cli_default_region_name
 
 If the above section is not completed at VM creation, the Launch Pad instance will not function as intended.
 
-   6. Select on "Add Storage" tab and chose default options.
-   7. Next, select the "Add Tags" tab. Add one tag. [Key = Name , Value = User-Lpad-Initials].
-      For example, if your user name is 'John Calvin Smith', enter the following:
+  6. Select on "Add Storage" tab and chose default options.
+  7. Next, select the "Add Tags" tab. Add one tag. [Key = Name , Value = User-Lpad-Initials].
+     For example, if your user name is 'John Calvin Smith', enter the following:
 
      Key: Name
      Value: User-Lpad-JCS
 
-   8. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
+  8. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
 
 ![Security Group](./images/security-group-01.png)
 
-   9. Review and Launch your VM. When prompted for a key pair:  
+  9. Review and Launch your VM. When prompted for a key pair:  
 
-       a. If you are internal to AppD: Select the **AppD-Cloud-Kickstart-AWS** pem if you have access to it. You can request this key from the workshop creators.  
-       b. If you are external: Select **Create a new key pair** and give it a name. Remember to download it and save it locally.  
+     a. If you are internal to AppD: Select the **AppD-Cloud-Kickstart-AWS** pem if you have access to it. You can request this key from the workshop creators.  
+     b. If you are external: Select **Create a new key pair** and give it a name. Remember to download it and save it locally.  
 
 **NOTE:** Once the VM is launched, take note of the FQDN of the server. You will be leveraging this server in the remainder of the lab.
 

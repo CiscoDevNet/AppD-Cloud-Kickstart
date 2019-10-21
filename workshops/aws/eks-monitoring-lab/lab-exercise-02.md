@@ -11,16 +11,11 @@ In this exercise you will need to do the following:
 <br>
 
 ### **1.** SSH Into the Launch Pad EC2 Instance
-You will need a copy of the `AppD-Cloud-Kickstart-AWS.pem` file in order to SSH into your Launch Pad EC2 instance.  
+If you are internal to AppD: You will need a copy of the `AppD-Cloud-Kickstart-AWS.pem` file in order to SSH into your Launch Pad EC2 instance. You can obtain a copy of the `AppD-Cloud-Kickstart-AWS.pem` file from your lab instructor.  
 
-You can obtain a copy of the `AppD-Cloud-Kickstart-AWS.pem` file from your lab instructor.
-
-If you can't get a copy of the `AppD-Cloud-Kickstart-AWS.pem` file, you will need to do the following:
-
-- Create your own key pair in the AWS EC2 console
-- Launch an instance of the Launch Pad EC2 that uses your key pair
+If you are external: Use the key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Next, substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the following steps.  
 <br>
-You will use the user name centos with no password to SSH into the Launch Pad EC2 instance,
+You will use the user name 'centos' with no password to SSH into the Launch Pad EC2 instance,
 <br><br>
 
 ***For Mac Users:***
