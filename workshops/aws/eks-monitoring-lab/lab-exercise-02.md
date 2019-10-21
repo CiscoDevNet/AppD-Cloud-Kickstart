@@ -13,7 +13,7 @@ In this exercise you will need to do the following:
 ### **1.** SSH Into the Launch Pad EC2 Instance
 If you are internal to AppD: You will need a copy of the `AppD-Cloud-Kickstart-AWS.pem` file in order to SSH into your Launch Pad EC2 instance. You can obtain a copy of the `AppD-Cloud-Kickstart-AWS.pem` file from your lab instructor.  
 
-If you are external: Use the key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Next, substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the following steps.  
+If you are external: Use the key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the remaining lab exercise steps.  
 <br>
 You will use the user name 'centos' with no password to SSH into the Launch Pad EC2 instance,
 <br><br>
@@ -187,7 +187,7 @@ If the error is related to the # of VPC's or the # of Elastic IP addresses you m
 
 **To Request Additional VPC's or EIP's**
 1. Navitate to the AWS Request Form located here: https://console.aws.amazon.com/support/cases#/create?issueType=service-limit-increase&limitType=service-code-elastic-ips
-2. Select a Limit Type "Elastic IP" or "VPC"
+2. Select a Limit Type 'Elastic IP' or 'VPC'
 3. Select a severity -- your call, select something appropriate.
 4. Select the Region you want the request associated with
 5. Select the new limit you are requesting

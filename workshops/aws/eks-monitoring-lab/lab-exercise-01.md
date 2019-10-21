@@ -22,9 +22,9 @@ Once you have identified the appropriate AMI, launch an instance of it via:
 
   1. Select the AMI > Launch
   2. Select General Purpose: **t2.micro**
-  3. Click "Configure Instance Details" in the bottom right
+  3. Click 'Configure Instance Details' in the bottom right
   4. Keep all default values
-  5. Scroll to the bottom and expand "Advanced Details"
+  5. Scroll to the bottom and expand 'Advanced Details'
 
 Once 'Advance Details' is expanded, enter the following 'User data' commands 'As text'.
 
@@ -53,14 +53,14 @@ export aws_cli_default_region_name
 
 If the above section is not completed at VM creation, the Launch Pad instance will not function as intended.
 
-  6. Select on "Add Storage" tab and chose default options.
-  7. Next, select the "Add Tags" tab. Add one tag. [Key = Name , Value = User-Lpad-Initials].
+  6. Select on 'Add Storage' tab and chose default options.
+  7. Next, select the 'Add Tags' tab. Add one tag. [Key = Name , Value = User-Lpad-Initials].
      For example, if your user name is 'John Calvin Smith', enter the following:
 
-     Key: Name
+     Key: Name  
      Value: User-Lpad-JCS
 
-  8. Next Select the "Configure Security Group" tab. Select the following group from the drop down.
+  8. Next Select the 'Configure Security Group' tab. Select the following group from the drop down.
 
 ![Security Group](./images/security-group-01.png)
 
