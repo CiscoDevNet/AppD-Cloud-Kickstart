@@ -1,9 +1,11 @@
 # CloudFormation Rollback Error
 ## VPC / Elastic IP Limit Issue
 
-If you run into an error similar to the below, check CloudFormation on AWS and see why the rollback occurred. This may be a VPC / Elastic IP limit or due to some other reason.  
+If you run into an error similar to the one below, check CloudFormation on AWS and see why the rollback occurred. This may be due to a VPC / Elastic IP limit or some other reason.  
 
+```
 unexpected status "ROLLBACK_IN_PROGRESS" while waiting for CloudFormation stack "eksctl-AD-Capital-partain2019a1-cluster" to reach "CREATE_COMPLETE" status
+```
 <br>
 
 If the error is related to the # of VPC's or the # of Elastic IP addresses you may either delete existing VPC's / Elastic IP addresses, or ask Amazon to increase your limit.
