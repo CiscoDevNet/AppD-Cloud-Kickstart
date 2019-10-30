@@ -130,7 +130,7 @@
     "aws_ec2_instance_type": "t2.micro",
     "aws_ec2_username": "centos",
     "user_docker_profile": "true",
-    "docker_completion_release": "19.03.3",
+    "docker_completion_release": "19.03.4",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
