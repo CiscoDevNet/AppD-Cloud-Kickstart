@@ -216,8 +216,9 @@ if [ -d "$systemd_dir" ]; then
 set +x  # temporarily turn command display OFF.
   echo "ExecStartPre=/opt/appdynamics/platform/platform-admin/bin/platform-admin.sh login --user-name ${appd_platform_admin_username} --password ${appd_platform_admin_password}" >> "${service_filepath}"
 set -x  # turn command display back ON.
-  echo "ExecStart=/opt/appdynamics/platform/platform-admin/bin/platform-admin.sh start-controller-appserver --with-db" >> "${service_filepath}"
-  echo "ExecStop=/opt/appdynamics/platform/platform-admin/bin/platform-admin.sh stop-controller-appserver --with-db" >> "${service_filepath}"
+  echo "ExecStart=/opt/appdynamics/platform/platform-admin/bin/platform-admin.sh start-controller-appserver" >> "${service_filepath}"
+  echo "ExecStop=/opt/appdynamics/platform/platform-admin/bin/platform-admin.sh stop-controller-appserver" >> "${service_filepath}"
+  echo "ExecStop=/opt/appdynamics/platform/platform-admin/bin/platform-admin.sh stop-controller-db" >> "${service_filepath}"
   echo "" >> "${service_filepath}"
   echo "[Install]" >> "${service_filepath}"
   echo "WantedBy=multi-user.target" >> "${service_filepath}"
@@ -240,7 +241,10 @@ systemctl is-enabled "${appd_controller_service}"
 
 # shutdown the appdynamics platform components. ----------------------------------------------------
 # stop the appdynamics controller.
-./platform-admin.sh stop-controller-appserver --with-db
+./platform-admin.sh stop-controller-appserver
+
+# stop the appdynamics controller database.
+./platform-admin.sh stop-controller-db
 
 # stop the appdynamics events service.
 ./platform-admin.sh stop-events-service
