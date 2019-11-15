@@ -5,9 +5,6 @@
 # Helm is a tool that streamlines installing and managing Kubernetes applications.
 # Think of it like apt/yum/homebrew for Kubernetes.
 #
-# - Helm has two parts: a client (`helm`) and a server (`tiller`)
-# - Tiller runs inside of your Kubernetes cluster, and manages releases (installations)
-#   of your charts.
 # - Helm runs on your laptop, CI/CD, or wherever you want it to run.
 # - Charts are Helm packages that contain at least two things:
 #   - A description of the package (`Chart.yaml`)
@@ -22,45 +19,50 @@
 #---------------------------------------------------------------------------------------------------
 
 # install helm cli client. -------------------------------------------------------------------------
+helm_release="3.0.0"
 helm_folder="linux-amd64"
+helm_binary="helm-v${helm_release}-linux-amd64.tar.gz"
+helm_sha256="10e1fdcca263062b1d7b2cb93a924be1ef3dd6c381263d8151dd1a20a3d8c0dc"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
 cd /usr/local/bin
 
-# set current date for temporary filename.
-curdate=$(date +"%Y-%m-%d.%H-%M-%S")
-
-# retrieve version number of latest release.
-curl --silent --dump-header curl-helm.${curdate}.out1 https://github.com/helm/helm/releases/latest --output /dev/null
-tr -d '\r' < curl-helm.${curdate}.out1 > curl-helm.${curdate}.out2
-helm_release=$(awk '/Location/ {print $2}' curl-helm.${curdate}.out2 | awk -F "/" '{print $8}')
-helm_binary="helm-${helm_release}-linux-amd64.tar.gz"
-rm -f curl-helm.${curdate}.out1
-rm -f curl-helm.${curdate}.out2
-
 # download helm from github.com.
 rm -f ${helm_binary}
 rm -Rf ${helm_folder}
-curl --silent --location "https://storage.googleapis.com/kubernetes-helm/${helm_binary}" --output ${helm_binary}
+curl --silent --location "https://get.helm.sh/${helm_binary}" --output ${helm_binary}
 chmod 755 ${helm_binary}
 
+# verify the downloaded binary.
+echo "${helm_sha256} ${helm_binary}" | sha256sum --check
+# helm-${helm_release}-linux-amd64.tar.gz: OK
+
 # extract helm binaries.
-rm -f helm tiller
+rm -f helm
 tar -zxvf ${helm_binary} --no-same-owner --no-overwrite-dir
 chown root:root ${helm_folder}
 cp ./${helm_folder}/helm .
-cp ./${helm_folder}/tiller .
 rm -f ${helm_binary}
 rm -Rf ${helm_folder}
 
 # change execute permissions.
-chmod 755 helm tiller
+chmod 755 helm
 
 # set helm environment variables.
 PATH=/usr/local/bin:$PATH
 export PATH
 
-# verify installation.
+# verify installation. -----------------------------------------------------------------------------
 helm version --short --client
-tiller -version
+
+# initialize a helm chart repository.
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+
+# list charts we can install.
+#helm search repo stable
+
+# install an example chart.
+# make sure we get the latest list of charts.
+#helm repo update
+#helm install stable/mysql --generate-name
