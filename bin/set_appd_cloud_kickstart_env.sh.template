@@ -130,8 +130,8 @@ export appd_controller_host
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '4.5.15.28231').
-#appd_java_agent_release="4.5.15.28231"
+# [optional] java agent release (defaults to '4.5.16.28759').
+#appd_java_agent_release="4.5.16.28759"
 #export appd_java_agent_release
 
 # ------------------------------------------------------------------------------
@@ -148,7 +148,7 @@ export appd_controller_host
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver4.5.15.28231/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver4.5.16.28759/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
