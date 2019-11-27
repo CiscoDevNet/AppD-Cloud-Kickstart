@@ -22,7 +22,7 @@
 
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # cwom platform install parameters.
-cwom_platform_release="${cwom_platform_release:-2.3.1}"                 # [optional] platform release (defaults to '2.3.1').
+cwom_platform_release="${cwom_platform_release:-2.3.2}"                 # [optional] platform release (defaults to '2.3.2').
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"           # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
@@ -86,6 +86,10 @@ yum -y install cwom-bundle cwom-config cwom-persistence cwom-platform cwom-prese
 #yum -y install cwom-*
 
 # configure the cwom platform. ---------------------------------------------------------------------
+# restart the mariadb service and check that it is running.
+systemctl start mariadb
+systemctl status mariadb
+
 # initialize the cwom database.
 cd /srv/rails/webapps/persistence/db/
 ./initialize_all.sh
@@ -148,13 +152,14 @@ if [ -f "$cwom_license_config_file" ]; then
   cp $cwom_license_config_file /srv/tomcat/data/config/license.config.topology
 fi
 
-# apply cwom license file.
+# potential future to-do items. --------------------------------------------------------------------
+# set cwom configuration variables.
 #cd ${kickstart_home}/provisioners/scripts/centos/tools
 #cwom_admin_username="administrator"
 #cwom_admin_password="<your_admin_password>"
 #cwom_license_file="UCSPMFEAT20190409133840574.lic"
 
-# create systemd service file.
+# verify cwom license file via rest api.
 #if [ -f "$cwom_license_file" ]; then
 #  curl --insecure -u "${cwom_admin_username}:${cwom_admin_password}" -X POST https://localhost/vmturbo/rest/licenses -H 'Accept: application/json' -H 'Content-Type: multipart/form-data' -F file=@${cwom_license_file}
 #fi
