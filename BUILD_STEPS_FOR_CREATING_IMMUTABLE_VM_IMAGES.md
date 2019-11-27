@@ -6,13 +6,13 @@ The AppDynamics Cloud Kickstart project enables an IT Administrator, Software De
 
 -	__APM-Platform VM__: An APM Platform stand-alone VM designed for Application Performance Monitoring. It consists of the AppDynamics Enterprise Console, Controller, and Events Service.
 -	__CWOM-Platform VM__: A Cisco Workload Optimization Manager (CWOM) stand-alone VM designed for Intelligent Workload Management. It consists of the CWOM Platform server.
--	__LPAD-EKS VM__: 'Launchpad' VM with pre-configured tooling for Cloud and Kubernetes CLI Operations.
+-	__LPAD VM__: An AWS EC2 'Launchpad' VM with pre-configured tooling for Kubernetes and Serverless CLI Operations.
 
 ## Installation Instructions - macOS
 
 To build the AppD Cloud Kickstart VM images, the following open source software needs to be installed on the host macOS machine:
 
--	Homebrew 2.1.16
+-	Homebrew 2.2.0
 	-	Command Line Tools (CLT) for Xcode
 -	Packer 1.4.5
 -	Git 2.24.0
@@ -25,7 +25,7 @@ Perform the following steps to install the needed software:
 
     **NOTE:** Most Homebrew formulae require a compiler. A handful require a full Xcode installation. You can install [Xcode](https://itunes.apple.com/us/app/xcode/id497799835), the [CLT](https://developer.apple.com/downloads), or both; Homebrew supports all three configurations. Downloading Xcode may require an Apple Developer account on older versions of Mac OS X. Sign up for free [here](https://developer.apple.com/register/index.action).  
 
-2.	Install the [Homebrew 2.1.16](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
+2.	Install the [Homebrew 2.2.0](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     `$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
 3.	Install [Packer 1.4.5](https://packer.io/) for macOS 64-bit.  
@@ -43,7 +43,7 @@ Perform the following steps to install the needed software:
 
     ```
     $ brew --version
-    Homebrew 2.1.16
+    Homebrew 2.2.0
     $ brew doctor
     Your system is ready to brew.
 

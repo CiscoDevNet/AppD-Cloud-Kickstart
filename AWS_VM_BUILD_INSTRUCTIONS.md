@@ -4,7 +4,7 @@ Follow these instructions to build the AWS CentOS 7.7 AMI images:
 
 -	__APM-Platform VM__: An APM Platform stand-alone VM with an AppDynamics Controller.
 -	__CWOM-Platform VM__: A Cisco Workload Optimization Manager (CWOM) stand-alone VM with a CWOM Platform server.
--	__LPAD-EKS VM__: An AWS EKS 'Launchpad' VM needed for Kubernetes CLI Operations and running the sample apps.
+-	__LPAD VM__: An AWS EC2 'Launchpad' VM needed for Kubernetes and Serverless CLI Operations and running the sample apps.
 
 Before building the AppD Cloud Kickstart VM images for AWS, it is recommended that you install the AWS CLI and Python3. This will allow you to cleanup and delete any resources created by the Packer builds when you are finished. It will also provide the ability to easily purge old AMI images while keeping the latest.
 
@@ -153,13 +153,13 @@ To prepare for the build, perform the following steps:
 
     If the build fails, check to ensure the accuracy of all variables edited above--including items such as spaces between access keys and the ending parentheses.
 
-3.	Build the __LPAD-EKS VM__ CentOS 7.7 AMI image:
+3.	Build the __LPAD VM__ CentOS 7.7 AMI image:
 
     This will take several minutes to run. However, this build will be shorter
     because the size of the root volume for the AMI image is much smaller.
 
     ```
-    $ packer build lpad-eks-centos77.json
+    $ packer build lpad-centos77.json
     ```
 
 4. The steps for creating the AMI's are completed. 
@@ -196,12 +196,13 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	Python 3.6.3
 	-	Pip 19.3.1
 
-__LPAD-EKS VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
+__LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
 -	Amazon AWS CLI 1.16.292 (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.10.2 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.14.6 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.14.6 (command-line interface)
+-	AppDynamics Node.js Serverless Tracer 1.0.1
 -	Docker 19.03.4 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.24.1
@@ -215,7 +216,11 @@ __LPAD-EKS VM__ - The following AWS CLI command-line tools and utilities are pre
 -	Java SE JDK 11.0.5 (Amazon Corretto 11)
 -	Java SE JDK 13.0.1 (Oracle)
 -	jq 1.6 (command-line JSON processor)
+-	Node.js JavaScript runtime v12.13.1 (Latest LTS Version)
+-	npm JavaScript Package Manager for Node.js 6.13.1
+-	nvm (Node Version Manager) bash script 0.35.1
 -	Python 2.7.5
 	-	Pip 19.3.1
 -	Python 3.6.3
 	-	Pip 19.3.1
+-	Serverless Framework CLI 1.58.0

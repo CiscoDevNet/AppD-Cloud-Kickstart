@@ -7,7 +7,7 @@ In this exercise you will use the [AWS Management Console](https://aws.amazon.co
 
 This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'.
 
-You will need to use an existing AMI image named **LPAD-EKS-CentOS77-AMI** located in the AWS region that you are working in:
+You will need to use an existing AMI image named **LPAD-CentOS77-AMI** located in the AWS region that you are working in:
 
 **NOTE:** Though any region can be utilized, this workshop creates a VPC and utilizes an elastic IP address. You may run into issues with default limits for these resources. In the AppDynamics AWS environment, these limits have been increased in **us-east-1**. If you are internal to AppD, it is recommended to utilize this region. For clients, know these limits may impact your ability to create a EKS Cluster later on.
 
