@@ -37,7 +37,7 @@ environment variables as needed (defaults are shown). Please note the variables 
 ```
 #!/bin/sh
 cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
-chmod 755 ./initialize_al2_lpad_eks_cloud_init.sh
+chmod 755 ./initialize_al2_lpad_cloud_init.sh
 
 user_name="centos"                      # Modify username as needed.
 export user_name
@@ -48,7 +48,7 @@ export AWS_SECRET_ACCESS_KEY
 aws_cli_default_region_name="us-east-1" # Modify region name as needed.
 export aws_cli_default_region_name
 
-./initialize_al2_lpad_eks_cloud_init.sh
+./initialize_al2_lpad_cloud_init.sh
 ```
 
 If the above section is not completed at VM creation, the Launch Pad instance will not function as intended.
