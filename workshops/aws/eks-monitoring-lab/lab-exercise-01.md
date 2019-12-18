@@ -54,11 +54,11 @@ export aws_cli_default_region_name
 If the above section is not completed at VM creation, the Launch Pad instance will not function as intended.
 
   6. Select on 'Add Storage' tab and chose default options.
-  7. Next, select the 'Add Tags' tab. Add one tag. [Key = Name , Value = User-Lpad-Initials].
-     For example, if your user name is 'John Calvin Smith', enter the following:
+  7. Next, select the 'Add Tags' tab. Add one tag. [Key = Name , Value = User-LPAD-Firstname-Lastname].
+     For example, if your user name is 'John Smith', enter the following:
 
      Key: Name  
-     Value: User-Lpad-JCS
+     Value: User-LPAD-John-Smith
 
   8. Next Select the 'Configure Security Group' tab. Select the following group from the drop down.
 

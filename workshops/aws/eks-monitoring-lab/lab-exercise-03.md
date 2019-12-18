@@ -39,13 +39,13 @@ export user_name
 ```
 
   6. Select on 'Add Storage' tab and chose default options.
-  7. Next Select on 'Add Tags' tab. Add one tag. [Key = Name , Value = User_Ctlr_Initials].
+  7. Next Select on 'Add Tags' tab. Add one tag. [Key = Name , Value = User-CTLR-Firstname-Lastname].
 
     Example of Value field:
-    User Name: John Calvin Smith
+    User Name: John Smith
     
-    Key = Name
-    Value=User-Ctlr-JCS
+    Key: Name
+    Value: User-CTLR-John-Smith
 
   8. Next Select the 'Configure Security Group' tab. Select the following group from the drop down.
 

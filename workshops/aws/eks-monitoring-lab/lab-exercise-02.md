@@ -89,13 +89,13 @@ It is advisable to set the 'appd_aws_eks_user_name' variable to a value that is 
 Example:
 <br>
 
-Users Name: **John Calvin Smith**
+Users Name: **John Smith**
 
-Random Number Sequence: **19-51-28**
+Date Number Sequence: **2019-12-19**
 
-example command based on users name and random number sequence show above
+example command based on users name and date number sequence show above
 
-*export appd_aws_eks_user_name=User-JCS-19-51-28*
+*export appd_aws_eks_user_name=User-John-Smith-2019-12-19*
 
 <br>
 
