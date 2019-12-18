@@ -34,7 +34,7 @@ curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 curl --silent --dump-header curl-nvm.${curdate}.out1 https://github.com/nvm-sh/nvm/releases/latest --output /dev/null
 tr -d '\r' < curl-nvm.${curdate}.out1 > curl-nvm.${curdate}.out2
 nvm_release=$(awk '/Location/ {print $2}' curl-nvm.${curdate}.out2 | awk -F "/" '{print $8}')
-#nvm_release="v0.35.1"
+#nvm_release="v0.35.2"
 nvm_binary="nvm-linux-amd64"
 rm -f curl-nvm.${curdate}.out1
 rm -f curl-nvm.${curdate}.out2
