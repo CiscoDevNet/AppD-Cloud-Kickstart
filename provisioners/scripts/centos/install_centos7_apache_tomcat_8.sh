@@ -1,50 +1,27 @@
 #!/bin/sh -eux
 # install tomcat 8 web server by apache.
+# all inputs are defined by external environment variables.
+# script should be run with 'root' privilege.
 # NOTE: This script is still a work-in-progress.
 
 # set default values for input environment variables if not set. -----------------------------------
 # tomcat web server install parameters.
-tomcat_home="${tomcat_home:-apache-tomcat-8}"
-tomcat_release="${tomcat_release:-8.5.50}"
+tomcat_home="${tomcat_home:-apache-tomcat-8}"                       # [optional] tomcat home (defaults to 'apache-tomcat-8').
+tomcat_release="${tomcat_release:-8.5.50}"                          # [optional] tomcat release (defaults to '8.5.50').
 
-tomcat_username="${tomcat_username:-centos}"
-tomcat_group="${tomcat_group:-centos}"
+tomcat_username="${tomcat_username:-centos}"                        # [optional] tomcat user name (defaults to 'centos').
+tomcat_group="${tomcat_group:-centos}"                              # [optional] tomcat group (defaults to 'centos').
 
-tomcat_admin_username="${tomcat_admin_username:-admin}"
-tomcat_admin_password="${tomcat_admin_password:-welcome1}"
-tomcat_admin_roles="${tomcat_admin_roles:-manager-gui,admin-gui}"
-tomcat_jdk_home="${tomcat_jdk_home:-/usr/local/java/jdk180}"
-
+tomcat_admin_username="${tomcat_admin_username:-admin}"             # [optional] tomcat admin user name (defaults to 'admin').
+tomcat_admin_password="${tomcat_admin_password:-welcome1}"          # [optional] tomcat admin password (defaults to 'welcome1').
+tomcat_admin_roles="${tomcat_admin_roles:-manager-gui,admin-gui}"   # [optional] tomcat admin roles (defaults to 'manager-gui,admin-gui').
+                                                                    #            NOTE: for appd java agent, use 'manager-script'.
+tomcat_jdk_home="${tomcat_jdk_home:-/usr/local/java/jdk180}"        # [optional] tomcat jdk home (defaults to '/usr/local/java/jdk180').
+                                                                    # [optional] tomcat catalina opts (defaults to '-Xms512M -Xmx1024M -server -XX:+UseParallelGC').
+                                                                    #            NOTE: for appd java agent, add '-javaagent:/opt/appdynamics/appagent/javaagent.jar'.
 tomcat_catalina_opts="${tomcat_catalina_opts:--Xms512M -Xmx1024M -server -XX:+UseParallelGC}"
+                                                                    # [optional] tomcat java opts (defaults to '-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom').
 tomcat_java_opts="${tomcat_java_opts:--Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom}"
-
-# define usage function. ---------------------------------------------------------------------------
-usage() {
-  cat <<EOF
-Usage:
-  All inputs are defined by external environment variables.
-  Script should be run with 'root' privilege.
-  Example:
-   # tomcat web server install parameters.
-    [root]# export tomcat_home="apache-tomcat-8"                # [optional] tomcat home (defaults to 'apache-tomcat-8').
-    [root]# export tomcat_release="8.5.50"                      # [optional] tomcat release (defaults to '8.5.50').
-   #
-    [root]# export tomcat_username="centos"                     # [optional] tomcat user name (defaults to 'centos').
-    [root]# export tomcat_group="centos"                        # [optional] tomcat group (defaults to 'centos').
-   #
-    [root]# export tomcat_admin_username="admin"                # [optional] tomcat admin user name (defaults to 'admin').
-    [root]# export tomcat_admin_password="welcome1"             # [optional] tomcat admin password (defaults to 'welcome1').
-    [root]# export tomcat_admin_roles="manager-gui,admin-gui"   # [optional] tomcat admin roles (defaults to 'manager-gui,admin-gui').
-                                                                #            NOTE: for appd java agent, use 'manager-script'.
-    [root]# export tomcat_jdk_home="/usr/local/java/jdk180"     # [optional] tomcat jdk home (defaults to '/usr/local/java/jdk180').
-                                                                # [optional] tomcat catalina opts (defaults to '-Xms512M -Xmx1024M -server -XX:+UseParallelGC').
-                                                                #            NOTE: for appd java agent, add '-javaagent:/opt/appdynamics/appagent/javaagent.jar'.
-    [root]# export tomcat_catalina_opts="-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
-                                                                # [optional] tomcat java opts (defaults to '-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom').
-    [root]# export tomcat_java_opts="-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
-    [root]# $0
-EOF
-}
 
 # install apache tomcat. ---------------------------------------------------------------------------
 # set tomcat web server installation variables.
@@ -160,4 +137,3 @@ systemctl is-enabled "${tomcat_service}"
 
 # check current status.
 #systemctl status "${tomcat_service}"
-

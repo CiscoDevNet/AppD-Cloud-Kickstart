@@ -1,10 +1,12 @@
 #!/bin/sh -eux
 # install tomcat 7 web server by apache.
+# all inputs are defined by external environment variables.
+# script should be run with 'root' privilege.
 
-# set default values for input environment variables if not set. ---------------
+# set default values for input environment variables if not set. -----------------------------------
 # tomcat web server install parameters.
 tomcat_home="${tomcat_home:-apache-tomcat-7}"                       # [optional] tomcat home (defaults to 'apache-tomcat-7').
-tomcat_release="${tomcat_release:-7.0.96}"                          # [optional] tomcat release (defaults to '7.0.96').
+tomcat_release="${tomcat_release:-7.0.99}"                          # [optional] tomcat release (defaults to '7.0.99').
 
 tomcat_username="${tomcat_username:-centos}"                        # [optional] tomcat user name (defaults to 'centos').
 tomcat_group="${tomcat_group:-centos}"                              # [optional] tomcat group (defaults to 'centos').
@@ -20,35 +22,7 @@ tomcat_catalina_opts="${tomcat_catalina_opts:--Xms512M -Xmx1024M -server -XX:+Us
                                                                     # [optional] tomcat java opts (defaults to '-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom').
 tomcat_java_opts="${tomcat_java_opts:--Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom}"
 
-# define usage function. -------------------------------------------------------
-usage() {
-  cat <<EOF
-Usage:
-  All inputs are defined by external environment variables.
-  Script should be run with 'root' privilege.
-  Example:
-   # tomcat web server install parameters.
-    [root]# export tomcat_home="apache-tomcat-7"                # [optional] tomcat home (defaults to 'apache-tomcat-7').
-    [root]# export tomcat_release="7.0.96"                      # [optional] tomcat release (defaults to '7.0.96').
-   #
-    [root]# export tomcat_username="centos"                     # [optional] tomcat user name (defaults to 'centos').
-    [root]# export tomcat_group="centos"                        # [optional] tomcat group (defaults to 'centos').
-   #
-    [root]# export tomcat_admin_username="admin"                # [optional] tomcat admin user name (defaults to 'admin').
-    [root]# export tomcat_admin_password="welcome1"             # [optional] tomcat admin password (defaults to 'welcome1').
-    [root]# export tomcat_admin_roles="manager-gui,admin-gui"   # [optional] tomcat admin roles (defaults to 'manager-gui,admin-gui').
-                                                                #            NOTE: for appd java agent, use 'manager-script'.
-    [root]# export tomcat_jdk_home="/usr/local/java/jdk180"     # [optional] tomcat jdk home (defaults to '/usr/local/java/jdk180').
-                                                                # [optional] tomcat catalina opts (defaults to '-Xms512M -Xmx1024M -server -XX:+UseParallelGC').
-                                                                #            NOTE: for appd java agent, add '-javaagent:/opt/appdynamics/appagent/javaagent.jar'.
-    [root]# export tomcat_catalina_opts="-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
-                                                                # [optional] tomcat java opts (defaults to '-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom').
-    [root]# export tomcat_java_opts="-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
-    [root]# $0
-EOF
-}
-
-# install apache tomcat. -------------------------------------------------------
+# install apache tomcat. ---------------------------------------------------------------------------
 # set tomcat web server installation variables.
 tomcat_folder="${tomcat_home:0:-2}-${tomcat_release}"
 tomcat_binary="${tomcat_folder}.tar.gz"
@@ -85,7 +59,7 @@ if [ -d "$CATALINA_HOME" ]; then
   ./version.sh
 fi
 
-# configure the tomcat 'setenv.sh' script. -------------------------------------
+# configure the tomcat 'setenv.sh' script. ---------------------------------------------------------
 setenv_dir="${CATALINA_HOME}/bin"
 setenv_filename="setenv.sh"
 setenv_filepath="${setenv_dir}/${setenv_filename}"
@@ -107,7 +81,7 @@ if [ -d "$setenv_dir" ]; then
   echo "JAVA_OPTS=\"\${JAVA_OPTS} ${tomcat_java_opts}\"" >> "${setenv_filepath}"
 fi
 
-# configure the tomcat users file. ---------------------------------------------
+# configure the tomcat users file. -----------------------------------------------------------------
 if [ -d "${CATALINA_HOME}/conf" ]; then
   cd ${CATALINA_HOME}/conf
 
@@ -122,7 +96,7 @@ if [ -d "${CATALINA_HOME}/conf" ]; then
   sed -i "s/^${tomcat_search_string}/${tomcat_user_string}\n${tomcat_search_string}/g" ${tomcat_users_file}
 fi
 
-# configure the tomcat web server as a service. --------------------------------
+# configure the tomcat web server as a service. ----------------------------------------------------
 systemd_dir="/etc/systemd/system"
 tomcat_service="${tomcat_home}.service"
 service_filepath="${systemd_dir}/${tomcat_service}"
@@ -162,4 +136,3 @@ systemctl is-enabled "${tomcat_service}"
 
 # check current status.
 #systemctl status "${tomcat_service}"
-
