@@ -42,7 +42,7 @@ Usage:
     [root]# export appd_aws_eks_name="AD-Capital-User-0X"                  # [optional] eks cluster name (defaults to 'AD-Capital-${appd_aws_eks_user_name}')
     [root]# export appd_aws_eks_environment="Lab-Env-User-0X"              # [optional] eks environment decription (defaults to 'Lab-Env-${appd_aws_eks_user_name}')
     [root]# export appd_aws_eks_nodes="2"                                  # [optional] number of eks worker nodes (defaults to '2')
-    [root]# export appd_aws_eks_node_type="m4.large"                       # [optional] type of EC2 instance for nodes (defaults to user 'm4.large')
+    [root]# export appd_aws_eks_node_type="m5a.large"                      # [optional] type of EC2 instance for nodes (defaults to user 'm5a.large')
     [root]# export appd_aws_eks_ssh_public_key="AppD-Cloud-Kickstart-AWS"  # [optional] public key used to ssh to eks cluster (defaults to 'AppD-Cloud-Kickstart-AWS')
 
   --------
@@ -77,7 +77,7 @@ set +x  # temporarily turn command display OFF.
 appd_aws_eks_name="AD-Capital-${appd_aws_eks_user_name}"
 appd_aws_eks_environment="Lab-Env-${appd_aws_eks_user_name}"
 appd_aws_eks_nodes="${appd_aws_eks_nodes:-2}"
-appd_aws_eks_node_type="${appd_aws_eks_node_type:-m4.large}"
+appd_aws_eks_node_type="${appd_aws_eks_node_type:-m5a.large}"
 appd_aws_eks_ssh_public_key="${appd_aws_eks_ssh_public_key:-AppD-Cloud-Kickstart-AWS}"
 
 # run eksctl command to create the eks cluster. ----------------------------------------------

@@ -19,7 +19,7 @@ You will need to use an existing AMI image named **APM-Platform-4516-CentOS77-AM
 Once you have identified the appropriate AMI, launch an instance of it via:
 
   1. Select the AMI > Launch
-  2. Select Memory optimized 'r5a.large' or 'r5.large' with 2 vCPUs and 16 GiB RAM
+  2. Select Memory optimized 'r5a.large' with 2 vCPUs and 16 GiB RAM
   3. Click 'Configure Instance Details' in the bottom right
   4. Keep all default values
   5. Scroll to the bottom and Expand Advanced
