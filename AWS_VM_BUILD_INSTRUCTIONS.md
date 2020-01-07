@@ -173,7 +173,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	AppDynamics Event Service 4.5.2.0 Build 20561
 -	Docker 19.03.5 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.25.0
+	-	Docker Compose 1.25.1
 	-	Docker Compose Bash Completion
 -	Java SE JDK 8 Update 232 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
@@ -186,7 +186,7 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	Cisco Workload Optimization Manager (CWOM) 2.3.4
 -	Docker 19.03.5 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.25.0
+	-	Docker Compose 1.25.1
 	-	Docker Compose Bash Completion
 -	Java SE JDK 8 Update 232 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
@@ -205,7 +205,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	AppDynamics Node.js Serverless Tracer 1.0.1
 -	Docker 19.03.5 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.25.0
+	-	Docker Compose 1.25.1
 	-	Docker Compose Bash Completion
 -	Git 2.24.1
 	-	Git Bash Completion
