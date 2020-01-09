@@ -14,14 +14,12 @@ If the error is related to the # of VPC's or the # of Elastic IP addresses you m
 1. For VPC's, chose the URL appropriate to your region:  
     a. [us-east-1](https://console.aws.amazon.com/vpc/home?region=us-east-1#vpcs:sort=VpcId)  
     b. [us-east-2](https://console.aws.amazon.com/vpc/home?region=us-east-2#vpcs:sort=VpcId)  
-    c. [us-west-1](https://console.aws.amazon.com/vpc/home?region=us-west-1#vpcs:sort=VpcId)  
-    d. [us-west-2](https://console.aws.amazon.com/vpc/home?region=us-west-2#vpcs:sort=VpcId)  
+    c. [us-west-2](https://console.aws.amazon.com/vpc/home?region=us-west-2#vpcs:sort=VpcId)  
 
 2. For Elastic IPC's, chose the URL appropriate to your region:  
     a. [us-east-1](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Addresses:sort=InstanceId)  
     b. [us-east-2](https://console.aws.amazon.com/ec2/v2/home?region=us-east-2#Addresses:sort=InstanceId)  
-    c. [us-west-1](https://console.aws.amazon.com/ec2/v2/home?region=us-west-1#Addresses:sort=InstanceId)  
-    d. [us-west-2](https://console.aws.amazon.com/ec2/v2/home?region=us-west-2#Addresses:sort=InstanceId)  
+    c. [us-west-2](https://console.aws.amazon.com/ec2/v2/home?region=us-west-2#Addresses:sort=InstanceId)  
 
 **To Delete** -- DO NOT do this unless you know what impact (if any) your actions will cause
 1. Navigate to the correct region for either VPC or EIP's above

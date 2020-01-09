@@ -33,11 +33,6 @@ If you are working in the **us-east-2** region, run the command below:
 kubectl create -f us-east-2/
 ```
 
-If you are working in the **us-west-1** region, run the command below:
-```
-kubectl create -f us-west-1/
-```
-
 If you are working in the **us-west-2** region, run the command below:
 ```
 kubectl create -f us-west-2/
