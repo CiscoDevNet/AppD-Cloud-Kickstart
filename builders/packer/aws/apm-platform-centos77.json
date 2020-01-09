@@ -107,6 +107,7 @@
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_docker.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3_scl.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_jq_json_processor.sh",
