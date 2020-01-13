@@ -16,8 +16,8 @@ echo "# AWS AL2 AMI Image IDs as of: ${curdate}."
 
 # loop for each aws region. ------------------------------------------------------------------------
 # initialize aws regions for north america and europe.
-aws_region_ids_array=( "ca-central-1" "eu-central-1" "eu-west-1" "eu-west-2" "eu-west-3" "us-east-1" "us-east-2" "us-west-1" "us-west-2" )
-aws_region_names_array=( "Central" "Frankfurt" "Ireland" "London" "Paris" "N. Virginia" "Ohio" "N. California" "Oregon" )
+aws_region_ids_array=( "ap-southeast-2" "ca-central-1" "eu-central-1" "eu-west-1" "eu-west-2" "eu-west-3" "us-east-1" "us-east-2" "us-west-1" "us-west-2" )
+aws_region_names_array=( "Sydney" "Central" "Frankfurt" "Ireland" "London" "Paris" "N. Virginia" "Ohio" "N. California" "Oregon" )
 
 # initialize array index.
 ii=0
@@ -33,14 +33,15 @@ done
 echo "#export aws_ami_source"
 
 # output will look like the following: -------------------------------------------------------------
-# AWS AL2 AMI Image IDs as of: 27 Sep 2019.
-#aws_ami_source="ami-03338e1f67dae0168"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: ca-central-1 [Central]
-#aws_ami_source="ami-09def150731bdbcc2"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: eu-central-1 [Frankfurt]
-#aws_ami_source="ami-07683a44e80cd32c5"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: eu-west-1 [Ireland]
-#aws_ami_source="ami-09ead922c1dad67e4"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: eu-west-2 [London]
-#aws_ami_source="ami-0451ae4fd8dd178f7"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: eu-west-3 [Paris]
-#aws_ami_source="ami-0de53d8956e8dcf80"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: us-east-1 [N. Virginia]
-#aws_ami_source="ami-02bcbb802e03574ba"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: us-east-2 [Ohio]
-#aws_ami_source="ami-0019ef04ac50be30f"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: us-west-1 [N. California]
-#aws_ami_source="ami-061392db613a6357b"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: us-west-2 [Oregon]
+# AWS AL2 AMI Image IDs as of: 13 Jan 2020.
+#aws_ami_source="ami-0b8b10b5bf11f3a22"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: ap-southeast-2 [Sydney]
+#aws_ami_source="ami-0a269ca7cc3e3beff"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: ca-central-1 [Central]
+#aws_ami_source="ami-07cda0db070313c52"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: eu-central-1 [Frankfurt]
+#aws_ami_source="ami-0713f98de93617bb4"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: eu-west-1 [Ireland]
+#aws_ami_source="ami-0089b31e09ac3fffc"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: eu-west-2 [London]
+#aws_ami_source="ami-007fae589fdf6e955"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: eu-west-3 [Paris]
+#aws_ami_source="ami-062f7200baf2fa504"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: us-east-1 [N. Virginia]
+#aws_ami_source="ami-02ccb28830b645a41"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: us-east-2 [Ohio]
+#aws_ami_source="ami-03caa3f860895f82e"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: us-west-1 [N. California]
+#aws_ami_source="ami-04590e7389a6e577c"     # Amazon Linux 2 AMI (HVM), SSD Volume Type: us-west-2 [Oregon]
 #export aws_ami_source

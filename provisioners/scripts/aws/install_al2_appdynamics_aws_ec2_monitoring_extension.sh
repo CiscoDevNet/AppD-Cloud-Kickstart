@@ -185,6 +185,24 @@ if [ "$appd_aws_ec2_extension_config" == "true" ]; then
 
   sed -i -e "/^cloudWatchMonitoring:/s/^.*$/cloudWatchMonitoring: \"${appd_aws_ec2_extension_cloudwatch_monitoring}\"/" ${appd_aws_ec2_extension_config_file}
 
+  # add 'eu-west-2' and 'eu-west-3' as a region endpoints. (it is curently missing in release 2.0.1.)
+  eu_west_1="  eu-west-1: monitoring.eu-west-1.amazonaws.com"           # Europe (Ireland)
+  eu_west_2="  eu-west-2: monitoring.eu-west-2.amazonaws.com"           # Europe (London)
+  eu_west_3="  eu-west-3: monitoring.eu-west-3.amazonaws.com"           # Europe (Paris)
+  match=$(awk 'BEGIN{found="false"} {if (/monitoring.eu-west-2/) found="true"} END {print found}' ${appd_aws_ec2_extension_config_file})
+
+  # if 'eu-west-2' region endpoint not found, add it underneath 'eu-west-1'.
+  if [ "$match" == "false" ]; then
+    sed -i -e "/^${eu_west_1}/s/^.*$/${eu_west_1}\n${eu_west_2}/" ${appd_aws_ec2_extension_config_file}
+  fi
+
+  match=$(awk 'BEGIN{found="false"} {if (/monitoring.eu-west-3/) found="true"} END {print found}' ${appd_aws_ec2_extension_config_file})
+
+  # if 'eu-west-3' region endpoint not found, add it underneath 'eu-west-2'.
+  if [ "$match" == "false" ]; then
+    sed -i -e "/^${eu_west_2}/s/^.*$/${eu_west_2}\n${eu_west_3}/" ${appd_aws_ec2_extension_config_file}
+  fi
+
   # add 'us-east-2' as a region endpoint. (it is curently missing in release 2.0.1.)
   us_east_1="  us-east-1: monitoring.us-east-1.amazonaws.com"           # US East (N. Virinia)
   us_east_2="  us-east-2: monitoring.us-east-2.amazonaws.com"           # US East (Ohio)
@@ -198,6 +216,4 @@ if [ "$appd_aws_ec2_extension_config" == "true" ]; then
   # To-Do's
   #ca-central-1="  ca-central-1: monitoring.ca-central-1.amazonaws.com" # Canada (Central)
   #eu-north-1="  eu-north-1: monitoring.eu-north-1.amazonaws.com"       # EU (Stockholm)
-  #eu-west-2="  eu-west-2: monitoring.eu-west-2.amazonaws.com"          # EU (London)
-  #eu-west-3="  eu-west-3: monitoring.eu-west-3.amazonaws.com"          # EU (Paris)
 fi

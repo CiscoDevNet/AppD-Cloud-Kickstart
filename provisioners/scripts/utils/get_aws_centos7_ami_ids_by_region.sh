@@ -16,8 +16,8 @@ echo "# CentOS 7.7 AMI Image IDs as of: ${curdate}."
 
 # loop for each aws region. ------------------------------------------------------------------------
 # initialize aws regions for north america and europe.
-aws_region_ids_array=( "ca-central-1" "eu-central-1" "eu-west-1" "eu-west-2" "eu-west-3" "us-east-1" "us-east-2" "us-west-1" "us-west-2" )
-aws_region_names_array=( "Central" "Frankfurt" "Ireland" "London" "Paris" "N. Virginia" "Ohio" "N. California" "Oregon" )
+aws_region_ids_array=( "ap-southeast-2" "ca-central-1" "eu-central-1" "eu-west-1" "eu-west-2" "eu-west-3" "us-east-1" "us-east-2" "us-west-1" "us-west-2" )
+aws_region_names_array=( "Sydney" "Central" "Frankfurt" "Ireland" "London" "Paris" "N. Virginia" "Ohio" "N. California" "Oregon" )
 
 # initialize array index.
 ii=0
@@ -33,7 +33,8 @@ done
 echo "#export aws_ami_source"
 
 # output will look like the following: -------------------------------------------------------------
-# CentOS 7.7 AMI Image IDs as of: 18 Sep 2019.
+# CentOS 7.7 AMI Image IDs as of: 13 Jan 2020.
+#aws_ami_source="ami-08bd00d7713a39e7d"     # CentOS 7.7 AMI (HVM), SSD Volume Type: ap-southeast-2 [Sydney]
 #aws_ami_source="ami-033e6106180a626d0"     # CentOS 7.7 AMI (HVM), SSD Volume Type: ca-central-1 [Central]
 #aws_ami_source="ami-04cf43aca3e6f3de3"     # CentOS 7.7 AMI (HVM), SSD Volume Type: eu-central-1 [Frankfurt]
 #aws_ami_source="ami-0ff760d16d9497662"     # CentOS 7.7 AMI (HVM), SSD Volume Type: eu-west-1 [Ireland]
