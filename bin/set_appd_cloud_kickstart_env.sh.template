@@ -324,6 +324,6 @@ export aws_ami_owner
 
 # aws region to create packer build ami's.
 # current valid regions are:
-#   'ap-southeast-2', eu-central-1', 'eu-west-2', 'eu-west-3, 'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'
+#   'ap-southeast-2', eu-central-1', 'eu-west-2', 'eu-west-3, 'sa-east-1', 'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'
 aws_ami_region="us-east-1"
 export aws_ami_region
