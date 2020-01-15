@@ -1,12 +1,12 @@
 # Lab Exercise 2
-## Clone Github Repositories & Create EKS Cluster
+## Clone GitHub Repositories & Create EKS Cluster
 
 This workshop takes previously configured docker-compose applications (AD-Capital-Kube) and makes them deployable to a kubernetes cluster. If you are curious about any of the repositiories; either the original java application code itself or the dockerized version, they are publicly available with detailed explanations as to what they contain. For the purpose of this walkthrough, it will be focused solely on Kubernetes.
 
 In this exercise you will need to do the following:
 
 - SSH into the Launch Pad EC2 instance
-- Clone two Github repositories
+- Clone two GitHub repositories
 - Run a script to create a new EKS cluster
 
 ### **1.** SSH Into the Launch Pad EC2 Instance
@@ -45,16 +45,16 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html#putty-private-key
 
 ***After Logging In:***
 
-**NOTE** If you created your own SSH key pair, you will need to set the value of the '**appd_aws_eks_ssh_public_key**' environment variable with the name of your key. The default is '**AppD-Cloud-Kickstart-AWS**'.
+**NOTE:** If you created your own SSH key pair, you will need to set the value of the '**appd_aws_eks_ssh_public_key**' environment variable with the name of your key. The default is '**AppD-Cloud-Kickstart-AWS**'.
 
 ```
 export appd_aws_eks_ssh_public_key=your-unique-ssh-key
 ```
 <br>
 
-### **2.** Clone Github Repositories
+### **2.** Clone GitHub Repositories
 
-Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone two Github repositories by running the commands below:
+Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone two GitHub repositories by running the commands below:
 
 ```
 cd /home/centos

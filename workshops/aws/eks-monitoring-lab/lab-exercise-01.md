@@ -3,7 +3,7 @@
 
 The Launch Pad EC2 instance is used to execute all the steps needed for the creation and management of the Kubernetes (AWS EKS) cluster. It comes pre-installed with utilities like AWS CLI, kubectl, eksctl, etc.
 
-In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two Github repositories and create the EKS cluster in the next lab exercise.
+In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two GitHub repositories and create the EKS cluster in the next lab exercise.
 
 This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'.
 
@@ -19,10 +19,10 @@ You will need to use an existing AMI image named **LPAD-CentOS77-AMI** located i
 
 Once you have identified the appropriate AMI, launch an instance of it via:
 
-  1. Select the **LPAD-CentOS77-AMI** and click the **Launch** button
-  2. Select General Purpose: **t2.micro**
-  3. Click '**Next: Configure Instance Details**' in the bottom right
-  4. Keep all default values; scroll to the bottom and expand '**Advanced Details**'
+### 1. Select the **LPAD-CentOS77-AMI** and click the **Launch** button
+### 2. Select General Purpose: **t2.micro**
+### 3. Click '**Next: Configure Instance Details**' in the bottom right
+### 4. Keep all default values; scroll to the bottom and expand '**Advanced Details**'
 
 Once 'Advance Details' is expanded, enter the following '**User data**' commands '**As text**'.
 
