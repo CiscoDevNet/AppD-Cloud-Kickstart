@@ -3,7 +3,7 @@
 # Create an AWS EKS cluster with eksctl utility
 # 
 # export appd_aws_eks_user_name=User-0X
-# export appd_aws_eks_region=us-east-1
+# export appd_aws_eks_region=eu-west-3
 # 
 # For more details, please visit:
 #   https://github.com/weaveworks/eksctl
@@ -36,7 +36,7 @@ Usage:
   -------------------------------------
   [MANDATORY] eksctl command parameters
     [root]# export appd_aws_eks_user_name="User-0X"                        # lab participant user name
-    [root]# export appd_aws_eks_region="us-east-1"                         # AWS region (us-east-1 or us-east-2)
+    [root]# export appd_aws_eks_region="eu-west-3"                         # AWS region ('eu-central-1', 'eu-west-2', or 'eu-west-3')
 
   [OPTIONAL] eksctl command parameters [w/ defaults].
     [root]# export appd_aws_eks_name="AD-Capital-User-0X"                  # [optional] eks cluster name (defaults to 'AD-Capital-${appd_aws_eks_user_name}')

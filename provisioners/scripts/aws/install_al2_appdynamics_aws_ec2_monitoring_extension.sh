@@ -34,7 +34,7 @@ appd_aws_ec2_extension_build="${appd_aws_ec2_extension_build:-1553249199}"
 # [OPTIONAL] appdynamics aws ec2 monitoring extension config parameters [w/ defaults].
 appd_aws_ec2_extension_config="${appd_aws_ec2_extension_config:-false}"
 appd_aws_ec2_extension_display_account_name="${appd_aws_ec2_extension_display_account_name:-}"
-appd_aws_ec2_extension_aws_regions="${appd_aws_ec2_extension_aws_regions:-us-east-1}"
+appd_aws_ec2_extension_aws_regions="${appd_aws_ec2_extension_aws_regions:-eu-west-3}"
 appd_aws_ec2_extension_cloudwatch_monitoring="${appd_aws_ec2_extension_cloudwatch_monitoring:-Basic}"
 appd_aws_ec2_extension_tier_component_id="${appd_aws_ec2_extension_tier_component_id:-8}"
 appd_machine_agent_application_name="${appd_machine_agent_application_name:-}"
@@ -77,7 +77,7 @@ Usage:
 
     [root]# export appd_aws_ec2_extension_display_account_name=""       # [optional] account name to display (defaults to '').
     [root]# export appd_aws_ec2_extension_aws_regions="region1 region2" # [optional] whitespace separated list of aws regions to monitor
-                                                                        #            (defaults to 'us-east-1').
+                                                                        #            (defaults to 'eu-west-3').
     [root]# export appd_aws_ec2_extension_cloudwatch_monitoring="Basic" # [optional] aws cloudwatch monitoring type (defaults to 'Basic').
                                                                         #            valid types:
                                                                         #              'Basic', 'Detailed'

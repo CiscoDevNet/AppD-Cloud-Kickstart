@@ -95,7 +95,7 @@ To prepare for the build, perform the following steps:
 
     The following environment variables are the most common to be overridden. They are grouped by sections in the file, so you will have to search to locate the exact line. For example, the AWS-related variables are at the end of the file.
 
-    The first 4 are mandatory and the others are optional, but helpful. If you are building the AMI images in the `us-east-1` region (N. Virginia), the region-related variables can be left alone.
+    The first 4 are mandatory and the others are optional, but helpful. If you are building the AMI images in the `eu-west-3` region (Paris), the region-related variables can be left alone.
 
     ```
     appd_username="<Your_AppDynamics_Download_Site_Email>"
@@ -105,8 +105,8 @@ To prepare for the build, perform the following steps:
     AWS_SECRET_ACCESS_KEY="<Your_AWS_SECRET_ACCESS_KEY>"
 
     aws_ami_owner="<Your Firstname> <Your Lastname>"
-    aws_cli_default_region_name="us-east-1"         # example for N. Virginia.
-    aws_ami_region="us-east-1"                      # example for N. Virginia.
+    aws_cli_default_region_name="eu-west-3"         # example for Paris.
+    aws_ami_region="eu-west-3"                      # example for Paris.
     ```
 
     Save and source the environment variables file in order to define the variables in your shell.

@@ -28,7 +28,7 @@ appd_machine_agent_tier_component_id="${appd_machine_agent_tier_component_id:-8}
 
 # override aws ec2 monitoring extension config parameters.
 appd_aws_ec2_extension_display_account_name="${appd_aws_ec2_extension_display_account_name:-}"
-appd_aws_ec2_extension_aws_regions="${appd_aws_ec2_extension_aws_regions:-us-east-1}"
+appd_aws_ec2_extension_aws_regions="${appd_aws_ec2_extension_aws_regions:-eu-west-3}"
 appd_aws_ec2_extension_cloudwatch_monitoring="${appd_aws_ec2_extension_cloudwatch_monitoring:-Basic}"
 
 # set amazon aws cli credentials (appdynamics).

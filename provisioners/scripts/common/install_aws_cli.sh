@@ -26,7 +26,7 @@ set +x  # temporarily turn command display OFF.
 AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID:-}"
 AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY:-}"
 set -x  # turn command display back ON.
-aws_cli_default_region_name="${aws_cli_default_region_name:-us-east-1}"
+aws_cli_default_region_name="${aws_cli_default_region_name:-eu-west-3}"
 aws_cli_default_output_format="${aws_cli_default_output_format:-json}"
 
 # define usage function. ---------------------------------------------------------------------------
@@ -53,7 +53,7 @@ Usage:
 
     [root]# export AWS_ACCESS_KEY_ID="<YourKeyID>"              # aws access key id.
     [root]# export AWS_SECRET_ACCESS_KEY="<YourSecretKey>"      # aws secret access key.
-    [root]# export aws_cli_default_region_name="us-east-1"      # [optional] aws cli default region name (defaults to 'us-east-1' [N. Virginia]).
+    [root]# export aws_cli_default_region_name="eu-west-3"      # [optional] aws cli default region name (defaults to 'eu-west-3' [Paris]).
     [root]# export aws_cli_default_output_format="json"         # [optional] aws cli default output format (defaults to 'json').
                                                                 #            valid output formats:
                                                                 #              'json', 'text', 'table'

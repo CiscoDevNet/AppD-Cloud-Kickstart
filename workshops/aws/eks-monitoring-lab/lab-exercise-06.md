@@ -23,19 +23,19 @@ cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/KubeExtMac
 
 Depending on what AWS region you deployed the AD-Capital application to in the previous exercise, **run only one of the following commands** below:
 
-If you are working in the **us-east-1** region, run the command below:
+If you are working in the **eu-central-1** region, run the command below:
 ```
-kubectl create -f us-east-1/
-```
-
-If you are working in the **us-east-2** region, run the command below:
-```
-kubectl create -f us-east-2/
+kubectl create -f eu-central-1/
 ```
 
-If you are working in the **us-west-2** region, run the command below:
+If you are working in the **eu-west-2** region, run the command below:
 ```
-kubectl create -f us-west-2/
+kubectl create -f eu-west-2/
+```
+
+If you are working in the **eu-west-3** region, run the command below:
+```
+kubectl create -f eu-west-3/
 ```
 
 <br>

@@ -27,7 +27,7 @@ ssh -i <path-to-file>/AppD-Cloud-Kickstart-AWS.pem <hostname-of-your-launch-pad-
 
 Example:
 ```
-ssh -i AppD-Cloud-Kickstart-AWS.pem centos@ec2-54-214-99-204.us-east-1.compute.amazonaws.com
+ssh -i AppD-Cloud-Kickstart-AWS.pem centos@ec2-54-214-99-204.eu-west-3.compute.amazonaws.com
 ```
 
 <br>
@@ -116,25 +116,25 @@ export appd_aws_eks_user_name=your-unique-user-id
 
 The second variable ('**appd_aws_eks_region**') needs to specify the AWS region that you are working in.  Currently, only the three regions below are supported.
 
-- us-east-1
-- us-east-2
-- us-west-2
+- eu-central-1
+- eu-west-2
+- eu-west-3
 
 <br>
 
-If you are working in the **us-east-1** region, run the command below:
+If you are working in the **eu-central-1** region, run the command below:
 ```
-export appd_aws_eks_region=us-east-1
-```
-
-If you are working in the **us-east-2** region, run the command below:
-```
-export appd_aws_eks_region=us-east-2
+export appd_aws_eks_region=eu-central-1
 ```
 
-If you are working in the **us-west-2** region, run the command below:
+If you are working in the **eu-west-2** region, run the command below:
 ```
-export appd_aws_eks_region=us-west-2
+export appd_aws_eks_region=eu-west-2
+```
+
+If you are working in the **eu-west-3** region, run the command below:
+```
+export appd_aws_eks_region=eu-west-3
 ```
 
 

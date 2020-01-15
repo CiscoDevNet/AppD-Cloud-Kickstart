@@ -9,7 +9,7 @@ AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY:-}"
 set -x  # turn command display back ON.
 
 # [OPTIONAL] aws cli config parameters [w/ defaults].
-aws_cli_default_region_name="${aws_cli_default_region_name:-us-east-1}"
+aws_cli_default_region_name="${aws_cli_default_region_name:-eu-west-3}"
 aws_cli_default_output_format="${aws_cli_default_output_format:-json}"
 
 # [OPTIONAL] aws user and host name config parameters [w/ defaults].

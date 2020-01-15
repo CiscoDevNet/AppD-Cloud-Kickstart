@@ -11,7 +11,7 @@
 # set default values for input environment variables if not set. -----------------------------------
 appd_platform_name="${appd_platform_name-AppDynamics Cloud Kickstart}"
 appd_project_image_types="${appd_project_image_types-APM-Platform-CentOS CWOM-Platform-CentOS EXT-CentOS LPAD-CentOS K8S-CentOS}"
-aws_ami_region="${aws_ami_region-us-east-1}"
+aws_ami_region="${aws_ami_region-eu-west-3}"
 aws_ami_keep_last="${aws_ami_keep_last-true}"
 
 # check if 'jq' is installed. ----------------------------------------------------------------------
