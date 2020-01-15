@@ -1,7 +1,7 @@
 # Lab Exercise 2
 ## Clone Github Repositories & Create EKS Cluster
 
-This workshop takes previously configured docker-compose applications (AD-Capital-Kube) and makes them deployable to a kubernetes cluster. If you are curious about any of the repositiories, either the original java application code itself or the dockerized version, they are publicly available with detailed explanations as to what they contain. For the purpose of this walkthrough, it will be focused solely on Kubernetes.
+This workshop takes previously configured docker-compose applications (AD-Capital-Kube) and makes them deployable to a kubernetes cluster. If you are curious about any of the repositiories; either the original java application code itself or the dockerized version, they are publicly available with detailed explanations as to what they contain. For the purpose of this walkthrough, it will be focused solely on Kubernetes.
 
 In this exercise you will need to do the following:
 
@@ -15,7 +15,7 @@ If you are internal to AppD: You will need a copy of the `AppD-Cloud-Kickstart-A
 
 If you are external: Use the key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the remaining lab exercise steps.  
 <br>
-You will use the user name 'centos' with no password to SSH into the Launch Pad EC2 instance,
+You will use the user name '**centos**' with no password to SSH into the Launch Pad EC2 instance,
 <br><br>
 
 ***For Mac Users:***
@@ -28,7 +28,7 @@ ssh -i <path-to-file>/AppD-Cloud-Kickstart-AWS.pem <hostname-of-your-launch-pad-
 
 Example:
 ```
-ssh -i /Users/john.smith/Documents/AppD-Cloud-Kickstart-AWS.pem centos@ec2-54-214-99-204.us-east-1.compute.amazonaws.com
+ssh -i AppD-Cloud-Kickstart-AWS.pem centos@ec2-54-214-99-204.us-east-1.compute.amazonaws.com
 ```
 
 <br>
@@ -42,7 +42,13 @@ If you are using PuTTY, you can find the instructions to convert the pem file to
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html#putty-private-key
 
-- Once logged in , modify the value of the 'appd_aws_eks_ssh_public_key' variable in the 'create_eks_cluster.sh' script found in */home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube* so the value is the name of the key pair you created in the AWS EC2 console on your AWS instance after the GIT packages have been cloned — they are not there initially
+***After Logging In:***
+
+**NOTE** If you created your own SSH key, you will need to set the value of the '**appd_aws_eks_ssh_public_key**' environment variable with the name of your key. The default is '**AppD-Cloud-Kickstart-AWS.pem**.
+
+```
+export appd_aws_eks_ssh_public_key=your-unique-ssh-key
+```
 <br>
 
 ### **2.** Clone Github Repositories
@@ -75,27 +81,26 @@ Change to the directory where you will set permissions on the scripts used in th
 
 ```
 cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
-chmod -R 775 .
 ```
 <br>
-Next you will need to set two environment variables before you run the script to create the EKS cluster. The first variable ('appd_aws_eks_user_name') needs special instructions, read carefully.
+Next, you will need to set two environment variables before you run the script to create the EKS cluster. The first variable ('**appd_aws_eks_user_name**') needs special instructions, read carefully.  
 
 **It is VERY IMPORTANT that the 'appd_aws_eks_user_name' variable BE UNIQUE TO YOU !!!**  
 
-This variable is used as the name of the EKS cluster and the cluster creation will fail if there is any existing cluster with the same name and could also interfere with another persons cluster with the same name if they are running the script to create the cluster when you are.
+This variable is used as the name of the EKS cluster and the cluster creation will fail if there is any existing cluster with the same name. It could also interfere with another persons cluster with the same name if they are running the script to create the cluster when you are.
 
-It is advisable to set the 'appd_aws_eks_user_name' variable to a value that is a combination of your name or initials combined with a random number sequence to ensure a unique cluster name.
+It is advisable to set the '**appd_aws_eks_user_name**' variable to a value that is a combination of your name or initials combined with a date number sequence to ensure a unique cluster name.
 
 Example:
 <br>
 
 Users Name: **John Smith**
 
-Date Number Sequence: **2019-12-19**
+Date Number Sequence: **2020-01-15**
 
 example command based on users name and date number sequence show above
 
-*export appd_aws_eks_user_name=User-John-Smith-2019-12-19*
+*export appd_aws_eks_user_name=User-John-Smith-2020-01-15*
 
 <br>
 
@@ -105,7 +110,7 @@ export appd_aws_eks_user_name=your-unique-user-id
 ```
 <br>
 
-The second variable ('appd_aws_eks_region') needs to specify the AWS region that you are working in.  Currently, only the three regions below are supported.
+The second variable ('**appd_aws_eks_region**') needs to specify the AWS region that you are working in.  Currently, only the three regions below are supported.
 
 - us-east-1
 - us-east-2
@@ -149,10 +154,8 @@ You should start to see output from the command that is similar to the image see
 
 <br>
 
-
-
 ![EKS Cluster Created](./images/3.png)
 
-**NOTE:** If you run into any CloudFormation rollback errors, it could be due to a VPC / Elastic IP limit. See [CloudFormation Rollback Error](cloud-formation-rollback-error.md) for more information and instructions on how to resolve.
+**NOTE:** If you run into any CloudFormation rollback errors, it could be due to a VPC/Elastic IP/NAT Gateway limit. See [CloudFormation Rollback Error](cloud-formation-rollback-error.md) for more information and instructions on how to resolve.
 
 [Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), 2, [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-01.md) | [Next](lab-exercise-03.md)
