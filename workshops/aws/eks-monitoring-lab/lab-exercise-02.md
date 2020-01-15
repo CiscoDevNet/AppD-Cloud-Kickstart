@@ -8,14 +8,13 @@ In this exercise you will need to do the following:
 - SSH into the Launch Pad EC2 instance
 - Clone two Github repositories
 - Run a script to create a new EKS cluster
-<br>
 
 ### **1.** SSH Into the Launch Pad EC2 Instance
-If you are internal to AppD: You will need a copy of the `AppD-Cloud-Kickstart-AWS.pem` file in order to SSH into your Launch Pad EC2 instance. You can obtain a copy of the `AppD-Cloud-Kickstart-AWS.pem` file from your lab instructor.  
+You will need a copy of the `AppD-Cloud-Kickstart-AWS.pem` file in order to SSH into your Launch Pad EC2 instance. You can obtain a copy of the `AppD-Cloud-Kickstart-AWS.pem` file from your lab instructor.  
 
-If you are external: Use the key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the remaining lab exercise steps.  
+Otherwise: Use the key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the remaining lab exercise steps.  
 <br>
-You will use the user name '**centos**' with no password to SSH into the Launch Pad EC2 instance,
+You will use the user name '**centos**' with no password to SSH into the Launch Pad EC2 instance.
 <br><br>
 
 ***For Mac Users:***
@@ -41,6 +40,8 @@ You will need [PuTTY](https://www.putty.org/) or another SSH client installed to
 If you are using PuTTY, you can find the instructions to convert the pem file to a ppk file in the link provided below:
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html#putty-private-key
+
+<br>
 
 ***After Logging In:***
 
@@ -68,7 +69,6 @@ git clone https://github.com/Appdynamics/AD-Capital-Kube.git
 After you run the commands, you should have two new folders in your home directory
 
 */home/centos/AD-Capital-Kube*
-
 */home/centos/AppD-Cloud-Kickstart*
 
 ![Git Repos Pulled](./images/2.png)
@@ -83,8 +83,8 @@ Change to the directory where you will set permissions on the scripts used in th
 cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 ```
 <br>
-Next, you will need to set two environment variables before you run the script to create the EKS cluster. The first variable ('**appd_aws_eks_user_name**') needs special instructions, read carefully.  
-
+Next, you will need to set two environment variables before you run the script to create the EKS cluster. The first variable, **appd_aws_eks_user_name**, needs special instructions, so please read carefully.  
+<br>
 **It is VERY IMPORTANT that the 'appd_aws_eks_user_name' variable BE UNIQUE TO YOU !!!**  
 
 This variable is used as the name of the EKS cluster and the cluster creation will fail if there is any existing cluster with the same name. It could also interfere with another persons cluster with the same name if they are running the script to create the cluster when you are.
@@ -98,7 +98,7 @@ Users Name: **John Smith**
 
 Date Number Sequence: **2020-01-15**
 
-example command based on users name and date number sequence show above
+The example command based on users name and date number sequence show above:
 
 *export appd_aws_eks_user_name=User-John-Smith-2020-01-15*
 
