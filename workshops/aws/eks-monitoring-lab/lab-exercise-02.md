@@ -12,7 +12,7 @@ In this exercise you will need to do the following:
 ### **1.** SSH Into the Launch Pad EC2 Instance
 You will need a copy of the `AppD-Cloud-Kickstart-AWS.pem` file in order to SSH into your Launch Pad EC2 instance. You can obtain a copy of the `AppD-Cloud-Kickstart-AWS.pem` file from your lab instructor.  
 
-Otherwise: Use the key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the remaining lab exercise steps.  
+Otherwise: If you created a new SSH key pair in [Lab Exercise 1](lab-exercise-01.md), remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the remaining lab exercise steps.  
 <br>
 You will use the user name '**centos**' with no password to SSH into the Launch Pad EC2 instance.
 <br><br>
@@ -45,7 +45,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html#putty-private-key
 
 ***After Logging In:***
 
-**NOTE** If you created your own SSH key, you will need to set the value of the '**appd_aws_eks_ssh_public_key**' environment variable with the name of your key. The default is '**AppD-Cloud-Kickstart-AWS.pem**.
+**NOTE** If you created your own SSH key pair, you will need to set the value of the '**appd_aws_eks_ssh_public_key**' environment variable with the name of your key. The default is '**AppD-Cloud-Kickstart-AWS**'.
 
 ```
 export appd_aws_eks_ssh_public_key=your-unique-ssh-key
@@ -78,14 +78,14 @@ After you run the commands, you should have two new folders in your home directo
 
 ### **3.** Create EKS Cluster
 
-Change to the directory where you will run the script to create the EKS cluster:
+Change to the directory where you will prepare to run the script to create the EKS cluster:
 
 ```
 cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 ```
 <br>
 
-Next, you will need to set two environment variables. The first variable, **appd_aws_eks_user_name**, needs special instructions, so please read carefully.  
+Next, you will need to set two environment variables. The first variable, '**appd_aws_eks_user_name**', needs special instructions, so please read carefully.  
 
 <br>
 
