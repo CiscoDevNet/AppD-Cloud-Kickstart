@@ -19,10 +19,10 @@ You will need to use an existing AMI image named **LPAD-CentOS77-AMI** located i
 
 Once you have identified the appropriate AMI, launch an instance of it via:
 
-### 1. Select the **LPAD-CentOS77-AMI** and click the **Launch** button
-### 2. Select General Purpose: **t2.micro**
-### 3. Click '**Next: Configure Instance Details**' in the bottom right
-### 4. Keep all default values; scroll to the bottom and expand '**Advanced Details**'
+#### 1. Select the **LPAD-CentOS77-AMI** and click the **Launch** button
+#### 2. Select General Purpose: **t2.micro**
+#### 3. Click '**Next: Configure Instance Details**' in the bottom right
+#### 4. Keep all default values; scroll to the bottom and expand '**Advanced Details**'
 
 Once 'Advance Details' is expanded, enter the following '**User data**' commands '**As text**'.
 
@@ -52,18 +52,19 @@ Please note the variables are case sensitive:
 
 If the above section is not completed correctly at VM creation, the Launch Pad EC2 instance will not function as intended.
 
-  5. Click '**Next: Add Storage**' in the bottom right and leave the defaults
-  6. Click '**Next: Add Tags**' in the bottom right and add one tag as shown below:
-     For example, if your user name is 'John Smith', enter the following:
+#### 5. Click '**Next: Add Storage**' in the bottom right and leave the defaults
+#### 6. Click '**Next: Add Tags**' in the bottom right and add one tag as shown below:
 
-     Key: **Name**  
-     Value: **User-LPAD-John-Smith**
+For example, if your user name is 'John Smith', enter the following:
 
-  7. Click '**Next: Configure Security Group**' in the bottom right. Select the following group from the drop down.
+Key: **Name**  
+Value: **User-LPAD-John-Smith**
+
+#### 7. Click '**Next: Configure Security Group**' in the bottom right. Select the following group from the drop down.
 
 ![Security Group](./images/security-group-01.png)
 
-  8. Click '**Review and Launch**' to launch your VM. When prompted for a key pair:  
+#### 8. Click '**Review and Launch**' to launch your VM. When prompted for a key pair:  
 
      a. Select the **AppD-Cloud-Kickstart-AWS** pem if you have access to it. You can request this key from the workshop creators.  
      b. Otherwise: Select **Create a new key pair** and give it a name. Remember to download it and save it locally.  
