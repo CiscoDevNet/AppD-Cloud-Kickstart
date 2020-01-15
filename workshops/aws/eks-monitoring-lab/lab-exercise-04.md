@@ -54,11 +54,11 @@ You should see output from the commands similar to the image seen below:
 ### **3.** Create an API Key using AppDynamics Controller
 AppDynamics analytics engine provides a mechanism to communicate with 3rd Party data consumer or producer through REST API. The Analytics Events REST API provides Publish Events endpoints to receive events. We need to configure the API to receive events from Kubernetes Agent. API Keys provide a secure authentication mechanism for a caller to prove identity when using these public REST APIs.
 
-Open your web browser and login to your controller.  The URL you need to use is like the one below.  You can find your controller's public IP address or public host name in the AWS EC2 console.
+Open your web browser and login to your controller. The URL you need to use is like the one below. You can find your controller's public IP address or public host name in the AWS EC2 console.
 
 *http://controller-ip-or-hostname:8090/controller/*
 
-You should see the controller's login screen as seen in the image below.  The default user name and password are listed below. Login into the controller.
+You should see the controller's login screen as seen in the image below. The default user name and password are listed below. Login into the controller.
 
 - Username: admin
 - Password: welcome1
@@ -80,7 +80,8 @@ Once logged into the controller, navigate to the Analytics module and create the
 ![Analytics API Key 1](./images/7.png)
 
 <br>
-After you click the Create button you will see the next screen below.  Copy the API key and save it in a text file for the next step.
+
+After you click the Create button you will see the next screen below. Copy the API key and save it in a text file for the next step.
 
 <br>
 
@@ -111,14 +112,6 @@ You should then see output similar to the image seen below:
 
 ![EKS Configmap](./images/9.png)
 
-**NOTE:** If your application does not show up in AppD, there was likely an issue with the IP / FQDN passed along or the config map. You will need to delete your cluster and recreate after verifying those steps.  
-
-The command to delete your cluster and rerun after variables have been reviewed is:
-
-```
-kubectl delete -f Kubernetes/
-```
-
 <br>
 
 ### **5.** Deploy the AD-Capital Application to EKS
@@ -148,13 +141,17 @@ You should then see output similar to the image seen below:
 
 ### **6.** Monitor Deployment in the AppDynamics Controller
 
-Wait four more minutes and go to your web browser and check the controller to see if the AD-Capital application is reporting to the controller.  You should see what the image below shows when you click on the Applications tab:
+Wait four more minutes and go to your web browser and check the controller to see if the AD-Capital application is reporting to the controller. You should see what the image below shows when you click on the Applications tab:
 
 ![Controller Apps](./images/12.png)
 
 Wait a few more minutes and you should see the flow map that looks like the image below:
 
 ![Flow Map](./images/13.png)
+
+<br>
+
+**NOTE:** If your application does not show up in AppD, there was likely an issue with the Public IP / FQDN passed along or the config map. You may need to delete your deployment and recreate after verifying those steps. After deleting the application deployment, go back to step 5. The command to delete your deployment is: `kubectl delete -f Kubernetes/`
 
 <br>
 
