@@ -69,6 +69,7 @@ git clone https://github.com/Appdynamics/AD-Capital-Kube.git
 After you run the commands, you should have two new folders in your home directory
 
 */home/centos/AD-Capital-Kube*
+
 */home/centos/AppD-Cloud-Kickstart*
 
 ![Git Repos Pulled](./images/2.png)
@@ -77,14 +78,17 @@ After you run the commands, you should have two new folders in your home directo
 
 ### **3.** Create EKS Cluster
 
-Change to the directory where you will set permissions on the scripts used in the next steps by running the commands below:
+Change to the directory where you will run the script to create the EKS cluster:
 
 ```
 cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 ```
 <br>
-Next, you will need to set two environment variables before you run the script to create the EKS cluster. The first variable, **appd_aws_eks_user_name**, needs special instructions, so please read carefully.  
+
+Next, you will need to set two environment variables. The first variable, **appd_aws_eks_user_name**, needs special instructions, so please read carefully.  
+
 <br>
+
 **It is VERY IMPORTANT that the 'appd_aws_eks_user_name' variable BE UNIQUE TO YOU !!!**  
 
 This variable is used as the name of the EKS cluster and the cluster creation will fail if there is any existing cluster with the same name. It could also interfere with another persons cluster with the same name if they are running the script to create the cluster when you are.
