@@ -24,7 +24,7 @@ We have created a multi-service application containerized with Docker that is re
 | Lab Exercise | Description                                | Estimated Time |
 | :----------: | :----------------------------------------- | :------------: |
 |      1       | Launch First EC2 Instance                  |   10 minutes   |
-|      2       | Clone Github Repos & Configure EKS Cluster |   15 minutes   |
+|      2       | Clone GitHub Repos & Configure EKS Cluster |   15 minutes   |
 |      3       | Launch Second EC2 Instance                 |   10 minutes   |
 |      4       | Deploy AD-Capital Application to EKS       |   35 minutes   |
 |      5       | Deploy Machine Agents to EKS               |   20 minutes   |
@@ -36,9 +36,9 @@ To ease the effort, we have created a couple of AMIs using automated tooling. Th
 ![Lab Workflow](./images/37.png)
 
 1. [Launch First EC2 Instance (e.g. Launch Pad EC2)](lab-exercise-01.md)
-   - In this step you will launch the first EC2 instance that will be used to clone two Github repositories and configure an EKS cluster in the next step.<br><br>
-2. [Clone Github Repositories & Configure an EKS Cluster](lab-exercise-02.md)
-   - In this step you will use the Launch Pad EC2 instance to clone two Github repositiories and configure a Kubernetes cluster within AWS EKS.<br><br>
+   - In this step you will launch the first EC2 instance that will be used to clone two GitHub repositories and configure an EKS cluster in the next step.<br><br>
+2. [Clone GitHub Repositories & Configure an EKS Cluster](lab-exercise-02.md)
+   - In this step you will use the Launch Pad EC2 instance to clone two GitHub repositiories and configure a Kubernetes cluster within AWS EKS.<br><br>
 3. [Launch Second EC2 Instance (e.g. Controller EC2)](lab-exercise-03.md)
    - In this step you will launch the second EC2 instance that will run the AppDynamics Enterpise Console, Controller, and Events Service.<br><br>
 4. [Deploy AD-Capital Application to EKS](lab-exercise-04.md)

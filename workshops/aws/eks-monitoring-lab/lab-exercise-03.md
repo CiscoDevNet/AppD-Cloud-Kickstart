@@ -40,7 +40,7 @@ If the above section is not completed correctly at VM creation, the Controller E
 
   5. Click '**Next: Add Storage**' in the bottom right and leave the defaults.
   6. Click '**Next: Add Tags**' in the bottom right and add two tags as shown below:
-     For example, if the user name assign by your lab instructor is 'Lab-User-01' and your name is 'John Smith', enter the following:
+     For example, if the user name assigned by your lab instructor is 'Lab-User-01' and your name is 'John Smith', enter the following:
 
      Key: **Name**  
      Value: **CTLR-Lab-User-01**  
