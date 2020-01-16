@@ -1,9 +1,9 @@
 # Lab Exercise 1
 ## Launch the First EC2 Instance (e.g. Launch Pad EC2).
 
-The Launch Pad EC2 instance is used to execute all the steps needed for the creation and management of the Kubernetes (AWS EKS) cluster. It comes pre-installed with utilities like AWS CLI, kubectl, eksctl, etc.
+The Launch Pad EC2 instance is used to execute all the steps needed for the configuration and management of the Kubernetes (AWS EKS) cluster. It comes pre-installed with utilities like AWS CLI, kubectl, eksctl, etc.
 
-In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two GitHub repositories and create the EKS cluster in the next lab exercise.
+In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two GitHub repositories and configure the EKS cluster in the next lab exercise.
 
 This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'.
 
@@ -53,11 +53,14 @@ Please note the variables are case sensitive:
 If the above section is not completed correctly at VM creation, the Launch Pad EC2 instance will not function as intended.
 
   5. Click '**Next: Add Storage**' in the bottom right and leave the defaults.
-  6. Click '**Next: Add Tags**' in the bottom right and add one tag as shown below:
-     For example, if your user name is 'John Smith', enter the following:
+  6. Click '**Next: Add Tags**' in the bottom right and add two tags as shown below:
+     For example, if the user name assign by your lab instructor is 'Lab-User-01' and your name is 'John Smith', enter the following:
 
      Key: **Name**  
-     Value: **User-LPAD-John-Smith**
+     Value: **LPAD-Lab-User-01**  
+
+     Key: **Owner**  
+     Value: **John Smith**
 
   7. Click '**Next: Configure Security Group**' in the bottom right. Select the following group from the drop down.
 
@@ -65,8 +68,8 @@ If the above section is not completed correctly at VM creation, the Launch Pad E
 
   8. Click '**Review and Launch**' to launch your VM. When prompted for a key pair:  
 
-     a. Select the **AppD-Cloud-Kickstart-AWS** pem if you have access to it. You can request this key from the workshop creators.  
-     b. Otherwise: Select **Create a new key pair** and give it a name. Remember to download it and save it locally.  
+     a. Select the **AppD-Cloud-Kickstart-AWS** pem if you have access to it. You can request this key from your lab instructor.  
+     b. Otherwise: Select **Create a new key pair** and give it a name. Remember to download and save it locally.  
 
 **NOTE:** Once the VM is launched, take note of the Public IP Address (FQDN) of the server. You will be leveraging this server in the remainder of the lab.
 
