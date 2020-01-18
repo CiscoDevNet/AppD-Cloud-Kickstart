@@ -3,8 +3,8 @@
 
 # install amazon corretto 11. ----------------------------------------------------------------------
 jdkhome="jdk11"
-jdkbuild="11.0.5.10.1"
-#jdkchecksum="d732b6ece7b1c8117753ba8460dfaede"
+jdkbuild="11.0.6.10.1"
+#jdkchecksum="cfb0b142edf7ebc2f87a27405c8d39fc"
 jdkfolder="amazon-corretto-${jdkbuild}-linux-x64"
 jdkbinary="amazon-corretto-${jdkbuild}-linux-x64.tar.gz"
 #jdkbinary="amazon-corretto-${jdkbuild:0:2}-x64-linux-jdk.tar.gz"

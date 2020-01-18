@@ -3,8 +3,8 @@
 
 # install amazon corretto 8. -----------------------------------------------------------------------
 jdkhome="jdk180"
-jdkbuild="8.232.09.1"
-#jdkchecksum="3511152bd52c867f8b550d7c8d7764aa"
+jdkbuild="8.242.07.1"
+#jdkchecksum="3adc824f87ff4c4f0827d30fdb5ed75e"
 jdkfolder="amazon-corretto-${jdkbuild}-linux-x64"
 jdkbinary="amazon-corretto-${jdkbuild}-linux-x64.tar.gz"
 #jdkbinary="amazon-corretto-${jdkbuild:0:1}-x64-linux-jdk.tar.gz"
