@@ -112,7 +112,7 @@ if [ "$user_docker_profile" == "true" ]; then
 
   # download docker completion for bash from github.com.
   rm -f ${user_home}/${dc_completion_binary}
-  curl --silent --location "https://github.com/docker/compose/raw/${dc_completion_release}/contrib/completion/bash/docker-compose" --output ${user_home}/${dc_completion_binary}
+  curl --silent --location "https://github.com/docker/compose/raw/v${dc_completion_release}/contrib/completion/bash/docker-compose" --output ${user_home}/${dc_completion_binary}
   chown -R ${user_name}:${user_group} ${user_home}/${dc_completion_binary}
   chmod 644 ${user_home}/${dc_completion_binary}
 fi
