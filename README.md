@@ -1,6 +1,6 @@
-# AppD-Cloud-Kickstart
+# AppDynamics Cloud Adoption: Hands on Workshop - LTRCLD-2321
 
-The Cloud Kickstart is an enablement workshop demonstrating AppDynamics ability to monitor cloud native workloads. AWS support is currently available, with Azure and GCP to follow. The idea is to deliver different chapters within each cloud provider bucket. The first chapter available within the AWS bucket is "AWS EKS Monitoring". More chapters will be added soon.
+The AppDynamics Cloud Adoption: Hands on Workshop or Cloud Kickstart is an enablement workshop demonstrating AppDynamics ability to monitor cloud native workloads. AWS support is currently available, with Azure and GCP to follow. The idea is to deliver different chapters within each cloud provider bucket. The first chapter available within the AWS bucket is "AWS EKS Monitoring". More chapters will be added soon.
 
 ## Overview
 
