@@ -8,6 +8,8 @@ In this exercise you will use the **AWS Management Console** to locate your Lab 
 
 For your information only, the Launch Pad EC2 is based on a pre-built AMI image named **LPAD-CentOS77-AMI** located in the AWS region that you are working in.
 
+**NOTE:** Before beginning, please make note of your assigned Lab User ID: **Lab-User-01**, **Lab-User-02**, **Lab-User-03**, etc. You will make extensive use of your ID in the remaining exercises.
+
 <br>
 
 To begin Lab Exercise 1, open your browser and navigate to the [AWS Management Console](https://appdynamics-partner.signin.aws.amazon.com/console).
