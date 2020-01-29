@@ -41,9 +41,9 @@ If you are using PuTTY, you can find the instructions to convert the pem file to
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html#putty-private-key
 
-Once you have the converted the pem file to a ppk file, you can configure PuTTY to SSH into the Launch Pad EC2 instance using the steps below.
+Once you have converted the pem file to a ppk file, you can configure PuTTY to SSH into the Launch Pad EC2 instance using the steps below.
 
-1. Enter public the host name or IP address of your LPAD instance
+1. Enter the public host name or IP address of your LPAD instance
 2. Enter a name for your session to your LPAD instance
 3. Click on the Auth option under SSH
 4. Click on the Browse button to select your PPK file
