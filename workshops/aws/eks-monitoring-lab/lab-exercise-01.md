@@ -4,11 +4,9 @@
 
 The Launch Pad EC2 instance is used to execute all the steps needed for the configuration and management of the Kubernetes (AWS EKS) cluster. It comes pre-installed with utilities like AWS CLI, kubectl, eksctl, etc.
 
-In this exercise you will use the **AWS Management Console** to locate your Lab EC2 instance that will be used to clone two GitHub repositories and configure the EKS cluster in the next lab exercise.
+In this exercise you will use the **AWS Management Console** to locate your Lab EC2 instance that will be used to clone two GitHub repositories and configure the EKS cluster in the next lab exercise. This EC2 instance will be referenced in the lab steps as the **Launch Pad EC2**.
 
-This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'.
-
-Your Launch Pad EC2 is based on an existing AMI image named **LPAD-CentOS77-AMI** located in the AWS region that you are working in.
+For your information only, the Launch Pad EC2 is based on a pre-built AMI image named **LPAD-CentOS77-AMI** located in the AWS region that you are working in.
 
 <br>
 
