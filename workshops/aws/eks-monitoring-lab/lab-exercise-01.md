@@ -1,21 +1,38 @@
 # Lab Exercise 1
-## Launch the First EC2 Instance (e.g. Launch Pad EC2).
+## Login to the AWS Console and Locate Your Lab EC2 Instance. (e.g. Launch Pad EC2).
 
 The Launch Pad EC2 instance is used to execute all the steps needed for the configuration and management of the Kubernetes (AWS EKS) cluster. It comes pre-installed with utilities like AWS CLI, kubectl, eksctl, etc.
 
-In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two GitHub repositories and configure the EKS cluster in the next lab exercise.
+In this exercise you will use the [AWS Management Console](https://appdynamics-partner.signin.aws.amazon.com/console) to locate your Lab EC2 instance that will be used to clone two GitHub repositories and configure the EKS cluster in the next lab exercise.
 
 This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'.
 
-You will need to use an existing AMI image named **LPAD-CentOS77-AMI** located in the AWS region that you are working in:
-
-**NOTE:** Though any region can be utilized, this workshop creates a VPC, Elastic IP address, and NAT Gateway. You may run into issues with default limits for these resources. In the AppDynamics AWS environment, these limits have been increased in several regions. In general, please be aware that these limits may impact your ability to create a EKS Cluster.
+Your Launch Pad EC2 is based on an existing AMI image named **LPAD-CentOS77-AMI** located in the AWS region that you are working in.
 
 - The AMI image for the **eu-central-1** region can be found [here](https://eu-central-1.console.aws.amazon.com/ec2/v2/home?region=eu-central-1#Images:sort=tag:Name).
 - The AMI image for the **eu-west-2** region can be found [here](https://eu-west-2.console.aws.amazon.com/ec2/v2/home?region=eu-west-2#Images:sort=tag:Name).
 - The AMI image for the **eu-west-3** region can be found [here](https://eu-west-3.console.aws.amazon.com/ec2/v2/home?region=eu-west-3#Images:sort=tag:Name).
 
 <br>
+
+To begin Lab Exercise 1, open your browser and navigate to the [AWS Management Console](https://appdynamics-partner.signin.aws.amazon.com/console).
+
+  1. Login with the credentials supplied by your lab instructor.
+     ![AWS Management Console](./images/aws-console-login-cleur20-lab.png)
+
+  2. In the **Find Services** textbox, type **EC2**, and click the link for **EC2 Virtual Servers in the Cloud**
+  3. If not already selected, Select "Europe (Paris) eu-west-3 from the AWS Region dropdown menu in the upper-right.
+     ![Select AWS Region](./images/select-aws-region-cleur20-lab.png)
+
+  4. Click the **Running instances** link under "Resources".
+  5. Under the **Launch Instance** button, type your Lab ID in the **Filter by tags and attributes or search by keyword** textbox.
+     **For example**, if you were assigned Lab-User-01, type **Lab-User-01** to filter the running EC2 instances.
+     You should see 3 running EC2 instances as shown.
+     ![Filter Lab-User Instances](./images/filter-lab-user-01-ec2-instances-cleur20-lab.png)
+
+  6. Select your LPAD-Lab-User-XX instance. In the description section down below, click the copy icon to copy the
+     Public DNS (IPv4) URL to the clipboard.
+     ![Select Lab-User LPAD Instance](./images/select-lab-user-01-lpad-instance-cleur20-lab.png)
 
 Once you have identified the appropriate AMI, launch an instance of it via:
 
