@@ -1,17 +1,14 @@
 # Lab Exercise 1
-## Login to the AWS Console and Locate Your Lab EC2 Instance. (e.g. Launch Pad EC2).
+## Login to the AWS Console and Locate Your Lab EC2 Instance.
+### (e.g. Launch Pad EC2)
 
 The Launch Pad EC2 instance is used to execute all the steps needed for the configuration and management of the Kubernetes (AWS EKS) cluster. It comes pre-installed with utilities like AWS CLI, kubectl, eksctl, etc.
 
-In this exercise you will use the [AWS Management Console](https://appdynamics-partner.signin.aws.amazon.com/console) to locate your Lab EC2 instance that will be used to clone two GitHub repositories and configure the EKS cluster in the next lab exercise.
+In this exercise you will use the **AWS Management Console** to locate your Lab EC2 instance that will be used to clone two GitHub repositories and configure the EKS cluster in the next lab exercise.
 
 This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'.
 
 Your Launch Pad EC2 is based on an existing AMI image named **LPAD-CentOS77-AMI** located in the AWS region that you are working in.
-
-- The AMI image for the **eu-central-1** region can be found [here](https://eu-central-1.console.aws.amazon.com/ec2/v2/home?region=eu-central-1#Images:sort=tag:Name).
-- The AMI image for the **eu-west-2** region can be found [here](https://eu-west-2.console.aws.amazon.com/ec2/v2/home?region=eu-west-2#Images:sort=tag:Name).
-- The AMI image for the **eu-west-3** region can be found [here](https://eu-west-3.console.aws.amazon.com/ec2/v2/home?region=eu-west-3#Images:sort=tag:Name).
 
 <br>
 
@@ -21,7 +18,7 @@ To begin Lab Exercise 1, open your browser and navigate to the [AWS Management C
      ![AWS Management Console](./images/aws-console-login-cleur20-lab.png)
 
   2. In the **Find Services** textbox, type **EC2**, and click the link for **EC2 Virtual Servers in the Cloud**
-  3. If not already selected, Select "Europe (Paris) eu-west-3 from the AWS Region dropdown menu in the upper-right.
+  3. If not already selected, Select **Europe (Paris) eu-west-3** from the AWS Region dropdown menu in the upper-right.
      ![Select AWS Region](./images/select-aws-region-cleur20-lab.png)
 
   4. Click the **Running instances** link under "Resources".
