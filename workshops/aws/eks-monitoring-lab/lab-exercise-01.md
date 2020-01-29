@@ -31,61 +31,7 @@ To begin Lab Exercise 1, open your browser and navigate to the [AWS Management C
      Public DNS (IPv4) URL to the clipboard.
      ![Select Lab-User LPAD Instance](./images/select-lab-user-01-lpad-instance-cleur20-lab.png)
 
-Once you have identified the appropriate AMI, launch an instance of it via:
-
-  1. Select the **LPAD-CentOS77-AMI** and click the **Launch** button.
-  2. Select General purpose: **t2.micro**.
-  3. Click '**Next: Configure Instance Details**' in the bottom right.
-  4. Keep all default values; scroll to the bottom and expand '**Advanced Details**'.
-
-Once 'Advance Details' is expanded, enter the following '**User data**' commands '**As text**'.
-
-This allows you to customize configuration of the EC2 instance during launch.
-
-Copy and paste the following script code in the the 'User data' text box:
-
-```
-#!/bin/sh
-cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
-chmod 755 ./initialize_al2_lpad_cloud_init.sh
-
-AWS_ACCESS_KEY_ID="<Your_AWS_Access_Key_Here>"
-export AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY="<Your_AWS_Secret_Access_Key_Here>"
-export AWS_SECRET_ACCESS_KEY
-aws_cli_default_region_name="<Your_AWS_Region_Here>"
-export aws_cli_default_region_name
-
-./initialize_al2_lpad_cloud_init.sh
-```
-
-Before continuing, you need to substitute the values for the actual **AWS_ACCESS_KEY_ID** and **AWS_SECRET_ACCESS_KEY**
-environment variables with valid credentials for your environment.
-Also set the **aws_cli_default_region_name** environment variable. Valid values are: 'eu-central-1', 'eu-west-2', and 'eu-west-3'.
-Please note the variables are case sensitive:
-
-If the above section is not completed correctly at VM creation, the Launch Pad EC2 instance will not function as intended.
-
-  5. Click '**Next: Add Storage**' in the bottom right and leave the defaults.
-  6. Click '**Next: Add Tags**' in the bottom right and add two tags as shown below:
-     For example, if the user name assigned by your lab instructor is 'Lab-User-01' and your name is 'John Smith', enter the following:
-
-     Key: **Name**  
-     Value: **LPAD-Lab-User-01**  
-
-     Key: **Owner**  
-     Value: **John Smith**
-
-  7. Click '**Next: Configure Security Group**' in the bottom right. Select the following group from the drop down.
-
-![Security Group](./images/security-group-01.png)
-
-  8. Click '**Review and Launch**' to launch your VM. When prompted for a key pair:  
-
-     a. Select the **AppD-Cloud-Kickstart-AWS** pem if you have access to it. You can request this key from your lab instructor.  
-     b. Otherwise: Select **Create a new key pair** and give it a name. Remember to download and save it locally.  
-
-**NOTE:** Once the VM is launched, take note of the Public IP Address (FQDN) of the server. You will be leveraging this server in the remainder of the lab.
+**NOTE:** Make note of the Public IP Address (FQDN) of the server. You will be leveraging this server in the remainder of the lab.
 
 <br>
 
