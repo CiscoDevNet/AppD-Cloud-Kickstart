@@ -22,7 +22,7 @@ To begin Lab Exercise 1, open your browser and navigate to the [AWS Management C
 
   2. In the **Find Services** textbox, type **EC2**, and click the link for **EC2 Virtual Servers in the Cloud**
   3. If not already selected, Select "Europe (Paris) eu-west-3 from the AWS Region dropdown menu in the upper-right.
-     ![Select AWS Region](./images/select-aws-region-cleur20-lab.png)
+     ![Select AWS Region](./images/select-aws-region-cleur20-lab.png =405px)
 
   4. Click the **Running instances** link under "Resources".
   5. Under the **Launch Instance** button, type your Lab ID in the **Filter by tags and attributes or search by keyword** textbox.
