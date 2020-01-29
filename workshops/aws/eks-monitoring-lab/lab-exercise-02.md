@@ -61,8 +61,7 @@ Once you have the converted the pem file to a ppk file, you can configure PuTTY 
 When your session opens you will be prompted for your user name.  Enter your user name, no password is required.
 
 ![Git Repos Pulled](./images/putty-config-04.png)
-
-<br>
+<br><br>
 
 ### **2.** Clone GitHub Repositories
 
