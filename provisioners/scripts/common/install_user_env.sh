@@ -8,7 +8,7 @@ user_home="${user_home:-/home/$user_name}"
 user_docker_profile="${user_docker_profile:-false}"
 user_prompt_color="${user_prompt_color:-green}"
 d_completion_release="${d_completion_release:-19.03.5}"
-dc_completion_release="${dc_completion_release:-1.25.3}"
+dc_completion_release="${dc_completion_release:-1.25.4}"
 
 # set default value for kickstart home environment variable if not set. ----------------------------
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"
@@ -29,7 +29,7 @@ Usage:
                                                                 #              'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
                                                                 #
     [root]# export d_completion_release="19.03.5"               # [optional] docker completion for bash release (defaults to '19.03.5').
-    [root]# export dc_completion_release="1.25.3"               # [optional] docker compose completion for bash release (defaults to '1.25.3').
+    [root]# export dc_completion_release="1.25.4"               # [optional] docker compose completion for bash release (defaults to '1.25.4').
     [root]# export kickstart_home="/opt/appd-cloud-kickstart"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
     [root]# $0
 EOF
@@ -112,7 +112,7 @@ if [ "$user_docker_profile" == "true" ]; then
 
   # download docker completion for bash from github.com.
   rm -f ${user_home}/${dc_completion_binary}
-  curl --silent --location "https://github.com/docker/compose/raw/v${dc_completion_release}/contrib/completion/bash/docker-compose" --output ${user_home}/${dc_completion_binary}
+  curl --silent --location "https://github.com/docker/compose/raw/${dc_completion_release}/contrib/completion/bash/docker-compose" --output ${user_home}/${dc_completion_binary}
   chown -R ${user_name}:${user_group} ${user_home}/${dc_completion_binary}
   chmod 644 ${user_home}/${dc_completion_binary}
 fi
