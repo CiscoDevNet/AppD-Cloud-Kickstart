@@ -168,12 +168,12 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	AppDynamics Enterprise Console 4.5.16.0 Build 21295
-	-	AppDynamics Controller 4.5.16.1 Build 2272
+-	AppDynamics Enterprise Console 4.5.17.0 Build 21652
+	-	AppDynamics Controller 4.5.17.1 Build 2791
 	-	AppDynamics Event Service 4.5.2.0 Build 20561
 -	Docker 19.03.5 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.25.3
+	-	Docker Compose 1.25.4
 	-	Docker Compose Bash Completion
 -	Java SE JDK 8 Update 242 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
@@ -186,7 +186,7 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	Cisco Workload Optimization Manager (CWOM) 2.3.6
 -	Docker 19.03.5 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.25.3
+	-	Docker Compose 1.25.4
 	-	Docker Compose Bash Completion
 -	Java SE JDK 8 Update 242 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
@@ -205,13 +205,13 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	AppDynamics Node.js Serverless Tracer 1.0.1
 -	Docker 19.03.5 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.25.3
+	-	Docker Compose 1.25.4
 	-	Docker Compose Bash Completion
 -	Git 2.25.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.0.2 (Package Manager for Kubernetes)
+-	Helm CLI 3.0.3 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 242 (Amazon Corretto 8)
 -	Java SE JDK 11.0.6 (Amazon Corretto 11)
 -	Java SE JDK 13.0.2 (Oracle)
@@ -223,4 +223,4 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Pip 20.0.2
 -	Python 3.6.3
 	-	Pip 20.0.2
--	Serverless Framework CLI 1.61.3
+-	Serverless Framework CLI 1.63.0
