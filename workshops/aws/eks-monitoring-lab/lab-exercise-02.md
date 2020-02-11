@@ -7,7 +7,7 @@ In this exercise you will need to do the following:
 
 - SSH into the Launch Pad EC2 instance
 - Clone two GitHub repositories
-- Run a script to create a new EKS cluster
+- Run a script to connect to an EKS cluster
 
 ### **1.** SSH Into the Launch Pad EC2 Instance
 You will need a copy of the `AppD-Cloud-Kickstart-AWS.pem` file in order to SSH into your Launch Pad EC2 instance. You can obtain a copy of the `AppD-Cloud-Kickstart-AWS.pem` file from your lab instructor.  
@@ -133,7 +133,8 @@ export appd_aws_eks_user_name=your-unique-lab-user-id
 ```
 <br>
 
-The second variable ('**appd_aws_eks_region**') needs to specify the AWS region that you are working in.  Currently, only the three regions below are supported.
+The second variable ('**appd_aws_eks_region**') needs to specify the AWS region that you are working in.  
+Currently, only the three regions below are supported.
 
 - us-east-1
 - us-east-2
