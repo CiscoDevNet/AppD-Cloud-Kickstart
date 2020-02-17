@@ -16,7 +16,7 @@
 
 # [MANDATORY] controller host and event service api key.
 appd_controller_host="${appd_controller_host:-}"
-appd_es_api_key="${appd_es_api_key:-}"
+appd_es_api_key="${appd_es_api_key:-notused}"
 
 
 # validate mandatory environment variables. --------------------------------------------------
@@ -26,10 +26,10 @@ if [ -z "$appd_controller_host" ]; then
   exit 1
 fi
 
-if [ -z "$appd_es_api_key" ]; then
-  echo "Error: 'appd_es_api_key' environment variable not set."
-  exit 1
-fi
+#if [ -z "$appd_es_api_key" ]; then
+#  echo "Error: 'appd_es_api_key' environment variable not set."
+#  exit 1
+#fi
 
 # [OPTIONAL] config parameters [w/ defaults].
 appd_controller_appname="${appd_controller_appname:-AD-Capital}"
