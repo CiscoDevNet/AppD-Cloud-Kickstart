@@ -83,7 +83,7 @@ For the purposes of this lab we will use a pre-built Cluster Agent Docker image 
 james201010/cluster-agent:latest
 ```
 
-However, if you were deploying the Cluster Agent in your own Kubernetes cluster, you would need to build your own Cluster Agent Docker image in your own Docker repository.  Instructions for building your own Cluster Agent Docker image can be found [here](lab-exercise-06-b.md) and are included for reference only.
+However, if you were deploying the Cluster Agent in your own Kubernetes cluster, you would need to build your own Cluster Agent Docker image in your own Docker repository.  Instructions for building your own Cluster Agent Docker image in AWS ECR can be found [here](lab-exercise-06-b.md) and are included for reference only.
 
 <br>
 
