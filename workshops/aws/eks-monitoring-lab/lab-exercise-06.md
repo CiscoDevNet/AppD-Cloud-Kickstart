@@ -139,7 +139,7 @@ Line 8 should = The URL for your controller including the protocol and port (sur
 Line 9 should = "customer1"<br>
 Line 11 should = "james201010/cluster-agent:latest"
 
-**Note:** Use the value seen above for Line 11 unless you built your own docker image in step number 2.  In that case you would use the Image URI of your docker image.
+**Note:** Use the value seen above for Line 11 unless you built your own docker image in step number 2.  In that case you would use the Image URI of your own docker image (surrounded in double quotes).
 
 <br><br>
 
