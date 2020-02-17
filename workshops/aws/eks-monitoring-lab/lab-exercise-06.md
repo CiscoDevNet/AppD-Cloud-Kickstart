@@ -113,7 +113,7 @@ Use your [AWS Management Console](https://aws.amazon.com/console/) and follow th
 ![Cluster Agent ECR-06](./images/cluster-agent-ecr-06.png)
 <br><br>
 
-11. Now paste the large login command into the terminal window and execute the command. You should the "Login Succeeded" as the final output of the command
+11. Now paste the large login command into the terminal window and execute the command. You should see the "Login Succeeded" as the final output of the command
 
 ![Cluster Agent ECR-07](./images/cluster-agent-ecr-07.png)
 <br><br>
@@ -179,7 +179,7 @@ In the AppDynamics UI, find and copy your controller access key using the follow
 <br><br>
 
 3. Click on the "Account" tab
-4. Then click on the "Show" link to the left of the Access Key to reveal the Access Key value, then highlight and copy your Access Key into a text file
+4. Then click on the "Show" link to the right of the Access Key to reveal the Access Key value, then highlight and copy your Access Key into a text file
 
 ![Cluster Agent Deploy-02](./images/cluster-agent-deploy-02.png)
 <br><br>
