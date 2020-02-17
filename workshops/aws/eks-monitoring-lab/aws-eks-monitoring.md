@@ -28,7 +28,7 @@ We have created a multi-service application containerized with Docker that is re
 |      3       | Launch Second EC2 Instance                   |   10 minutes   |
 |      4       | Deploy AD-Capital Application to EKS         |   35 minutes   |
 |      5       | Deploy Machine Agents to EKS                 |   20 minutes   |
-|      6       | Deploy the Cluster Agent to EKS.             |   30 minutes   |
+|      6       | Deploy the Cluster Agent to EKS.             |   40 minutes   |
 
 <br><br>
 To ease the effort, we have created a couple of AMIs using automated tooling. The following diagram explains the workflow of the labs and how participants will interact:
