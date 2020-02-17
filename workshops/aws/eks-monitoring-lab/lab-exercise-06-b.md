@@ -1,4 +1,4 @@
-### **2.** Build Your Own Cluster Agent Docker image in AWS ECR
+#### **Build Your Own Cluster Agent Docker image in AWS ECR**
 
 These instructions for building your own Cluster Agent Docker image in AWS ECR are for reference only and not intended to be part of the instructor led lab.  If you are participating in an instructor led lab, please use the pre-built Cluster Agent Docker image referenced [here](lab-exercise-06.md#2-build-the-cluster-agent-docker-image).
 
