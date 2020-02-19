@@ -8,7 +8,7 @@ kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"   # [optional] kic
 mkdir -p ${kickstart_home}/provisioners/scripts/centos
 cd ${kickstart_home}/provisioners/scripts/centos
 
-# download mysql shell. ----------------------------------------------------------------------------
+# install mysql shell. -----------------------------------------------------------------------------
 mysqlsh_release="8.0.19-1"
 mysqlsh_binary="mysql-shell-${mysqlsh_release}.el7.x86_64.rpm"
 
