@@ -2,6 +2,8 @@
 # install jq command-line json processor for linux 64-bit.
 
 # install jq json processor. ---------------------------------------------------
+jq_binary="jq-linux64"
+
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
 cd /usr/local/bin
@@ -10,13 +12,10 @@ cd /usr/local/bin
 curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 
 # retrieve version number of latest release.
-curl --silent --dump-header curl-jq.${curdate}.out1 https://github.com/stedolan/jq/releases/latest --output /dev/null
-tr -d '\r' < curl-jq.${curdate}.out1 > curl-jq.${curdate}.out2
-jq_release=$(awk '/Location/ {print $2}' curl-jq.${curdate}.out2 | awk -F "/" '{print $8}')
-#jq_release="jq-1.6"
-jq_binary="jq-linux64"
-rm -f curl-jq.${curdate}.out1
-rm -f curl-jq.${curdate}.out2
+curl --silent --dump-header curl-jq.${curdate}.out https://github.com/stedolan/jq/releases/latest --output /dev/null
+jq_release=$(awk '{ sub("\r$", ""); print }' curl-jq.${curdate}.out | awk '/Location/ {print $2}' | awk -F "/" '{print $8}')
+jq_release="jq-1.6"
+rm -f curl-jq.${curdate}.out
 
 # download jq binary from github.com.
 rm -f jq

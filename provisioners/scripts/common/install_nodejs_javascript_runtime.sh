@@ -27,17 +27,16 @@
 user_name="${user_name:-centos}"
 
 # install nvm (node version mannager). -------------------------------------------------------------
+nvm_binary="nvm-linux-amd64"
+
 # set current date for temporary filename.
 curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 
 # retrieve version number of latest release.
-curl --silent --dump-header curl-nvm.${curdate}.out1 https://github.com/nvm-sh/nvm/releases/latest --output /dev/null
-tr -d '\r' < curl-nvm.${curdate}.out1 > curl-nvm.${curdate}.out2
-nvm_release=$(awk '/Location/ {print $2}' curl-nvm.${curdate}.out2 | awk -F "/" '{print $8}')
-#nvm_release="v0.35.2"
-nvm_binary="nvm-linux-amd64"
-rm -f curl-nvm.${curdate}.out1
-rm -f curl-nvm.${curdate}.out2
+curl --silent --dump-header curl-nvm.${curdate}.out https://github.com/nvm-sh/nvm/releases/latest --output /dev/null
+nvm_release=$(awk '{ sub("\r$", ""); print }' curl-nvm.${curdate}.out | awk '/Location/ {print $2}' | awk -F "/" '{print $8}')
+nvm_release="v0.35.2"
+rm -f curl-nvm.${curdate}.out
 
 # install nvm.
 runuser -c "curl --silent --location https://raw.githubusercontent.com/nvm-sh/nvm/${nvm_release}/install.sh | bash" - ${user_name}
