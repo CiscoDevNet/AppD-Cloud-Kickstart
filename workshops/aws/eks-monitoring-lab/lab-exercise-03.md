@@ -62,6 +62,6 @@ Your controller address will be:
 http://FQDN_OF_MACHINE:8090/controller
 
 Use the usename "admin" to login. And use "welcome1" as the password.
-
 <br>
+
 [Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), 3, [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-02.md) | [Next](lab-exercise-04.md)
