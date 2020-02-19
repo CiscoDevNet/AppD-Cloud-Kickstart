@@ -20,9 +20,9 @@
 jdk_home="jdk11"
 jdk_build="11.0.6.10.1"
 jdk_checksum="cfb0b142edf7ebc2f87a27405c8d39fc"
-jdk_folder="amazon-corretto-${jdkbuild}-linux-x64"
-jdk_binary="amazon-corretto-${jdkbuild}-linux-x64.tar.gz"
-#jdk_binary="amazon-corretto-${jdkbuild:0:2}-x64-linux-jdk.tar.gz"
+jdk_folder="amazon-corretto-${jdk_build}-linux-x64"
+jdk_binary="amazon-corretto-${jdk_build}-linux-x64.tar.gz"
+#jdk_binary="amazon-corretto-${jdk_build:0:2}-x64-linux-jdk.tar.gz"
 jdk_pgpkey_file="B04F24E3.pub"
 jdk_sig_file="${jdk_binary}.sig"
 
