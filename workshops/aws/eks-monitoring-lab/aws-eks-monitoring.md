@@ -25,7 +25,7 @@ We have created a multi-service application containerized with Docker that is re
 | :----------: | :------------------------------------------- | :------------: |
 |      1       | Create LauchPad using AMI                    |   10 minutes   |
 |      2       | Clone Github Repos & Configure EKS Cluster   |   15 minutes   |
-|      3       | Launch AppDynamics Controller usi            |   10 minutes   |
+|      3       | Launch AppDynamics Controller using AMI      |   10 minutes   |
 |      4       | Deploy AD-Capital Application to EKS         |   35 minutes   |
 |      5       | Deploy Machine Agents to EKS                 |   20 minutes   |
 |      6       | Deploy the Cluster Agent to EKS.             |   40 minutes   |
