@@ -23,7 +23,7 @@ We have created a multi-service application containerized with Docker that is re
 
 | Lab Exercise | Description                                  | Estimated Time |
 | :----------: | :------------------------------------------- | :------------: |
-|      1       | Create LauchPad using AMI                    |   10 minutes   |
+|      1       | Create Launch Pad using AMI                  |   10 minutes   |
 |      2       | Clone Github Repos & Configure EKS Cluster   |   15 minutes   |
 |      3       | Launch AppDynamics Controller using AMI      |   10 minutes   |
 |      4       | Deploy AD-Capital Application to EKS         |   35 minutes   |
