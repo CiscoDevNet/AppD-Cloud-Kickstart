@@ -1,9 +1,9 @@
 #!/bin/sh -eux
 # install go programming language from google.
 
-# install go programming language. ---------------------------------------------
+# install go programming language. -----------------------------------------------------------------
 gohome="go"
-gorelease="1.13.8"
+gorelease="1.14"
 gobinary="${gohome}${gorelease}.linux-amd64.tar.gz"
 gofolder="${gohome}-${gorelease}"
 
