@@ -252,12 +252,12 @@ export appd_controller_host
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] appdynamics aws ec2 monitoring extension install parameters [w/ defaults].
 # --------------------------------------------------------------------------------------------------
-# [optional] aws ec2 extension release (defaults to user '2.1.0').
-#appd_aws_ec2_extension_release="2.1.0"
+# [optional] aws ec2 extension release (defaults to user '2.1.1').
+#appd_aws_ec2_extension_release="2.1.1"
 #export appd_aws_ec2_extension_release
 
-# [optional] aws ec2 extension build (defaults to user '1526042422').
-#appd_aws_ec2_extension_build="1526042422"
+# [optional] aws ec2 extension build (defaults to build '1582890391').
+#appd_aws_ec2_extension_build="1582890391"
 #export appd_aws_ec2_extension_build
 
 # --------------------------------------------------------------------------------------------------
