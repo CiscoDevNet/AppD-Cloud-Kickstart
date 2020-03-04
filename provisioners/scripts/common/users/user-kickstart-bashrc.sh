@@ -1,4 +1,4 @@
-# .bashrc
+# @(#).bashrc       1.0 2020/02/28 SMI
 # bash resource configuration for kickstart users.
 
 # source global definitions.
@@ -68,13 +68,11 @@ export HISTCONTROL
 # define system alias commands.
 alias back='cd $OLDPWD; pwd'
 alias c=clear
-#alias gvim='gvim -u $HOME/.vim/vimrc.vim'
 alias here='cd $here; pwd'
 alias kickstarthome='cd $kickstart_home; pwd'
 alias more='less'
 alias there='cd $there; pwd'
-alias vi='vim -u $HOME/.vim/vimrc.vim'
-alias vim='vim -u $HOME/.vim/vimrc.vim'
+alias vi='vim'
 
 # fix issue with bash shell tab completion.
 complete -r

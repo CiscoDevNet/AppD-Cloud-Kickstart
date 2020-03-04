@@ -96,9 +96,12 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3_scl.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_jq_json_processor.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_git.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_git_flow.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
-        "{{template_dir}}/../../../provisioners/scripts/common/install_jq_json_processor.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_oracle_mysql_shell_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_cisco_cwom.sh"
       ],
@@ -115,7 +118,7 @@
     "aws_ec2_instance_type": "m5a.xlarge",
     "aws_ec2_username": "centos",
     "user_docker_profile": "true",
-    "docker_completion_release": "19.03.6",
+    "docker_completion_release": "19.03.7",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }

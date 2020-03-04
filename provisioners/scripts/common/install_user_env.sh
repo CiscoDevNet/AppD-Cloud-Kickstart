@@ -7,7 +7,7 @@ user_group="${user_group:-}"
 user_home="${user_home:-/home/$user_name}"
 user_docker_profile="${user_docker_profile:-false}"
 user_prompt_color="${user_prompt_color:-green}"
-d_completion_release="${d_completion_release:-19.03.6}"
+d_completion_release="${d_completion_release:-19.03.7}"
 dc_completion_release="${dc_completion_release:-1.25.4}"
 
 # set default value for kickstart home environment variable if not set. ----------------------------
@@ -28,7 +28,7 @@ Usage:
                                                                 #            valid colors:
                                                                 #              'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
                                                                 #
-    [root]# export d_completion_release="19.03.6"               # [optional] docker completion for bash release (defaults to '19.03.6').
+    [root]# export d_completion_release="19.03.7"               # [optional] docker completion for bash release (defaults to '19.03.7').
     [root]# export dc_completion_release="1.25.4"               # [optional] docker compose completion for bash release (defaults to '1.25.4').
     [root]# export kickstart_home="/opt/appd-cloud-kickstart"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
     [root]# $0
@@ -81,7 +81,7 @@ cp -p .bashrc .bashrc.orig
 cp -f ${user_bashprofile} .bash_profile
 cp -f ${user_bashrc} .bashrc
 
-# remove existing vim profile if it exists.
+# remove existing vim profile if it exists. --------------------------------------------------------
 if [ -d ".vim" ]; then
   rm -Rf ./.vim
 fi
@@ -90,6 +90,33 @@ cp -f ${kickstart_home}/provisioners/scripts/common/tools/vim-files.tar.gz .
 tar -zxvf vim-files.tar.gz --no-same-owner --no-overwrite-dir
 rm -f vim-files.tar.gz
 
+# configure the vim profile. -----------------------------------------------------------------------
+# rename the vimrc folder if it exists.
+vimrc_home="/home/${user_name}/.vim"
+if [ -d "$vimrc_home" ]; then
+  # set current date for temporary filename.
+  curdate=$(date +"%Y-%m-%d.%H-%M-%S")
+
+  # rename the folder using the current date.
+  mv ${vimrc_home} /home/${user_name}/vim.${curdate}.orig
+fi
+
+# download useful vim configuration based on developer pair stations at pivotal labs.
+runuser -c "git clone https://github.com/pivotal/vim-config.git ~/.vim" - ${user_name}
+runuser -c "TERM=xterm-256color ~/.vim/bin/install" - ${user_name}
+
+# create vimrc local to override default vim configuration.
+vimrc_local="/home/${user_name}/.vimrc.local"
+cat <<EOF > ${vimrc_local}
+colorscheme triplejelly
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+EOF
+chown ${user_name}:${user_group} ${vimrc_local}
+
+# initialize the vim plugin manager by opening a file.
+runuser -c "TERM=xterm-256color vim -c 'q' dummy.file" - ${user_name}
+
+# set directory ownership and file permissions. ----------------------------------------------------
 chown -R ${user_name}:${user_group} .
 chmod 644 .bash_profile .bashrc
 

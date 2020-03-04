@@ -1,4 +1,4 @@
-# .bash_profile
+# @(#).bash_profile 1.0 2020/02/28 SMI
 
 # get the aliases and functions.
 if [ -f ~/.bashrc ]; then
