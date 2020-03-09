@@ -60,7 +60,12 @@ git clone https://github.com/pivotal/vim-config.git ~/.vim
 # create vimrc local to override default vim configuration.
 vimrc_local="/root/.vimrc.local"
 cat <<EOF > ${vimrc_local}
-colorscheme triplejelly
+" Override default Vim resource configuration.
+colorscheme triplejelly                 " Set colorscheme to 'triplejelly'. Default is 'Tomorrow-Night'.
+set nofoldenable                        " Turn-off folding of code files. To toggle on/off: use 'zi'.
+let g:vim_json_syntax_conceal = 0       " Turn-off concealing of double quotes in 'vim-json' plugin.
+
+" Autoclose 'NERDTree' plugin if it's the only open window left.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 EOF
 chown ${user_name}:${user_group} ${vimrc_local}
