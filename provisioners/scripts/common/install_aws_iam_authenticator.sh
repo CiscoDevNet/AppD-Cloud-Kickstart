@@ -14,9 +14,9 @@
 #---------------------------------------------------------------------------------------------------
 
 # install aws iam authenticator. -------------------------------------------------------------------
-aws_iam_authenticator_release="1.14.6"
-aws_iam_authenticator_date="2019-08-22"
-aws_iam_authenticator_sha256="cc35059999bad461d463141132a0e81906da6c23953ccdac59629bb532c49c83"
+aws_iam_authenticator_release="1.15.10"
+aws_iam_authenticator_date="2020-02-22"
+aws_iam_authenticator_sha256="fe958eff955bea1499015b45dc53392a33f737630efd841cd574559cc0f41800"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
