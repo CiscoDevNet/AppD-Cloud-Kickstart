@@ -29,7 +29,7 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-20.3.0.21871}"
+appd_platform_release="${appd_platform_release:-20.3.1.21882}"
 #appd_platform_md5="${appd_platform_md5:-f3899bc430e115c989eaa4287ffadd39}"
 #appd_platform_sha256="${appd_platform_sha256:-54fc69d910e43588067544033c10993a537de197cf8149b02f0f7b86adf7c247}"
 set +x  # temporarily turn command display OFF.
@@ -64,7 +64,7 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="20.3.0.21871"                 # [optional] platform release (defaults to '20.3.0.21871').
+    [root]# export appd_platform_release="20.3.1.21882"                 # [optional] platform release (defaults to '20.3.1.21882').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
     [root]# export appd_platform_admin_password="welcome1"              # [optional] platform admin password (defaults to 'welcome1').
     [root]# export appd_platform_db_password="welcome1"                 # [optional] platform database password (defaults to 'welcome1').
