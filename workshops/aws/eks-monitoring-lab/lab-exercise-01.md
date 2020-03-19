@@ -7,7 +7,7 @@ In this exercise you will use the [AWS Management Console](https://aws.amazon.co
 
 This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'.
 
-You will need to use an existing AMI image named **LPAD-CentOS77-AMI** located in the AWS region that you are working in:
+You will need to use an existing AMI image named **LPAD-AL2-AMI** located in the AWS region that you are working in:
 
 **NOTE:** Though any region can be utilized, this workshop creates a VPC, Elastic IP address, and NAT Gateway. You may run into issues with default limits for these resources. In the AppDynamics AWS environment, these limits have been increased in several regions. In general, please be aware that these limits may impact your ability to create a EKS Cluster.
 
@@ -19,7 +19,7 @@ You will need to use an existing AMI image named **LPAD-CentOS77-AMI** located i
 
 Once you have identified the appropriate AMI, launch an instance of it via:
 
-  1. Select the **LPAD-CentOS77-AMI** and click the **Launch** button.
+  1. Select the **LPAD-AL2-AMI** and click the **Launch** button.
   2. Select General purpose: **t2.micro**.
   3. Click '**Next: Configure Instance Details**' in the bottom right.
   4. Keep all default values; scroll to the bottom and expand '**Advanced Details**'.
