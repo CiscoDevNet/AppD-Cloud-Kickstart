@@ -35,6 +35,8 @@ Copy and paste the following script code in the the 'User data' text box:
 cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
 chmod 755 ./initialize_al2_lpad_cloud_init.sh
 
+user_name="ec2-user"
+export user_name
 AWS_ACCESS_KEY_ID="<Your_AWS_Access_Key_Here>"
 export AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY="<Your_AWS_Secret_Access_Key_Here>"
