@@ -33,9 +33,9 @@ appd_controller_root_password="${appd_controller_root_password:-welcome1}"
 set -x  # turn command display back ON.
 appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"
 appd_machine_agent_user="${appd_machine_agent_user:-centos}"
-appd_machine_agent_release="${appd_machine_agent_release:-20.3.0.2468}"
-#appd_machine_agent_md5="${appd_machine_agent_md5:-c642a9880df6889c29042e3030ace202}"
-#appd_machine_agent_sha256="${appd_machine_agent_sha256:-d1efe7f4beb77edf27898b9886ea4dbdaf59ef2428db20bc750efceb5fb3945b}"
+appd_machine_agent_release="${appd_machine_agent_release:-20.3.1.2476}"
+#appd_machine_agent_md5="${appd_machine_agent_md5:-869836fe1fb11965343ad134057c539b}"
+#appd_machine_agent_sha256="${appd_machine_agent_sha256:-e286170d828e0c518e3bb716045409883c43109056a2acf23af6f00893cbe874}"
 
 # [OPTIONAL] appdynamics machine agent config parameters [w/ defaults].
 appd_machine_agent_config="${appd_machine_agent_config:-false}"
@@ -76,7 +76,7 @@ Usage:
     [root]# export appd_controller_root_password="welcome1"             # [optional] controller root password (defaults to 'welcome1').
     [root]# export appd_machine_agent_home="machine-agent"              # [optional] machine agent home folder (defaults to 'machine-agent').
     [root]# export appd_machine_agent_user="centos"                     # [optional] machine agent user name (defaults to user 'centos').
-    [root]# export appd_machine_agent_release="20.3.0.2468"             # [optional] machine agent release (defaults to '20.3.0.2468').
+    [root]# export appd_machine_agent_release="20.3.1.2476"             # [optional] machine agent release (defaults to '20.3.1.2476').
 
   [OPTIONAL] appdynamics machine agent config parameters [w/ defaults].
     [root]# export appd_machine_agent_config="true"                     # [optional] configure appd machine agent? [boolean] (defaults to 'false').
