@@ -46,7 +46,7 @@ Use your [AWS Management Console](https://aws.amazon.com/console/) and follow th
 12. Use the command below to change to the docker directory in your SSH terminal window
 
 ```
-cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent/docker
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent/docker
 ```
 
 ![Cluster Agent ECR-08](./images/cluster-agent-ecr-08.png)

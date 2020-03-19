@@ -41,24 +41,24 @@ Usage:
   Description of Environment Variables:
   -------------------------------------
   [MANDATORY] eksctl command parameters.
-    [centos]$ export appd_aws_eks_user_name="Lab-User-01"                   # lab participant user name.
-    [centos]$ export appd_aws_eks_region="us-east-1"                        # aws region (us-east-1 or us-east-2).
+    [ec2-user]$ export appd_aws_eks_user_name="Lab-User-01"                     # lab participant user name.
+    [ec2-user]$ export appd_aws_eks_region="us-east-1"                          # aws region (us-east-1 or us-east-2).
 
   [OPTIONAL] eksctl command parameters [w/ defaults].
-    [centos]$ export appd_aws_eks_zones="us-east-1a,us-east-1b,us-east-1c"  # [optional] aws availability zones.
-    [centos]$ export appd_aws_eks_version="1.15"                            # [optional] kubernetes version (defaults to '1.14').
-                                                                            #            valid versions:
-                                                                            #              '1.13', '1.14', '1.15'
-    [centos]$ export appd_aws_eks_name="AD-Capital-Lab-User-01"             # [optional] eks cluster name (defaults to 'AD-Capital-${appd_aws_eks_user_name}')
-    [centos]$ export appd_aws_eks_environment="Lab-Env-Lab-User-01"         # [optional] eks environment decription (defaults to 'Lab-Env-${appd_aws_eks_user_name}')
-    [centos]$ export appd_aws_eks_nodes="2"                                 # [optional] number of eks worker nodes (defaults to '2')
-    [centos]$ export appd_aws_eks_node_type="m5a.large"                     # [optional] type of ec2 instance for nodes (defaults to user 'm5a.large')
-    [centos]$ export appd_aws_eks_ssh_public_key="AppD-Cloud-Kickstart-AWS" # [optional] public key used to ssh to eks cluster (defaults to 'AppD-Cloud-Kickstart-AWS')
+    [ec2-user]$ export appd_aws_eks_zones="us-east-1a,us-east-1b,us-east-1c"    # [optional] aws availability zones.
+    [ec2-user]$ export appd_aws_eks_version="1.15"                              # [optional] kubernetes version (defaults to '1.14').
+                                                                                #            valid versions:
+                                                                                #              '1.13', '1.14', '1.15'
+    [ec2-user]$ export appd_aws_eks_name="AD-Capital-Lab-User-01"               # [optional] eks cluster name (defaults to 'AD-Capital-${appd_aws_eks_user_name}')
+    [ec2-user]$ export appd_aws_eks_environment="Lab-Env-Lab-User-01"           # [optional] eks environment decription (defaults to 'Lab-Env-${appd_aws_eks_user_name}')
+    [ec2-user]$ export appd_aws_eks_nodes="2"                                   # [optional] number of eks worker nodes (defaults to '2')
+    [ec2-user]$ export appd_aws_eks_node_type="m5a.large"                       # [optional] type of ec2 instance for nodes (defaults to user 'm5a.large')
+    [ec2-user]$ export appd_aws_eks_ssh_public_key="AppD-Cloud-Kickstart-AWS"   # [optional] public key used to ssh to eks cluster (defaults to 'AppD-Cloud-Kickstart-AWS')
 
   --------
   Example:
   --------
-    [centos]$ $0
+    [ec2-user]$ $0
 EOF
 }
 

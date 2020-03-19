@@ -14,7 +14,7 @@ You will need a copy of the `AppD-Cloud-Kickstart-AWS.pem` file in order to SSH 
 
 Otherwise: If you created a new SSH key pair in [Lab Exercise 1](lab-exercise-01.md), remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the remaining lab exercise steps.  
 <br>
-You will use the user name '**centos**' with no password to SSH into the Launch Pad EC2 instance.
+You will use the user name '**ec2-user**' with no password to SSH into the Launch Pad EC2 instance.
 <br><br>
 
 ***For Mac Users:***
@@ -27,7 +27,7 @@ ssh -i <path-to-file>/AppD-Cloud-Kickstart-AWS.pem <hostname-of-your-launch-pad-
 
 Example:
 ```
-ssh -i AppD-Cloud-Kickstart-AWS.pem centos@ec2-54-214-99-204.us-east-1.compute.amazonaws.com
+ssh -i AppD-Cloud-Kickstart-AWS.pem ec2-user@ec2-54-214-99-204.us-east-1.compute.amazonaws.com
 ```
 
 <br>
@@ -78,20 +78,20 @@ export appd_aws_eks_ssh_public_key=your-unique-ssh-key
 Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone two GitHub repositories by running the commands below:
 
 ```
-cd /home/centos
+cd /home/ec2-user
 
 git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
 
-cd /home/centos
+cd /home/ec2-user
 
 git clone https://github.com/Appdynamics/AD-Capital-Kube.git
 ```
 
 After you run the commands, you should have two new folders in your home directory
 
-*/home/centos/AD-Capital-Kube*
+*/home/ec2-user/AD-Capital-Kube*
 
-*/home/centos/AppD-Cloud-Kickstart*
+*/home/ec2-user/AppD-Cloud-Kickstart*
 
 ![Git Repos Pulled](./images/2.png)
 
@@ -102,7 +102,7 @@ After you run the commands, you should have two new folders in your home directo
 Change to the directory where you will prepare to connect to your AWS EKS cluster and create a local `kubeconfig`:
 
 ```
-cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 ```
 <br>
 
@@ -163,7 +163,7 @@ export appd_aws_eks_region=us-west-2
 Once both variables have been set, run the commands below to connect to your AWS EKS cluster and create a local `kubeconfig`:
 
 ```
-cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 ./create_kubeconfig_for_eks.sh
 

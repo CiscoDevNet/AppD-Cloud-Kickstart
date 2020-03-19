@@ -18,7 +18,7 @@ In this exercise you will need to do the following:
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to unzip the Cluster Agent Zip file:
 
 ```
-cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
 ```
 
 Now use the command below to unzip the Cluster Agent Zip file:
@@ -123,7 +123,7 @@ You should see output from the command like the image below:
 6. Now use the command below to change to the directory where you will edit the "cluster-agent.yaml" file.
 
 ```
-cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
 ```
 <br>
 
@@ -150,7 +150,7 @@ AFTER EXAMPLE:
 8. Now execute the commands below to deploy the Cluster Agent.  After executing the commands you should see the output like the image below.
 
 ```
-cd /home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
 
 kubectl create -f cluster-agent.yaml
 ```

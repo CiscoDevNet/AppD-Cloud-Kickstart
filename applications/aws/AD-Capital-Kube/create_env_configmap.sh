@@ -91,7 +91,7 @@ fi
 
 # create the env-configmap.yaml file from template
 cp ./env-configmap-template.yaml ./env-configmap.yaml
-env_config_map=/home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/env-configmap.yaml
+env_config_map=/home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/env-configmap.yaml
 
 sed -i '/^  APPDYNAMICS_AGENT_APPLICATION_NAME:/c\  APPDYNAMICS_AGENT_APPLICATION_NAME: '${appd_controller_appname} ${env_config_map}
 sed -i '/^  APPD_ES_PORT:/c\  APPD_ES_PORT: "'${appd_es_port}'"' ${env_config_map}
@@ -106,11 +106,11 @@ sed -i '/^  APPDYNAMICS_CONTROLLER_SSL_ENABLED:/c\  APPDYNAMICS_CONTROLLER_SSL_E
 sed -i '/^  APPD_ES_API_KEY:/c\  APPD_ES_API_KEY: "'${appd_es_api_key}'"' ${env_config_map}
 sed -i '/^  APPDYNAMICS_CONTROLLER_LOGIN:/c\  APPDYNAMICS_CONTROLLER_LOGIN: "'${appd_controller_username}'@'${appd_controller_account_name}':'${appd_controller_password}'"' ${env_config_map}
 
-mv ./env-configmap.yaml /home/centos/AD-Capital-Kube/Kubernetes/env-configmap.yaml
+mv ./env-configmap.yaml /home/ec2-user/AD-Capital-Kube/Kubernetes/env-configmap.yaml
 
 # create encoded account name and access key for secret.yaml file
 cp ./secret-template.yaml ./secret.yaml
-secretyaml=/home/centos/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/secret.yaml
+secretyaml=/home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/secret.yaml
 
 appd_encoded_account_name="${appd_encoded_account_name:-}"
 appd_encoded_account_name=$(echo -n ${appd_controller_account_name} | base64);
@@ -123,4 +123,4 @@ echo "Controller encoded access key: ${appd_encoded_access_key}"
 sed -i '/^  accountname:/c\  accountname: '${appd_encoded_account_name} ${secretyaml}
 sed -i '/^  accesskey:/c\  accesskey: '${appd_encoded_access_key} ${secretyaml}
 
-mv ./secret.yaml /home/centos/AD-Capital-Kube/Kubernetes/secret.yaml
+mv ./secret.yaml /home/ec2-user/AD-Capital-Kube/Kubernetes/secret.yaml
