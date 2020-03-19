@@ -66,10 +66,10 @@ When your session opens you will be prompted for your user name.  Enter your use
 
 ***For Browser Users:***
 
-If you are using your browser to connect, navidate to the EC2 Dashboard, and select the 'Running instances' link.
+If you are using your browser to connect, navigate to the EC2 Dashboard and select the 'Running instances' link.
 You can now connect to your Launch Pad EC2 instance using the steps below:
 
-1. Filter running EC2 instances by entering the name of your VM. For example, 'User-LPAD-Ed-Barberis'.
+1. Filter running EC2 instances by entering the name of your VM. For example, 'User-LPAD'.
 2. Click to select your LPAD instance.
 3. Click the 'Connect' button.
 
