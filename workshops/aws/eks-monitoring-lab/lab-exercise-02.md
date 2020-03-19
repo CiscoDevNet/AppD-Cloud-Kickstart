@@ -61,8 +61,31 @@ Once you have converted the pem file to a ppk file, you can configure PuTTY to S
 When your session opens you will be prompted for your user name.  Enter your user name, no password is required.
 
 ![Git Repos Pulled](./images/putty-config-04.png)
-<br><br>
 
+<br>
+
+***For Browser Users:***
+
+If you are using your browser to connect, navidate to the EC2 Dashboard, and select the 'Running instances' link.
+You can now connect to your Launch Pad EC2 instance using the steps below:
+
+1. Filter running EC2 instances by entering the name of your VM. For example, 'User-LPAD-Ed-Barberis'.
+2. Click to select your LPAD instance.
+3. Click the 'Connect' button.
+
+![Connect LPAD EC2 Instance](./images/connect-lpad-ec2-instance-01.png)
+
+4. Select the 'EC2 Instance Connect (browser-based SSH connection)' radio button.
+5. In the 'User name' text box, enter 'ec2-user'.
+6. Click the 'Connect' button.
+
+![Connect to your instance](./images/connect-lpad-ec2-instance-02.png)
+
+7. Verify that your terminal window is connected.
+
+![Connect to your instance](./images/connect-lpad-ec2-instance-03.png)
+
+<br><br>
 
 ***After Logging In:***
 
