@@ -22,14 +22,15 @@
 
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # cwom platform install parameters.
-cwom_platform_release="${cwom_platform_release:-2.3.9}"                 # [optional] platform release (defaults to '2.3.9').
+cwom_platform_release="${cwom_platform_release:-2.3.10}"            # [optional] platform release (defaults to '2.3.10').
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
-kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"           # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
+kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"       # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
 
 # set cwom platform installation variables. --------------------------------------------------------
-cwom_platform_installer="update64_package-v${cwom_platform_release}.zip"
 cwom_s3_bucket_folder="appd-cloud-kickstart-tools.s3.us-east-2.amazonaws.com/cwom"
+cwom_platform_installer="update64_package-v${cwom_platform_release}.zip"
+cwom_platform_sha512="0f36fd94a2e0b5450fec976b0af47f6bab666d283e73cc1e2793abc61e554aef1766f8cd6ee4f4b1137266a58b9c55da35750b14f5291852d6ce324d4f6753e1"
 
 # install cwom platform prerequisites. -------------------------------------------------------------
 # install repomd (xml-rpm-metadata) repository
@@ -70,6 +71,10 @@ cd ${kickstart_home}/provisioners/scripts/centos/cisco
 # download the cwom platform installer. ------------------------------------------------------------
 rm -f ${cwom_platform_installer}
 curl --silent --remote-name https://${cwom_s3_bucket_folder}/${cwom_platform_installer}
+
+# verify the downloaded binary.
+echo "${cwom_platform_sha512} ${cwom_platform_installer}" | sha512sum --check
+# update64_package-v${cwom_platform_release}.zip: OK
 
 # extract cwom package binaries.
 rm -f /tmp/cisco_temp.repo
