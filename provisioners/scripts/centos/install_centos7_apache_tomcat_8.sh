@@ -27,6 +27,7 @@ tomcat_java_opts="${tomcat_java_opts:--Djava.awt.headless=true -Djava.security.e
 # set tomcat web server installation variables.
 tomcat_folder="${tomcat_home:0:-2}-${tomcat_release}"
 tomcat_binary="${tomcat_folder}.tar.gz"
+tomcat_sha512="849b4f1a4c5609715f29dec3089d75ed500cf87acc5882e7b2ac469bc86915f86cf30a2518d3855ca083d0946ad50d348f70dff0d56cefa3724e2083a08c8636"
 
 # create apache parent folder.
 mkdir -p /usr/local/apache
@@ -34,6 +35,10 @@ cd /usr/local/apache
 
 # download tomcat binary from apache.org.
 wget --no-verbose http://archive.apache.org/dist/tomcat/${tomcat_home:7}/v${tomcat_release}/bin/${tomcat_binary}
+
+# verify the downloaded binary.
+echo "${tomcat_sha512} ${tomcat_binary}" | sha512sum --check
+# ${tomcat_folder}.tar.gz: OK
 
 # extract tomcat binary.
 rm -f ${tomcat_home}
