@@ -34,8 +34,6 @@ set -x  # turn command display back ON.
 appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"
 appd_machine_agent_user="${appd_machine_agent_user:-centos}"
 appd_machine_agent_release="${appd_machine_agent_release:-20.3.1.2476}"
-#appd_machine_agent_md5="${appd_machine_agent_md5:-869836fe1fb11965343ad134057c539b}"
-#appd_machine_agent_sha256="${appd_machine_agent_sha256:-e286170d828e0c518e3bb716045409883c43109056a2acf23af6f00893cbe874}"
 
 # [OPTIONAL] appdynamics machine agent config parameters [w/ defaults].
 appd_machine_agent_config="${appd_machine_agent_config:-false}"
@@ -149,6 +147,7 @@ fi
 # set machine agent installation variables.
 appd_agent_folder="${appd_machine_agent_home}-${appd_machine_agent_release}"
 appd_agent_binary="machineagent-bundle-64bit-linux-${appd_machine_agent_release}.zip"
+appd_agent_sha256="e286170d828e0c518e3bb716045409883c43109056a2acf23af6f00893cbe874"
 
 # create machine agent parent folder.
 mkdir -p ${appd_home}/${appd_agent_folder}
@@ -184,6 +183,10 @@ chmod 644 ${appd_agent_binary}
 
 rm -f ${post_data_filename}
 rm -f ${oauth_token_filename}
+
+# verify the downloaded binary.
+echo "${appd_agent_sha256} ${appd_agent_binary}" | sha256sum --check
+# machineagent-bundle-64bit-linux-${appd_machine_agent_release}.zip: OK
 
 # extract machine agent binary.
 unzip ${appd_agent_binary}

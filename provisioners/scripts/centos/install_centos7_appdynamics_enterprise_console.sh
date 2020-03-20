@@ -30,8 +30,6 @@ set -x  # turn command display back ON.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
 appd_platform_release="${appd_platform_release:-20.3.1.21882}"
-#appd_platform_md5="${appd_platform_md5:-f3899bc430e115c989eaa4287ffadd39}"
-#appd_platform_sha256="${appd_platform_sha256:-54fc69d910e43588067544033c10993a537de197cf8149b02f0f7b86adf7c247}"
 set +x  # temporarily turn command display OFF.
 appd_platform_admin_username="${appd_platform_admin_username:-admin}"
 appd_platform_admin_password="${appd_platform_admin_password:-welcome1}"
@@ -100,6 +98,7 @@ set -x  # turn command display back ON.
 # set appdynamics platform installation variables. -------------------------------------------------
 appd_platform_folder="${appd_home}/${appd_platform_home}"
 appd_platform_installer="platform-setup-x64-linux-${appd_platform_release}.sh"
+appd_platform_sha256="baaf0c80c8b891f20674a14f7540b5e072db79c6400e52d3633dbbd0b230549f"
 
 # install platform prerequisites. ------------------------------------------------------------------
 # install the netstat network utility.
@@ -196,6 +195,10 @@ chmod 755 ${appd_platform_installer}
 
 rm -f ${post_data_filename}
 rm -f ${oauth_token_filename}
+
+# verify the downloaded binary.
+echo "${appd_platform_sha256} ${appd_platform_installer}" | sha256sum --check
+# platform-setup-x64-linux-${appd_platform_release}.sh: OK
 
 # create silent response file for installer. -------------------------------------------------------
 response_file="appd-platform-response.varfile"

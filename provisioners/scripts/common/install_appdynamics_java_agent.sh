@@ -28,8 +28,6 @@ set -x  # turn command display back ON.
 appd_java_agent_home="${appd_java_agent_home:-appagent}"
 appd_java_agent_user="${appd_java_agent_user:-centos}"
 appd_java_agent_release="${appd_java_agent_release:-20.3.0.29587}"
-#appd_java_agent_md5="${appd_java_agent_md5:-f8c96b0c3ada25cc51c0509bc21e233d}"
-#appd_java_agent_sha256="${appd_java_agent_sha256:-245fc140fdc619a5375012651f94ab4711a64b6e5ab9908e35fef56f082882c7}"
 
 # [OPTIONAL] appdynamics java agent config parameters [w/ defaults].
 appd_java_agent_config="${appd_java_agent_config:-false}"
@@ -111,6 +109,7 @@ set -x  # turn command display back ON.
 # set appdynamics java agent installation variables. -----------------------------------------------
 appd_java_agent_folder="${appd_java_agent_home}-${appd_java_agent_release}"
 appd_java_agent_binary="AppServerAgent-${appd_java_agent_release}.zip"
+appd_java_agent_sha256="e7631bc87e99ffe259d04ad60bcc8559aa46fbee808295955886c820821c798d"
 
 # create appdynamics java agent parent folder. -----------------------------------------------------
 mkdir -p ${appd_home}/${appd_java_agent_folder}
@@ -146,6 +145,10 @@ chmod 644 ${appd_java_agent_binary}
 
 rm -f ${post_data_filename}
 rm -f ${oauth_token_filename}
+
+# verify the downloaded binary.
+echo "${appd_java_agent_sha256} ${appd_java_agent_binary}" | sha256sum --check
+# AppServerAgent-${appd_java_agent_release}.zip: OK
 
 # extract appdynamics java agent binary.
 unzip ${appd_java_agent_binary}
