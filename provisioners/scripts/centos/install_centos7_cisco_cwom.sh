@@ -22,7 +22,7 @@
 
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # cwom platform install parameters.
-cwom_platform_release="${cwom_platform_release:-2.3.10}"            # [optional] platform release (defaults to '2.3.10').
+cwom_platform_release="${cwom_platform_release:-2.3.11}"            # [optional] platform release (defaults to '2.3.11').
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"       # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
@@ -30,7 +30,7 @@ kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"       # [optional]
 # set cwom platform installation variables. --------------------------------------------------------
 cwom_s3_bucket_folder="appd-cloud-kickstart-tools.s3.us-east-2.amazonaws.com/cwom"
 cwom_platform_installer="update64_package-v${cwom_platform_release}.zip"
-cwom_platform_sha512="0f36fd94a2e0b5450fec976b0af47f6bab666d283e73cc1e2793abc61e554aef1766f8cd6ee4f4b1137266a58b9c55da35750b14f5291852d6ce324d4f6753e1"
+cwom_platform_sha512="0d19722fa0add299c3d64efbaf9bddb9c807cbac250c49c3c51bc823ba1c925f26980d7a5a02ec89ebd2ac99744121018d583051f3d4a3e36a02fbb624f3e851"
 
 # install cwom platform prerequisites. -------------------------------------------------------------
 # install repomd (xml-rpm-metadata) repository

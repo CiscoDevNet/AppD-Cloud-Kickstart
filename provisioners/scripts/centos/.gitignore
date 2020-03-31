@@ -1,5 +1,6 @@
 # ignore appdynamics and cwom 'live' configuration files.
 /tools/appd-controller-license.lic
 /tools/UCSPMFEAT20190409133840574.lic
+/tools/UCSPMFEAT20191114110716525.lic
 /tools/cwom-license.config.topology
 /tools/cwom-login.config.topology

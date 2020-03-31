@@ -3,5 +3,5 @@ This template is a placeholder for the Cisco Workload Optimization Manager (CWOM
 To apply your CWOM login configuration file:
 
     o Obtain a copy of the CWOM 'cwom-login.config.topology' from the AppDynamics SE leading the workshop, OR
-      copy the file from the '/srv/tomcat/data/config' directory in an existing CWOM installation.
+      copy the file from '/srv/tomcat/data/config/login.config.topology' in an existing CWOM installation.
     o Rename it to 'provisioners/scripts/centos/tools/cwom-login.config.topology'.
