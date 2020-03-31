@@ -30,7 +30,7 @@ appd_project_image_types_array_length=${#appd_project_image_types_array[@]}
 # loop for each project image type.
 for image_type in "${appd_project_image_types_array[@]}"; do
   # retrieve ami image data.
-  ami_image_data=$(aws ec2 describe-images --region ${aws_ami_region} --filters "Name=tag:Project,Values=${appd_platform_name}, Name=tag:Project_Image_Type,Values=${image_type}" --output json | jq '[.Images[] | {Name: .Name, ImageId: .ImageId, SnapshotId: .BlockDeviceMappings[].Ebs.SnapshotId, CreationDate: .CreationDate}] | sort_by(.CreationDate)')
+  ami_image_data=$(aws ec2 describe-images --region ${aws_ami_region} --filters "Name=tag:Project,Values=${appd_platform_name}" "Name=tag:Project_Image_Type,Values=${image_type}" --output json | jq '[.Images[] | {Name: .Name, ImageId: .ImageId, SnapshotId: .BlockDeviceMappings[].Ebs.SnapshotId, CreationDate: .CreationDate}] | sort_by(.CreationDate)')
 
   # build individual ami image attribute arrays.
   image_name_array=( $(echo "${ami_image_data}" | jq '.' | awk '/Name/ {print $2}') )
