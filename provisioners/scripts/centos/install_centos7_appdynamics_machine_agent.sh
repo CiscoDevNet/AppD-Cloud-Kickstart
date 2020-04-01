@@ -33,7 +33,7 @@ appd_controller_root_password="${appd_controller_root_password:-welcome1}"
 set -x  # turn command display back ON.
 appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"
 appd_machine_agent_user="${appd_machine_agent_user:-centos}"
-appd_machine_agent_release="${appd_machine_agent_release:-20.3.1.2476}"
+appd_machine_agent_release="${appd_machine_agent_release:-20.3.2.2520}"
 
 # [OPTIONAL] appdynamics machine agent config parameters [w/ defaults].
 appd_machine_agent_config="${appd_machine_agent_config:-false}"
@@ -74,7 +74,7 @@ Usage:
     [root]# export appd_controller_root_password="welcome1"             # [optional] controller root password (defaults to 'welcome1').
     [root]# export appd_machine_agent_home="machine-agent"              # [optional] machine agent home folder (defaults to 'machine-agent').
     [root]# export appd_machine_agent_user="centos"                     # [optional] machine agent user name (defaults to user 'centos').
-    [root]# export appd_machine_agent_release="20.3.1.2476"             # [optional] machine agent release (defaults to '20.3.1.2476').
+    [root]# export appd_machine_agent_release="20.3.2.2520"             # [optional] machine agent release (defaults to '20.3.2.2520').
 
   [OPTIONAL] appdynamics machine agent config parameters [w/ defaults].
     [root]# export appd_machine_agent_config="true"                     # [optional] configure appd machine agent? [boolean] (defaults to 'false').
@@ -147,7 +147,7 @@ fi
 # set machine agent installation variables.
 appd_agent_folder="${appd_machine_agent_home}-${appd_machine_agent_release}"
 appd_agent_binary="machineagent-bundle-64bit-linux-${appd_machine_agent_release}.zip"
-appd_agent_sha256="e286170d828e0c518e3bb716045409883c43109056a2acf23af6f00893cbe874"
+appd_agent_sha256="1ece2ecdfbd303c431c86c6a68a236ebb03e8d73692e4d25f85d572c5d4f7e0a"
 
 # create machine agent parent folder.
 mkdir -p ${appd_home}/${appd_agent_folder}

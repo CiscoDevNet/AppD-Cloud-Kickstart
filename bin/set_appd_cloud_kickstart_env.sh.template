@@ -181,8 +181,8 @@ export appd_controller_host
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '20.3.1.2476').
-#appd_machine_agent_release="20.3.1.2476"
+# [optional] machine agent release (defaults to '20.3.2.2520').
+#appd_machine_agent_release="20.3.2.2520"
 #export appd_machine_agent_release
 
 # ------------------------------------------------------------------------------
