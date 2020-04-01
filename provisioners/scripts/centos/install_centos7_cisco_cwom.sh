@@ -30,7 +30,7 @@ kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"       # [optional]
 # set cwom platform installation variables. --------------------------------------------------------
 cwom_s3_bucket_folder="appd-cloud-kickstart-tools.s3.us-east-2.amazonaws.com/cwom"
 cwom_platform_installer="update64_package-v${cwom_platform_release}.zip"
-cwom_platform_sha512="0d19722fa0add299c3d64efbaf9bddb9c807cbac250c49c3c51bc823ba1c925f26980d7a5a02ec89ebd2ac99744121018d583051f3d4a3e36a02fbb624f3e851"
+cwom_platform_sha512="b92d2494990ab0fa8e1e4efccc63ee382c9cbc2ab138dc0e35b182a647e95b6be178395cd8a4e19ba65d1de7df7b2582c48bc7f4866a3fcac22cd98a31ba6da8"
 
 # install cwom platform prerequisites. -------------------------------------------------------------
 # install repomd (xml-rpm-metadata) repository
@@ -106,7 +106,7 @@ ln -s /srv/www /var/.
 rm -Rf /var/lib/tomcat
 ln -s /srv/tomcat/ /var/lib/
 mkdir -p /var/lib/wwwrun
-chown -R apache.apache /var/lib/wwwrun
+chown -R apache:apache /var/lib/wwwrun
 
 # tell selinux to allow httpd to connect to the network.
 setsebool -P httpd_can_network_connect 1
