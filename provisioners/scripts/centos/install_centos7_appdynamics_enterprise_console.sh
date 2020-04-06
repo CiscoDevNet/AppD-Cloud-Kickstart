@@ -29,7 +29,7 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-20.3.2.21899}"
+appd_platform_release="${appd_platform_release:-20.3.3.21908}"
 set +x  # temporarily turn command display OFF.
 appd_platform_admin_username="${appd_platform_admin_username:-admin}"
 appd_platform_admin_password="${appd_platform_admin_password:-welcome1}"
@@ -62,7 +62,7 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="20.3.2.21899"                 # [optional] platform release (defaults to '20.3.2.21899').
+    [root]# export appd_platform_release="20.3.3.21908"                 # [optional] platform release (defaults to '20.3.3.21908').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
     [root]# export appd_platform_admin_password="welcome1"              # [optional] platform admin password (defaults to 'welcome1').
     [root]# export appd_platform_db_password="welcome1"                 # [optional] platform database password (defaults to 'welcome1').
@@ -98,7 +98,7 @@ set -x  # turn command display back ON.
 # set appdynamics platform installation variables. -------------------------------------------------
 appd_platform_folder="${appd_home}/${appd_platform_home}"
 appd_platform_installer="platform-setup-x64-linux-${appd_platform_release}.sh"
-appd_platform_sha256="9c316035885e475506e37472a9cdd2330b5bcf033b405f329a4193307c3b4673"
+appd_platform_sha256="5ae4f247633fa8d7264f56263c9f49ccd393ff06ccfcd2e0132bc63edca8bf52"
 
 # install platform prerequisites. ------------------------------------------------------------------
 # install the netstat network utility.
