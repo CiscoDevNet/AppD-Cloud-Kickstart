@@ -31,8 +31,8 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.3.3.21908').
-#appd_platform_release="20.3.3.21908"
+# [optional] platform release (defaults to '20.3.5.21927').
+#appd_platform_release="20.3.5.21927"
 #export appd_platform_release
 
 # [optional] platform admin user name (defaults to user 'admin').
