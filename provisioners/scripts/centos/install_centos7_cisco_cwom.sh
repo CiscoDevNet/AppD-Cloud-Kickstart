@@ -22,7 +22,7 @@
 
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # cwom platform install parameters.
-cwom_platform_release="${cwom_platform_release:-2.3.11}"            # [optional] platform release (defaults to '2.3.11').
+cwom_platform_release="${cwom_platform_release:-2.3.12}"            # [optional] platform release (defaults to '2.3.12').
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"       # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
@@ -30,7 +30,7 @@ kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"       # [optional]
 # set cwom platform installation variables. --------------------------------------------------------
 cwom_s3_bucket_folder="appd-cloud-kickstart-tools.s3.us-east-2.amazonaws.com/cwom"
 cwom_platform_installer="update64_package-v${cwom_platform_release}.zip"
-cwom_platform_sha512="b92d2494990ab0fa8e1e4efccc63ee382c9cbc2ab138dc0e35b182a647e95b6be178395cd8a4e19ba65d1de7df7b2582c48bc7f4866a3fcac22cd98a31ba6da8"
+cwom_platform_sha512="49592a582ce4e0d4acd79cfbbf307749216d795f1616f30a198dccf8fb1250f824f4c2bb9270503b082500c593c177e7058ed471ea4d302baefd0e0e35cd234f"
 
 # install cwom platform prerequisites. -------------------------------------------------------------
 # install repomd (xml-rpm-metadata) repository
@@ -146,16 +146,16 @@ systemctl status tomcat
 cd ${kickstart_home}/provisioners/scripts/centos/tools
 
 # install administrator user config file.
-cwom_login_config_file="cwom-login.config.topology"
-if [ -f "$cwom_login_config_file" ]; then
-  cp $cwom_login_config_file /srv/tomcat/data/config/login.config.topology
-fi
+#cwom_login_config_file="cwom-login.config.topology"
+#if [ -f "$cwom_login_config_file" ]; then
+#  cp $cwom_login_config_file /srv/tomcat/data/config/login.config.topology
+#fi
 
 # install cwom license file.
-cwom_license_config_file="cwom-license.config.topology"
-if [ -f "$cwom_license_config_file" ]; then
-  cp $cwom_license_config_file /srv/tomcat/data/config/license.config.topology
-fi
+#cwom_license_config_file="cwom-license.config.topology"
+#if [ -f "$cwom_license_config_file" ]; then
+#  cp $cwom_license_config_file /srv/tomcat/data/config/license.config.topology
+#fi
 
 # potential future to-do items. --------------------------------------------------------------------
 # set cwom configuration variables.
