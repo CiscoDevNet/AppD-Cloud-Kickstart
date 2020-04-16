@@ -47,7 +47,7 @@ mkdir -p /usr/local/bin
 cd /usr/local/bin
 ln -sf ../share/${phantomjs_folder}/bin/phantomjs phantomjs
 
-# set vim home environment variables.
+# set path environment variable.
 PATH=/usr/local/bin:$PATH
 export PATH
 
