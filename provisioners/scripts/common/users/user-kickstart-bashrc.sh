@@ -1,4 +1,4 @@
-# @(#).bashrc       1.0 2020/02/28 SMI
+# @(#).bashrc       1.0 2020/04/16 SMI
 # bash resource configuration for kickstart users.
 
 # source global definitions.
@@ -15,7 +15,26 @@ umask 022
 # set java home path.
 JAVA_HOME=/usr/local/java/jdk180
 #JAVA_HOME=/usr/local/java/jdk11
+#JAVA_HOME=/usr/local/java/jdk14
 export JAVA_HOME
+
+# set ant home path.
+ANT_HOME=/usr/local/apache/apache-ant
+export ANT_HOME
+
+# set maven home environment variables.
+M2_HOME=/usr/local/apache/apache-maven
+export M2_HOME
+M2_REPO=$HOME/.m2
+export M2_REPO
+MAVEN_OPTS=-Dfile.encoding="UTF-8"
+export MAVEN_OPTS
+M2=$M2_HOME/bin
+export M2
+
+# set gradle home path.
+GRADLE_HOME=/usr/local/gradle/gradle
+export GRADLE_HOME
 
 # set git home paths.
 GIT_HOME=/usr/local/git/git
@@ -51,7 +70,7 @@ PS1="${reset}${cyan}\h${blue}[${green}\u${blue}]${white}\$ "
 export PS1
 
 # add local applications to main PATH.
-PATH=$JAVA_HOME/bin:$GIT_HOME/bin:$GIT_FLOW_HOME/bin:$HOME/.local/bin:$PATH
+PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$M2:$GRADLE_HOME/bin:$GIT_HOME/bin:$GIT_FLOW_HOME/bin:$HOME/.local/bin:$PATH
 export PATH
 
 # set options.

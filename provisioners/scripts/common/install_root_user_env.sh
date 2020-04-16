@@ -70,8 +70,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 EOF
 chown ${user_name}:${user_group} ${vimrc_local}
 
-# initialize the vim plugin manager by opening a file.
-vim -c 'q' dummy.file
+# initialize the vim plugin manager by opening vim to display the color scheme.
+vim -c colorscheme -c quitall
 
 # set directory ownership and file permissions. ----------------------------------------------------
 chown -R ${user_name}:${user_group} .

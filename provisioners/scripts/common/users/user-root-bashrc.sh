@@ -1,4 +1,4 @@
-# @(#).bashrc       1.0 2020/02/28 SMI
+# @(#).bashrc       1.0 2020/04/16 SMI
 # bash resource configuration for kickstart administrators.
 
 # user 'root' specific aliases and functions.
@@ -17,6 +17,7 @@ umask 022
 # set java home path.
 JAVA_HOME=/usr/local/java/jdk180
 #JAVA_HOME=/usr/local/java/jdk11
+#JAVA_HOME=/usr/local/java/jdk14
 export JAVA_HOME
 
 # set git home paths.

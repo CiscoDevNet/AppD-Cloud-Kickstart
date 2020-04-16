@@ -118,8 +118,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 EOF
 chown ${user_name}:${user_group} ${vimrc_local}
 
-# initialize the vim plugin manager by opening a file.
-runuser -c "TERM=xterm-256color vim -c 'q' dummy.file" - ${user_name}
+# initialize the vim plugin manager by opening vim to display the color scheme.
+runuser -c "TERM=xterm-256color vim -c colorscheme -c quitall" - ${user_name}
 
 # set directory ownership and file permissions. ----------------------------------------------------
 chown -R ${user_name}:${user_group} .
