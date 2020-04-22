@@ -9,7 +9,7 @@ mkdir -p ${kickstart_home}/provisioners/scripts/centos
 cd ${kickstart_home}/provisioners/scripts/centos
 
 # install ansible. ---------------------------------------------------------------------------------
-ansible_release="2.9.6-1"
+ansible_release="2.9.7-1"
 ansible_binary="ansible-${ansible_release}.el7.ans.noarch.rpm"
 
 # download ansible repository.
