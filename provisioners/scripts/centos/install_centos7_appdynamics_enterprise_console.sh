@@ -29,7 +29,7 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-20.3.5.21927}"
+appd_platform_release="${appd_platform_release:-20.4.0.22285}"
 set +x  # temporarily turn command display OFF.
 appd_platform_admin_username="${appd_platform_admin_username:-admin}"
 appd_platform_admin_password="${appd_platform_admin_password:-welcome1}"
@@ -62,7 +62,7 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="20.3.5.21927"                 # [optional] platform release (defaults to '20.3.5.21927').
+    [root]# export appd_platform_release="20.4.0.22285"                 # [optional] platform release (defaults to '20.4.0.22285').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
     [root]# export appd_platform_admin_password="welcome1"              # [optional] platform admin password (defaults to 'welcome1').
     [root]# export appd_platform_db_password="welcome1"                 # [optional] platform database password (defaults to 'welcome1').
@@ -98,7 +98,7 @@ set -x  # turn command display back ON.
 # set appdynamics platform installation variables. -------------------------------------------------
 appd_platform_folder="${appd_home}/${appd_platform_home}"
 appd_platform_installer="platform-setup-x64-linux-${appd_platform_release}.sh"
-appd_platform_sha256="26151963765761895f7e07ec069ff6efa89d3c356cc0781dc0c1f91ef6c14ce3"
+appd_platform_sha256="b542e333b3c5a15f98190645b572ae18c39577466076b2bf4b0cd1373b91ab59"
 
 # install platform prerequisites. ------------------------------------------------------------------
 # install the netstat network utility.
@@ -128,6 +128,7 @@ if [ "$distro_name" = "Amazon" ]; then
 fi
 
 # configure file and process limits for user 'root'.
+echo "Displaying current file and process limits..."
 ulimit -S -n
 ulimit -S -u
 
@@ -150,14 +151,25 @@ pam_dir="/etc/pam.d"
 session_conf="common-session"
 session_cmd="session required pam_limits.so"
 if [ -d "$pam_dir" ]; then
-  if [ -f "$session_conf" ]; then
-    grep -qF "${session_cmd}" ${session_conf} || echo "${session_cmd}" >> ${session_conf}
+  if [ -f "${pam_dir}/${session_conf}" ]; then
+    grep -qF "${session_cmd}" "${pam_dir}/${session_conf}" || echo "${session_cmd}" >> "${pam_dir}/${session_conf}"
   else
-    echo "${session_cmd}" > ${session_conf}
+    echo "${session_cmd}" > "${pam_dir}/${session_conf}"
   fi
 fi
 
-# verify new file and process limits.
+# set current file and process limits.
+echo "Setting current file and process limits..."
+ulimit -n ${num_file_descriptors}
+ulimit -u ${num_processes}
+
+# verify current file and process limits.
+echo "Verifying current file and process limits..."
+ulimit -S -n
+ulimit -S -u
+
+# verify file and process limits for new processes.
+echo "Verifying file and process limits for new processes..."
 runuser -c "ulimit -S -n" -
 runuser -c "ulimit -S -u" -
 

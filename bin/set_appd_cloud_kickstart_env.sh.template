@@ -31,8 +31,8 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.3.5.21927').
-#appd_platform_release="20.3.5.21927"
+# [optional] platform release (defaults to '20.4.0.22285').
+#appd_platform_release="20.4.0.22285"
 #export appd_platform_release
 
 # [optional] platform admin user name (defaults to user 'admin').
@@ -130,8 +130,8 @@ export appd_controller_host
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '20.3.0.29587').
-#appd_java_agent_release="20.3.0.29587"
+# [optional] java agent release (defaults to '20.4.0.29862').
+#appd_java_agent_release="20.4.0.29862"
 #export appd_java_agent_release
 
 # ------------------------------------------------------------------------------
@@ -148,7 +148,7 @@ export appd_controller_host
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver20.3.0.29587/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver20.4.0.29862/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
