@@ -6,62 +6,35 @@ Follow these instructions to build the AWS CentOS 7.7 AMI images:
 -	__CWOM-Platform VM__: A Cisco Workload Optimization Manager (CWOM) stand-alone VM with a CWOM Platform server.
 -	__LPAD VM__: An AWS EC2 'Launchpad' VM needed for Kubernetes and Serverless CLI Operations and running the sample apps.
 
-Before building the AppD Cloud Kickstart VM images for AWS, it is recommended that you install the AWS CLI and Python3. This will allow you to cleanup and delete any resources created by the Packer builds when you are finished. It will also provide the ability to easily purge old AMI images while keeping the latest.
+Before building the AppD Cloud Kickstart VM images for AWS, it is recommended that you install the AWS CLI v2. This will allow you to cleanup and delete any resources created by the Packer builds when you are finished. It will also provide the ability to easily purge old AMI images while keeping the latest. Note that in AWS CLI version 2, the required Python 3 libraries are now embedded in the installer and no longer need to be installed separately.
 
 ## AWS-Specific Installation Instructions - macOS
 
 Here is a list of the recommended open source software to be installed on the host macOS machine:
 
--	Amazon AWS CLI 1.18.39 (command-line interface)
--	Python 3.7.7
-	-	Pip 20.0.2
+-	Amazon AWS CLI 2.0.8 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [Python 3.7.7](https://www.python.org/downloads/release/python-376/) for macOS 64-bit.  
-    `$ brew install python3`  
+1.	Install [AWS CLI 2.0.8](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
+    `$ brew install awscli@2`  
 
-2.	Upgrade [Pip 20.0.2](https://pypi.org/project/pip/) for macOS 64-bit.  
-    `$ pip3 install pip --upgrade --user`  
-
-3.	Install [AWS CLI 1.18.39](https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html#awscli-install-osx-pip).  
-    `$ pip3 install awscli --upgrade --user`  
-
-4.	Add AWS CLI to shell environment `PATH`:
+2.	Validate installed command-line tools:
 
     ```
-    vi $HOME/.bashrc
-
-    # add aws cli to path. -------------------------------------------------
-    PATH=$HOME/Library/Python/3.7/bin:$PATH
-    export PATH
-    # ----------------------------------------------------------------------
-
-    source $HOME/.bashrc
-    ```
-
-5.	Validate installed command-line tools:
-
-    ```
-    $ python3 --version
-    Python 3.7.7
-
-    $ pip3 --version
-    pip 20.0.2 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
-
     $ aws --version
-    aws-cli/1.18.39 Python/3.7.7 Darwin/19.4.0 botocore/1.15.39
+    aws-cli/2.0.8 Python/3.8.2 Darwin/19.4.0 botocore/2.0.0dev12
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
 
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
--	Amazon AWS CLI 1.18.39 (command-line interface)
+-	Amazon AWS CLI 2.0.8 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 1.18.39](https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi) for Windows 64-bit.  
+1.	Install [AWS CLI 2.0.8](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
     Run the downloaded MSI installer and follow the on-screen instructions.  
 
     **NOTE:** For Windows users, the MSI installation package offers a familiar and convenient way to install the AWS CLI without installing any other prerequisites. However, when updates are released, you must repeat the installation process to get the latest version of the AWS CLI. If you prefer more frequent updates, consider using `pip` as described in the AWS CLI [install guide](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html).
@@ -70,7 +43,7 @@ Perform the following steps to install the needed software:
 
     ```
     $ aws --version
-    aws-cli/1.18.39 Python/3.6.0 Windows/10 botocore/1.15.39
+    aws-cli/2.0.8 Python/3.7.5 Windows/10 botocore/2.0.0dev12
     ```
 
 ## Prepare for the Build
@@ -168,8 +141,8 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	AppDynamics Enterprise Console 20.3.5 Build 21927
-	-	AppDynamics Controller 20.3.5 Build 3229
+-	AppDynamics Enterprise Console 20.4.0 Build 22285
+	-	AppDynamics Controller 20.4.0 Build 3646
 	-	AppDynamics Event Service 4.5.2.0 Build 20561
 -	Docker 19.03.8 CE
 	-	Docker Bash Completion
@@ -200,7 +173,7 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 1.18.39 (command-line interface)
+-	Amazon AWS CLI 2.0.8 (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.17.0 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.15.10 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.15.10 (command-line interface)
@@ -209,7 +182,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Docker Bash Completion
 	-	Docker Compose 1.25.4
 	-	Docker Compose Bash Completion
--	Git 2.26.1
+-	Git 2.26.2
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
@@ -225,5 +198,5 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Pip 20.0.2
 -	Python 3.6.3
 	-	Pip 20.0.2
--	Serverless Framework CLI 1.67.3
+-	Serverless Framework CLI 1.68.0
 -	VIM - Vi IMproved 8.2
