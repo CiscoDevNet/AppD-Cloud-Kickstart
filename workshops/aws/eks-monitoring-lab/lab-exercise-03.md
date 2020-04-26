@@ -12,6 +12,8 @@ You will need to use an existing AMI image named **APM-Platform-2040-CentOS77-AM
 - The AMI image for the **us-east-1** region can be found [here](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:sort=tag:Name).
 - The AMI image for the **us-east-2** region can be found [here](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Images:sort=tag:Name).
 - The AMI image for the **us-west-2** region can be found [here](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=tag:Name).
+- The AMI image for the **eu-west-2** region can be found [here](https://eu-west-2.console.aws.amazon.com/ec2/v2/home?region=eu-west-2#Images:sort=tag:Name).
+- The AMI image for the **eu-west-3** region can be found [here](https://eu-west-3.console.aws.amazon.com/ec2/v2/home?region=eu-west-3#Images:sort=tag:Name).
 
 <br>
 
