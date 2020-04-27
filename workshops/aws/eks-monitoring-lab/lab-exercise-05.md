@@ -41,6 +41,16 @@ If you are working in the **us-west-2** region, run the command below:
 kubectl create -f us-west-2/
 ```
 
+If you are working in the **eu-west-2** region, run the command below:
+```
+kubectl create -f eu-west-2/
+```
+
+If you are working in the **eu-west-3** region, run the command below:
+```
+kubectl create -f eu-west-3/
+```
+
 <br>
 
 You should see output from the command similar to the image seen below:

@@ -183,7 +183,7 @@ Use your web browser to naviate to the URL below:
 https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
 ```
 
-Follow the instructions to install the Kubernetes Metric Server.  Copy the command seen highlighted in the image below and execute the command in your SSH terminal window.
+Follow the instructions to install the Kubernetes Metric Server.  Execute the command(s) in the instructions in your SSH terminal window.
 
 ![Cluster Agent Metrics Server-01](./images/cluster-agent-metrics-server-01.png)
 <br><br>

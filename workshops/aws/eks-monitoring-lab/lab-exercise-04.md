@@ -42,6 +42,7 @@ Run the command below to set the variable for the controller host, replacing 'yo
 ```
 export appd_controller_host=your-controller-host-name-or-ip
 ```
+**NOTE:** Before you proceed to the next step, confirm that your controller has finished starting up by logging into your controller with your browser.  If you run the next command before your controller has completely initialized, you will get an error.  If this happens, wait until you can login to your controller and run the command again.
 
 Run the commands below to complete the process of setting all the variables needed to deploy to the EKS cluster:
 
