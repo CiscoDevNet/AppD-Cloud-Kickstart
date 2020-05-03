@@ -22,7 +22,9 @@
 
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # cwom platform install parameters.
-cwom_platform_release="${cwom_platform_release:-2.3.12}"            # [optional] platform release (defaults to '2.3.12').
+cwom_platform_release="${cwom_platform_release:-2.3.13}"            # [optional] platform release (defaults to '2.3.13').
+                                                                    # [optional] platform sha-512 (defaults to published value).
+cwom_platform_sha512="${cwom_platform_sha512:-fac4f3a46f439578589cd53d7a217a0c8ab6892a8c62007bb2df4f81795834b7e731b1c1a67acd757f4070c10f0fd8a1028fe3150e38e3a493380d50dc76d7cc}"
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"       # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
@@ -30,7 +32,6 @@ kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"       # [optional]
 # set cwom platform installation variables. --------------------------------------------------------
 cwom_s3_bucket_folder="appd-cloud-kickstart-tools.s3.us-east-2.amazonaws.com/cwom"
 cwom_platform_installer="update64_package-v${cwom_platform_release}.zip"
-cwom_platform_sha512="49592a582ce4e0d4acd79cfbbf307749216d795f1616f30a198dccf8fb1250f824f4c2bb9270503b082500c593c177e7058ed471ea4d302baefd0e0e35cd234f"
 
 # install cwom platform prerequisites. -------------------------------------------------------------
 # install repomd (xml-rpm-metadata) repository
@@ -162,7 +163,7 @@ cd ${kickstart_home}/provisioners/scripts/centos/tools
 #cd ${kickstart_home}/provisioners/scripts/centos/tools
 #cwom_admin_username="administrator"
 #cwom_admin_password="<your_admin_password>"
-#cwom_license_file="UCSPMFEAT20190409133840574.lic"
+#cwom_license_file="UCSPMFEAT20191114110716525.lic"
 
 # verify cwom license file via rest api.
 #if [ -f "$cwom_license_file" ]; then
