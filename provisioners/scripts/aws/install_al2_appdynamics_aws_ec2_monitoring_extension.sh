@@ -28,8 +28,8 @@ appd_home="${appd_home:-/opt/appdynamics}"
 appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"
 appd_machine_agent_user="${appd_machine_agent_user:-centos}"
 appd_machine_agent_account_name="${appd_machine_agent_account_name:-customer1}"
-appd_aws_ec2_extension_release="${appd_aws_ec2_extension_release:-2.1.1}"
-appd_aws_ec2_extension_build="${appd_aws_ec2_extension_build:-1582890391}"
+appd_aws_ec2_extension_release="${appd_aws_ec2_extension_release:-2.1.2}"
+appd_aws_ec2_extension_build="${appd_aws_ec2_extension_build:-1588236397}"
 
 # [OPTIONAL] appdynamics aws ec2 monitoring extension config parameters [w/ defaults].
 appd_aws_ec2_extension_config="${appd_aws_ec2_extension_config:-false}"
