@@ -7,6 +7,8 @@
 # tomcat web server install parameters.
 tomcat_home="${tomcat_home:-apache-tomcat-7}"                       # [optional] tomcat home (defaults to 'apache-tomcat-7').
 tomcat_release="${tomcat_release:-7.0.103}"                         # [optional] tomcat release (defaults to '7.0.103').
+                                                                    # [optional] tomcat sha-512 checksum (defaults to published value).
+tomcat_sha512="${tomcat_sha512:-3a02bf074fd5a00e751b1229cffdf7c7d9ee52ab825ddecb1e5b766d40999f08be5d3758704333a922c593b139bce51feb8b33924731aacf3acebba8beb5cce8}"
 
 tomcat_username="${tomcat_username:-centos}"                        # [optional] tomcat user name (defaults to 'centos').
 tomcat_group="${tomcat_group:-centos}"                              # [optional] tomcat group (defaults to 'centos').
@@ -26,7 +28,6 @@ tomcat_java_opts="${tomcat_java_opts:--Djava.awt.headless=true -Djava.security.e
 # set tomcat web server installation variables.
 tomcat_folder="${tomcat_home:0:-2}-${tomcat_release}"
 tomcat_binary="${tomcat_folder}.tar.gz"
-tomcat_sha512="3a02bf074fd5a00e751b1229cffdf7c7d9ee52ab825ddecb1e5b766d40999f08be5d3758704333a922c593b139bce51feb8b33924731aacf3acebba8beb5cce8"
 
 # create apache parent folder.
 mkdir -p /usr/local/apache
