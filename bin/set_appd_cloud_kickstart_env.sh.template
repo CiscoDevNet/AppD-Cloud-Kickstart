@@ -34,6 +34,8 @@ export appd_password
 # [optional] platform release (defaults to '20.4.1.22292').
 #appd_platform_release="20.4.1.22292"
 #export appd_platform_release
+
+# [optional] platform sha-256 checksum (defaults to published value).
 #appd_platform_sha256="f490e1ccdce8d2d2e04eac85b445730d51a063168b47ffa5a7d80ee40221548f"
 #export appd_platform_sha256
 
@@ -135,6 +137,8 @@ export appd_controller_host
 # [optional] java agent release (defaults to '20.4.0.29862').
 #appd_java_agent_release="20.4.0.29862"
 #export appd_java_agent_release
+
+# [optional] java agent sha-256 checksum (defaults to published value).
 #appd_java_agent_sha256="ff0d05764bd072fdda9a879485433127a1d1e82982aad7c071c9687165d827a2"
 #export appd_java_agent_sha256
 
@@ -188,6 +192,8 @@ export appd_controller_host
 # [optional] machine agent release (defaults to '20.4.0.2571').
 #appd_machine_agent_release="20.4.0.2571"
 #export appd_machine_agent_release
+
+# [optional] machine agent sha-256 checksum (defaults to published value).
 #appd_machine_agent_sha256="8227edeff110923025a85b4482d9fdd3c3732f70335310c099f9998ff89d2796"
 #export appd_machine_agent_sha256
 
