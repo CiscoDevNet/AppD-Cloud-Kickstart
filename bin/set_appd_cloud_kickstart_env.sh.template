@@ -31,9 +31,11 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.4.0.22285').
-#appd_platform_release="20.4.0.22285"
+# [optional] platform release (defaults to '20.4.1.22292').
+#appd_platform_release="20.4.1.22292"
 #export appd_platform_release
+#appd_platform_sha256="f490e1ccdce8d2d2e04eac85b445730d51a063168b47ffa5a7d80ee40221548f"
+#export appd_platform_sha256
 
 # [optional] platform admin user name (defaults to user 'admin').
 #appd_platform_admin_username="admin"
@@ -133,6 +135,8 @@ export appd_controller_host
 # [optional] java agent release (defaults to '20.4.0.29862').
 #appd_java_agent_release="20.4.0.29862"
 #export appd_java_agent_release
+#appd_java_agent_sha256="ff0d05764bd072fdda9a879485433127a1d1e82982aad7c071c9687165d827a2"
+#export appd_java_agent_sha256
 
 # ------------------------------------------------------------------------------
 # [OPTIONAL] appdynamics java agent config parameters [w/ defaults].
@@ -181,9 +185,11 @@ export appd_controller_host
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '20.3.2.2520').
-#appd_machine_agent_release="20.3.2.2520"
+# [optional] machine agent release (defaults to '20.4.0.2571').
+#appd_machine_agent_release="20.4.0.2571"
 #export appd_machine_agent_release
+#appd_machine_agent_sha256="8227edeff110923025a85b4482d9fdd3c3732f70335310c099f9998ff89d2796"
+#export appd_machine_agent_sha256
 
 # ------------------------------------------------------------------------------
 # [OPTIONAL] appdynamics machine agent config parameters [w/ defaults].
@@ -252,12 +258,12 @@ export appd_controller_host
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] appdynamics aws ec2 monitoring extension install parameters [w/ defaults].
 # --------------------------------------------------------------------------------------------------
-# [optional] aws ec2 extension release (defaults to user '2.1.1').
-#appd_aws_ec2_extension_release="2.1.1"
+# [optional] aws ec2 extension release (defaults to user '2.1.2').
+#appd_aws_ec2_extension_release="2.1.2"
 #export appd_aws_ec2_extension_release
 
-# [optional] aws ec2 extension build (defaults to build '1582890391').
-#appd_aws_ec2_extension_build="1582890391"
+# [optional] aws ec2 extension build (defaults to build '1588236397').
+#appd_aws_ec2_extension_build="1588236397"
 #export appd_aws_ec2_extension_build
 
 # --------------------------------------------------------------------------------------------------

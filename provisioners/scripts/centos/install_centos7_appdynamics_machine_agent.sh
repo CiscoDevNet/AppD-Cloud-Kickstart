@@ -33,7 +33,8 @@ appd_controller_root_password="${appd_controller_root_password:-welcome1}"
 set -x  # turn command display back ON.
 appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"
 appd_machine_agent_user="${appd_machine_agent_user:-centos}"
-appd_machine_agent_release="${appd_machine_agent_release:-20.3.2.2520}"
+appd_machine_agent_release="${appd_machine_agent_release:-20.4.0.2571}"
+appd_machine_agent_sha256="${appd_machine_agent_sha256:-8227edeff110923025a85b4482d9fdd3c3732f70335310c099f9998ff89d2796}"
 
 # [OPTIONAL] appdynamics machine agent config parameters [w/ defaults].
 appd_machine_agent_config="${appd_machine_agent_config:-false}"
@@ -74,7 +75,9 @@ Usage:
     [root]# export appd_controller_root_password="welcome1"             # [optional] controller root password (defaults to 'welcome1').
     [root]# export appd_machine_agent_home="machine-agent"              # [optional] machine agent home folder (defaults to 'machine-agent').
     [root]# export appd_machine_agent_user="centos"                     # [optional] machine agent user name (defaults to user 'centos').
-    [root]# export appd_machine_agent_release="20.3.2.2520"             # [optional] machine agent release (defaults to '20.3.2.2520').
+    [root]# export appd_machine_agent_release="20.4.0.2571"             # [optional] machine agent release (defaults to '20.4.0.2571').
+                                                                        # [optional] machine agent sha-256 checksum (defaults to published value).
+    [root]# export appd_machine_agent_sha256="8227edeff110923025a85b4482d9fdd3c3732f70335310c099f9998ff89d2796"
 
   [OPTIONAL] appdynamics machine agent config parameters [w/ defaults].
     [root]# export appd_machine_agent_config="true"                     # [optional] configure appd machine agent? [boolean] (defaults to 'false').
@@ -145,13 +148,12 @@ fi
 
 # prepare for appdynamics machine agent installation. ----------------------------------------------
 # set machine agent installation variables.
-appd_agent_folder="${appd_machine_agent_home}-${appd_machine_agent_release}"
-appd_agent_binary="machineagent-bundle-64bit-linux-${appd_machine_agent_release}.zip"
-appd_agent_sha256="1ece2ecdfbd303c431c86c6a68a236ebb03e8d73692e4d25f85d572c5d4f7e0a"
+appd_machine_agent_folder="${appd_machine_agent_home}-${appd_machine_agent_release}"
+appd_machine_agent_binary="machineagent-bundle-64bit-linux-${appd_machine_agent_release}.zip"
 
 # create machine agent parent folder.
-mkdir -p ${appd_home}/${appd_agent_folder}
-cd ${appd_home}/${appd_agent_folder}
+mkdir -p ${appd_home}/${appd_machine_agent_folder}
+cd ${appd_home}/${appd_machine_agent_folder}
 
 # set current date for temporary filename.
 curdate=$(date +"%Y-%m-%d.%H-%M-%S")
@@ -177,23 +179,23 @@ curl --silent --request POST --data @${post_data_filename} https://identity.msrv
 oauth_token=$(awk -F '"' '{print $10}' ${oauth_token_filename})
 
 # download the machine agent binary.
-rm -f ${appd_agent_binary}
-curl --silent --location --remote-name --header "Authorization: Bearer ${oauth_token}" https://download.appdynamics.com/download/prox/download-file/machine-bundle/${appd_machine_agent_release}/${appd_agent_binary}
-chmod 644 ${appd_agent_binary}
+rm -f ${appd_machine_agent_binary}
+curl --silent --location --remote-name --header "Authorization: Bearer ${oauth_token}" https://download.appdynamics.com/download/prox/download-file/machine-bundle/${appd_machine_agent_release}/${appd_machine_agent_binary}
+chmod 644 ${appd_machine_agent_binary}
 
 rm -f ${post_data_filename}
 rm -f ${oauth_token_filename}
 
 # verify the downloaded binary.
-echo "${appd_agent_sha256} ${appd_agent_binary}" | sha256sum --check
+echo "${appd_machine_agent_sha256} ${appd_machine_agent_binary}" | sha256sum --check
 # machineagent-bundle-64bit-linux-${appd_machine_agent_release}.zip: OK
 
 # extract machine agent binary.
-unzip ${appd_agent_binary}
-rm -f ${appd_agent_binary}
+unzip ${appd_machine_agent_binary}
+rm -f ${appd_machine_agent_binary}
 cd ${appd_home}
 rm -f ${appd_machine_agent_home}
-ln -s ${appd_agent_folder} ${appd_machine_agent_home}
+ln -s ${appd_machine_agent_folder} ${appd_machine_agent_home}
 chown -R ${appd_machine_agent_user}:${appd_machine_agent_user} .
 
 # configure the appdynamics machine agent as a service. --------------------------------------------

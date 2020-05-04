@@ -28,6 +28,7 @@ set -x  # turn command display back ON.
 appd_java_agent_home="${appd_java_agent_home:-appagent}"
 appd_java_agent_user="${appd_java_agent_user:-centos}"
 appd_java_agent_release="${appd_java_agent_release:-20.4.0.29862}"
+appd_java_agent_sha256="${appd_java_agent_sha256:-ff0d05764bd072fdda9a879485433127a1d1e82982aad7c071c9687165d827a2}"
 
 # [OPTIONAL] appdynamics java agent config parameters [w/ defaults].
 appd_java_agent_config="${appd_java_agent_config:-false}"
@@ -62,6 +63,8 @@ Usage:
     [root]# export appd_java_agent_home="appagent"                      # [optional] java agent home (defaults to 'appagent').
     [root]# export appd_java_agent_user="centos"                        # [optional] java agent user (defaults to user 'centos').
     [root]# export appd_java_agent_release="20.4.0.29862"               # [optional] java agent release (defaults to '20.4.0.29862').
+                                                                        # [optional] java agent sha-256 checksum (defaults to published value).
+    [root]# export appd_java_agent_sha256="ff0d05764bd072fdda9a879485433127a1d1e82982aad7c071c9687165d827a2"
 
   [OPTIONAL] appdynamics java agent config parameters [w/ defaults].
     [root]# export appd_java_agent_config="true"                        # [optional] configure appd java agent? [boolean] (defaults to 'false').
@@ -109,7 +112,6 @@ set -x  # turn command display back ON.
 # set appdynamics java agent installation variables. -----------------------------------------------
 appd_java_agent_folder="${appd_java_agent_home}-${appd_java_agent_release}"
 appd_java_agent_binary="AppServerAgent-${appd_java_agent_release}.zip"
-appd_java_agent_sha256="ff0d05764bd072fdda9a879485433127a1d1e82982aad7c071c9687165d827a2"
 
 # create appdynamics java agent parent folder. -----------------------------------------------------
 mkdir -p ${appd_home}/${appd_java_agent_folder}
