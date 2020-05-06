@@ -29,8 +29,8 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-20.4.1.22292}"
-appd_platform_sha256="${appd_platform_sha256:-f490e1ccdce8d2d2e04eac85b445730d51a063168b47ffa5a7d80ee40221548f}"
+appd_platform_release="${appd_platform_release:-20.4.2.22301}"
+appd_platform_sha256="${appd_platform_sha256:-48fb3d642b1f325d7c15b78c9b7fe405488b40065ea41e2fbd887141ff46e0bd}"
 set +x  # temporarily turn command display OFF.
 appd_platform_admin_username="${appd_platform_admin_username:-admin}"
 appd_platform_admin_password="${appd_platform_admin_password:-welcome1}"
@@ -63,9 +63,9 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="20.4.1.22292"                 # [optional] platform release (defaults to '20.4.1.22292').
+    [root]# export appd_platform_release="20.4.2.22301"                 # [optional] platform release (defaults to '20.4.2.22301').
                                                                         # [optional] platform sha-256 checksum (defaults to published value).
-    [root]# export appd_platform_sha256="f490e1ccdce8d2d2e04eac85b445730d51a063168b47ffa5a7d80ee40221548f"
+    [root]# export appd_platform_sha256="48fb3d642b1f325d7c15b78c9b7fe405488b40065ea41e2fbd887141ff46e0bd"
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
     [root]# export appd_platform_admin_password="welcome1"              # [optional] platform admin password (defaults to 'welcome1').
     [root]# export appd_platform_db_password="welcome1"                 # [optional] platform database password (defaults to 'welcome1').

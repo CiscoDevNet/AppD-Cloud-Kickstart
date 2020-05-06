@@ -141,8 +141,8 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	AppDynamics Enterprise Console 20.4.1 Build 22292
-	-	AppDynamics Controller 20.4.1 Build 3659
+-	AppDynamics Enterprise Console 20.4.2 Build 22301
+	-	AppDynamics Controller 20.4.2 Build 3673
 	-	AppDynamics Event Service 4.5.2.0 Build 20561
 -	Docker 19.03.8 CE
 	-	Docker Bash Completion
@@ -192,7 +192,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Java SE JDK 14.0.1 (Oracle)
 -	jq 1.6 (command-line JSON processor)
 -	Node.js JavaScript runtime v12.16.3 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 6.14.4
+-	npm JavaScript Package Manager for Node.js 6.14.5
 -	nvm (Node Version Manager) bash script 0.35.3
 -	Python 2.7.5
 	-	Pip 20.1
