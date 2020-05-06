@@ -106,6 +106,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/config_aws_cli_2.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_eksctl_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_kubectl_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_iam_authenticator.sh",
