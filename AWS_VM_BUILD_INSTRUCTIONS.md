@@ -1,6 +1,6 @@
-# AWS CentOS 7.7 AMI Build Instructions
+# AWS CentOS 7.8 AMI Build Instructions
 
-Follow these instructions to build the AWS CentOS 7.7 AMI images:
+Follow these instructions to build the AWS CentOS 7.8 AMI images:
 
 -	__APM-Platform VM__: An APM Platform stand-alone VM with an AppDynamics Controller.
 -	__CWOM-Platform VM__: A Cisco Workload Optimization Manager (CWOM) stand-alone VM with a CWOM Platform server.
@@ -104,40 +104,40 @@ To prepare for the build, perform the following steps:
 
 ## Build the Amazon Machine Images (AMIs) with Packer
 
-1.	Build the __APM-Platform VM__ CentOS 7.7 AMI image:
+1.	Build the __APM-Platform VM__ CentOS 7.8 AMI image:
 
     This will take several minutes to run.
 
     ```
     $ cd /<drive>/projects/AppD-Cloud-Kickstart/builders/packer/aws
-    $ packer build apm-platform-centos77.json
+    $ packer build apm-platform-centos78.json
     ```
 
     If the build fails, check to ensure the accuracy of all variables edited above--including items such as spaces between access keys and the ending parentheses.
 
-2.	Build the __CWOM-Platform VM__ CentOS 7.7 AMI image:
+2.	Build the __CWOM-Platform VM__ CentOS 7.8 AMI image:
 
     This will take several minutes to run.
 
     ```
     $ cd /<drive>/projects/AppD-Cloud-Kickstart/builders/packer/aws
-    $ packer build cwom-platform-centos77.json
+    $ packer build cwom-platform-centos78.json
     ```
 
     If the build fails, check to ensure the accuracy of all variables edited above--including items such as spaces between access keys and the ending parentheses.
 
-3.	Build the __LPAD VM__ CentOS 7.7 AMI image:
+3.	Build the __LPAD VM__ CentOS 7.8 AMI image:
 
     This will take several minutes to run. However, this build will be shorter
     because the size of the root volume for the AMI image is much smaller.
 
     ```
-    $ packer build lpad-centos77.json
+    $ packer build lpad-centos78.json
     ```
 
 4. The steps for creating the AMI's are completed. 
 
-## AWS CentOS 7.7 Bill-of-Materials
+## AWS CentOS 7.8 Bill-of-Materials
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
@@ -186,7 +186,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.2.0 (Package Manager for Kubernetes)
+-	Helm CLI 3.2.1 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 252 (Amazon Corretto 8)
 -	Java SE JDK 11.0.7 (Amazon Corretto 11)
 -	Java SE JDK 14.0.1 (Oracle)
@@ -198,5 +198,5 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Pip 20.1
 -	Python 3.6.3
 	-	Pip 20.1
--	Serverless Framework CLI 1.69.0
+-	Serverless Framework CLI 1.70.1
 -	VIM - Vi IMproved 8.2
