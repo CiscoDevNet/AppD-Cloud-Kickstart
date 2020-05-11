@@ -12,7 +12,7 @@
           "product-code": "aw0evgkw8e5c1q413zgy5pjce",
           "root-device-type": "ebs"
         },
-        "owners": ["aws-marketplace"],
+        "owners": ["679593333241"],
         "most_recent": true
       },
       "ami_description": "{{user `aws_ami_description`}}",
@@ -31,7 +31,7 @@
         "Name": "{{user `aws_ami_name`}}",
         "Owner": "{{user `aws_ami_owner`}}",
         "Project": "AppDynamics Cloud Kickstart",
-        "Project_Image_Type": "CWOM-Platform-CentOS",
+        "Project_Image_Type": "LPAD-CentOS",
         "Base_AMI_Name": "{{.SourceAMIName}}"
       }
     }
@@ -64,8 +64,7 @@
       "execute_command": "echo '{{user `aws_ec2_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
       "scripts": [
         "{{template_dir}}/../../../provisioners/scripts/aws/config_al2_system_hostname.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_repositories.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/create_centos7_swapfile.sh"
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_repositories.sh"
       ],
       "type": "shell"
     },
@@ -79,6 +78,11 @@
     },
     {
       "environment_vars": [
+        "AWS_ACCESS_KEY_ID={{user `aws_access_key`}}",
+        "AWS_SECRET_ACCESS_KEY={{user `aws_secret_key`}}",
+        "aws_cli_user_config={{user `aws_cli_user_config`}}",
+        "aws_cli_default_region_name={{user `aws_cli_default_region_name`}}",
+        "aws_cli_default_output_format={{user `aws_cli_default_output_format`}}",
         "user_name={{user `aws_ec2_username`}}",
         "user_group={{user `aws_ec2_username`}}",
         "user_docker_profile={{user `user_docker_profile`}}",
@@ -92,6 +96,8 @@
       "scripts": [
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_kickstart_tools.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_8.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_11.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_oracle_java_jdk_14.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_docker.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3.sh",
@@ -102,20 +108,32 @@
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_oracle_mysql_shell_8.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_cisco_cwom.sh"
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/config_aws_cli_2.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_eksctl_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_kubectl_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_iam_authenticator.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_helm_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_nodejs_javascript_runtime.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_serverless_framework_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_nodejs_serverless_tracer.sh"
       ],
       "type": "shell"
     }
   ],
   "variables": {
-    "aws_ami_name": "CWOM-Platform-2313-CentOS77-AMI",
-    "aws_ami_description": "CWOM Platform 2.3.13 on CentOS 7.7. Log-in with user 'centos' using an SSH key-pair. All 'administrator' and database passwords are 'vmturbo'. AMI generated using the AppDynamics Cloud Kickstart Project.",
+    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+    "aws_ami_name": "LPAD-CentOS78-AMI",
+    "aws_ami_description": "AWS EC2 'launchpad' with pre-configured tooling for AWS CLI Operations on CentOS 7.8. Log-in with user 'centos' using an SSH key-pair. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",
     "aws_ami_region": "{{env `aws_ami_region`}}",
-    "aws_ec2_boot_disk_size": "502",
-    "aws_ec2_hostname": "cwom",
-    "aws_ec2_instance_type": "m5a.xlarge",
+    "aws_cli_user_config": "{{env `aws_cli_user_config`}}",
+    "aws_cli_default_region_name": "{{env `aws_cli_default_region_name`}}",
+    "aws_cli_default_output_format": "{{env `aws_cli_default_output_format`}}",
+    "aws_ec2_boot_disk_size": "48",
+    "aws_ec2_hostname": "lpad",
+    "aws_ec2_instance_type": "t2.micro",
     "aws_ec2_username": "centos",
     "user_docker_profile": "true",
     "docker_completion_release": "19.03.8",
