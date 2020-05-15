@@ -174,7 +174,7 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
 -	Amazon AWS CLI 2.0.10 (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.18.0 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.19.0 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.16.8 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.16.8 (command-line interface)
 -	AppDynamics Node.js Serverless Tracer 20.3.178
