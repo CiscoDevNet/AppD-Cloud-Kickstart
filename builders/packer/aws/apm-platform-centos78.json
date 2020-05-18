@@ -57,7 +57,8 @@
     },
     {
       "environment_vars": [
-        "aws_hostname={{user `aws_ec2_hostname`}}",
+        "aws_ec2_hostname={{user `aws_ec2_hostname`}}",
+        "aws_ec2_domain={{user `aws_ec2_domain`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -120,7 +121,6 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
-        "{{template_dir}}/../../../provisioners/scripts/common/config_aws_cli_2.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_oracle_mysql_shell_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_appdynamics_enterprise_console.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_appdynamics_platform_services.sh"
@@ -153,6 +153,7 @@
     "aws_cli_default_output_format": "{{env `aws_cli_default_output_format`}}",
     "aws_ec2_boot_disk_size": "128",
     "aws_ec2_hostname": "apm",
+    "aws_ec2_domain": "localdomain",
     "aws_ec2_instance_type": "r5a.large",
     "aws_ec2_username": "centos",
     "user_docker_profile": "true",

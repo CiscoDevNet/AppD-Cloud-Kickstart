@@ -1,11 +1,14 @@
 #!/bin/sh -eux
-# appdynamics apm cloud-init script to initialize aws ec2 instance launched from ami.
+# appdynamics terraform cloud-init script to initialize aws ec2 instance launched from ami.
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] aws user and host name config parameters [w/ defaults].
 user_name="${user_name:-centos}"
-aws_ec2_hostname="${aws_ec2_hostname:-apm}"
+aws_ec2_hostname="${aws_ec2_hostname:-terraform-user}"
 aws_ec2_domain="${aws_ec2_domain:-localdomain}"
+
+# [OPTIONAL] aws cli config parameters [w/ defaults].
+aws_cli_default_region_name="${aws_cli_default_region_name:-us-east-1}"
 
 # configure public keys for specified user. --------------------------------------------------------
 user_authorized_keys_file="/home/${user_name}/.ssh/authorized_keys"
@@ -20,6 +23,14 @@ chmod 600 ${user_authorized_keys_file}
 sed -i -e "/packer/d" ${user_authorized_keys_file}
 
 # configure the hostname of the aws ec2 instance. --------------------------------------------------
+# retrieve the lab user index from the ec2 instance name tag.
+aws_ec2_instance_id="$(curl --silent http://169.254.169.254/latest/meta-data/instance-id)"
+aws_cli_cmd="aws ec2 describe-tags --filters \"Name=resource-id,Values=${aws_ec2_instance_id}\" \"Name=key,Values=Name\" --region ${aws_cli_default_region_name} | jq -r '.Tags[0].Value'"
+aws_ec2_name_tag=$(runuser -c "PATH=/home/${user_name}/.local/bin:${PATH} eval ${aws_cli_cmd}" - ${user_name})
+aws_ec2_lab_user_index=$(runuser -c "PATH=/home/${user_name}/.local/bin:${PATH} eval ${aws_cli_cmd}" - ${user_name} | awk -F "-" '{print $NF}')
+aws_ec2_lab_hostname=$(printf "${aws_ec2_hostname}-%02d\n" "${aws_ec2_lab_user_index}")
+aws_ec2_hostname=${aws_ec2_lab_hostname}
+
 # export environment variables.
 export aws_ec2_hostname
 export aws_ec2_domain

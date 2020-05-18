@@ -56,7 +56,8 @@
     },
     {
       "environment_vars": [
-        "aws_hostname={{user `aws_ec2_hostname`}}",
+        "aws_ec2_hostname={{user `aws_ec2_hostname`}}",
+        "aws_ec2_domain={{user `aws_ec2_domain`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -106,7 +107,6 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
-        "{{template_dir}}/../../../provisioners/scripts/common/config_aws_cli_2.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_eksctl_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_kubectl_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_iam_authenticator.sh",
@@ -129,7 +129,8 @@
     "aws_cli_default_region_name": "{{env `aws_cli_default_region_name`}}",
     "aws_cli_default_output_format": "{{env `aws_cli_default_output_format`}}",
     "aws_ec2_boot_disk_size": "48",
-    "aws_ec2_hostname": "lpad",
+    "aws_ec2_hostname": "lpad-al2",
+    "aws_ec2_domain": "localdomain",
     "aws_ec2_instance_type": "t2.micro",
     "aws_ec2_username": "ec2-user",
     "user_docker_profile": "true",

@@ -1,13 +1,20 @@
 #!/bin/sh -eux
-# appdynamics ext cloud-init script to initialize amazon linux 2 vm imported from ami.
+# appdynamics ext cloud-init script to initialize aws ec2 instance launched from ami.
 
 # set default values for input environment variables if not set. -----------------------------------
+# [MANDATORY] amazon aws cli credentials (appdynamics).
+set +x  # temporarily turn command display OFF.
+AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID:-}"
+AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY:-}"
+set -x  # turn command display back ON.
+
 # [OPTIONAL] aws user and host name config parameters [w/ defaults].
 appd_home="${appd_home:-/opt/appdynamics}"
 user_name="${user_name:-centos}"
 aws_ec2_hostname="${aws_ec2_hostname:-ext}"
+aws_ec2_domain="${aws_ec2_domain:-localdomain}"
 
-# set appdynamics controller parameters.
+# [OPTIONAL] appdynamics controller parameters.
 appd_controller_host="${appd_controller_host:-apm}"
 appd_controller_port="${appd_controller_port:-8090}"
 appd_controller_account_name="${appd_controller_account_name:-customer1}"
@@ -16,26 +23,20 @@ appd_controller_root_password="${appd_controller_root_password:-welcome1}"
 set -x  # turn command display back ON.
 appd_controller_account_access_key="${appd_controller_account_access_key:-abcdef01-2345-6789-abcd-ef0123456789}"
 
-# override appdynamics java agent config parameters.
+# [OPTIONAL] override appdynamics java agent config parameters.
 appd_java_agent_home="${appd_java_agent_home:-appagent}"
 appd_java_agent_release="${appd_java_agent_release:-20.4.0.29862}"
 
-# override appdynamics machine agent config parameters.
+# [OPTIONAL] override appdynamics machine agent config parameters.
 appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"
 appd_machine_agent_application_name="${appd_machine_agent_application_name:-}"
 appd_machine_agent_tier_name="${appd_machine_agent_tier_name:-}"
 appd_machine_agent_tier_component_id="${appd_machine_agent_tier_component_id:-8}"
 
-# override aws ec2 monitoring extension config parameters.
+# [OPTIONAL] override aws ec2 monitoring extension config parameters.
 appd_aws_ec2_extension_display_account_name="${appd_aws_ec2_extension_display_account_name:-}"
 appd_aws_ec2_extension_aws_regions="${appd_aws_ec2_extension_aws_regions:-us-east-1}"
 appd_aws_ec2_extension_cloudwatch_monitoring="${appd_aws_ec2_extension_cloudwatch_monitoring:-Basic}"
-
-# set amazon aws cli credentials (appdynamics).
-set +x  # temporarily turn command display OFF.
-AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID:-}"
-AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY:-}"
-set -x  # turn command display back ON.
 
 # validate mandatory environment variables. --------------------------------------------------------
 set +x  # temporarily turn command display OFF.
@@ -51,6 +52,26 @@ if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
   exit 1
 fi
 set -x  # turn command display back ON.
+
+# configure public keys for specified user. --------------------------------------------------------
+user_authorized_keys_file="/home/${user_name}/.ssh/authorized_keys"
+user_key_name="AppD-Cloud-Kickstart-AWS"
+user_public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCBsZpmGJhDGK7OHT7Q5oALQqQaniIiacJgr8EM8rQ6Sv6B2te1G5UTdX45IKFDl54FDrwJ479RDaFRYcvd4QWWzIJ8dhUERESyQRSyb9MXd8R+MDc4iL+2/R23vWLNsFSA01D79Z50Q1ujvDJxzXGY86zJCsRRbkn8ODayUeNJZ5s+f4ACnti6OdjEIZGawZ3Y8ERRb1ZTVG/SbG2KZQxLWQpJSTT4mOB7M/i+RqTl8vB5Gd5j2fQSvLvzhX1sgUvacD6YpIv5YqLPRurnE0Hi/PtcshmJo50/PC0Qypg5q5VJYN5IP5x62iRpnbDBUOe9rpNpp1YqbGXGFQ3TuYPJ AppD-Cloud-Kickstart-AWS"
+
+# 'grep' to see if the user's public key is already present, if not, append to the file.
+grep -qF "${user_key_name}" ${user_authorized_keys_file} || echo "${user_public_key}}" >> ${user_authorized_keys_file}
+chmod 600 ${user_authorized_keys_file}
+
+# delete public key inserted by packer during the ami build.
+sed -i -e "/packer/d" ${user_authorized_keys_file}
+
+# configure the hostname of the aws ec2 instance. --------------------------------------------------
+# export environment variables.
+export aws_ec2_hostname
+export aws_ec2_domain
+
+# set the hostname.
+./config_al2_system_hostname.sh
 
 # retrieve account access key from controller rest api if server is running. -----------------------
 controller_url="http://${appd_controller_host}:${appd_controller_port}/controller/rest/serverstatus"
@@ -178,22 +199,3 @@ systemctl start appdynamics-machine-agent
 
 # check current status.
 #systemctl status "${appd_machine_agent_service}"
-
-# add public keys for specificed user. -------------------------------------------------------------
-user_authorized_keys_file="/home/${user_name}/.ssh/authorized_keys"
-user_key_name="AppD-Cloud-Kickstart-AWS"
-user_public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCBsZpmGJhDGK7OHT7Q5oALQqQaniIiacJgr8EM8rQ6Sv6B2te1G5UTdX45IKFDl54FDrwJ479RDaFRYcvd4QWWzIJ8dhUERESyQRSyb9MXd8R+MDc4iL+2/R23vWLNsFSA01D79Z50Q1ujvDJxzXGY86zJCsRRbkn8ODayUeNJZ5s+f4ACnti6OdjEIZGawZ3Y8ERRb1ZTVG/SbG2KZQxLWQpJSTT4mOB7M/i+RqTl8vB5Gd5j2fQSvLvzhX1sgUvacD6YpIv5YqLPRurnE0Hi/PtcshmJo50/PC0Qypg5q5VJYN5IP5x62iRpnbDBUOe9rpNpp1YqbGXGFQ3TuYPJ AppD-Cloud-Kickstart-AWS"
-
-# 'grep' to see if the user's public is already present, if not, append to the file.
-grep -qF "${user_key_name}" ${user_authorized_keys_file} || echo "${user_public_key}}" >> ${user_authorized_keys_file}
-chmod 600 ${user_authorized_keys_file}
-
-# delete public key inserted by packer during the ami build.
-sed -i -e "/packer/d" ${user_authorized_keys_file}
-
-# set the system hostname. -------------------------------------------------------------------------
-hostnamectl set-hostname "${aws_ec2_hostname}.localdomain" --static
-hostnamectl set-hostname "${aws_ec2_hostname}.localdomain"
-
-# verify configuration.
-hostnamectl status
