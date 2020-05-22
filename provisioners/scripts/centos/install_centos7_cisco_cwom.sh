@@ -22,9 +22,9 @@
 
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # cwom platform install parameters.
-cwom_platform_release="${cwom_platform_release:-2.3.14}"            # [optional] platform release (defaults to '2.3.14').
+cwom_platform_release="${cwom_platform_release:-2.3.15}"            # [optional] platform release (defaults to '2.3.15').
                                                                     # [optional] platform sha-512 (defaults to published value).
-cwom_platform_sha512="${cwom_platform_sha512:-5a9bc6a6455b8d284374ae21af783629ae01282ef0b03f094c12e5084fa68b9f8324ddea2c18ac18ac37dcf460b384356af2dc0949e042284742ccec3cfaa9f0}"
+cwom_platform_sha512="${cwom_platform_sha512:-d14f79ade1425d416f39014b8e47fb7e433111bb33853b4b5d53515a580dada446e2ca01aca5eb0a98117028c2448916408a8f9bb4092e4cdc87087b538cd7a1}"
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"       # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
@@ -147,16 +147,16 @@ systemctl status tomcat
 cd ${kickstart_home}/provisioners/scripts/centos/tools
 
 # install administrator user config file.
-#cwom_login_config_file="cwom-login.config.topology"
-#if [ -f "$cwom_login_config_file" ]; then
-#  cp $cwom_login_config_file /srv/tomcat/data/config/login.config.topology
-#fi
+cwom_login_config_file="cwom-login.config.topology"
+if [ -f "$cwom_login_config_file" ]; then
+  cp $cwom_login_config_file /srv/tomcat/data/config/login.config.topology
+fi
 
 # install cwom license file.
-#cwom_license_config_file="cwom-license.config.topology"
-#if [ -f "$cwom_license_config_file" ]; then
-#  cp $cwom_license_config_file /srv/tomcat/data/config/license.config.topology
-#fi
+cwom_license_config_file="cwom-license.config.topology"
+if [ -f "$cwom_license_config_file" ]; then
+  cp $cwom_license_config_file /srv/tomcat/data/config/license.config.topology
+fi
 
 # potential future to-do items. --------------------------------------------------------------------
 # set cwom configuration variables.
