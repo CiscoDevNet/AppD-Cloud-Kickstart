@@ -23,7 +23,7 @@ Perform the following steps to install the needed software:
 
     ```
     $ aws --version
-    aws-cli/2.0.10 Python/3.8.2 Darwin/19.4.0 botocore/2.0.0dev14
+    aws-cli/2.0.12 Python/3.8.2 Darwin/19.4.0 botocore/2.0.0dev19
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
@@ -43,7 +43,7 @@ Perform the following steps to install the needed software:
 
     ```
     $ aws --version
-    aws-cli/2.0.10 Python/3.7.5 Windows/10 botocore/2.0.0dev14
+    aws-cli/2.0.12 Python/3.7.5 Windows/10 botocore/2.0.0dev19
     ```
 
 ## Prepare for the Build
@@ -141,46 +141,53 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	AppDynamics Enterprise Console 20.4.2 Build 22301
-	-	AppDynamics Controller 20.4.2 Build 3673
-	-	AppDynamics Event Service 4.5.2.0 Build 20561
--	Docker 19.03.8 CE
+-	Amazon AWS CLI 2.0.15 (command-line interface)
+-	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
+-	AppDynamics Enterprise Console 20.4.4 Build 22335
+	-	AppDynamics Controller 20.4.4 Build 3764
+	-	AppDynamics Events Service 4.5.2.0 Build 20602
+-	Docker 19.03.9 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.25.4
+	-	Docker Compose 1.25.5
 	-	Docker Compose Bash Completion
 -	Java SE JDK 8 Update 252 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
--	MySQL Shell 8.0.19
+-	MySQL Shell 8.0.20
 -	Python 2.7.5
-	-	Pip 20.1
+	-	Pip 20.1.1
+-	Python 3.6.8
+	-	Pip 20.1.1
 -	VIM - Vi IMproved 8.2
 
 __CWOM-Platform VM__ - The following utilities and workload optimization management applications are pre-installed:
 
--	Cisco Workload Optimization Manager (CWOM) 2.3.11
--	Docker 19.03.8 CE
+-	Amazon AWS CLI 2.0.15 (command-line interface)
+-	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
+-	Cisco Workload Optimization Manager (CWOM) 2.3.15
+-	Docker 19.03.9 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.25.4
+	-	Docker Compose 1.25.5
 	-	Docker Compose Bash Completion
 -	Java SE JDK 8 Update 252 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
--	MySQL Shell 8.0.19
+-	MySQL Shell 8.0.20
 -	Python 2.7.5
-	-	Pip 20.1
--	Python 3.6.3
-	-	Pip 20.1
+	-	Pip 20.1.1
+-	Python 3.6.8
+	-	Pip 20.1.1
 -	VIM - Vi IMproved 8.2
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 2.0.10 (command-line interface)
+-	Amazon AWS CLI 2.0.15 (command-line interface)
+-	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.19.0 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.16.8 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.16.8 (command-line interface)
 -	AppDynamics Node.js Serverless Tracer 20.3.178
--	Docker 19.03.8 CE
+-	Docker 19.03.9 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.25.4
+	-	Docker Compose 1.25.5
 	-	Docker Compose Bash Completion
 -	Git 2.26.2
 	-	Git Bash Completion
@@ -195,8 +202,8 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	npm JavaScript Package Manager for Node.js 6.14.5
 -	nvm (Node Version Manager) bash script 0.35.3
 -	Python 2.7.5
-	-	Pip 20.1
--	Python 3.6.3
-	-	Pip 20.1
--	Serverless Framework CLI 1.70.1
+	-	Pip 20.1.1
+-	Python 3.6.8
+	-	Pip 20.1.1
+-	Serverless Framework CLI 1.71.3
 -	VIM - Vi IMproved 8.2
