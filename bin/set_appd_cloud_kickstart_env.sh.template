@@ -31,13 +31,21 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.4.2.22301').
-#appd_platform_release="20.4.2.22301"
+# [optional] platform release (defaults to '20.4.4.22335').
+#appd_platform_release="20.4.4.22335"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="48fb3d642b1f325d7c15b78c9b7fe405488b40065ea41e2fbd887141ff46e0bd"
+#appd_platform_sha256="4927b062a8b8a877ec3d0cc0bcb45802fbaacafebf2e3922f3f3b7522aaa7837"
 #export appd_platform_sha256
+
+# [optional] platform user name (defaults to 'centos').
+#appd_platform_username="centos"
+#export appd_platform_username
+
+# [optional] platform group (defaults to 'centos').
+#appd_platform_group="centos"
+#export appd_platform_group
 
 # [optional] platform admin user name (defaults to user 'admin').
 #appd_platform_admin_username="admin"
@@ -56,12 +64,16 @@ export appd_password
 #export appd_platform_db_root_password
 
 # [optional] platform server hostname (defaults to 'uname -n').
-#appd_platform_server_host="apm"
+#appd_platform_server_host="apm.localdomain"
 #export appd_platform_server_host
 
 # [optional] platform server port (defaults to '9191').
 #appd_platform_server_port="9191"
 #export appd_platform_server_port
+
+# [optional] platform use https [boolean] (defaults to 'false').
+#appd_platform_use_https="false"
+#export appd_platform_use_https
 
 # [optional] platform name (defaults to 'My Platform').
 appd_platform_name="AppDynamics Cloud Kickstart"
@@ -95,8 +107,8 @@ export appd_platform_description
 # ------------------------------------------------------------------------------
 # [OPTIONAL] appdynamics controller install parameters [w/ defaults].
 # ------------------------------------------------------------------------------
-# [optional] controller host (defaults to 'apm').
-appd_controller_host="apm"
+# [optional] controller host (defaults to 'apm.localdomain').
+appd_controller_host="apm.localdomain"
 export appd_controller_host
 
 # [optional] controller port (defaults to '8090').
@@ -189,12 +201,12 @@ export appd_controller_host
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '20.4.0.2571').
-#appd_machine_agent_release="20.4.0.2571"
+# [optional] machine agent release (defaults to '20.5.0.2617').
+#appd_machine_agent_release="20.5.0.2617"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="8227edeff110923025a85b4482d9fdd3c3732f70335310c099f9998ff89d2796"
+#appd_machine_agent_sha256="05b347cd87449784540c7a2fa8dd120a91e2882ec9ab7b0d5c679c27e7e18bef"
 #export appd_machine_agent_sha256
 
 # ------------------------------------------------------------------------------
@@ -264,12 +276,12 @@ export appd_controller_host
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] appdynamics aws ec2 monitoring extension install parameters [w/ defaults].
 # --------------------------------------------------------------------------------------------------
-# [optional] aws ec2 extension release (defaults to user '2.1.2').
-#appd_aws_ec2_extension_release="2.1.2"
+# [optional] aws ec2 extension release (defaults to user '2.1.3').
+#appd_aws_ec2_extension_release="2.1.3"
 #export appd_aws_ec2_extension_release
 
-# [optional] aws ec2 extension build (defaults to build '1588236397').
-#appd_aws_ec2_extension_build="1588236397"
+# [optional] aws ec2 extension build (defaults to build '1588861412').
+#appd_aws_ec2_extension_build="1588861412"
 #export appd_aws_ec2_extension_build
 
 # --------------------------------------------------------------------------------------------------

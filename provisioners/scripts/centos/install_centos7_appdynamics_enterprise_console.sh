@@ -29,9 +29,11 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-20.4.2.22301}"
-appd_platform_sha256="${appd_platform_sha256:-48fb3d642b1f325d7c15b78c9b7fe405488b40065ea41e2fbd887141ff46e0bd}"
+appd_platform_release="${appd_platform_release:-20.4.4.22335}"
+appd_platform_sha256="${appd_platform_sha256:-4927b062a8b8a877ec3d0cc0bcb45802fbaacafebf2e3922f3f3b7522aaa7837}"
 set +x  # temporarily turn command display OFF.
+appd_platform_username="${appd_platform_username:-centos}"
+appd_platform_group="${appd_platform_group:-centos}"
 appd_platform_admin_username="${appd_platform_admin_username:-admin}"
 appd_platform_admin_password="${appd_platform_admin_password:-welcome1}"
 appd_platform_db_password="${appd_platform_db_password:-welcome1}"
@@ -39,6 +41,7 @@ appd_platform_db_root_password="${appd_platform_db_root_password:-welcome1}"
 set -x  # turn command display back ON.
 appd_platform_server_host="${appd_platform_server_host:-$local_hostname}"
 appd_platform_server_port="${appd_platform_server_port:-9191}"
+appd_platform_use_https="${appd_platform_use_https:-false}"
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"
@@ -63,15 +66,18 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="20.4.2.22301"                 # [optional] platform release (defaults to '20.4.2.22301').
+    [root]# export appd_platform_release="20.4.4.22335"                 # [optional] platform release (defaults to '20.4.4.22335').
                                                                         # [optional] platform sha-256 checksum (defaults to published value).
-    [root]# export appd_platform_sha256="48fb3d642b1f325d7c15b78c9b7fe405488b40065ea41e2fbd887141ff46e0bd"
+    [root]# export appd_platform_sha256="4927b062a8b8a877ec3d0cc0bcb45802fbaacafebf2e3922f3f3b7522aaa7837"
+    [root]# export appd_platform_username="centos"                      # [optional] platform user name (defaults to 'centos').
+    [root]# export appd_platform_group="centos"                         # [optional] platform group (defaults to 'centos').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
     [root]# export appd_platform_admin_password="welcome1"              # [optional] platform admin password (defaults to 'welcome1').
     [root]# export appd_platform_db_password="welcome1"                 # [optional] platform database password (defaults to 'welcome1').
     [root]# export appd_platform_db_root_password="welcome1"            # [optional] platform database root password (defaults to 'welcome1').
-    [root]# export appd_platform_server_host="apm"                      # [optional] platform server hostname (defaults to 'uname -n').
+    [root]# export appd_platform_server_host="apm.localdomain"          # [optional] platform server hostname.
     [root]# export appd_platform_server_port="9191"                     # [optional] platform server port (defaults to '9191').
+    [root]# export appd_platform_use_https="false"                      # [optional] platform use https [boolean] (defaults to 'false').
 
   [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
     [root]# export kickstart_home="/opt/appd-cloud-kickstart"           # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
@@ -103,20 +109,8 @@ appd_platform_folder="${appd_home}/${appd_platform_home}"
 appd_platform_installer="platform-setup-x64-linux-${appd_platform_release}.sh"
 
 # install platform prerequisites. ------------------------------------------------------------------
-# install the netstat network utility.
-yum -y install net-tools
-
-# install the asynchronous i/o library.
-yum -y install libaio
-
-# install the simple non-uniform memory access (numa) policy support package.
-yum -y install numactl
-
-# install the time zone data files with rules for various time zones around the world.
-yum -y install tzdata
-
-# install the ncurses (new curses) text-based ui library.
-yum -y install ncurses-libs
+# install network and ui tools.
+yum -y install net-tools libaio numactl tzdata ncurses-libs
 
 # mysql 5.5.57 and 5.7.19 require ncurses-libs version 5, which is NOT the default on amazon linux 2.
 # the 'ncurses-compat-libs' will install version 5 on amazon linux 2.
@@ -130,9 +124,15 @@ if [ "$distro_name" = "Amazon" ]; then
 fi
 
 # configure file and process limits for user 'root'.
-echo "Displaying current file and process limits..."
+echo "Displaying current file and process limits for user \"root\"..."
 ulimit -S -n
 ulimit -S -u
+
+if [ "$appd_platform_username" != "root" ]; then
+  echo "Displaying current file and process limits for user \"${appd_platform_username}\"..."
+  runuser -c "ulimit -S -n" - ${appd_platform_username}
+  runuser -c "ulimit -S -u" - ${appd_platform_username}
+fi
 
 user_limits_dir="/etc/security/limits.d"
 appd_conf="appdynamics.conf"
@@ -141,11 +141,20 @@ num_processes="8192"
 
 if [ -d "$user_limits_dir" ]; then
   rm -f "${user_limits_dir}/${appd_conf}"
+  touch "${user_limits_dir}/${appd_conf}"
+  chmod 644 "${user_limits_dir}/${appd_conf}"
 
-  echo "root hard nofile ${num_file_descriptors}" > "${user_limits_dir}/${appd_conf}"
+  echo "root hard nofile ${num_file_descriptors}" >> "${user_limits_dir}/${appd_conf}"
   echo "root soft nofile ${num_file_descriptors}" >> "${user_limits_dir}/${appd_conf}"
   echo "root hard nproc ${num_processes}" >> "${user_limits_dir}/${appd_conf}"
   echo "root soft nproc ${num_processes}" >> "${user_limits_dir}/${appd_conf}"
+
+  if [ "$appd_platform_username" != "root" ]; then
+    echo "${appd_platform_username} hard nofile ${num_file_descriptors}" >> "${user_limits_dir}/${appd_conf}"
+    echo "${appd_platform_username} soft nofile ${num_file_descriptors}" >> "${user_limits_dir}/${appd_conf}"
+    echo "${appd_platform_username} hard nproc ${num_processes}" >> "${user_limits_dir}/${appd_conf}"
+    echo "${appd_platform_username} soft nproc ${num_processes}" >> "${user_limits_dir}/${appd_conf}"
+  fi
 fi
 
 # add user limits to the pluggable authentication modules (pam).
@@ -161,19 +170,31 @@ if [ -d "$pam_dir" ]; then
 fi
 
 # set current file and process limits.
-echo "Setting current file and process limits..."
+echo "Setting current file and process limits for user \"root\"..."
 ulimit -n ${num_file_descriptors}
 ulimit -u ${num_processes}
 
+if [ "$appd_platform_username" != "root" ]; then
+  echo "Setting current file and process limits for user \"${appd_platform_username}\"..."
+  runuser -c "ulimit -n ${num_file_descriptors}" - ${appd_platform_username}
+  runuser -c "ulimit -u ${num_processes}" - ${appd_platform_username}
+fi
+
 # verify current file and process limits.
-echo "Verifying current file and process limits..."
+echo "Verifying current file and process limits for user \"root\"..."
 ulimit -S -n
 ulimit -S -u
 
 # verify file and process limits for new processes.
-echo "Verifying file and process limits for new processes..."
+echo "Verifying file and process limits for new processes for user \"root\"..."
 runuser -c "ulimit -S -n" -
 runuser -c "ulimit -S -u" -
+
+if [ "$appd_platform_username" != "root" ]; then
+  echo "Verifying file and process limits for new processes for user \"${appd_platform_username}\"..."
+  runuser -c "ulimit -S -n" - ${appd_platform_username}
+  runuser -c "ulimit -S -u" - ${appd_platform_username}
+fi
 
 # create temporary download directory. -------------------------------------------------------------
 mkdir -p ${kickstart_home}/provisioners/scripts/centos/appdynamics
@@ -218,6 +239,8 @@ echo "${appd_platform_sha256} ${appd_platform_installer}" | sha256sum --check
 response_file="appd-platform-response.varfile"
 
 rm -f "${response_file}"
+touch "${response_file}"
+chmod 644 "${response_file}"
 
 echo "serverHostName=${appd_platform_server_host}" >> "${response_file}"
 echo "sys.languageId=en" >> "${response_file}"
@@ -231,7 +254,8 @@ echo "platformAdmin.databaseRootPassword=${appd_platform_db_root_password}" >> "
 echo "platformAdmin.adminUsername=${appd_platform_admin_username}" >> "${response_file}"
 echo "platformAdmin.adminPassword=${appd_platform_admin_password}" >> "${response_file}"
 set -x  # turn command display back ON.
-echo "platformAdmin.platformDir=${appd_platform_folder}" >> "${response_file}"
+echo "platformAdmin.useHttps\$Boolean=${appd_platform_use_https}" >> "${response_file}"
+echo "sys.installationDir=${appd_platform_folder}" >> "${response_file}"
 
 # install the appdynamics enterprise console. ------------------------------------------------------
 # run the silent installer for linux.
@@ -253,7 +277,6 @@ service_filepath="${systemd_dir}/${appd_enterprise_console_service}"
 # create systemd service file.
 if [ -d "$systemd_dir" ]; then
   rm -f "${service_filepath}"
-
   touch "${service_filepath}"
   chmod 644 "${service_filepath}"
 
@@ -263,8 +286,14 @@ if [ -d "$systemd_dir" ]; then
   echo "" >> "${service_filepath}"
   echo "[Service]" >> "${service_filepath}"
   echo "Type=forking" >> "${service_filepath}"
-  echo "ExecStart=/opt/appdynamics/platform/platform-admin/bin/platform-admin.sh start-platform-admin" >> "${service_filepath}"
-  echo "ExecStop=/opt/appdynamics/platform/platform-admin/bin/platform-admin.sh stop-platform-admin" >> "${service_filepath}"
+
+  if [ "$appd_platform_username" != "root" ]; then
+    echo "User=${appd_platform_username}" >> "${service_filepath}"
+    echo "Group=${appd_platform_group}" >> "${service_filepath}"
+  fi
+
+  echo "ExecStart=${appd_platform_folder}/platform-admin/bin/platform-admin.sh start-platform-admin" >> "${service_filepath}"
+  echo "ExecStop=${appd_platform_folder}/platform-admin/bin/platform-admin.sh stop-platform-admin" >> "${service_filepath}"
   echo "" >> "${service_filepath}"
   echo "[Install]" >> "${service_filepath}"
   echo "WantedBy=multi-user.target" >> "${service_filepath}"
@@ -279,3 +308,9 @@ systemctl is-enabled "${appd_enterprise_console_service}"
 
 # check current status.
 #systemctl status "${appd_enterprise_console_service}"
+
+# change ownership to platform user name and group. ------------------------------------------------
+if [ "$appd_platform_username" != "root" ]; then
+  cd ${appd_home}
+  chown -R ${appd_platform_username}:${appd_platform_group} .
+fi
