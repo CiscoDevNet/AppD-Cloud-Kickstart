@@ -132,6 +132,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_ec2_instance_metadata_query_tool.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_oracle_mysql_shell_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_java_agent.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_appdynamics_machine_agent.sh",

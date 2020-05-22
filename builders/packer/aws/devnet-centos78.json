@@ -117,6 +117,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/initialize_supercar_trader_application_db.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_phantomjs_headless_browser.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_ec2_instance_metadata_query_tool.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_eksctl_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_kubectl_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_iam_authenticator.sh",
