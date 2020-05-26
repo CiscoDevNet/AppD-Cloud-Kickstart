@@ -23,9 +23,9 @@
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] appdynamics platform install parameters [w/ defaults].
 appd_home="${appd_home:-/opt/appdynamics}"
-set +x  # temporarily turn command display OFF.
 appd_platform_username="${appd_platform_username:-centos}"
 appd_platform_group="${appd_platform_group:-centos}"
+set +x  # temporarily turn command display OFF.
 appd_platform_admin_username="${appd_platform_admin_username:-admin}"
 appd_platform_admin_password="${appd_platform_admin_password:-welcome1}"
 set -x  # turn command display back ON.

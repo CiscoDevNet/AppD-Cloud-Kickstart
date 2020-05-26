@@ -25,7 +25,7 @@ appd_controller_account_access_key="${appd_controller_account_access_key:-abcdef
 
 # [OPTIONAL] override appdynamics java agent config parameters.
 appd_java_agent_home="${appd_java_agent_home:-appagent}"
-appd_java_agent_release="${appd_java_agent_release:-20.4.0.29862}"
+appd_java_agent_release="${appd_java_agent_release:-20.5.0.30113}"
 
 # [OPTIONAL] override appdynamics machine agent config parameters.
 appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"

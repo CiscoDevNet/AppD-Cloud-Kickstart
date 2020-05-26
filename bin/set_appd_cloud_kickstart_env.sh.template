@@ -146,12 +146,12 @@ export appd_controller_host
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '20.4.0.29862').
-#appd_java_agent_release="20.4.0.29862"
+# [optional] java agent release (defaults to '20.5.0.30113').
+#appd_java_agent_release="20.5.0.30113"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="ff0d05764bd072fdda9a879485433127a1d1e82982aad7c071c9687165d827a2"
+#appd_java_agent_sha256="4cc6f3e6604d6329aac2b0dc7333e91d9581eae6abfefe390812353f26cfe6e6"
 #export appd_java_agent_sha256
 
 # ------------------------------------------------------------------------------
@@ -168,7 +168,7 @@ export appd_controller_host
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver20.4.0.29862/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver20.5.0.30113/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
