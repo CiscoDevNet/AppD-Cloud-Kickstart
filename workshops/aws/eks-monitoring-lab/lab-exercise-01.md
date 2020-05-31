@@ -66,6 +66,10 @@ If the above section is not completed correctly at VM creation, the Launch Pad E
 
 ![Security Group](./images/security-group-01.png)
 
+    Note: If you do not have access to AppDynamic Security Groups, you can create your own using the following settings:
+
+![Own Security Group](./images/security-group-02.png)
+
   8. Click '**Review and Launch**' to launch your VM. When prompted for a key pair:  
 
      a. Select the **AppD-Cloud-Kickstart-AWS** pem if you have access to it. You can request this key from the workshop creators.  
