@@ -135,7 +135,7 @@
     "aws_ec2_instance_type": "t2.micro",
     "aws_ec2_username": "ec2-user",
     "user_docker_profile": "true",
-    "docker_completion_release": "18.09.9",
+    "docker_completion_release": "19.03.6",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
