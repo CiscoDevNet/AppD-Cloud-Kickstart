@@ -143,10 +143,10 @@ __APM-Platform VM__ - The following utilities and application performance manage
 
 -	Amazon AWS CLI 2.0.17 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
--	AppDynamics Enterprise Console 20.4.5 Build 22338
-	-	AppDynamics Controller 20.4.5 Build 3772
+-	AppDynamics Enterprise Console 20.6.0 Build 22615
+	-	AppDynamics Controller 20.6.0 Build 2248
 	-	AppDynamics Events Service 4.5.2.0 Build 20602
--	Docker 19.03.9 CE
+-	Docker 19.03.11 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.25.5
 	-	Docker Compose Bash Completion
@@ -164,7 +164,7 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	Amazon AWS CLI 2.0.17 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Cisco Workload Optimization Manager (CWOM) 2.3.15
--	Docker 19.03.9 CE
+-	Docker 19.03.11 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.25.5
 	-	Docker Compose Bash Completion
@@ -185,11 +185,11 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Amazon AWS IAM Authenticator 1.16.8 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.16.8 (command-line interface)
 -	AppDynamics Node.js Serverless Tracer 20.3.178
--	Docker 19.03.9 CE
+-	Docker 19.03.11 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.25.5
 	-	Docker Compose Bash Completion
--	Git 2.26.2
+-	Git 2.27.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
@@ -205,5 +205,5 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Pip 20.1.1
 -	Python 3.6.8
 	-	Pip 20.1.1
--	Serverless Framework CLI 1.71.3
+-	Serverless Framework CLI 1.72.0
 -	VIM - Vi IMproved 8.2
