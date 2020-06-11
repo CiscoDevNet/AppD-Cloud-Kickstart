@@ -16,9 +16,6 @@ kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"   # [optional] kic
 root_bashprofile="${kickstart_home}/provisioners/scripts/common/users/user-root-bash_profile.sh"
 root_bashrc="${kickstart_home}/provisioners/scripts/common/users/user-root-bashrc.sh"
 
-# set user prompt color.
-sed -i "s/{red}/{${user_prompt_color}}/g" ${root_bashrc}
-
 # copy environment profiles to user home.
 cd ${user_home}
 cp -p .bash_profile .bash_profile.orig
@@ -26,6 +23,9 @@ cp -p .bashrc .bashrc.orig
 
 cp -f ${root_bashprofile} .bash_profile
 cp -f ${root_bashrc} .bashrc
+
+# set user prompt color.
+sed -i "s/{red}/{${user_prompt_color}}/g" .bashrc
 
 # remove existing vim profile if it exists. --------------------------------------------------------
 if [ -d ".vim" ]; then

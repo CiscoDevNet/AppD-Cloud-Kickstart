@@ -1,11 +1,11 @@
 #!/bin/sh -eux
 # create new groups on centos linux 7.x.
 
-# set empty default values for group env variables if not set. -----------------
-group_names="${group_names:-}"                              # whitespace separated list of group names.
-group_ids="${group_ids:-}"                                  # [optional] whitespace separated list of group ids.
+# set empty default values for group env variables if not set. -------------------------------------
+group_names="${group_names:-}"
+group_ids="${group_ids:-}"
 
-# define usage function. -------------------------------------------------------
+# define usage function. ---------------------------------------------------------------------------
 usage() {
   cat <<EOF
 Usage:
@@ -18,14 +18,14 @@ Usage:
 EOF
 }
 
-# validate environment variables. ----------------------------------------------
+# validate environment variables. ------------------------------------------------------------------
 if [ -z "$group_names" ]; then
   echo "Error: 'group_names' environment variable not set."
   usage
   exit 1
 fi
 
-# initialize group name and id arrays. -----------------------------------------
+# initialize group name and id arrays. -------------------------------------------------------------
 group_names_array=( $group_names )
 group_names_length=${#group_names_array[@]}
 group_ids_array=( $group_ids )
@@ -40,7 +40,7 @@ if [ -n "$group_ids" ]; then
   fi
 fi
 
-# loop to create each group. ---------------------------------------------------
+# loop to create each group. -----------------------------------------------------------------------
 ii=0                                                        # initialize array index.
 for group_name in "${group_names_array[@]}"; do
   # check for custom group ids.

@@ -3,13 +3,13 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 user_name="${user_name:-}"
-user_password="${user_password:-}"
 user_group="${user_group:-}"
+user_password="${user_password:-}"
 user_id="${user_id:-}"
 user_comment="${user_comment:-$user_name}"
 user_supplementary_groups="${user_supplementary_groups:-}"
 user_sudo_privileges="${user_sudo_privileges:-false}"
-user_home="${user_home:-/home/$user_name}"
+user_home="${user_home:-}"
 user_install_env="${user_install_env:-false}"
 user_docker_profile="${user_docker_profile:-false}"
 user_prompt_color="${user_prompt_color:-green}"
@@ -25,13 +25,13 @@ Usage:
   Script should be run with 'root' privilege.
   Example:
     [root]# export user_name="user1"                            # user name.
-    [root]# export user_password="password"                     # user password.
     [root]# export user_group="group1"                          # user login group.
+    [root]# export user_password="password"                     # [optional] user password.
     [root]# export user_id="1001"                               # [optional] custom user id.
     [root]# export user_comment="user1"                         # [optional] user comment [full name] (defaults to 'user_name').
     [root]# export user_supplementary_groups="grp2,grp3"        # [optional] comma separated list of groups.
     [root]# export user_sudo_privileges="true"                  # [optional] user sudo privileges boolean (defaults to 'false').
-    [root]# export user_home="/home/user1"                      # [optional] user home (defaults to '/home/user_name').
+    [root]# export user_home="/home/user1"                      # [optional] user home directory path.
     [root]# export user_install_env="true"                      # [optional] user install environment (defaults to 'false').
 
     NOTE: if 'user_install_env' is 'true':
@@ -54,12 +54,6 @@ if [ -z "$user_name" ]; then
   exit 1
 fi
 
-if [ -z "$user_password" ]; then
-  echo "Error: 'user_password' environment variable not set."
-  usage
-  exit 1
-fi
-
 if [ -z "$user_group" ]; then
   echo "Error: 'user_group' environment variable not set."
   usage
@@ -78,16 +72,32 @@ if [ -n "$user_prompt_color" ]; then
   esac
 fi
 
-# create user and add to associated groups. --------------------------------------------------------
-# check for custom user id.
-if [ -n "$user_id" ]; then
-  useradd ${user_name} -u ${user_id} -g ${user_group}
-else
-  useradd ${user_name} -g ${user_group}
+# check if user already exists. --------------------------------------------------------------------
+if [ "$(getent passwd ${user_name})" ]; then
+  exit 0
 fi
 
+# create user and add to associated groups. --------------------------------------------------------
+# set default useradd option to create home directory.
+useradd_options="-m"
+
+# check for custom home directory.
+if [ -n "$user_home" ]; then
+  useradd_options="${useradd_options} -d ${user_home}"
+fi
+
+# check for custom user id.
+if [ -n "$user_id" ]; then
+  useradd_options="${useradd_options} -u ${user_id}"
+fi
+
+# create new user.
+useradd ${useradd_options} -g ${user_group} ${user_name}
+
 # modify default password.
-echo "${user_name}:${user_password}" | chpasswd
+if [ -n "$user_password" ]; then
+  echo "${user_name}:${user_password}" | chpasswd
+fi
 
 # add user comment (usually a full name).
 if [ -n "$user_comment" ]; then
