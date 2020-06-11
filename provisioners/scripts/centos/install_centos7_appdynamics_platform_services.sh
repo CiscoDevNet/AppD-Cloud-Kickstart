@@ -23,8 +23,8 @@
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] appdynamics platform install parameters [w/ defaults].
 appd_home="${appd_home:-/opt/appdynamics}"
-appd_platform_username="${appd_platform_username:-centos}"
-appd_platform_group="${appd_platform_group:-centos}"
+appd_platform_user_name="${appd_platform_user_name:-centos}"
+appd_platform_user_group="${appd_platform_user_group:-centos}"
 set +x  # temporarily turn command display OFF.
 appd_platform_admin_username="${appd_platform_admin_username:-admin}"
 appd_platform_admin_password="${appd_platform_admin_password:-welcome1}"
@@ -66,8 +66,8 @@ Usage:
   -------------------------------------
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
-    [root]# export appd_platform_username="centos"                      # [optional] platform user name (defaults to 'centos').
-    [root]# export appd_platform_group="centos"                         # [optional] platform group (defaults to 'centos').
+    [root]# export appd_platform_user_name="centos"                     # [optional] platform user name (defaults to 'centos').
+    [root]# export appd_platform_user_group="centos"                    # [optional] platform group (defaults to 'centos').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
     [root]# export appd_platform_admin_password="welcome1"              # [optional] platform admin password (defaults to 'welcome1').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'machine-agent').
@@ -122,28 +122,28 @@ appd_product_folder="${appd_home}/${appd_platform_home}/${appd_platform_product_
 
 # start the appdynamics enterprise console. --------------------------------------------------------
 cd ${appd_platform_folder}/platform-admin/bin
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh start-platform-admin" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh start-platform-admin" - ${appd_platform_user_name}
 
 # verify installation.
 cd ${appd_platform_folder}/platform-admin/bin
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh show-platform-admin-version" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh show-platform-admin-version" - ${appd_platform_user_name}
 
 # login to the appdynamics platform. ---------------------------------------------------------------
 set +x  # temporarily turn command display OFF.
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh login --user-name \"${appd_platform_admin_username}\" --password \"${appd_platform_admin_password}\"" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh login --user-name \"${appd_platform_admin_username}\" --password \"${appd_platform_admin_password}\"" - ${appd_platform_user_name}
 set -x  # turn command display back ON.
 
 # create an appdynamics platform. ------------------------------------------------------------------
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh create-platform --name \"${appd_platform_name}\" --description \"${appd_platform_description}\" --installation-dir \"${appd_product_folder}\"" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh create-platform --name \"${appd_platform_name}\" --description \"${appd_platform_description}\" --installation-dir \"${appd_product_folder}\"" - ${appd_platform_user_name}
 
 # add local host ('platformadmin') to platform. ----------------------------------------------------
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh add-hosts --hosts \"${appd_platform_hosts}\"" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh add-hosts --hosts \"${appd_platform_hosts}\"" - ${appd_platform_user_name}
 
 # install appdynamics events service. --------------------------------------------------------------
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh install-events-service --profile \"${appd_events_service_profile}\" --hosts \"${appd_events_service_hosts}\"" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh install-events-service --profile \"${appd_events_service_profile}\" --hosts \"${appd_events_service_hosts}\"" - ${appd_platform_user_name}
 
 # verify installation.
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh show-events-service-health" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh show-events-service-health" - ${appd_platform_user_name}
 
 # configure the appdynamics events service as a service. -------------------------------------------
 systemd_dir="/etc/systemd/system"
@@ -166,9 +166,9 @@ if [ -d "$systemd_dir" ]; then
   echo "RemainAfterExit=true" >> "${service_filepath}"
   echo "TimeoutStartSec=300" >> "${service_filepath}"
 
-  if [ "$appd_platform_username" != "root" ]; then
-    echo "User=${appd_platform_username}" >> "${service_filepath}"
-    echo "Group=${appd_platform_group}" >> "${service_filepath}"
+  if [ "$appd_platform_user_name" != "root" ]; then
+    echo "User=${appd_platform_user_name}" >> "${service_filepath}"
+    echo "Group=${appd_platform_user_group}" >> "${service_filepath}"
   fi
 
   set +x  # temporarily turn command display OFF.
@@ -193,12 +193,12 @@ systemctl is-enabled "${appd_events_service_service}"
 
 # install appdynamics controller. ------------------------------------------------------------------
 set +x  # temporarily turn command display OFF.
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh submit-job --service controller --job install --args controllerPrimaryHost=\"${appd_controller_primary_host}\" controllerAdminUsername=\"${appd_controller_admin_username}\" controllerAdminPassword=\"${appd_controller_admin_password}\" controllerRootUserPassword=\"${appd_controller_root_password}\" newDatabaseRootPassword=\"${appd_controller_mysql_password}\"" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh submit-job --service controller --job install --args controllerPrimaryHost=\"${appd_controller_primary_host}\" controllerAdminUsername=\"${appd_controller_admin_username}\" controllerAdminPassword=\"${appd_controller_admin_password}\" controllerRootUserPassword=\"${appd_controller_root_password}\" newDatabaseRootPassword=\"${appd_controller_mysql_password}\"" - ${appd_platform_user_name}
 set -x  # turn command display back ON.
 
 # install license file.
 cp ${kickstart_home}/provisioners/scripts/centos/tools/appd-controller-license.lic ${appd_platform_folder}/product/controller/license.lic
-chown -R ${appd_platform_username}:${appd_platform_group} ${appd_platform_folder}/product/controller/license.lic
+chown -R ${appd_platform_user_name}:${appd_platform_user_group} ${appd_platform_folder}/product/controller/license.lic
 
 # verify installation.
 curl --silent http://localhost:8090/controller/rest/serverstatus
@@ -225,9 +225,9 @@ if [ -d "$systemd_dir" ]; then
   echo "TimeoutStartSec=600" >> "${service_filepath}"
   echo "TimeoutStopSec=120" >> "${service_filepath}"
 
-  if [ "$appd_platform_username" != "root" ]; then
-    echo "User=${appd_platform_username}" >> "${service_filepath}"
-    echo "Group=${appd_platform_group}" >> "${service_filepath}"
+  if [ "$appd_platform_user_name" != "root" ]; then
+    echo "User=${appd_platform_user_name}" >> "${service_filepath}"
+    echo "Group=${appd_platform_user_group}" >> "${service_filepath}"
   fi
 
   set +x  # temporarily turn command display OFF.
@@ -252,19 +252,19 @@ systemctl is-enabled "${appd_controller_service}"
 #systemctl status "${appd_controller_service}"
 
 # verify overall platform installation. ------------------------------------------------------------
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh list-supported-services" - ${appd_platform_username}
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh show-service-status --service controller" - ${appd_platform_username}
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh show-service-status --service events-service" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh list-supported-services" - ${appd_platform_user_name}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh show-service-status --service controller" - ${appd_platform_user_name}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh show-service-status --service events-service" - ${appd_platform_user_name}
 
 # shutdown the appdynamics platform components. ----------------------------------------------------
 # stop the appdynamics controller.
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh stop-controller-appserver" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh stop-controller-appserver" - ${appd_platform_user_name}
 
 # stop the appdynamics controller database.
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh stop-controller-db" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh stop-controller-db" - ${appd_platform_user_name}
 
 # stop the appdynamics events service.
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh stop-events-service" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh stop-events-service" - ${appd_platform_user_name}
 
 # stop the appdynamics enterprise console.
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh stop-platform-admin" - ${appd_platform_username}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh stop-platform-admin" - ${appd_platform_user_name}

@@ -31,21 +31,25 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.6.0.22615').
-#appd_platform_release="20.6.0.22615"
+# [optional] platform release (defaults to '20.6.1.22620').
+#appd_platform_release="20.6.1.22620"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="5d763b4ba43b9ab4568be6b843be4df355d7c774f1a6797ebb26ea46b755b368"
+#appd_platform_sha256="19b53ea5667903af4f4458834f83a3df748fdf4306e9828e915ee2b22b012c0e"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
-#appd_platform_username="centos"
-#export appd_platform_username
+#appd_platform_user_name="centos"
+#export appd_platform_user_name
+
+# [optional] platform user password (defaults to 'welcome1').
+appd_platform_user_password="welcome1"
+export appd_platform_user_password
 
 # [optional] platform group (defaults to 'centos').
-#appd_platform_group="centos"
-#export appd_platform_group
+#appd_platform_user_group="centos"
+#export appd_platform_user_group
 
 # [optional] platform admin user name (defaults to user 'admin').
 #appd_platform_admin_username="admin"
@@ -313,6 +317,17 @@ export appd_controller_host
 # [optional] tier component id for aws metric prefix (defaults to '8').
 #appd_aws_ec2_extension_tier_component_id="8"
 #export appd_aws_ec2_extension_tier_component_id
+
+# ------------------------------------------------------------------------------
+# [OPTIONAL] cwom platform install parameters [w/ defaults].
+# ------------------------------------------------------------------------------
+# [optional] cwom platform release (defaults to '2.3.16').
+#cwom_platform_release="2.3.16"
+#export cwom_platform_release
+
+# [optional] cwom platform sha-512 (defaults to published value).
+#cwom_platform_sha512="aa89d2f5569c7da4ac86d7f83e531908a71559b5e967b689221480e206af1d6e1557afb4ec28269a12e9d025a5ab1bc5d3a3179553524bf3fc97b779d4c30c7e"
+#export cwom_platform_sha512
 
 # ------------------------------------------------------------------------------
 # amazon aws environment parameters.

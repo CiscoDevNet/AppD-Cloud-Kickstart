@@ -29,11 +29,11 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-20.6.0.22615}"
-appd_platform_sha256="${appd_platform_sha256:-5d763b4ba43b9ab4568be6b843be4df355d7c774f1a6797ebb26ea46b755b368}"
+appd_platform_release="${appd_platform_release:-20.6.1.22620}"
+appd_platform_sha256="${appd_platform_sha256:-19b53ea5667903af4f4458834f83a3df748fdf4306e9828e915ee2b22b012c0e}"
+appd_platform_user_name="${appd_platform_user_name:-centos}"
+appd_platform_user_group="${appd_platform_user_group:-centos}"
 set +x  # temporarily turn command display OFF.
-appd_platform_username="${appd_platform_username:-centos}"
-appd_platform_group="${appd_platform_group:-centos}"
 appd_platform_admin_username="${appd_platform_admin_username:-admin}"
 appd_platform_admin_password="${appd_platform_admin_password:-welcome1}"
 appd_platform_db_password="${appd_platform_db_password:-welcome1}"
@@ -66,11 +66,11 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="20.6.0.22615"                 # [optional] platform release (defaults to '20.6.0.22615').
+    [root]# export appd_platform_release="20.6.1.22620"                 # [optional] platform release (defaults to '20.6.1.22620').
                                                                         # [optional] platform sha-256 checksum (defaults to published value).
-    [root]# export appd_platform_sha256="5d763b4ba43b9ab4568be6b843be4df355d7c774f1a6797ebb26ea46b755b368"
-    [root]# export appd_platform_username="centos"                      # [optional] platform user name (defaults to 'centos').
-    [root]# export appd_platform_group="centos"                         # [optional] platform group (defaults to 'centos').
+    [root]# export appd_platform_sha256="19b53ea5667903af4f4458834f83a3df748fdf4306e9828e915ee2b22b012c0e"
+    [root]# export appd_platform_user_name="centos"                     # [optional] platform user name (defaults to 'centos').
+    [root]# export appd_platform_user_group="centos"                    # [optional] platform group (defaults to 'centos').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
     [root]# export appd_platform_admin_password="welcome1"              # [optional] platform admin password (defaults to 'welcome1').
     [root]# export appd_platform_db_password="welcome1"                 # [optional] platform database password (defaults to 'welcome1').
@@ -128,10 +128,10 @@ echo "Displaying current file and process limits for user \"root\"..."
 ulimit -S -n
 ulimit -S -u
 
-if [ "$appd_platform_username" != "root" ]; then
-  echo "Displaying current file and process limits for user \"${appd_platform_username}\"..."
-  runuser -c "ulimit -S -n" - ${appd_platform_username}
-  runuser -c "ulimit -S -u" - ${appd_platform_username}
+if [ "$appd_platform_user_name" != "root" ]; then
+  echo "Displaying current file and process limits for user \"${appd_platform_user_name}\"..."
+  runuser -c "ulimit -S -n" - ${appd_platform_user_name}
+  runuser -c "ulimit -S -u" - ${appd_platform_user_name}
 fi
 
 user_limits_dir="/etc/security/limits.d"
@@ -149,11 +149,11 @@ if [ -d "$user_limits_dir" ]; then
   echo "root hard nproc ${num_processes}" >> "${user_limits_dir}/${appd_conf}"
   echo "root soft nproc ${num_processes}" >> "${user_limits_dir}/${appd_conf}"
 
-  if [ "$appd_platform_username" != "root" ]; then
-    echo "${appd_platform_username} hard nofile ${num_file_descriptors}" >> "${user_limits_dir}/${appd_conf}"
-    echo "${appd_platform_username} soft nofile ${num_file_descriptors}" >> "${user_limits_dir}/${appd_conf}"
-    echo "${appd_platform_username} hard nproc ${num_processes}" >> "${user_limits_dir}/${appd_conf}"
-    echo "${appd_platform_username} soft nproc ${num_processes}" >> "${user_limits_dir}/${appd_conf}"
+  if [ "$appd_platform_user_name" != "root" ]; then
+    echo "${appd_platform_user_name} hard nofile ${num_file_descriptors}" >> "${user_limits_dir}/${appd_conf}"
+    echo "${appd_platform_user_name} soft nofile ${num_file_descriptors}" >> "${user_limits_dir}/${appd_conf}"
+    echo "${appd_platform_user_name} hard nproc ${num_processes}" >> "${user_limits_dir}/${appd_conf}"
+    echo "${appd_platform_user_name} soft nproc ${num_processes}" >> "${user_limits_dir}/${appd_conf}"
   fi
 fi
 
@@ -174,10 +174,10 @@ echo "Setting current file and process limits for user \"root\"..."
 ulimit -n ${num_file_descriptors}
 ulimit -u ${num_processes}
 
-if [ "$appd_platform_username" != "root" ]; then
-  echo "Setting current file and process limits for user \"${appd_platform_username}\"..."
-  runuser -c "ulimit -n ${num_file_descriptors}" - ${appd_platform_username}
-  runuser -c "ulimit -u ${num_processes}" - ${appd_platform_username}
+if [ "$appd_platform_user_name" != "root" ]; then
+  echo "Setting current file and process limits for user \"${appd_platform_user_name}\"..."
+  runuser -c "ulimit -n ${num_file_descriptors}" - ${appd_platform_user_name}
+  runuser -c "ulimit -u ${num_processes}" - ${appd_platform_user_name}
 fi
 
 # verify current file and process limits.
@@ -190,10 +190,10 @@ echo "Verifying file and process limits for new processes for user \"root\"..."
 runuser -c "ulimit -S -n" -
 runuser -c "ulimit -S -u" -
 
-if [ "$appd_platform_username" != "root" ]; then
-  echo "Verifying file and process limits for new processes for user \"${appd_platform_username}\"..."
-  runuser -c "ulimit -S -n" - ${appd_platform_username}
-  runuser -c "ulimit -S -u" - ${appd_platform_username}
+if [ "$appd_platform_user_name" != "root" ]; then
+  echo "Verifying file and process limits for new processes for user \"${appd_platform_user_name}\"..."
+  runuser -c "ulimit -S -n" - ${appd_platform_user_name}
+  runuser -c "ulimit -S -u" - ${appd_platform_user_name}
 fi
 
 # create temporary download directory. -------------------------------------------------------------
@@ -287,9 +287,9 @@ if [ -d "$systemd_dir" ]; then
   echo "[Service]" >> "${service_filepath}"
   echo "Type=forking" >> "${service_filepath}"
 
-  if [ "$appd_platform_username" != "root" ]; then
-    echo "User=${appd_platform_username}" >> "${service_filepath}"
-    echo "Group=${appd_platform_group}" >> "${service_filepath}"
+  if [ "$appd_platform_user_name" != "root" ]; then
+    echo "User=${appd_platform_user_name}" >> "${service_filepath}"
+    echo "Group=${appd_platform_user_group}" >> "${service_filepath}"
   fi
 
   echo "ExecStart=${appd_platform_folder}/platform-admin/bin/platform-admin.sh start-platform-admin" >> "${service_filepath}"
@@ -310,7 +310,7 @@ systemctl is-enabled "${appd_enterprise_console_service}"
 #systemctl status "${appd_enterprise_console_service}"
 
 # change ownership to platform user name and group. ------------------------------------------------
-if [ "$appd_platform_username" != "root" ]; then
+if [ "$appd_platform_user_name" != "root" ]; then
   cd ${appd_home}
-  chown -R ${appd_platform_username}:${appd_platform_group} .
+  chown -R ${appd_platform_user_name}:${appd_platform_user_group} .
 fi
