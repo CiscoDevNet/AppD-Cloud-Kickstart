@@ -144,8 +144,8 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Amazon AWS CLI 2.0.19 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.9
--	AppDynamics Enterprise Console 20.6.1 Build 22620
-	-	AppDynamics Controller 20.6.1 Build 2253
+-	AppDynamics Enterprise Console 20.6.2 Build 22624
+	-	AppDynamics Controller 20.6.2 Build 2288
 	-	AppDynamics Events Service 4.5.2.0 Build 20602
 -	Docker 19.03.11 CE
 	-	Docker Bash Completion
@@ -183,7 +183,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 
 -	Amazon AWS CLI 2.0.19 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.21.0 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.22.0 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.16.8 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.16.8 (command-line interface)
 -	Ansible 2.9.9
@@ -196,17 +196,17 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.2.3 (Package Manager for Kubernetes)
+-	Helm CLI 3.2.4 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 252 (Amazon Corretto 8)
 -	Java SE JDK 11.0.7 (Amazon Corretto 11)
 -	Java SE JDK 14.0.1 (Oracle)
 -	jq 1.6 (command-line JSON processor)
--	Node.js JavaScript runtime v12.18.0 (Latest LTS Version)
+-	Node.js JavaScript runtime v12.18.1 (Latest LTS Version)
 -	npm JavaScript Package Manager for Node.js 6.14.5
 -	nvm (Node Version Manager) bash script 0.35.3
 -	Python 2.7.5
 	-	Pip 20.1.1
 -	Python 3.6.8
 	-	Pip 20.1.1
--	Serverless Framework CLI 1.72.0
+-	Serverless Framework CLI 1.73.1
 -	VIM - Vi IMproved 8.2
