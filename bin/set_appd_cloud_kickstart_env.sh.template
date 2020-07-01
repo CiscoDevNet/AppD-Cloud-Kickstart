@@ -31,12 +31,12 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.6.2.22624').
-#appd_platform_release="20.6.2.22624"
+# [optional] platform release (defaults to '20.6.3.22636').
+#appd_platform_release="20.6.3.22636"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="dfeea42e1b95d805b62491cef88bd4173b9f509ad6f365e07074556d3c2ff889"
+#appd_platform_sha256="d6448bffdf981d61dfcb80d54cb94e4587242618c4984173d078789ed3bdb925"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -150,12 +150,12 @@ export appd_controller_host
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '20.5.0.30113').
-#appd_java_agent_release="20.5.0.30113"
+# [optional] java agent release (defaults to '20.6.0.30246').
+#appd_java_agent_release="20.6.0.30246"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="4cc6f3e6604d6329aac2b0dc7333e91d9581eae6abfefe390812353f26cfe6e6"
+#appd_java_agent_sha256="7c504940d7150be6acae9b7f3e436a451dfb80720a2ea169a1a11695bba6bf75"
 #export appd_java_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -172,7 +172,7 @@ export appd_controller_host
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver20.5.0.30113/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver20.6.0.30246/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
@@ -205,12 +205,12 @@ export appd_controller_host
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '20.5.1.2635').
-#appd_machine_agent_release="20.5.1.2635"
+# [optional] machine agent release (defaults to '20.6.0.2676').
+#appd_machine_agent_release="20.6.0.2676"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="213f3d4dd528867bf3ff2666949f665a455c8edc56dcfebe669713759bab69fa"
+#appd_machine_agent_sha256="c812dc8b19a1cfa372fca6965966a0147ca040500dacd8f4de17b2904e2c2fd9"
 #export appd_machine_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -304,7 +304,7 @@ export appd_controller_host
 #appd_aws_ec2_extension_display_account_name="<your_account_name>"
 #export appd_aws_ec2_extension_display_account_name
 
-# [optional] whitespace separated list of aws regions to monitor (defaults to 'us-east-1').
+# [optional] whitespace separated list of aws regions to monitor (defaults to 'us-east-1' [N. Virginia]).
 #appd_aws_ec2_extension_aws_regions="ap-southeast-2 eu-central-1 eu-west-2 eu-west-3 sa-east-1 us-east-1 us-east-2 us-west-1 us-west-2"
 #export appd_aws_ec2_extension_aws_regions
 
@@ -321,12 +321,12 @@ export appd_controller_host
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # --------------------------------------------------------------------------------------------------
-# [optional] cwom platform release (defaults to '2.3.16').
-#cwom_platform_release="2.3.16"
+# [optional] cwom platform release (defaults to '2.3.17').
+#cwom_platform_release="2.3.17"
 #export cwom_platform_release
 
 # [optional] cwom platform sha-512 (defaults to published value).
-#cwom_platform_sha512="aa89d2f5569c7da4ac86d7f83e531908a71559b5e967b689221480e206af1d6e1557afb4ec28269a12e9d025a5ab1bc5d3a3179553524bf3fc97b779d4c30c7e"
+#cwom_platform_sha512="462bde6f9a889ca93afd5eda93ea9a88b451d36ef638dc97d51da89e8404b47b8246c30ec2ad46809d7f76173fe0d934caf9d083a88e8a6516a56fccefd0d0a1"
 #export cwom_platform_sha512
 
 # --------------------------------------------------------------------------------------------------
