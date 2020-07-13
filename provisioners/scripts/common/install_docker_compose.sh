@@ -15,8 +15,8 @@ curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 # retrieve version number of latest release.
 curl --silent --dump-header curl-docker-compose.${curdate}.out https://github.com/docker/compose/releases/latest --output /dev/null
 dc_release=$(awk '{ sub("\r$", ""); print }' curl-docker-compose.${curdate}.out | awk '/Location/ {print $2}' | awk -F "/" '{print $8}')
-dc_release="1.26.1"
-dc_sha256="b1c7e9b835dd6a4e6436772fe984bf52c93c13149a6b6d06616c7eda1f66123b"
+dc_release="1.26.2"
+dc_sha256="13e50875393decdb047993c3c0192b0a3825613e6dfc0fa271efed4f5dbdd6eb"
 rm -f curl-docker-compose.${curdate}.out
 
 # download docker compose utility from github.com.
