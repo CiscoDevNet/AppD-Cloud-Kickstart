@@ -3,11 +3,11 @@
 
 # install java se 14 development kit. --------------------------------------------------------------
 jdk_home="jdk14"
-jdk_build="14.0.1+7"
-jdk_hash="664493ef4a6946b186ff29eb326336a2"
-jdk_folder="jdk-14.0.1"
+jdk_build="14.0.2+12"
+jdk_hash="205943a0976c4ed48cb16f1043c5c647"
+jdk_folder="jdk-14.0.2"
 jdk_binary="${jdk_folder}_linux-x64_bin.tar.gz"
-jdk_sha256="927cfcfff502c5e73db33bb6fee7f29f62bd0e831233fd78cd58a5b998bc73be"
+jdk_sha256="cb811a86926cc0f529d16bec7bd2e25fb73e75125bbd1775cdb9a96998593dde"
 
 # create java home parent folder.
 mkdir -p /usr/local/java
