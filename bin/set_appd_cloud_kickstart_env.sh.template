@@ -31,12 +31,12 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.6.5.22646').
-#appd_platform_release="20.6.5.22646"
+# [optional] platform release (defaults to '20.6.6.22658').
+#appd_platform_release="20.6.6.22658"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="fe6950252bfc63b19e0a5c838b0c9bdb7a986cd4a7d3f3b0e61e551ff4e8c5c4"
+#appd_platform_sha256="3f339758b8ba5f52b5e32a823f17db9fd7eb6e573e66818c4afb21fd2f4418ba"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -44,8 +44,8 @@ export appd_password
 #export appd_platform_user_name
 
 # [optional] platform user password (defaults to 'welcome1').
-appd_platform_user_password="welcome1"
-export appd_platform_user_password
+#appd_platform_user_password="welcome1"
+#export appd_platform_user_password
 
 # [optional] platform group (defaults to 'centos').
 #appd_platform_user_group="centos"
@@ -95,6 +95,26 @@ export appd_platform_description
 #appd_platform_hosts="platformadmin"
 #export appd_platform_hosts
 
+# [optional] platform credential name (defaults to 'AppD-Cloud-Kickstart-AWS').
+#appd_platform_credential_name="AppD-Cloud-Kickstart-AWS"
+#export appd_platform_credential_name
+
+# [optional] platform credential type (defaults to 'ssh').
+#appd_platform_credential_type="ssh"
+#export appd_platform_credential_type
+
+# [optional] platform domain (defaults to 'localdomain').
+#appd_platform_domain="localdomain"
+#export appd_platform_domain
+
+# [optional] platform number of file descriptors (defaults to '65535').
+#appd_platform_num_file_descriptors="65535"
+#export appd_platform_num_file_descriptors
+
+# [optional] platform number of processes (defaults to '8192').
+#appd_platform_num_processes="8192"
+#export appd_platform_num_processes
+
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] appdynamics events service install parameters [w/ defaults].
 # --------------------------------------------------------------------------------------------------
@@ -121,7 +141,13 @@ export appd_controller_host
 
 # [optional] controller primary host (defaults to 'platformadmin' which is the localhost).
 #appd_controller_primary_host="platformadmin"
+#appd_controller_primary_host="controller-node-01"
 #export appd_controller_primary_host
+
+# [optional] controller secondary host (defaults to '', which is primary host only).
+#appd_controller_secondary_host=""
+#appd_controller_secondary_host="controller-node-02"
+#export appd_controller_secondary_host
 
 # [optional] controller admin user name (defaults to 'admin').
 #appd_controller_admin_username="admin"
@@ -138,6 +164,20 @@ export appd_controller_host
 # [optional] controller mysql root password (defaults to 'welcome1').
 #appd_controller_mysql_password="welcome1"
 #export appd_controller_mysql_password
+
+# [optional] appd controller profile (defaults to 'DEMO').
+#            valid profiles are:
+#              'INTERNAL', 'internal', 'DEMO', 'demo', 'SMALL', 'small',
+#              'MEDIUM', 'medium', 'LARGE', 'large', 'EXTRA-LARGE', 'extra-large'
+#appd_controller_profile="DEMO"
+appd_controller_profile="MEDIUM"
+export appd_controller_profile
+
+# [optional] appd controller tenancy mode (defaults to 'SINGLE').
+#            valid tenancy modes are:
+#              'SINGLE', 'single', 'MULTI', 'multi'
+appd_controller_tenancy_mode="SINGLE"
+export appd_controller_tenancy_mode
 
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] appdynamics java agent install parameters [w/ defaults].

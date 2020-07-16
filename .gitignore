@@ -14,6 +14,16 @@ tags
 /provisioners/**/*.live
 /provisioners/**/*.orig
 
+# ignore terraform configuration and temporary runtime files.
+/builders/**/.terraform
+/builders/**/*.tfstate*
+/builders/**/*.tfplan
+
+# ignore ansible configuration and temporary runtime files.
+ansible.cfg
+/provisioners/**/*.inventory
+/provisioners/**/public-keys*
+
 # ignore 'live' bash resource configuration file for appdynamics cloud kickstart users.
 /bin/set_appd_cloud_kickstart_env.sh
 
