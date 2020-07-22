@@ -108,7 +108,7 @@ Navigate back into the AD-Capital application and click on the Containers tab on
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Network Monitoring Agent by running the command below:
 
 ```
-cd /home/ec2-user/AD-Capital-Kube
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
 ```
 Now run the following command below to deploy the Server Monitoring agent:
 

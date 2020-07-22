@@ -62,7 +62,7 @@ You should then see output similar to the image seen below:
 To deploy the AD-Capital application to the EKS cluster, run the commands below:
 
 ```
-cd /home/ec2-user/AD-Capital-Kube
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
 
 kubectl create -f Kubernetes/
 ```

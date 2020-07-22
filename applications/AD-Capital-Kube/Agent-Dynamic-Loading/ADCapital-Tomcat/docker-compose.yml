@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  tomcat-base:
+    build:
+      context: .
+    image: appdynamics/adcapital-tomcat

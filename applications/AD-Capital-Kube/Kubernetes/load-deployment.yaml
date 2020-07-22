@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: load
+  name: load
+spec:
+  containers:
+  - env:
+    - name: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
+      valueFrom:
+        configMapKeyRef:
+          key: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
+          name: env-map
+    - name: APPDYNAMICS_AGENT_ACCOUNT_NAME
+      valueFrom:
+        configMapKeyRef:
+          key: APPDYNAMICS_AGENT_ACCOUNT_NAME
+          name: env-map
+    envFrom:
+      - configMapRef:
+          name: env-map
+    image: appddemo/adcapital-load
+    name: adcapitalload
+    resources: {}
+  restartPolicy: Always
+status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: load
+  name: load
+spec:
+  clusterIP: None
+  ports:
+  - name: headless
+    port: 55555
+    targetPort: 0
+  selector:
+    app: load
+status:
+  loadBalancer: {}

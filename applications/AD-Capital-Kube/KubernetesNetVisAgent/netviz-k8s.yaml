@@ -1,0 +1,35 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: DaemonSet
+metadata:
+  name: appd-netviz-agent
+spec:
+  selector:
+    matchLabels:
+      name: appd-netviz-agent
+  template:
+    metadata:
+      name: appd-netviz-agent
+      labels:
+        name: appd-netviz-agent
+    spec:
+      hostIPC: true
+      hostNetwork: true
+      containers:
+      - name: appd-netviz-agent
+        image: appddemo/appdynamics-netvis:latest       # path to the network agent's docker image
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+          requests:
+            memory: "250Mi"
+            cpu: "0.1"
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN", "NET_RAW"]
+        ports:
+        - containerPort: 3892
+          hostPort: 3892
+#      imagePullSecrets:                # secret key for the DTR, for fetching netviz image
+#        - name: my-dtr-registry

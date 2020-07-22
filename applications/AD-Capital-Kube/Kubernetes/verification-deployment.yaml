@@ -1,0 +1,106 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: verification
+  labels:
+    app: verification
+    name: verification
+    keel.sh/policy: force
+    keel.sh/trigger: poll
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: verification
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: verification
+      labels:
+        app: verification
+    spec:
+      containers:
+      - env:
+        - name: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              key: accesskey
+              name: mysecret
+        - name: APPDYNAMICS_AGENT_ACCOUNT_NAME
+          valueFrom:
+            secretKeyRef:
+              key: accountname
+              name: mysecret
+        - name: ROLE
+          value: verification
+        - name: APPDYNAMICS_AGENT_NODE_NAME
+          value: Verification
+        - name: APPDYNAMICS_AGENT_TIER_NAME
+          value: Verification-Service
+        - name: APPD_ANALYTICS_MONITOR
+          value: "true"
+        - name: APPD_DOCKER_VISIBILITY
+          value: "true"
+        - name: MACHINE_AGENT_PROPERTIES
+          value: "-Dappdynamics.sim.enabled=true -Dappdynamics.docker.enabled=true"
+        - name: APPDYNAMICS_NETVIZ_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        image: appddemo/adcapital-tomcat:latest
+        envFrom:
+          - configMapRef:
+              name: env-map
+        imagePullPolicy: Always
+        name: verification
+        ports:
+        - containerPort: 8080
+        resources: {}
+        volumeMounts:
+        - mountPath: /hostroot
+          name: hostroot
+          readOnly: true
+        - mountPath: /var/run/docker.sock
+          name: docker-sock
+        - mountPath: /project
+          name: project
+        - mountPath: /appdynamics
+          name: appdynamics
+      restartPolicy: Always
+      volumes:
+      - name: hostroot
+        hostPath:
+          path: /
+          type: Directory
+      - name: docker-sock
+        hostPath:
+          path: /var/run/docker.sock
+          type: Socket
+      - name: project
+      - name: appdynamics
+      initContainers:
+        - image: appddemo/adcapital-project
+          name: provider
+          volumeMounts:
+          - mountPath: /project
+            name: project
+status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: verification
+  name: verification
+spec:
+  ports:
+  - name: "8083"
+    port: 8080
+    targetPort: 8083
+  selector:
+    app: verification
+status:
+  loadBalancer: {}

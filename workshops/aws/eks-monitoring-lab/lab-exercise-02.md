@@ -104,15 +104,9 @@ Once you have an SSH command terminal open to the EC2 instance for the launch pa
 cd /home/ec2-user
 
 git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
-
-cd /home/ec2-user
-
-git clone https://github.com/Appdynamics/AD-Capital-Kube.git
 ```
 
-After you run the commands, you should have two new folders in your home directory
-
-*/home/ec2-user/AD-Capital-Kube*
+After you run the command, you should have this folder in your home directory
 
 */home/ec2-user/AppD-Cloud-Kickstart*
 

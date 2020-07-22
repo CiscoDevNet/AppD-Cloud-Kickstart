@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Sample Docker start script for the AppDynamics Standalone Machine Agent
+# This is provided for illustration purposes only, for full details
+# please consult the product documentation: https://docs.appdynamics.com/
+
+configure-analytics(){
+  # Configure analytics-agent.properties
+  aaprop=${MACHINE_AGENT_HOME}/monitors/analytics-agent/conf/analytics-agent.properties
+
+  if [ "${APPDYNAMICS_CONTROLLER_SSL_ENABLED}" == "true" ]; then CONTROLLER_ENDPOINT="https:\/\/"; else CONTROLLER_ENDPOINT="http:\/\/"; fi
+  CONTROLLER_ENDPOINT+="${APPDYNAMICS_CONTROLLER_HOST_NAME}:${APPDYNAMICS_CONTROLLER_PORT}"
+  echo "CONTROLLER_ENDPOINT: ${CONTROLLER_ENDPOINT//\\/}"
+
+  if [ "${APPD_ES_SSL}" == "true" ]; then EVENT_ENDPOINT="https:\/\/"; else EVENT_ENDPOINT="http:\/\/"; fi
+  EVENT_ENDPOINT+="${APPD_ES_HOST}:${APPD_ES_PORT}\/v1"
+  echo "EVENT_ENDPOINT: ${EVENT_ENDPOINT//\\/}"
+
+  sed -i "/^ad.controller.url=/c\ad.controller.url=${CONTROLLER_ENDPOINT}" ${aaprop}
+  sed -i "/^http.event.endpoint=/c\http.event.endpoint=${EVENT_ENDPOINT}" ${aaprop}
+  sed -i "/^http.event.accountName=/c\http.event.accountName=${APPD_EVENT_ACCOUNT_NAME}" ${aaprop}
+  sed -i "/^http.event.accessKey=/c\http.event.accessKey=${APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY}" ${aaprop}
+
+  # # Configure monitor.xml: turn on analytics monitor
+  monxml=${MACHINE_AGENT_HOME}monitors/analytics-agent/monitor.xml
+
+  sed -i 's#<enabled>false</enabled>#<enabled>true</enabled>#g' ${monxml}
+}
+
+# See the AppDynamics Product Docs (Standalone Machine Agent Configuration Reference)
+# In this example, environment variables are passed to the container at runtime
+MA_PROPERTIES="-Dappdynamics.controller.hostName=${APPDYNAMICS_CONTROLLER_HOST_NAME}"
+MA_PROPERTIES+=" -Dappdynamics.controller.port=${APPDYNAMICS_CONTROLLER_PORT}"
+MA_PROPERTIES+=" -Dappdynamics.controller.ssl.enabled=${APPDYNAMICS_CONTROLLER_SSL_ENABLED}"
+MA_PROPERTIES+=" -Dappdynamics.agent.accountName=${APPDYNAMICS_AGENT_ACCOUNT_NAME}"
+MA_PROPERTIES+=" -Dappdynamics.agent.accountAccessKey=${APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY}"
+MA_PROPERTIES+=" -Dappdynamics.agent.applicationName=${APPDYNAMICS_AGENT_APPLICATION_NAME}"
+
+# Enable SIM and Docker Monitoring
+if [ "${APPD_DOCKER_VISIBILITY}" == "true" ]; then
+  MA_PROPERTIES+=" -Dappdynamics.sim.enabled=true -Dappdynamics.docker.enabled=true"
+fi
+
+# Enable Analytics
+if [ "${APPD_ANALYTICS_MONITOR}" == "true" ]; then
+  configure-analytics
+fi
+
+echo "MA_PROPERTIES: ${MA_PROPERTIES}"
+
+# Start Machine Agent
+java ${MA_PROPERTIES} -jar /opt/appdynamics/machineagent.jar

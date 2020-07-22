@@ -21,7 +21,7 @@ appd_aws_eks_region="${appd_aws_eks_region:-}"
 
 # [OPTIONAL] eksctl command parameters [w/ defaults].
 appd_aws_eks_zones="${appd_aws_eks_zones:-}"
-appd_aws_eks_version="${appd_aws_eks_version:-1.15}"
+appd_aws_eks_version="${appd_aws_eks_version:-1.17}"
 appd_aws_eks_name="${appd_aws_eks_name:-AD-Capital-${appd_aws_eks_user_name}}"
 appd_aws_eks_environment="${appd_aws_eks_environment:-Lab-Env-${appd_aws_eks_user_name}}"
 appd_aws_eks_nodes="${appd_aws_eks_nodes:-2}"
@@ -46,9 +46,9 @@ Usage:
 
   [OPTIONAL] eksctl command parameters [w/ defaults].
     [ec2-user]$ export appd_aws_eks_zones="us-east-1a,us-east-1b,us-east-1c"    # [optional] aws availability zones.
-    [ec2-user]$ export appd_aws_eks_version="1.15"                              # [optional] kubernetes version (defaults to '1.15').
+    [ec2-user]$ export appd_aws_eks_version="1.17"                              # [optional] kubernetes version (defaults to '1.17').
                                                                                 #            valid versions:
-                                                                                #              '1.14', '1.15', '1.16'
+                                                                                #              '1.15', '1.16', '1.17'
     [ec2-user]$ export appd_aws_eks_name="AD-Capital-Lab-User-01"               # [optional] eks cluster name (defaults to 'AD-Capital-${appd_aws_eks_user_name}')
     [ec2-user]$ export appd_aws_eks_environment="Lab-Env-Lab-User-01"           # [optional] eks environment decription (defaults to 'Lab-Env-${appd_aws_eks_user_name}')
     [ec2-user]$ export appd_aws_eks_nodes="2"                                   # [optional] number of eks worker nodes (defaults to '2')

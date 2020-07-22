@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ .Chart.Description }}
+  labels:
+    app: {{ template "appd-infrastructure.name" . }}
+    chart: {{ template "appd-infrastructure.chart" . }}
+    release: {{ .Chart.Version }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "appd-infrastructure.name" . }}
+      release: {{ .Chart.Version }}
+      name: {{ .Chart.Description }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "appd-infrastructure.name" . }}
+        release: {{ .Chart.Version }}
+        name: {{ .Chart.Description }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: accesskey
+                  name: helmsecret
+            - name: APPDYNAMICS_AGENT_ACCOUNT_NAME
+              valueFrom:
+                secretKeyRef:
+                  key: accountname
+                  name: helmsecret
+            - name: APPD_ANALYTICS_MONITOR
+              value: "true"
+            - name: APPD_DOCKER_VISIBILITY
+              value: "true"
+            - name: MACHINE_AGENT_PROPERTIES
+              value: "-Dappdynamics.sim.enabled=true -Dappdynamics.docker.enabled=true"
+          envFrom:
+            - configMapRef:
+                name: helm-env-map
+          volumeMounts:
+          - name: hostroot
+            mountPath: /hostroot
+            readOnly: true
+          - name: docker-sock
+            mountPath: /var/run/docker.sock
+          - name: docker-containers
+            mountPath: /var/lib/docker/containers
+          - name: docker-logs
+            mountPath: /var/log
+          - name: project
+            mountPath: /project
+          - name: appdynamics
+            mountPath: /appdynamics
+          resources:
+      volumes:
+      - name: hostroot
+        hostPath:
+          path: /
+          type: Directory
+      - name: docker-sock
+        hostPath:
+          path: /var/run/docker.sock
+          type: Socket
+      - name: docker-containers
+        hostPath:
+          path: /var/lib/docker/containers
+          type: Directory
+      - name: docker-logs
+        hostPath:
+            path: /var/log
+            type: Directory
+      - name: project
+      - name: appdynamics
