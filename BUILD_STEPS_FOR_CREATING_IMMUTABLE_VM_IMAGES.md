@@ -15,7 +15,7 @@ To build the AppD Cloud Kickstart VM images, the following open source software 
 -	Homebrew 2.4.8
 	-	Command Line Tools (CLT) for Xcode
 -	Packer 1.6.0
--	Git 2.27.0
+-	Git 2.28.0
 -	jq 1.6
 
 Perform the following steps to install the needed software:
@@ -31,7 +31,7 @@ Perform the following steps to install the needed software:
 3.	Install [Packer 1.6.0](https://packer.io/) for macOS 64-bit.  
     `$ brew install packer`  
 
-4.	Install [Git 2.27.0](https://git-scm.com/downloads) for macOS 64-bit.  
+4.	Install [Git 2.28.0](https://git-scm.com/downloads) for macOS 64-bit.  
     `$ brew install git`  
 
 5.	Install [jq 1.6](https://stedolan.github.io/jq/) for macOS 64-bit.  
@@ -51,7 +51,7 @@ Perform the following steps to install the needed software:
     1.6.0
 
     $ git --version
-    git version 2.27.0
+    git version 2.28.0
 
     $ jq --version
     jq-1.6
@@ -70,7 +70,7 @@ Perform the following steps to install the needed software:
 To build the AppD Cloud Kickstart immutable VM images, the following open source software needs to be installed on the host Windows machine:
 
 -	Packer 1.6.0
--	Git 2.27.0 for Win64
+-	Git 2.28.0 for Win64
 -	jq 1.6
 
 Perform the following steps to install the needed software:
@@ -79,7 +79,7 @@ Perform the following steps to install the needed software:
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\Packer\bin`  
 
-2.	Install [Git 2.27.0](https://github.com/git-for-windows/git/releases/download/v2.27.0.windows.1/Git-2.27.0-64-bit.exe) for Windows 64-bit.
+2.	Install [Git 2.28.0](https://github.com/git-for-windows/git/releases/download/v2.28.0.windows.1/Git-2.28.0-64-bit.exe) for Windows 64-bit.
 
 3.	Install [jq 1.6](https://github.com/stedolan/jq/releases/download/jq-1.6/jq-win64.exe) for Windows 64-bit.  
     Create suggested install folder and rename binary to:  
@@ -105,7 +105,7 @@ Perform the following steps to install the needed software:
     1.6.0
 
     $ git --version
-    git version 2.27.0.windows.1
+    git version 2.28.0.windows.1
 
     $ jq --version
     jq-1.6
