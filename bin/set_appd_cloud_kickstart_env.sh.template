@@ -31,12 +31,12 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.7.1.22912').
-#appd_platform_release="20.7.1.22912"
+# [optional] platform release (defaults to '20.7.2.22914').
+#appd_platform_release="20.7.2.22914"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="60cc77f17b71f13553c2eccbe70af6c058171815453dd3510b71122d2a1794e9"
+#appd_platform_sha256="eb0b062a828beb3d9b9ee768f88901556820913bb0d4efa4d3d08a7b4852c5cf"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -245,12 +245,12 @@ export appd_controller_tenancy_mode
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '20.6.0.2676').
-#appd_machine_agent_release="20.6.0.2676"
+# [optional] machine agent release (defaults to '20.7.0.2694').
+#appd_machine_agent_release="20.7.0.2694"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="c812dc8b19a1cfa372fca6965966a0147ca040500dacd8f4de17b2904e2c2fd9"
+#appd_machine_agent_sha256="4316aa25b8d6b42ce8bcaa9a4375ae4fb620bc73e4ef712996ed37da1ac72c8e"
 #export appd_machine_agent_sha256
 
 # --------------------------------------------------------------------------------------------------

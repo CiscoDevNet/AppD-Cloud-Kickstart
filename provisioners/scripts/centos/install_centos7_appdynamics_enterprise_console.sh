@@ -29,8 +29,8 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-20.7.1.22912}"
-appd_platform_sha256="${appd_platform_sha256:-60cc77f17b71f13553c2eccbe70af6c058171815453dd3510b71122d2a1794e9}"
+appd_platform_release="${appd_platform_release:-20.7.2.22914}"
+appd_platform_sha256="${appd_platform_sha256:-eb0b062a828beb3d9b9ee768f88901556820913bb0d4efa4d3d08a7b4852c5cf}"
 appd_platform_user_name="${appd_platform_user_name:-centos}"
 appd_platform_user_group="${appd_platform_user_group:-centos}"
 set +x  # temporarily turn command display OFF.
@@ -66,9 +66,9 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="20.7.1.22912"                 # [optional] platform release (defaults to '20.7.1.22912').
+    [root]# export appd_platform_release="20.7.2.22914"                 # [optional] platform release (defaults to '20.7.2.22914').
                                                                         # [optional] platform sha-256 checksum (defaults to published value).
-    [root]# export appd_platform_sha256="60cc77f17b71f13553c2eccbe70af6c058171815453dd3510b71122d2a1794e9"
+    [root]# export appd_platform_sha256="eb0b062a828beb3d9b9ee768f88901556820913bb0d4efa4d3d08a7b4852c5cf"
     [root]# export appd_platform_user_name="centos"                     # [optional] platform user name (defaults to 'centos').
     [root]# export appd_platform_user_group="centos"                    # [optional] platform group (defaults to 'centos').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
