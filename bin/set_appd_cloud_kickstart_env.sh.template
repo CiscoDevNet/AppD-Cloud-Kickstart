@@ -31,12 +31,12 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.7.2.22914').
-#appd_platform_release="20.7.2.22914"
+# [optional] platform release (defaults to '20.7.4.22931').
+#appd_platform_release="20.7.4.22931"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="eb0b062a828beb3d9b9ee768f88901556820913bb0d4efa4d3d08a7b4852c5cf"
+#appd_platform_sha256="e93efddddba585e3809a9148dd48f309380c7848c7be3e2c18ca99063f198e10"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -190,12 +190,12 @@ export appd_controller_tenancy_mode
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '20.6.0.30555').
-#appd_java_agent_release="20.6.0.30555"
+# [optional] java agent release (defaults to '20.7.0.30639').
+#appd_java_agent_release="20.7.0.30639"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="5cd4b3ee0a4cb19cb0ae340d8ff45a06cd9530c555164b19650b66e118655a90"
+#appd_java_agent_sha256="2166eae0de1f8149a2e47b45dbe3c89ab7742a173ddb357e907e5d4074b700f5"
 #export appd_java_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ export appd_controller_tenancy_mode
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver20.6.0.30555/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver20.7.0.30639/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
@@ -361,12 +361,12 @@ export appd_controller_tenancy_mode
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # --------------------------------------------------------------------------------------------------
-# [optional] cwom platform release (defaults to '2.3.17').
-#cwom_platform_release="2.3.17"
+# [optional] cwom platform release (defaults to '2.3.20').
+#cwom_platform_release="2.3.20"
 #export cwom_platform_release
 
 # [optional] cwom platform sha-512 (defaults to published value).
-#cwom_platform_sha512="462bde6f9a889ca93afd5eda93ea9a88b451d36ef638dc97d51da89e8404b47b8246c30ec2ad46809d7f76173fe0d934caf9d083a88e8a6516a56fccefd0d0a1"
+#cwom_platform_sha512="00b24b704cd4981819c290f292fd49949d9845c78e2b03ed6e339f4513dbe3e51d454b1794af6128040f9d9ff4edad8575471c9dee645de6073fb61195398da3"
 #export cwom_platform_sha512
 
 # --------------------------------------------------------------------------------------------------
