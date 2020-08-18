@@ -15,9 +15,9 @@
 #---------------------------------------------------------------------------------------------------
 
 # install kubectl cli. -----------------------------------------------------------------------------
-kubectl_release="1.17.7"
-kubectl_date="2020-07-08"
-kubectl_sha256="bba88f1635fc741fc9af52d3b3bd078e487c376de37fc669f8edcfd12e4f4f98"
+kubectl_release="1.17.9"
+kubectl_date="2020-08-04"
+kubectl_sha256="4138cf0516213b5601444641e9362ae45aa474ece310a84c264397d807d6c151"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin

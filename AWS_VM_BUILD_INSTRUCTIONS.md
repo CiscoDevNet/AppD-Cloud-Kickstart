@@ -184,8 +184,8 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Amazon AWS CLI 2.0.40 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.25.0 (command-line interface)
--	Amazon AWS IAM Authenticator 1.17.7 for AWS EKS CLI and kubectl.
--	Amazon AWS Kubernetes Control CLI [kubectl] 1.17.7 (command-line interface)
+-	Amazon AWS IAM Authenticator 1.17.9 for AWS EKS CLI and kubectl.
+-	Amazon AWS Kubernetes Control CLI [kubectl] 1.17.9 (command-line interface)
 -	Ansible 2.9.12
 -	AppDynamics Node.js Serverless Tracer 20.3.178
 -	Docker 19.03.12 CE
@@ -202,7 +202,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Java SE JDK 14.0.2 (Oracle)
 -	jq 1.6 (command-line JSON processor)
 -	Node.js JavaScript runtime v12.18.3 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 6.14.7
+-	npm JavaScript Package Manager for Node.js 6.14.8
 -	nvm (Node Version Manager) bash script 0.35.3
 -	Python 2.7.5
 	-	Pip 20.2.2
