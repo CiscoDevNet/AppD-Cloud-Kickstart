@@ -31,12 +31,12 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.7.4.22931').
-#appd_platform_release="20.7.4.22931"
+# [optional] platform release (defaults to '20.8.0.23236').
+#appd_platform_release="20.8.0.23236"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="e93efddddba585e3809a9148dd48f309380c7848c7be3e2c18ca99063f198e10"
+#appd_platform_sha256="bf920757b89b3391908c83057db4dccc1e38748a7ba79ef06cbe92c6f6027c33"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -190,12 +190,12 @@ export appd_controller_tenancy_mode
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '20.7.0.30639').
-#appd_java_agent_release="20.7.0.30639"
+# [optional] java agent release (defaults to '20.8.0.30686').
+#appd_java_agent_release="20.8.0.30686"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="2166eae0de1f8149a2e47b45dbe3c89ab7742a173ddb357e907e5d4074b700f5"
+#appd_java_agent_sha256="5112c2f598be0c75f794a264b3a218337a00bfa3ec2b8edb7da4a617547f0267"
 #export appd_java_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ export appd_controller_tenancy_mode
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver20.7.0.30639/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver20.8.0.30686/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
@@ -245,12 +245,12 @@ export appd_controller_tenancy_mode
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '20.7.0.2694').
-#appd_machine_agent_release="20.7.0.2694"
+# [optional] machine agent release (defaults to '20.8.0.2713').
+#appd_machine_agent_release="20.8.0.2713"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="4316aa25b8d6b42ce8bcaa9a4375ae4fb620bc73e4ef712996ed37da1ac72c8e"
+#appd_machine_agent_sha256="be4d4b041a7b1976f48f5cbc38e075323a4f276fe5917df3fc9c04c9f2377bc2"
 #export appd_machine_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -361,12 +361,12 @@ export appd_controller_tenancy_mode
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # --------------------------------------------------------------------------------------------------
-# [optional] cwom platform release (defaults to '2.3.20').
-#cwom_platform_release="2.3.20"
+# [optional] cwom platform release (defaults to '2.3.21').
+#cwom_platform_release="2.3.21"
 #export cwom_platform_release
 
 # [optional] cwom platform sha-512 (defaults to published value).
-#cwom_platform_sha512="00b24b704cd4981819c290f292fd49949d9845c78e2b03ed6e339f4513dbe3e51d454b1794af6128040f9d9ff4edad8575471c9dee645de6073fb61195398da3"
+#cwom_platform_sha512="73cbe5037a1515fd5ccfb86bc8b16af3b1879ba9aabca73ab5cbc7c85b8735d3f16325fb7bf8d4cf347ef958cd41a553eb72c20b1d307aefb909eed394b75a08"
 #export cwom_platform_sha512
 
 # --------------------------------------------------------------------------------------------------

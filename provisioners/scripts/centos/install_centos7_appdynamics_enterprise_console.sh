@@ -29,8 +29,8 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-20.7.4.22931}"
-appd_platform_sha256="${appd_platform_sha256:-e93efddddba585e3809a9148dd48f309380c7848c7be3e2c18ca99063f198e10}"
+appd_platform_release="${appd_platform_release:-20.8.0.23236}"
+appd_platform_sha256="${appd_platform_sha256:-bf920757b89b3391908c83057db4dccc1e38748a7ba79ef06cbe92c6f6027c33}"
 appd_platform_user_name="${appd_platform_user_name:-centos}"
 appd_platform_user_group="${appd_platform_user_group:-centos}"
 set +x  # temporarily turn command display OFF.
@@ -66,16 +66,16 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="20.7.4.22931"                 # [optional] platform release (defaults to '20.7.4.22931').
+    [root]# export appd_platform_release="20.8.0.23236"                 # [optional] platform release (defaults to '20.8.0.23236').
                                                                         # [optional] platform sha-256 checksum (defaults to published value).
-    [root]# export appd_platform_sha256="e93efddddba585e3809a9148dd48f309380c7848c7be3e2c18ca99063f198e10"
+    [root]# export appd_platform_sha256="bf920757b89b3391908c83057db4dccc1e38748a7ba79ef06cbe92c6f6027c33"
     [root]# export appd_platform_user_name="centos"                     # [optional] platform user name (defaults to 'centos').
     [root]# export appd_platform_user_group="centos"                    # [optional] platform group (defaults to 'centos').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
     [root]# export appd_platform_admin_password="welcome1"              # [optional] platform admin password (defaults to 'welcome1').
     [root]# export appd_platform_db_password="welcome1"                 # [optional] platform database password (defaults to 'welcome1').
     [root]# export appd_platform_db_root_password="welcome1"            # [optional] platform database root password (defaults to 'welcome1').
-    [root]# export appd_platform_server_host="apm.localdomain"          # [optional] platform server hostname.
+    [root]# export appd_platform_server_host="apm.localdomain"          # [optional] platform server hostname (defaults to 'uname -n').
     [root]# export appd_platform_server_port="9191"                     # [optional] platform server port (defaults to '9191').
     [root]# export appd_platform_use_https="false"                      # [optional] platform use https [boolean] (defaults to 'false').
 
@@ -200,6 +200,13 @@ fi
 mkdir -p ${kickstart_home}/provisioners/scripts/centos/appdynamics
 cd ${kickstart_home}/provisioners/scripts/centos/appdynamics
 
+# create appd home directory and change ownership to platform user name and group. -----------------
+mkdir -p ${appd_home}
+
+if [ "$appd_platform_user_name" != "root" ]; then
+  chown -R ${appd_platform_user_name}:${appd_platform_user_group} ${appd_home}
+fi
+
 # set current date for temporary filename. ---------------------------------------------------------
 curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 
@@ -259,15 +266,15 @@ echo "sys.installationDir=${appd_platform_folder}" >> "${response_file}"
 
 # install the appdynamics enterprise console. ------------------------------------------------------
 # run the silent installer for linux.
-./${appd_platform_installer} -q -varfile ${response_file}
+runuser -c "${kickstart_home}/provisioners/scripts/centos/appdynamics/${appd_platform_installer} -q -varfile ${response_file}" - ${appd_platform_user_name}
 
 # verify installation.
 cd ${appd_platform_folder}/platform-admin/bin
-./platform-admin.sh show-platform-admin-version
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh show-platform-admin-version" - ${appd_platform_user_name}
 
 # shutdown the appdynamics platform components. ----------------------------------------------------
 # stop the appdynamics enterprise console.
-./platform-admin.sh stop-platform-admin
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh stop-platform-admin" - ${appd_platform_user_name}
 
 # configure the appdynamics enterprise console as a service. ---------------------------------------
 systemd_dir="/etc/systemd/system"
@@ -308,9 +315,3 @@ systemctl is-enabled "${appd_enterprise_console_service}"
 
 # check current status.
 #systemctl status "${appd_enterprise_console_service}"
-
-# change ownership to platform user name and group. ------------------------------------------------
-if [ "$appd_platform_user_name" != "root" ]; then
-  cd ${appd_home}
-  chown -R ${appd_platform_user_name}:${appd_platform_user_group} .
-fi
