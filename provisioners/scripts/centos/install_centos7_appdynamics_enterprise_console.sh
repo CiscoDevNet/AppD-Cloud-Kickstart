@@ -16,7 +16,8 @@
 #---------------------------------------------------------------------------------------------------
 
 # set local installation variables. ----------------------------------------------------------------
-local_hostname="$(uname -n)"                                    # initialize hostname.
+local_hostname="$(hostname --short)"                            # initialize short hostname.
+#local_hostname="$(uname -n)"                                    # initialize hostname.
 
 # set default values for input environment variables if not set. -----------------------------------
 # [MANDATORY] appdynamics account parameters.
@@ -29,8 +30,8 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-20.8.0.23236}"
-appd_platform_sha256="${appd_platform_sha256:-bf920757b89b3391908c83057db4dccc1e38748a7ba79ef06cbe92c6f6027c33}"
+appd_platform_release="${appd_platform_release:-20.8.4.23255}"
+appd_platform_sha256="${appd_platform_sha256:-27f36b12c3b5e678822c517acbc4765b5a5174adc8b908aa218e3112dccd0402}"
 appd_platform_user_name="${appd_platform_user_name:-centos}"
 appd_platform_user_group="${appd_platform_user_group:-centos}"
 set +x  # temporarily turn command display OFF.
@@ -66,9 +67,9 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="20.8.0.23236"                 # [optional] platform release (defaults to '20.8.0.23236').
+    [root]# export appd_platform_release="20.8.4.23255"                 # [optional] platform release (defaults to '20.8.4.23255').
                                                                         # [optional] platform sha-256 checksum (defaults to published value).
-    [root]# export appd_platform_sha256="bf920757b89b3391908c83057db4dccc1e38748a7ba79ef06cbe92c6f6027c33"
+    [root]# export appd_platform_sha256="27f36b12c3b5e678822c517acbc4765b5a5174adc8b908aa218e3112dccd0402"
     [root]# export appd_platform_user_name="centos"                     # [optional] platform user name (defaults to 'centos').
     [root]# export appd_platform_user_group="centos"                    # [optional] platform group (defaults to 'centos').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
