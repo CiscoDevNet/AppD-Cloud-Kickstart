@@ -3,10 +3,10 @@
 
 # install go programming language. -----------------------------------------------------------------
 go_home="go"
-go_release="1.15"
+go_release="1.15.2"
 go_binary="${go_home}${go_release}.linux-amd64.tar.gz"
 go_folder="${go_home}-${go_release}"
-go_sha256="2d75848ac606061efe52a8068d0e647b35ce487a15bb52272c427df485193602"
+go_sha256="b49fda1ca29a1946d6bb2a5a6982cf07ccd2aba849289508ee0f9918f6bb4552"
 
 # create apache parent folder.
 mkdir -p /usr/local/google
