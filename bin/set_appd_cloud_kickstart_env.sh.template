@@ -245,12 +245,12 @@ export appd_controller_tenancy_mode
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '20.8.0.2713').
-#appd_machine_agent_release="20.8.0.2713"
+# [optional] machine agent release (defaults to '20.9.0.2763').
+#appd_machine_agent_release="20.9.0.2763"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="be4d4b041a7b1976f48f5cbc38e075323a4f276fe5917df3fc9c04c9f2377bc2"
+#appd_machine_agent_sha256="fe642eeb758ed2860fe6429bf215eade0f17c40510a1352eb30618c723d3216f"
 #export appd_machine_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -361,12 +361,12 @@ export appd_controller_tenancy_mode
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # --------------------------------------------------------------------------------------------------
-# [optional] cwom platform release (defaults to '2.3.21').
-#cwom_platform_release="2.3.21"
+# [optional] cwom platform release (defaults to '2.3.22').
+#cwom_platform_release="2.3.22"
 #export cwom_platform_release
 
 # [optional] cwom platform sha-512 (defaults to published value).
-#cwom_platform_sha512="73cbe5037a1515fd5ccfb86bc8b16af3b1879ba9aabca73ab5cbc7c85b8735d3f16325fb7bf8d4cf347ef958cd41a553eb72c20b1d307aefb909eed394b75a08"
+#cwom_platform_sha512="ce476e25bb43b88806dbb09122c6002639d4f08dd30b7376b1b45abf85ccf50e76eaf05a23648fbdb7cdad078487f5b0b7b57d5c6bf054d09f9f9aee41b76cc4"
 #export cwom_platform_sha512
 
 # --------------------------------------------------------------------------------------------------
