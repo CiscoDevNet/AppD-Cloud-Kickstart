@@ -170,8 +170,8 @@
     "appd_aws_ec2_extension_cloudwatch_monitoring": "{{env `appd_aws_ec2_extension_cloudwatch_monitoring`}}",
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
-    "aws_ami_name": "EXT-2080-CentOS78-AMI",
-    "aws_ami_description": "Machine Agent 20.8.0 deployment with AWS Extensions on CentOS 7.8. Log-in with user 'centos' using an SSH key-pair. AMI generated using the AppDynamics Cloud Kickstart Project.",
+    "aws_ami_name": "EXT-2090-CentOS78-AMI",
+    "aws_ami_description": "Machine Agent 20.9.0 deployment with AWS Extensions on CentOS 7.8. Log-in with user 'centos' using an SSH key-pair. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",
     "aws_ami_region": "{{env `aws_ami_region`}}",
     "aws_ec2_boot_disk_size": "64",
@@ -180,7 +180,7 @@
     "aws_ec2_instance_type": "t2.medium",
     "aws_ec2_username": "centos",
     "user_docker_profile": "true",
-    "docker_completion_release": "19.03.12",
+    "docker_completion_release": "19.03.13",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
