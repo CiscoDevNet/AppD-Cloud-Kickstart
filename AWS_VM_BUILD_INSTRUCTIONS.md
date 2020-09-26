@@ -144,12 +144,12 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Amazon AWS CLI 2.0.50 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.13
--	AppDynamics Enterprise Console 20.8.4 Build 23255
-	-	AppDynamics Controller 20.8.4 Build 3855
+-	AppDynamics Enterprise Console 20.8.5 Build 23257
+	-	AppDynamics Controller 20.8.5 Build 3859
 	-	AppDynamics Events Service 4.5.2.0 Build 20640
 -	Docker 19.03.13 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.27.3
+	-	Docker Compose 1.27.4
 	-	Docker Compose Bash Completion
 -	Java SE JDK 8 Update 265 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
@@ -168,7 +168,7 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	Cisco Workload Optimization Manager (CWOM) 2.3.22
 -	Docker 19.03.13 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.27.3
+	-	Docker Compose 1.27.4
 	-	Docker Compose Bash Completion
 -	Java SE JDK 8 Update 265 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
@@ -183,20 +183,20 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 
 -	Amazon AWS CLI 2.0.50 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.28.0 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.28.1 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.17.9 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.17.9 (command-line interface)
 -	Ansible 2.9.13
 -	AppDynamics Node.js Serverless Tracer 20.3.178
 -	Docker 19.03.13 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.27.3
+	-	Docker Compose 1.27.4
 	-	Docker Compose Bash Completion
 -	Git 2.28.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.3.3 (Package Manager for Kubernetes)
+-	Helm CLI 3.3.4 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 265 (Amazon Corretto 8)
 -	Java SE JDK 11.0.8 (Amazon Corretto 11)
 -	Java SE JDK 14.0.2 (Oracle)
@@ -204,10 +204,10 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	jq 1.6 (command-line JSON processor)
 -	Node.js JavaScript runtime v12.18.4 (Latest LTS Version)
 -	npm JavaScript Package Manager for Node.js 6.14.8
--	nvm (Node Version Manager) bash script 0.35.3
+-	nvm (Node Version Manager) bash script 0.36.0
 -	Python 2.7.5
 	-	Pip 20.2.3
 -	Python 3.6.8
 	-	Pip 20.2.3
--	Serverless Framework CLI 2.1.1
+-	Serverless Framework CLI 2.3.0
 -	VIM - Vi IMproved 8.2
