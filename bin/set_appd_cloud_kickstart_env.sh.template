@@ -31,12 +31,12 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.8.5.23257').
-#appd_platform_release="20.8.5.23257"
+# [optional] platform release (defaults to '20.10.0.23522').
+#appd_platform_release="20.10.0.23522"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="b42ca70e3c32d56b36dcec9743b7f78f7cf972416142da366370d8b754bd3114"
+#appd_platform_sha256="a48cc132424e81af03d2b88ed8c6c0af8d70dfcfd96bea3dd7e347a93a31da56"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -361,12 +361,12 @@ export appd_controller_tenancy_mode
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # --------------------------------------------------------------------------------------------------
-# [optional] cwom platform release (defaults to '2.3.22').
-#cwom_platform_release="2.3.22"
+# [optional] cwom platform release (defaults to '2.3.23').
+#cwom_platform_release="2.3.23"
 #export cwom_platform_release
 
 # [optional] cwom platform sha-512 (defaults to published value).
-#cwom_platform_sha512="ce476e25bb43b88806dbb09122c6002639d4f08dd30b7376b1b45abf85ccf50e76eaf05a23648fbdb7cdad078487f5b0b7b57d5c6bf054d09f9f9aee41b76cc4"
+#cwom_platform_sha512="8bf48341b5d8d47afcadb8fc13bc23cc1d9fec338c22f9544c2c8e310cbf20fa220a6cc349380c0dfe5d936881d7efb6b8a11ee43bc03599bfd5b40236199a18"
 #export cwom_platform_sha512
 
 # --------------------------------------------------------------------------------------------------
