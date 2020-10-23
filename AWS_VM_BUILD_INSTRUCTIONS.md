@@ -192,7 +192,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Docker Bash Completion
 	-	Docker Compose 1.27.4
 	-	Docker Compose Bash Completion
--	Git 2.29.0
+-	Git 2.29.1
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
@@ -203,7 +203,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Java SE JDK 15 (Oracle)
 -	jq 1.6 (command-line JSON processor)
 -	Node.js JavaScript runtime v12.19.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 7.0.3
+-	npm JavaScript Package Manager for Node.js 7.0.5
 -	nvm (Node Version Manager) bash script 0.36.0
 -	Python 2.7.5
 	-	Pip 20.2.4
