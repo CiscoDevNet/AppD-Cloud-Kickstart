@@ -3,11 +3,11 @@
 
 # install java se 15 development kit. --------------------------------------------------------------
 jdk_home="jdk15"
-jdk_build="15+36"
-jdk_hash="779bf45e88a44cbd9ea6621d33e33db1"
+jdk_build="15.0.1%2B9"
+jdk_hash="51f4f36ad4ef43e39d0dfdbaf6549e32"
 jdk_folder="jdk-15"
 jdk_binary="${jdk_folder}_linux-x64_bin.tar.gz"
-jdk_sha256="300538e0c227c268f14957294d5c44abb5e7e476debc9d07e8d892c417ac8f0d"
+jdk_sha256="445a1c5c335b53b030f68aca58493ddedd49f4b53085618bc1ae7aba68156606"
 
 # create java home parent folder.
 mkdir -p /usr/local/java
