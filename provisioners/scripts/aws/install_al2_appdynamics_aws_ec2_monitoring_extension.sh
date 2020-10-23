@@ -29,7 +29,7 @@ appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"
 appd_machine_agent_user="${appd_machine_agent_user:-centos}"
 appd_machine_agent_account_name="${appd_machine_agent_account_name:-customer1}"
 appd_aws_ec2_extension_release="${appd_aws_ec2_extension_release:-2.1.3}"
-appd_aws_ec2_extension_build="${appd_aws_ec2_extension_build:-1588861412}"
+appd_aws_ec2_extension_build="${appd_aws_ec2_extension_build:-1602565875}"
 
 # [OPTIONAL] appdynamics aws ec2 monitoring extension config parameters [w/ defaults].
 appd_aws_ec2_extension_config="${appd_aws_ec2_extension_config:-false}"
@@ -65,7 +65,7 @@ Usage:
     [root]# export appd_machine_agent_user="centos"                     # [optional] machine agent user name (defaults to user 'centos').
     [root]# export appd_machine_agent_account_name="customer1"          # [optional] account name (defaults to 'customer1').
     [root]# export appd_aws_ec2_extension_release="2.1.3"               # [optional] aws ec2 extension release (defaults to user '2.1.3').
-    [root]# export appd_aws_ec2_extension_build="1588861412"            # [optional] aws ec2 extension build (defaults to user '1588861412').
+    [root]# export appd_aws_ec2_extension_build="1602565875"            # [optional] aws ec2 extension build (defaults to user '1602565875').
 
   [OPTIONAL] appdynamics aws ec2 monitoring extension config parameters [w/ defaults].
     [root]# export appd_aws_ec2_extension_config="true"                 # [optional] configure aws ec2 extension? [boolean] (defaults to 'false').
