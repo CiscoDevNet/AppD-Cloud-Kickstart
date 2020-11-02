@@ -19,10 +19,10 @@
 #---------------------------------------------------------------------------------------------------
 
 # install helm cli client. -------------------------------------------------------------------------
-helm_release="3.3.4"
+helm_release="3.4.0"
 helm_folder="linux-amd64"
 helm_binary="helm-v${helm_release}-linux-amd64.tar.gz"
-helm_sha256="b664632683c36446deeb85c406871590d879491e3de18978b426769e43a1e82c"
+helm_sha256="270acb0f085b72ec28aee894c7443739271758010323d72ced0e92cd2c96ffdb"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
@@ -57,7 +57,7 @@ export PATH
 helm version --short --client
 
 # initialize a helm chart repository.
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable
 
 # list charts we can install.
 #helm search repo stable
