@@ -14,8 +14,8 @@
 #---------------------------------------------------------------------------------------------------
 
 # install aws iam authenticator. -------------------------------------------------------------------
-aws_iam_authenticator_release="1.18.8"
-aws_iam_authenticator_date="2020-09-18"
+aws_iam_authenticator_release="1.18.9"
+aws_iam_authenticator_date="2020-11-02"
 aws_iam_authenticator_sha256="fe958eff955bea1499015b45dc53392a33f737630efd841cd574559cc0f41800"
 
 # create local bin directory (if needed).
