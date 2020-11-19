@@ -12,7 +12,7 @@
           "product-code": "aw0evgkw8e5c1q413zgy5pjce",
           "root-device-type": "ebs"
         },
-        "owners": ["679593333241"],
+        "owners": ["aws-marketplace"],
         "most_recent": true
       },
       "ami_description": "{{user `aws_ami_description`}}",
@@ -31,7 +31,7 @@
         "Name": "{{user `aws_ami_name`}}",
         "Owner": "{{user `aws_ami_owner`}}",
         "Project": "AppDynamics Cloud Kickstart",
-        "Project_Image_Type": "APM-Platform-HA-CentOS",
+        "Project_Image_Type": "CWOM-Platform-CentOS",
         "Base_AMI_Name": "{{.SourceAMIName}}"
       }
     }
@@ -65,7 +65,8 @@
       "execute_command": "echo '{{user `aws_ec2_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
       "scripts": [
         "{{template_dir}}/../../../provisioners/scripts/aws/config_al2_system_hostname.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_repositories.sh"
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_repositories.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/create_centos7_swapfile.sh"
       ],
       "type": "shell"
     },
@@ -80,7 +81,7 @@
     {
       "environment_vars": [
         "user_name={{user `aws_ec2_username`}}",
-        "user_group={{user `aws_ec2_group`}}",
+        "user_group={{user `aws_ec2_username`}}",
         "user_docker_profile={{user `user_docker_profile`}}",
         "d_completion_release={{user `docker_completion_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
@@ -105,22 +106,22 @@
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_oracle_mysql_shell_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
-        "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh"
+        "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_cisco_cwom.sh"
       ],
       "type": "shell"
     }
   ],
   "variables": {
-    "aws_ami_name": "APM-Platform-20110-HA-CentOS78-AMI",
-    "aws_ami_description": "APM Platform 20.11.0 HA configuration on CentOS 7.8. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. AMI generated using the AppDynamics Cloud Kickstart Project.",
+    "aws_ami_name": "CWOM-Platform-2325-CentOS79-AMI",
+    "aws_ami_description": "CWOM Platform 2.3.25 on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. The platform 'administrator' password is 'Welcome1' and the database password is 'vmturbo'. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",
     "aws_ami_region": "{{env `aws_ami_region`}}",
-    "aws_ec2_boot_disk_size": "128",
-    "aws_ec2_hostname": "apm-ha",
+    "aws_ec2_boot_disk_size": "502",
+    "aws_ec2_hostname": "cwom",
     "aws_ec2_domain": "localdomain",
-    "aws_ec2_instance_type": "r5a.large",
+    "aws_ec2_instance_type": "m5a.xlarge",
     "aws_ec2_username": "centos",
-    "aws_ec2_group": "centos",
     "user_docker_profile": "true",
     "docker_completion_release": "19.03.13",
     "kickstart_home": "/opt/appd-cloud-kickstart"

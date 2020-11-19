@@ -139,4 +139,4 @@ Perform the following steps to install the needed software:
 
 The AppDynamics Cloud Kickstart project currently supports immutable VM image builds for Amazon AWS. In the future, we will be adding support for Microsoft Azure and Google Cloud Platform (GCP). Click on a link below for platform-specific instructions and Bill-of-Materials.
 
--	[AWS CentOS 7.8 VMs](AWS_VM_BUILD_INSTRUCTIONS.md): Instructions
+-	[AWS CentOS 7.9 VMs](AWS_VM_BUILD_INSTRUCTIONS.md): Instructions

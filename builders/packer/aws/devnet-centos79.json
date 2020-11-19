@@ -135,8 +135,8 @@
   "variables": {
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
-    "aws_ami_name": "DEVNET-CentOS78-AMI",
-    "aws_ami_description": "DevNet Labs VM with pre-configured tooling for Tomcat 7 and MySQL Server 5.7 on CentOS 7.8. Log-in with user 'centos' using an SSH key-pair. All 'root' and database passwords are 'Welcome1!'. AMI generated using the AppDynamics Cloud Kickstart Project.",
+    "aws_ami_name": "DEVNET-CentOS79-AMI",
+    "aws_ami_description": "DevNet Labs VM with pre-configured tooling for Tomcat 7 and MySQL Server 5.7 on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. All 'root' and database passwords are 'Welcome1!'. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",
     "aws_ami_region": "{{env `aws_ami_region`}}",
     "aws_cli_user_config": "{{env `aws_cli_user_config`}}",
