@@ -22,9 +22,9 @@
 
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # cwom platform install parameters.
-cwom_platform_release="${cwom_platform_release:-2.3.24}"            # [optional] platform release (defaults to '2.3.24').
+cwom_platform_release="${cwom_platform_release:-2.3.25}"            # [optional] platform release (defaults to '2.3.25').
                                                                     # [optional] platform sha-512 (defaults to published value).
-cwom_platform_sha512="${cwom_platform_sha512:-6ffd04eec23911741c254a3f95218b4d8c8020431a5954e110c1a35d1dd22fffd29e464df550ee16263be21bb53286e4e099bb14dfe2159cb754dfea1d54cc93}"
+cwom_platform_sha512="${cwom_platform_sha512:-c2c67e5daecda0e8a9eb41a39a3524fdd1a9093b976dfab4971c98f01e8dbb567191b3f1a4b9922952f4542fca082f43a9d8568dd76a332c2c4675b135e1c50a}"
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"       # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
