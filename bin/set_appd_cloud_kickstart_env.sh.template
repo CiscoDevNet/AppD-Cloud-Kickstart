@@ -31,12 +31,12 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.10.4.23554').
-#appd_platform_release="20.10.4.23554"
+# [optional] platform release (defaults to '20.11.0.23788').
+#appd_platform_release="20.11.0.23788"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="c448b49cb91c7eb0c214827b44c3024334bda317116d31b8bc866655de23a2dd"
+#appd_platform_sha256="0cb8fc1a5824cf688407062673767898264c51909e8fad4fc60750ca57f14aa1"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
