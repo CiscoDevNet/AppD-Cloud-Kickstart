@@ -1,12 +1,12 @@
 # Lab Exercise 2
-## Clone GitHub Repositories & Configure EKS Cluster
+## Clone GitHub Repository & Configure EKS Cluster
 
 This workshop takes previously configured docker-compose applications (AD-Capital-Kube) and makes them deployable to a kubernetes cluster. If you are curious about any of the repositiories; either the original java application code itself or the dockerized version, they are publicly available with detailed explanations as to what they contain. For the purpose of this walkthrough, it will be focused solely on Kubernetes.
 
 In this exercise you will need to do the following:
 
 - SSH into the Launch Pad EC2 instance
-- Clone two GitHub repositories
+- Clone GitHub repository
 - Run a script to connect to an EKS cluster
 
 ### **1.** SSH Into the Launch Pad EC2 Instance
@@ -96,9 +96,9 @@ export appd_aws_eks_ssh_public_key=your-unique-ssh-key
 ```
 <br>
 
-### **2.** Clone GitHub Repositories
+### **2.** Clone GitHub Repository
 
-Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone two GitHub repositories by running the commands below:
+Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone the GitHub repository by running the commands below:
 
 ```
 cd /home/ec2-user
@@ -110,7 +110,7 @@ After you run the command, you should have this folder in your home directory
 
 */home/ec2-user/AppD-Cloud-Kickstart*
 
-![Git Repos Pulled](./images/2.png)
+![Git Repos Pulled](./images/2a.png)
 
 <br>
 
