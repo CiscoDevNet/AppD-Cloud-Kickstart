@@ -16,7 +16,7 @@ spec:
       hostNetwork: true
       containers:
       - name: appd-netviz-agent
-        image: appddemo/appdynamics-netvis:latest       # path to the network agent's docker image
+        image: edbarberis/appd-netviz-agent:latest      # path to the network agent's docker image
         imagePullPolicy: Always
         resources:
           limits:
