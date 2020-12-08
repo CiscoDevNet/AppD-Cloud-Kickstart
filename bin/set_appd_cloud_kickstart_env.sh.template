@@ -31,12 +31,12 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.11.0.23788').
-#appd_platform_release="20.11.0.23788"
+# [optional] platform release (defaults to '20.11.2.23819').
+#appd_platform_release="20.11.2.23819"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="0cb8fc1a5824cf688407062673767898264c51909e8fad4fc60750ca57f14aa1"
+#appd_platform_sha256="b542f8b24084dee43ab7a2ac7131bcff81aab359213b79325e218b758c82f85d"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -190,12 +190,12 @@ export appd_controller_tenancy_mode
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '20.10.0.31173').
-#appd_java_agent_release="20.10.0.31173"
+# [optional] java agent release (defaults to '20.11.0.31438').
+#appd_java_agent_release="20.11.0.31438"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="5bab2ed2918190a33523434a60a76573391faf587751c41c9b8b434279d96f69"
+#appd_java_agent_sha256="74e019678d6807b238c29134256998e58e70f7390f5982471b8594634bfeccf8"
 #export appd_java_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ export appd_controller_tenancy_mode
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver20.10.0.31173/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver20.11.0.31438/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
@@ -245,12 +245,12 @@ export appd_controller_tenancy_mode
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '20.10.0.2813').
-#appd_machine_agent_release="20.10.0.2813"
+# [optional] machine agent release (defaults to '20.11.0.2968').
+#appd_machine_agent_release="20.11.0.2968"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="3bc56aa0949ded4d79a849b278851f86baaa397736b586bc114c3076e86f6a6b"
+#appd_machine_agent_sha256="5bb3aa7691f1012c518a01f916691ea7e410c56d40f186683571b974dba5e6ba"
 #export appd_machine_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -345,7 +345,7 @@ export appd_controller_tenancy_mode
 #export appd_aws_ec2_extension_display_account_name
 
 # [optional] whitespace separated list of aws regions to monitor (defaults to 'us-east-1' [N. Virginia]).
-#appd_aws_ec2_extension_aws_regions="ap-southeast-2 eu-central-1 eu-west-2 eu-west-3 sa-east-1 us-east-1 us-east-2 us-west-1 us-west-2"
+#appd_aws_ec2_extension_aws_regions="ap-south-1 ap-southeast-2 eu-central-1 eu-west-2 eu-west-3 sa-east-1 us-east-1 us-east-2 us-west-1 us-west-2"
 #export appd_aws_ec2_extension_aws_regions
 
 # [optional] aws cloudwatch monitoring type (defaults to 'Basic').
@@ -361,12 +361,12 @@ export appd_controller_tenancy_mode
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
 # --------------------------------------------------------------------------------------------------
-# [optional] cwom platform release (defaults to '2.3.23').
-#cwom_platform_release="2.3.23"
+# [optional] cwom platform release (defaults to '2.3.26').
+#cwom_platform_release="2.3.26"
 #export cwom_platform_release
 
 # [optional] cwom platform sha-512 (defaults to published value).
-#cwom_platform_sha512="8bf48341b5d8d47afcadb8fc13bc23cc1d9fec338c22f9544c2c8e310cbf20fa220a6cc349380c0dfe5d936881d7efb6b8a11ee43bc03599bfd5b40236199a18"
+#cwom_platform_sha512="7a961e0b6f08ae3652c1fef3a6fd9f550e876d324295da7613fe8fd656799d8aa4af5551f169e8bf1a9f7c27b7b0a69a2553dc2541535469f15e48134627237e"
 #export cwom_platform_sha512
 
 # --------------------------------------------------------------------------------------------------
@@ -403,7 +403,7 @@ export aws_ami_owner
 
 # aws region to create packer build ami's.
 # current valid regions are:
-#   'ap-southeast-2', 'eu-central-1', 'eu-west-2', 'eu-west-3', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'
+#   'ap-south-1', 'ap-southeast-2', 'eu-central-1', 'eu-west-2', 'eu-west-3', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'
 aws_ami_region="us-east-1"
 export aws_ami_region
 
