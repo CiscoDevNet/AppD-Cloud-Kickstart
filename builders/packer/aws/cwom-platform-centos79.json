@@ -113,8 +113,8 @@
     }
   ],
   "variables": {
-    "aws_ami_name": "CWOM-Platform-2326-CentOS79-AMI",
-    "aws_ami_description": "CWOM Platform 2.3.26 on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. The platform 'administrator' password is 'Welcome1' and the database password is 'vmturbo'. AMI generated using the AppDynamics Cloud Kickstart Project.",
+    "aws_ami_name": "CWOM-Platform-2328-CentOS79-AMI",
+    "aws_ami_description": "CWOM Platform 2.3.28 on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. The platform 'administrator' password is 'Welcome1' and the database password is 'vmturbo'. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",
     "aws_ami_region": "{{env `aws_ami_region`}}",
     "aws_ec2_boot_disk_size": "502",
