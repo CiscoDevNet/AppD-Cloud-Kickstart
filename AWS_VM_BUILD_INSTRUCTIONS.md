@@ -12,29 +12,29 @@ Before building the AppD Cloud Kickstart VM images for AWS, it is recommended th
 
 Here is a list of the recommended open source software to be installed on the host macOS machine:
 
--	Amazon AWS CLI 2.1.8 (command-line interface)
+-	Amazon AWS CLI 2.1.9 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.1.8](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
+1.	Install [AWS CLI 2.1.9](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
     `$ brew install awscli@2`  
 
 2.	Validate installed command-line tools:
 
     ```bash
     $ aws --version
-    aws-cli/2.1.8 Python/3.9.0 Darwin/19.6.0 source/x86_64 prompt/off
+    aws-cli/2.1.9 Python/3.9.0 Darwin/19.6.0 source/x86_64 prompt/off
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
 
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
--	Amazon AWS CLI 2.1.8 (command-line interface)
+-	Amazon AWS CLI 2.1.9 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.1.8](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
+1.	Install [AWS CLI 2.1.9](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
     Run the downloaded MSI installer and follow the on-screen instructions.  
 
     **NOTE:** For Windows users, the MSI installation package offers a familiar and convenient way to install the AWS CLI without installing any other prerequisites. However, when updates are released, you must repeat the installation process to get the latest version of the AWS CLI. If you prefer more frequent updates, consider using `pip` as described in the AWS CLI [install guide](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html).
@@ -43,7 +43,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ aws --version
-    aws-cli/2.1.8 Python/3.7.7 Windows/10 botocore/2.0.0dev75
+    aws-cli/2.1.9 Python/3.7.7 Windows/10 botocore/2.0.0dev76
     ```
 
 ## Prepare for the Build
@@ -141,7 +141,7 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Amazon AWS CLI 2.1.8 (command-line interface)
+-	Amazon AWS CLI 2.1.9 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.15
 -	AppDynamics Enterprise Console 20.11.3 Build 23827
@@ -162,7 +162,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 
 __CWOM-Platform VM__ - The following utilities and workload optimization management applications are pre-installed:
 
--	Amazon AWS CLI 2.1.8 (command-line interface)
+-	Amazon AWS CLI 2.1.9 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.15
 -	Cisco Workload Optimization Manager (CWOM) 2.3.28
@@ -181,7 +181,7 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 2.1.8 (command-line interface)
+-	Amazon AWS CLI 2.1.9 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.34.0 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.18.9 for AWS EKS CLI and kubectl.
@@ -196,7 +196,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.4.1 (Package Manager for Kubernetes)
+-	Helm CLI 3.4.2 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 275 (Amazon Corretto 8)
 -	Java SE JDK 11.0.9 (Amazon Corretto 11)
 -	Java SE JDK 15.0.1 (Amazon Corretto 15)
