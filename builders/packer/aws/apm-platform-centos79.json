@@ -167,7 +167,7 @@
     "aws_ec2_instance_type": "r5a.large",
     "aws_ec2_username": "centos",
     "user_docker_profile": "true",
-    "docker_completion_release": "19.03.13",
+    "docker_completion_release": "20.10.0",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
