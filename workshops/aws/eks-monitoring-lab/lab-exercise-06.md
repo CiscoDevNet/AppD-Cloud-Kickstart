@@ -141,7 +141,7 @@ Line 11 should = "**edbarberis/cluster-agent:latest**"
 
 **Note:** Use the value seen above for Line 11 unless you built your own docker image in step number 2.  In that case you would use the Image URI of your own docker image (surrounded in double quotes).
 
-<br><br>
+<br>
 
 AFTER EXAMPLE:
 ![Cluster Agent Deploy-05](./images/cluster-agent-deploy-05c.png)
