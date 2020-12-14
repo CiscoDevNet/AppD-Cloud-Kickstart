@@ -19,43 +19,19 @@ Server monitoring Agents collect machine and infrastructure-level metrics like D
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Server Monitoring Agent by running the command below:
 
 ```bash
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/KubeMachineAgent
+cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 ```
 
 <br>
 
-Depending on what AWS region you deployed the AD-Capital application to in the previous exercise, **run only one of the following commands** below:
-
-If you are working in the **us-east-1** region, run the command below:
+To deploy the Server Monitoring Agent to EKS, run the command below:
 ```bash
-kubectl create -f us-east-1/
+kubectl create -f KubeMachineAgent/
 ```
-
-If you are working in the **us-east-2** region, run the command below:
-```bash
-kubectl create -f us-east-2/
-```
-
-If you are working in the **us-west-2** region, run the command below:
-```bash
-kubectl create -f us-west-2/
-```
-
-If you are working in the **eu-west-2** region, run the command below:
-```bash
-kubectl create -f eu-west-2/
-```
-
-If you are working in the **eu-west-3** region, run the command below:
-```bash
-kubectl create -f eu-west-3/
-```
-
-<br>
 
 You should see output from the command similar to the image seen below:
 
-![Create SIM](./images/14.png)
+![Create SIM](./images/sim-agent-deploy-01.png)
 
 Now wait two minutes and run the command below to validate that the agent has been deployed to the cluster:
 

@@ -30,7 +30,7 @@ spec:
           value: "true"
         - name: MACHINE_AGENT_PROPERTIES
           value: "-Dappdynamics.sim.enabled=true -Dappdynamics.docker.enabled=true -Dappdynamics.docker.container.containerIdAsHostId.enabled=true"
-        image: 975944588697.dkr.ecr.us-west-2.amazonaws.com/appd-eks-sim-agent:latest
+        image: edbarberis/appd-sim-agent:latest
         envFrom:
           - configMapRef:
               name: env-map
