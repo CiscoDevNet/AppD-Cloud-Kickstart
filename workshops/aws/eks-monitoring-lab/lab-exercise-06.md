@@ -113,7 +113,7 @@ kubectl -n appdynamics create secret generic cluster-agent-secret --from-literal
 ```bash
 Example:
 
-kubectl -n appdynamics create secret generic cluster-agent-secret --from-literal=controller-key='e92e71c7-c5ac-44a2-b4c0-70a75e499868'
+kubectl -n appdynamics create secret generic cluster-agent-secret --from-literal=controller-key='c00f6f2a-33bd-4704-b314-eb29662f4572'
 ```
 
 You should see output from the command like the image below:
@@ -144,7 +144,7 @@ Line 11 should = "**edbarberis/cluster-agent:latest**"
 <br><br>
 
 AFTER EXAMPLE:
-![Cluster Agent Deploy-05](./images/cluster-agent-deploy-05b.png)
+![Cluster Agent Deploy-05](./images/cluster-agent-deploy-05c.png)
 <br><br>
 
 8. Now execute the commands below to deploy the Cluster Agent.  After executing the commands you should see the output like the image below.
@@ -190,7 +190,7 @@ Follow the instructions to install the Kubernetes Metric Server.  Execute the co
 
 After executing the command in your SSH terminal window, you should see output like the image below.
 
-![Cluster Agent Metrics Server-02](./images/cluster-agent-metrics-server-02.png)
+![Cluster Agent Metrics Server-02](./images/cluster-agent-metrics-server-02b.png)
 <br><br>
 
 ### **5.** Monitor the results of deploying the Cluster Agent
