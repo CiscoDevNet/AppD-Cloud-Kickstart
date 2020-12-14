@@ -58,13 +58,37 @@ If the above section is not completed correctly at VM creation, the Controller E
      b. Otherwise: Select **Create a new key pair** and give it a name. Remember to download it and save it locally.  
      b. Otherwise: Use the same key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the remaining lab exercises.
 
-**NOTE:** Once the VM is launched, take note of the Public IP Address (FQDN) of the server. You will be leveraging this server in the remainder of the lab.
+**NOTE:** Once the VM is launched, it will take ~5-10 minutes for the Controller to completely initialize and accept login requests.
+Make sure you take note of the Public IP Address (FQDN) of the server. You will be leveraging this server in the remainder of the lab.
 
-Your controller address will be:
+You can test that the Controller is ready via the REST API. Run the command below from a terminal window:
+```bash
+curl http://<FQDN>:8090/controller/rest/serverstatus
+```
 
-http://FQDN_OF_MACHINE:8090/controller
+If the Controller has successfully started, an XML document such as the following will be returned:
+```bash
+<?xml version="1.0" encoding="UTF-8"?>
+<serverstatus vendorid="" version="1">
+  <available>true</available>
+  <serverid></serverid>
+  <serverinfo>
+    <vendorname>AppDynamics</vendorname>
+    <productname>AppDynamics Application Performance Management</productname>
+    <serverversion>020-011-003-000</serverversion>
+    <implementationVersion>Controller v20.11.3.0 Build 20.11.3-1977 Commit 5ba24f869431271843b22c060e63b4250c511bbf</implementationVersion>
+  </serverinfo>
+  <startupTimeInSeconds>35</startupTimeInSeconds>
+</serverstatus>
+```
 
-Use the usename "admin" to login. And use "welcome1" as the password.
+If you see `null` or an HTML document containing a 404 error, the Controller is not quite ready. Just wait a few minutes longer.  
+
+When ready, your controller address will be:
+
+**http://FQDN:8090/controller**
+
+Use the usename "**admin**" to login. And use "**welcome1**" as the password.
 <br>
 
 [Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), 3, [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-02.md) | [Next](lab-exercise-04.md)
