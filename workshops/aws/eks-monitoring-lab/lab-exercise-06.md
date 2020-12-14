@@ -117,7 +117,7 @@ kubectl -n appdynamics create secret generic cluster-agent-secret --from-literal
 ```
 
 You should see output from the command like the image below:
-![Cluster Agent Deploy-03](./images/cluster-agent-deploy-03.png)
+![Cluster Agent Deploy-03](./images/cluster-agent-deploy-03b.png)
 <br><br>
 
 6. Now use the command below to change to the directory where you will edit the "cluster-agent.yaml" file.
@@ -130,12 +130,12 @@ cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterA
 7. Now edit the "cluster-agent.yaml" file with the editor of your choice and replace the values in lines 7, 8, 9, and 11.
 
 BEFORE:
-![Cluster Agent Deploy-04](./images/cluster-agent-deploy-04.png)
+![Cluster Agent Deploy-04](./images/cluster-agent-deploy-04b.png)
 
 <br>
 
 Line 7 should = "**AD-Capital**"<br>
-Line 8 should = The URL for your controller including the protocol and port (surrounded in double quotes). Also, be sure to change `8080` to `8090`.<br>
+Line 8 should = The URL for your controller including the protocol and port (with double quotes). Also, change `8080` to `8090`.<br>
 Line 9 should = "**customer1**"<br>
 Line 11 should = "**edbarberis/cluster-agent:latest**"
 
@@ -144,7 +144,7 @@ Line 11 should = "**edbarberis/cluster-agent:latest**"
 <br><br>
 
 AFTER EXAMPLE:
-![Cluster Agent Deploy-05](./images/cluster-agent-deploy-05.png)
+![Cluster Agent Deploy-05](./images/cluster-agent-deploy-05b.png)
 <br><br>
 
 8. Now execute the commands below to deploy the Cluster Agent.  After executing the commands you should see the output like the image below.
@@ -154,7 +154,7 @@ cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterA
 
 kubectl create -f cluster-agent.yaml
 ```
-![Cluster Agent Deploy-06](./images/cluster-agent-deploy-06.png)
+![Cluster Agent Deploy-06](./images/cluster-agent-deploy-06b.png)
 <br><br>
 
 In the AppDynamics UI, validate that the Cluster Agent is now installed with the following steps.
