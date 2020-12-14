@@ -24,13 +24,13 @@ cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterA
 Now use the command below to unzip the Cluster Agent Zip file:
 
 ```bash
-unzip appdynamics-cluster-agent-ubuntu.zip
+unzip appdynamics-cluster-agent-alpine-linux.zip
 ```
 
 
 You should see output from the command similar to the image seen below:
 
-![Cluster Agent Unzip](./images/cluster-agent-unzip.png)
+![Cluster Agent Unzip](./images/cluster-agent-alpine-unzip.png)
 
 <br>
 
@@ -48,7 +48,7 @@ kubectl get namespace
 
 You should see output from the command similar to the image seen below:
 
-![Cluster Agent Namespace](./images/cluster-agent-create-namespace.png)
+![Cluster Agent Namespace](./images/cluster-agent-create-namespace-02.png)
 
 <br>
 
@@ -59,7 +59,7 @@ kubectl create -f cluster-agent-operator.yaml
 ```
 You should see output from the command similar to the image seen below:
 
-![Cluster Agent Deploy Operator](./images/cluster-agent-operator-deploy.png)
+![Cluster Agent Deploy Operator](./images/cluster-agent-operator-deploy-02.png)
 
 <br>
 
@@ -71,7 +71,7 @@ kubectl -n appdynamics get pods
 
 You should see output from the command similar to the image seen below:
 
-![Cluster Agent Verify Operator](./images/cluster-agent-operator-verify.png)
+![Cluster Agent Verify Operator](./images/cluster-agent-operator-verify-02.png)
 
 <br>
 
@@ -80,7 +80,7 @@ You should see output from the command similar to the image seen below:
 For the purposes of this lab we will use a pre-built Cluster Agent Docker image with the following Image URI: 
 
 ```bash
-james201010/cluster-agent:latest
+edbarberis/cluster-agent:latest
 ```
 
 However, if you were deploying the Cluster Agent in your own Kubernetes cluster, you would need to build your own Cluster Agent Docker image in your own Docker repository.  Instructions for building your own Cluster Agent Docker image in AWS ECR can be found [here](lab-exercise-06-b.md) and are included for reference only. You do not have do the steps in that link to complete this lab.
@@ -134,10 +134,10 @@ BEFORE:
 
 <br>
 
-Line 7 should = "AD-Capital"<br>
-Line 8 should = The URL for your controller including the protocol and port (surrounded in double quotes)<br>
-Line 9 should = "customer1"<br>
-Line 11 should = "james201010/cluster-agent:latest"
+Line 7 should = "**AD-Capital**"<br>
+Line 8 should = The URL for your controller including the protocol and port (surrounded in double quotes). Also, be sure to change `8080` to `8090`.<br>
+Line 9 should = "**customer1**"<br>
+Line 11 should = "**edbarberis/cluster-agent:latest**"
 
 **Note:** Use the value seen above for Line 11 unless you built your own docker image in step number 2.  In that case you would use the Image URI of your own docker image (surrounded in double quotes).
 
