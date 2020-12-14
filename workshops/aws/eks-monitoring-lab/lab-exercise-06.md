@@ -17,13 +17,13 @@ In this exercise you will need to do the following:
 
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to unzip the Cluster Agent Zip file:
 
-```
+```bash
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
 ```
 
 Now use the command below to unzip the Cluster Agent Zip file:
 
-```
+```bash
 unzip appdynamics-cluster-agent-ubuntu.zip
 ```
 
@@ -36,13 +36,13 @@ You should see output from the command similar to the image seen below:
 
 Use the command below to create the namespace for the Cluster Agent Operator:
 
-```
+```bash
 kubectl create namespace appdynamics
 ```
 
 Use the next command below to verify the appdynamics namespace was created:
 
-```
+```bash
 kubectl get namespace
 ```
 
@@ -54,7 +54,7 @@ You should see output from the command similar to the image seen below:
 
 Use the command below to deploy the Cluster Agent Operator to the EKS cluster:
 
-```
+```bash
 kubectl create -f cluster-agent-operator.yaml
 ```
 You should see output from the command similar to the image seen below:
@@ -65,7 +65,7 @@ You should see output from the command similar to the image seen below:
 
 Use the next command below to verify the Cluster Agent Operator was deployed and is now running:
 
-```
+```bash
 kubectl -n appdynamics get pods
 ```
 
@@ -79,7 +79,7 @@ You should see output from the command similar to the image seen below:
 
 For the purposes of this lab we will use a pre-built Cluster Agent Docker image with the following Image URI: 
 
-```
+```bash
 james201010/cluster-agent:latest
 ```
 
@@ -105,12 +105,12 @@ In the AppDynamics UI, find and copy your controller access key using the follow
 
 5. Now execute the command below in your SSH terminal window using your controller access key you obtained in the last step.
 
-```
+```bash
 kubectl -n appdynamics create secret generic cluster-agent-secret --from-literal=controller-key='<your-controller-access-key>'
 ```
 
 
-```
+```bash
 Example:
 
 kubectl -n appdynamics create secret generic cluster-agent-secret --from-literal=controller-key='e92e71c7-c5ac-44a2-b4c0-70a75e499868'
@@ -122,7 +122,7 @@ You should see output from the command like the image below:
 
 6. Now use the command below to change to the directory where you will edit the "cluster-agent.yaml" file.
 
-```
+```bash
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
 ```
 <br>
@@ -149,7 +149,7 @@ AFTER EXAMPLE:
 
 8. Now execute the commands below to deploy the Cluster Agent.  After executing the commands you should see the output like the image below.
 
-```
+```bash
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
 
 kubectl create -f cluster-agent.yaml
@@ -179,7 +179,7 @@ In the AppDynamics UI, validate that the Cluster Agent is now installed with the
 
 Use your web browser to naviate to the URL below:
 
-```
+```bash
 https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
 ```
 
@@ -202,7 +202,7 @@ In the AppDynamics UI, monitor the results of deploying the Cluster Agent by nav
 
 On the Cluster Dashboard Tab you can see a high level view of the state of all the pods in the cluster.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
 
-```
+```bash
 https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-DashboardTab
 ```
 ![Cluster Agent Monitor-02](./images/cluster-agent-monitor-results-02.png)
@@ -210,7 +210,7 @@ https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorCluster
 
 On the Pods Dashboard Tab you can see all the pods in various states and as well as a high-level summary of each pod.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
 
-```
+```bash
 https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-PodsTab
 ```
 ![Cluster Agent Monitor-03](./images/cluster-agent-monitor-results-03.png)
@@ -218,7 +218,7 @@ https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorCluster
 
 On the Pods Dashboard Details screen you can see all the details for a given pod as well as information about the containers running in the pod.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
 
-```
+```bash
 https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-PodDetailsScreen
 ```
 ![Cluster Agent Monitor-04](./images/cluster-agent-monitor-results-04.png)
@@ -227,7 +227,7 @@ https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorCluster
 
 On the Inventory Dashboard Tab you can see a high-level snapshot or inventory view of your cluster. It displays the contents of the cluster and allows users to troubleshoot applications running in the cluster.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
 
-```
+```bash
 https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-InventoryTab
 ```
 ![Cluster Agent Monitor-05](./images/cluster-agent-monitor-results-05.png)

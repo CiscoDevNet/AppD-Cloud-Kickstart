@@ -11,6 +11,7 @@ You will need to use an existing AMI image named **LPAD-AL2-AMI** located in the
 
 **NOTE:** Though any region can be utilized, this workshop creates a VPC, Elastic IP address, and NAT Gateway. You may run into issues with default limits for these resources. In the AppDynamics AWS environment, these limits have been increased in several regions. In general, please be aware that these limits may impact your ability to create a EKS Cluster.
 
+- The AMI image for the **ap-south-1** region can be found [here](https://ap-south-1.console.aws.amazon.com/ec2/v2/home?region=ap-south-1#Images:sort=tag:Name).
 - The AMI image for the **us-east-1** region can be found [here](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:sort=tag:Name).
 - The AMI image for the **us-east-2** region can be found [here](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Images:sort=tag:Name).
 - The AMI image for the **us-west-2** region can be found [here](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=tag:Name).
@@ -31,7 +32,7 @@ This allows you to customize configuration of the EC2 instance during launch.
 
 Copy and paste the following script code in the the 'User data' text box:
 
-```
+```bash
 #!/bin/sh
 cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
 chmod 755 ./initialize_al2_lpad_cloud_init.sh
@@ -50,7 +51,7 @@ export aws_cli_default_region_name
 
 Before continuing, you need to substitute the values for the actual **AWS_ACCESS_KEY_ID** and **AWS_SECRET_ACCESS_KEY**
 environment variables with valid credentials for your environment.
-Also set the **aws_cli_default_region_name** environment variable. Valid values are: 'us-east-1', 'us-east-2', and 'us-west-2'.
+Also set the **aws_cli_default_region_name** environment variable. Valid values are: 'ap-south-1', 'us-east-1', 'us-east-2', 'us-west-2', 'eu-west-2', and 'eu-west-3'.
 Please note the variables are case sensitive:
 
 If the above section is not completed correctly at VM creation, the Launch Pad EC2 instance will not function as intended.

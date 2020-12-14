@@ -9,6 +9,7 @@ This EC2 instance will be referenced in the lab steps as the 'Controller EC2'.
 
 You will need to use an existing AMI image named **APM-Platform-20113-CentOS79-AMI** and located in the AWS region that you are working in:
 
+- The AMI image for the **ap-south-1** region can be found [here](https://ap-south-1.console.aws.amazon.com/ec2/v2/home?region=ap-south-1#Images:sort=tag:Name).
 - The AMI image for the **us-east-1** region can be found [here](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:sort=tag:Name).
 - The AMI image for the **us-east-2** region can be found [here](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Images:sort=tag:Name).
 - The AMI image for the **us-west-2** region can be found [here](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=tag:Name).
@@ -30,7 +31,7 @@ This allows you to customize configuration of the EC2 instance during launch.
 
 Copy and paste the following script code in the the 'User data' text box:
 
-```
+```bash
 #!/bin/sh
 cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
 chmod 755 ./initialize_al2_apm_platform_cloud_init.sh

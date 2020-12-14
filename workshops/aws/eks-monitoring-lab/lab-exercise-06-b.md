@@ -45,7 +45,7 @@ Use your [AWS Management Console](https://aws.amazon.com/console/) and follow th
 
 12. Use the command below to change to the docker directory in your SSH terminal window
 
-```
+```bash
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent/docker
 ```
 

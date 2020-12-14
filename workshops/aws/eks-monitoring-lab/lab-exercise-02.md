@@ -20,13 +20,13 @@ You will use the user name '**ec2-user**' with no password to SSH into the Launc
 ***For Mac Users:***
 
 Run the command below from a terminal window, with the path to your copy of the `AppD-Cloud-Kickstart-AWS.pem` file and the host name or IP Address of your Launch Pad EC2 instance
-```
+```bash
 chmod 400 <path-to-file>/AppD-Cloud-Kickstart-AWS.pem
 ssh -i <path-to-file>/AppD-Cloud-Kickstart-AWS.pem <hostname-of-your-launch-pad-ec2-instance>
 ```
 
 Example:
-```
+```bash
 ssh -i AppD-Cloud-Kickstart-AWS.pem ec2-user@ec2-54-214-99-204.us-east-1.compute.amazonaws.com
 ```
 
@@ -91,7 +91,7 @@ You can now connect to your Launch Pad EC2 instance using the steps below:
 
 **NOTE:** If you created your own SSH key pair, you will need to set the value of the '**appd_aws_eks_ssh_public_key**' environment variable with the name of your key. The default is '**AppD-Cloud-Kickstart-AWS**'.
 
-```
+```bash
 export appd_aws_eks_ssh_public_key=your-unique-ssh-key
 ```
 <br>
@@ -100,7 +100,7 @@ export appd_aws_eks_ssh_public_key=your-unique-ssh-key
 
 Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone the GitHub repository by running the commands below:
 
-```
+```bash
 cd /home/ec2-user
 
 git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
@@ -118,7 +118,7 @@ After you run the command, you should have this folder in your home directory
 
 Change to the directory where you will prepare to connect to your AWS EKS cluster and create a local `kubeconfig`:
 
-```
+```bash
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 ```
 <br>
@@ -145,14 +145,15 @@ The example command based on the lab user name and number sequence show above:
 <br>
 
 Run the command below, replacing 'your-unique-lab-user-id' with the unique lab user id you were assigned based on the instructions above:
-```
+```bash
 export appd_aws_eks_user_name=your-unique-lab-user-id
 ```
 <br>
 
 The second variable ('**appd_aws_eks_region**') needs to specify the AWS region that you are working in.  
-Currently, only the five regions below are supported.
+Currently, only the six regions below are supported.
 
+- ap-south-1
 - us-east-1
 - us-east-2
 - us-west-2
@@ -161,28 +162,33 @@ Currently, only the five regions below are supported.
 
 <br>
 
-If you are working in the **us-east-1** region, run the command below:
+If you are working in the **ap-south-1** region, run the command below:
+```bash
+export appd_aws_eks_region=ap-south-1
 ```
+
+If you are working in the **us-east-1** region, run the command below:
+```bash
 export appd_aws_eks_region=us-east-1
 ```
 
 If you are working in the **us-east-2** region, run the command below:
-```
+```bash
 export appd_aws_eks_region=us-east-2
 ```
 
 If you are working in the **us-west-2** region, run the command below:
-```
+```bash
 export appd_aws_eks_region=us-west-2
 ```
 
 If you are working in the **eu-west-2** region, run the command below:
-```
+```bash
 export appd_aws_eks_region=eu-west-2
 ```
 
 If you are working in the **eu-west-3** region, run the command below:
-```
+```bash
 export appd_aws_eks_region=eu-west-3
 ```
 
@@ -191,7 +197,7 @@ export appd_aws_eks_region=eu-west-3
 
 Once both variables have been set, run the commands below to connect to your AWS EKS cluster and create a local `kubeconfig`:
 
-```
+```bash
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 ./create_kubeconfig_for_eks.sh

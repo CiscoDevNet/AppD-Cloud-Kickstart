@@ -18,7 +18,7 @@ Server monitoring Agents collect machine and infrastructure-level metrics like D
 
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Server Monitoring Agent by running the command below:
 
-```
+```bash
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/KubeMachineAgent
 ```
 
@@ -27,27 +27,27 @@ cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/KubeMach
 Depending on what AWS region you deployed the AD-Capital application to in the previous exercise, **run only one of the following commands** below:
 
 If you are working in the **us-east-1** region, run the command below:
-```
+```bash
 kubectl create -f us-east-1/
 ```
 
 If you are working in the **us-east-2** region, run the command below:
-```
+```bash
 kubectl create -f us-east-2/
 ```
 
 If you are working in the **us-west-2** region, run the command below:
-```
+```bash
 kubectl create -f us-west-2/
 ```
 
 If you are working in the **eu-west-2** region, run the command below:
-```
+```bash
 kubectl create -f eu-west-2/
 ```
 
 If you are working in the **eu-west-3** region, run the command below:
-```
+```bash
 kubectl create -f eu-west-3/
 ```
 
@@ -59,7 +59,7 @@ You should see output from the command similar to the image seen below:
 
 Now wait two minutes and run the command below to validate that the agent has been deployed to the cluster:
 
-```
+```bash
 kubectl get pods -n default
 ```
 You should then see output similar to the image seen below:
@@ -107,12 +107,12 @@ Navigate back into the AD-Capital application and click on the Containers tab on
 
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Network Monitoring Agent by running the command below:
 
-```
+```bash
 cd /home/ec2-user/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
 ```
 Now run the following command below to deploy the Server Monitoring agent:
 
-```
+```bash
 kubectl create -f KubernetesNetVisAgent/
 ```
 
@@ -122,7 +122,7 @@ You should see output from the command similar to the image seen below:
 
 Now wait two minutes and run the command below to validate that the agent has been deployed to the cluster:
 
-```
+```bash
 kubectl get pods -n default
 ```
 You should then see output similar to the image seen below:
