@@ -14,7 +14,9 @@ In this exercise you will need to do the following:
 
 ### **1.** Deploy the Server Monitoring Agent to EKS
 
-Server monitoring Agents collect machine and infrastructure-level metrics like Disk I/O, throughput, CPU utilization, and memory usage. These metrics help operations teams get a pulse on their infrastructure, but they fall short when it comes to finding, isolating and troubleshooting problems that originate in the application code. Machine agent is required to host extension. In this workshop we will Kubernetes Extension which requires Machine agent as well.
+Server monitoring Agents collect machine and infrastructure-level metrics like Disk I/O, throughput, CPU utilization, and memory usage.
+These metrics help operations teams get a pulse on their infrastructure, but they fall short when it comes to finding, isolating and
+troubleshooting problems that originate in the application code.
 
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Server Monitoring Agent by running the command below:
 
@@ -40,7 +42,7 @@ kubectl get pods -n default
 ```
 You should then see output similar to the image seen below:
 
-![EKS Pods](./images/15.png)
+![EKS Pods](./images/sim-agent-deploy-02.png)
 
 
 <br>
@@ -94,7 +96,7 @@ kubectl create -f KubernetesNetVisAgent/
 
 You should see output from the command similar to the image seen below:
 
-![Create NetViz](./images/17.png)
+![Create NetViz](./images/netviz-agent-deploy-01.png)
 
 Now wait two minutes and run the command below to validate that the agent has been deployed to the cluster:
 
@@ -103,7 +105,7 @@ kubectl get pods -n default
 ```
 You should then see output similar to the image seen below:
 
-![EKS Pods](./images/18.png)
+![EKS Pods](./images/netviz-agent-deploy-02.png)
 
 
 <br>
