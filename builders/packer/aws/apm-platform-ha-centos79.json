@@ -111,8 +111,8 @@
     }
   ],
   "variables": {
-    "aws_ami_name": "APM-Platform-20113-HA-CentOS79-AMI",
-    "aws_ami_description": "APM Platform 20.11.3 HA configuration on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. AMI generated using the AppDynamics Cloud Kickstart Project.",
+    "aws_ami_name": "APM-Platform-20115-HA-CentOS79-AMI",
+    "aws_ami_description": "APM Platform 20.11.5 HA configuration on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",
     "aws_ami_region": "{{env `aws_ami_region`}}",
     "aws_ec2_boot_disk_size": "128",
@@ -122,7 +122,7 @@
     "aws_ec2_username": "centos",
     "aws_ec2_group": "centos",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.1",
+    "docker_completion_release": "20.10.2",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
