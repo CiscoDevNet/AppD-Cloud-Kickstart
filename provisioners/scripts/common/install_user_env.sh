@@ -96,27 +96,42 @@ tar -zxvf vim-files.tar.gz --no-same-owner --no-overwrite-dir
 rm -f vim-files.tar.gz
 
 # configure the vim profile. -----------------------------------------------------------------------
+# set current date for temporary filename.
+curdate=$(date +"%Y-%m-%d.%H-%M-%S")
+
 # rename the vimrc folder if it exists.
 vimrc_home="${user_home}/.vim"
 if [ -d "$vimrc_home" ]; then
-  # set current date for temporary filename.
-  curdate=$(date +"%Y-%m-%d.%H-%M-%S")
-
   # rename the folder using the current date.
   mv ${vimrc_home} ${user_home}/vim.${curdate}.orig
 fi
 
-# download useful vim configuration based on developer pair stations at pivotal labs.
-runuser -c "git clone https://github.com/pivotal/vim-config.git ~/.vim" - ${user_name}
-runuser -c "TERM=xterm-256color ~/.vim/bin/install" - ${user_name}
-
 # create vimrc local to override default vim configuration.
 vimrc_local="${user_home}/.vimrc.local"
+if [ -f "$vimrc_local" ]; then
+  # rename the folder using the current date.
+  mv ${vimrc_local} ${user_home}/vimrc_local.${curdate}.orig
+fi
+
+# create temporary vimrc local to fix issue during install with snipmate parser.
+cat <<EOF > ${vimrc_local}
+" Temporary override of default Vim resource configuration.
+let g:snipMate = {'snippet_version': 1} " Use the new version of the SnipMate parser.
+EOF
+chown ${user_name}:${user_group} ${vimrc_local}
+
+# download and install useful vim configuration based on developer pair stations at pivotal labs.
+runuser -c "git clone https://github.com/pivotal-legacy/vim-config.git ~/.vim" - ${user_name}
+runuser -c "TERM=xterm-256color ~/.vim/bin/install" - ${user_name}
+
+# create final vimrc local file.
+rm -f ${vimrc_local}
 cat <<EOF > ${vimrc_local}
 " Override default Vim resource configuration.
 colorscheme triplejelly                 " Set colorscheme to 'triplejelly'. Default is 'Tomorrow-Night'.
 set nofoldenable                        " Turn-off folding of code files. To toggle on/off: use 'zi'.
 let g:vim_json_syntax_conceal = 0       " Turn-off concealing of double quotes in 'vim-json' plugin.
+let g:snipMate = {'snippet_version': 1} " Use the new version of the SnipMate parser.
 
 " Autoclose 'NERDTree' plugin if it's the only open window left.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
