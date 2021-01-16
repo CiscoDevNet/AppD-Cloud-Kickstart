@@ -110,18 +110,30 @@ appd_platform_folder="${appd_home}/${appd_platform_home}"
 appd_platform_installer="platform-setup-x64-linux-${appd_platform_release}.sh"
 
 # install platform prerequisites. ------------------------------------------------------------------
-# install network and ui tools.
-yum -y install net-tools libaio numactl tzdata ncurses-libs
+# install network tools.
+yum -y install net-tools libaio numactl tzdata
 
-# mysql 5.5.57 and 5.7.19 require ncurses-libs version 5, which is NOT the default on amazon linux 2.
-# the 'ncurses-compat-libs' will install version 5 on amazon linux 2.
+# check linux distro and install correct ui tools.
+# note: mysql 5.5.57 and 5.7.19 require ncurses-libs version 5, which is NOT
+#       the default on amazon linux 2, centos 8, and red hat enterprise linux 8.
 distro_name=$(cat /etc/system-release | awk 'NR==1 {print $1}')
-if [ "$distro_name" = "Amazon" ]; then
-  ncurses_library="/lib64/libtinfo.so.5"
-  if [ ! -f "$ncurses_library" ]; then
-    # works on amazon linux 2 only.
-    yum -y install ncurses-compat-libs
-  fi
+version_name=$(cat /etc/os-release | awk -F '"' '/^VERSION_ID/ {print $2}')
+if ([ "$distro_name" = "Amazon" ] && [ "${version_name}" = "2" ]) || \
+   ([ "$distro_name" = "CentOS" ] && [ "${version_name:0:1}" = "8" ]) || \
+   ([ "$distro_name" = "Red" ] && [ "${version_name:0:1}" = "8" ]); then
+  # force install of ncurses 5 packages.
+  ncurses_5_base_package="ncurses-base-5.9-14.20130511.el7_4.noarch.rpm"
+  ncurses_5_libs_package="ncurses-libs-5.9-14.20130511.el7_4.x86_64.rpm"
+  rm -f ${ncurses_5_base_package}
+  curl --silent --location "http://mirror.centos.org/centos/7/os/x86_64/Packages/${ncurses_5_base_package}" --output ${ncurses_5_base_package}
+  rpm -ivh --force ${ncurses_5_base_package}
+
+  rm -f ${ncurses_5_libs_package}
+  curl --silent --location "http://mirror.centos.org/centos/7/os/x86_64/Packages/${ncurses_5_libs_package}" --output ${ncurses_5_libs_package}
+  rpm -ivh --force ${ncurses_5_libs_package}
+else
+  # for all other distros, install standard ncurses 5 packages.
+  yum -y install ncurses-libs
 fi
 
 # configure file and process limits for user 'root'.
