@@ -17,6 +17,7 @@
       "ami_description": "{{user `aws_ami_description`}}",
       "instance_type": "{{user `aws_ec2_instance_type`}}",
       "ssh_username": "{{user `aws_ec2_username`}}",
+      "temporary_security_group_source_cidrs": "{{user `aws_ec2_temporary_source_cidrs`}}",
       "ami_name": "{{user `aws_ami_name`}}-{{timestamp}}",
       "launch_block_device_mappings": [
         {
@@ -137,6 +138,7 @@
     "aws_ec2_domain": "localdomain",
     "aws_ec2_instance_type": "t2.micro",
     "aws_ec2_username": "ec2-user",
+    "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
     "user_docker_profile": "true",
     "docker_completion_release": "19.03.13",
     "kickstart_home": "/opt/appd-cloud-kickstart"
