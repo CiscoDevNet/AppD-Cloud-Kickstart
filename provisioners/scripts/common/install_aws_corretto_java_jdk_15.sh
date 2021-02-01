@@ -18,8 +18,8 @@
 
 # set amazon corretto 15 installation variables. ---------------------------------------------------
 jdk_home="jdk15"
-jdk_build="15.0.1.9.1"
-jdk_checksum="94954e91b04f4b98f4f34a4cec4520c6"
+jdk_build="15.0.2.7.1"
+jdk_checksum="9d7e2c55ef9f13ad16a2fa2cd2e6514c"
 jdk_folder="amazon-corretto-${jdk_build}-linux-x64"
 jdk_binary="amazon-corretto-${jdk_build}-linux-x64.tar.gz"
 #jdk_binary="amazon-corretto-${jdk_build:0:2}-x64-linux-jdk.tar.gz"
