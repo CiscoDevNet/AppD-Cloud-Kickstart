@@ -7,13 +7,13 @@ python --version
 pip --version
 
 # upgrade python 2.x pip.
-pip install --upgrade pip
-pip --version
+#pip install --upgrade pip
+#pip --version
 
 # install python 2.x setup tools.
 yum -y install python2-setuptools
-pip install --upgrade setuptools
-easy_install --version
+#pip install --upgrade setuptools
+#easy_install --version
 
 # install tree. ------------------------------------------------------------------------------------
 yum -y install tree

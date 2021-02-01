@@ -17,4 +17,4 @@ pip3 install --upgrade setuptools
 # verify installation.
 pip --version
 pip3 --version
-easy_install --version
+#easy_install --version

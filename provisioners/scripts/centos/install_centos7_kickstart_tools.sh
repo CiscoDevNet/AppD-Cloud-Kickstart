@@ -21,13 +21,13 @@ python --version
 pip --version
 
 # upgrade python 2.x pip.
-pip install --upgrade pip
-pip --version
+#pip install --upgrade pip
+#pip --version
 
 # install python 2.x setup tools.
 yum -y install python-setuptools
-pip install --upgrade setuptools
-easy_install --version
+#pip install --upgrade setuptools
+#easy_install --version
 
 # install software collections library. (needed later for python 3.x.) -----------------------------
 yum -y install scl-utils
