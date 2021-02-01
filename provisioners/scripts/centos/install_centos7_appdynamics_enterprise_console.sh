@@ -30,8 +30,8 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-20.11.5.23850}"
-appd_platform_sha256="${appd_platform_sha256:-96abe564f4e116f108fe72c7530376dc47e360048de55df28e9155ef3447f395}"
+appd_platform_release="${appd_platform_release:-20.11.7.23894}"
+appd_platform_sha256="${appd_platform_sha256:-adfd30cdb96c9d652a86676ce3978c1b1be8d8a0b2ffd816fcc83ada8d5e0cac}"
 appd_platform_user_name="${appd_platform_user_name:-centos}"
 appd_platform_user_group="${appd_platform_user_group:-centos}"
 set +x  # temporarily turn command display OFF.
@@ -67,9 +67,9 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="20.11.5.23850"                # [optional] platform release (defaults to '20.11.5.23850').
+    [root]# export appd_platform_release="20.11.7.23894"                # [optional] platform release (defaults to '20.11.7.23894').
                                                                         # [optional] platform sha-256 checksum (defaults to published value).
-    [root]# export appd_platform_sha256="96abe564f4e116f108fe72c7530376dc47e360048de55df28e9155ef3447f395"
+    [root]# export appd_platform_sha256="adfd30cdb96c9d652a86676ce3978c1b1be8d8a0b2ffd816fcc83ada8d5e0cac"
     [root]# export appd_platform_user_name="centos"                     # [optional] platform user name (defaults to 'centos').
     [root]# export appd_platform_user_group="centos"                    # [optional] platform group (defaults to 'centos').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').

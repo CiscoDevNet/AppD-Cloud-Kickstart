@@ -31,12 +31,12 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.11.5.23850').
-#appd_platform_release="20.11.5.23850"
+# [optional] platform release (defaults to '20.11.7.23894').
+#appd_platform_release="20.11.7.23894"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="96abe564f4e116f108fe72c7530376dc47e360048de55df28e9155ef3447f395"
+#appd_platform_sha256="adfd30cdb96c9d652a86676ce3978c1b1be8d8a0b2ffd816fcc83ada8d5e0cac"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -190,12 +190,12 @@ export appd_controller_tenancy_mode
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '21.1.0.31582').
-#appd_java_agent_release="21.1.0.31582"
+# [optional] java agent release (defaults to '21.1.1.31776').
+#appd_java_agent_release="21.1.1.31776"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="e9c381916aee849ec1542837acd375bd4ef9aad02e0257709ae51b6294725239"
+#appd_java_agent_sha256="d462416684a0c0cebbd7f78ec37894653357d919a171943f8876eb7d830d011a"
 #export appd_java_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ export appd_controller_tenancy_mode
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver21.1.0.31582/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver21.1.1.31776/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
@@ -245,12 +245,12 @@ export appd_controller_tenancy_mode
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '20.12.0.3016').
-#appd_machine_agent_release="20.12.0.3016"
+# [optional] machine agent release (defaults to '21.1.0.3041').
+#appd_machine_agent_release="21.1.0.3041"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="d69d07be1b6e7b95c798c3402201f58a7b9a24f11d8bb8e41d3dc328258837e0"
+#appd_machine_agent_sha256="a16c1ee47a9a9c4d0674c0b0c1980fb4aa7ab1d0205675601068ce12384e07e9"
 #export appd_machine_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
