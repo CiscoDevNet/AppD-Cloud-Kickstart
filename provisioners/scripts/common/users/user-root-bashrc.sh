@@ -1,4 +1,4 @@
-# @(#).bashrc       1.0 2020/04/16 SMI
+# @(#).bashrc       1.0 2021/02/11 SMI
 # bash resource configuration for kickstart administrators.
 
 # user 'root' specific aliases and functions.
@@ -19,6 +19,16 @@ JAVA_HOME=/usr/local/java/jdk180
 #JAVA_HOME=/usr/local/java/jdk11
 #JAVA_HOME=/usr/local/java/jdk14
 export JAVA_HOME
+
+# set maven home environment variables.
+M2_HOME=/usr/local/apache/apache-maven
+export M2_HOME
+M2_REPO=$HOME/.m2
+export M2_REPO
+MAVEN_OPTS=-Dfile.encoding="UTF-8"
+export MAVEN_OPTS
+M2=$M2_HOME/bin
+export M2
 
 # set git home paths.
 GIT_HOME=/usr/local/git/git
@@ -50,7 +60,7 @@ PS1="${reset}${cyan}\h${blue}[${red}\u${blue}]${white}# "
 export PS1
 
 # add local applications to main PATH.
-PATH=$JAVA_HOME/bin:$GIT_HOME/bin:$GIT_FLOW_HOME/bin:$HOME/.local/bin:$PATH
+PATH=$JAVA_HOME/bin:$M2:$GIT_HOME/bin:$GIT_FLOW_HOME/bin:$HOME/.local/bin:$PATH
 export PATH
 
 # set options.
