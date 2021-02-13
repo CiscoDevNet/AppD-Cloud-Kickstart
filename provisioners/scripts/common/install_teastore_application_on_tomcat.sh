@@ -97,7 +97,8 @@ export PATH
 mvn --version
 
 # build the teastore war files.
-mvn clean install
+#mvn clean install
+mvn clean install -DskipTests
 
 # create images folder for teastore application. ---------------------------------------------------
 # change ownership to tomcat user and group.
