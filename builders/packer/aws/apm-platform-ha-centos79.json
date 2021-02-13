@@ -41,7 +41,7 @@
     {
       "inline": [
         "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
-        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_username`}} {{user `kickstart_home`}}"
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `kickstart_home`}}"
       ],
       "type": "shell"
     },

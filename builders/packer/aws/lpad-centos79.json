@@ -41,7 +41,7 @@
     {
       "inline": [
         "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
-        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_username`}} {{user `kickstart_home`}}"
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `kickstart_home`}}"
       ],
       "type": "shell"
     },
@@ -86,7 +86,7 @@
         "aws_cli_default_region_name={{user `aws_cli_default_region_name`}}",
         "aws_cli_default_output_format={{user `aws_cli_default_output_format`}}",
         "user_name={{user `aws_ec2_username`}}",
-        "user_group={{user `aws_ec2_username`}}",
+        "user_group={{user `aws_ec2_group`}}",
         "user_docker_profile={{user `user_docker_profile`}}",
         "d_completion_release={{user `docker_completion_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
@@ -141,6 +141,7 @@
     "aws_ec2_domain": "localdomain",
     "aws_ec2_instance_type": "t2.micro",
     "aws_ec2_username": "centos",
+    "aws_ec2_group": "centos",
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
     "user_docker_profile": "true",
     "docker_completion_release": "20.10.3",
