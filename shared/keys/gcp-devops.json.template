@@ -1,0 +1,11 @@
+This template is a placeholder for the private key of a GCP DevOps service account.
+
+To create the DevOps service account private key:
+
+    o Execute the following command:
+
+        'gcloud iam service-accounts keys create --iam-account $SA_EMAIL gcp-devops.json'
+
+      Where 'SA_EMAIL' is the email address for the DevOps service account.
+
+    o Next, copy the file to '<project_home>/shared/keys/gcp-devops.json'.

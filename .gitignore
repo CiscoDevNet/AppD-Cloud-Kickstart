@@ -14,6 +14,12 @@ tags
 /provisioners/**/*.live
 /provisioners/**/*.orig
 
+# ignore appdynamics license configuration files.
+/shared/**/appd-controller-license.lic
+
+# ignore packer google cloud platform (gcp) iam service account key files.
+/shared/**/gcp-devops.json
+
 # ignore terraform configuration and temporary runtime files.
 /builders/**/.terraform
 /builders/**/*.tfstate*

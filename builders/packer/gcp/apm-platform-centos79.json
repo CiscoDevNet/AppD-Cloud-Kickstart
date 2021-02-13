@@ -1,0 +1,150 @@
+{
+  "builders": [
+    {
+      "account_file": "{{user `gcp_account_file`}}",
+      "disk_size": "{{user `gcp_disk_size`}}",
+      "disk_type": "{{user `gcp_disk_type`}}",
+      "image_description": "{{user `gcp_image_description`}}",
+      "image_family": "{{user `gcp_image_family`}}",
+      "image_name": "{{user `gcp_image_name`}}-{{isotime \"2006-01-02\"}}",
+      "image_labels": {
+        "owner": "ed-barberis",
+        "workshop": "appdynamics-cloud-kickstart"
+      },
+      "machine_type": "{{user `gcp_machine_type`}}",
+      "project_id": "{{user `gcp_project_id`}}",
+      "source_image_family": "centos-7",
+      "source_image_project_id": "centos-cloud",
+      "ssh_username": "{{user `gcp_username`}}",
+      "state_timeout": "15m",
+      "type": "googlecompute",
+      "zone": "{{user `gcp_zone`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "inline": [
+        "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
+        "sudo chown -R {{user `gcp_username`}}:{{user `gcp_group`}} {{user `kickstart_home`}}"
+      ],
+      "type": "shell"
+    },
+    {
+      "destination": "{{user `kickstart_home`}}/provisioners/scripts",
+      "source": "{{template_dir}}/../../../provisioners/scripts/",
+      "type": "file"
+    },
+    {
+      "inline": [
+        "sudo chown -R root:root {{user `kickstart_home`}}"
+      ],
+      "type": "shell"
+    },
+    {
+      "environment_vars": [
+        "aws_ec2_hostname={{user `gcp_hostname`}}",
+        "aws_ec2_domain={{user `gcp_domain`}}",
+        "kickstart_home={{user `kickstart_home`}}",
+        "HOME_DIR=/home/{{user `gcp_username`}}"
+      ],
+      "execute_command": "echo '{{user `aws_ec2_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "scripts": [
+        "{{template_dir}}/../../../provisioners/scripts/aws/config_al2_system_hostname.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_repositories.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "expect_disconnect": true,
+      "inline": [
+        "sudo yum -y update",
+        "sudo systemctl reboot"
+      ],
+      "type": "shell"
+    },
+    {
+      "environment_vars": [
+        "appd_username={{user `appd_username`}}",
+        "appd_password={{user `appd_password`}}",
+        "appd_platform_admin_username={{user `appd_platform_admin_username`}}",
+        "appd_platform_admin_password={{user `appd_platform_admin_password`}}",
+        "appd_platform_db_password={{user `appd_platform_db_password`}}",
+        "appd_platform_db_root_password={{user `appd_platform_db_root_password`}}",
+        "appd_platform_name={{user `appd_platform_name`}}",
+        "appd_platform_server_host={{user `appd_platform_server_host`}}",
+        "appd_platform_description={{user `appd_platform_description`}}",
+        "appd_platform_user_name={{user `appd_platform_user_name`}}",
+        "appd_platform_user_group={{user `appd_platform_user_group`}}",
+        "appd_platform_use_https={{user `appd_platform_use_https`}}",
+        "appd_events_service_profile={{user `appd_events_service_profile`}}",
+        "appd_controller_admin_username={{user `appd_controller_admin_username`}}",
+        "appd_controller_admin_password={{user `appd_controller_admin_password`}}",
+        "appd_controller_root_password={{user `appd_controller_root_password`}}",
+        "appd_controller_mysql_password={{user `appd_controller_mysql_password`}}",
+        "user_name={{user `gcp_username`}}",
+        "user_group={{user `gcp_group`}}",
+        "user_docker_profile={{user `user_docker_profile`}}",
+        "d_completion_release={{user `docker_completion_release`}}",
+        "kickstart_home={{user `kickstart_home`}}",
+        "HOME_DIR=/home/{{user `gcp_username`}}"
+      ],
+      "execute_command": "echo '{{user `gcp_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "expect_disconnect": true,
+      "pause_before": "10s",
+      "scripts": [
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_kickstart_tools.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_8.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_docker.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3_scl.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_ansible.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_jq_json_processor.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_git.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_git_flow.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_oracle_mysql_shell_8.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_8.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_appdynamics_enterprise_console.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_appdynamics_platform_services.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "appd_username": "{{env `appd_username`}}",
+    "appd_password": "{{env `appd_password`}}",
+    "appd_platform_admin_username": "{{env `appd_platform_admin_username`}}",
+    "appd_platform_admin_password": "{{env `appd_platform_admin_password`}}",
+    "appd_platform_db_password": "{{env `appd_platform_db_password`}}",
+    "appd_platform_db_root_password": "{{env `appd_platform_db_root_password`}}",
+    "appd_platform_name": "{{env `appd_platform_name`}}",
+    "appd_platform_server_host": "{{env `appd_platform_server_host`}}",
+    "appd_platform_description": "{{env `appd_platform_description`}}",
+    "appd_platform_user_name": "{{env `appd_platform_user_name`}}",
+    "appd_platform_user_group": "{{env `appd_platform_user_group`}}",
+    "appd_platform_use_https": "false",
+    "appd_events_service_profile": "{{env `appd_events_service_profile`}}",
+    "appd_controller_admin_username": "{{env `appd_controller_admin_username`}}",
+    "appd_controller_admin_password": "{{env `appd_controller_admin_password`}}",
+    "appd_controller_root_password": "{{env `appd_controller_root_password`}}",
+    "appd_controller_mysql_password": "{{env `appd_controller_mysql_password`}}",
+    "gcp_account_file": "../../../shared/keys/gcp-devops.json",
+    "gcp_disk_size": "128",
+    "gcp_disk_type": "pd-standard",
+    "gcp_hostname": "apm",
+    "gcp_domain": "localdomain",
+    "gcp_image_description": "APM Platform 20.11.8 on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. Compute image generated using the AppDynamics Cloud Kickstart Project.",
+    "gcp_image_family": "apm-platform-centos79-images",
+    "gcp_image_name": "apm-platform-20118-centos79",
+    "gcp_machine_type": "e2-standard-4",
+    "gcp_project_id": "gcp-appdcloudplatfo-nprd-68190",
+    "gcp_username": "centos",
+    "gcp_group": "centos",
+    "gcp_zone": "{{env `gcp_zone`}}",
+    "user_docker_profile": "true",
+    "docker_completion_release": "20.10.3",
+    "kickstart_home": "/opt/appd-cloud-kickstart"
+  }
+}
