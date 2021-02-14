@@ -21,7 +21,7 @@ mkdir -p /usr/local/src/git
 cd /usr/local/src/git
 
 # download git source from kernel.org.
-wget --no-verbose https://www.kernel.org/pub/software/scm/git/${gitbinary}
+wget --no-verbose --no-check-certificate https://www.kernel.org/pub/software/scm/git/${gitbinary}
 
 # extract git source.
 tar -zxvf ${gitbinary} --no-same-owner --no-overwrite-dir
@@ -58,7 +58,7 @@ mkdir -p /usr/share/man
 cd /usr/share/man
 
 # download git man pages from kernel.org.
-wget --no-verbose https://www.kernel.org/pub/software/scm/git/${gitmanbinary}
+wget --no-verbose --no-check-certificate https://www.kernel.org/pub/software/scm/git/${gitmanbinary}
 
 # extract git man pages.
 tar -zxvf ${gitmanbinary} --no-same-owner --no-overwrite-dir
