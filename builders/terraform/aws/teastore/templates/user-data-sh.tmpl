@@ -1,0 +1,16 @@
+#!/bin/sh
+cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
+chmod 755 ./initialize_al2_terraform_cloud_init.sh
+
+user_name="${aws_ec2_user_name}"
+export user_name
+aws_ec2_hostname="${aws_ec2_hostname_prefix}"
+export aws_ec2_hostname
+aws_ec2_domain="${aws_ec2_domain}"
+export aws_ec2_domain
+aws_cli_default_region_name="${aws_cli_default_region_name}"
+export aws_cli_default_region_name
+use_aws_ec2_num_suffix="${use_aws_ec2_num_suffix}"
+export use_aws_ec2_num_suffix
+
+./initialize_al2_terraform_cloud_init.sh

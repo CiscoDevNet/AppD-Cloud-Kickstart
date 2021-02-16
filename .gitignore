@@ -21,14 +21,20 @@ tags
 /shared/**/gcp-devops.json
 
 # ignore terraform configuration and temporary runtime files.
+/builders/**/private-ip-file.txt
+/builders/**/public-dns-file.txt
+/builders/**/public-ip-file.txt
 /builders/**/.terraform
+/builders/**/.terraform.lock.hcl
 /builders/**/*.tfstate*
 /builders/**/*.tfplan
+/builders/**/terraform.tfvars
 
 # ignore ansible configuration and temporary runtime files.
 ansible.cfg
 /provisioners/**/*.inventory
 /provisioners/**/public-keys*
+/provisioners/**/files/*_elb_dns_name.txt
 
 # ignore 'live' bash resource configuration file for appdynamics cloud kickstart users.
 /bin/set_appd_cloud_kickstart_env.sh
