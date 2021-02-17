@@ -15,9 +15,9 @@
 #---------------------------------------------------------------------------------------------------
 
 # install kubectl cli. -----------------------------------------------------------------------------
-kubectl_release="1.18.9"
-kubectl_date="2020-11-02"
-kubectl_sha256="3dbe69e6deb35fbd6fec95b13d20ac1527544867ae56e3dae17e8c4d638b25b9"
+kubectl_release="1.19.6"
+kubectl_date="2021-01-05"
+kubectl_sha256="08ff68159bbcb844455167abb1d0de75bbfe5ae1b051f81ab060a1988027868a"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
@@ -25,7 +25,7 @@ cd /usr/local/bin
 
 # download kubectl binary from github.com.
 rm -f kubectl
-curl --silent --location "https://amazon-eks.s3-us-west-2.amazonaws.com/${kubectl_release}/${kubectl_date}/bin/linux/amd64/kubectl" --output kubectl
+curl --silent --location "https://amazon-eks.s3.us-west-2.amazonaws.com/${kubectl_release}/${kubectl_date}/bin/linux/amd64/kubectl" --output kubectl
 chown root:root kubectl
 
 # verify the downloaded binary.

@@ -14,8 +14,8 @@
 #---------------------------------------------------------------------------------------------------
 
 # install aws iam authenticator. -------------------------------------------------------------------
-aws_iam_authenticator_release="1.18.9"
-aws_iam_authenticator_date="2020-11-02"
+aws_iam_authenticator_release="1.19.6"
+aws_iam_authenticator_date="2021-01-05"
 aws_iam_authenticator_sha256="fe958eff955bea1499015b45dc53392a33f737630efd841cd574559cc0f41800"
 
 # create local bin directory (if needed).
@@ -24,7 +24,7 @@ cd /usr/local/bin
 
 # download aws iam authenticator binary from github.com.
 rm -f aws-iam-authenticator
-curl --silent --location "https://amazon-eks.s3-us-west-2.amazonaws.com/${aws_iam_authenticator_release}/${aws_iam_authenticator_date}/bin/linux/amd64/aws-iam-authenticator" --output aws-iam-authenticator
+curl --silent --location "https://amazon-eks.s3.us-west-2.amazonaws.com/${aws_iam_authenticator_release}/${aws_iam_authenticator_date}/bin/linux/amd64/aws-iam-authenticator" --output aws-iam-authenticator
 chown root:root aws-iam-authenticator
 
 # verify the downloaded binary.
