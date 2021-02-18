@@ -1,6 +1,6 @@
 #!/bin/sh
 #---------------------------------------------------------------------------------------------------
-# Delete the AppDynamics Cloud Kickstart project-specific GCP Compute images for the specified zone.
+# Delete the AppDynamics Cloud Kickstart project-specific GCP Compute images.
 #
 # NOTE: All inputs are defined by external environment variables.
 #       Optional variables have reasonable defaults, but you may override as needed.
