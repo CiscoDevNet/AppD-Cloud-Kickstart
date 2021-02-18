@@ -3,7 +3,7 @@
     {
       "type": "azure-arm",
       "use_azure_cli_auth": true,
-      "managed_image_name": "{{user `azure_image_name`}}-Image-{{isotime \"2006-01-02\"}}",
+      "managed_image_name": "{{user `azure_image_name`}}-Image-{{isotime | clean_resource_name}}",
       "managed_image_resource_group_name": "{{user `azure_resource_group`}}",
       "location": "{{user `azure_location`}}",
       "vm_size": "{{user `azure_vm_size`}}",
