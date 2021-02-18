@@ -6,7 +6,7 @@
       "disk_type": "{{user `gcp_disk_type`}}",
       "image_description": "{{user `gcp_image_description`}}",
       "image_family": "{{user `gcp_image_family`}}",
-      "image_name": "{{user `gcp_image_name`}}-{{isotime \"2006-01-02\"}}",
+      "image_name": "{{user `gcp_image_name`}}-{{isotime | clean_resource_name}}",
       "image_labels": {
         "owner": "ed-barberis",
         "workshop": "appdynamics-cloud-kickstart"

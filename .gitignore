@@ -24,6 +24,7 @@ tags
 /builders/**/private-ip-file.txt
 /builders/**/public-dns-file.txt
 /builders/**/public-ip-file.txt
+/builders/**/*.inventory
 /builders/**/.terraform
 /builders/**/.terraform.lock.hcl
 /builders/**/*.tfstate*
