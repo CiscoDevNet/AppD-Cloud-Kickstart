@@ -31,12 +31,12 @@ export appd_password
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '20.11.8.23902').
-#appd_platform_release="20.11.8.23902"
+# [optional] platform release (defaults to '21.2.3.24315').
+#appd_platform_release="21.2.3.24315"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="b3b6f6a5382de34507e87a7420856404ff512ff62ddfbb96556d612d37c42f65"
+#appd_platform_sha256="90692d61c8b7c31f371c9825ed737d48e617470e4545803083cb7d90a3c3cd06"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -245,12 +245,12 @@ export appd_controller_tenancy_mode
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '21.1.0.3041').
-#appd_machine_agent_release="21.1.0.3041"
+# [optional] machine agent release (defaults to '21.2.0.3052').
+#appd_machine_agent_release="21.2.0.3052"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="a16c1ee47a9a9c4d0674c0b0c1980fb4aa7ab1d0205675601068ce12384e07e9"
+#appd_machine_agent_sha256="0ac83a580f3dc8d849e6275772db76f788d0e623a5c0b7961e9d4597b0d1e559"
 #export appd_machine_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -436,3 +436,11 @@ export azure_temporary_source_cidrs
 #   'us-west4-a', 'us-west4-b', 'us-west4-c'                                     [Las Vegas]
 gcp_zone="us-central1-a"
 export gcp_zone
+
+# [optional] kubectl release (defaults to '1.19.7').
+#kubectl_release="1.19.7"
+#export kubectl_release
+
+# [optional] kubectl sha-256 checksum (defaults to published value).
+#kubectl_sha256="d46eb3bbe2575e5b6bedbc6d3519424b4f2f57929d7da1ef7e11c09068f37297"
+#export kubectl_sha256
