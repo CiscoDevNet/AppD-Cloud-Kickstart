@@ -1,3 +1,4 @@
+# Variables ----------------------------------------------------------------------------------------
 variable "gcp_project_id" {
   description = "GCP Project ID."
   type        = string
@@ -16,21 +17,11 @@ variable "gcp_zone" {
   default     = "us-central1-a"
 }
 
-variable "gcp_network" {
-  description = "The network selflink to host the compute instances in"
-  type        = string
-  default     = "default"
-}
-
 variable "gcp_firewall_source_range" {
   description = "The source range for inbound ssh traffic"
   type        = list
   default     = ["0.0.0.0/0"]
 }
-
-#variable "gcp_subnetwork" {
-#  description = "The subnetwork selflink to host the compute instances in"
-#}
 
 variable "gcp_teastore_vm_nat_ip" {
   description = "Public ip address for TeaStore VM instance."
@@ -46,6 +37,12 @@ variable "gcp_teastore_vm_hostname_prefix" {
   description = "GCP TeaStore VM hostname prefix."
   type        = string
   default     = "teastore-vm-node"
+}
+
+variable "gcp_service_account_key_path" {
+  description = "Service account key path to credentials in JSON format."
+  type        = string
+  default     = "../../../../shared/keys/gcp-devops.json"
 }
 
 variable "gcp_ssh_username" {

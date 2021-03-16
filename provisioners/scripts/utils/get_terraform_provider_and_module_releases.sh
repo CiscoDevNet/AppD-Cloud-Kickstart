@@ -19,6 +19,7 @@ echo "Google Providers:"
 curl --silent https://api.github.com/repos/hashicorp/terraform-provider-google/releases/latest | jq '. | {tag_name: .tag_name, html_url: .html_url}'
 curl --silent https://api.github.com/repos/terraform-google-modules/terraform-google-vm/releases/latest | jq '. | {tag_name: .tag_name, html_url: .html_url}'
 curl --silent https://api.github.com/repos/terraform-google-modules/terraform-google-network/releases/latest | jq '. | {tag_name: .tag_name, html_url: .html_url}'
+curl --silent https://api.github.com/repos/terraform-google-modules/terraform-google-kubernetes-engine/releases/latest | jq '. | {tag_name: .tag_name, html_url: .html_url}'
 echo ""
 
 echo "Terraform Providers:"
