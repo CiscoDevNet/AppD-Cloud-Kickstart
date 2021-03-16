@@ -1,4 +1,4 @@
-# @(#).bashrc       1.0 2020/04/16 SMI
+# @(#).bashrc       1.0 2021/03/11 SMI
 # bash resource configuration for kickstart users.
 
 # source global definitions.
@@ -47,7 +47,7 @@ kickstart_home=/opt/appd-cloud-kickstart
 export kickstart_home
 
 # set kubectl config path.
-KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
+KUBECONFIG=$HOME/.kube/config
 export KUBECONFIG
 
 # define prompt code and colors.
