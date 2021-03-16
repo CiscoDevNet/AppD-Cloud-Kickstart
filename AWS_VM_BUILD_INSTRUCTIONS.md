@@ -208,5 +208,5 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Pip 21.0.1
 -	Python 3.6.8
 	-	Pip 21.0.1
--	Serverless Framework CLI 2.30.0
+-	Serverless Framework CLI 2.30.2
 -	VIM - Vi IMproved 8.2
