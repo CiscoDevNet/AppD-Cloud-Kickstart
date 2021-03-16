@@ -94,6 +94,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_hashicorp_terraform.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_git.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_git_flow.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_kubectl_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_helm_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
@@ -128,7 +129,7 @@
     "tomcat_home": "apache-tomcat-9",
     "tomcat_catalina_opts": "-Xms4096M -Xmx4096M -server -XX:+UseParallelGC",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.3",
+    "docker_completion_release": "20.10.5",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }

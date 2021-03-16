@@ -108,15 +108,14 @@
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_oracle_mysql_shell_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
-        "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_cisco_cwom.sh"
+        "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh"
       ],
       "type": "shell"
     }
   ],
   "variables": {
-    "aws_ami_name": "CWOM-Platform-2328-CentOS79-AMI",
-    "aws_ami_description": "CWOM Platform 2.3.28 on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. The platform 'administrator' password is 'Welcome1' and the database password is 'vmturbo'. AMI generated using the AppDynamics Cloud Kickstart Project.",
+    "aws_ami_name": "CWOM-Platform-2331-CentOS79-AMI",
+    "aws_ami_description": "CWOM Platform 2.3.31 on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. The platform 'administrator' password is 'Welcome1' and the database password is 'vmturbo'. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",
     "aws_ami_region": "{{env `aws_ami_region`}}",
     "aws_ec2_boot_disk_size": "502",
@@ -127,7 +126,7 @@
     "aws_ec2_group": "centos",
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.3",
+    "docker_completion_release": "20.10.5",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
