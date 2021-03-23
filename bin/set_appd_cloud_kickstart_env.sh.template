@@ -190,12 +190,12 @@ export appd_controller_tenancy_mode
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '21.2.0.31849').
-#appd_java_agent_release="21.2.0.31849"
+# [optional] java agent release (defaults to '21.3.0.32281').
+#appd_java_agent_release="21.3.0.32281"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="119ffa09f4f22270b94dc7102f20fc16ab590dabb95f4d16f2417c40eb7b0e47"
+#appd_java_agent_sha256="553b4e1f1e999f9dbdde7493594d124ee2803132c4fdc9c51395e862457b7ecb"
 #export appd_java_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ export appd_controller_tenancy_mode
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver21.2.0.31849/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver21.3.0.32281/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
@@ -357,6 +357,64 @@ export appd_controller_tenancy_mode
 # [optional] tier component id for aws metric prefix (defaults to '8').
 #appd_aws_ec2_extension_tier_component_id="8"
 #export appd_aws_ec2_extension_tier_component_id
+
+# --------------------------------------------------------------------------------------------------
+# [OPTIONAL] appdynamics cluster agent install parameters [w/ defaults].
+# --------------------------------------------------------------------------------------------------
+# [optional] cluster agent home folder (defaults to 'cluster-agent').
+#appd_cluster_agent_home="cluster-agent"
+#export appd_cluster_agent_home
+
+# [optional] cluster agent user name (defaults to user 'centos').
+#appd_cluster_agent_user="centos"
+#export appd_cluster_agent_user
+
+# [optional] cluster agent group (defaults to 'centos').
+#appd_cluster_agent_user_group="centos"
+#export appd_cluster_agent_user_group
+
+# [optional] cluster agent release (defaults to '21.2.0.3052').
+#appd_cluster_agent_release="21.2.0.1997"
+#export appd_cluster_agent_release
+
+# [optional] cluster agent sha-256 checksum (defaults to published value).
+#appd_cluster_agent_sha256="c191cba91d13dfb01e29b43125943f7bd96638db654385ab32c9af18d2c982bb"
+#export appd_cluster_agent_sha256
+
+# --------------------------------------------------------------------------------------------------
+# [OPTIONAL] appdynamics cluster agent config parameters [w/ defaults].
+# --------------------------------------------------------------------------------------------------
+# [optional] install kubernetes metrics server? [boolean] (defaults to 'true').
+#appd_install_kubernetes_metrics_server="true"
+#export appd_install_kubernetes_metrics_server
+
+# [optional] configure cluster agent auto instrumentation? [boolean] (defaults to 'false').
+#appd_cluster_agent_auto_instrumentation="false"
+#export appd_cluster_agent_auto_instrumentation
+
+# [optional] account name (defaults to 'customer1').
+#appd_cluster_agent_account_name="customer1"
+#export appd_cluster_agent_account_name
+
+# [optional] account access key (defaults to <placeholder_value>).
+#appd_cluster_agent_account_access_key="abcdef01-2345-6789-abcd-ef0123456789"
+#export appd_cluster_agent_account_access_key
+
+# [optional] cluster agent docker image (defaults to 'docker.io/appdynamics/cluster-agent:latest').
+#appd_cluster_agent_docker_image="docker.io/appdynamics/cluster-agent:latest"
+#export appd_cluster_agent_docker_image
+
+# [optional] cluster agent application name (defaults to 'My-App').
+#appd_cluster_agent_application_name="<your_app_here>"
+#export appd_cluster_agent_application_name
+
+# [optional] cluster agent tier name (defaults to 'My-App-Web-Tier').
+#appd_cluster_agent_tier_name="<your_tier_here>"
+#export appd_cluster_agent_tier_name
+
+# [optional] cluster agent node name (defaults to 'Development').
+#appd_cluster_agent_node_name="<your_node_here>"
+#export appd_cluster_agent_node_name
 
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] cwom platform install parameters [w/ defaults].
