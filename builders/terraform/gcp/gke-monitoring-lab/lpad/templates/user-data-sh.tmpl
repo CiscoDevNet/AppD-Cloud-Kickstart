@@ -1,0 +1,14 @@
+#!/bin/sh
+cd /opt/appd-cloud-kickstart/provisioners/scripts/gcp
+chmod 755 ./initialize_gcp_terraform_cloud_init.sh
+
+user_name="${gcp_ssh_username}"
+export user_name
+gcp_gce_hostname="${gcp_lpad_vm_hostname_prefix}"
+export gcp_gce_hostname
+gcp_gce_domain="${gcp_lpad_vm_domain}"
+export gcp_gce_domain
+use_gcp_gce_num_suffix="${gcp_use_num_suffix}"
+export use_gcp_gce_num_suffix
+
+./initialize_gcp_terraform_cloud_init.sh

@@ -22,6 +22,14 @@ chmod 600 ${user_authorized_keys_file}
 sed -i -e "/packer/d" ${user_authorized_keys_file}
 
 # configure the hostname of the gcp gce instance. --------------------------------------------------
+# retrieve the name attribute from the gce vm instance metadata.
+if [ "$use_gcp_gce_num_suffix" == "true" ]; then
+  gcp_gce_instance_name=$(curl --silent "http://metadata.google.internal/computeMetadata/v1/instance/name" -H "Metadata-Flavor: Google")
+  if [ $(echo "$gcp_gce_instance_name" | grep '20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]$') ]; then
+    gcp_gce_hostname="${gcp_gce_instance_name:0:-11}"
+  fi
+fi
+
 # export environment variables.
 export gcp_gce_hostname
 export gcp_gce_domain
