@@ -49,6 +49,7 @@ module "lpad_vm" {
 
   num_instances  = var.lab_count
   use_num_suffix = true
+  start_number   = local.start_number
 
   region            = var.gcp_region
   zone              = var.gcp_zone

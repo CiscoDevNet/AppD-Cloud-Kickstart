@@ -42,7 +42,7 @@ data "google_compute_zones" "available" {
 resource "google_compute_instance_from_template" "compute_instance" {
   provider = google
   count    = local.num_instances
-  name     = local.num_instances > 1 || var.use_num_suffix ? format("%s-%02d-%s", local.hostname, count.index + 1, local.current_date) : "${local.hostname}-${local.current_date}"
+  name     = local.num_instances > 1 || var.use_num_suffix ? format("%s-%02d-vm-%s", local.hostname, count.index + var.start_number, local.current_date) : "${local.hostname}-vm-${local.current_date}"
   project  = local.project_id
   zone     = var.zone != "" ? var.zone : data.google_compute_zones.available.names[count.index % length(data.google_compute_zones.available.names)]
 

@@ -43,3 +43,18 @@ output "nat_ip" {
   description = "The external IP address assigned to the instance."
   value       = google_compute_instance_from_template.compute_instance.*.network_interface.0.access_config.0.nat_ip
 }
+
+output "num_instances" {
+  description = "Number of instances to create. This value is ignored if static_ips is provided."
+  value       = var.num_instances
+}
+
+output "use_num_suffix" {
+  description = "Always append numerical suffix to instance name, even if instance_count is 1."
+  value       = var.use_num_suffix
+}
+
+output "start_number" {
+  description = "Starting number for incrementally naming resources."
+  value       = var.start_number
+}

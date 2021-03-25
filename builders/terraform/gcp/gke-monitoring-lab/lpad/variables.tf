@@ -33,12 +33,6 @@ variable "gcp_network_tier" {
   default     = "STANDARD"
 }
 
-variable "gcp_lpad_vm_hostname_prefix" {
-  description = "GCP LPAD VM hostname prefix."
-  type        = string
-  default     = "lpad-vm-node"
-}
-
 variable "gcp_service_account_key_path" {
   description = "Service account key path to credentials in JSON format."
   type        = string
@@ -68,7 +62,7 @@ variable "gcp_source_image_family" {
 variable "gcp_source_image" {
   description = "The source disk image."
   type        = string
-  default     = "lpad-centos79-2021-03-23"
+  default     = "lpad-centos79-2021-03-25"
 # default     = "centos-7-v20200910"
 }
 
@@ -81,9 +75,15 @@ variable "gcp_use_num_suffix" {
 variable "gcp_machine_type" {
   description = "GCE machine type to create."
   type        = string
-  default     = "n1-standard-1"
 # default     = "e2-standard-2"
 # default     = "e2-standard-4"
+  default     = "n1-standard-1"
+}
+
+variable "gcp_lpad_vm_hostname_prefix" {
+  description = "GCP LPAD VM hostname prefix."
+  type        = string
+  default     = "lpad"
 }
 
 variable "gcp_resource_name_prefix" {

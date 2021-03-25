@@ -33,12 +33,6 @@ variable "gcp_network_tier" {
   default     = "STANDARD"
 }
 
-variable "gcp_apm_platform_vm_hostname_prefix" {
-  description = "GCP APM Platform VM hostname prefix."
-  type        = string
-  default     = "apm-platform-vm-node"
-}
-
 variable "gcp_service_account_key_path" {
   description = "Service account key path to credentials in JSON format."
   type        = string
@@ -68,7 +62,7 @@ variable "gcp_source_image_family" {
 variable "gcp_source_image" {
   description = "The source disk image."
   type        = string
-  default     = "apm-platform-centos79-2021-03-23"
+  default     = "apm-platform-centos79-2021-03-25"
 # default     = "centos-7-v20200910"
 }
 
@@ -84,6 +78,12 @@ variable "gcp_machine_type" {
 # default     = "e2-standard-2"
   default     = "e2-standard-4"
 # default     = "n1-standard-1"
+}
+
+variable "gcp_apm_platform_vm_hostname_prefix" {
+  description = "GCP APM Platform VM hostname prefix."
+  type        = string
+  default     = "apm"
 }
 
 variable "gcp_resource_name_prefix" {

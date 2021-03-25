@@ -93,3 +93,9 @@ variable "labels" {
   description = "Labels, provided as a map"
   default     = {}
 }
+
+variable "start_number" {
+  description = "Starting number for incrementally naming resources."
+  type        = number
+  default     = 1
+}
