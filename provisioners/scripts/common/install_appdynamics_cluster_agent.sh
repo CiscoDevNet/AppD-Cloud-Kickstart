@@ -206,8 +206,8 @@ if [ "$appd_cluster_agent_auto_instrumentation" == "true" ]; then
   runuser -c \
     "kubectl -n appdynamics \
        create secret generic cluster-agent-secret \
-       --from-literal=controller-key=${appd_controller_account_access_key} \
-       --from-literal=api-user=${appd_controller_admin_username}@${appd_controller_account_name}:${appd_controller_admin_password}" \
+       --from-literal=controller-key=${appd_cluster_agent_account_access_key} \
+       --from-literal=api-user=${appd_controller_admin_username}@${appd_cluster_agent_account_name}:${appd_controller_admin_password}" \
      - ${appd_cluster_agent_user}
   set -x  # turn command display back ON.
 # otherwise, create a cluster agent secret with just the controller access key.
@@ -215,7 +215,7 @@ else
   runuser -c \
     "kubectl -n appdynamics \
        create secret generic cluster-agent-secret \
-       --from-literal=controller-key=${appd_controller_account_access_key}" \
+       --from-literal=controller-key=${appd_cluster_agent_account_access_key}" \
      - ${appd_cluster_agent_user}
 fi
 
