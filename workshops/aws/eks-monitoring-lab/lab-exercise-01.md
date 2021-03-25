@@ -69,7 +69,7 @@ If the above section is not completed correctly at VM creation, the Launch Pad E
 
   8. Click '**Review and Launch**' to launch your VM. When prompted for a key pair:  
 
-     a. Select the **AppD-Cloud-Kickstart-AWS** pem if you have access to it. You can request this key from the workshop creators.  
+     a. Select the **AppD-Cloud-Kickstart** pem if you have access to it. You can request this key from the workshop creators.  
      b. Otherwise: Select **Create a new key pair** and give it a name. Remember to download it and save it locally.  
 
 **NOTE:** Once the VM is launched, take note of the Public IP Address (FQDN) of the server. You will be leveraging this server in the remainder of the lab.

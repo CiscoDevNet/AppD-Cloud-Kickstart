@@ -95,8 +95,8 @@ export appd_platform_description
 #appd_platform_hosts="platformadmin"
 #export appd_platform_hosts
 
-# [optional] platform credential name (defaults to 'AppD-Cloud-Kickstart-AWS').
-#appd_platform_credential_name="AppD-Cloud-Kickstart-AWS"
+# [optional] platform credential name (defaults to 'AppD-Cloud-Kickstart').
+#appd_platform_credential_name="AppD-Cloud-Kickstart"
 #export appd_platform_credential_name
 
 # [optional] platform credential type (defaults to 'ssh').

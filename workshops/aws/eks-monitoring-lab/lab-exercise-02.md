@@ -10,24 +10,24 @@ In this exercise you will need to do the following:
 - Run a script to connect to an EKS cluster
 
 ### **1.** SSH Into the Launch Pad EC2 Instance
-You will need a copy of the `AppD-Cloud-Kickstart-AWS.pem` file in order to SSH into your Launch Pad EC2 instance. You can obtain a copy of the `AppD-Cloud-Kickstart-AWS.pem` file from your lab instructor.  
+You will need a copy of the `AppD-Cloud-Kickstart.pem` file in order to SSH into your Launch Pad EC2 instance. You can obtain a copy of the `AppD-Cloud-Kickstart.pem` file from your lab instructor.  
 
-Otherwise: If you created a new SSH key pair in [Lab Exercise 1](lab-exercise-01.md), remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the remaining lab exercise steps.  
+Otherwise: If you created a new SSH key pair in [Lab Exercise 1](lab-exercise-01.md), remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart.pem' in all of the remaining lab exercise steps.  
 <br>
 You will use the user name '**ec2-user**' with no password to SSH into the Launch Pad EC2 instance.
 <br><br>
 
 ***For Mac Users:***
 
-Run the command below from a terminal window, with the path to your copy of the `AppD-Cloud-Kickstart-AWS.pem` file and the host name or IP Address of your Launch Pad EC2 instance
+Run the command below from a terminal window, with the path to your copy of the `AppD-Cloud-Kickstart.pem` file and the host name or IP Address of your Launch Pad EC2 instance
 ```bash
-chmod 400 <path-to-file>/AppD-Cloud-Kickstart-AWS.pem
-ssh -i <path-to-file>/AppD-Cloud-Kickstart-AWS.pem <hostname-of-your-launch-pad-ec2-instance>
+chmod 400 <path-to-file>/AppD-Cloud-Kickstart.pem
+ssh -i <path-to-file>/AppD-Cloud-Kickstart.pem <hostname-of-your-launch-pad-ec2-instance>
 ```
 
 Example:
 ```bash
-ssh -i AppD-Cloud-Kickstart-AWS.pem ec2-user@ec2-54-214-99-204.us-east-1.compute.amazonaws.com
+ssh -i AppD-Cloud-Kickstart.pem ec2-user@ec2-54-214-99-204.us-east-1.compute.amazonaws.com
 ```
 
 <br>
@@ -89,7 +89,7 @@ You can now connect to your Launch Pad EC2 instance using the steps below:
 
 ***After Logging In:***
 
-**NOTE:** If you created your own SSH key pair, you will need to set the value of the '**appd_aws_eks_ssh_public_key**' environment variable with the name of your key. The default is '**AppD-Cloud-Kickstart-AWS**'.
+**NOTE:** If you created your own SSH key pair, you will need to set the value of the '**appd_aws_eks_ssh_public_key**' environment variable with the name of your key. The default is '**AppD-Cloud-Kickstart**'.
 
 ```bash
 export appd_aws_eks_ssh_public_key=your-unique-ssh-key

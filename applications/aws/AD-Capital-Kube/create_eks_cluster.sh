@@ -26,7 +26,7 @@ appd_aws_eks_name="${appd_aws_eks_name:-AD-Capital-${appd_aws_eks_user_name}}"
 appd_aws_eks_environment="${appd_aws_eks_environment:-Lab-Env-${appd_aws_eks_user_name}}"
 appd_aws_eks_nodes="${appd_aws_eks_nodes:-2}"
 appd_aws_eks_node_type="${appd_aws_eks_node_type:-m5a.large}"
-appd_aws_eks_ssh_public_key="${appd_aws_eks_ssh_public_key:-AppD-Cloud-Kickstart-AWS}"
+appd_aws_eks_ssh_public_key="${appd_aws_eks_ssh_public_key:-AppD-Cloud-Kickstart}"
 
 # define usage function. ---------------------------------------------------------------------------
 usage() {
@@ -53,7 +53,7 @@ Usage:
     [centos]$ export appd_aws_eks_environment="Lab-Env-Lab-User-01"             # [optional] eks environment decription (defaults to 'Lab-Env-${appd_aws_eks_user_name}')
     [centos]$ export appd_aws_eks_nodes="2"                                     # [optional] number of eks worker nodes (defaults to '2')
     [centos]$ export appd_aws_eks_node_type="m5a.large"                         # [optional] type of ec2 instance for nodes (defaults to user 'm5a.large')
-    [centos]$ export appd_aws_eks_ssh_public_key="AppD-Cloud-Kickstart-AWS"     # [optional] public key used to ssh to eks cluster (defaults to 'AppD-Cloud-Kickstart-AWS')
+    [centos]$ export appd_aws_eks_ssh_public_key="AppD-Cloud-Kickstart"         # [optional] public key used to ssh to eks cluster (defaults to 'AppD-Cloud-Kickstart')
 
   --------
   Example:

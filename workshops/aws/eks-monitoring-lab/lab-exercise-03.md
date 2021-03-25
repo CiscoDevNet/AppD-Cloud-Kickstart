@@ -54,9 +54,9 @@ If the above section is not completed correctly at VM creation, the Controller E
 
   8. Click '**Review and Launch**' to launch your VM. When prompted for a key pair:  
 
-     a. Select the **AppD-Cloud-Kickstart-AWS** pem if you have access to it. You can request this key from the workshop creators.  
+     a. Select the **AppD-Cloud-Kickstart** pem if you have access to it. You can request this key from the workshop creators.  
      b. Otherwise: Select **Create a new key pair** and give it a name. Remember to download it and save it locally.  
-     b. Otherwise: Use the same key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart-AWS.pem' in all of the remaining lab exercises.
+     b. Otherwise: Use the same key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart.pem' in all of the remaining lab exercises.
 
 **NOTE:** Once the VM is launched, it will take ~5-10 minutes for the Controller to completely initialize and accept login requests.
 Make sure you take note of the Public IP Address (FQDN) of the server. You will be leveraging this server in the remainder of the lab.

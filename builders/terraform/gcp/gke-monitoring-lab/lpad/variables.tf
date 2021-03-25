@@ -105,7 +105,7 @@ variable "gcp_service_account" {
 }
 
 variable "gcp_ssh_pub_key_path" {
-  default     = "../../../../../shared/keys/AppD-Cloud-Kickstart-AWS.pub"
+  default     = "../../../../../shared/keys/AppD-Cloud-Kickstart.pub"
 }
 
 variable "lab_count" {

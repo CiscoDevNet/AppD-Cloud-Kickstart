@@ -17,7 +17,7 @@ In this exercise you will need to do the following:
 ssh into the launchpad Server
 
 ```bash
-ssh -i AppD-Cloud-Kickstart-AWS.pem ec2-user@FQDN_OF_MACHINE
+ssh -i AppD-Cloud-Kickstart.pem ec2-user@FQDN_OF_MACHINE
 ```
 
 Using the SSH terminal for the Launch Pad EC2 instance, run the commands below to validate your EKS cluster creation is complete and running:
