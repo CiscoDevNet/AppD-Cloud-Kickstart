@@ -101,14 +101,14 @@ export appd_aws_eks_ssh_public_key=your-unique-ssh-key
 Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone the GitHub repository by running the commands below:
 
 ```bash
-cd /home/ec2-user
+cd
 
 git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
 ```
 
 After you run the command, you should have this folder in your home directory
 
-*/home/ec2-user/AppD-Cloud-Kickstart*
+*~/AppD-Cloud-Kickstart*
 
 ![Git Repos Pulled](./images/2a.png)
 
@@ -119,7 +119,7 @@ After you run the command, you should have this folder in your home directory
 Change to the directory where you will prepare to connect to your AWS EKS cluster and create a local `kubeconfig`:
 
 ```bash
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 ```
 <br>
 
@@ -198,7 +198,7 @@ export appd_aws_eks_region=eu-west-3
 Once both variables have been set, run the commands below to connect to your AWS EKS cluster and create a local `kubeconfig`:
 
 ```bash
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 ./create_kubeconfig_for_eks.sh
 

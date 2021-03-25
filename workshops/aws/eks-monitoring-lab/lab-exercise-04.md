@@ -23,7 +23,7 @@ ssh -i AppD-Cloud-Kickstart-AWS.pem ec2-user@FQDN_OF_MACHINE
 Using the SSH terminal for the Launch Pad EC2 instance, run the commands below to validate your EKS cluster creation is complete and running:
 
 ```bash
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 kubectl get nodes
 
@@ -47,7 +47,7 @@ export appd_controller_host=your-controller-host-name-or-ip
 Run the commands below to complete the process of setting all the variables needed to deploy to the EKS cluster:
 
 ```bash
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 
 ./create_env_configmap.sh
 ```
@@ -62,7 +62,7 @@ You should then see output similar to the image seen below:
 To deploy the AD-Capital application to the EKS cluster, run the commands below:
 
 ```bash
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
+cd ~/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
 
 kubectl create -f Kubernetes/
 ```

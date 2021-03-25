@@ -21,7 +21,7 @@ troubleshooting problems that originate in the application code.
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Server Monitoring Agent by running the command below:
 
 ```bash
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 ```
 
 <br>
@@ -86,7 +86,7 @@ Navigate back into the AD-Capital application and click on the Containers tab on
 Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Network Monitoring Agent by running the command below:
 
 ```bash
-cd /home/ec2-user/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
+cd ~/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
 ```
 Now run the following command below to deploy the Server Monitoring agent:
 
