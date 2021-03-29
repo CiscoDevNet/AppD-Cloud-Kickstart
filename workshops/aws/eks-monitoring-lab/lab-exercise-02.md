@@ -101,7 +101,7 @@ export appd_aws_eks_ssh_public_key=your-unique-ssh-key
 Once you have an SSH command terminal open to the EC2 instance for the launch pad, you need to clone the GitHub repository by running the commands below:
 
 ```bash
-cd
+cd ~
 
 git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
 ```
