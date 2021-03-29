@@ -43,7 +43,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ aws --version
-    aws-cli/2.1.32 Python/3.7.9 Windows/10 exe/AMD64 prompt/off
+    aws-cli/2.1.32 Python/3.8.8 Windows/10 exe/AMD64 prompt/off
     ```
 
 ## Prepare for the Build
@@ -183,16 +183,16 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 
 -	Amazon AWS CLI 2.1.32 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.41.0 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.42.0 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.19.6 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.19.6 (command-line interface)
 -	Ansible 2.9.19
--	AppDynamics Node.js Serverless Tracer 20.11.242
+-	AppDynamics Node.js Serverless Tracer 21.3.278
 -	Docker 20.10.5 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.28.6
 	-	Docker Compose Bash Completion
--	Git 2.31.0
+-	Git 2.31.1
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
@@ -203,7 +203,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Java SE JDK 16 (Amazon Corretto 16)
 -	jq 1.6 (command-line JSON processor)
 -	Node.js JavaScript runtime v14.16.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 7.7.4
+-	npm JavaScript Package Manager for Node.js 7.7.5
 -	nvm (Node Version Manager) bash script 0.37.2
 -	Python 2.7.5
 	-	Pip 21.0.1
