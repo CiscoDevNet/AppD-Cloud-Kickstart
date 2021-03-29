@@ -245,12 +245,12 @@ export appd_controller_tenancy_mode
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '21.2.0.3052').
-#appd_machine_agent_release="21.2.0.3052"
+# [optional] machine agent release (defaults to '21.3.0.3059').
+#appd_machine_agent_release="21.3.0.3059"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="0ac83a580f3dc8d849e6275772db76f788d0e623a5c0b7961e9d4597b0d1e559"
+#appd_machine_agent_sha256="8f3372c06f2b7e5a13c1c70d164674de2df4eeca201f8eb7d1fbc26a559c9fd4"
 #export appd_machine_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -373,12 +373,12 @@ export appd_controller_tenancy_mode
 #appd_cluster_agent_user_group="centos"
 #export appd_cluster_agent_user_group
 
-# [optional] cluster agent release (defaults to '21.2.0.3052').
-#appd_cluster_agent_release="21.2.0.1997"
+# [optional] cluster agent release (defaults to '21.3.1.2042').
+#appd_cluster_agent_release="21.3.1.2042"
 #export appd_cluster_agent_release
 
 # [optional] cluster agent sha-256 checksum (defaults to published value).
-#appd_cluster_agent_sha256="c191cba91d13dfb01e29b43125943f7bd96638db654385ab32c9af18d2c982bb"
+#appd_cluster_agent_sha256="06664291472278c9a6bdfe35672c3cab96079c83ee0fde54d92f5ec1501ad1fe"
 #export appd_cluster_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
