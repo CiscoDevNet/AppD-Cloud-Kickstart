@@ -37,8 +37,8 @@ set -x  # turn command display back ON.
 appd_cluster_agent_home="${appd_cluster_agent_home:-cluster-agent}"
 appd_cluster_agent_user="${appd_cluster_agent_user:-centos}"
 appd_cluster_agent_user_group="${appd_cluster_agent_user_group:-centos}"
-appd_cluster_agent_release="${appd_cluster_agent_release:-21.2.0.1997}"
-appd_cluster_agent_sha256="${appd_cluster_agent_sha256:-c191cba91d13dfb01e29b43125943f7bd96638db654385ab32c9af18d2c982bb}"
+appd_cluster_agent_release="${appd_cluster_agent_release:-21.3.1.2042}"
+appd_cluster_agent_sha256="${appd_cluster_agent_sha256:-06664291472278c9a6bdfe35672c3cab96079c83ee0fde54d92f5ec1501ad1fe}"
 
 # [OPTIONAL] appdynamics cluster agent config parameters [w/ defaults].
 appd_install_kubernetes_metrics_server="${appd_install_kubernetes_metrics_server:-true}"
@@ -77,9 +77,9 @@ Usage:
     [root]# export appd_cluster_agent_home="cluster-agent"              # [optional] cluster agent home (defaults to 'cluster-agent').
     [root]# export appd_cluster_agent_user="centos"                     # [optional] cluster agent user (defaults to user 'centos').
     [root]# export appd_cluster_agent_user_group="centos"               # [optional] cluster agent group (defaults to group 'centos').
-    [root]# export appd_cluster_agent_release="21.2.0.1997"             # [optional] cluster agent release (defaults to '21.2.0.1997').
+    [root]# export appd_cluster_agent_release="21.3.1.2042"             # [optional] cluster agent release (defaults to '21.3.1.2042').
                                                                         # [optional] cluster agent sha-256 checksum (defaults to published value).
-    [root]# export appd_cluster_agent_sha256="c191cba91d13dfb01e29b43125943f7bd96638db654385ab32c9af18d2c982bb"
+    [root]# export appd_cluster_agent_sha256="06664291472278c9a6bdfe35672c3cab96079c83ee0fde54d92f5ec1501ad1fe"
 
   [OPTIONAL] appdynamics cluster agent config parameters [w/ defaults].
     [root]# export appd_install_kubernetes_metrics_server="true"        # [optional] install kubernetes metrics server? [boolean] (defaults to 'true').
