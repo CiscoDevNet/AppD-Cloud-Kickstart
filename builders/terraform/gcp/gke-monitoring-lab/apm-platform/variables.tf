@@ -62,7 +62,7 @@ variable "gcp_source_image_family" {
 variable "gcp_source_image" {
   description = "The source disk image."
   type        = string
-  default     = "apm-platform-centos79-2021-03-25"
+  default     = "apm-platform-centos79-2021-03-29"
 # default     = "centos-7-v20200910"
 }
 
