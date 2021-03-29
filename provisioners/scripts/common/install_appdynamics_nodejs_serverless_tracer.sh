@@ -45,3 +45,6 @@ user_name="${user_name:-centos}"
 
 # install nodejs serverless tracer. ----------------------------------------------------------------
 runuser -c "npm install -g appdynamics-lambda-tracer@latest" - ${user_name}
+
+# verify nodejs serverless tracer installation.
+runuser -c "npm show appdynamics-lambda-tracer version" - ${user_name}
