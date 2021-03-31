@@ -70,110 +70,59 @@ cd ~
 git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
 ```
 
-After you run the command, you should have this folder in your home directory
+After you run the command, you should have this folder in your home directory.
 
 *~/AppD-Cloud-Kickstart*
 
-![Git Repos Pulled](./images/gcp-2a.png)
+![Git Repos Pulled](./images/gcp-gke-monitoring-lab-01.png)
 
 <br>
 
 ### **3.** Connect to the GKE Kubernetes Cluster
 
-Change to the directory where you will prepare to connect to your AWS EKS cluster and create a local `kubeconfig`:
+The gcloud command-line interface is the primary CLI tool to create and manage Google Cloud resources.  
+
+Verify your gcloud CLI configuration:
 
 ```bash
-cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+gcloud config list
 ```
-<br>
 
-Next, you will need to set two environment variables. The first variable, '**appd_aws_eks_user_name**', needs special instructions, so please read carefully.  
+After you run the command, verify that your **account** settings begin with '**devops@**':
 
-<br>
-
-**It is VERY IMPORTANT that the 'appd_aws_eks_user_name' variable BE UNIQUE TO YOU !!!**  
-
-This variable is used as the name of the EKS cluster and the cluster configuration will fail if do not follow this step properly. It could also interfere with another persons cluster with the same name if they are running commands to configure the cluster when you are.
-
-It is advisable to set the '**appd_aws_eks_user_name**' variable to a value that was assigned to your by your lab instructor to ensure a unique cluster name.
-
-Example:
-<br>
-
-Lab User Name: **Lab-User-01**
-
-The example command based on the lab user name and number sequence show above:
-
-*export appd_aws_eks_user_name=Lab-User-01*
+![Git Repos Pulled](./images/gcp-gke-monitoring-lab-02.png)
 
 <br>
 
-Run the command below, replacing 'your-unique-lab-user-id' with the unique lab user id you were assigned based on the instructions above:
+Next, verify the name of your GKE Cluster and retrieve the compute zone of the cluster:
+
 ```bash
-export appd_aws_eks_user_name=your-unique-lab-user-id
+echo $gcp_gke_cluster_name
+
+gcloud container clusters list --filter="name:${gcp_gke_cluster_name}" --format="value(location)"
 ```
-<br>
 
-The second variable ('**appd_aws_eks_region**') needs to specify the AWS region that you are working in.  
-Currently, only the six regions below are supported.
+After you run the command, take note of your **GKE Cluster name** and '**Compute Zone (location)**':
 
-- ap-south-1
-- us-east-1
-- us-east-2
-- us-west-2
-- eu-west-2
-- eu-west-3
+![Git Repos Pulled](./images/gcp-gke-monitoring-lab-03.png)
 
 <br>
 
-If you are working in the **ap-south-1** region, run the command below:
-```bash
-export appd_aws_eks_region=ap-south-1
-```
+Finally, update the local kubeconfig file with appropriate credentials and endpoint information for your GKE Cluster. By default, 
+the credentials are written to `$HOME/.kube/config`. You can provide an alternate path by setting the `KUBECONFIG` environment variable.
 
-If you are working in the **us-east-1** region, run the command below:
-```bash
-export appd_aws_eks_region=us-east-1
-```
+Fetch the credentials for your GKE Cluster, making sure to update the zone with the location returned from the previous step.  
 
-If you are working in the **us-east-2** region, run the command below:
-```bash
-export appd_aws_eks_region=us-east-2
-```
-
-If you are working in the **us-west-2** region, run the command below:
-```bash
-export appd_aws_eks_region=us-west-2
-```
-
-If you are working in the **eu-west-2** region, run the command below:
-```bash
-export appd_aws_eks_region=eu-west-2
-```
-
-If you are working in the **eu-west-3** region, run the command below:
-```bash
-export appd_aws_eks_region=eu-west-3
-```
-
-
-<br>
-
-Once both variables have been set, run the commands below to connect to your AWS EKS cluster and create a local `kubeconfig`:
+Then, validate the configuration by displaying a list of cluster services:
 
 ```bash
-cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+gcloud container clusters get-credentials ${gcp_gke_cluster_name} --zone us-central1-a
 
-./create_kubeconfig_for_eks.sh
-
+kubectl get services
 ```
-
-<br>
 
 Check to see if the output from the command is similar to the image seen below:
 
-<br>
-
-![EKS Kubeconfig Updated](./images/create-kubeconfig.png)
+![Git Repos Pulled](./images/gcp-gke-monitoring-lab-04.png)
 
 [Overview](gcp-gke-monitoring.md) | [1](lab-exercise-01.md), 2, [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-01.md) | [Next](lab-exercise-03.md)
