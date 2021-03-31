@@ -35,7 +35,7 @@ curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 # retrieve version number of latest release.
 curl --silent --dump-header curl-nvm.${curdate}.out https://github.com/nvm-sh/nvm/releases/latest --output /dev/null
 nvm_release=$(awk '{ sub("\r$", ""); print }' curl-nvm.${curdate}.out | awk '/Location/ {print $2}' | awk -F "/" '{print $8}')
-nvm_release="v0.37.2"
+nvm_release="v0.38.0"
 rm -f curl-nvm.${curdate}.out
 
 # install nvm.
