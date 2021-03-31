@@ -1,26 +1,30 @@
 # Lab Exercise 3
-## Deploy AD-Capital Application to EKS on the LaunchPad Server
-
-
+## Deploy AD-Capital Application to the GKE Kubernetes Cluster
 
 In this exercise you will need to do the following:
 
 - Connect to your LaunchPad Server via SSH
-- Validate that your EKS cluster has deployed properly
-- Run a script to set environment variables for EKS deployment
-- Run a script to deploy the AD-Capital application to EKS
+- Validate that your GKE cluster has deployed properly
+- Run a script to set environment variables for GKE deployment
+- Run a script to deploy the AD-Capital application to GKE
 - Monitor the results of the deployment in the AppDynamics Controller
 
 <br>
 
-### **1.** Validate Your EKS Cluster
-ssh into the launchpad Server
+### **1.** Validate Your GKE Cluster
+
+SSH into the Launch Pad GCE instance. You will use the user name '**centos**' with no password.
 
 ```bash
-ssh -i AppD-Cloud-Kickstart.pem ec2-user@FQDN_OF_MACHINE
+ssh -i <path-to-file>/AppD-Cloud-Kickstart.pem centos@<ip-address-of-your-launch-pad-gce-instance>
 ```
 
-Using the SSH terminal for the Launch Pad EC2 instance, run the commands below to validate your EKS cluster creation is complete and running:
+Example:
+```bash
+ssh -i AppD-Cloud-Kickstart.pem centos@35.206.71.70
+```
+
+Run the commands below to validate your GKE cluster creation is complete and running:
 
 ```bash
 cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
@@ -31,20 +35,19 @@ kubectl get namespace
 ```
 You should see output from the commands similar to the image seen below:
 
-![EKS Cluster Validation](./images/4.png)
+![GKE Cluster Validation](./images/gcp-gke-monitoring-lab-08.png)
 
 <br>
 
+### **2.** Set Environment Variables for GKE Deployment
 
-### **2.** Set Environment Variables for EKS Deployment
-Run the command below to set the variable for the controller host, replacing 'your-controller-host-name-or-ip' with the public IP address or public host name of your controller:
+Run the command below to set the environment variable for the AppDynamics Controller host, replacing 
+'your-controller-ip-address' with the public IP address of your Controller:
 
 ```bash
-export appd_controller_host=your-controller-host-name-or-ip
+export appd_controller_host=your-controller-ip-address
 ```
-**NOTE:** Before you proceed to the next step, confirm that your controller has finished starting up by logging into your controller with your browser.  If you run the next command before your controller has completely initialized, you will get an error.  If this happens, wait until you can login to your controller and run the command again.
-
-Run the commands below to complete the process of setting all the variables needed to deploy to the EKS cluster:
+Run the commands below to complete the process of setting all the variables needed to deploy to the GKE cluster:
 
 ```bash
 cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
@@ -53,13 +56,13 @@ cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
 ```
 You should then see output similar to the image seen below:
 
-![EKS Configmap](./images/9.png)
+![GKE Configmap](./images/gcp-gke-monitoring-lab-09.png)
 
 <br>
 
-### **3.** Deploy the AD-Capital Application to EKS
+### **3.** Deploy the AD-Capital Application to GKE
 
-To deploy the AD-Capital application to the EKS cluster, run the commands below:
+To deploy the AD-Capital application to the GKE cluster, run the commands below:
 
 ```bash
 cd ~/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
@@ -68,17 +71,16 @@ kubectl create -f Kubernetes/
 ```
 You should then see output similar to the image seen below:
 
-![AD-Capital Deploy](./images/10.png)
+![AD-Capital Deploy](./images/gcp-gke-monitoring-lab-10.png)
 
-Now wait four minutes and run the command below to validate that the EKS pods are running:
+Now wait four minutes and run the command below to validate that the GKE pods are running:
 
 ```bash
 kubectl get pods -n default
 ```
 You should then see output similar to the image seen below:
 
-![EKS Pods](./images/11.png)
-
+![GKE Pods](./images/gcp-gke-monitoring-lab-11.png)
 
 <br>
 

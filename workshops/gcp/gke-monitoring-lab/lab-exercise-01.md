@@ -20,7 +20,7 @@ You will use the user name '**centos**' with no password to SSH into the Launch 
 Run the command below from a terminal window, with the path to your copy of the `AppD-Cloud-Kickstart.pem` file and the IP Address of your Launch Pad GCE instance:
 ```bash
 chmod 400 <path-to-file>/AppD-Cloud-Kickstart.pem
-ssh -i <path-to-file>/AppD-Cloud-Kickstart.pem <ip-address-of-your-launch-pad-gce-instance>
+ssh -i <path-to-file>/AppD-Cloud-Kickstart.pem centos@<ip-address-of-your-launch-pad-gce-instance>
 ```
 
 Example:
@@ -48,15 +48,15 @@ Configure PuTTY to SSH into the Launch Pad GCE instance using the steps below:
 7. Click on the Open button to start your session
 
 
-![Git Repos Pulled](./images/putty-config-01.png)
+![PuTTY Session Config](./images/putty-config-01.png)
 
-![Git Repos Pulled](./images/gcp-putty-config-02.png)
+![PuTTY SSH Auth Config](./images/gcp-putty-config-02.png)
 
-![Git Repos Pulled](./images/putty-config-03.png)
+![PuTTY Save Session Config](./images/putty-config-03.png)
 
 When your session opens you will be prompted for your user name. Enter '**centos**' for the user name, no password is required.
 
-![Git Repos Pulled](./images/gcp-putty-config-04.png)
+![PuTTY SSH Login](./images/gcp-putty-config-04.png)
 
 <br>
 
@@ -74,7 +74,7 @@ After you run the command, you should have this folder in your home directory.
 
 *~/AppD-Cloud-Kickstart*
 
-![Git Repos Pulled](./images/gcp-gke-monitoring-lab-01.png)
+![Git Repo Pulled](./images/gcp-gke-monitoring-lab-01.png)
 
 <br>
 
@@ -90,7 +90,7 @@ gcloud config list
 
 After you run the command, verify that your **account** settings begin with '**devops@**':
 
-![Git Repos Pulled](./images/gcp-gke-monitoring-lab-02.png)
+![gcloud CLI Config](./images/gcp-gke-monitoring-lab-02.png)
 
 <br>
 
@@ -104,7 +104,7 @@ gcloud container clusters list --filter="name:${gcp_gke_cluster_name}" --format=
 
 After you run the command, take note of your **GKE Cluster name** and '**Compute Zone (location)**':
 
-![Git Repos Pulled](./images/gcp-gke-monitoring-lab-03.png)
+![GKE Cluster Name and Zone](./images/gcp-gke-monitoring-lab-03.png)
 
 <br>
 
@@ -116,13 +116,13 @@ Fetch the credentials for your GKE Cluster, making sure to update the zone with 
 Then, validate the configuration by displaying a list of cluster services:
 
 ```bash
-gcloud container clusters get-credentials ${gcp_gke_cluster_name} --zone us-central1-a
+gcloud container clusters get-credentials ${gcp_gke_cluster_name} --zone <your_gke_cluster_zone_here>
 
 kubectl get services
 ```
 
 Check to see if the output from the command is similar to the image seen below:
 
-![Git Repos Pulled](./images/gcp-gke-monitoring-lab-04.png)
+![gcloud CLI Get Credentials](./images/gcp-gke-monitoring-lab-04.png)
 
 [Overview](gcp-gke-monitoring.md) | 1, [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md) | [Back](gcp-gke-monitoring.md) | [Next](lab-exercise-02.md)

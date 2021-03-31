@@ -49,4 +49,4 @@ To ease the effort, we have created a couple of AMIs using automated tooling. Th
     - In this step you will use the Launch Pad EC2 instance to deploy the AppDynamics Kubernetes Cluster Agent to the EKS cluster and monitor the results of the deployment in the AppDynamics Controller.<br><br>
 <br>
 
-Overview | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md), | Back | [Next](lab-exercise-01.md)
+Overview | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md) | Back | [Next](lab-exercise-01.md)
