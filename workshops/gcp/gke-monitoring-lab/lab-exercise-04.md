@@ -1,4 +1,4 @@
-# Lab Exercise 5
+# Lab Exercise 4
 ## Deploy the Server Agent & Network Agent to EKS
 
 
@@ -138,4 +138,4 @@ Back on the main Network Dashboard, click on the Explorer link under Connections
 
 <br>
 
-[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), 5, [6](lab-exercise-06.md) | [Back](lab-exercise-04.md) | [Next](lab-exercise-06.md)
+[Overview](gcp-gke-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), 4, [5](lab-exercise-05.md) | [Back](lab-exercise-03.md) | [Next](lab-exercise-05.md)

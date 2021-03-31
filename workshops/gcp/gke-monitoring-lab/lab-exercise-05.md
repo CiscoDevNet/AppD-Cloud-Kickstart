@@ -1,4 +1,4 @@
-# Lab Exercise 6
+# Lab Exercise 5
 ## Deploy the Cluster Agent to EKS
 
 
@@ -236,4 +236,4 @@ https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorCluster
 ## Congratulations! You have finished the AWS EKS Monitoring Lab.
 <br>
 
-[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), 6 | [Back](lab-exercise-05.md) | Next
+[Overview](gcp-gke-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), 5 | [Back](lab-exercise-04.md) | Next

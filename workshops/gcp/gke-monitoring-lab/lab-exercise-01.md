@@ -1,4 +1,4 @@
-# Lab Exercise 2
+# Lab Exercise 1
 ## Clone GitHub Repository & Configure GKE Kubernetes Cluster
 
 This workshop takes previously configured docker-compose applications (AD-Capital-Kube) and makes them deployable to a kubernetes cluster. If you are curious about any of the repositiories; either the original java application code itself or the dockerized version, they are publicly available with detailed explanations as to what they contain. For the purpose of this walkthrough, it will be focused solely on Kubernetes.
@@ -125,4 +125,4 @@ Check to see if the output from the command is similar to the image seen below:
 
 ![Git Repos Pulled](./images/gcp-gke-monitoring-lab-04.png)
 
-[Overview](gcp-gke-monitoring.md) | [1](lab-exercise-01.md), 2, [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-01.md) | [Next](lab-exercise-03.md)
+[Overview](gcp-gke-monitoring.md) | 1, [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md) | [Back](gcp-gke-monitoring.md) | [Next](lab-exercise-02.md)
