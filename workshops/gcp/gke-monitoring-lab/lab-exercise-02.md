@@ -1,128 +1,94 @@
-# Lab Exercise 2
-## Clone GitHub Repository & Configure GKE Kubernetes Cluster
+# Lab Exercise 3
+## Launch the Second EC2 Instance (e.g. Controller EC2)
 
-This workshop takes previously configured docker-compose applications (AD-Capital-Kube) and makes them deployable to a kubernetes cluster. If you are curious about any of the repositiories; either the original java application code itself or the dockerized version, they are publicly available with detailed explanations as to what they contain. For the purpose of this walkthrough, it will be focused solely on Kubernetes.
+The AppDynamics Controller is the central management server where all data is stored and analyzed. All AppDynamics Agents connect to the Controller to report data, and the Controller provides a browser-based user interface for monitoring and troubleshooting application performance.
 
-In this exercise you will need to do the following:
+In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the second EC2 instance that will have the AppDynamics Enterprise Console, Controller, and Events Service running on it.
 
-- SSH into the Launch Pad GCE instance
-- Clone GitHub repository
-- Run a command to connect to a GKE Kubernetes cluster
+This EC2 instance will be referenced in the lab steps as the 'Controller EC2'.
 
-### **1.** SSH Into the Launch Pad GCE Instance
-You will need a copy of the `AppD-Cloud-Kickstart.pem` file in order to SSH into your Launch Pad GCE instance. You can obtain a copy of the `AppD-Cloud-Kickstart.pem` file from your lab instructor.  
+You will need to use an existing AMI image named **APM-Platform-2123-CentOS79-AMI** and located in the AWS region that you are working in:
 
-You will use the user name '**centos**' with no password to SSH into the Launch Pad GCE instance.
-<br><br>
-
-***For Mac Users:***
-
-Run the command below from a terminal window, with the path to your copy of the `AppD-Cloud-Kickstart.pem` file and the IP Address of your Launch Pad GCE instance:
-```bash
-chmod 400 <path-to-file>/AppD-Cloud-Kickstart.pem
-ssh -i <path-to-file>/AppD-Cloud-Kickstart.pem <ip-address-of-your-launch-pad-gce-instance>
-```
-
-Example:
-```bash
-ssh -i AppD-Cloud-Kickstart.pem centos@35.206.71.70
-```
+- The AMI image for the **ap-south-1** region can be found [here](https://ap-south-1.console.aws.amazon.com/ec2/v2/home?region=ap-south-1#Images:sort=tag:Name).
+- The AMI image for the **us-east-1** region can be found [here](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:sort=tag:Name).
+- The AMI image for the **us-east-2** region can be found [here](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Images:sort=tag:Name).
+- The AMI image for the **us-west-2** region can be found [here](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=tag:Name).
+- The AMI image for the **eu-west-2** region can be found [here](https://eu-west-2.console.aws.amazon.com/ec2/v2/home?region=eu-west-2#Images:sort=tag:Name).
+- The AMI image for the **eu-west-3** region can be found [here](https://eu-west-3.console.aws.amazon.com/ec2/v2/home?region=eu-west-3#Images:sort=tag:Name).
 
 <br>
 
-***For Windows Users:***
+Once you have identified the appropriate AMI, launch an instance of it via:
 
-You will need [PuTTY](https://www.putty.org/) or another SSH client installed to SSH into the Launch Pad GCE instance.
-<br>
+  1. Select the **APM-Platform-2123-CentOS79-AMI** and click the **Launch** button.
+  2. Select Memory optimized: **r5a.large** with 2 vCPUs and 16 GiB RAM.
+  3. Click '**Next: Configure Instance Details**' in the bottom right.
+  4. Keep all default values; scroll to the bottom and expand '**Advanced Details**'.
 
-If you are using PuTTY, you can obtain a copy of the `AppD-Cloud-Kickstart.ppk` file from your lab instructor.
+Once 'Advance Details' is expanded, enter the following '**User data**' commands '**As text**'.
 
-Configure PuTTY to SSH into the Launch Pad GCE instance using the steps below:
+This allows you to customize configuration of the EC2 instance during launch.
 
-1. Enter the public IP address of your LPAD instance
-2. Enter a name for your session to your LPAD instance
-3. Click on the Auth option under SSH
-4. Click on the Browse button to select your PPK file
-5. Click on the Session option at the top of the tree on the left
-6. Click on the Save button and your session will be added to the list
-7. Click on the Open button to start your session
-
-
-![Git Repos Pulled](./images/putty-config-01.png)
-
-![Git Repos Pulled](./images/gcp-putty-config-02.png)
-
-![Git Repos Pulled](./images/putty-config-03.png)
-
-When your session opens you will be prompted for your user name. Enter '**centos**' for the user name, no password is required.
-
-![Git Repos Pulled](./images/gcp-putty-config-04.png)
-
-<br>
-
-### **2.** Clone GitHub Repository
-
-Once you have an SSH command terminal open to the GCE instance for the launch pad, you need to clone the GitHub repository by running the commands below:
+Copy and paste the following script code in the the 'User data' text box:
 
 ```bash
-cd ~
+#!/bin/sh
+cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
+chmod 755 ./initialize_al2_apm_platform_cloud_init.sh
 
-git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
+./initialize_al2_apm_platform_cloud_init.sh
 ```
 
-After you run the command, you should have this folder in your home directory.
+If the above section is not completed correctly at VM creation, the Controller EC2 instance will not function as intended.
 
-*~/AppD-Cloud-Kickstart*
+  5. Click '**Next: Add Storage**' in the bottom right and leave the defaults.
+  6. Click '**Next: Add Tags**' in the bottom right and add one tag as shown below:
+     For example, if your user name is 'John Smith', enter the following:
 
-![Git Repos Pulled](./images/gcp-gke-monitoring-lab-01.png)
+     Key: **Name**  
+     Value: **User-CTLR-John-Smith**
 
+  7. Click '**Next: Configure Security Group**' in the bottom right. Select the following group from the drop down.
+
+![Security Group](./images/security-group-01.png)
+
+  8. Click '**Review and Launch**' to launch your VM. When prompted for a key pair:  
+
+     a. Select the **AppD-Cloud-Kickstart** pem if you have access to it. You can request this key from the workshop creators.  
+     b. Otherwise: Select **Create a new key pair** and give it a name. Remember to download it and save it locally.  
+     b. Otherwise: Use the same key pair that you created in [Lab Exercise 1](lab-exercise-01.md). Remember to substitute the name of your downloaded '.pem' file for 'AppD-Cloud-Kickstart.pem' in all of the remaining lab exercises.
+
+**NOTE:** Once the VM is launched, it will take ~5-10 minutes for the Controller to completely initialize and accept login requests.
+Make sure you take note of the Public IP Address (FQDN) of the server. You will be leveraging this server in the remainder of the lab.
+
+You can test that the Controller is ready via the REST API. Run the command below from a terminal window:
+```bash
+curl http://<FQDN>:8090/controller/rest/serverstatus
+```
+
+If the Controller has successfully started, an XML document such as the following will be returned:
+```bash
+<?xml version="1.0" encoding="UTF-8"?>
+<serverstatus vendorid="" version="1">
+  <available>true</available>
+  <serverid></serverid>
+  <serverinfo>
+    <vendorname>AppDynamics</vendorname>
+    <productname>AppDynamics Application Performance Management</productname>
+    <serverversion>021-002-003-000</serverversion>
+    <implementationVersion>Controller v21.2.3.0 Build 21.2.3-1179 Commit 3acb1ea2133d3ebdefd7ee031d78fd62d33d5800</implementationVersion>
+  </serverinfo>
+  <startupTimeInSeconds>8</startupTimeInSeconds>
+</serverstatus>
+```
+
+If you see `null` or an HTML document containing a 404 error, the Controller is not quite ready. Just wait a few minutes longer.  
+
+When ready, your controller address will be:
+
+**http://FQDN:8090/controller**
+
+Use the usename "**admin**" to login. And use "**welcome1**" as the password.
 <br>
 
-### **3.** Connect to the GKE Kubernetes Cluster
-
-The gcloud command-line interface is the primary CLI tool to create and manage Google Cloud resources.  
-
-Verify your gcloud CLI configuration:
-
-```bash
-gcloud config list
-```
-
-After you run the command, verify that your **account** settings begin with '**devops@**':
-
-![Git Repos Pulled](./images/gcp-gke-monitoring-lab-02.png)
-
-<br>
-
-Next, verify the name of your GKE Cluster and retrieve the compute zone of the cluster:
-
-```bash
-echo $gcp_gke_cluster_name
-
-gcloud container clusters list --filter="name:${gcp_gke_cluster_name}" --format="value(location)"
-```
-
-After you run the command, take note of your **GKE Cluster name** and '**Compute Zone (location)**':
-
-![Git Repos Pulled](./images/gcp-gke-monitoring-lab-03.png)
-
-<br>
-
-Finally, update the local kubeconfig file with appropriate credentials and endpoint information for your GKE Cluster. By default, 
-the credentials are written to `$HOME/.kube/config`. You can provide an alternate path by setting the `KUBECONFIG` environment variable.
-
-Fetch the credentials for your GKE Cluster, making sure to update the zone with the location returned from the previous step.  
-
-Then, validate the configuration by displaying a list of cluster services:
-
-```bash
-gcloud container clusters get-credentials ${gcp_gke_cluster_name} --zone us-central1-a
-
-kubectl get services
-```
-
-Check to see if the output from the command is similar to the image seen below:
-
-![Git Repos Pulled](./images/gcp-gke-monitoring-lab-04.png)
-
-[Overview](gcp-gke-monitoring.md) | [1](lab-exercise-01.md), 2, [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-01.md) | [Next](lab-exercise-03.md)
+[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), 3, [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-02.md) | [Next](lab-exercise-04.md)

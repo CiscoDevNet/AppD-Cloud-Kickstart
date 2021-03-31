@@ -1,101 +1,141 @@
-# Lab Exercise 4
-## Deploy AD-Capital Application to EKS on the LaunchPad Server
+# Lab Exercise 5
+## Deploy the Server Agent & Network Agent to EKS
 
 
 
 In this exercise you will need to do the following:
 
-- Connect to your LaunchPad Server via SSH
-- Validate that your EKS cluster has deployed properly
-- Run a script to set environment variables for EKS deployment
-- Run a script to deploy the AD-Capital application to EKS
-- Monitor the results of the deployment in the AppDynamics Controller
+- Deploy the Server Monitoring Agent to EKS
+- Monitor the Servers in the Controller
+- Deploy the Network Agent to EKS
+- Monitor the Network in the Controller
 
 <br>
 
-### **1.** Validate Your EKS Cluster
-ssh into the launchpad Server
+### **1.** Deploy the Server Monitoring Agent to EKS
 
-```bash
-ssh -i AppD-Cloud-Kickstart.pem ec2-user@FQDN_OF_MACHINE
-```
+Server monitoring Agents collect machine and infrastructure-level metrics like Disk I/O, throughput, CPU utilization, and memory usage.
+These metrics help operations teams get a pulse on their infrastructure, but they fall short when it comes to finding, isolating and
+troubleshooting problems that originate in the application code.
 
-Using the SSH terminal for the Launch Pad EC2 instance, run the commands below to validate your EKS cluster creation is complete and running:
+Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Server Monitoring Agent by running the command below:
 
 ```bash
 cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
-
-kubectl get nodes
-
-kubectl get namespace
 ```
-You should see output from the commands similar to the image seen below:
-
-![EKS Cluster Validation](./images/4.png)
 
 <br>
 
-
-### **2.** Set Environment Variables for EKS Deployment
-Run the command below to set the variable for the controller host, replacing 'your-controller-host-name-or-ip' with the public IP address or public host name of your controller:
-
+To deploy the Server Monitoring Agent to EKS, run the command below:
 ```bash
-export appd_controller_host=your-controller-host-name-or-ip
+kubectl create -f KubeMachineAgent/
 ```
-**NOTE:** Before you proceed to the next step, confirm that your controller has finished starting up by logging into your controller with your browser.  If you run the next command before your controller has completely initialized, you will get an error.  If this happens, wait until you can login to your controller and run the command again.
 
-Run the commands below to complete the process of setting all the variables needed to deploy to the EKS cluster:
+You should see output from the command similar to the image seen below:
 
-```bash
-cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+![Create SIM](./images/sim-agent-deploy-01.png)
 
-./create_env_configmap.sh
-```
-You should then see output similar to the image seen below:
-
-![EKS Configmap](./images/9.png)
-
-<br>
-
-### **3.** Deploy the AD-Capital Application to EKS
-
-To deploy the AD-Capital application to the EKS cluster, run the commands below:
-
-```bash
-cd ~/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
-
-kubectl create -f Kubernetes/
-```
-You should then see output similar to the image seen below:
-
-![AD-Capital Deploy](./images/10.png)
-
-Now wait four minutes and run the command below to validate that the EKS pods are running:
+Now wait two minutes and run the command below to validate that the agent has been deployed to the cluster:
 
 ```bash
 kubectl get pods -n default
 ```
 You should then see output similar to the image seen below:
 
-![EKS Pods](./images/11.png)
+![EKS Pods](./images/sim-agent-deploy-02.png)
 
 
 <br>
 
-### **4.** Monitor Deployment in the AppDynamics Controller
+### **2.** Monitor the Servers in the Controller
 
-Wait four more minutes and go to your web browser and check the controller to see if the AD-Capital application is reporting to the controller. You should see what the image below shows when you click on the Applications tab:
+Wait four minutes and go to your web browser and check the controller to see if the servers are reporting to the controller.  You should see what the image below shows when you click on the Servers tab on the top menu:
 
-![Controller Apps](./images/12.png)
-
-Wait a few more minutes and you should see the flow map that looks like the image below:
-
-![Flow Map](./images/13.png)
+![Controller Apps-1](./images/16.png)
 
 <br>
 
-**NOTE:** If your application does not show up in AppD, there was likely an issue with the Public IP / FQDN passed along or the config map. You may need to delete your deployment and recreate after verifying those steps. After deleting the application deployment, go back to step 5. The command to delete your deployment is: `kubectl delete -f Kubernetes/`
+Navigate into the AD-Capital application and click on the Servers tab on the left menu.  You should see what the image shows below.  The AppDynamics server agent has automatically associated the servers with the application:
+
+![Controller Apps-2](./images/30.png)
 
 <br>
 
-[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), 4, [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-03.md) | [Next](lab-exercise-05.md)
+Double click on one the servers in the view.  You should see what the image shows below. Explore the different dashboards across the horizontal tab for the server (e.g. Processes, Volumes, Containers):
+
+![Controller Apps-3](./images/31.png)
+
+<br>
+
+Drill into the Containers tab and double click on one of the containers to view the detail of the container as seen in the image below:
+
+![Controller Apps-4](./images/32.png)
+
+<br>
+
+Navigate back into the AD-Capital application and click on the Containers tab on the left menu to see a summary of all the running containers for the application:
+
+![Controller Apps-5](./images/33.png)
+
+
+
+<br>
+
+### **3.** Deploy the Network Agent to EKS
+
+Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Network Monitoring Agent by running the command below:
+
+```bash
+cd ~/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
+```
+Now run the following command below to deploy the Server Monitoring agent:
+
+```bash
+kubectl create -f KubernetesNetVisAgent/
+```
+
+You should see output from the command similar to the image seen below:
+
+![Create NetViz](./images/netviz-agent-deploy-01.png)
+
+Now wait two minutes and run the command below to validate that the agent has been deployed to the cluster:
+
+```bash
+kubectl get pods -n default
+```
+You should then see output similar to the image seen below:
+
+![EKS Pods](./images/netviz-agent-deploy-02.png)
+
+
+<br>
+
+### **4.** Monitor the Network in the Controller
+
+Wait six minutes and go to your web browser and check the controller to see if the network agents are reporting to the controller.  You should see what the image below shows when you click on the Network Dashboard tab within the AD-Capital Application Dashboard view:
+
+![NetViz Dashboard-1](./images/19.png)
+
+<br>
+
+Now right click on the blue line connecting the 'Verification-Service' tier to the 'LOAN-MySQL DB-ADCAPITALDB-5.7.25' database and click on the 'View Network Metrics' option:
+
+![NetViz Dashboard-2](./images/34.png)
+
+
+<br>
+
+You should see an image like the one below that shows the network metrics for the connection between the Verification-Service and the database:
+
+![NetViz Dashboard-3](./images/35.png)
+
+
+<br>
+
+Back on the main Network Dashboard, click on the Explorer link under Connections near the top right of the screen to see a summary of all the connections like the image below:
+
+![NetViz Dashboard-4](./images/36.png)
+
+<br>
+
+[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), 5, [6](lab-exercise-06.md) | [Back](lab-exercise-04.md) | [Next](lab-exercise-06.md)

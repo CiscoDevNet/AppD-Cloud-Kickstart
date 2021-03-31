@@ -1,79 +1,128 @@
-# Lab Exercise 1
-## Launch the First EC2 Instance (e.g. Launch Pad EC2).
+# Lab Exercise 2
+## Clone GitHub Repository & Configure GKE Kubernetes Cluster
 
-The Launch Pad EC2 instance is used to execute all the steps needed for the creation and management of the Kubernetes (AWS EKS) cluster. It comes pre-installed with utilities like AWS CLI, kubectl, eksctl, etc.
+This workshop takes previously configured docker-compose applications (AD-Capital-Kube) and makes them deployable to a kubernetes cluster. If you are curious about any of the repositiories; either the original java application code itself or the dockerized version, they are publicly available with detailed explanations as to what they contain. For the purpose of this walkthrough, it will be focused solely on Kubernetes.
 
-In this exercise you will use the [AWS Management Console](https://aws.amazon.com/console/) to launch the first EC2 instance that will be used to clone two GitHub repositories and create the EKS cluster in the next lab exercise.
+In this exercise you will need to do the following:
 
-This EC2 instance will be referenced in the lab steps as the 'Launch Pad EC2'.
+- SSH into the Launch Pad GCE instance
+- Clone GitHub repository
+- Run a command to connect to a GKE Kubernetes cluster
 
-You will need to use an existing AMI image named **LPAD-AL2-AMI** located in the AWS region that you are working in:
+### **1.** SSH Into the Launch Pad GCE Instance
+You will need a copy of the `AppD-Cloud-Kickstart.pem` file in order to SSH into your Launch Pad GCE instance. You can obtain a copy of the `AppD-Cloud-Kickstart.pem` file from your lab instructor.  
 
-**NOTE:** Though any region can be utilized, this workshop creates a VPC, Elastic IP address, and NAT Gateway. You may run into issues with default limits for these resources. In the AppDynamics AWS environment, these limits have been increased in several regions. In general, please be aware that these limits may impact your ability to create a EKS Cluster.
+You will use the user name '**centos**' with no password to SSH into the Launch Pad GCE instance.
+<br><br>
 
-- The AMI image for the **ap-south-1** region can be found [here](https://ap-south-1.console.aws.amazon.com/ec2/v2/home?region=ap-south-1#Images:sort=tag:Name).
-- The AMI image for the **us-east-1** region can be found [here](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:sort=tag:Name).
-- The AMI image for the **us-east-2** region can be found [here](https://us-east-2.console.aws.amazon.com/ec2/v2/home?region=us-east-2#Images:sort=tag:Name).
-- The AMI image for the **us-west-2** region can be found [here](https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Images:sort=tag:Name).
-- The AMI image for the **eu-west-2** region can be found [here](https://eu-west-2.console.aws.amazon.com/ec2/v2/home?region=eu-west-2#Images:sort=tag:Name).
-- The AMI image for the **eu-west-3** region can be found [here](https://eu-west-3.console.aws.amazon.com/ec2/v2/home?region=eu-west-3#Images:sort=tag:Name).
-<br>
+***For Mac Users:***
 
-Once you have identified the appropriate AMI, launch an instance of it via:
-
-  1. Select the **LPAD-AL2-AMI** and click the **Launch** button.
-  2. Select General purpose: **t2.micro**.
-  3. Click '**Next: Configure Instance Details**' in the bottom right.
-  4. Keep all default values; scroll to the bottom and expand '**Advanced Details**'.
-
-Once 'Advance Details' is expanded, enter the following '**User data**' commands '**As text**'.
-
-This allows you to customize configuration of the EC2 instance during launch.
-
-Copy and paste the following script code in the the 'User data' text box:
-
+Run the command below from a terminal window, with the path to your copy of the `AppD-Cloud-Kickstart.pem` file and the IP Address of your Launch Pad GCE instance:
 ```bash
-#!/bin/sh
-cd /opt/appd-cloud-kickstart/provisioners/scripts/aws
-chmod 755 ./initialize_al2_lpad_cloud_init.sh
-
-user_name="ec2-user"
-export user_name
-AWS_ACCESS_KEY_ID="<Your_AWS_Access_Key_Here>"
-export AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY="<Your_AWS_Secret_Access_Key_Here>"
-export AWS_SECRET_ACCESS_KEY
-aws_cli_default_region_name="<Your_AWS_Region_Here>"
-export aws_cli_default_region_name
-
-./initialize_al2_lpad_cloud_init.sh
+chmod 400 <path-to-file>/AppD-Cloud-Kickstart.pem
+ssh -i <path-to-file>/AppD-Cloud-Kickstart.pem <ip-address-of-your-launch-pad-gce-instance>
 ```
 
-Before continuing, you need to substitute the values for the actual **AWS_ACCESS_KEY_ID** and **AWS_SECRET_ACCESS_KEY**
-environment variables with valid credentials for your environment.
-Also set the **aws_cli_default_region_name** environment variable. Valid values are: 'ap-south-1', 'us-east-1', 'us-east-2', 'us-west-2', 'eu-west-2', and 'eu-west-3'.
-Please note the variables are case sensitive:
-
-If the above section is not completed correctly at VM creation, the Launch Pad EC2 instance will not function as intended.
-
-  5. Click '**Next: Add Storage**' in the bottom right and leave the defaults.
-  6. Click '**Next: Add Tags**' in the bottom right and add one tag as shown below:
-     For example, if your user name is 'John Smith', enter the following:
-
-     Key: **Name**  
-     Value: **User-LPAD-John-Smith**
-
-  7. Click '**Next: Configure Security Group**' in the bottom right. Select the following group from the drop down.
-
-![Security Group](./images/security-group-01.png)
-
-  8. Click '**Review and Launch**' to launch your VM. When prompted for a key pair:  
-
-     a. Select the **AppD-Cloud-Kickstart** pem if you have access to it. You can request this key from the workshop creators.  
-     b. Otherwise: Select **Create a new key pair** and give it a name. Remember to download it and save it locally.  
-
-**NOTE:** Once the VM is launched, take note of the Public IP Address (FQDN) of the server. You will be leveraging this server in the remainder of the lab.
+Example:
+```bash
+ssh -i AppD-Cloud-Kickstart.pem centos@35.206.71.70
+```
 
 <br>
 
-[Overview](aws-eks-monitoring.md) | 1, [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](aws-eks-monitoring.md) | [Next](lab-exercise-02.md)
+***For Windows Users:***
+
+You will need [PuTTY](https://www.putty.org/) or another SSH client installed to SSH into the Launch Pad GCE instance.
+<br>
+
+If you are using PuTTY, you can obtain a copy of the `AppD-Cloud-Kickstart.ppk` file from your lab instructor.
+
+Configure PuTTY to SSH into the Launch Pad GCE instance using the steps below:
+
+1. Enter the public IP address of your LPAD instance
+2. Enter a name for your session to your LPAD instance
+3. Click on the Auth option under SSH
+4. Click on the Browse button to select your PPK file
+5. Click on the Session option at the top of the tree on the left
+6. Click on the Save button and your session will be added to the list
+7. Click on the Open button to start your session
+
+
+![Git Repos Pulled](./images/putty-config-01.png)
+
+![Git Repos Pulled](./images/gcp-putty-config-02.png)
+
+![Git Repos Pulled](./images/putty-config-03.png)
+
+When your session opens you will be prompted for your user name. Enter '**centos**' for the user name, no password is required.
+
+![Git Repos Pulled](./images/gcp-putty-config-04.png)
+
+<br>
+
+### **2.** Clone GitHub Repository
+
+Once you have an SSH command terminal open to the GCE instance for the launch pad, you need to clone the GitHub repository by running the commands below:
+
+```bash
+cd ~
+
+git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
+```
+
+After you run the command, you should have this folder in your home directory.
+
+*~/AppD-Cloud-Kickstart*
+
+![Git Repos Pulled](./images/gcp-gke-monitoring-lab-01.png)
+
+<br>
+
+### **3.** Connect to the GKE Kubernetes Cluster
+
+The gcloud command-line interface is the primary CLI tool to create and manage Google Cloud resources.  
+
+Verify your gcloud CLI configuration:
+
+```bash
+gcloud config list
+```
+
+After you run the command, verify that your **account** settings begin with '**devops@**':
+
+![Git Repos Pulled](./images/gcp-gke-monitoring-lab-02.png)
+
+<br>
+
+Next, verify the name of your GKE Cluster and retrieve the compute zone of the cluster:
+
+```bash
+echo $gcp_gke_cluster_name
+
+gcloud container clusters list --filter="name:${gcp_gke_cluster_name}" --format="value(location)"
+```
+
+After you run the command, take note of your **GKE Cluster name** and '**Compute Zone (location)**':
+
+![Git Repos Pulled](./images/gcp-gke-monitoring-lab-03.png)
+
+<br>
+
+Finally, update the local kubeconfig file with appropriate credentials and endpoint information for your GKE Cluster. By default, 
+the credentials are written to `$HOME/.kube/config`. You can provide an alternate path by setting the `KUBECONFIG` environment variable.
+
+Fetch the credentials for your GKE Cluster, making sure to update the zone with the location returned from the previous step.  
+
+Then, validate the configuration by displaying a list of cluster services:
+
+```bash
+gcloud container clusters get-credentials ${gcp_gke_cluster_name} --zone us-central1-a
+
+kubectl get services
+```
+
+Check to see if the output from the command is similar to the image seen below:
+
+![Git Repos Pulled](./images/gcp-gke-monitoring-lab-04.png)
+
+[Overview](gcp-gke-monitoring.md) | [1](lab-exercise-01.md), 2, [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), [6](lab-exercise-06.md) | [Back](lab-exercise-01.md) | [Next](lab-exercise-03.md)

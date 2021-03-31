@@ -1,141 +1,239 @@
-# Lab Exercise 5
-## Deploy the Server Agent & Network Agent to EKS
+# Lab Exercise 6
+## Deploy the Cluster Agent to EKS
 
 
 
 In this exercise you will need to do the following:
 
-- Deploy the Server Monitoring Agent to EKS
-- Monitor the Servers in the Controller
-- Deploy the Network Agent to EKS
-- Monitor the Network in the Controller
+- Deploy the Cluster Agent Operator to the EKS cluster
+- Build the Cluster Agent Docker image
+- Configure and Deploy the Cluster Agent
+- Install the Kubernetes Metric Server
+- Monitor the results of deploying the Cluster Agent
 
 <br>
 
-### **1.** Deploy the Server Monitoring Agent to EKS
+### **1.** Deploy the Cluster Agent Operator to the EKS cluster
 
-Server monitoring Agents collect machine and infrastructure-level metrics like Disk I/O, throughput, CPU utilization, and memory usage.
-These metrics help operations teams get a pulse on their infrastructure, but they fall short when it comes to finding, isolating and
-troubleshooting problems that originate in the application code.
-
-Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Server Monitoring Agent by running the command below:
+Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to unzip the Cluster Agent Zip file:
 
 ```bash
-cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
+cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
 ```
 
+Now use the command below to unzip the Cluster Agent Zip file:
+
+```bash
+unzip appdynamics-cluster-agent-alpine-linux.zip
+```
+
+
+You should see output from the command similar to the image seen below:
+
+![Cluster Agent Unzip](./images/cluster-agent-alpine-unzip.png)
+
 <br>
 
-To deploy the Server Monitoring Agent to EKS, run the command below:
+Use the command below to create the namespace for the Cluster Agent Operator:
+
 ```bash
-kubectl create -f KubeMachineAgent/
+kubectl create namespace appdynamics
+```
+
+Use the next command below to verify the appdynamics namespace was created:
+
+```bash
+kubectl get namespace
 ```
 
 You should see output from the command similar to the image seen below:
 
-![Create SIM](./images/sim-agent-deploy-01.png)
+![Cluster Agent Namespace](./images/cluster-agent-create-namespace-02.png)
 
-Now wait two minutes and run the command below to validate that the agent has been deployed to the cluster:
+<br>
+
+Use the command below to deploy the Cluster Agent Operator to the EKS cluster:
 
 ```bash
-kubectl get pods -n default
+kubectl create -f cluster-agent-operator.yaml
 ```
-You should then see output similar to the image seen below:
+You should see output from the command similar to the image seen below:
 
-![EKS Pods](./images/sim-agent-deploy-02.png)
-
-
-<br>
-
-### **2.** Monitor the Servers in the Controller
-
-Wait four minutes and go to your web browser and check the controller to see if the servers are reporting to the controller.  You should see what the image below shows when you click on the Servers tab on the top menu:
-
-![Controller Apps-1](./images/16.png)
+![Cluster Agent Deploy Operator](./images/cluster-agent-operator-deploy-02.png)
 
 <br>
 
-Navigate into the AD-Capital application and click on the Servers tab on the left menu.  You should see what the image shows below.  The AppDynamics server agent has automatically associated the servers with the application:
-
-![Controller Apps-2](./images/30.png)
-
-<br>
-
-Double click on one the servers in the view.  You should see what the image shows below. Explore the different dashboards across the horizontal tab for the server (e.g. Processes, Volumes, Containers):
-
-![Controller Apps-3](./images/31.png)
-
-<br>
-
-Drill into the Containers tab and double click on one of the containers to view the detail of the container as seen in the image below:
-
-![Controller Apps-4](./images/32.png)
-
-<br>
-
-Navigate back into the AD-Capital application and click on the Containers tab on the left menu to see a summary of all the running containers for the application:
-
-![Controller Apps-5](./images/33.png)
-
-
-
-<br>
-
-### **3.** Deploy the Network Agent to EKS
-
-Using the SSH terminal for the Launch Pad EC2 instance, change to the directory to deploy the Network Monitoring Agent by running the command below:
+Use the next command below to verify the Cluster Agent Operator was deployed and is now running:
 
 ```bash
-cd ~/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
-```
-Now run the following command below to deploy the Server Monitoring agent:
-
-```bash
-kubectl create -f KubernetesNetVisAgent/
+kubectl -n appdynamics get pods
 ```
 
 You should see output from the command similar to the image seen below:
 
-![Create NetViz](./images/netviz-agent-deploy-01.png)
+![Cluster Agent Verify Operator](./images/cluster-agent-operator-verify-02.png)
 
-Now wait two minutes and run the command below to validate that the agent has been deployed to the cluster:
+<br>
+
+### **2.** Build the Cluster Agent Docker image
+
+For the purposes of this lab we will use a pre-built Cluster Agent Docker image with the following Image URI: 
 
 ```bash
-kubectl get pods -n default
+edbarberis/cluster-agent:latest
 ```
-You should then see output similar to the image seen below:
 
-![EKS Pods](./images/netviz-agent-deploy-02.png)
-
+However, if you were deploying the Cluster Agent in your own Kubernetes cluster, you would need to build your own Cluster Agent Docker image in your own Docker repository.  Instructions for building your own Cluster Agent Docker image in AWS ECR can be found [here](lab-exercise-06-b.md) and are included for reference only. You do not have do the steps in that link to complete this lab.
 
 <br>
 
-### **4.** Monitor the Network in the Controller
+### **3.** Configure and Deploy the Cluster Agent
 
-Wait six minutes and go to your web browser and check the controller to see if the network agents are reporting to the controller.  You should see what the image below shows when you click on the Network Dashboard tab within the AD-Capital Application Dashboard view:
+In the AppDynamics UI, find and copy your controller access key using the following steps:
 
-![NetViz Dashboard-1](./images/19.png)
+1. Click on the gear icon in the top right of the controller UI
+2. Select the "License" option from the dropdown menu
+
+![Cluster Agent Deploy-01](./images/cluster-agent-deploy-01.png)
+<br><br>
+
+3. Click on the "Account" tab
+4. Then click on the "Show" link to the right of the Access Key to reveal the Access Key value, then highlight and copy your Access Key into a text file
+
+![Cluster Agent Deploy-02](./images/cluster-agent-deploy-02.png)
+<br><br>
+
+5. Now execute the command below in your SSH terminal window using your controller access key you obtained in the last step.
+
+```bash
+kubectl -n appdynamics create secret generic cluster-agent-secret --from-literal=controller-key='<your-controller-access-key>'
+```
+
+
+```bash
+Example:
+
+kubectl -n appdynamics create secret generic cluster-agent-secret --from-literal=controller-key='c00f6f2a-33bd-4704-b314-eb29662f4572'
+```
+
+You should see output from the command like the image below:
+![Cluster Agent Deploy-03](./images/cluster-agent-deploy-03b.png)
+<br><br>
+
+6. Now use the command below to change to the directory where you will edit the "cluster-agent.yaml" file.
+
+```bash
+cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
+```
+<br>
+
+7. Now edit the "cluster-agent.yaml" file with the editor of your choice and replace the values in lines 7, 8, 9, and 11.
+
+BEFORE:
+![Cluster Agent Deploy-04](./images/cluster-agent-deploy-04b.png)
 
 <br>
 
-Now right click on the blue line connecting the 'Verification-Service' tier to the 'LOAN-MySQL DB-ADCAPITALDB-5.7.25' database and click on the 'View Network Metrics' option:
+Line 7 should = "**AD-Capital**"<br>
+Line 8 should = The URL for your controller including the protocol and port (with double quotes). Also, change `8080` to `8090`.<br>
+Line 9 should = "**customer1**"<br>
+Line 11 should = "**edbarberis/cluster-agent:latest**"
 
-![NetViz Dashboard-2](./images/34.png)
-
-
-<br>
-
-You should see an image like the one below that shows the network metrics for the connection between the Verification-Service and the database:
-
-![NetViz Dashboard-3](./images/35.png)
-
+**Note:** Use the value seen above for Line 11 unless you built your own docker image in step number 2.  In that case you would use the Image URI of your own docker image (surrounded in double quotes).
 
 <br>
 
-Back on the main Network Dashboard, click on the Explorer link under Connections near the top right of the screen to see a summary of all the connections like the image below:
+AFTER EXAMPLE:
+![Cluster Agent Deploy-05](./images/cluster-agent-deploy-05c.png)
+<br><br>
 
-![NetViz Dashboard-4](./images/36.png)
+8. Now execute the commands below to deploy the Cluster Agent.  After executing the commands you should see the output like the image below.
 
+```bash
+cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube/ClusterAgent
+
+kubectl create -f cluster-agent.yaml
+```
+![Cluster Agent Deploy-06](./images/cluster-agent-deploy-06b.png)
+<br><br>
+
+In the AppDynamics UI, validate that the Cluster Agent is now installed with the following steps.
+
+9. Click on the gear icon in the top right of the controller UI
+10. Select the "AppDynamics Agents" option from the dropdown menu
+
+![Cluster Agent Deploy-07](./images/cluster-agent-deploy-07.png)
+<br><br>
+
+11. Click on the "Cluster Agents" tab and you should see the "AD-Capital" cluster agent like the image below.
+
+![Cluster Agent Deploy-08](./images/cluster-agent-deploy-08.png)
+<br><br>
+
+12. From here you can also click on the "Configure" button on the toolbar to add additional namespaces to be monitored by the Cluster Agent by moving them from the right list box to the left list box.
+
+![Cluster Agent Deploy-09](./images/cluster-agent-deploy-09.png)
+<br><br>
+
+### **4.** Install the Kubernetes Metric Server
+
+Use your web browser to naviate to the URL below:
+
+```bash
+https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
+```
+
+Follow the instructions to install the Kubernetes Metric Server.  Execute the command(s) in the instructions in your SSH terminal window.
+
+![Cluster Agent Metrics Server-01](./images/cluster-agent-metrics-server-01.png)
+<br><br>
+
+After executing the command in your SSH terminal window, you should see output like the image below.
+
+![Cluster Agent Metrics Server-02](./images/cluster-agent-metrics-server-02b.png)
+<br><br>
+
+### **5.** Monitor the results of deploying the Cluster Agent
+
+In the AppDynamics UI, monitor the results of deploying the Cluster Agent by navigating to the "Servers" tab, then click on the "Clusters" tab on the left, then double click on the "AD-Capital" cluster.
+
+![Cluster Agent Monitor-01](./images/cluster-agent-monitor-results-01.png)
+<br><br>
+
+On the Cluster Dashboard Tab you can see a high level view of the state of all the pods in the cluster.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
+
+```bash
+https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-DashboardTab
+```
+![Cluster Agent Monitor-02](./images/cluster-agent-monitor-results-02.png)
+<br><br>
+
+On the Pods Dashboard Tab you can see all the pods in various states and as well as a high-level summary of each pod.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
+
+```bash
+https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-PodsTab
+```
+![Cluster Agent Monitor-03](./images/cluster-agent-monitor-results-03.png)
+<br><br>
+
+On the Pods Dashboard Details screen you can see all the details for a given pod as well as information about the containers running in the pod.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
+
+```bash
+https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-PodDetailsScreen
+```
+![Cluster Agent Monitor-04](./images/cluster-agent-monitor-results-04.png)
+<br><br>
+
+
+On the Inventory Dashboard Tab you can see a high-level snapshot or inventory view of your cluster. It displays the contents of the cluster and allows users to troubleshoot applications running in the cluster.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
+
+```bash
+https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-InventoryTab
+```
+![Cluster Agent Monitor-05](./images/cluster-agent-monitor-results-05.png)
+<br><br>
+
+## Congratulations! You have finished the AWS EKS Monitoring Lab.
 <br>
 
-[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), 5, [6](lab-exercise-06.md) | [Back](lab-exercise-04.md) | [Next](lab-exercise-06.md)
+[Overview](aws-eks-monitoring.md) | [1](lab-exercise-01.md), [2](lab-exercise-02.md), [3](lab-exercise-03.md), [4](lab-exercise-04.md), [5](lab-exercise-05.md), 6 | [Back](lab-exercise-05.md) | Next
