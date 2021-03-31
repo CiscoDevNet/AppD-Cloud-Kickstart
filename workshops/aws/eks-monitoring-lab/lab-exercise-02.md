@@ -54,7 +54,7 @@ Once you have converted the pem file to a ppk file, you can configure PuTTY to S
 
 ![Git Repos Pulled](./images/putty-config-01.png)
 
-![Git Repos Pulled](./images/putty-config-02.png)
+![Git Repos Pulled](./images/aws-putty-config-02.png)
 
 ![Git Repos Pulled](./images/putty-config-03.png)
 
