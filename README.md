@@ -1,9 +1,11 @@
 # AppD Cloud Kickstart
 
+**NEW!!** Announcing support for Google Kubernetes Engine (GKE).  
+
 The Cloud Kickstart is an enablement workshop demonstrating AppDynamics ability to monitor cloud native 
 workloads. AWS and GCP support is currently available, with Azure support to follow. The idea is to deliver 
 different chapters within each cloud provider bucket. The first chapter available within the AWS bucket 
-is "AWS EKS Monitoring". Likewise, the first chapter available within the GCP bucket is "GCP GKE Monitoring". 
+is **AWS EKS Monitoring**. Likewise, the first chapter available within the GCP bucket is **GCP GKE Monitoring**. 
 More chapters will be added soon.
 
 ## Overview
@@ -33,7 +35,7 @@ The first step is to set-up the environment by building the workshop images:
 
 -	[Build Steps for Creating Immutable VM Images](BUILD_STEPS_FOR_CREATING_IMMUTABLE_VM_IMAGES.md)
 
-Once the images are built, click on the following link to get started with the lab:
+Once the images are built, click on one of the following links to get started with the workshop:
 
 -	[AWS EKS Monitoring Lab Guide](workshops/aws/eks-monitoring-lab/aws-eks-monitoring.md)
 -	[GCP GKE Monitoring Lab Guide](workshops/gcp/gke-monitoring-lab/gcp-gke-monitoring.md)
