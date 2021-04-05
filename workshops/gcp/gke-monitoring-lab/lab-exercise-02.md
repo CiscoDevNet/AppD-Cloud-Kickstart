@@ -12,6 +12,8 @@ In this exercise you will need to do the following:
 - Login to the AppDynamics Controller Console
 - Run a command to validate the Controller status
 
+<br>
+
 ### **1.** Login to the AppDynamics Controller Console
 
 Your lab instructor will provide you with the public IP address of your Controller.  

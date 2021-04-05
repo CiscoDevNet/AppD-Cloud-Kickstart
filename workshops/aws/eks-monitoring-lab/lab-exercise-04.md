@@ -94,7 +94,7 @@ Wait a few more minutes and you should see the flow map that looks like the imag
 
 <br>
 
-**NOTE:** If your application does not show up in AppD, there was likely an issue with the Public IP / FQDN passed along or the config map. You may need to delete your deployment and recreate after verifying those steps. After deleting the application deployment, go back to step 5. The command to delete your deployment is: `kubectl delete -f Kubernetes/`
+**NOTE:** If your application does not show up in AppD, there was likely an issue with the Public IP / FQDN passed along or the config map. You may need to delete your deployment and recreate after verifying those steps. After deleting the application deployment, go back to step 3. The command to delete your deployment is: `kubectl delete -f Kubernetes/`
 
 <br>
 

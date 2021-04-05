@@ -1,13 +1,15 @@
 # Lab Exercise 1
-## Clone GitHub Repository & Configure GKE Kubernetes Cluster
+## Clone GitHub Repository & Retrieve GKE Kubernetes Cluster Configuration 
 
-This workshop takes previously configured docker-compose applications (AD-Capital-Kube) and makes them deployable to a kubernetes cluster. If you are curious about any of the repositiories; either the original java application code itself or the dockerized version, they are publicly available with detailed explanations as to what they contain. For the purpose of this walkthrough, it will be focused solely on Kubernetes.
+This workshop takes previously configured docker-compose applications (AD-Capital-Kube) and makes them deployable to a Kubernetes cluster. If you are curious about any of the repositiories; either the original java application code itself or the dockerized version, they are publicly available with detailed explanations as to what they contain. For the purpose of this walkthrough, it will be focused solely on Kubernetes.
 
 In this exercise you will need to do the following:
 
 - SSH into the Launch Pad GCE instance
 - Clone GitHub repository
-- Run a command to connect to a GKE Kubernetes cluster
+- Run commands to connect to a GKE Kubernetes cluster
+
+<br>
 
 ### **1.** SSH Into the Launch Pad GCE Instance
 You will need a copy of the `AppD-Cloud-Kickstart.pem` file in order to SSH into your Launch Pad GCE instance. You can obtain a copy of the `AppD-Cloud-Kickstart.pem` file from your lab instructor.  
@@ -94,7 +96,7 @@ After you run the command, verify that your **account** settings begin with '**d
 
 <br>
 
-Next, verify the name of your GKE Cluster and retrieve the compute zone of the cluster:
+Next, verify the name of your GKE cluster and retrieve the compute zone of the cluster:
 
 ```bash
 echo $gcp_gke_cluster_name
@@ -102,16 +104,16 @@ echo $gcp_gke_cluster_name
 gcloud container clusters list --filter="name:${gcp_gke_cluster_name}" --format="value(location)"
 ```
 
-After you run the command, take note of your **GKE Cluster name** and '**Compute Zone (location)**':
+After you run the command, take note of your **GKE cluster name** and '**Compute Zone (location)**':
 
 ![GKE Cluster Name and Zone](./images/gcp-gke-monitoring-lab-03.png)
 
 <br>
 
-Finally, update the local kubeconfig file with appropriate credentials and endpoint information for your GKE Cluster. By default, 
+Finally, update the local kubeconfig file with appropriate credentials and endpoint information for your GKE cluster. By default, 
 the credentials are written to `$HOME/.kube/config`. You can provide an alternate path by setting the `KUBECONFIG` environment variable.
 
-Fetch the credentials for your GKE Cluster, making sure to update the zone with the location returned from the previous step.  
+Fetch the credentials for your GKE cluster, making sure to update the zone with the location returned from the previous step.  
 
 Then, validate the configuration by displaying a list of cluster services:
 

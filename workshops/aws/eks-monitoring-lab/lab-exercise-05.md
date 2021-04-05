@@ -88,7 +88,7 @@ Using the SSH terminal for the Launch Pad EC2 instance, change to the directory 
 ```bash
 cd ~/AppD-Cloud-Kickstart/applications/AD-Capital-Kube
 ```
-Now run the following command below to deploy the Server Monitoring agent:
+Now run the following command below to deploy the Network Monitoring agent:
 
 ```bash
 kubectl create -f KubernetesNetVisAgent/

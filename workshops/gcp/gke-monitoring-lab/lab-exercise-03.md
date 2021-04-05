@@ -3,15 +3,15 @@
 
 In this exercise you will need to do the following:
 
-- Connect to your LaunchPad Server via SSH
-- Validate that your GKE cluster has deployed properly
+- SSH into the Launch Pad GCE instance
+- Explore GKE cluster environment with the 'kubectl' Kubernetes CLI
 - Run a script to set environment variables for GKE deployment
 - Run a script to deploy the AD-Capital application to GKE
 - Monitor the results of the deployment in the AppDynamics Controller
 
 <br>
 
-### **1.** Validate Your GKE Cluster
+### **1.** SSH Into the Launch Pad GCE Instance
 
 SSH into the Launch Pad GCE instance. You will use the user name '**centos**' with no password.
 
@@ -24,7 +24,16 @@ Example:
 ssh -i AppD-Cloud-Kickstart.pem centos@35.206.71.70
 ```
 
-Run the commands below to validate your GKE cluster creation is complete and running:
+<br>
+
+### **2.** Explore GKE Cluster Environment with the 'kubectl' Kubernetes CLI
+
+The Kubernetes command-line tool, `kubectl`, allows you to run commands against Kubernetes clusters. 
+You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. 
+For more information including a complete list of kubectl operations, see the 
+[kubectl reference documentation](https://kubernetes.io/docs/reference/kubectl/).  
+
+Run the commands below to view the nodes and namespaces within your GKE cluster:
 
 ```bash
 cd ~/AppD-Cloud-Kickstart/applications/aws/AD-Capital-Kube
@@ -39,10 +48,10 @@ You should see output from the commands similar to the image seen below:
 
 <br>
 
-### **2.** Set Environment Variables for GKE Deployment
+### **3.** Set Environment Variables for GKE Deployment
 
 Run the command below to set the environment variable for the AppDynamics Controller host, replacing 
-'your-controller-ip-address' with the public IP address of your Controller:
+'**your-controller-ip-address**' with the public IP address of your Controller:
 
 ```bash
 export appd_controller_host=your-controller-ip-address
@@ -60,7 +69,7 @@ You should then see output similar to the image seen below:
 
 <br>
 
-### **3.** Deploy the AD-Capital Application to GKE
+### **4.** Deploy the AD-Capital Application to GKE
 
 To deploy the AD-Capital application to the GKE cluster, run the commands below:
 
@@ -84,7 +93,7 @@ You should then see output similar to the image seen below:
 
 <br>
 
-### **4.** Monitor Deployment in the AppDynamics Controller
+### **5.** Monitor Deployment in the AppDynamics Controller
 
 Wait four more minutes and go to your web browser and check the controller to see if the AD-Capital application is reporting to the controller. You should see what the image below shows when you click on the Applications tab:
 
@@ -96,7 +105,10 @@ Wait a few more minutes and you should see the flow map that looks like the imag
 
 <br>
 
-**NOTE:** If your application does not show up in AppD, there was likely an issue with the Public IP / FQDN passed along or the config map. You may need to delete your deployment and recreate after verifying those steps. After deleting the application deployment, go back to step 5. The command to delete your deployment is: `kubectl delete -f Kubernetes/`
+**NOTE:** If your application does not show up in AppD, there was likely an issue with the Public IP 
+passed along or with the config map. You may need to delete your deployment and recreate after verifying 
+those steps. After deleting the application deployment, go back to step 4. The command to delete your 
+deployment is: `kubectl delete -f Kubernetes/`
 
 <br>
 
