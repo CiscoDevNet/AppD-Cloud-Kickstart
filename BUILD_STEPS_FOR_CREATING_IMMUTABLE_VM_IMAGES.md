@@ -2,7 +2,9 @@
 
 ## Overview
 
-The AppDynamics Cloud Kickstart project enables an IT Administrator, Software Developer, or DevOps engineer to automate the building of immutable VM images using open source tools from [HashiCorp](https://www.hashicorp.com/). Currently, the VMs consist of these types:
+The AppDynamics Cloud Kickstart project enables an IT Administrator, Software Developer, or DevOps engineer to 
+automate the building of immutable VM images using open source tools from [HashiCorp](https://www.hashicorp.com/). 
+Currently, the VMs consist of these types:
 
 -	__APM-Platform VM__: An APM Platform stand-alone VM designed for Application Performance Monitoring. It consists of the AppDynamics Enterprise Console, Controller, and Events Service.
 -	__CWOM-Platform VM__: A Cisco Workload Optimization Manager (CWOM) stand-alone VM designed for Intelligent Workload Management. It consists of the CWOM Platform server.
@@ -13,26 +15,34 @@ The AppDynamics Cloud Kickstart project enables an IT Administrator, Software De
 To build the AppD Cloud Kickstart VM images, the following open source software needs to be installed on the host macOS machine:
 
 -	Homebrew 3.0.11
-	-	Command Line Tools (CLT) for Xcode
--	Packer 1.7.1
 -	Git 2.31.1
+-	Packer 1.7.2
+-	Terraform 0.14.10
 -	jq 1.6
 
 Perform the following steps to install the needed software:
 
-1.	Install [Command Line Tools (CLT) for Xcode](https://developer.apple.com/downloads).  
-    `$ xcode-select --install`  
+1.	Install the [Homebrew 3.0.11](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
+    ```bash
+    $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    ```
 
-    **NOTE:** Most Homebrew formulae require a compiler. A handful require a full Xcode installation. You can install [Xcode](https://itunes.apple.com/us/app/xcode/id497799835), the [CLT](https://developer.apple.com/downloads), or both; Homebrew supports all three configurations. Downloading Xcode may require an Apple Developer account on older versions of Mac OS X. Sign up for free [here](https://developer.apple.com/register/index.action).  
+2.	Install [Git 2.31.1](https://git-scm.com/downloads) for macOS 64-bit.  
+    ```bash
+    $ brew install git
+    ```
 
-2.	Install the [Homebrew 3.0.11](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
-    `$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+3.	Install [Packer 1.7.2](https://www.packer.io/downloads.html) for macOS 64-bit.  
+    ```bash
+    $ brew tap hashicorp/tap
+    $ brew install hashicorp/tap/packer
+    ```
 
-3.	Install [Packer 1.7.1](https://packer.io/) for macOS 64-bit.  
-    `$ brew install packer`  
-
-4.	Install [Git 2.31.1](https://git-scm.com/downloads) for macOS 64-bit.  
-    `$ brew install git`  
+4.	Install [Terraform 0.14.10](https://www.terraform.io/downloads.html) for macOS 64-bit.  
+    ```bash
+    $ brew tap hashicorp/tap
+    $ brew install hashicorp/tap/terraform
+    ```
 
 5.	Install [jq 1.6](https://stedolan.github.io/jq/) for macOS 64-bit.  
     `$ brew install jq`  
@@ -47,11 +57,14 @@ Perform the following steps to install the needed software:
     $ brew doctor
     Your system is ready to brew.
 
-    $ packer --version
-    1.7.1
-
     $ git --version
     git version 2.31.1
+
+    $ packer --version
+    1.7.2
+
+    $ terraform --version
+    Terraform v0.14.10
 
     $ jq --version
     jq-1.6
@@ -60,7 +73,7 @@ Perform the following steps to install the needed software:
 2.	Configure Git for local user:
 
     ```bash
-    $ git config --global user.name "<your_name>"
+    $ git config --global user.name "<first_name> <last_name>"
     $ git config --global user.email "<your_email>"
     $ git config --global --list
     ```
@@ -69,19 +82,24 @@ Perform the following steps to install the needed software:
 
 To build the AppD Cloud Kickstart immutable VM images, the following open source software needs to be installed on the host Windows machine:
 
--	Packer 1.7.1
 -	Git 2.31.1 for Win64
+-	Packer 1.7.2
+-	Terraform 0.14.10
 -	jq 1.6
 
 Perform the following steps to install the needed software:
 
-1.	Install [Packer 1.7.1](https://releases.hashicorp.com/packer/1.7.1/packer_1.7.1_windows_amd64.zip) for Windows 64-bit.  
+1.	Install [Git 2.31.1](https://github.com/git-for-windows/git/releases/download/v2.31.1.windows.1/Git-2.31.1-64-bit.exe) for Windows 64-bit.
+
+2.	Install [Packer 1.7.2](https://releases.hashicorp.com/packer/1.7.2/packer_1.7.2_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
-    `C:\HashiCorp\Packer\bin`  
+    `C:\HashiCorp\bin`  
 
-2.	Install [Git 2.31.1](https://github.com/git-for-windows/git/releases/download/v2.31.1.windows.1/Git-2.31.1-64-bit.exe) for Windows 64-bit.
+3.	Install [Terraform 0.14.10](https://releases.hashicorp.com/terraform/0.14.10/terraform_0.14.10_windows_amd64.zip) for Windows 64-bit.  
+    Create suggested install folder and extract contents of ZIP file to:  
+    `C:\HashiCorp\bin`  
 
-3.	Install [jq 1.6](https://github.com/stedolan/jq/releases/download/jq-1.6/jq-win64.exe) for Windows 64-bit.  
+4.	Install [jq 1.6](https://github.com/stedolan/jq/releases/download/jq-1.6/jq-win64.exe) for Windows 64-bit.  
     Create suggested install folder and rename binary to:  
     `C:\Program Files\Git\usr\local\bin\jq.exe`
 
@@ -90,7 +108,7 @@ Perform the following steps to install the needed software:
 1.	Set Windows Environment `PATH` to:
 
     ```bash
-    PATH=C:\HashiCorp\Packer\bin;C:\Program Files\Git\usr\local\bin;%PATH%
+    PATH=C:\HashiCorp\bin;C:\Program Files\Git\usr\local\bin;%PATH%
     ```
 
 2.	Reboot Windows.
@@ -101,11 +119,14 @@ Perform the following steps to install the needed software:
 4.	Validate installed command-line tools:
 
     ```bash
-    $ packer --version
-    1.7.1
-
     $ git --version
     git version 2.31.1.windows.1
+
+    $ packer --version
+    1.7.2
+
+    $ terraform --version
+    Terraform v0.14.10
 
     $ jq --version
     jq-1.6
@@ -114,7 +135,7 @@ Perform the following steps to install the needed software:
 5.	Configure Git for local user:
 
     ```bash
-    $ git config --global user.name "<your_name>"
+    $ git config --global user.name "<first_name> <last_name>"
     $ git config --global user.email "<your_email>"
     $ git config --global --list
     ```
@@ -137,6 +158,9 @@ Perform the following steps to install the needed software:
 
 ## Build the Immutable VM Images with Packer
 
-The AppDynamics Cloud Kickstart project currently supports immutable VM image builds for Amazon AWS. In the future, we will be adding support for Microsoft Azure and Google Cloud Platform (GCP). Click on a link below for platform-specific instructions and Bill-of-Materials.
+The AppDynamics Cloud Kickstart project currently supports immutable VM image builds for Amazon AWS and 
+Google Cloud Platform (GCP). In the future, we will be adding support for Microsoft Azure. Click on a 
+link below for platform-specific instructions and Bill-of-Materials.
 
 -	[AWS CentOS 7.9 VMs](AWS_VM_BUILD_INSTRUCTIONS.md): Instructions
+-	[GCP CentOS 7.9 VMs](GCP_VM_BUILD_INSTRUCTIONS.md): Instructions
