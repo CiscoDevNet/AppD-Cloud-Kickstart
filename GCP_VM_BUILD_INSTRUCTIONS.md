@@ -38,6 +38,15 @@ Perform the following steps to install the needed software:
 
 ## GCP-Specific Installation Instructions - Windows 64-Bit
 
+For Windows, users have a wide variety of choice in command-line tools and shells for running the gcloud CLI, 
+such as the Windows Command Prompt, [PowerShell](https://docs.microsoft.com/en-us/powershell/), 
+[Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started), 
+[Git Bash](https://git-scm.com/download/win), [Cygwin](https://www.cygwin.com/), and 
+[The Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about).  
+
+Although you are free to use any of these tools, the installation steps described below will be based on 
+the usage of **Git Bash** for consistency.  
+
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
 -	Google Cloud SDK 335.0.0 (command-line interface)
@@ -51,7 +60,18 @@ Perform the following steps to install the needed software:
     install the Google Cloud SDK without installing any other prerequisites. For more information, please visit 
     [Installing Google Cloud SDK](https://cloud.google.com/sdk/docs/install#windows) for Windows.
 
-2.	Validate installed command-line tool:
+2.	Fix Python path errors in the `gcloud` shell script.  
+
+    **NOTE:** As of the current release, the directory paths to the Python binary are invalid. Run the 
+    following commands to correct the error:
+
+    ```bash
+    $ cd ~/AppData/Local/Google/Cloud\ SDK/google-cloud-sdk/bin
+    $ cp -p gcloud gcloud.orig
+    $ sed -i -e "s/bundledpythonunix\/bin\/python3/bundledpython\/python.exe/g" gcloud
+    ```
+
+3.	Validate installed command-line tool:
 
     ```bash
     $ gcloud --version
@@ -63,8 +83,6 @@ Perform the following steps to install the needed software:
 
 ### Configuration and Validation - Windows 64-Bit
 C:\Users\win10admin\AppData\Local\Google\Cloud SDK
-
-
 
 ## Prepare for the Build
 
