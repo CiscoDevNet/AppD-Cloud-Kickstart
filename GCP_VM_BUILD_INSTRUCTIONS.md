@@ -15,7 +15,7 @@ you are finished, such as purging old GCE images created by Packer.
 
 ## GCP-Specific Installation Instructions - macOS
 
-Here is a list of the recommended open source software to be installed on the host macOS machine:
+Here is a list of the additional recommended software to be installed on the host macOS machine:
 
 -	Google Cloud SDK 335.0.0 (command-line interface)
 
@@ -24,7 +24,14 @@ Perform the following steps to install the needed software:
 1.	Install [Google Cloud SDK 335.0.0](https://cloud.google.com/sdk/docs/quickstart#mac).  
     `$ brew install --cask google-cloud-sdk`  
 
-    Depending on your shell, follow the on-screen instructions to add the SDK binaries to your `PATH`.
+    Depending on your shell, follow the on-screen instructions to source the SDK binaries to your `PATH`.  
+
+    For example, for Bash shell users, add the following to your `~/.bashrc` file:  
+
+    ```bash
+    source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
+    source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+    ```
 
 2.	Validate installed command-line tool:
 
@@ -38,40 +45,47 @@ Perform the following steps to install the needed software:
 
 ## GCP-Specific Installation Instructions - Windows 64-Bit
 
-For Windows, users have a wide variety of choice in command-line tools and shells for running the gcloud CLI, 
+Windows users have a wide variety of choice in command-line tools and shells for running the gcloud CLI, 
 such as the Windows Command Prompt, [PowerShell](https://docs.microsoft.com/en-us/powershell/), 
 [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started), 
-[Git Bash](https://git-scm.com/download/win), [Cygwin](https://www.cygwin.com/), and 
+[Git Bash](https://git-scm.com/download/win), and 
 [The Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about).  
 
 Although you are free to use any of these tools, the installation steps described below will be based on 
-the usage of **Git Bash** for consistency.  
+the usage of the **Git Bash** terminal for consistency.  
 
-Here is a list of the recommended open source software to be installed on the host Windows machine:
+Here is a list of the additional recommended software to be installed on the host Windows machine:
 
 -	Google Cloud SDK 335.0.0 (command-line interface)
 
 Perform the following steps to install the needed software:
 
 1.	Install [Google Cloud SDK 335.0.0](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) for Windows 64-bit.  
-    Run the downloaded EXE installer and follow the on-screen instructions.  
+    Run the downloaded EXE installer, follow the on-screen instructions, and accept the defaults until you get to the last step.  
 
     **NOTE:** For Windows users, the EXE installation package offers a familiar and convenient way to 
     install the Google Cloud SDK without installing any other prerequisites. For more information, please visit 
-    [Installing Google Cloud SDK](https://cloud.google.com/sdk/docs/install#windows) for Windows.
+    [Installing Google Cloud SDK](https://cloud.google.com/sdk/docs/install#windows) for Windows.  
 
-2.	Fix Python path errors in the `gcloud` shell script.  
+    On the last step of the installer, uncheck the **Start Google Cloud SDK Shell** checkbox, which will 
+    also grayout the **Run 'gcloud init' to configure the Cloud SDK** checkbox. We will perform these steps 
+    later using the Git Bash terminal instead.  
 
-    **NOTE:** As of the current release, the directory paths to the Python binary are invalid. Run the 
+    ![gcloud Windows 10 Installer](./workshops/gcp/gke-monitoring-lab/images/gcloud-windows-10-installer-01.png)
+
+2.	Open the **Git Bash** terminal and fix Python path errors in the `gcloud` shell script.  
+
+    **NOTE:** As of this writing, the `gcloud` shell script contains invalid directory paths to the Python binary. Run the 
     following commands to correct the error:
 
     ```bash
     $ cd ~/AppData/Local/Google/Cloud\ SDK/google-cloud-sdk/bin
     $ cp -p gcloud gcloud.orig
     $ sed -i -e "s/bundledpythonunix\/bin\/python3/bundledpython\/python.exe/g" gcloud
+    $ cd ~
     ```
 
-3.	Validate installed command-line tool:
+3.	Using the **Git Bash** Terminal, validate the installed command-line tool:
 
     ```bash
     $ gcloud --version
@@ -81,8 +95,137 @@ Perform the following steps to install the needed software:
     gsutil 4.60
     ```
 
-### Configuration and Validation - Windows 64-Bit
-C:\Users\win10admin\AppData\Local\Google\Cloud SDK
+## Configuration and Validation
+
+The configuration and validation steps are essentially identical for macOS and Windows 64-Bit systems. Perform the following steps to complete these tasks:  
+
+1.	Configure the Google Cloud SDK from the command-line.  
+
+    Run the 'gcloud init' command to launch an interactive Getting Started workflow for the command-line tool.  
+
+    ```bash
+    $ gcloud init
+    ```
+
+    You should see output similar to the following. When prompted, answer '**Y**' to log in:  
+
+    ```bash
+    Welcome! This command will take you through the configuration of gcloud.
+
+    Your current configuration has been set to: [default]
+
+    You can skip diagnostics next time by using the following flag:
+      gcloud init --skip-diagnostics
+
+    Network diagnostic detects and fixes local network connection issues.
+    Checking network connection...done.
+    Reachability Check passed.
+    Network diagnostic passed (1/1 checks passed).
+
+    You must log in to continue. Would you like to log in (Y/n)? Y
+    ```
+
+    You should see output similar to the following which will then launch your browser:  
+
+    ```bash
+    Your browser has been opened to visit:
+
+    https://accounts.google.com/o/oauth2/auth?...
+    ```
+
+2.	Authorize gcloud and other SDK tools to access the Google Cloud Platform using your user account credentials.
+
+    Sign-in to your Google account and click "Next":  
+
+    ![gcloud init Auth 01](./workshops/gcp/gke-monitoring-lab/images/gcloud-init-browser-auth-01.png)
+
+    <br>
+
+    Enter your password if needed and then continue to the next screen.  
+
+    <br>
+
+    Click the "Allow" button to configure the Google Cloud SDK to authenticate using your Google account:  
+
+    ![gcloud init Auth 02](./workshops/gcp/gke-monitoring-lab/images/gcloud-init-browser-auth-02.png)
+
+    <br>
+
+    You should now see a message like the one below:  
+
+    ![gcloud init Auth 03](./workshops/gcp/gke-monitoring-lab/images/gcloud-init-browser-auth-03.png)
+
+    <br>
+
+    In your terminal, you should also receive a login message as follows:  
+
+    ```bash
+    You are logged in as: [yourusername@cisco.com].
+    ```
+
+3.	You will be prompted to select the GCP Cloud Project to use. For AppDynamics SEs, select '**gcp-appdcloudplatfo-nprd-68190**', which as of this writing is number '**2**'.
+
+    ```bash
+    Pick cloud project to use:
+     [1] csbimages-prod-poy1
+     [2] gcp-appdcloudplatfo-nprd-68190
+     [3] Create a new project
+    Please enter numeric choice or text value (must exactly match list
+    item): 2
+    ```
+
+    You should see output similar to the following. When prompted, answer '**n**' to configure a default Compute Region and Zone. We will do that in a later step:  
+
+    ```bash
+    Your current project has been set to: [gcp-appdcloudplatfo-nprd-68190].
+
+    Do you want to configure a default Compute Region and Zone? (Y/n)? n
+    ```
+
+    You should see output similar to the following:  
+
+    ```bash
+    Your Google Cloud SDK is configured and ready to use!
+
+    * Commands that require authentication will use yourusername@cisco.com by default
+    * Commands will reference project `gcp-appdcloudplatfo-nprd-68190` by default
+    Run `gcloud help config` to learn how to change individual settings
+
+    This gcloud configuration is called [default]. You can create additional configurations if you work with multiple accounts and/or projects.
+    Run `gcloud topic configurations` to learn more.
+
+    Some things to try next:
+
+    * Run `gcloud --help` to see the Cloud Platform services you can interact with. And run `gcloud help COMMAND` to get help on any gcloud command.
+    * Run `gcloud topic --help` to learn about advanced features of the SDK like arg files and output formatting
+    ```
+
+4.	Next, select the default GCP Cloud Region and Zone to use. For AppDynamics SEs, use Region '**us-central1**' and Zone '**us-central1-a**'.  
+
+    ```bash
+    $ gcloud config set compute/region us-central1
+    $ gcloud config set compute/zone us-central1-a
+    ```
+
+5.	Finally, validate your Cloud SDK configuration:  
+
+    ```bash
+    $ gcloud config list
+    ```
+
+    You should see output similar to the following.  
+
+    ```bash
+    [compute]
+    region = us-central1
+    zone = us-central1-a
+    [core]
+    account = youruserame@cisco.com
+    disable_usage_reporting = True
+    project = gcp-appdcloudplatfo-nprd-68190
+
+    Your active configuration is: [default]
+    ```
 
 ## Prepare for the Build
 
@@ -168,7 +311,7 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Amazon AWS CLI 2.1.35 (command-line interface)
+-	Amazon AWS CLI 2.1.36 (command-line interface)
 -	Amazon AWS GCE Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.19
 -	AppDynamics Enterprise Console 21.4.0 Build 24567
@@ -189,7 +332,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 2.1.35 (command-line interface)
+-	Amazon AWS CLI 2.1.36 (command-line interface)
 -	Amazon AWS GCE Instance Metadata Query Tool (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.44.0 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.19.6 for AWS EKS CLI and kubectl.
