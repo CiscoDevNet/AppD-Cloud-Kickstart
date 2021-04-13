@@ -31,11 +31,14 @@ The workshop leverages this approach by automating the build and deployment of w
 
 ## Get Started
 
-The first step is to set-up the environment by building the workshop images:
+To get started, AppDynamics SEs, partners, or others tasked with delivering the Workshop need to build and 
+deploy the necessary cloud resources required for each cloud provider:
 
--	[Build Steps for Creating Immutable VM Images](BUILD_STEPS_FOR_CREATING_IMMUTABLE_VM_IMAGES.md)
+**NOTE:** Lab participants should skip to the next section.
 
-Once the images are built, click on one of the following links to get started with the workshop:
+-	[Build Steps for Preparing the Workshop](docs/BUILD_STEPS_FOR_PREPARING_THE_WORKSHOP.md)
+
+Once the cloud environment is prepared, click on one of the following links to get started with the workshop:
 
 -	[AWS EKS Monitoring Lab Guide](workshops/aws/eks-monitoring-lab/aws-eks-monitoring.md)
 -	[GCP GKE Monitoring Lab Guide](workshops/gcp/gke-monitoring-lab/gcp-gke-monitoring.md)

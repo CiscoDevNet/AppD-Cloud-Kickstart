@@ -1,18 +1,48 @@
-# Build Steps for Creating Immutable VM Images
+# Build Steps for Preparing the Workshop
 
 ## Overview
 
-The AppDynamics Cloud Kickstart project enables an IT Administrator, Software Developer, or DevOps engineer to 
-automate the building of immutable VM images using open source tools from [HashiCorp](https://www.hashicorp.com/). 
-Currently, the VMs consist of these types:
+When delivering AppDynamics Cloud workshops, the provisioning and configuration of these lab environments 
+can be an extremely tedious and time-consuming challenge for SE's. To solve that problem, the AppDynamics 
+Cloud Kickstart project delivers a set of artifacts to automate the build, deployment, and configuration 
+portion of these pre-workshop activities using [Packer](https://www.packer.io/) and 
+[Terraform](https://www.terraform.io/) from HashiCorp.
 
+### Packer
+
+Packer is an open source tool for creating identical machine images for multiple platforms from a single 
+source configuration. Packer is lightweight, runs on every major operating system, and is highly performant, 
+creating machine images for multiple platforms in parallel.  
+
+For this workshop, Packer is used to create immutable VM images. These static images are later used by 
+Terraform when standing-up the infrastructure and compute resources needed by workshop participants. Currently, 
+these VMs consist of the following types:
+
+-	__LPAD VM__: A 'Launchpad' VM with pre-configured tooling for Kubernetes and Serverless CLI Operations.
 -	__APM-Platform VM__: An APM Platform stand-alone VM designed for Application Performance Monitoring. It consists of the AppDynamics Enterprise Console, Controller, and Events Service.
--	__CWOM-Platform VM__: A Cisco Workload Optimization Manager (CWOM) stand-alone VM designed for Intelligent Workload Management. It consists of the CWOM Platform server.
--	__LPAD VM__: An AWS EC2 'Launchpad' VM with pre-configured tooling for Kubernetes and Serverless CLI Operations.
+
+### Terraform
+
+Terraform is an open-source Infrastructure-as-Code (IaC) software tool that provides a consistent CLI 
+workflow to manage hundreds of cloud services. Terraform codifies cloud APIs into declarative configuration 
+files.
+
+For this workshop, Terraform is used to automate the deployment of the Lab infrastructure to the cloud 
+using templates. The SE can also specify the number of environments needed (one for each participant) as 
+well as the lab sequence start number, such as Lab01, Lab02, Lab03, etc.
+
+## Get Started
+
+To configure the AppDynamics Cloud workshop environments, the first step is to set-up your local environment 
+by installing the needed open source software.
+
+### Prerequisites
+You install Packer and Terraform on a control node, (usually your local laptop,) which then uses the cloud CLI and/or
+SSH to communicate with your cloud resources and managed nodes.
 
 ## Installation Instructions - macOS
 
-To build the AppD Cloud Kickstart VM images, the following open source software needs to be installed on the host macOS machine:
+The following open source software needs to be installed on the host macOS machine:
 
 -	Homebrew 3.1.1
 -	Git 2.31.1
