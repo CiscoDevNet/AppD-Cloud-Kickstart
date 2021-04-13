@@ -71,7 +71,7 @@ Perform the following steps to install the needed software:
     also grayout the **Run 'gcloud init' to configure the Cloud SDK** checkbox. We will perform these steps 
     later using the Git Bash terminal instead.  
 
-    ![gcloud Windows 10 Installer](./workshops/gcp/gke-monitoring-lab/images/gcloud-windows-10-installer-01.png)
+    ![gcloud Windows 10 Installer](./images/gcloud-windows-10-installer-01.png)
 
 2.	Open the **Git Bash** terminal and fix Python path errors in the `gcloud` shell script.  
 
@@ -137,7 +137,7 @@ The configuration and validation steps are essentially identical for macOS and W
 
     Sign-in to your Google account and click "Next":  
 
-    ![gcloud init Auth 01](./workshops/gcp/gke-monitoring-lab/images/gcloud-init-browser-auth-01.png)
+    ![gcloud init Auth 01](./images/gcloud-init-browser-auth-01.png)
 
     <br>
 
@@ -147,13 +147,13 @@ The configuration and validation steps are essentially identical for macOS and W
 
     Click the "Allow" button to configure the Google Cloud SDK to authenticate using your Google account:  
 
-    ![gcloud init Auth 02](./workshops/gcp/gke-monitoring-lab/images/gcloud-init-browser-auth-02.png)
+    ![gcloud init Auth 02](./images/gcloud-init-browser-auth-02.png)
 
     <br>
 
     You should now see a message like the one below:  
 
-    ![gcloud init Auth 03](./workshops/gcp/gke-monitoring-lab/images/gcloud-init-browser-auth-03.png)
+    ![gcloud init Auth 03](./images/gcloud-init-browser-auth-03.png)
 
     <br>
 

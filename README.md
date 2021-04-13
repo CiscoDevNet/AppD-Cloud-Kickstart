@@ -34,7 +34,7 @@ The workshop leverages this approach by automating the build and deployment of w
 To get started, AppDynamics SEs, partners, or others tasked with delivering the Workshop need to build and 
 deploy the necessary cloud resources required for each cloud provider:
 
-**NOTE:** Lab participants should skip to the next section.
+**NOTE:** Lab participants should skip this link.
 
 -	[Build Steps for Preparing the Workshop](docs/BUILD_STEPS_FOR_PREPARING_THE_WORKSHOP.md)
 
