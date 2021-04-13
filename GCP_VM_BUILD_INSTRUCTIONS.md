@@ -313,7 +313,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 
 -	Amazon AWS CLI 2.1.36 (command-line interface)
 -	Amazon AWS GCE Instance Metadata Query Tool (command-line interface)
--	Ansible 2.9.19
+-	Ansible 2.9.20
 -	AppDynamics Enterprise Console 21.4.0 Build 24567
 	-	AppDynamics Controller 21.4.0 Build 1244
 	-	AppDynamics Events Service 4.5.2.0 Build 20651
@@ -337,7 +337,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Amazon AWS EKS CLI [eksctl] 0.44.0 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.19.6 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.19.6 (command-line interface)
--	Ansible 2.9.19
+-	Ansible 2.9.20
 -	AppDynamics Node.js Serverless Tracer 21.3.278
 -	Docker 20.10.5 CE
 	-	Docker Bash Completion
@@ -354,11 +354,11 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Java SE JDK 16 (Amazon Corretto 16)
 -	jq 1.6 (command-line JSON processor)
 -	Node.js JavaScript runtime v14.16.1 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 7.8.0
+-	npm JavaScript Package Manager for Node.js 7.9.0
 -	nvm (Node Version Manager) bash script 0.38.0
 -	Python 2.7.5
 	-	Pip 21.0.1
 -	Python 3.6.8
 	-	Pip 21.0.1
--	Serverless Framework CLI 2.34.0
+-	Serverless Framework CLI 2.35.0
 -	VIM - Vi IMproved 8.2
