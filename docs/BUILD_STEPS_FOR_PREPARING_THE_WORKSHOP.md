@@ -8,11 +8,6 @@ Cloud Kickstart project delivers a set of artifacts to automate the build, deplo
 portion of these pre-workshop activities using [Packer](https://www.packer.io/) and 
 [Terraform](https://www.terraform.io/) from HashiCorp.
 
-Here is an example of the deployment architecture when deployed to the Google Cloud Platform:  
-
-__AppD Cloud Kickstart: Workshop Deployment on GCP__
-![Workshop_Deployment_on_GCP](./images/AppD-Cloud-Kickstart-Workshop-Deployment-on-GCP.png)
-
 ## Build and Deployment Concepts
 
 Although there are many tools available to accomplish the automation goals of this project, it was decided
@@ -39,9 +34,6 @@ For SE-lead workshops, these VM images are built and maintained by AppDynamics. 
 used to build the images are present in this project, so customers are free to customize and build their own VM
 images if desired.  
 
-__Packer Build Flow for GCP__
-![Packer_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Packer-Build-Flow-for-GCP.png)
-
 ### Terraform
 
 [Terraform](https://terraform.io/) is a tool for building, changing, and versioning infrastructure safely and
@@ -52,9 +44,6 @@ networking, as well as high-level components such as DNS entries, SaaS features,
 In this project, Terraform is used to automate the deployment of the Lab infrastructure, including VPCs, subnets, 
 security groups, load balancers, and VMs using templates. The SE can also specify the number of environments 
 needed (one for each participant) as well as the lab sequence start number, such as Lab01, Lab02, Lab03, etc.
-
-__Terraform Build Flow for GCP__
-![Terraform_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Terraform-Build-Flow-for-GCP.png)
 
 ## Get Started
 

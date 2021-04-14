@@ -1,14 +1,18 @@
 # Google Compute Engine (GCP) CentOS 7.9 Image Build Instructions
 
-Follow these instructions to build the GCE CentOS 7.9 images:
+## Overview
 
--	__LPAD VM__: A GCP GCE 'Launchpad' VM needed for Kubernetes and Serverless CLI Operations and running the sample apps.
--	__APM-Platform VM__: An APM Platform stand-alone VM with an AppDynamics Controller.
+Here is an example of the deployment architecture when deployed to the Google Cloud Platform:  
 
-Before building the AppD Cloud Kickstart VM images for GCP, it is recommended that you install the Google 
-Cloud SDK, which includes the `gcloud` CLI tool. The gcloud CLI manages authentication, local configuration, 
-developer workflow, and interactions with the Google Cloud Platform APIs. It is the primary tool used to 
-create and manage Google Cloud resources.  
+__AppD Cloud Kickstart: Workshop Deployment on GCP__
+![Workshop_Deployment_on_GCP](./images/AppD-Cloud-Kickstart-Workshop-Deployment-on-GCP.png)
+
+## Build and Deployment Steps
+
+Before building and deploying the AppD Cloud Kickstart artifacts for GCP, you will need to install the 
+Google Cloud SDK, which includes the `gcloud` CLI tool. The gcloud CLI manages authentication, local 
+configuration, developer workflow, and interactions with the Google Cloud Platform APIs. It is the primary 
+tool used to create and manage Google Cloud resources.  
 
 The gcloud CLI will also allow you to cleanup and delete any resources created by the DevOps tooling when 
 you are finished, such as purging old GCE images created by Packer.
@@ -229,9 +233,14 @@ The configuration and validation steps are essentially identical for macOS and W
 
 ## Prepare for the Build
 
-All user credentials and installation inputs are driven by environment variables and can be configured within the `set_appd_cloud_kickstart_env.sh` script you will create in `./bin`. There are LOTS of options, but most have acceptable defaults. You only need to concentrate on a handful that are uncommented in the template file.
+All user credentials and installation inputs are driven by environment variables and can be configured within 
+the `set_appd_cloud_kickstart_env.sh` script you will create in `./bin`. There are LOTS of options, but most 
+have acceptable defaults. You only need to concentrate on a handful that are uncommented in the template file.
 
-In particular, you will need to supply your AppDynamics login credentials to the [download site](https://download.appdynamics.com/download/). You will also need to provide an AWS Access Key ID and Secret Access Key from a valid AWS account.
+In particular, you will need to supply your AppDynamics login credentials to the 
+[download site](https://download.appdynamics.com/download/). You will also need to create a secret key to a 
+GCP Service Account with the appropriate IAM Policy Bindings. For AppDynamics SEs, the `gcp-devops.json` has 
+already been created and should be copied to the `./shared/keys` directory.
 
 The build will __fail__ if they are not set.
 
@@ -239,7 +248,8 @@ To prepare for the build, perform the following steps:
 
 1.	Customize your AppD Cloud Kickstart project environment:
 
-    Copy the template file and edit `set_appd_cloud_kickstart_env.sh` located in `./bin` to customize the environment variables for your environment.
+    Copy the template file and edit `set_appd_cloud_kickstart_env.sh` located in `./bin` to customize the 
+    environment variables for your environment.
 
     ```bash
     $ cd /<drive>/projects/AppD-Cloud-Kickstart/bin
@@ -247,20 +257,19 @@ To prepare for the build, perform the following steps:
     $ vi set_appd_cloud_kickstart_env.sh
     ```
 
-    The following environment variables are the most common to be overridden. They are grouped by sections in the file, so you will have to search to locate the exact line. For example, the AWS-related variables are at the end of the file.
+    The following environment variables are the most common to be overridden. They are grouped by sections in 
+    the file, so you will have to search to locate the exact line. For example, the GCP-related variables are 
+    at the end of the file.
 
-    The first 4 are mandatory and the others are optional, but helpful. If you are building the AMI images in the `us-east-1` region (N. Virginia), the region-related variables can be left alone.
+    The first 2 are mandatory and the others are optional, but helpful. If you are building the GCE images in 
+    the `us-central1-a` zone (Iowa), the zone-related variables can be left alone.
 
     ```bash
     appd_username="<Your_AppDynamics_Download_Site_Email>"
     appd_password="<Your_AppDynamics_Download_Site_Password>"
 
-    AWS_ACCESS_KEY_ID="<Your_AWS_ACCESS_KEY_ID>"
-    AWS_SECRET_ACCESS_KEY="<Your_AWS_SECRET_ACCESS_KEY>"
-
-    aws_ami_owner="<Your Firstname> <Your Lastname>"
-    aws_cli_default_region_name="us-east-1"         # example for N. Virginia.
-    aws_ami_region="us-east-1"                      # example for N. Virginia.
+    gcp_zone="us-central1-a"                        # example for Iowa.
+    gcp_image_owner="<firstname>-<lastname>"        # gcp image owner label for packer builds.
     ```
 
     Save and source the environment variables file in order to define the variables in your shell.
@@ -272,7 +281,7 @@ To prepare for the build, perform the following steps:
     Validate the newly-defined environment variables via the following commands:
 
     ```bash
-    $ env | grep -i ^aws | sort
+    $ env | grep -i ^gcp | sort
     $ env | grep -i ^appd | sort
     ```
 
@@ -283,20 +292,19 @@ To prepare for the build, perform the following steps:
 		-	Copy your AppDynamics Controller `license.lic` and rename it to `provisioners/scripts/centos/tools/appd-controller-license.lic`.
 
 
-## Build the Amazon Machine Images (AMIs) with Packer
+## Build the Immutable Images with Packer
 
-1.	Build the __APM-Platform VM__ CentOS 7.9 AMI image:
+Follow these instructions to build the GCE CentOS 7.9 images:
 
-    This will take several minutes to run.
+-	__LPAD VM__: A GCP GCE 'Launchpad' VM needed for Kubernetes and Serverless CLI Operations and running the sample apps.
+-	__APM-Platform VM__: An APM Platform stand-alone VM with an AppDynamics Controller.
 
-    ```bash
-    $ cd /<drive>/projects/AppD-Cloud-Kickstart/builders/packer/aws
-    $ packer build apm-platform-centos79.json
-    ```
+Here is an example of the Packer build flow for the Google Cloud Platform:
 
-    If the build fails, check to ensure the accuracy of all variables edited above--including items such as spaces between access keys and the ending parentheses.
+__Packer Build Flow for GCP__
+![Packer_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Packer-Build-Flow-for-GCP.png)
 
-2.	Build the __LPAD VM__ CentOS 7.9 AMI image:
+1.	Build the __LPAD VM__ CentOS 7.9 AMI image:
 
     This will take several minutes to run. However, this build will be shorter
     because the size of the root volume for the AMI image is much smaller.
@@ -305,7 +313,56 @@ To prepare for the build, perform the following steps:
     $ packer build lpad-centos79.json
     ```
 
+2.	Build the __APM-Platform VM__ CentOS 7.9 AMI image:
+
+    This will take several minutes to run.
+
+    ```bash
+    $ cd /<drive>/projects/AppD-Cloud-Kickstart/builders/packer/gcp
+    $ packer build apm-platform-centos79.json
+    ```
+
+    If the build fails, check to ensure the accuracy of all variables edited above--including items such as spaces between access keys and the ending parentheses.
+
 3. The steps for creating the AMI's are completed. 
+
+## Deploy the Infrastructure with Terraform
+
+1.	Create the Terraform `terraform.tfvars` file. You can download an example (`.tfvars`) file
+    [here](https://drive.google.com/file/d/1GBewZsfxccbKJAGlvcfCIj_Rfk5G0k5m/view?usp=sharing).
+
+    __NOTE:__ The `terraform.tfvars` file is automatically loaded by Terraform and provides a convenient way to
+    override input parameters found in [`variables.tf`](builders/terraform/azure/sap-labs/variables.tf). The two
+    most important variables are:
+
+    | Variable                        | Description                                                                                                                                                                                                                                                                                               |
+    |---------------------------------|------------------------------------------------------------|
+    | `lab_count`                     | Number of Lab environments to launch.
+    | `lab_start_number`              | Starting lab number for incrementally naming Lab resources.
+
+    ```bash
+    $ cd ~/projects/sap-labs-devops/builders/terraform/azure/sap-labs
+
+    $ vi terraform.tfvars
+    ...
+    # set number of sap lab instances with starting lab number.
+    sap_lab_vm_instance_count = 30
+    sap_lab_vm_start_number = 1
+    ...
+    ```
+
+2.	Deploy the SAP Lab infrastructure on Azure. Execute the following Terraform lifecycle commands in sequence:
+
+    ```bash
+    $ terraform --version
+    $ terraform init
+    $ terraform validate
+    $ terraform plan -out terraform-sap-labs.tfplan
+    $ terraform apply terraform-sap-labs.tfplan
+    ```
+
+__Terraform Build Flow for GCP__
+![Terraform_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Terraform-Build-Flow-for-GCP.png)
 
 ## AWS CentOS 7.9 Bill-of-Materials
 
