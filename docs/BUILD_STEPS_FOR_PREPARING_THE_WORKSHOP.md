@@ -8,28 +8,53 @@ Cloud Kickstart project delivers a set of artifacts to automate the build, deplo
 portion of these pre-workshop activities using [Packer](https://www.packer.io/) and 
 [Terraform](https://www.terraform.io/) from HashiCorp.
 
+Here is an example of the deployment architecture when deployed to the Google Cloud Platform:  
+
+__AppD Cloud Kickstart: Workshop Deployment on GCP__
+![Workshop_Deployment_on_GCP](./images/AppD-Cloud-Kickstart-Workshop-Deployment-on-GCP.png)
+
+## Build and Deployment Concepts
+
+Although there are many tools available to accomplish the automation goals of this project, it was decided
+to standardize on the open source tools referenced above. This is primarily due to their capability for
+building and deploying software platforms to multi-cloud environments, as well as having a high level of
+adoption within the developer community.
+
 ### Packer
 
-Packer is an open source tool for creating identical machine images for multiple platforms from a single 
-source configuration. Packer is lightweight, runs on every major operating system, and is highly performant, 
-creating machine images for multiple platforms in parallel.  
+[Packer](https://packer.io/) is an open source tool for creating identical machine images for multiple platforms
+from a single source configuration. Packer is lightweight, runs on every major operating system, and is highly
+performant. A machine image (or immutable VM image) is a single static unit that contains a pre-configured
+operating system and installed software which is used to quickly create new running machines.  
 
-For this workshop, Packer is used to create immutable VM images. These static images are later used by 
-Terraform when standing-up the infrastructure and compute resources needed by workshop participants. Currently, 
-these VMs consist of the following types:
+As part of this project, Packer is used to create immutable VM images consisting of a standardized installation 
+of CentOS 7.9 with a set of common software. These static images are later used by Terraform when standing-up 
+the infrastructure and compute resources needed by workshop participants. Currently, these VMs consist of the 
+following types:
 
 -	__LPAD VM__: A 'Launchpad' VM with pre-configured tooling for Kubernetes and Serverless CLI Operations.
 -	__APM-Platform VM__: An APM Platform stand-alone VM designed for Application Performance Monitoring. It consists of the AppDynamics Enterprise Console, Controller, and Events Service.
 
+For SE-lead workshops, these VM images are built and maintained by AppDynamics. However, all of the artifacts 
+used to build the images are present in this project, so customers are free to customize and build their own VM
+images if desired.  
+
+__Packer Build Flow for GCP__
+![Packer_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Packer-Build-Flow-for-GCP.png)
+
 ### Terraform
 
-Terraform is an open-source Infrastructure-as-Code (IaC) software tool that provides a consistent CLI 
-workflow to manage hundreds of cloud services. Terraform codifies cloud APIs into declarative configuration 
-files.
+[Terraform](https://terraform.io/) is a tool for building, changing, and versioning infrastructure safely and
+efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions.
+The infrastructure Terraform can manage includes low-level components such as compute instances, storage, and
+networking, as well as high-level components such as DNS entries, SaaS features, etc.  
 
-For this workshop, Terraform is used to automate the deployment of the Lab infrastructure to the cloud 
-using templates. The SE can also specify the number of environments needed (one for each participant) as 
-well as the lab sequence start number, such as Lab01, Lab02, Lab03, etc.
+In this project, Terraform is used to automate the deployment of the Lab infrastructure, including VPCs, subnets, 
+security groups, load balancers, and VMs using templates. The SE can also specify the number of environments 
+needed (one for each participant) as well as the lab sequence start number, such as Lab01, Lab02, Lab03, etc.
+
+__Terraform Build Flow for GCP__
+![Terraform_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Terraform-Build-Flow-for-GCP.png)
 
 ## Get Started
 

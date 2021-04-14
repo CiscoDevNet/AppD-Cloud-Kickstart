@@ -38,6 +38,7 @@ ansible.cfg
 /provisioners/**/files/*_elb_dns_name.txt
 
 # ignore photoshop image files.
+/docs/**/*.psd
 /workshops/**/*.psd
 
 # ignore 'live' bash resource configuration file for appdynamics cloud kickstart users.

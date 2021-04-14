@@ -2,8 +2,8 @@
 
 Follow these instructions to build the GCE CentOS 7.9 images:
 
--	__APM-Platform VM__: An APM Platform stand-alone VM with an AppDynamics Controller.
 -	__LPAD VM__: A GCP GCE 'Launchpad' VM needed for Kubernetes and Serverless CLI Operations and running the sample apps.
+-	__APM-Platform VM__: An APM Platform stand-alone VM with an AppDynamics Controller.
 
 Before building the AppD Cloud Kickstart VM images for GCP, it is recommended that you install the Google 
 Cloud SDK, which includes the `gcloud` CLI tool. The gcloud CLI manages authentication, local configuration, 
