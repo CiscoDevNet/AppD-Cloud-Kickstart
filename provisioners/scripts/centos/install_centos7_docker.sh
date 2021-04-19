@@ -32,7 +32,7 @@ yum -y install docker-ce docker-ce-cli containerd.io
 # configure docker. --------------------------------------------------------------------------------
 # enable ip forwarding if not set.
 sysctlfile="/etc/sysctl.conf"
-ipv4cmd="net.ipv4.ip_forward = 1"
+ipv4cmd="net.ipv4.ip_forward=1"
 if [ -f "$sysctlfile" ]; then
   sysctl net.ipv4.ip_forward
   grep -qF "${ipv4cmd}" ${sysctlfile} || echo "${ipv4cmd}" >> ${sysctlfile}
