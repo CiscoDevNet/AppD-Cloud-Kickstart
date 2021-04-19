@@ -21,11 +21,11 @@ you are finished, such as purging old GCE images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Google Cloud SDK 335.0.0 (command-line interface)
+-	Google Cloud SDK 336.0.0 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [Google Cloud SDK 335.0.0](https://cloud.google.com/sdk/docs/quickstart#mac).  
+1.	Install [Google Cloud SDK 336.0.0](https://cloud.google.com/sdk/docs/quickstart#mac).  
     `$ brew install --cask google-cloud-sdk`  
 
     Depending on your shell, follow the on-screen instructions to source the SDK binaries to your `PATH`.  
@@ -41,10 +41,10 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ gcloud --version
-    Google Cloud SDK 335.0.0
+    Google Cloud SDK 336.0.0
     bq 2.0.66
-    core 2021.04.02
-    gsutil 4.60
+    core 2021.04.09
+    gsutil 4.61
     ```
 
 ## GCP-Specific Installation Instructions - Windows 64-Bit
@@ -60,11 +60,11 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Google Cloud SDK 335.0.0 (command-line interface)
+-	Google Cloud SDK 336.0.0 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [Google Cloud SDK 335.0.0](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) for Windows 64-bit.  
+1.	Install [Google Cloud SDK 336.0.0](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) for Windows 64-bit.  
     Run the downloaded EXE installer, follow the on-screen instructions, and accept the defaults until you get to the last step.  
 
     **NOTE:** For Windows users, the EXE installation package offers a familiar and convenient way to 
@@ -93,10 +93,10 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ gcloud --version
-    Google Cloud SDK 335.0.0
+    Google Cloud SDK 336.0.0
     bq 2.0.66
-    core 2021.04.02
-    gsutil 4.60
+    core 2021.04.09
+    gsutil 4.61
     ```
 
 ## Configuration and Validation
@@ -368,15 +368,15 @@ __Terraform Build Flow for GCP__
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Amazon AWS CLI 2.1.36 (command-line interface)
+-	Amazon AWS CLI 2.1.38 (command-line interface)
 -	Amazon AWS GCE Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.20
--	AppDynamics Enterprise Console 21.4.0 Build 24567
-	-	AppDynamics Controller 21.4.0 Build 1244
-	-	AppDynamics Events Service 4.5.2.0 Build 20651
--	Docker 20.10.5 CE
+-	AppDynamics Enterprise Console 21.2.3 Build 24315
+	-	AppDynamics Controller 21.2.3 Build 1179
+	-	AppDynamics Events Service 20.9.0 Build 213
+-	Docker 20.10.6 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.29.0
+	-	Docker Compose 1.29.1
 	-	Docker Compose Bash Completion
 -	Java SE JDK 8 Update 282 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
@@ -389,29 +389,29 @@ __APM-Platform VM__ - The following utilities and application performance manage
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 2.1.36 (command-line interface)
+-	Amazon AWS CLI 2.1.38 (command-line interface)
 -	Amazon AWS GCE Instance Metadata Query Tool (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.44.0 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.45.0 (command-line interface)
 -	Amazon AWS IAM Authenticator 1.19.6 for AWS EKS CLI and kubectl.
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.19.6 (command-line interface)
 -	Ansible 2.9.20
 -	AppDynamics Node.js Serverless Tracer 21.3.278
--	Docker 20.10.5 CE
+-	Docker 20.10.6 CE
 	-	Docker Bash Completion
-	-	Docker Compose 1.29.0
+	-	Docker Compose 1.29.1
 	-	Docker Compose Bash Completion
 -	Git 2.31.1
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.5.3 (Package Manager for Kubernetes)
+-	Helm CLI 3.5.4 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 282 (Amazon Corretto 8)
 -	Java SE JDK 11.0.10 (Amazon Corretto 11)
 -	Java SE JDK 15.0.2 (Amazon Corretto 15)
 -	Java SE JDK 16 (Amazon Corretto 16)
 -	jq 1.6 (command-line JSON processor)
 -	Node.js JavaScript runtime v14.16.1 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 7.9.0
+-	npm JavaScript Package Manager for Node.js 7.10.0
 -	nvm (Node Version Manager) bash script 0.38.0
 -	Python 2.7.5
 	-	Pip 21.0.1

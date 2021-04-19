@@ -116,6 +116,33 @@ if [ -n "$appd_events_service_profile" ]; then
   esac
 fi
 
+# set current date for temporary filename. ---------------------------------------------------------
+curdate=$(date +"%Y-%m-%d.%H-%M-%S")
+
+# reduce the default sizing for the appdynamics events service production profile. -----------------
+# find events service version path.
+######appd_events_service_profile_path="${appd_home}/${appd_platform_home}/platform-admin/archives/events-service"
+######appd_events_service_version=$(find ${appd_events_service_profile_path} -type d -name '[0-9][0-9]*' -printf '%f')
+######appd_events_service_version_path="${appd_events_service_profile_path}/${appd_events_service_version}"
+
+# change to the events service playbooks host requirements folder.
+######cd ${appd_events_service_version_path}/playbooks/host_requirements
+
+# save a copy of the current file.
+######appd_events_service_dev_file="dev-host-requirements.groovy"
+######appd_events_service_prod_file="prod-host-requirements.groovy"
+
+######if [ -f "${appd_events_service_prod_file}.orig" ]; then
+######  cp -p ${appd_events_service_prod_file} ${appd_events_service_prod_file}.${curdate}
+######else
+######  cp -p ${appd_events_service_prod_file} ${appd_events_service_prod_file}.orig
+######fi
+
+# use the stream editor to substitute the new values.
+######sed -i -e "/^eventsServiceMinRamSizeInMb = 12288/s/^.*$/eventsServiceMinRamSizeInMb = 1024/" ${appd_events_service_prod_file}
+######sed -i -e "/^eventsServiceMinCpus = 4/s/^.*$/eventsServiceMinCpus = 1/" ${appd_events_service_prod_file}
+######sed -i -e "/^eventsServiceMinDataSpaceInMb = 128000/s/^.*$/eventsServiceMinDataSpaceInMb = 2048/" ${appd_events_service_prod_file}
+
 # set appdynamics platform installation variables. -------------------------------------------------
 appd_platform_folder="${appd_home}/${appd_platform_home}"
 appd_product_folder="${appd_home}/${appd_platform_home}/${appd_platform_product_home}"
@@ -139,8 +166,11 @@ runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh create-
 # add local host ('platformadmin') to platform. ----------------------------------------------------
 runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh add-hosts --hosts \"${appd_platform_hosts}\"" - ${appd_platform_user_name}
 
+# validate platform hosts.
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh list-hosts" - ${appd_platform_user_name}
+
 # install appdynamics events service. --------------------------------------------------------------
-runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh install-events-service --profile \"${appd_events_service_profile}\" --hosts \"${appd_events_service_hosts}\"" - ${appd_platform_user_name}
+runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh install-events-service --platform-name \"${appd_platform_name}\" --profile \"${appd_events_service_profile}\" --hosts \"${appd_events_service_hosts}\"" - ${appd_platform_user_name}
 
 # verify installation.
 runuser -c "${appd_platform_folder}/platform-admin/bin/platform-admin.sh show-events-service-health" - ${appd_platform_user_name}

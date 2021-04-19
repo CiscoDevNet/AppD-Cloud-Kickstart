@@ -30,8 +30,8 @@ set -x  # turn command display back ON.
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-21.4.0.24567}"
-appd_platform_sha256="${appd_platform_sha256:-46accd44f0ea8de33444fd670a5032689f35347410fcac0b174272cdf0c3e2f8}"
+appd_platform_release="${appd_platform_release:-21.2.3.24315}"
+appd_platform_sha256="${appd_platform_sha256:-90692d61c8b7c31f371c9825ed737d48e617470e4545803083cb7d90a3c3cd06}"
 appd_platform_user_name="${appd_platform_user_name:-centos}"
 appd_platform_user_group="${appd_platform_user_group:-centos}"
 set +x  # temporarily turn command display OFF.
@@ -67,9 +67,9 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="21.4.0.24567"                 # [optional] platform release (defaults to '21.4.0.24567').
+    [root]# export appd_platform_release="21.2.3.24315"                 # [optional] platform release (defaults to '21.2.3.24315').
                                                                         # [optional] platform sha-256 checksum (defaults to published value).
-    [root]# export appd_platform_sha256="46accd44f0ea8de33444fd670a5032689f35347410fcac0b174272cdf0c3e2f8"
+    [root]# export appd_platform_sha256="90692d61c8b7c31f371c9825ed737d48e617470e4545803083cb7d90a3c3cd06"
     [root]# export appd_platform_user_name="centos"                     # [optional] platform user name (defaults to 'centos').
     [root]# export appd_platform_user_group="centos"                    # [optional] platform group (defaults to 'centos').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
@@ -207,6 +207,16 @@ if [ "$appd_platform_user_name" != "root" ]; then
   echo "Verifying file and process limits for new processes for user \"${appd_platform_user_name}\"..."
   runuser -c "ulimit -S -n" - ${appd_platform_user_name}
   runuser -c "ulimit -S -u" - ${appd_platform_user_name}
+fi
+
+# increase the limits on virtual memory mapping. (needed by the new elasticsearch configuration.)
+sysctlfile="/etc/sysctl.conf"
+maxmapcount="vm.max_map_count=262144"
+if [ -f "$sysctlfile" ]; then
+  sysctl vm.max_map_count
+  grep -qF "${maxmapcount}" ${sysctlfile} || echo "${maxmapcount}" >> ${sysctlfile}
+  sysctl -p /etc/sysctl.conf
+  sysctl vm.max_map_count
 fi
 
 # create temporary download directory. -------------------------------------------------------------

@@ -138,7 +138,7 @@
     "appd_controller_admin_password": "{{env `appd_controller_admin_password`}}",
     "appd_controller_root_password": "{{env `appd_controller_root_password`}}",
     "appd_controller_mysql_password": "{{env `appd_controller_mysql_password`}}",
-    "azure_image_name": "APM-Platform-2140-CentOS79",
+    "azure_image_name": "APM-Platform-2123-CentOS79",
     "azure_image_owner": "Ed Barberis",
     "azure_location": "Central US",
     "azure_resource_group": "EdBarberis",
@@ -148,7 +148,7 @@
     "azure_vm_size": "Standard_E2as_v4",
     "azure_os_disk_size": "128",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.5",
+    "docker_completion_release": "20.10.6",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
