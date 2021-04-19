@@ -5,15 +5,14 @@
 When delivering AppDynamics Cloud workshops, the provisioning and configuration of these lab environments 
 can be an extremely tedious and time-consuming challenge for SE's. To solve that problem, the AppDynamics 
 Cloud Kickstart project delivers a set of artifacts to automate the build, deployment, and configuration 
-portion of these pre-workshop activities using [Packer](https://www.packer.io/) and 
-[Terraform](https://www.terraform.io/) from HashiCorp.
+portion of these pre-workshop activities using open source tooling.
 
-## Build and Deployment Concepts
+## Build and Deployment Tools
 
-Although there are many tools available to accomplish the automation goals of this project, it was decided
-to standardize on the open source tools referenced above. This is primarily due to their capability for
-building and deploying software platforms to multi-cloud environments, as well as having a high level of
-adoption within the developer community.
+Although there are many tools available to accomplish the project's automation goals, it was decided to 
+standardize on [Packer](https://www.packer.io/) and [Terraform](https://www.terraform.io/) from HashiCorp.
+This is primarily due to their capability for building and deploying software platforms to multi-cloud 
+environments, as well as having a high level of adoption within the developer community.
 
 ### Packer
 
@@ -48,10 +47,10 @@ needed (one for each participant) as well as the lab sequence start number, such
 ## Get Started
 
 To configure the AppDynamics Cloud workshop environments, the first step is to set-up your local environment 
-by installing the needed open source software.
+by installing the needed software.
 
 ### Prerequisites
-You install Packer and Terraform on a control node, (usually your local laptop,) which then uses the cloud CLI and/or
+You install Packer and Terraform on a control node, usually your local laptop, which then uses the cloud CLI and/or
 SSH to communicate with your cloud resources and managed nodes.
 
 ## Installation Instructions - macOS
@@ -61,7 +60,7 @@ The following open source software needs to be installed on the host macOS machi
 -	Homebrew 3.1.2
 -	Git 2.31.1
 -	Packer 1.7.2
--	Terraform 0.14.10
+-	Terraform 0.15.0
 -	jq 1.6
 
 Perform the following steps to install the needed software:
@@ -82,7 +81,7 @@ Perform the following steps to install the needed software:
     $ brew install hashicorp/tap/packer
     ```
 
-4.	Install [Terraform 0.14.10](https://www.terraform.io/downloads.html) for macOS 64-bit.  
+4.	Install [Terraform 0.15.0](https://www.terraform.io/downloads.html) for macOS 64-bit.  
     ```bash
     $ brew tap hashicorp/tap
     $ brew install hashicorp/tap/terraform
@@ -108,7 +107,7 @@ Perform the following steps to install the needed software:
     1.7.2
 
     $ terraform --version
-    Terraform v0.14.10
+    Terraform v0.15.0
 
     $ jq --version
     jq-1.6
@@ -128,7 +127,7 @@ To build the AppD Cloud Kickstart immutable VM images, the following open source
 
 -	Git 2.31.1 for Win64
 -	Packer 1.7.2
--	Terraform 0.14.10
+-	Terraform 0.15.0
 -	jq 1.6
 
 Perform the following steps to install the needed software:
@@ -139,7 +138,7 @@ Perform the following steps to install the needed software:
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\bin`  
 
-3.	Install [Terraform 0.14.10](https://releases.hashicorp.com/terraform/0.14.10/terraform_0.14.10_windows_amd64.zip) for Windows 64-bit.  
+3.	Install [Terraform 0.15.0](https://releases.hashicorp.com/terraform/0.15.0/terraform_0.15.0_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\bin`  
 
@@ -170,7 +169,7 @@ Perform the following steps to install the needed software:
     1.7.2
 
     $ terraform --version
-    Terraform v0.14.10
+    Terraform v0.15.0
 
     $ jq --version
     jq-1.6
@@ -200,11 +199,11 @@ Perform the following steps to install the needed software:
     $ cd AppD-Cloud-Kickstart
     ```
 
-## Build the Immutable VM Images with Packer
+## Build the VM Images and Deploy the Lab Infrastructure
 
-The AppDynamics Cloud Kickstart project currently supports immutable VM image builds for Amazon AWS and 
-Google Cloud Platform (GCP). In the future, we will be adding support for Microsoft Azure. Click on a 
-link below for platform-specific instructions and Bill-of-Materials.
+The AppDynamics Cloud Kickstart project currently supports VM image builds for Amazon AWS and Google Cloud 
+Platform (GCP). In the future, we will be adding support for Microsoft Azure. Click on a link below for 
+platform-specific instructions and a Bill-of-Materials.
 
--	[AWS CentOS 7.9 VMs](AWS_VM_BUILD_INSTRUCTIONS.md): Instructions
--	[GCP CentOS 7.9 VMs](GCP_VM_BUILD_INSTRUCTIONS.md): Instructions
+-	[AWS Build and Deploy](AWS_VM_BUILD_INSTRUCTIONS.md): Instructions
+-	[GCP Build and Deploy](GCP_VM_BUILD_INSTRUCTIONS.md): Instructions

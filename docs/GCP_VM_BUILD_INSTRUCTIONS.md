@@ -1,4 +1,4 @@
-# Google Compute Engine (GCP) CentOS 7.9 Image Build Instructions
+# Google Compute Engine (GCP) Image Build and Deployment Instructions
 
 ## Overview
 
@@ -42,9 +42,7 @@ Perform the following steps to install the needed software:
     ```bash
     $ gcloud --version
     Google Cloud SDK 336.0.0
-    bq 2.0.66
-    core 2021.04.09
-    gsutil 4.61
+    ...
     ```
 
 ## GCP-Specific Installation Instructions - Windows 64-Bit
@@ -94,9 +92,7 @@ Perform the following steps to install the needed software:
     ```bash
     $ gcloud --version
     Google Cloud SDK 336.0.0
-    bq 2.0.66
-    core 2021.04.09
-    gsutil 4.61
+    ...
     ```
 
 ## Configuration and Validation
@@ -238,9 +234,7 @@ the `set_appd_cloud_kickstart_env.sh` script you will create in `./bin`. There a
 have acceptable defaults. You only need to concentrate on a handful that are uncommented in the template file.
 
 In particular, you will need to supply your AppDynamics login credentials to the 
-[download site](https://download.appdynamics.com/download/). You will also need to create a secret key to a 
-GCP Service Account with the appropriate IAM Policy Bindings. For AppDynamics SEs, the `gcp-devops.json` has 
-already been created and should be copied to the `./shared/keys` directory.
+[download site](https://download.appdynamics.com/download/).
 
 The build will __fail__ if they are not set.
 
@@ -270,6 +264,7 @@ To prepare for the build, perform the following steps:
 
     gcp_zone="us-central1-a"                        # example for Iowa.
     gcp_image_owner="<firstname>-<lastname>"        # gcp image owner label for packer builds.
+                                                    # all lowercase; no spaces.
     ```
 
     Save and source the environment variables file in order to define the variables in your shell.
@@ -285,12 +280,16 @@ To prepare for the build, perform the following steps:
     $ env | grep -i ^appd | sort
     ```
 
-2.	Supply a valid AppDynamics Controller license file:
+2.	Create a secret key to a GCP Service Account with the appropriate IAM Policy Bindings:
+
+	-	For AppDynamics SEs, the `gcp-devops.json` key file has already been created and can be download [here](https://drive.google.com/file/d/12wi_AzYHIDYd2q2SgNNSpxNwo2GmGgXS/view?usp=sharing).
+		-	After downloading the secret key, it should be copied to the `shared/keys` directory.
+
+3.	Supply a valid AppDynamics Controller license file:
 
 	-	This license can be supplied by any AppDynamics SE
 		-	It is recommended to have at least 10 APM, 10 server, 10 network, 5 DB, 1 unit of each Analytics and 1 unit of each RUM within the license key.
 		-	Copy your AppDynamics Controller `license.lic` and rename it to `provisioners/scripts/centos/tools/appd-controller-license.lic`.
-
 
 ## Build the Immutable Images with Packer
 
@@ -306,7 +305,7 @@ __Packer Build Flow for GCP__
 
 1.	Build the __LPAD VM__ CentOS 7.9 AMI image:
 
-    This will take several minutes to run. However, this build will be shorter
+    This will take several minutes to run. However, this build will be shorter than the APM-Platform VM 
     because the size of the root volume for the AMI image is much smaller.
 
     ```bash
@@ -322,17 +321,32 @@ __Packer Build Flow for GCP__
     $ packer build apm-platform-centos79.json
     ```
 
-    If the build fails, check to ensure the accuracy of all variables edited above--including items such as spaces between access keys and the ending parentheses.
+    If the build fails, check to ensure the accuracy of all variables edited above.
 
-3. The steps for creating the AMI's are completed. 
+The steps for creating the AMI's are completed.
 
 ## Deploy the Infrastructure with Terraform
 
-1.	Create the Terraform `terraform.tfvars` file. You can download an example (`.tfvars`) file
-    [here](https://drive.google.com/file/d/1GBewZsfxccbKJAGlvcfCIj_Rfk5G0k5m/view?usp=sharing).
+Follow these instructions to deploy the infrastructure and create Lab environments for each participant:
+
+-	__LPAD VM__: Deploy the GCP GCE 'Launchpad' VMs.
+-	__APM-Platform VM__: Deploy the APM Platform stand-alone VMs.
+-	__GKE Kubernetes Cluster__: Deploy the GKE Kubernetes Clusters.
+
+Here is an example of the Terraform build flow for the Google Cloud Platform:
+
+__Terraform Build Flow for GCP__
+![Terraform_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Terraform-Build-Flow-for-GCP.png)
+
+__NOTE:__ The following steps are repeated for each major element of the workshop.
+
+1.	Deploy the GCP GCE LPAD VMs.
+
+	a.	Create the Terraform `terraform.tfvars` file. AppDynamics SEs can download an example (`.tfvars`) file
+    [here](https://drive.google.com/file/d/1jlv0sNTyxNMgbpoq4RV4hJ1_xupB4raE/view?usp=sharing).
 
     __NOTE:__ The `terraform.tfvars` file is automatically loaded by Terraform and provides a convenient way to
-    override input parameters found in [`variables.tf`](builders/terraform/azure/sap-labs/variables.tf). The two
+    override input parameters found in [`variables.tf`](builders/terraform/gcp/gke-monitoring-lab/lpad/variables.tf). The two
     most important variables are:
 
     | Variable                        | Description                                                                                                                                                                                                                                                                                               |
@@ -340,60 +354,135 @@ __Packer Build Flow for GCP__
     | `lab_count`                     | Number of Lab environments to launch.
     | `lab_start_number`              | Starting lab number for incrementally naming Lab resources.
 
-    ```bash
-    $ cd ~/projects/sap-labs-devops/builders/terraform/azure/sap-labs
+    <br>
 
+    ```bash
+    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/gcp/gke-monitoring-lab/lpad
     $ vi terraform.tfvars
     ...
-    # set number of sap lab instances with starting lab number.
-    sap_lab_vm_instance_count = 30
-    sap_lab_vm_start_number = 1
+    # set number of lab environments to launch with starting lab number.
+    lab_count = 10
+    lab_start_number = 1
     ...
     ```
 
-2.	Deploy the SAP Lab infrastructure on Azure. Execute the following Terraform lifecycle commands in sequence:
+	b.	Deploy the Lab infrastructure on GCP. Execute the following Terraform lifecycle commands in sequence:
 
     ```bash
+    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/gcp/gke-monitoring-lab/lpad
     $ terraform --version
     $ terraform init
     $ terraform validate
-    $ terraform plan -out terraform-sap-labs.tfplan
-    $ terraform apply terraform-sap-labs.tfplan
+    $ terraform plan -out terraform-lpad.tfplan
+    $ terraform apply terraform-lpad.tfplan
     ```
 
-__Terraform Build Flow for GCP__
-![Terraform_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Terraform-Build-Flow-for-GCP.png)
+2.	Deploy the APM Platform stand-alone VMs.
 
-## AWS CentOS 7.9 Bill-of-Materials
+	a.	Repeat __Step a__ above to create the Terraform `terraform.tfvars` file.
 
-__APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
+    __NOTE:__ Make sure that the `lab_count` and `lab_start_number` variables are in-sync:
 
--	Amazon AWS CLI 2.1.38 (command-line interface)
--	Amazon AWS GCE Instance Metadata Query Tool (command-line interface)
--	Ansible 2.9.20
--	AppDynamics Enterprise Console 21.2.3 Build 24315
-	-	AppDynamics Controller 21.2.3 Build 1179
-	-	AppDynamics Events Service 20.9.0 Build 213
--	Docker 20.10.6 CE
-	-	Docker Bash Completion
-	-	Docker Compose 1.29.1
-	-	Docker Compose Bash Completion
--	Java SE JDK 8 Update 282 (Amazon Corretto 8)
--	jq 1.6 (command-line JSON processor)
--	MySQL Shell 8.0.23
--	Python 2.7.5
-	-	Pip 21.0.1
--	Python 3.6.8
-	-	Pip 21.0.1
--	VIM - Vi IMproved 8.2
+    | Variable                        | Description                                                                                                                                                                                                                                                                                               |
+    |---------------------------------|------------------------------------------------------------|
+    | `lab_count`                     | Number of Lab environments to launch.
+    | `lab_start_number`              | Starting lab number for incrementally naming Lab resources.
 
-__LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
+    <br>
 
--	Amazon AWS CLI 2.1.38 (command-line interface)
--	Amazon AWS GCE Instance Metadata Query Tool (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.45.0 (command-line interface)
--	Amazon AWS IAM Authenticator 1.19.6 for AWS EKS CLI and kubectl.
--	Amazon AWS Kubernetes Control CLI [kubectl] 1.19.6 (command-line interface)
+    ```bash
+    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/gcp/gke-monitoring-lab/apm-platform
+    $ vi terraform.tfvars
+    ...
+    # set number of lab environments to launch with starting lab number.
+    lab_count = 10
+    lab_start_number = 1
+    ...
+    ```
+
+	b.	Deploy the Lab infrastructure on GCP. Execute the following Terraform lifecycle commands in sequence:
+
+    ```bash
+    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/gcp/gke-monitoring-lab/apm-platform
+    $ terraform --version
+    $ terraform init
+    $ terraform validate
+    $ terraform plan -out terraform-apm-platform.tfplan
+            
+    $ terraform apply terraform-apm-platform.tfplan
+    ```
+
+3.	Deploy the GKE Kubernetes Clusters.
+
+	a.	Repeat __Step a__ above to create the Terraform `terraform.tfvars` file.
+
+    __NOTE:__ Make sure that the `lab_count` and `lab_start_number` variables are in-sync:
+
+    | Variable                        | Description                                                                                                                                                                                                                                                                                               |
+    |---------------------------------|------------------------------------------------------------|
+    | `lab_count`                     | Number of Lab environments to launch.
+    | `lab_start_number`              | Starting lab number for incrementally naming Lab resources.
+
+    <br>
+
+    ```bash
+    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/gcp/gke-monitoring-lab/gke-cluster
+    $ vi terraform.tfvars
+    ...
+    # set number of lab environments to launch with starting lab number.
+    lab_count = 10
+    lab_start_number = 1
+    ...
+    ```
+
+	b.	Deploy the Lab infrastructure on GCP. Execute the following Terraform lifecycle commands in sequence:
+
+    ```bash
+    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/gcp/gke-monitoring-lab/gke-cluster
+    $ terraform --version
+    $ terraform init
+    $ terraform validate
+    $ terraform plan -out terraform-gke-cluster.tfplan
+    $ terraform apply terraform-gke-cluster.tfplan
+    ```
+
+## Cleaning-Up when the Workshop is Over
+
+1.	To teardown the Lab infrastructure on GCP, execute the following Terraform command:
+
+    ```bash
+    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/gcp/gke-monitoring-lab/lpad
+    $ terraform destroy -auto-approve
+
+    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/gcp/gke-monitoring-lab/apm-platform
+    $ terraform destroy -auto-approve
+
+    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/gcp/gke-monitoring-lab/gke-cluster
+    $ terraform destroy -auto-approve
+    ```
+
+## When Things Go Wrong
+
+### Packer
+
+Problems with Packer generally occur during the provisioning phase. During this phase, all of the provisioning 
+steps __*must*__ complete successfully or the build will fail. Pay attention to the error in the output, and 
+adjust the build provisioning script accordingly.
+
+If a network timeout occurs, you can generally wait a few minutes and restart the build to be successful.
+
+### Terraform
+
+Problems with Terraform generally occur when it gets confused about the state of existing infrastructure resources or
+if it tries to create a resource that already exists.  
+
+For state issues, the quickest remedy is to destroy the infrastructure and recreate it. In some cases, you may have
+to manually browse the cloud provider and delete any resources that are in conflict.
+
+## GCP CentOS 7.9 Bill-of-Materials
+
+__LPAD VM__ - The following CLI command-line tools and utilities are pre-installed:
+
 -	Ansible 2.9.20
 -	AppDynamics Node.js Serverless Tracer 21.3.278
 -	Docker 20.10.6 CE
@@ -404,18 +493,46 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
+-	Google Cloud SDK 336.0.0
 -	Helm CLI 3.5.4 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 282 (Amazon Corretto 8)
 -	Java SE JDK 11.0.10 (Amazon Corretto 11)
 -	Java SE JDK 15.0.2 (Amazon Corretto 15)
 -	Java SE JDK 16 (Amazon Corretto 16)
 -	jq 1.6 (command-line JSON processor)
+-	Kubernetes CLI [kubectl] 1.19.6 (command-line interface)
 -	Node.js JavaScript runtime v14.16.1 (Latest LTS Version)
 -	npm JavaScript Package Manager for Node.js 7.10.0
 -	nvm (Node Version Manager) bash script 0.38.0
+-	Packer 1.7.2
 -	Python 2.7.5
 	-	Pip 21.0.1
 -	Python 3.6.8
 	-	Pip 21.0.1
 -	Serverless Framework CLI 2.35.0
+-	Terraform 0.15.0
+-	VIM - Vi IMproved 8.2
+
+__APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
+
+-	Ansible 2.9.20
+-	AppDynamics Enterprise Console 21.2.3 Build 24315
+	-	AppDynamics Controller 21.2.3 Build 1179
+	-	AppDynamics Events Service 4.5.2 Build 20651
+-	Docker 20.10.6 CE
+	-	Docker Bash Completion
+	-	Docker Compose 1.29.1
+	-	Docker Compose Bash Completion
+-	Git 2.31.1
+	-	Git Bash Completion
+	-	Git-Flow 1.12.3 (AVH Edition)
+	-	Git-Flow Bash Completion
+-	Google Cloud SDK 336.0.0
+-	Java SE JDK 8 Update 282 (Amazon Corretto 8)
+-	jq 1.6 (command-line JSON processor)
+-	MySQL Shell 8.0.23
+-	Python 2.7.5
+	-	Pip 21.0.1
+-	Python 3.6.8
+	-	Pip 21.0.1
 -	VIM - Vi IMproved 8.2
