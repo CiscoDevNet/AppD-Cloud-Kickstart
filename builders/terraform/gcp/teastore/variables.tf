@@ -68,7 +68,7 @@ variable "gcp_source_image_family" {
 variable "gcp_source_image" {
   description = "The source disk image."
   type        = string
-  default     = "teastore-centos79-2021-04-19"
+  default     = "teastore-centos79-2021-04-23"
 # default     = "centos-7-v20200910"
 }
 
