@@ -4,9 +4,9 @@ output "location" {
   value       = var.azurerm_location
 }
 
-output "lpad_vm_hostname_prefix" {
-  description = "Azure LPAD VM hostname prefix."
-  value       = var.azurerm_lpad_vm_hostname_prefix
+output "apm_platform_vm_hostname_prefix" {
+  description = "Azure APM Platform VM hostname prefix."
+  value       = var.azurerm_apm_platform_vm_hostname_prefix
 }
 
 output "lab_ssh_username" {
@@ -19,14 +19,14 @@ output "azurerm_vm_size" {
   value       = var.azurerm_vm_size
 }
 
-output "lpad_private_ips" {
-  description = "The private IP addresses assigned to the LPAD VM instances."
-  value       = flatten([toset(azurerm_linux_virtual_machine.lpad.*.private_ip_address)])
+output "apm_platform_private_ips" {
+  description = "The private IP addresses assigned to the APM Platform VM instances."
+  value       = flatten([toset(azurerm_linux_virtual_machine.apm_platform.*.private_ip_address)])
 }
 
-output "lpad_public_ips" {
-  description = "The public IP addresses assigned to the LPAD VM instances."
-  value       = flatten([toset(azurerm_linux_virtual_machine.lpad.*.public_ip_address)])
+output "apm_platform_public_ips" {
+  description = "The public IP addresses assigned to the APM Platform VM instances."
+  value       = flatten([toset(azurerm_linux_virtual_machine.apm_platform.*.public_ip_address)])
 }
 
 output "lab_count" {

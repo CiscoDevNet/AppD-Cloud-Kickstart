@@ -27,26 +27,27 @@ azurerm_vm_instance_name=$(curl --silent -H Metadata:true --noproxy "*" "http://
 
 # if num suffix is present, retrieve the value.
 if [ "$use_azurerm_vm_num_suffix" == "true" ]; then
-  azurerm_vm_instance_count=$(echo ${azurerm_vm_instance_name} | awk -F "-" '{print $2}')
+  azurerm_vm_instance_count=$(echo ${azurerm_vm_instance_name} | awk -F "-" '{print $(NF-4)}')
 else
   azurerm_vm_instance_count=""
 fi
 
-# if date is present, split the instance name into separate hostname and date variables.
+# if date is present, split the date string into a separate variable.
 if [ $(echo "$azurerm_vm_instance_name" | grep '20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]$') ]; then
-  azurerm_vm_hostname="${azurerm_vm_instance_name:0:-11}"
   azurerm_vm_instance_date="${azurerm_vm_instance_name: -10}"
 else
-  azurerm_vm_hostname="${azurerm_vm_instance_name}"
   azurerm_vm_instance_date=""
 fi
 
 # set the aks cluster name.
 if [ ! -z "$azurerm_vm_instance_date" ]; then
-  azurerm_aks_cluster_name="lab${azurerm_vm_instance_count}-aks-${azurerm_vm_instance_date}"
+  azurerm_aks_cluster_name="aks-${azurerm_vm_instance_count}-cluster-${azurerm_vm_instance_date}"
 else
-  azurerm_aks_cluster_name="lab${azurerm_vm_instance_count}-aks"
+  azurerm_aks_cluster_name="aks-${azurerm_vm_instance_count}-cluster"
 fi
+
+# retrieve the computer name (hostname) attribute from the azure vm instance metadata.
+azurerm_vm_hostname=$(curl --silent -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | jq -r '. | {name: .compute.osProfile.computerName} | .[] | values')
 
 # retrieve the resource group name attribute from the azure vm instance metadata.
 azurerm_resource_group=$(curl --silent -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | jq -r '. | {resourceGroupName: .compute.resourceGroupName} | .[] | values')

@@ -14,7 +14,7 @@ data "azurerm_resource_group" "cloud_workshop" {
   name     = var.azurerm_resource_group_name
 }
 
-data "azurerm_image" "lpad" {
+data "azurerm_image" "apm_platform" {
   name_regex          = var.azurerm_source_image
   resource_group_name = var.azurerm_resource_group_name
   sort_descending     = true
@@ -85,21 +85,21 @@ resource "azurerm_network_security_rule" "allow_ssh" {
   network_security_group_name = azurerm_network_security_group.nsg.name
 }
 
-resource "azurerm_network_security_rule" "allow_lpad" {
-  name                        = "security-rule-allow-lpad-${var.azurerm_resource_name_prefix}-${local.current_date}"
+resource "azurerm_network_security_rule" "allow_apm_platform" {
+  name                        = "security-rule-allow-apm-platform-${var.azurerm_resource_name_prefix}-${local.current_date}"
   priority                    = 103
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
-  destination_port_ranges     = ["80", "443", "3306", "8080"]
+  destination_port_ranges     = ["80", "443", "3306", "8080", "8090", "9080", "9191"]
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = data.azurerm_resource_group.cloud_workshop.name
   network_security_group_name = azurerm_network_security_group.nsg.name
 }
 
-resource "azurerm_public_ip" "lpad" {
+resource "azurerm_public_ip" "apm_platform" {
   name  = var.lab_count > 1 || var.lab_use_num_suffix ? format("%s-%02d-public-ip-%s", var.azurerm_resource_name_prefix, count.index + local.start_number, local.current_date) : "${var.azurerm_resource_name_prefix}-public-ip-${local.current_date}"
   count = var.lab_count
 
@@ -110,7 +110,7 @@ resource "azurerm_public_ip" "lpad" {
   tags                    = var.resource_tags
 }
 
-resource "azurerm_network_interface" "lpad" {
+resource "azurerm_network_interface" "apm_platform" {
   name  = var.lab_count > 1 || var.lab_use_num_suffix ? format("%s-%02d-network-interface-%s", var.azurerm_resource_name_prefix, count.index + local.start_number, local.current_date) : "${var.azurerm_resource_name_prefix}-network-interface-${local.current_date}"
   count = var.lab_count
 
@@ -121,32 +121,32 @@ resource "azurerm_network_interface" "lpad" {
     name                          = "ipconfig1"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.lpad[count.index].id
+    public_ip_address_id          = azurerm_public_ip.apm_platform[count.index].id
   }
 
   tags = var.resource_tags
 }
 
-resource "azurerm_network_interface_security_group_association" "lpad" {
+resource "azurerm_network_interface_security_group_association" "apm_platform" {
   count                     = var.lab_count
-  network_interface_id      = azurerm_network_interface.lpad[count.index].id
+  network_interface_id      = azurerm_network_interface.apm_platform[count.index].id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
 
-resource "azurerm_linux_virtual_machine" "lpad" {
+resource "azurerm_linux_virtual_machine" "apm_platform" {
   name  = var.lab_count > 1 || var.lab_use_num_suffix ? format("%s-%02d-vm-%s", var.azurerm_resource_name_prefix, count.index + local.start_number, local.current_date) : "${var.azurerm_resource_name_prefix}-vm-${local.current_date}"
   count = var.lab_count
 
   resource_group_name   = data.azurerm_resource_group.cloud_workshop.name
   location              = data.azurerm_resource_group.cloud_workshop.location
-  computer_name         = format("%s-%02d-vm", var.azurerm_lpad_vm_hostname_prefix, count.index + local.start_number)
+  computer_name         = format("%s-%02d-vm", var.azurerm_apm_platform_vm_hostname_prefix, count.index + local.start_number)
   size                  = var.azurerm_vm_size
   admin_username        = var.azurerm_ssh_username
-  network_interface_ids = [azurerm_network_interface.lpad[count.index].id]
+  network_interface_ids = [azurerm_network_interface.apm_platform[count.index].id]
 
   custom_data = base64encode(templatefile("${path.module}/templates/user-data-sh.tmpl", {
     azurerm_ssh_username       = var.azurerm_ssh_username,
-    azurerm_vm_hostname_prefix = var.azurerm_lpad_vm_hostname_prefix,
+    azurerm_vm_hostname_prefix = var.azurerm_apm_platform_vm_hostname_prefix,
     azurerm_vm_domain          = "",
     azurerm_use_num_suffix     = var.lab_use_num_suffix
   }))
@@ -161,14 +161,14 @@ resource "azurerm_linux_virtual_machine" "lpad" {
     storage_account_type = var.azurerm_storage_account_type
   }
 
-  source_image_id = data.azurerm_image.lpad.id
+  source_image_id = data.azurerm_image.apm_platform.id
 }
 
 # create ansible trigger to generate inventory and helper files. -----------------------------------
 resource "null_resource" "ansible_trigger" {
   # fire the ansible trigger when any ec2 instance requires re-provisioning.
   triggers = {
-    compute_instance_ids = join(",", azurerm_linux_virtual_machine.lpad.*.id)
+    compute_instance_ids = join(",", azurerm_linux_virtual_machine.apm_platform.*.id)
   }
 
   # execute the following 'local-exec' provisioners each time the trigger is invoked.
@@ -177,8 +177,8 @@ resource "null_resource" "ansible_trigger" {
     working_dir = "."
     command     = <<EOD
 cat <<EOF > azure_hosts.inventory
-[lpad_vm]
-${join("\n", toset(azurerm_linux_virtual_machine.lpad.*.public_ip_address))}
+[apm_platform_vm]
+${join("\n", toset(azurerm_linux_virtual_machine.apm_platform.*.public_ip_address))}
 EOF
 EOD
   }

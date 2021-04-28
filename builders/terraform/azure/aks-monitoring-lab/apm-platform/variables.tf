@@ -32,27 +32,27 @@ variable "azurerm_lab_tcp_idle_timeout" {
 variable "azurerm_source_image" {
   description = "The source image."
   type        = string
-  default     = "LPAD-CentOS79-Image-*"
+  default     = "APM-Platform-2142-CentOS79-Image-*"
 }
 
 variable "azurerm_vm_size" {
   description = "Azure VM size."
   type        = string
-  default     = "Standard_B1s"
+# default     = "Standard_B1s"
 # default     = "Standard_D2as_v4"
-# default     = "Standard_B4ms"
+  default     = "Standard_B4ms"
 }
 
-variable "azurerm_lpad_vm_hostname_prefix" {
-  description = "Azure LPAD VM hostname prefix."
+variable "azurerm_apm_platform_vm_hostname_prefix" {
+  description = "Azure APM Platform VM hostname prefix."
   type        = string
-  default     = "lpad"
+  default     = "apm"
 }
 
 variable "azurerm_resource_name_prefix" {
   description = "Resource name prefix."
   type        = string
-  default     = "lpad"
+  default     = "apm-platform"
 }
 
 variable "azurerm_storage_account_type" {
