@@ -139,7 +139,7 @@
     "appd_controller_admin_password": "{{env `appd_controller_admin_password`}}",
     "appd_controller_root_password": "{{env `appd_controller_root_password`}}",
     "appd_controller_mysql_password": "{{env `appd_controller_mysql_password`}}",
-    "azure_image_name": "APM-Platform-2142-CentOS79",
+    "azure_image_name": "APM-Platform-2143-CentOS79",
     "azure_image_owner": "Ed Barberis",
     "azure_location": "Central US",
     "azure_resource_group": "EdBarberis",
