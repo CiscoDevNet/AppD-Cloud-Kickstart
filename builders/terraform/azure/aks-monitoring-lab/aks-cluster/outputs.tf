@@ -9,14 +9,19 @@ output "location" {
   value       = data.azurerm_resource_group.cloud_workshop.location
 }
 
-output "apm_platform_vm_hostname_prefix" {
-  description = "Azure APM Platform VM hostname prefix."
-  value       = var.azurerm_apm_platform_vm_hostname_prefix
-}
-
 output "lab_ssh_username" {
   description = "Azure VM user name."
   value       = var.azurerm_ssh_username
+}
+
+output "aks_kubernetes_version" {
+  description = "Version of Kubernetes specified when creating the AKS managed cluster."
+  value       = var.azurerm_aks_kubernetes_version
+}
+
+output "aks_node_count" {
+  description = "Initial number of AKS nodes that should exist within the Node Pool."
+  value       = var.azurerm_aks_node_count
 }
 
 output "azurerm_vm_size" {
@@ -24,14 +29,9 @@ output "azurerm_vm_size" {
   value       = var.azurerm_vm_size
 }
 
-output "apm_platform_private_ips" {
-  description = "The private IP addresses assigned to the APM Platform VM instances."
-  value       = flatten([toset(azurerm_linux_virtual_machine.apm_platform.*.private_ip_address)])
-}
-
-output "apm_platform_public_ips" {
-  description = "The public IP addresses assigned to the APM Platform VM instances."
-  value       = flatten([toset(azurerm_linux_virtual_machine.apm_platform.*.public_ip_address)])
+output "aks_cluster_host" {
+  description = "The Kubernetes AKS Cluster server host."
+  value       = flatten([toset(azurerm_kubernetes_cluster.k8s.*.kube_config.0.host)])
 }
 
 output "lab_count" {

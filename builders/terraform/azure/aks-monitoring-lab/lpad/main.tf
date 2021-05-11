@@ -28,6 +28,7 @@ resource "azurerm_virtual_network" "vnet" {
   address_space       = ["10.0.0.0/16"]
   resource_group_name = data.azurerm_resource_group.cloud_workshop.name
   location            = data.azurerm_resource_group.cloud_workshop.location
+  tags                = var.resource_tags
 }
 
 resource "azurerm_subnet" "subnet" {
@@ -41,6 +42,7 @@ resource "azurerm_network_security_group" "nsg" {
   name                = "nsg-${var.azurerm_resource_name_prefix}-${local.current_date}"
   resource_group_name = data.azurerm_resource_group.cloud_workshop.name
   location            = data.azurerm_resource_group.cloud_workshop.location
+  tags                = var.resource_tags
 }
 
 resource "azurerm_network_security_rule" "allow_icmp" {
@@ -162,6 +164,7 @@ resource "azurerm_linux_virtual_machine" "lpad" {
   }
 
   source_image_id = data.azurerm_image.lpad.id
+  tags            = var.resource_tags
 }
 
 # create ansible trigger to generate inventory and helper files. -----------------------------------

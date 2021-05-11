@@ -5,63 +5,42 @@ variable "azurerm_resource_group_name" {
   default     = "EdBarberis"
 }
 
-variable "azurerm_source_address_prefixes" {
-  description = "The source range for inbound ssh traffic"
-  type        = list
-  default     = ["0.0.0.0/0"]
-}
-
 variable "azurerm_ssh_username" {
-  description = "Azure VM user name."
+  description = "Azure AKS node user name."
   type        = string
-  default     = "centos"
+  default     = "ubuntu"
 }
 
-variable "azurerm_lab_tcp_idle_timeout" {
-  description = "Azure VM public IP idle timeout in minutes."
+variable "azurerm_aks_kubernetes_version" {
+  description = "Version of Kubernetes specified when creating the AKS managed cluster."
+  type        = string
+  default     = "1.18.17"
+}
+
+variable "azurerm_aks_node_count" {
+  description = "Initial number of AKS nodes that should exist within the Node Pool."
   type        = number
-  default     = 30
-}
-
-variable "azurerm_source_image" {
-  description = "The source image."
-  type        = string
-  default     = "APM-Platform-2143-CentOS79-Image-*"
+  default     = 2
 }
 
 variable "azurerm_vm_size" {
   description = "Azure VM size."
   type        = string
 # default     = "Standard_B1s"
-# default     = "Standard_D2as_v4"
-  default     = "Standard_B4ms"
-}
-
-variable "azurerm_apm_platform_vm_hostname_prefix" {
-  description = "Azure APM Platform VM hostname prefix."
-  type        = string
-  default     = "apm"
+  default     = "Standard_D2as_v4"
+# default     = "Standard_B4ms"
 }
 
 variable "azurerm_resource_name_prefix" {
   description = "Resource name prefix."
   type        = string
-  default     = "apm-platform"
-}
-
-variable "azurerm_storage_account_type" {
-  description = "Azure storage account type."
-  type        = string
-  default     = "Standard_LRS"
-# default     = "StandardSSD_LRS"
-# default     = "Premium_LRS"
+  default     = "aks"
 }
 
 variable "lab_ssh_pub_key_path" {
   description = "Path to SSH public key for Lab VMs."
   type        = string
-  default     = "~/.ssh/AppD-Cloud-Kickstart.pub"
-# default     = "../../../../../shared/keys/AppD-Cloud-Kickstart.pub"
+  default     = "../../../../../shared/keys/AppD-Cloud-Kickstart.pub"
 }
 
 variable "lab_count" {

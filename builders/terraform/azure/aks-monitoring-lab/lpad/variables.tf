@@ -5,12 +5,6 @@ variable "azurerm_resource_group_name" {
   default     = "EdBarberis"
 }
 
-variable "azurerm_location" {
-  description = "Azure region."
-  type        = string
-  default     = "centralus"
-}
-
 variable "azurerm_source_address_prefixes" {
   description = "The source range for inbound ssh traffic"
   type        = list

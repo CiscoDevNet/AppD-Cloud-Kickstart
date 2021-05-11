@@ -1,7 +1,12 @@
-# Variables ----------------------------------------------------------------------------------------
+# Outputs ------------------------------------------------------------------------------------------
+output "resource_group" {
+  description = "The name of the Azure Resource Group."
+  value       = data.azurerm_resource_group.cloud_workshop.name
+}
+
 output "location" {
-  description = "Azure region."
-  value       = var.azurerm_location
+  description = "Azure Region where the Resource Group exists."
+  value       = data.azurerm_resource_group.cloud_workshop.location
 }
 
 output "lpad_vm_hostname_prefix" {
