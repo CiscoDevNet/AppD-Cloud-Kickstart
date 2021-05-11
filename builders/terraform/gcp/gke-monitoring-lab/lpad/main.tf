@@ -27,7 +27,6 @@ module "instance_template" {
   subnetwork           = google_compute_subnetwork.vpc-public-subnet-01.name
   source_image_project = var.gcp_source_image_project
   source_image_family  = var.gcp_source_image_family
-# source_image         = var.gcp_source_image
   machine_type         = var.gcp_machine_type
   disk_size_gb         = 48
 

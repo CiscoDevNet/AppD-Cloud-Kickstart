@@ -59,13 +59,6 @@ variable "gcp_source_image_family" {
 # default     = "centos-7"
 }
 
-variable "gcp_source_image" {
-  description = "The source disk image."
-  type        = string
-  default     = "apm-platform-centos79-2021-04-28"
-# default     = "centos-7-v20200910"
-}
-
 variable "gcp_use_num_suffix" {
   description = "Always append numerical suffix to instance name, even if instance_count is 1"
   type        = bool
