@@ -43,13 +43,13 @@ fi
 
 # set the gke cluster name.
 if [ ! -z "$gcp_gce_instance_date" ]; then
-  gcp_gke_cluster_name="lab${gcp_gce_instance_count}-gke-${gcp_gce_instance_date}"
+  gcp_gke_cluster_name="gke-${gcp_gce_instance_count}-cluster-${gcp_gce_instance_date}"
 else
-  gcp_gke_cluster_name="lab${gcp_gce_instance_count}-gke"
+  gcp_gke_cluster_name="gke-${gcp_gce_instance_count}-cluster"
 fi
 
 # retrieve the gke cluster zone (location).
-#gcp_gke_cluster_zone=$(gcloud container clusters list --filter="name:${gcp_gke_cluster_name}" --format="value(location)")
+gcp_gke_cluster_zone=$(gcloud container clusters list --filter="name:${gcp_gke_cluster_name}" --format="value(location)")
 
 # use the stream editor to substitute new values into the user bash config. ------------------------
 bashrc_config_file="${user_home}/.bashrc"
@@ -62,8 +62,8 @@ bashrc_search="# define prompt code and colors."
 lab_config_line_01="# define gcp gke monitoring lab environment variables."
 lab_config_line_02="gcp_gke_cluster_name=${gcp_gke_cluster_name}"
 lab_config_line_03="export gcp_gke_cluster_name"
-lab_config_line_04="#gcp_gke_cluster_zone=${gcp_gke_cluster_zone}"
-lab_config_line_05="#export gcp_gke_cluster_zone"
+lab_config_line_04="gcp_gke_cluster_zone=${gcp_gke_cluster_zone}"
+lab_config_line_05="export gcp_gke_cluster_zone"
 lab_config_line_06="#appd_controller_host=apm"
 lab_config_line_07="#export appd_controller_host"
 lab_config_line_08="appd_install_kubernetes_metrics_server=false"

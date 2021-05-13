@@ -36,7 +36,7 @@ module "instance_template" {
       gcp_ssh_username            = var.gcp_ssh_username,
       gcp_lpad_vm_hostname_prefix = var.gcp_lpad_vm_hostname_prefix,
       gcp_lpad_vm_domain          = "",
-      gcp_use_num_suffix          = "true"
+      gcp_use_num_suffix          = var.lab_use_num_suffix
     })
   }
 
@@ -47,7 +47,7 @@ module "lpad_vm" {
   source  = "./modules/compute_instance"
 
   num_instances  = var.lab_count
-  use_num_suffix = true
+  use_num_suffix = var.lab_use_num_suffix
   start_number   = local.start_number
 
   region            = var.gcp_region

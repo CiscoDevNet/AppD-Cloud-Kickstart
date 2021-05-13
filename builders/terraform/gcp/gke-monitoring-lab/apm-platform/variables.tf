@@ -113,6 +113,12 @@ variable "lab_start_number" {
   default     = 1
 }
 
+variable "lab_use_num_suffix" {
+  description = "Always append numerical suffix to instance name, even if instance_count is 1."
+  type        = bool
+  default     = true
+}
+
 variable "resource_labels" {
   description = "Label names for GCP resources."
   type = map

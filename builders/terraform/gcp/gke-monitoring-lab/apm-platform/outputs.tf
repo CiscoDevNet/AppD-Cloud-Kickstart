@@ -57,6 +57,11 @@ output "lab_start_number" {
   value       = var.lab_start_number
 }
 
+output "lab_use_num_suffix" {
+  description = "Always append numerical suffix to instance name, even if instance_count is 1"
+  value       = var.lab_use_num_suffix
+}
+
 output "resource_labels" {
   description = "List of GCP resource labels."
   value       = var.resource_labels

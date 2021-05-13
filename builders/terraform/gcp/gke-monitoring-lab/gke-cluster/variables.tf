@@ -49,7 +49,7 @@ variable "gcp_machine_type" {
 variable "gcp_resource_name_prefix" {
   description = "Resource name prefix."
   type        = string
-  default     = "lab"
+  default     = "gke"
 }
 
 variable "gcp_service_account_key_path" {
@@ -86,6 +86,12 @@ variable "lab_start_number" {
   description = "Starting lab number for incrementally naming resources."
   type        = number
   default     = 1
+}
+
+variable "lab_use_num_suffix" {
+  description = "Always append numerical suffix to instance name, even if instance_count is 1."
+  type        = bool
+  default     = true
 }
 
 variable "resource_labels" {

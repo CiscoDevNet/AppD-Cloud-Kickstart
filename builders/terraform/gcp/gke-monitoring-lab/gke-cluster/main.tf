@@ -25,26 +25,26 @@ data "google_container_engine_versions" "zone" {
 
 # Resources ----------------------------------------------------------------------------------------
 resource "google_compute_network" "vpc" {
-  name   = "${var.gcp_resource_name_prefix}${format("%02d", count.index + local.start_number)}-vpc-${local.current_date}"
+  name   = var.lab_count > 1 || var.lab_use_num_suffix ? format("vpc-%02d-%s-%s", count.index + local.start_number, var.gcp_resource_name_prefix, local.current_date) : "vpc-${var.gcp_resource_name_prefix}-${local.current_date}"
   count  = var.lab_count
 
   auto_create_subnetworks = "false"
 }
 
 resource "google_compute_subnetwork" "subnet" {
-  name   = "${var.gcp_resource_name_prefix}${format("%02d", count.index + local.start_number)}-subnet-${local.current_date}"
-  region = var.gcp_region
+  name   = var.lab_count > 1 || var.lab_use_num_suffix ? format("subnet-%02d-%s-%s", count.index + local.start_number, var.gcp_resource_name_prefix, local.current_date) : "subnet-${var.gcp_resource_name_prefix}-${local.current_date}"
   count  = var.lab_count
 
+  region        = var.gcp_region
   network       = google_compute_network.vpc[count.index].name
   ip_cidr_range = "10.10.0.0/24"
 }
 
 resource "google_container_cluster" "gke_cluster" {
-  name     = "${var.gcp_resource_name_prefix}${format("%02d", count.index + local.start_number)}-gke-${local.current_date}"
-  location = var.gcp_zone
+  name     = var.lab_count > 1 || var.lab_use_num_suffix ? format("%s-%02d-cluster-%s", var.gcp_resource_name_prefix, count.index + local.start_number, local.current_date) : "${var.gcp_resource_name_prefix}-cluster-${local.current_date}"
   count    = var.lab_count
 
+  location                 = var.gcp_zone
   remove_default_node_pool = true
   initial_node_count       = 1
 
@@ -68,10 +68,10 @@ resource "google_container_cluster" "gke_cluster" {
 }
 
 resource "google_container_node_pool" "gke_cluster_nodes" {
-  name     = "${var.gcp_resource_name_prefix}${format("%02d", count.index + local.start_number)}-gke-node-pool-${local.current_date}"
-  location = var.gcp_zone
+  name     = var.lab_count > 1 || var.lab_use_num_suffix ? format("node-pool-%02d-%s-%s", count.index + local.start_number, var.gcp_resource_name_prefix, local.current_date) : "node-pool-${var.gcp_resource_name_prefix}-${local.current_date}"
   count    = var.lab_count
 
+  location   = var.gcp_zone
   cluster    = google_container_cluster.gke_cluster[count.index].name
   node_count = var.gke_node_count
 
