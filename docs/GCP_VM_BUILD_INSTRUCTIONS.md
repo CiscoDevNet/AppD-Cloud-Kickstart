@@ -301,7 +301,7 @@ Follow these instructions to build the GCE CentOS 7.9 images:
 Here is an example of the Packer build flow for the Google Cloud Platform:
 
 __Packer Build Flow for GCP__
-![Packer_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Packer-Build-Flow-for-GCP.png)
+![Packer_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Packer-Build-Flow-on-GCP.png)
 
 1.	Build the __LPAD VM__ CentOS 7.9 AMI image:
 
@@ -336,7 +336,7 @@ Follow these instructions to deploy the infrastructure and create Lab environmen
 Here is an example of the Terraform build flow for the Google Cloud Platform:
 
 __Terraform Build Flow for GCP__
-![Terraform_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Terraform-Build-Flow-for-GCP.png)
+![Terraform_Build_Flow_for_GCP](./images/AppD-Cloud-Kickstart-Terraform-Build-Flow-on-GCP.png)
 
 __NOTE:__ The following steps are repeated for each major element of the workshop.
 
