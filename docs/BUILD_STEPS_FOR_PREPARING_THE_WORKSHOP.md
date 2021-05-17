@@ -201,9 +201,9 @@ Perform the following steps to install the needed software:
 
 ## Build the VM Images and Deploy the Lab Infrastructure
 
-The AppDynamics Cloud Kickstart project currently supports VM image builds for Amazon AWS and Google Cloud 
-Platform (GCP). In the future, we will be adding support for Microsoft Azure. Click on a link below for 
-platform-specific instructions and a Bill-of-Materials.
+The AppDynamics Cloud Kickstart project currently supports VM image builds for Amazon AWS, Microsoft Azure, 
+and Google Cloud Platform (GCP). Click on a link below for platform-specific instructions and a Bill-of-Materials.
 
 -	[AWS Build and Deploy](AWS_VM_BUILD_INSTRUCTIONS.md): Instructions
+-	[Azure Build and Deploy](AZURE_VM_BUILD_INSTRUCTIONS.md): Instructions
 -	[GCP Build and Deploy](GCP_VM_BUILD_INSTRUCTIONS.md): Instructions
