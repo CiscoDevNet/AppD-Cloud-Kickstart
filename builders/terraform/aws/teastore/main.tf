@@ -67,7 +67,7 @@ module "security_group" {
 
 module "teastore_vm" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = ">= 2.17"
+  version = ">= 2.19"
 
   instance_count = 1
   num_suffix_format = "-%02d"
