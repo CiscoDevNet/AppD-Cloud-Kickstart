@@ -1,7 +1,7 @@
 #!/bin/sh -eux
 # install jq command-line json processor for linux 64-bit.
 
-# install jq json processor. ---------------------------------------------------
+# install jq json processor. -----------------------------------------------------------------------
 jq_binary="jq-linux64"
 
 # create local bin directory (if needed).
@@ -13,7 +13,8 @@ curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 
 # retrieve version number of latest release.
 curl --silent --dump-header curl-jq.${curdate}.out https://github.com/stedolan/jq/releases/latest --output /dev/null
-jq_release=$(awk '{ sub("\r$", ""); print }' curl-jq.${curdate}.out | awk '/Location/ {print $2}' | awk -F "/" '{print $8}')
+#jq_url=$(curl --silent https://api.github.com/repos/stedolan/jq/releases/latest | awk '/browser_download_url/ {print substr($2, 2, length($2)-2)}' | grep "${jq_binary}")
+jq_release=$(awk '{ sub("\r$", ""); print }' curl-jq.${curdate}.out | awk '/location/ {print $2}' | awk -F "/" '{print $8}')
 jq_release="jq-1.6"
 rm -f curl-jq.${curdate}.out
 
@@ -31,7 +32,7 @@ export PATH
 # verify installation.
 jq --version
 
-# jq command-line examples. ----------------------------------------------------
+# jq command-line examples. ------------------------------------------------------------------------
 # Example #1:
 #   GitHub returns nicely formatted JSON. For servers that don't, it can be
 #   helpful to pipe the response through jq to pretty-print it. The simplest
