@@ -28,8 +28,8 @@ appd_home="${appd_home:-/opt/appdynamics}"
 appd_machine_agent_home="${appd_machine_agent_home:-machine-agent}"
 appd_machine_agent_user="${appd_machine_agent_user:-centos}"
 appd_machine_agent_account_name="${appd_machine_agent_account_name:-customer1}"
-appd_aws_ec2_extension_release="${appd_aws_ec2_extension_release:-2.1.4}"
-appd_aws_ec2_extension_build="${appd_aws_ec2_extension_build:-1611125254}"
+appd_aws_ec2_extension_release="${appd_aws_ec2_extension_release:-2.1.5}"
+appd_aws_ec2_extension_build="${appd_aws_ec2_extension_build:-1621317536}"
 
 # [OPTIONAL] appdynamics aws ec2 monitoring extension config parameters [w/ defaults].
 appd_aws_ec2_extension_config="${appd_aws_ec2_extension_config:-false}"
@@ -64,8 +64,8 @@ Usage:
     [root]# export appd_machine_agent_home="machine-agent"              # [optional] machine agent home folder (defaults to 'machine-agent').
     [root]# export appd_machine_agent_user="centos"                     # [optional] machine agent user name (defaults to user 'centos').
     [root]# export appd_machine_agent_account_name="customer1"          # [optional] account name (defaults to 'customer1').
-    [root]# export appd_aws_ec2_extension_release="2.1.4"               # [optional] aws ec2 extension release (defaults to user '2.1.4').
-    [root]# export appd_aws_ec2_extension_build="1611125254"            # [optional] aws ec2 extension build (defaults to user '1611125254').
+    [root]# export appd_aws_ec2_extension_release="2.1.5"               # [optional] aws ec2 extension release (defaults to user '2.1.5').
+    [root]# export appd_aws_ec2_extension_build="1621317536"            # [optional] aws ec2 extension build (defaults to user '1621317536').
 
   [OPTIONAL] appdynamics aws ec2 monitoring extension config parameters [w/ defaults].
     [root]# export appd_aws_ec2_extension_config="true"                 # [optional] configure aws ec2 extension? [boolean] (defaults to 'false').
@@ -185,7 +185,7 @@ if [ "$appd_aws_ec2_extension_config" == "true" ]; then
 
   sed -i -e "/^cloudWatchMonitoring:/s/^.*$/cloudWatchMonitoring: \"${appd_aws_ec2_extension_cloudwatch_monitoring}\"/" ${appd_aws_ec2_extension_config_file}
 
-  # add 'eu-west-2' and 'eu-west-3' as a region endpoints. (it is curently missing in release 2.1.4.)
+  # add 'eu-west-2' and 'eu-west-3' as a region endpoints. (it is curently missing in release 2.1.5.)
   eu_west_1="  eu-west-1: monitoring.eu-west-1.amazonaws.com"           # Europe (Ireland)
   eu_west_2="  eu-west-2: monitoring.eu-west-2.amazonaws.com"           # Europe (London)
   eu_west_3="  eu-west-3: monitoring.eu-west-3.amazonaws.com"           # Europe (Paris)
@@ -203,7 +203,7 @@ if [ "$appd_aws_ec2_extension_config" == "true" ]; then
     sed -i -e "/^${eu_west_2}/s/^.*$/${eu_west_2}\n${eu_west_3}/" ${appd_aws_ec2_extension_config_file}
   fi
 
-  # add 'us-east-2' as a region endpoint. (it is curently missing in release 2.1.4.)
+  # add 'us-east-2' as a region endpoint. (it is curently missing in release 2.1.5.)
   us_east_1="  us-east-1: monitoring.us-east-1.amazonaws.com"           # US East (N. Virinia)
   us_east_2="  us-east-2: monitoring.us-east-2.amazonaws.com"           # US East (Ohio)
   match=$(awk 'BEGIN{found="false"} {if (/monitoring.us-east-2/) found="true"} END {print found}' ${appd_aws_ec2_extension_config_file})
