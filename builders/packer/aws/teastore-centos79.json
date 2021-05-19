@@ -113,6 +113,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_ec2_instance_metadata_query_tool.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_jq_json_processor.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_yq_yaml_processor.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_hashicorp_packer.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_hashicorp_terraform.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_git.sh",
