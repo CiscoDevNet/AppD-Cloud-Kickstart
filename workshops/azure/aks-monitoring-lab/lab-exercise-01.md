@@ -92,7 +92,7 @@ Verify your Azure CLI configuration:
 az account show
 ```
 
-After you run the command, verify that the **name** property begins with '**AppDynamics Channel Demo**':
+After you run the command, verify that the **name** property begins with '**AppDynamics Channel Workshop**':
 
 ![Azure CLI Account Show](./images/azure-aks-monitoring-lab-02b.png)
 

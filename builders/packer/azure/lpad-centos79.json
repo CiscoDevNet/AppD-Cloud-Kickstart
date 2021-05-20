@@ -110,7 +110,7 @@
     "azure_image_name": "LPAD-CentOS79",
     "azure_image_owner": "Ed Barberis",
     "azure_location": "Central US",
-    "azure_resource_group": "EdBarberis",
+    "azure_resource_group": "Cloud-Kickstart-Workshop",
     "azure_ssh_username": "centos",
     "azure_ssh_group": "centos",
     "azure_temporary_source_cidrs": "{{env `azure_temporary_source_cidrs`}}",

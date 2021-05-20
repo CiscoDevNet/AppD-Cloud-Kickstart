@@ -75,7 +75,7 @@ Perform the following steps to complete these tasks:
 
     ```bash
     $ az login
-    $ az account set --subscription "AppDynamics Channel Demo (EA)"
+    $ az account set --subscription "AppDynamics Channel Workshop (EA)"
     $ az account show
     ```
 
@@ -350,7 +350,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Python 3.6.8
 	-	Pip 21.1.1
 -	Serverless Framework CLI 2.42.0
--	Terraform 0.15.3
+-	Terraform 0.15.4
 -	VIM - Vi IMproved 8.2
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:

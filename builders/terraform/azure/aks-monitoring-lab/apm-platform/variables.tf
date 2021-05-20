@@ -2,7 +2,7 @@
 variable "azurerm_resource_group_name" {
   description = "The Azure Resource Group Name."
   type        = string
-  default     = "EdBarberis"
+  default     = "Cloud-Kickstart-Workshop"
 }
 
 variable "azurerm_source_address_prefixes" {
