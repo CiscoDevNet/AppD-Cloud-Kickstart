@@ -11,7 +11,7 @@ locals {
 
 # Data Sources -------------------------------------------------------------------------------------
 data "azurerm_resource_group" "cloud_workshop" {
-  name     = var.azurerm_resource_group_name
+  name     = var.azurerm_workshop_resource_group_name
 }
 
 # Modules ------------------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 # Outputs ------------------------------------------------------------------------------------------
 output "resource_group" {
-  description = "The name of the Azure Resource Group."
+  description = "The name of the Azure Resource Group for workshop resources."
   value       = data.azurerm_resource_group.cloud_workshop.name
 }
 

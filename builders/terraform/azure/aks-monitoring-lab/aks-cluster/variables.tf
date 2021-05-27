@@ -1,6 +1,6 @@
 # Variables ----------------------------------------------------------------------------------------
-variable "azurerm_resource_group_name" {
-  description = "The Azure Resource Group Name."
+variable "azurerm_workshop_resource_group_name" {
+  description = "The Azure Resource Group Name for workshop resources."
   type        = string
   default     = "Cloud-Kickstart-Workshop"
 }

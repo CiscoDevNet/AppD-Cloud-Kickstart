@@ -11,12 +11,12 @@ locals {
 
 # Data Sources -------------------------------------------------------------------------------------
 data "azurerm_resource_group" "cloud_workshop" {
-  name     = var.azurerm_resource_group_name
+  name     = var.azurerm_workshop_resource_group_name
 }
 
 data "azurerm_image" "apm_platform" {
   name_regex          = var.azurerm_source_image
-  resource_group_name = var.azurerm_resource_group_name
+  resource_group_name = var.azurerm_images_resource_group_name
   sort_descending     = true
 }
 

@@ -10,7 +10,7 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 appd_project_image_types="${appd_project_image_types-APM-Platform LPAD TeaStore}"
-azurerm_resource_group_name="${azurerm_resource_group_name-Cloud-Kickstart-Workshop}"
+azurerm_resource_group_name="${azurerm_resource_group_name-Cloud-Kickstart-Workshop-Images}"
 azurerm_image_keep_last="${azurerm_image_keep_last-true}"
 
 # check if 'jq' is installed. ----------------------------------------------------------------------
