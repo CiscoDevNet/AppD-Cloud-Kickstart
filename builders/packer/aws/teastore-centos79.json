@@ -120,7 +120,6 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_git_flow.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_eksctl_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_kubectl_cli.sh",
-        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_iam_authenticator.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_helm_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
