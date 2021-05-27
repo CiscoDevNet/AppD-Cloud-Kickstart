@@ -21,7 +21,7 @@ appd_aws_eks_region="${appd_aws_eks_region:-}"
 
 # [OPTIONAL] eksctl command parameters [w/ defaults].
 appd_aws_eks_zones="${appd_aws_eks_zones:-}"
-appd_aws_eks_version="${appd_aws_eks_version:-1.19}"
+appd_aws_eks_version="${appd_aws_eks_version:-1.20}"
 appd_aws_eks_name="${appd_aws_eks_name:-AD-Capital-${appd_aws_eks_user_name}}"
 appd_aws_eks_environment="${appd_aws_eks_environment:-Lab-Env-${appd_aws_eks_user_name}}"
 appd_aws_eks_nodes="${appd_aws_eks_nodes:-2}"
@@ -46,9 +46,9 @@ Usage:
 
   [OPTIONAL] eksctl command parameters [w/ defaults].
     [centos]$ export appd_aws_eks_zones="us-east-1a,us-east-1b,us-east-1c"      # [optional] aws availability zones.
-    [centos]$ export appd_aws_eks_version="1.19"                                # [optional] kubernetes version (defaults to '1.19').
+    [centos]$ export appd_aws_eks_version="1.20"                                # [optional] kubernetes version (defaults to '1.20').
                                                                                 #            valid versions:
-                                                                                #              '1.15', '1.16', '1.17', '1.18', '1.19'
+                                                                                #              '1.16', '1.17', '1.18', '1.19', '1.20'
     [centos]$ export appd_aws_eks_name="AD-Capital-Lab-User-01"                 # [optional] eks cluster name (defaults to 'AD-Capital-${appd_aws_eks_user_name}')
     [centos]$ export appd_aws_eks_environment="Lab-Env-Lab-User-01"             # [optional] eks environment decription (defaults to 'Lab-Env-${appd_aws_eks_user_name}')
     [centos]$ export appd_aws_eks_nodes="2"                                     # [optional] number of eks worker nodes (defaults to '2')
@@ -77,7 +77,7 @@ fi
 
 if [ -n "$appd_aws_eks_version" ]; then
   case $appd_aws_eks_version in
-      1.15|1.16|1.17|1.18|1.19)
+      1.16|1.17|1.18|1.19|1.20)
         ;;
       *)
         echo "Error: invalid 'appd_aws_eks_version'."

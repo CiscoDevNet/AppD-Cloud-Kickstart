@@ -7,7 +7,7 @@ appd_aws_eks_user_name="${appd_aws_eks_user_name:-Lab-User-${user_name: -2}}"
 appd_aws_eks_region="${appd_aws_eks_region:-us-east-1}"
 appd_aws_eks_zones="${appd_aws_eks_zones:-}"
 #appd_aws_eks_zones="${appd_aws_eks_zones:-us-east-1a,us-east-1b,us-east-1c}"
-appd_aws_eks_version="${appd_aws_eks_version:-1.19}"
+appd_aws_eks_version="${appd_aws_eks_version:-1.20}"
 
 # validate environment variable. -------------------------------------------------------------------
 if [ -z "$user_name" ]; then
