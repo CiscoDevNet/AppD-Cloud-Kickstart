@@ -21,11 +21,11 @@ you are finished, such as purging old VM images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Azure CLI 2.23.0
+-	Azure CLI 2.24.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.23.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
+1.	Install [Azure CLI 2.24.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
     ```bash
     $ brew install azure-cli
     ```
@@ -34,7 +34,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ az --version
-    azure-cli                         2.23.0
+    azure-cli                         2.24.0
     ...
     ```
 
@@ -51,18 +51,18 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Azure CLI 2.23.0
+-	Azure CLI 2.24.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.23.0](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
+1.	Install [Azure CLI 2.24.0](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
     Run the downloaded MSI installer, follow the on-screen instructions, and accept the defaults.  
 
 2.	Using the **Git Bash** Terminal, validate the installed command-line tool:
 
     ```bash
     $ az --version
-    azure-cli                         2.23.0
+    azure-cli                         2.24.0
     ...
     ```
 
@@ -324,9 +324,9 @@ to manually browse the cloud provider and delete any resources that are in confl
 
 __LPAD VM__ - The following CLI command-line tools and utilities are pre-installed:
 
--	Ansible 2.9.21
+-	Ansible 2.9.22
 -	AppDynamics Node.js Serverless Tracer 21.5.286
--	Azure CLI 2.23.0
+-	Azure CLI 2.24.0
 -	Docker 20.10.6 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
@@ -335,31 +335,32 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.5.4 (Package Manager for Kubernetes)
+-	Helm CLI 3.6.0 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 292 (Amazon Corretto 8)
 -	Java SE JDK 11.0.11 (Amazon Corretto 11)
 -	Java SE JDK 16.0.1 (Amazon Corretto 16)
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.19.6 (command-line interface)
 -	Node.js JavaScript runtime v14.17.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 7.13.0
+-	npm JavaScript Package Manager for Node.js 7.14.0
 -	nvm (Node Version Manager) bash script 0.38.0
 -	Packer 1.7.2
 -	Python 2.7.5
-	-	Pip 21.1.1
+	-	Pip 21.1.2
 -	Python 3.6.8
-	-	Pip 21.1.1
--	Serverless Framework CLI 2.42.0
+	-	Pip 21.1.2
+-	Serverless Framework CLI 2.43.1
 -	Terraform 0.15.4
 -	VIM - Vi IMproved 8.2
+-	yq 4.9.3 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Ansible 2.9.21
+-	Ansible 2.9.22
 -	AppDynamics Enterprise Console 21.4.3 Build 24599
 	-	AppDynamics Controller 21.4.3 Build 1283
 	-	AppDynamics Events Service 4.5.2 Build 20651
--	Azure CLI 2.23.0
+-	Azure CLI 2.24.0
 -	Docker 20.10.6 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
@@ -372,7 +373,8 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.24
 -	Python 2.7.5
-	-	Pip 21.1.1
+	-	Pip 21.1.2
 -	Python 3.6.8
-	-	Pip 21.1.1
+	-	Pip 21.1.2
 -	VIM - Vi IMproved 8.2
+-	yq 4.9.3 (command-line YAML processor)
