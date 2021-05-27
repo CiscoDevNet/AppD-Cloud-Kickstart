@@ -190,12 +190,12 @@ export appd_controller_tenancy_mode
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '21.4.0.32403').
-#appd_java_agent_release="21.4.0.32403"
+# [optional] java agent release (defaults to '21.5.0.32605').
+#appd_java_agent_release="21.5.0.32605"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="1ee24d52da910ade07429ca4ea9592968c315a3cbd5c7f84eac829bff1678269"
+#appd_java_agent_sha256="a580d39adef05b402140fb63c0394efc5fefd25677a697c971ae38b5f91570ac"
 #export appd_java_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ export appd_controller_tenancy_mode
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver21.4.0.32403/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver21.5.0.32605/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
@@ -373,12 +373,12 @@ export appd_controller_tenancy_mode
 #appd_cluster_agent_user_group="centos"
 #export appd_cluster_agent_user_group
 
-# [optional] cluster agent release (defaults to '21.3.1.2042').
-#appd_cluster_agent_release="21.3.1.2042"
+# [optional] cluster agent release (defaults to '21.5.0.2052').
+#appd_cluster_agent_release="21.5.0.2052"
 #export appd_cluster_agent_release
 
 # [optional] cluster agent sha-256 checksum (defaults to published value).
-#appd_cluster_agent_sha256="06664291472278c9a6bdfe35672c3cab96079c83ee0fde54d92f5ec1501ad1fe"
+#appd_cluster_agent_sha256="45a0006f47e7b56b8c3af60da381d58a84e76b666e6be822b1e448edc319ad27"
 #export appd_cluster_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
