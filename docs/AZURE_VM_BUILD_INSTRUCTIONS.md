@@ -150,6 +150,7 @@ __Packer Build Flow for Azure__
     because the size of the root volume for the AMI image is much smaller.
 
     ```bash
+    $ cd /<drive>/projects/AppD-Cloud-Kickstart/builders/packer/azure
     $ packer build lpad-centos79.json
     ```
 
@@ -342,7 +343,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.19.6 (command-line interface)
 -	Node.js JavaScript runtime v14.17.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 7.14.0
+-	npm JavaScript Package Manager for Node.js 7.15.0
 -	nvm (Node Version Manager) bash script 0.38.0
 -	Packer 1.7.2
 -	Python 2.7.5
