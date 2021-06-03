@@ -129,7 +129,7 @@
     "tomcat_home": "apache-tomcat-9",
     "tomcat_catalina_opts": "-Xms4096M -Xmx4096M -server -XX:+UseParallelGC",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.6",
+    "docker_completion_release": "20.10.7",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
