@@ -229,7 +229,7 @@ Explore the data found here on this screen and look at the corresponding documen
 here:
 
 ```bash
-https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-DashboardTab
+https://docs.appdynamics.com/latest/en/infrastructure-visibility/monitor-kubernetes-with-the-cluster-agent/use-the-cluster-agent/monitor-cluster-health#MonitorClusterHealth-DashboardTab
 ```
 
 ![Cluster Agent Monitor-02](./images/cluster-agent-monitor-results-02.png)
@@ -241,7 +241,7 @@ of each pod. Explore the data found here on this screen and look at the correspo
 this screen here:
 
 ```bash
-https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-PodsTab
+https://docs.appdynamics.com/latest/en/infrastructure-visibility/monitor-kubernetes-with-the-cluster-agent/use-the-cluster-agent/monitor-cluster-health#MonitorClusterHealth-PodsTab
 ```
 
 ![Cluster Agent Monitor-03](./images/cluster-agent-monitor-results-03.png)
@@ -253,7 +253,7 @@ about the containers running in the pod. Explore the data found here on this scr
 corresponding documentation for this screen here:
 
 ```bash
-https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-PodDetailsScreen
+https://docs.appdynamics.com/latest/en/infrastructure-visibility/monitor-kubernetes-with-the-cluster-agent/use-the-cluster-agent/monitor-cluster-health#MonitorClusterHealth-PodDetailsScreen
 ```
 
 ![Cluster Agent Monitor-04](./images/cluster-agent-monitor-results-04.png)
@@ -266,7 +266,7 @@ Explore the data found here on this screen and look at the corresponding documen
 here:
 
 ```bash
-https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-InventoryTab
+https://docs.appdynamics.com/latest/en/infrastructure-visibility/monitor-kubernetes-with-the-cluster-agent/use-the-cluster-agent/monitor-cluster-health#MonitorClusterHealth-InventoryTab
 ```
 
 ![Cluster Agent Monitor-05](./images/cluster-agent-monitor-results-05.png)

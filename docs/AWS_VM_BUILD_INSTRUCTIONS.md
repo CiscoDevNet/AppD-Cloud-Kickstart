@@ -50,7 +50,7 @@ Perform the following steps to install the needed software:
 
 All user credentials and installation inputs are driven by environment variables and can be configured within the `set_appd_cloud_kickstart_env.sh` script you will create in `./bin`. There are LOTS of options, but most have acceptable defaults. You only need to concentrate on a handful that are uncommented in the template file.
 
-In particular, you will need to supply your AppDynamics login credentials to the [download site](https://download.appdynamics.com/download/). You will also need to provide an AWS Access Key ID and Secret Access Key from a valid AWS account.
+In particular, you will need to supply your AppDynamics login credentials to the [download site](https://accounts.appdynamics.com/downloads/). You will also need to provide an AWS Access Key ID and Secret Access Key from a valid AWS account.
 
 The build will __fail__ if they are not set.
 

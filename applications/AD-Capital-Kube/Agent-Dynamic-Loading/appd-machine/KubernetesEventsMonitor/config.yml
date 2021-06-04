@@ -3,7 +3,7 @@ numberOfThreads: 1
 
 # This will create it in specific Tier aka Component. Replace <COMPONENT_ID>.
 # Please make sure to have a trailing |.
-# To find out the COMPONENT_ID, please see the screen shot here https://docs.appdynamics.com/display/latest/Build+a+Monitoring+Extension+Using+Java
+# To find out the COMPONENT_ID, please see the screen shot here https://docs.appdynamics.com/latest/en/infrastructure-visibility/machine-agent/extensions-and-custom-metrics/build-a-monitoring-extension-using-java
 #metricPrefix: "Server|Component:<COMPONENT_ID>|Custom Metrics|KubernetesEvents|"
 metricPrefix:  "Custom Metrics|KubernetesEvents|"
 

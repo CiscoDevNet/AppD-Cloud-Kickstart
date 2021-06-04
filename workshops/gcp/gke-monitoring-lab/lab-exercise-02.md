@@ -47,7 +47,7 @@ The AppDynamics platform server components and agents offer the following APIs:
 - **Controller APIs**: Administer the Controller, configure, monitor, query metrics, and more.
 - **Accounts APIs**: Manage and monitor accounts, users, and other aspects of AppDynamics licensing.
 
-For additional documentation, see the [Platform API Index](https://docs.appdynamics.com/display/LATEST/AppDynamics+APIs#AppDynamicsAPIs-apiindex).  
+For additional documentation, see the [Platform API Index](https://docs.appdynamics.com/latest/en/extend-appdynamics/appdynamics-apis#AppDynamicsAPIs-apiindex).  
 
 <br>
 

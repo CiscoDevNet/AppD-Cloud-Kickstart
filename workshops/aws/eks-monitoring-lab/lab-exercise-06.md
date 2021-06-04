@@ -203,7 +203,7 @@ In the AppDynamics UI, monitor the results of deploying the Cluster Agent by nav
 On the Cluster Dashboard Tab you can see a high level view of the state of all the pods in the cluster.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
 
 ```bash
-https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-DashboardTab
+https://docs.appdynamics.com/latest/en/infrastructure-visibility/monitor-kubernetes-with-the-cluster-agent/use-the-cluster-agent/monitor-cluster-health#MonitorClusterHealth-DashboardTab
 ```
 ![Cluster Agent Monitor-02](./images/cluster-agent-monitor-results-02.png)
 <br><br>
@@ -211,7 +211,7 @@ https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorCluster
 On the Pods Dashboard Tab you can see all the pods in various states and as well as a high-level summary of each pod.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
 
 ```bash
-https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-PodsTab
+https://docs.appdynamics.com/latest/en/infrastructure-visibility/monitor-kubernetes-with-the-cluster-agent/use-the-cluster-agent/monitor-cluster-health#MonitorClusterHealth-PodsTab
 ```
 ![Cluster Agent Monitor-03](./images/cluster-agent-monitor-results-03.png)
 <br><br>
@@ -219,7 +219,7 @@ https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorCluster
 On the Pods Dashboard Details screen you can see all the details for a given pod as well as information about the containers running in the pod.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
 
 ```bash
-https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-PodDetailsScreen
+https://docs.appdynamics.com/latest/en/infrastructure-visibility/monitor-kubernetes-with-the-cluster-agent/use-the-cluster-agent/monitor-cluster-health#MonitorClusterHealth-PodDetailsScreen
 ```
 ![Cluster Agent Monitor-04](./images/cluster-agent-monitor-results-04.png)
 <br><br>
@@ -228,7 +228,7 @@ https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorCluster
 On the Inventory Dashboard Tab you can see a high-level snapshot or inventory view of your cluster. It displays the contents of the cluster and allows users to troubleshoot applications running in the cluster.  Explore the data found here on this screen and look at the corresponding documentation for this screen here:
 
 ```bash
-https://docs.appdynamics.com/display/PRO45/Monitor+Cluster+Health#MonitorClusterHealth-InventoryTab
+https://docs.appdynamics.com/latest/en/infrastructure-visibility/monitor-kubernetes-with-the-cluster-agent/use-the-cluster-agent/monitor-cluster-health#MonitorClusterHealth-InventoryTab
 ```
 ![Cluster Agent Monitor-05](./images/cluster-agent-monitor-results-05.png)
 <br><br>

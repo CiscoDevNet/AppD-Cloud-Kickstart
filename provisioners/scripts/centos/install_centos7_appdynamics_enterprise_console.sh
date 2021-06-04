@@ -7,7 +7,7 @@
 # Platforms and components. The application provides a GUI and command line interface.
 #
 # For more details, please visit:
-#   https://docs.appdynamics.com/display/LATEST/Enterprise+Console
+#   https://docs.appdynamics.com/latest/en/application-performance-monitoring-platform/enterprise-console
 #
 # NOTE: All inputs are defined by external environment variables.
 #       Optional variables have reasonable defaults, but you may override as needed.

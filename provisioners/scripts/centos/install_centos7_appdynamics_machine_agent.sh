@@ -11,7 +11,7 @@
 # instances created from the image.
 #
 # For more details, please visit:
-#   https://docs.appdynamics.com/display/LATEST/Standalone+Machine+Agent
+#   https://docs.appdynamics.com/latest/en/infrastructure-visibility/machine-agent
 #
 # NOTE: All inputs are defined by external environment variables.
 #       Optional variables have reasonable defaults, but you may override as needed.

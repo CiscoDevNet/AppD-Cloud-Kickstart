@@ -8,7 +8,7 @@
 # have to do some of the updates manually, once you have updated your Controller license.
 #
 # For more details, please visit:
-#   https://docs.appdynamics.com/display/PRO45/Applying+or+Updating+a+License+File
+#   https://docs.appdynamics.com/latest/en/appdynamics-essentials/licensing/apply-or-update-a-license-file
 #
 # For project administrators, the license is maintained via an AWS S3 bucket. Here are two
 # sample AWS CLI commands to upload or delete the license file:

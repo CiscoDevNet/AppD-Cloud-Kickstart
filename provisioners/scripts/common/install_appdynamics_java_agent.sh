@@ -5,7 +5,7 @@
 # The Java Agent is used to monitor Java applications in the Controller.
 #
 # For more details, please visit:
-#   https://docs.appdynamics.com/display/LATEST/Java+Agent
+#   https://docs.appdynamics.com/latest/en/application-monitoring/install-app-server-agents/java-agent
 #
 # NOTE: All inputs are defined by external environment variables.
 #       Optional variables have reasonable defaults, but you may override as needed.

@@ -10,7 +10,7 @@
 # Google GKE.
 #
 # For more details, please visit:
-#   https://docs.appdynamics.com/display/LATEST/Monitoring+Kubernetes+with+the+Cluster+Agent
+#   https://docs.appdynamics.com/latest/en/infrastructure-visibility/monitor-kubernetes-with-the-cluster-agent
 #
 # NOTE: All inputs are defined by external environment variables.
 #       Optional variables have reasonable defaults, but you may override as needed.

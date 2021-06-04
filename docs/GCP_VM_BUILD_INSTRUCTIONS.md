@@ -234,7 +234,7 @@ the `set_appd_cloud_kickstart_env.sh` script you will create in `./bin`. There a
 have acceptable defaults. You only need to concentrate on a handful that are uncommented in the template file.
 
 In particular, you will need to supply your AppDynamics login credentials to the 
-[download site](https://download.appdynamics.com/download/).
+[download site](https://accounts.appdynamics.com/downloads/).
 
 The build will __fail__ if they are not set.
 

@@ -20,9 +20,9 @@
 #   * An AWS Lambda function implemented with Node.js versions 8 and later
 #
 # For more details, please visit:
-#   https://docs.appdynamics.com/display/latest/Serverless+APM+for+AWS+Lambda
-#   https://docs.appdynamics.com/display/latest/Node.js+Serverless+Tracer
-#   https://docs.appdynamics.com/display/latest/Node.js+Serverless+Tracer+Notes
+#   https://docs.appdynamics.com/latest/en/application-monitoring/install-app-server-agents/serverless-apm-for-aws-lambda
+#   https://docs.appdynamics.com/latest/en/application-monitoring/install-app-server-agents/serverless-apm-for-aws-lambda/node-js-serverless-tracer
+#   https://docs.appdynamics.com/latest/en/product-and-release-announcements/release-notes#ReleaseNotes-AgentEnhancementsagent-enhancements
 #   https://www.npmjs.com/package/appdynamics-lambda-tracer
 #
 # NOTE: All inputs are defined by external environment variables.
