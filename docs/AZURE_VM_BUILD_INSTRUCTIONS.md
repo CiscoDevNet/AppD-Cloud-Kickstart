@@ -332,7 +332,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.31.1
+-	Git 2.32.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
@@ -350,8 +350,8 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Pip 21.1.2
 -	Python 3.6.8
 	-	Pip 21.1.2
--	Serverless Framework CLI 2.44.0
--	Terraform 0.15.5
+-	Serverless Framework CLI 2.45.0
+-	Terraform 1.0.0
 -	VIM - Vi IMproved 8.2
 -	yq 4.9.3 (command-line YAML processor)
 
@@ -366,7 +366,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.31.1
+-	Git 2.32.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
