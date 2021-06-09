@@ -13,12 +13,12 @@ export kickstart_home
 # set appdynamics account credentials.
 # --------------------------------------------------------------------------------------------------
 # user name for downloading binaries.
-appd_username="<your_appd_account_email_here>"
-export appd_username
+#appd_username="<your_appd_account_email_here>"
+#export appd_username
 
 # user password.
-appd_password="<your_appd_account_password_here>"
-export appd_password
+#appd_password="<your_appd_account_password_here>"
+#export appd_password
 
 # --------------------------------------------------------------------------------------------------
 # [OPTIONAL] appdynamics platform install parameters [w/ defaults].

@@ -80,8 +80,6 @@
     },
     {
       "environment_vars": [
-        "appd_username={{user `appd_username`}}",
-        "appd_password={{user `appd_password`}}",
         "appd_controller_root_password={{user `appd_controller_root_password`}}",
         "appd_java_agent_config={{user `appd_java_agent_config`}}",
         "appd_java_agent_controller_host={{user `appd_java_agent_controller_host`}}",
@@ -146,8 +144,6 @@
     }
   ],
   "variables": {
-    "appd_username": "{{env `appd_username`}}",
-    "appd_password": "{{env `appd_password`}}",
     "appd_controller_root_password": "{{env `appd_controller_root_password`}}",
     "appd_java_agent_config": "{{env `appd_java_agent_config`}}",
     "appd_java_agent_controller_host": "{{env `appd_java_agent_controller_host`}}",

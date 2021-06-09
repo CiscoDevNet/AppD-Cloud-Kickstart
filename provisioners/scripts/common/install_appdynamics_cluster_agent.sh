@@ -20,12 +20,6 @@
 #---------------------------------------------------------------------------------------------------
 
 # set default values for input environment variables if not set. -----------------------------------
-# [MANDATORY] appdynamics account parameters.
-set +x  # temporarily turn command display OFF.
-appd_username="${appd_username:-}"
-appd_password="${appd_password:-}"
-set -x  # turn command display back ON.
-
 # [OPTIONAL] appdynamics cluster agent install parameters [w/ defaults].
 appd_home="${appd_home:-/opt/appdynamics}"
 
@@ -66,10 +60,6 @@ Usage:
   -------------------------------------
   Description of Environment Variables:
   -------------------------------------
-  [MANDATORY] appdynamics account parameters.
-    [root]# export appd_username="name@example.com"                     # user name for downloading binaries.
-    [root]# export appd_password="password"                             # user password.
-
   [OPTIONAL] appdynamics cluster agent install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_controller_admin_username="admin"               # [optional] controller admin user name (defaults to 'admin').
@@ -102,21 +92,6 @@ Usage:
 EOF
 }
 
-# validate environment variables. ------------------------------------------------------------------
-set +x  # temporarily turn command display OFF.
-if [ -z "$appd_username" ]; then
-  echo "Error: 'appd_username' environment variable not set."
-  usage
-  exit 1
-fi
-
-if [ -z "$appd_password" ]; then
-  echo "Error: 'appd_password' environment variable not set."
-  usage
-  exit 1
-fi
-set -x  # turn command display back ON.
-
 # check if 'kubectl' command-line utility is installed. --------------------------------------------
 path_to_kubectl=$(runuser -c "which kubectl" - ${appd_cluster_agent_user})
 if [ ! -x "$path_to_kubectl" ] ; then
@@ -137,32 +112,10 @@ cd ${appd_home}/${appd_cluster_agent_folder}
 curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 
 # download the appdynamics cluster agent. ----------------------------------------------------------
-# authenticate to the appdynamics domain and store the oauth token to a file.
-post_data_filename="post-data.${curdate}.json"
-oauth_token_filename="oauth-token.${curdate}.json"
-
-rm -f "${post_data_filename}"
-touch "${post_data_filename}"
-chmod 644 "${post_data_filename}"
-
-set +x  # temporarily turn command display OFF.
-echo "{" >> ${post_data_filename}
-echo "  \"username\": \"${appd_username}\"," >> ${post_data_filename}
-echo "  \"password\": \"${appd_password}\"," >> ${post_data_filename}
-echo "  \"scopes\": [\"download\"]" >> ${post_data_filename}
-echo "}" >> ${post_data_filename}
-set -x  # turn command display back ON.
-
-curl --silent --request POST --data @${post_data_filename} https://identity.msrv.saas.appdynamics.com/v2.0/oauth/token --output ${oauth_token_filename}
-oauth_token=$(awk -F '"' '{print $10}' ${oauth_token_filename})
-
 # download the appdynamics cluster agent binary.
 rm -f ${appd_cluster_agent_binary}
-curl --silent --location --remote-name --header "Authorization: Bearer ${oauth_token}" https://download.appdynamics.com/download/prox/download-file/cluster-agent/${appd_cluster_agent_release}/${appd_cluster_agent_binary}
+curl --silent --location --remote-name https://download-files.appdynamics.com/download-file/cluster-agent/${appd_cluster_agent_release}/${appd_cluster_agent_binary}
 chmod 644 ${appd_cluster_agent_binary}
-
-rm -f ${post_data_filename}
-rm -f ${oauth_token_filename}
 
 # verify the downloaded binary.
 echo "${appd_cluster_agent_sha256} ${appd_cluster_agent_binary}" | sha256sum --check

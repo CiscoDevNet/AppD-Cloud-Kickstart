@@ -107,11 +107,8 @@ To prepare for the build, perform the following steps:
     the file, so you will have to search to locate the exact line. For example, the Azure-related variables are 
     at the end of the file.
 
-    The first 2 are mandatory and the others are optional, but helpful.
-
     ```bash
-    appd_username="<Your_AppDynamics_Download_Site_Email>"
-    appd_password="<Your_AppDynamics_Download_Site_Password>"
+    azure_temporary_source_cidrs="<Your_Source_CIDRs>"
     ```
 
     Save and source the environment variables file in order to define the variables in your shell.
@@ -350,10 +347,10 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Pip 21.1.2
 -	Python 3.6.8
 	-	Pip 21.1.2
--	Serverless Framework CLI 2.45.0
+-	Serverless Framework CLI 2.45.2
 -	Terraform 1.0.0
 -	VIM - Vi IMproved 8.2
--	yq 4.9.3 (command-line YAML processor)
+-	yq 4.9.4 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
@@ -378,4 +375,4 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 21.1.2
 -	VIM - Vi IMproved 8.2
--	yq 4.9.3 (command-line YAML processor)
+-	yq 4.9.4 (command-line YAML processor)

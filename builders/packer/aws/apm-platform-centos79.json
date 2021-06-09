@@ -80,8 +80,6 @@
     },
     {
       "environment_vars": [
-        "appd_username={{user `appd_username`}}",
-        "appd_password={{user `appd_password`}}",
         "appd_platform_admin_username={{user `appd_platform_admin_username`}}",
         "appd_platform_admin_password={{user `appd_platform_admin_password`}}",
         "appd_platform_db_password={{user `appd_platform_db_password`}}",
@@ -138,8 +136,6 @@
     }
   ],
   "variables": {
-    "appd_username": "{{env `appd_username`}}",
-    "appd_password": "{{env `appd_password`}}",
     "appd_platform_admin_username": "{{env `appd_platform_admin_username`}}",
     "appd_platform_admin_password": "{{env `appd_platform_admin_password`}}",
     "appd_platform_db_password": "{{env `appd_platform_db_password`}}",

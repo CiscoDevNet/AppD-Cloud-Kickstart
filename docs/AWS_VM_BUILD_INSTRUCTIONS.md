@@ -12,29 +12,29 @@ Before building the AppD Cloud Kickstart VM images for AWS, it is recommended th
 
 Here is a list of the recommended open source software to be installed on the host macOS machine:
 
--	Amazon AWS CLI 2.2.9 (command-line interface)
+-	Amazon AWS CLI 2.2.10 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.2.9](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
+1.	Install [AWS CLI 2.2.10](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
     `$ brew install awscli@2`  
 
 2.	Validate installed command-line tools:
 
     ```bash
     $ aws --version
-    aws-cli/2.2.9 Python/3.9.5 Darwin/20.4.0 source/x86_64 prompt/off
+    aws-cli/2.2.10 Python/3.9.5 Darwin/20.5.0 source/x86_64 prompt/off
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
 
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
--	Amazon AWS CLI 2.2.9 (command-line interface)
+-	Amazon AWS CLI 2.2.10 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.2.9](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
+1.	Install [AWS CLI 2.2.10](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
     Run the downloaded MSI installer and follow the on-screen instructions.  
 
     **NOTE:** For Windows users, the MSI installation package offers a familiar and convenient way to install the AWS CLI without installing any other prerequisites. However, when updates are released, you must repeat the installation process to get the latest version of the AWS CLI. If you prefer more frequent updates, consider using `pip` as described in the AWS CLI [install guide](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html).
@@ -43,7 +43,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ aws --version
-    aws-cli/2.2.9 Python/3.8.8 Windows/10 exe/AMD64 prompt/off
+    aws-cli/2.2.10 Python/3.8.8 Windows/10 exe/AMD64 prompt/off
     ```
 
 ## Prepare for the Build
@@ -68,12 +68,9 @@ To prepare for the build, perform the following steps:
 
     The following environment variables are the most common to be overridden. They are grouped by sections in the file, so you will have to search to locate the exact line. For example, the AWS-related variables are at the end of the file.
 
-    The first 4 are mandatory and the others are optional, but helpful. If you are building the AMI images in the `us-east-1` region (N. Virginia), the region-related variables can be left alone.
+    The first two are mandatory and the others are optional, but helpful. If you are building the AMI images in the `us-east-1` region (N. Virginia), the region-related variables can be left alone.
 
     ```bash
-    appd_username="<Your_AppDynamics_Download_Site_Email>"
-    appd_password="<Your_AppDynamics_Download_Site_Password>"
-
     AWS_ACCESS_KEY_ID="<Your_AWS_ACCESS_KEY_ID>"
     AWS_SECRET_ACCESS_KEY="<Your_AWS_SECRET_ACCESS_KEY>"
 
@@ -141,7 +138,7 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Amazon AWS CLI 2.2.9 (command-line interface)
+-	Amazon AWS CLI 2.2.10 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.22
 -	AppDynamics Enterprise Console 21.4.3 Build 24599
@@ -159,11 +156,11 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 21.1.2
 -	VIM - Vi IMproved 8.2
--	yq 4.9.3 (command-line YAML processor)
+-	yq 4.9.4 (command-line YAML processor)
 
 __CWOM-Platform VM__ - The following utilities and workload optimization management applications are pre-installed:
 
--	Amazon AWS CLI 2.2.9 (command-line interface)
+-	Amazon AWS CLI 2.2.10 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.22
 -	Cisco Workload Optimization Manager (CWOM) 2.3.28
@@ -179,11 +176,11 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	Python 3.6.8
 	-	Pip 21.1.2
 -	VIM - Vi IMproved 8.2
--	yq 4.9.3 (command-line YAML processor)
+-	yq 4.9.4 (command-line YAML processor)
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 2.2.9 (command-line interface)
+-	Amazon AWS CLI 2.2.10 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.52.0 (command-line interface)
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.20.4 (command-line interface)
@@ -209,6 +206,6 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Pip 21.1.2
 -	Python 3.6.8
 	-	Pip 21.1.2
--	Serverless Framework CLI 2.45.0
+-	Serverless Framework CLI 2.45.2
 -	VIM - Vi IMproved 8.2
--	yq 4.9.3 (command-line YAML processor)
+-	yq 4.9.4 (command-line YAML processor)

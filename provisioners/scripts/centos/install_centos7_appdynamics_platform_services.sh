@@ -117,7 +117,7 @@ if [ -n "$appd_events_service_profile" ]; then
 fi
 
 # set current date for temporary filename. ---------------------------------------------------------
-curdate=$(date +"%Y-%m-%d.%H-%M-%S")
+######curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 
 # reduce the default sizing for the appdynamics events service production profile. -----------------
 # find events service version path.
