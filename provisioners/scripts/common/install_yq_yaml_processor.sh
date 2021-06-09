@@ -17,7 +17,7 @@
 # install yq yaml processor. -----------------------------------------------------------------------
 yq_exe="yq_linux_amd64"
 yq_binary="${yq_exe}.tar.gz"
-yq_sha256="505bba506a076afd61b1bfc9fc2d8443104fb5c38b9d90f6c1b5abdcafbc74ac"
+yq_sha256="ed2a5d4126732a09f2b609b335d968b22395ba007952b61d9f431440643a0e08"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
@@ -30,7 +30,7 @@ curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 curl --silent --dump-header curl-yq.${curdate}.out https://github.com/mikefarah/yq/releases/latest --output /dev/null
 #yq_url=$(curl --silent https://api.github.com/repos/mikefarah/yq/releases/latest | awk '/browser_download_url/ {print substr($2, 2, length($2)-2)}' | grep ${yq_binary})
 yq_release=$(awk '{ sub("\r$", ""); print }' curl-yq.${curdate}.out | awk '/location/ {print $2}' | awk -F "/" '{print $8}')
-yq_release="v4.9.3"
+yq_release="v4.9.4"
 rm -f curl-yq.${curdate}.out
 
 # download yq binary from github.com.
