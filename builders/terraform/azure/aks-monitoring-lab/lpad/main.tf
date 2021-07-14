@@ -14,10 +14,11 @@ data "azurerm_resource_group" "cloud_workshop" {
   name     = var.azurerm_workshop_resource_group_name
 }
 
-data "azurerm_image" "lpad" {
-  name_regex          = var.azurerm_source_image
+data "azurerm_shared_image_version" "lpad" {
+  name                = var.azurerm_shared_image_version
+  image_name          = var.azurerm_shared_image_definition
+  gallery_name        = var.azurerm_shared_image_gallery
   resource_group_name = var.azurerm_images_resource_group_name
-  sort_descending     = true
 }
 
 # Modules ------------------------------------------------------------------------------------------
@@ -163,7 +164,7 @@ resource "azurerm_linux_virtual_machine" "lpad" {
     storage_account_type = var.azurerm_storage_account_type
   }
 
-  source_image_id = data.azurerm_image.lpad.id
+  source_image_id = data.azurerm_shared_image_version.lpad.id
   tags            = var.resource_tags
 }
 

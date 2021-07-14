@@ -21,11 +21,11 @@ you are finished, such as purging old VM images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Azure CLI 2.24.2
+-	Azure CLI 2.26.1
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.24.2](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
+1.	Install [Azure CLI 2.26.1](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
     ```bash
     $ brew install azure-cli
     ```
@@ -34,7 +34,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ az --version
-    azure-cli                         2.24.2
+    azure-cli                         2.26.1
     ...
     ```
 
@@ -51,18 +51,18 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Azure CLI 2.24.2
+-	Azure CLI 2.26.1
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.24.2](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
+1.	Install [Azure CLI 2.26.1](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
     Run the downloaded MSI installer, follow the on-screen instructions, and accept the defaults.  
 
 2.	Using the **Git Bash** Terminal, validate the installed command-line tool:
 
     ```bash
     $ az --version
-    azure-cli                         2.24.2
+    azure-cli                         2.26.1
     ...
     ```
 
@@ -83,12 +83,7 @@ Perform the following steps to complete these tasks:
 
 All user credentials and installation inputs are driven by environment variables and can be configured within 
 the `set_appd_cloud_kickstart_env.sh` script you will create in `./bin`. There are LOTS of options, but most 
-have acceptable defaults. You only need to concentrate on a handful that are uncommented in the template file.
-
-In particular, you will need to supply your AppDynamics login credentials to the 
-[download site](https://accounts.appdynamics.com/downloads/).
-
-The build will __fail__ if they are not set.
+have acceptable defaults. You only need to concentrate on a handful that are uncommented in the template file.  
 
 To prepare for the build, perform the following steps:
 
@@ -104,12 +99,30 @@ To prepare for the build, perform the following steps:
     ```
 
     The following environment variables are the most common to be overridden. They are grouped by sections in 
-    the file, so you will have to search to locate the exact line. For example, the Azure-related variables are 
-    at the end of the file.
+    the file, so you will have to search to locate the exact line. For example, the Azure-related variables 
+    are near the end of the file.  
+
+    The first 3 are mandatory and the others are optional, but helpful. If you are building the VM images in 
+    the `Central US` region, the region-related variables can be left alone.  
 
     ```bash
-    azure_temporary_source_cidrs="<Your_Source_CIDRs>"
+    azure_subscription_id="<your_azure_subscription_id_here>"
+    azure_image_version="1.0.0"                     # legal format: 'MajorVersion.MinorVersion.Patch'
+    azure_image_owner="<your_firstname_here> <your_lastname_here>"
+
+    azure_location="Central US"
+    azure_image_replication_regions="Central US,East US"
+    azure_temporary_source_cidrs="0.0.0.0/0"        # example for restricted cidr: '79.24.30.104/32'
     ```
+
+    You can retrieve the current `azure_subscription_id` by running the following command:
+
+    ```bash
+    az account show --query "{name:name, subscriptionId:id}" | jq -r '.subscriptionId'
+    ```
+
+    Please note there is no __*overwrite*__ feature for image versions, so if the version already exists, the 
+    build will fail.
 
     Save and source the environment variables file in order to define the variables in your shell.
 
@@ -120,7 +133,7 @@ To prepare for the build, perform the following steps:
     Validate the newly-defined environment variables via the following commands:
 
     ```bash
-    $ env | grep -i ^appd | sort
+    $ env | grep -i ^azure_ | sort
     ```
 
 2.	Supply a valid AppDynamics Controller license file:
@@ -128,6 +141,49 @@ To prepare for the build, perform the following steps:
 	-	This license can be supplied by any AppDynamics SE
 		-	It is recommended to have at least 10 APM, 10 server, 10 network, 5 DB, 1 unit of each Analytics and 1 unit of each RUM within the license key.
 		-	Copy your AppDynamics Controller `license.lic` and rename it to `provisioners/scripts/centos/tools/appd-controller-license.lic`.
+
+<br>
+
+3.	Create Shared Image Gallery and Image Definitions for the Packer builds of the __LPAD__ and __APM-Platform__ VMs:
+
+__NOTE:__ The following steps are repeated for each major element of the workshop.
+
+	a.	Create the Shared Image Gallery:
+
+    ```bash
+    az sig create \
+      --gallery-name CloudKickstartWorkshopGallery \
+      --resource-group Cloud-Kickstart-Workshop-Images \
+      --tags Owner="Ed Barberis" Project="AppDynamics Cloud Kickstart"
+    ```
+
+	b.	Create the Image Definition for the __LPAD__ VM:
+
+    ```bash
+    az sig image-definition create \
+      --gallery-name CloudKickstartWorkshopGallery \
+      --resource-group Cloud-Kickstart-Workshop-Images \
+      --gallery-image-definition APM-Platform-CentOS79 \
+      --publisher AppDynamics_Channel \
+      --offer Workshop \
+      --sku APM_Platform \
+      --os-type linux \
+      --description "APM Platform VM on CentOS79. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. VM image generated using the AppDynamics Cloud Kickstart Project."
+    ```
+
+	c.	Create the Image Definition for the __APM-Platform__ VM:
+
+    ```bash
+    az sig image-definition create \
+      --gallery-name CloudKickstartWorkshopGallery \
+      --resource-group Cloud-Kickstart-Workshop-Images \
+      --gallery-image-definition APM-Platform-CentOS79 \
+      --publisher AppDynamics_Channel \
+      --offer Workshop \
+      --sku APM_Platform \
+      --os-type linux \
+      --description "APM Platform VM on CentOS79. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. VM image generated using the AppDynamics Cloud Kickstart Project."
+    ```
 
 ## Build the Immutable Images with Packer
 
@@ -322,9 +378,9 @@ to manually browse the cloud provider and delete any resources that are in confl
 
 __LPAD VM__ - The following CLI command-line tools and utilities are pre-installed:
 
--	Ansible 2.9.22
+-	Ansible 2.9.23
 -	AppDynamics Node.js Serverless Tracer 21.5.300
--	Azure CLI 2.24.2
+-	Azure CLI 2.26.1
 -	Docker 20.10.7 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
@@ -333,32 +389,32 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.6.0 (Package Manager for Kubernetes)
+-	Helm CLI 3.6.2 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 292 (Amazon Corretto 8)
 -	Java SE JDK 11.0.11 (Amazon Corretto 11)
 -	Java SE JDK 16.0.1 (Amazon Corretto 16)
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.19.6 (command-line interface)
--	Node.js JavaScript runtime v14.17.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 7.16.0
+-	Node.js JavaScript runtime v14.17.3 (Latest LTS Version)
+-	npm JavaScript Package Manager for Node.js 7.19.1
 -	nvm (Node Version Manager) bash script 0.38.0
--	Packer 1.7.2
+-	Packer 1.7.3
 -	Python 2.7.5
-	-	Pip 21.1.2
+	-	Pip 21.1.3
 -	Python 3.6.8
-	-	Pip 21.1.2
--	Serverless Framework CLI 2.45.2
--	Terraform 1.0.0
+	-	Pip 21.1.3
+-	Serverless Framework CLI 2.51.2
+-	Terraform 1.0.2
 -	VIM - Vi IMproved 8.2
--	yq 4.9.4 (command-line YAML processor)
+-	yq 4.9.8 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Ansible 2.9.22
+-	Ansible 2.9.23
 -	AppDynamics Enterprise Console 21.4.3 Build 24599
 	-	AppDynamics Controller 21.4.3 Build 1283
 	-	AppDynamics Events Service 4.5.2 Build 20651
--	Azure CLI 2.24.2
+-	Azure CLI 2.26.1
 -	Docker 20.10.7 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
@@ -371,8 +427,8 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.24
 -	Python 2.7.5
-	-	Pip 21.1.2
+	-	Pip 21.1.3
 -	Python 3.6.8
-	-	Pip 21.1.2
+	-	Pip 21.1.3
 -	VIM - Vi IMproved 8.2
--	yq 4.9.4 (command-line YAML processor)
+-	yq 4.9.8 (command-line YAML processor)

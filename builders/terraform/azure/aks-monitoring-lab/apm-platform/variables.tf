@@ -29,10 +29,23 @@ variable "azurerm_lab_tcp_idle_timeout" {
   default     = 30
 }
 
-variable "azurerm_source_image" {
-  description = "The source image."
+variable "azurerm_shared_image_gallery" {
+  description = "The name of the shared image gallery."
   type        = string
-  default     = "APM-Platform-2143-CentOS79-Image-*"
+  default     = "CloudKickstartWorkshopGallery"
+}
+
+variable "azurerm_shared_image_definition" {
+  description = "The shared image gallery image definition."
+  type        = string
+  default     = "APM-Platform-CentOS79"
+}
+
+variable "azurerm_shared_image_version" {
+  description = "The shared image gallery image version."
+  type        = string
+  default     = "latest"
+# default     = "1.0.0"
 }
 
 variable "azurerm_vm_size" {
