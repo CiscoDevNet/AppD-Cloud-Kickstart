@@ -69,7 +69,7 @@ Once you have an SSH command terminal open to the VM instance for the launch pad
 ```bash
 cd ~
 
-git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
+git clone https://github.com/CiscoDevNet/AppD-Cloud-Kickstart.git
 ```
 
 After you run the command, you should have this folder in your home directory.

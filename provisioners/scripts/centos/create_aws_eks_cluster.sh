@@ -19,7 +19,7 @@ fi
 # create aws eks cluster. --------------------------------------------------------------------------
 # get appd-cloud-kickstart project.
 cd /home/${user_name}
-git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
+git clone https://github.com/CiscoDevNet/AppD-Cloud-Kickstart.git
 cd AppD-Cloud-Kickstart
 git fetch origin
 #git checkout -b cleur20-lab origin/cleur20-lab

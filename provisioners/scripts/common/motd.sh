@@ -2,7 +2,7 @@
 
 kickstart='
 This system was built with the AppD Cloud Kickstart project by the AppDynamics Cloud Channel Sales Team.
-More information can be found at: https://github.com/Appdynamics/AppD-Cloud-Kickstart'
+More information can be found at: https://github.com/CiscoDevNet/AppD-Cloud-Kickstart'
 
 if [ -d /etc/update-motd.d ]; then
     MOTD_CONFIG='/etc/update-motd.d/99-kickstart'

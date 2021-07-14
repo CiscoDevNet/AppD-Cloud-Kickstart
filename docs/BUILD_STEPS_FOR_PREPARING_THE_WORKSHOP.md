@@ -195,7 +195,7 @@ Perform the following steps to install the needed software:
 2.	Get the code from GitHub:
 
     ```bash
-    $ git clone https://github.com/Appdynamics/AppD-Cloud-Kickstart.git
+    $ git clone https://github.com/CiscoDevNet/AppD-Cloud-Kickstart.git
     $ cd AppD-Cloud-Kickstart
     ```
 
