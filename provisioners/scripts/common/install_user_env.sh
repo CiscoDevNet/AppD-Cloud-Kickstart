@@ -121,10 +121,28 @@ EOF
 chown ${user_name}:${user_group} ${vimrc_local}
 
 # download and install useful vim configuration based on developer pair stations at pivotal labs.
-runuser -c "git clone https://github.com/pivotal-legacy/vim-config.git ~/.vim" - ${user_name}
-runuser -c "TERM=xterm-256color ~/.vim/bin/install" - ${user_name}
+runuser -c "git clone https://github.com/pivotal-legacy/vim-config.git ${user_home}/.vim" - ${user_name}
 
-# create final vimrc local file.
+# vundle installer bug fix. ------------------------------------------------------------------------
+# append the bug fix into the vundle install script.
+vundle_install_file="${user_home}/.vim/bin/install"
+if [ -f "$vundle_install_file" ]; then
+  # copy the original file using the current date.
+  runuser -c "cp -p ${vundle_install_file} ${vundle_install_file}.${curdate}.orig" - ${user_name}
+
+  # append 'sed' script to fix the error in the '02tlib.vim' file.
+  vim_file="${user_home}/.vim/bundle/tlib_vim/plugin/02tlib.vim"
+  runuser -c "echo \"\" >> \"${vundle_install_file}\"" - ${user_name}
+  runuser -c "echo \"# fix error in 'TBrowseScriptnames' command argument syntax.\" >> \"${vundle_install_file}\"" - ${user_name}
+  runuser -c "echo \"# replaces: '-nargs=0' --> '-nargs=1' in original command.\" >> \"${vundle_install_file}\"" - ${user_name}
+  runuser -c "echo \"# original: command! -nargs=0 -complete=command TBrowseScriptnames call tlib#cmd#TBrowseScriptnames()\" >> \"${vundle_install_file}\"" - ${user_name}
+  runuser -c "echo \"sed -i \\\"s/-nargs=0/-nargs=1/g\\\" ${vim_file}\" >> \"${vundle_install_file}\"" - ${user_name}
+fi
+
+# run the vundle install script. -------------------------------------------------------------------
+runuser -c "TERM=xterm-256color ${user_home}/.vim/bin/install" - ${user_name}
+
+# create final vimrc local file. -------------------------------------------------------------------
 rm -f ${vimrc_local}
 cat <<EOF > ${vimrc_local}
 " Override default Vim resource configuration.

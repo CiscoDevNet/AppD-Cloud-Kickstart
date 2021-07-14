@@ -41,10 +41,10 @@ rm -f vim-files.tar.gz
 curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 
 # rename the vimrc folder if it exists.
-vimrc_home="/root/.vim"
+vimrc_home="${user_home}/.vim"
 if [ -d "$vimrc_home" ]; then
   # rename the folder using the current date.
-  mv ${vimrc_home} /root/vim.${curdate}.orig
+  mv ${vimrc_home} ${user_home}/vim.${curdate}.orig
 fi
 
 # set vim home environment variables.
@@ -54,10 +54,10 @@ PATH=/usr/local/bin:$PATH
 export PATH
 
 # create vimrc local to override default vim configuration.
-vimrc_local="/root/.vimrc.local"
+vimrc_local="${user_home}/.vimrc.local"
 if [ -f "$vimrc_local" ]; then
   # rename the folder using the current date.
-  mv ${vimrc_local} /root/vimrc_local.${curdate}.orig
+  mv ${vimrc_local} ${user_home}/vimrc_local.${curdate}.orig
 fi
 
 # create temporary vimrc local to fix issue during install with snipmate parser.
@@ -68,10 +68,28 @@ EOF
 chown ${user_name}:${user_group} ${vimrc_local}
 
 # download and install useful vim configuration based on developer pair stations at pivotal labs.
-git clone https://github.com/pivotal-legacy/vim-config.git ~/.vim
-~/.vim/bin/install
+git clone https://github.com/pivotal-legacy/vim-config.git ${user_home}/.vim
 
-# create final vimrc local file.
+# vundle installer bug fix. ------------------------------------------------------------------------
+# append the bug fix into the vundle install script.
+vundle_install_file="${user_home}/.vim/bin/install"
+if [ -f "$vundle_install_file" ]; then
+  # copy the original file using the current date.
+  cp -p ${vundle_install_file} ${vundle_install_file}.${curdate}.orig
+
+  # append 'sed' script to fix the error in the '02tlib.vim' file.
+  vim_file="${user_home}/.vim/bundle/tlib_vim/plugin/02tlib.vim"
+  echo "" >> "${vundle_install_file}"
+  echo "# fix error in 'TBrowseScriptnames' command argument syntax." >> "${vundle_install_file}"
+  echo "# replaces: '-nargs=0' --> '-nargs=1' in original command." >> "${vundle_install_file}"
+  echo "# original: command! -nargs=0 -complete=command TBrowseScriptnames call tlib#cmd#TBrowseScriptnames()" >> "${vundle_install_file}"
+  echo "sed -i \"s/-nargs=0/-nargs=1/g\" ${vim_file}" >> "${vundle_install_file}"
+fi
+
+# run the vundle install script. -------------------------------------------------------------------
+${user_home}/.vim/bin/install
+
+# create final vimrc local file. -------------------------------------------------------------------
 rm -f ${vimrc_local}
 cat <<EOF > ${vimrc_local}
 " Override default Vim resource configuration.
