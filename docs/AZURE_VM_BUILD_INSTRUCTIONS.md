@@ -378,7 +378,7 @@ to manually browse the cloud provider and delete any resources that are in confl
 
 __LPAD VM__ - The following CLI command-line tools and utilities are pre-installed:
 
--	Ansible 2.9.23
+-	Ansible 2.9.24
 -	AppDynamics Node.js Serverless Tracer 21.5.300
 -	Azure CLI 2.26.1
 -	Docker 20.10.7 CE
@@ -389,30 +389,30 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.6.2 (Package Manager for Kubernetes)
--	Java SE JDK 8 Update 292 (Amazon Corretto 8)
--	Java SE JDK 11.0.11 (Amazon Corretto 11)
--	Java SE JDK 16.0.1 (Amazon Corretto 16)
+-	Helm CLI 3.6.3 (Package Manager for Kubernetes)
+-	Java SE JDK 8 Update 302 (Amazon Corretto 8)
+-	Java SE JDK 11.0.12 (Amazon Corretto 11)
+-	Java SE JDK 16.0.2 (Amazon Corretto 16)
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.19.6 (command-line interface)
 -	Node.js JavaScript runtime v14.17.3 (Latest LTS Version)
 -	npm JavaScript Package Manager for Node.js 7.19.1
 -	nvm (Node Version Manager) bash script 0.38.0
--	Packer 1.7.3
+-	Packer 1.7.4
 -	Python 2.7.5
-	-	Pip 21.1.3
+	-	Pip 21.2.1
 -	Python 3.6.8
-	-	Pip 21.1.3
--	Serverless Framework CLI 2.51.2
--	Terraform 1.0.2
+	-	Pip 21.2.1
+-	Serverless Framework CLI 2.52.1
+-	Terraform 1.0.3
 -	VIM - Vi IMproved 8.2
--	yq 4.9.8 (command-line YAML processor)
+-	yq 4.11.2 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Ansible 2.9.23
--	AppDynamics Enterprise Console 21.4.3 Build 24599
-	-	AppDynamics Controller 21.4.3 Build 1283
+-	Ansible 2.9.24
+-	AppDynamics Enterprise Console 21.4.4 Build 24619
+	-	AppDynamics Controller 21.4.4 Build 1301
 	-	AppDynamics Events Service 4.5.2 Build 20651
 -	Azure CLI 2.26.1
 -	Docker 20.10.7 CE
@@ -423,12 +423,12 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Java SE JDK 8 Update 292 (Amazon Corretto 8)
+-	Java SE JDK 8 Update 302 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
--	MySQL Shell 8.0.24
+-	MySQL Shell 8.0.26
 -	Python 2.7.5
-	-	Pip 21.1.3
+	-	Pip 21.2.1
 -	Python 3.6.8
-	-	Pip 21.1.3
+	-	Pip 21.2.1
 -	VIM - Vi IMproved 8.2
--	yq 4.9.8 (command-line YAML processor)
+-	yq 4.11.2 (command-line YAML processor)
