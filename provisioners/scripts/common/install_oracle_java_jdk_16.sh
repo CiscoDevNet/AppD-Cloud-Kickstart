@@ -3,11 +3,11 @@
 
 # install java se 16 development kit. --------------------------------------------------------------
 jdk_home="jdk16"
-jdk_build="16.0.1+9"
-jdk_hash="7147401fd7354114ac51ef3e1328291f"
+jdk_build="16.0.2+7"
+jdk_hash="d4a915d82b4c4fbb9bde534da945d746"
 jdk_folder="jdk-${jdk_build:0:-2}"
 jdk_binary="${jdk_folder}_linux-x64_bin.tar.gz"
-jdk_sha256="caa0bfc0e9ee52f45c8f8ca803a23f132ef551297c6b9331b091110c5740a9bf"
+jdk_sha256="630e3e56c58f45db3788343ce842756d5a5a401a63884242cc6a141071285a62"
 
 # create java home parent folder.
 mkdir -p /usr/local/java
