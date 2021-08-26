@@ -3,10 +3,10 @@
 
 # install apache maven. ----------------------------------------------------------------------------
 m2home="apache-maven"
-mvn_release="3.8.1"
+mvn_release="3.8.2"
 mvn_folder="${m2home}-${mvn_release}"
 mvn_binary="${mvn_folder}-bin.tar.gz"
-mvn_sha512="0ec48eb515d93f8515d4abe465570dfded6fa13a3ceb9aab8031428442d9912ec20f066b2afbf56964ffe1ceb56f80321b50db73cf77a0e2445ad0211fb8e38d"
+mvn_sha512="b0bf39460348b2d8eae1c861ced6c3e8a077b6e761fb3d4669be5de09490521a74db294cf031b0775b2dfcd57bd82246e42ce10904063ef8e3806222e686f222"
 
 # create apache parent folder.
 mkdir -p /usr/local/apache
