@@ -70,21 +70,21 @@ chown ${user_name}:${user_group} ${vimrc_local}
 # download and install useful vim configuration based on developer pair stations at pivotal labs.
 git clone https://github.com/pivotal-legacy/vim-config.git ${user_home}/.vim
 
-# vundle installer bug fix. ------------------------------------------------------------------------
-# append the bug fix into the vundle install script.
-vundle_install_file="${user_home}/.vim/bin/install"
-if [ -f "$vundle_install_file" ]; then
-  # copy the original file using the current date.
-  cp -p ${vundle_install_file} ${vundle_install_file}.${curdate}.orig
-
-  # append 'sed' script to fix the error in the '02tlib.vim' file.
-  vim_file="${user_home}/.vim/bundle/tlib_vim/plugin/02tlib.vim"
-  echo "" >> "${vundle_install_file}"
-  echo "# fix error in 'TBrowseScriptnames' command argument syntax." >> "${vundle_install_file}"
-  echo "# replaces: '-nargs=0' --> '-nargs=1' in original command." >> "${vundle_install_file}"
-  echo "# original: command! -nargs=0 -complete=command TBrowseScriptnames call tlib#cmd#TBrowseScriptnames()" >> "${vundle_install_file}"
-  echo "sed -i \"s/-nargs=0/-nargs=1/g\" ${vim_file}" >> "${vundle_install_file}"
-fi
+###### vundle installer bug fix. ------------------------------------------------------------------------
+###### append the bug fix into the vundle install script.
+#####vundle_install_file="${user_home}/.vim/bin/install"
+#####if [ -f "$vundle_install_file" ]; then
+#####  # copy the original file using the current date.
+#####  cp -p ${vundle_install_file} ${vundle_install_file}.${curdate}.orig
+#####
+#####  # append 'sed' script to fix the error in the '02tlib.vim' file.
+#####  vim_file="${user_home}/.vim/bundle/tlib_vim/plugin/02tlib.vim"
+#####  echo "" >> "${vundle_install_file}"
+#####  echo "# fix error in 'TBrowseScriptnames' command argument syntax." >> "${vundle_install_file}"
+#####  echo "# replaces: '-nargs=0' --> '-nargs=1' in original command." >> "${vundle_install_file}"
+#####  echo "# original: command! -nargs=0 -complete=command TBrowseScriptnames call tlib#cmd#TBrowseScriptnames()" >> "${vundle_install_file}"
+#####  echo "sed -i \"s/-nargs=0/-nargs=1/g\" ${vim_file}" >> "${vundle_install_file}"
+#####fi
 
 # run the vundle install script. -------------------------------------------------------------------
 ${user_home}/.vim/bin/install

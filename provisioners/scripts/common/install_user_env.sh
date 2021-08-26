@@ -7,7 +7,7 @@ user_group="${user_group:-}"
 user_home="${user_home:-}"
 user_docker_profile="${user_docker_profile:-false}"
 user_prompt_color="${user_prompt_color:-green}"
-d_completion_release="${d_completion_release:-20.10.7}"
+d_completion_release="${d_completion_release:-20.10.8}"
 dc_completion_release="${dc_completion_release:-1.29.2}"
 
 # set default value for kickstart home environment variable if not set. ----------------------------
@@ -28,7 +28,7 @@ Usage:
                                                                 #            valid colors:
                                                                 #              'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
                                                                 #
-    [root]# export d_completion_release="20.10.7"               # [optional] docker completion for bash release (defaults to '20.10.7').
+    [root]# export d_completion_release="20.10.8"               # [optional] docker completion for bash release (defaults to '20.10.8').
     [root]# export dc_completion_release="1.29.2"               # [optional] docker compose completion for bash release (defaults to '1.29.2').
     [root]# export kickstart_home="/opt/appd-cloud-kickstart"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
     [root]# $0
@@ -123,21 +123,21 @@ chown ${user_name}:${user_group} ${vimrc_local}
 # download and install useful vim configuration based on developer pair stations at pivotal labs.
 runuser -c "git clone https://github.com/pivotal-legacy/vim-config.git ${user_home}/.vim" - ${user_name}
 
-# vundle installer bug fix. ------------------------------------------------------------------------
-# append the bug fix into the vundle install script.
-vundle_install_file="${user_home}/.vim/bin/install"
-if [ -f "$vundle_install_file" ]; then
-  # copy the original file using the current date.
-  runuser -c "cp -p ${vundle_install_file} ${vundle_install_file}.${curdate}.orig" - ${user_name}
-
-  # append 'sed' script to fix the error in the '02tlib.vim' file.
-  vim_file="${user_home}/.vim/bundle/tlib_vim/plugin/02tlib.vim"
-  runuser -c "echo \"\" >> \"${vundle_install_file}\"" - ${user_name}
-  runuser -c "echo \"# fix error in 'TBrowseScriptnames' command argument syntax.\" >> \"${vundle_install_file}\"" - ${user_name}
-  runuser -c "echo \"# replaces: '-nargs=0' --> '-nargs=1' in original command.\" >> \"${vundle_install_file}\"" - ${user_name}
-  runuser -c "echo \"# original: command! -nargs=0 -complete=command TBrowseScriptnames call tlib#cmd#TBrowseScriptnames()\" >> \"${vundle_install_file}\"" - ${user_name}
-  runuser -c "echo \"sed -i \\\"s/-nargs=0/-nargs=1/g\\\" ${vim_file}\" >> \"${vundle_install_file}\"" - ${user_name}
-fi
+###### vundle installer bug fix. ------------------------------------------------------------------------
+###### append the bug fix into the vundle install script.
+#####vundle_install_file="${user_home}/.vim/bin/install"
+#####if [ -f "$vundle_install_file" ]; then
+#####  # copy the original file using the current date.
+#####  runuser -c "cp -p ${vundle_install_file} ${vundle_install_file}.${curdate}.orig" - ${user_name}
+#####
+#####  # append 'sed' script to fix the error in the '02tlib.vim' file.
+#####  vim_file="${user_home}/.vim/bundle/tlib_vim/plugin/02tlib.vim"
+#####  runuser -c "echo \"\" >> \"${vundle_install_file}\"" - ${user_name}
+#####  runuser -c "echo \"# fix error in 'TBrowseScriptnames' command argument syntax.\" >> \"${vundle_install_file}\"" - ${user_name}
+#####  runuser -c "echo \"# replaces: '-nargs=0' --> '-nargs=1' in original command.\" >> \"${vundle_install_file}\"" - ${user_name}
+#####  runuser -c "echo \"# original: command! -nargs=0 -complete=command TBrowseScriptnames call tlib#cmd#TBrowseScriptnames()\" >> \"${vundle_install_file}\"" - ${user_name}
+#####  runuser -c "echo \"sed -i \\\"s/-nargs=0/-nargs=1/g\\\" ${vim_file}\" >> \"${vundle_install_file}\"" - ${user_name}
+#####fi
 
 # run the vundle install script. -------------------------------------------------------------------
 runuser -c "TERM=xterm-256color ${user_home}/.vim/bin/install" - ${user_name}
