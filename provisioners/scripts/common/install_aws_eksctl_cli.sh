@@ -14,6 +14,7 @@
 #---------------------------------------------------------------------------------------------------
 
 # install eksctl cli. ------------------------------------------------------------------------------
+eksctl_release="0.63.0"
 eksctl_binary="eksctl_$(uname -s)_amd64.tar.gz"
 
 # create local bin directory (if needed).
@@ -22,7 +23,7 @@ cd /usr/local/bin
 
 # download eksctl binary from github.com.
 rm -f ${eksctl_binary}
-curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/${eksctl_binary}" --output ${eksctl_binary}
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/${eksctl_release}/${eksctl_binary}" --output ${eksctl_binary}
 
 # extract eksctl binary.
 rm -f eksctl
