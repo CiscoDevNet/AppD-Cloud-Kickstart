@@ -6,10 +6,10 @@ provider "aws" {
 # Locals -------------------------------------------------------------------------------------------
 locals {
   current_date = formatdate("YYYY-MM-DD", timestamp())
+  lab_for_each = toset([ for i in range(var.lab_start_number, var.lab_count + var.lab_start_number) : format("%02d", i) ])
 }
 
 # Data Sources -------------------------------------------------------------------------------------
-# data sources to get ami details.
 data "aws_ami" "teastore-centos79" {
   most_recent = true
   owners      = ["self"]
@@ -23,14 +23,13 @@ data "aws_ami" "teastore-centos79" {
 # Modules ------------------------------------------------------------------------------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = ">= 3.6"
+  version = ">= 3.7"
 
   name = "VPC-${var.resource_name_prefix}-${local.current_date}"
   cidr = var.aws_vpc_cidr
 
   azs             = var.aws_availability_zones
   public_subnets  = var.aws_vpc_public_subnets
-  private_subnets = var.aws_vpc_private_subnets
 
   enable_nat_gateway   = true
   enable_vpn_gateway   = false
@@ -67,29 +66,27 @@ module "security_group" {
 
 module "teastore_vm" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = ">= 2.19"
+  version = ">= 3.1"
 
-  instance_count = 1
-  num_suffix_format = "-%02d"
-  use_num_suffix = true
+  for_each = local.lab_for_each
 
-  name                 = "${var.resource_name_prefix}-VM-${local.current_date}-Node"
+  name                 = var.lab_count > 1 || var.lab_use_num_suffix ? "${var.resource_name_prefix}-${each.key}-VM-${local.current_date}" : "${var.resource_name_prefix}-VM-${local.current_date}"
   ami                  = data.aws_ami.teastore-centos79.id
   instance_type        = var.aws_ec2_instance_type
   iam_instance_profile = aws_iam_instance_profile.ec2_instance_profile.id
-  key_name             = "AppD-Cloud-Platform"
+  key_name             = var.aws_ec2_ssh_pub_key_name
   tags                 = var.resource_tags
 
   subnet_id                   = tolist(module.vpc.public_subnets)[0]
-  vpc_security_group_ids      = [module.security_group.this_security_group_id]
+  vpc_security_group_ids      = [module.security_group.security_group_id]
   associate_public_ip_address = true
 
   user_data_base64 = base64encode(templatefile("${path.module}/templates/user-data-sh.tmpl", {
     aws_ec2_user_name           = var.aws_ec2_user_name,
-    aws_ec2_hostname_prefix     = var.aws_ec2_teastore_vm_hostname_prefix,
+    aws_ec2_hostname            = var.lab_count > 1 || var.lab_use_num_suffix ? "${var.aws_ec2_teastore_vm_hostname_prefix}-${each.key}-vm" : "${var.aws_ec2_teastore_vm_hostname_prefix}-vm"
     aws_ec2_domain              = var.aws_ec2_domain,
     aws_cli_default_region_name = var.aws_region,
-    use_aws_ec2_num_suffix      = "false"
+    use_aws_ec2_num_suffix      = var.lab_use_num_suffix
   }))
 }
 
@@ -107,18 +104,32 @@ resource "aws_iam_role_policy" "ec2_access_policy" {
 }
 
 resource "aws_iam_instance_profile" "ec2_instance_profile" {
-# name = "EC2-Instance-Profile-${var.resource_name_prefix}-${local.current_date}"
+  name = "EC2-Instance-Profile-${var.resource_name_prefix}-${local.current_date}"
   role = aws_iam_role.ec2_access_role.name
 }
 
-resource "local_file" "private_ip_file" {
-  filename = "private-ip-file.txt"
-  content  = format("%s\n", join("\n", toset(module.teastore_vm.private_ip)))
+resource "local_file" "teastore_urls_file" {
+  filename = "teastore-urls.txt"
+  content  = format("%s\n", join("\n", [for dns in tolist([for vm in module.teastore_vm : vm.public_dns]) : format("http://%s:8080/tools.descartes.teastore.webui/", dns)]))
   file_permission = "0644"
 }
 
-resource "local_file" "public_ip_file" {
-  filename = "public-ip-file.txt"
-  content  = format("%s\n", join("\n", toset(module.teastore_vm.public_ip)))
-  file_permission = "0644"
+# create ansible trigger to generate inventory and helper files. -----------------------------------
+resource "null_resource" "ansible_trigger" {
+  # fire the ansible trigger when any ec2 instance requires re-provisioning.
+  triggers = {
+    ec2_instance_ids = join(",", flatten([for vm in module.teastore_vm : vm.id]))
+  }
+
+  # execute the following 'local-exec' provisioners each time the trigger is invoked.
+  # generate the ansible aws hosts inventory.
+  provisioner "local-exec" {
+    working_dir = "."
+    command     = <<EOD
+cat <<EOF > aws_hosts.inventory
+[teastore_vm]
+${join("\n", flatten([for vm in module.teastore_vm : vm.public_dns]))}
+EOF
+EOD
+  }
 }

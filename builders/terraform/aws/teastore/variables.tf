@@ -1,3 +1,4 @@
+# Variables ----------------------------------------------------------------------------------------
 variable "aws_region" {
   description = "AWS region."
   type        = string
@@ -16,12 +17,8 @@ variable "aws_vpc_cidr" {
 
 variable "aws_vpc_public_subnets" {
   type    = list(string)
-  default = ["10.0.1.0/24", "10.0.2.0/24"]
-}
-
-variable "aws_vpc_private_subnets" {
-  type    = list(string)
-  default = ["10.0.3.0/24", "10.0.4.0/24"]
+  default = ["10.0.1.0/24"]
+# default = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
 variable "aws_ssh_ingress_cidr_blocks" {
@@ -33,7 +30,7 @@ variable "aws_ssh_ingress_cidr_blocks" {
 variable "aws_ec2_teastore_vm_hostname_prefix" {
   description = "AWS EC2 TeaStore VM hostname prefix."
   type        = string
-  default     = "teastore-vm-node"
+  default     = "teastore"
 }
 
 variable "aws_ec2_domain" {
@@ -48,6 +45,12 @@ variable "aws_ec2_user_name" {
   default     = "centos"
 }
 
+variable "aws_ec2_ssh_pub_key_name" {
+  description = "AWS EC2 SSH public key for Lab VMs."
+  type        = string
+  default     = "AppD-Cloud-Kickstart"
+}
+
 variable "aws_ec2_source_ami_filter" {
   description = "AWS EC2 source AMI disk image filter."
   type        = string
@@ -58,6 +61,24 @@ variable "aws_ec2_instance_type" {
   description = "AWS EC2 instance type."
   type        = string
   default     = "t2.large"
+}
+
+variable "lab_count" {
+  description = "Number of Lab environments to launch."
+  type        = number
+  default     = 1
+}
+
+variable "lab_start_number" {
+  description = "Starting lab number for incrementally naming resources."
+  type        = number
+  default     = 1
+}
+
+variable "lab_use_num_suffix" {
+  description = "Always append numerical suffix to instance name, even if instance_count is 1."
+  type        = bool
+  default     = true
 }
 
 variable "resource_name_prefix" {

@@ -1,3 +1,4 @@
+# Outputs ------------------------------------------------------------------------------------------
 output "aws_region" {
   description = "AWS region."
   value       = var.aws_region
@@ -23,24 +24,14 @@ output "aws_ec2_instance_type" {
   value       = var.aws_ec2_instance_type
 }
 
-output "ids" {
-  description = "List of IDs of instances."
-  value       = flatten([toset(module.teastore_vm.id)])
-}
-
-output "private_ips" {
-  description = "List of private IP addresses assigned to the instances."
-  value       = flatten([toset(module.teastore_vm.private_ip)])
-}
-
 output "public_ips" {
   description = "List of public IP addresses assigned to the instances."
-  value       = flatten([toset(module.teastore_vm.public_ip)])
+  value       = flatten([for vm in module.teastore_vm : vm.public_ip])
 }
 
 output "public_dns" {
   description = "List of public DNS names assigned to the instances."
-  value       = flatten([toset(module.teastore_vm.public_dns)])
+  value       = flatten([for vm in module.teastore_vm : vm.public_dns])
 }
 
 output "vpc_id" {
@@ -58,22 +49,7 @@ output "vpc_public_subnet_ids" {
   value       = tolist(module.vpc.public_subnets)
 }
 
-output "vpc_private_subnet_ids" {
-  description = "A list of IDs of private subnets."
-  value       = tolist(module.vpc.private_subnets)
-}
-
-output "vpc_security_group_ids" {
-  description = "List of VPC security group ids assigned to the instances."
-  value       = toset(flatten([toset(module.teastore_vm.vpc_security_group_ids)]))
-}
-
-output "root_block_device_volume_ids" {
-  description = "List of volume IDs of root block devices of instances."
-  value       = flatten([toset(module.teastore_vm.root_block_device_volume_ids)])
-}
-
 output "resource_tags" {
   description = "List of AWS resource tags."
-  value       = module.teastore_vm.tags
+  value       = flatten([for vm in module.teastore_vm : vm.tags_all])
 }

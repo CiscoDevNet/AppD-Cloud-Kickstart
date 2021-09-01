@@ -24,17 +24,6 @@ chmod 600 ${user_authorized_keys_file}
 # delete public key inserted by packer during the ami build.
 sed -i -e "/packer/d" ${user_authorized_keys_file}
 
-# configure the hostname of the aws ec2 instance. --------------------------------------------------
-# retrieve the num suffix from the ec2 instance name tag.
-if [ "$use_aws_ec2_num_suffix" == "true" ]; then
-  aws_ec2_instance_id="$(curl --silent http://169.254.169.254/latest/meta-data/instance-id)"
-  aws_cli_cmd="aws ec2 describe-tags --filters \"Name=resource-id,Values=${aws_ec2_instance_id}\" \"Name=key,Values=Name\" --region ${aws_cli_default_region_name} | jq -r '.Tags[0].Value'"
-  aws_ec2_name_tag=$(runuser -c "PATH=${user_home}/.local/bin:${PATH} eval ${aws_cli_cmd}" - ${user_name})
-  aws_ec2_num_suffix=$(runuser -c "PATH=${user_home}/.local/bin:${PATH} eval ${aws_cli_cmd}" - ${user_name} | awk -F "-" '{print $NF}')
-  aws_ec2_lab_hostname=$(printf "${aws_ec2_hostname}-%02d\n" "${aws_ec2_num_suffix}")
-  aws_ec2_hostname=${aws_ec2_lab_hostname}
-fi
-
 # export environment variables.
 export aws_ec2_hostname
 export aws_ec2_domain
