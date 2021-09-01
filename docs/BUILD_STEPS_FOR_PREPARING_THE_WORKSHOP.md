@@ -57,7 +57,7 @@ SSH to communicate with your cloud resources and managed nodes.
 
 The following open source software needs to be installed on the host macOS machine:
 
--	Homebrew 3.2.9
+-	Homebrew 3.2.10
 -	Git 2.33.0
 -	Packer 1.7.4
 -	Terraform 1.0.5
@@ -65,7 +65,7 @@ The following open source software needs to be installed on the host macOS machi
 
 Perform the following steps to install the needed software:
 
-1.	Install the [Homebrew 3.2.9](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
+1.	Install the [Homebrew 3.2.10](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     ```bash
     $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
@@ -96,7 +96,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ brew --version
-    Homebrew 3.2.9
+    Homebrew 3.2.10
     $ brew doctor
     Your system is ready to brew.
 
