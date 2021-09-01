@@ -18,7 +18,7 @@ tomcat_admin_username="${tomcat_admin_username:-admin}"             # [optional]
 tomcat_admin_password="${tomcat_admin_password:-welcome1}"          # [optional] tomcat admin password (defaults to 'welcome1').
 tomcat_admin_roles="${tomcat_admin_roles:-manager-gui,admin-gui}"   # [optional] tomcat admin roles (defaults to 'manager-gui,admin-gui').
                                                                     #            NOTE: for appd java agent, use 'manager-script'.
-tomcat_jdk_home="${tomcat_jdk_home:-/usr/local/java/jdk180}"        # [optional] tomcat jdk home (defaults to '/usr/local/java/jdk180').
+tomcat_jdk_home="${tomcat_jdk_home:-/usr/local/java/jdk11}"         # [optional] tomcat jdk home (defaults to '/usr/local/java/jdk11').
                                                                     # [optional] tomcat catalina opts (defaults to '-Xms512M -Xmx1024M -server -XX:+UseParallelGC').
                                                                     #            NOTE: for appd java agent, add '-javaagent:/opt/appdynamics/appagent/javaagent.jar'.
 tomcat_catalina_opts="${tomcat_catalina_opts:--Xms512M -Xmx1024M -server -XX:+UseParallelGC}"

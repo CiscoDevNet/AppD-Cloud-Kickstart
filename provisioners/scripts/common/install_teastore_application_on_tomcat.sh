@@ -78,7 +78,7 @@ echo "TeaStore application database and user creation complete."
 cd /usr/local/src/TeaStore
 
 # set jdk home environment variables.
-JAVA_HOME=/usr/local/java/jdk180
+JAVA_HOME=/usr/local/java/jdk11
 export JAVA_HOME
 
 # set maven home environment variables.
