@@ -1,0 +1,14 @@
+#!/bin/sh
+cd /opt/appd-cloud-kickstart/provisioners/scripts/azure
+chmod 755 ./initialize_azure_aks_monitoring_lab_cloud_init.sh
+
+user_name="${azurerm_ssh_username}"
+export user_name
+azurerm_vm_hostname="${azurerm_vm_hostname_prefix}"
+export azurerm_vm_hostname
+azurerm_vm_domain="${azurerm_vm_domain}"
+export azurerm_vm_domain
+use_azurerm_vm_num_suffix="${azurerm_use_num_suffix}"
+export use_azurerm_vm_num_suffix
+
+./initialize_azure_aks_monitoring_lab_cloud_init.sh
