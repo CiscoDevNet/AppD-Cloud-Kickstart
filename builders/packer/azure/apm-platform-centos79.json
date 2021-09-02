@@ -155,7 +155,7 @@
     "azure_ssh_group": "centos",
     "azure_subscription_id": "{{env `azure_subscription_id`}}",
     "azure_temporary_source_cidrs": "{{env `azure_temporary_source_cidrs`}}",
-    "azure_vm_size": "Standard_E2as_v4",
+    "azure_vm_size": "Standard_B4ms",
     "azure_os_disk_size": "128",
     "user_docker_profile": "true",
     "docker_completion_release": "20.10.8",

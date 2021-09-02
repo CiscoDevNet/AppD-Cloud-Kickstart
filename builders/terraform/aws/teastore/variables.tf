@@ -24,7 +24,8 @@ variable "aws_vpc_public_subnets" {
 variable "aws_ssh_ingress_cidr_blocks" {
   description = "The computed ingress CIDR blocks for inbound ssh traffic"
   type        = string
-  default     = "0.0.0.0/0,10.0.1.0/24,10.0.2.0/24,10.0.3.0/24,10.0.4.0/24"
+  default     = "0.0.0.0/0,10.0.1.0/24"
+# default     = "0.0.0.0/0,10.0.1.0/24,10.0.2.0/24,10.0.3.0/24,10.0.4.0/24"
 }
 
 variable "aws_ec2_teastore_vm_hostname_prefix" {
@@ -60,7 +61,7 @@ variable "aws_ec2_source_ami_filter" {
 variable "aws_ec2_instance_type" {
   description = "AWS EC2 instance type."
   type        = string
-  default     = "t2.large"
+  default     = "m5a.large"
 }
 
 variable "lab_count" {

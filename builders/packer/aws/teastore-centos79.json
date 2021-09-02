@@ -144,7 +144,7 @@
     "aws_ec2_boot_disk_size": "48",
     "aws_ec2_hostname": "teastore",
     "aws_ec2_domain": "localdomain",
-    "aws_ec2_instance_type": "t2.large",
+    "aws_ec2_instance_type": "m5a.large",
     "aws_ec2_username": "centos",
     "aws_ec2_group": "centos",
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",

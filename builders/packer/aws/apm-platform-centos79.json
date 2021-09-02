@@ -163,7 +163,7 @@
     "aws_ec2_boot_disk_size": "128",
     "aws_ec2_hostname": "apm",
     "aws_ec2_domain": "localdomain",
-    "aws_ec2_instance_type": "r5a.large",
+    "aws_ec2_instance_type": "m5a.xlarge",
     "aws_ec2_username": "centos",
     "aws_ec2_group": "centos",
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
