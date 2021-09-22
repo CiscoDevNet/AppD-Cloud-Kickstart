@@ -24,6 +24,11 @@ output "aws_ec2_instance_type" {
   value       = var.aws_ec2_instance_type
 }
 
+output "aws_ec2_access_role_arn" {
+  description = "AWS access role ARN for the EC2 instance profile."
+  value       = aws_iam_role.ec2_access_role.arn
+}
+
 output "public_ips" {
   description = "List of public IP addresses assigned to the instances."
   value       = flatten([for vm in module.lpad_vm : vm.public_ip])

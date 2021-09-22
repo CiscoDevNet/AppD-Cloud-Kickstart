@@ -44,6 +44,7 @@ variable "aws_ec2_user_name" {
   description = "AWS EC2 user name."
   type        = string
   default     = "ec2-user"
+# default     = "centos"
 }
 
 variable "aws_ec2_ssh_pub_key_name" {

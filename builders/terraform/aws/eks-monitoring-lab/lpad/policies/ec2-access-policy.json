@@ -32,6 +32,13 @@
         "s3:List*"
       ],
       "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "eks:*"
+      ],
+      "Resource": "*"
     }
   ]
 }
