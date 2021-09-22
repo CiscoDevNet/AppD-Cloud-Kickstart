@@ -100,7 +100,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/motd.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_11.sh",
-        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_16.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_17.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_docker.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3.sh",
