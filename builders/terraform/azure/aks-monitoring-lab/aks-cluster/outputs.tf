@@ -19,6 +19,11 @@ output "aks_kubernetes_version" {
   value       = var.azurerm_aks_kubernetes_version
 }
 
+output "aks_upgrade_channel" {
+  description = "The upgrade channel for this Kubernetes Cluster."
+  value       = var.azurerm_aks_upgrade_channel
+}
+
 output "aks_node_count" {
   description = "Initial number of AKS nodes that should exist within the Node Pool."
   value       = var.azurerm_aks_node_count

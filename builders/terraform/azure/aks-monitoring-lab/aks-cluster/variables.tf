@@ -14,7 +14,13 @@ variable "azurerm_ssh_username" {
 variable "azurerm_aks_kubernetes_version" {
   description = "Version of Kubernetes specified when creating the AKS managed cluster."
   type        = string
-  default     = "1.18.17"
+  default     = "1.20.7"
+}
+
+variable "azurerm_aks_upgrade_channel" {
+  description = "The upgrade channel for this Kubernetes Cluster. Legal values: 'patch', 'rapid', 'node-image' and 'stable'."
+  type        = string
+  default     = "stable"
 }
 
 variable "azurerm_aks_node_count" {
