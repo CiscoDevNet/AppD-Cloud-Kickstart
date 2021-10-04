@@ -1,27 +1,45 @@
 #!/bin/sh -eux
-# install jmespath jp command-line json processor for linux 64-bit.
+#---------------------------------------------------------------------------------------------------
+# Install JMESPath jp command-line JSON processor for Linux 64-bit.
+#
+# The jp command is a command line interface to JMESPath, an expression language for manipulating
+# JSON. The most basic usage of jp is to accept input JSON data through stdin, apply the JMESPath
+# expression you've provided as an argument to jp, and print the resulting JSON data to stdout:
+#
+# $ echo '{"key": "value"}' | jp key
+# "value"
+#
+# Note the argument after jp--this is a JMESPath expression. To learn more about the JMESPath
+# language, take a look at the JMESPath Tutorial (provided in the link below) that will take you
+# through the JMESPath language.
+#
+# For more details, please visit:
+#   https://github.com/jmespath/jp
+#   https://jmespath.org/
+#   https://jmespath.org/tutorial.html
+#
+# NOTE: Script should be run with 'root' privilege.
+#---------------------------------------------------------------------------------------------------
 
-# install jp json processor. ---------------------------------------------------
+# install jp json processor. -----------------------------------------------------------------------
+jp_release="0.2.1"
 jp_binary="jp-linux-amd64"
+jp_sha256="f3c5d4cd38a971d9c1666555deb208f080b62708b89d0f5f615e4ae605a0cb8e"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
 cd /usr/local/bin
 
-# set current date for temporary filename.
-curdate=$(date +"%Y-%m-%d.%H-%M-%S")
-
-# retrieve version number of latest release.
-curl --silent --dump-header curl-jp.${curdate}.out https://github.com/jmespath/jp/releases/latest --output /dev/null
-jp_release=$(awk '{ sub("\r$", ""); print }' curl-jp.${curdate}.out | awk '/Location/ {print $2}' | awk -F "/" '{print $8}')
-jp_release="0.1.3"
-rm -f curl-jp.${curdate}.out
-
 # download jp binary from github.com.
-rm -f jp
-curl --silent --location "https://github.com/jmespath/jp/releases/download/${jp_release}/${jp_binary}" --output jp
+rm -f ${jp_binary} jp
+curl --silent --location "https://github.com/jmespath/jp/releases/download/${jp_release}/${jp_binary}" --output ${jp_binary}
 
-# change execute permissions.
+# verify the downloaded binary.
+echo "${jp_sha256} ${jp_binary}" | sha256sum --check
+# jp-linux-amd64: OK
+
+# rename executable and change execute permissions.
+mv -f ${jp_binary} jp
 chmod 755 jp
 
 # set jp environment variables.
