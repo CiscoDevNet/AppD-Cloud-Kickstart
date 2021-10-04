@@ -1,11 +1,11 @@
 # Terraform ----------------------------------------------------------------------------------------
 terraform {
-  required_version = ">= 1.0.7"
+  required_version = ">= 1.0.8"
 
   required_providers {
     google = {
       source = "hashicorp/google"
-      version = ">= 3.84"
+      version = ">= 3.86"
     }
 
     null = {

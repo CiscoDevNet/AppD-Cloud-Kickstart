@@ -62,9 +62,8 @@ variable "gke_kubernetes_version" {
   description = "The Kubernetes version. If set to 'latest' it will pull latest available version in the selected region."
   type        = string
   default     = "latest"
-# default     = "1.19.7-gke.1500"
-# default     = "1.18.12-gke.1210"
-# default     = "1.17.15-gke.800"
+# default     = "1.20.10-gke.301"
+# default     = "1.20.9-gke.1001"
 }
 
 variable "gke_release_channel" {
