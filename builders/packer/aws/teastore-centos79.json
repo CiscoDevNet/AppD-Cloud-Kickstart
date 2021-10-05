@@ -149,7 +149,7 @@
     "aws_ec2_group": "centos",
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.8",
+    "docker_completion_release": "20.10.9",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
