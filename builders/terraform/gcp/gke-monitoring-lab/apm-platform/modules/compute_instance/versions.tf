@@ -17,7 +17,7 @@
 terraform {
   required_version = ">=1.0.8"
   required_providers {
-    google = ">= 3.86, <4.0"
+    google = ">= 3.87, <4.0"
   }
   provider_meta "google" {
     module_name = "blueprints/terraform/terraform-google-vm:compute_instance/v7.1.0"
