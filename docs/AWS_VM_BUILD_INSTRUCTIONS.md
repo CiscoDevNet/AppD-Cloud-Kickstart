@@ -152,9 +152,9 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.26
 -	Python 2.7.5
-	-	Pip 21.2.4
+	-	Pip 21.3
 -	Python 3.6.8
-	-	Pip 21.2.4
+	-	Pip 21.3
 -	VIM - Vi IMproved 8.2
 -	yq 4.13.4 (command-line YAML processor)
 
@@ -172,9 +172,9 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.26
 -	Python 2.7.5
-	-	Pip 21.2.4
+	-	Pip 21.3
 -	Python 3.6.8
-	-	Pip 21.2.4
+	-	Pip 21.3
 -	VIM - Vi IMproved 8.2
 -	yq 4.13.4 (command-line YAML processor)
 
@@ -203,9 +203,9 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	npm JavaScript Package Manager for Node.js 8.0.0
 -	nvm (Node Version Manager) bash script 0.39.0
 -	Python 2.7.5
-	-	Pip 21.2.4
+	-	Pip 21.3
 -	Python 3.6.8
-	-	Pip 21.2.4
+	-	Pip 21.3
 -	Serverless Framework CLI 2.62.0
 -	VIM - Vi IMproved 8.2
 -	yq 4.13.4 (command-line YAML processor)

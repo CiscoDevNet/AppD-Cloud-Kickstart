@@ -495,15 +495,15 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Java SE JDK 11.0.12 (Amazon Corretto 11)
 -	Java SE JDK 17 (Amazon Corretto 17)
 -	jq 1.6 (command-line JSON processor)
--	Kubernetes CLI [kubectl] 1.19.6 (command-line interface)
+-	Kubernetes CLI [kubectl] 1.19.7 (command-line interface)
 -	Node.js JavaScript runtime v14.18.0 (Latest LTS Version)
 -	npm JavaScript Package Manager for Node.js 8.0.0
 -	nvm (Node Version Manager) bash script 0.39.0
 -	Packer 1.7.6
 -	Python 2.7.5
-	-	Pip 21.2.4
+	-	Pip 21.3
 -	Python 3.6.8
-	-	Pip 21.2.4
+	-	Pip 21.3
 -	Serverless Framework CLI 2.62.0
 -	Terraform 1.0.8
 -	VIM - Vi IMproved 8.2
@@ -528,8 +528,8 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.26
 -	Python 2.7.5
-	-	Pip 21.2.4
+	-	Pip 21.3
 -	Python 3.6.8
-	-	Pip 21.2.4
+	-	Pip 21.3
 -	VIM - Vi IMproved 8.2
 -	yq 4.13.4 (command-line YAML processor)
