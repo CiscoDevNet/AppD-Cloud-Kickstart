@@ -156,7 +156,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 21.2.4
 -	VIM - Vi IMproved 8.2
--	yq 4.13.3 (command-line YAML processor)
+-	yq 4.13.4 (command-line YAML processor)
 
 __CWOM-Platform VM__ - The following utilities and workload optimization management applications are pre-installed:
 
@@ -176,16 +176,16 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	Python 3.6.8
 	-	Pip 21.2.4
 -	VIM - Vi IMproved 8.2
--	yq 4.13.3 (command-line YAML processor)
+-	yq 4.13.4 (command-line YAML processor)
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
 -	Amazon AWS CLI 2.2.43 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.68.0 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.69.0 (command-line interface)
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.20.4 (command-line interface)
 -	Ansible 2.9.26
--	AppDynamics Node.js Serverless Tracer 21.5.300
+-	AppDynamics Node.js Serverless Tracer 21.6.304
 -	Docker 20.10.9 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
@@ -200,12 +200,12 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Java SE JDK 17 (Amazon Corretto 17)
 -	jq 1.6 (command-line JSON processor)
 -	Node.js JavaScript runtime v14.18.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 7.24.2
--	nvm (Node Version Manager) bash script 0.38.0
+-	npm JavaScript Package Manager for Node.js 8.0.0
+-	nvm (Node Version Manager) bash script 0.39.0
 -	Python 2.7.5
 	-	Pip 21.2.4
 -	Python 3.6.8
 	-	Pip 21.2.4
--	Serverless Framework CLI 2.61.0
+-	Serverless Framework CLI 2.62.0
 -	VIM - Vi IMproved 8.2
--	yq 4.13.3 (command-line YAML processor)
+-	yq 4.13.4 (command-line YAML processor)
