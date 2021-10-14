@@ -479,24 +479,24 @@ to manually browse the cloud provider and delete any resources that are in confl
 
 __LPAD VM__ - The following CLI command-line tools and utilities are pre-installed:
 
--	Ansible 2.9.26
+-	Ansible 2.9.27
 -	AppDynamics Node.js Serverless Tracer 21.6.304
 -	Docker 20.10.9 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.33.0
+-	Git 2.33.1
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
 -	Google Cloud SDK 360.0.0
--	Helm CLI 3.7.0 (Package Manager for Kubernetes)
+-	Helm CLI 3.7.1 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 302 (Amazon Corretto 8)
 -	Java SE JDK 11.0.12 (Amazon Corretto 11)
 -	Java SE JDK 17 (Amazon Corretto 17)
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.19.7 (command-line interface)
--	Node.js JavaScript runtime v14.18.0 (Latest LTS Version)
+-	Node.js JavaScript runtime v14.18.1 (Latest LTS Version)
 -	npm JavaScript Package Manager for Node.js 8.0.0
 -	nvm (Node Version Manager) bash script 0.39.0
 -	Packer 1.7.6
@@ -505,13 +505,13 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Python 3.6.8
 	-	Pip 21.3
 -	Serverless Framework CLI 2.62.0
--	Terraform 1.0.8
+-	Terraform 1.0.9
 -	VIM - Vi IMproved 8.2
 -	yq 4.13.4 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Ansible 2.9.26
+-	Ansible 2.9.27
 -	AppDynamics Enterprise Console 21.4.6 Build 24635
 	-	AppDynamics Controller 21.4.6 Build 1382
 	-	AppDynamics Events Service 4.5.2 Build 20651
@@ -519,7 +519,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.33.0
+-	Git 2.33.1
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
