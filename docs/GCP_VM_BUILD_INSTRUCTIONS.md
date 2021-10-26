@@ -481,7 +481,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 
 -	Ansible 2.9.27
 -	AppDynamics Node.js Serverless Tracer 21.10.316
--	Docker 20.10.9 CE
+-	Docker 20.10.10 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -515,7 +515,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	AppDynamics Enterprise Console 21.4.8 Build 24656
 	-	AppDynamics Controller 21.4.8 Build 1411
 	-	AppDynamics Events Service 4.5.2 Build 20651
--	Docker 20.10.9 CE
+-	Docker 20.10.10 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
