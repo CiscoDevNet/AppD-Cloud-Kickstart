@@ -153,8 +153,8 @@
     "appd_controller_mysql_password": "{{env `appd_controller_mysql_password`}}",
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
-    "aws_ami_name": "APM-Platform-2148-CentOS79-AMI",
-    "aws_ami_description": "APM Platform 21.4.8 on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. AMI generated using the AppDynamics Cloud Kickstart Project.",
+    "aws_ami_name": "APM-Platform-2149-CentOS79-AMI",
+    "aws_ami_description": "APM Platform 21.4.9 on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",
     "aws_ami_region": "{{env `aws_ami_region`}}",
     "aws_cli_user_config": "{{env `aws_cli_user_config`}}",
@@ -168,7 +168,7 @@
     "aws_ec2_group": "centos",
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.10",
+    "docker_completion_release": "20.10.11",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
