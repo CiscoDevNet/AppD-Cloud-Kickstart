@@ -56,8 +56,8 @@ variable "aws_ec2_ssh_pub_key_name" {
 variable "aws_ec2_source_ami_filter" {
   description = "AWS EC2 source AMI disk image filter."
   type        = string
-  default     = "APM-Platform-2148-AL2-AMI-*"
-# default     = "APM-Platform-2148-CentOS79-AMI-*"
+  default     = "APM-Platform-2149-AL2-AMI-*"
+# default     = "APM-Platform-2149-CentOS79-AMI-*"
 }
 
 variable "aws_ec2_instance_type" {
