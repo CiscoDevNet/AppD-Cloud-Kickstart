@@ -15,11 +15,11 @@
  */
 
 terraform {
-  required_version = ">=1.0.11"
+  required_version = ">= 1.0.11"
   required_providers {
-    google = ">= 3.90, <4.0"
+    google = ">= 4.2, < 5.0"
   }
   provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-vm:compute_instance/v7.2.0"
+    module_name = "blueprints/terraform/terraform-google-vm:compute_instance/v7.3.0"
   }
 }
