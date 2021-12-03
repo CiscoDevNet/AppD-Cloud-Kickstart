@@ -385,7 +385,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.34.0
+-	Git 2.34.1
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
@@ -395,15 +395,15 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Java SE JDK 17.0.1 (Amazon Corretto 17)
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.19.7 (command-line interface)
--	Node.js JavaScript runtime v16.13.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 8.1.4
+-	Node.js JavaScript runtime v16.13.1 (Latest LTS Version)
+-	npm JavaScript Package Manager for Node.js 8.2.0
 -	nvm (Node Version Manager) bash script 0.39.0
 -	Packer 1.7.8
 -	Python 2.7.5
 	-	Pip 21.3.1
 -	Python 3.6.8
 	-	Pip 21.3.1
--	Serverless Framework CLI 2.66.2
+-	Serverless Framework CLI 2.68.0
 -	Terraform 1.0.11
 -	VIM - Vi IMproved 8.2
 -	yq 4.15.1 (command-line YAML processor)
@@ -419,7 +419,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.34.0
+-	Git 2.34.1
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
