@@ -3,8 +3,8 @@
 # Utility script to retrieve various controller connection details and create the 'env-configmap.yaml' file
 # for deployment to an AWS EKS cluster.
 #
-# export appd_controller_host=34.222.250.100
-# export appd_es_api_key=eac2a19f-3038-4e66-887f-12571c1bf156
+# export appd_controller_host=
+# export appd_es_api_key=
 #
 # NOTE: All inputs are defined by external environment variables.
 #       Optional variables have reasonable defaults, but you may override as needed.
