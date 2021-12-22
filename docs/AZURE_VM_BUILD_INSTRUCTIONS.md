@@ -397,22 +397,22 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Kubernetes CLI [kubectl] 1.19.7 (command-line interface)
 -	Node.js JavaScript runtime v16.13.1 (Latest LTS Version)
 -	npm JavaScript Package Manager for Node.js 8.3.0
--	nvm (Node Version Manager) bash script 0.39.0
+-	nvm (Node Version Manager) bash script 0.39.1
 -	Packer 1.7.8
 -	Python 2.7.5
 	-	Pip 21.3.1
 -	Python 3.6.8
 	-	Pip 21.3.1
--	Serverless Framework CLI 2.69.0
--	Terraform 1.1.0
+-	Serverless Framework CLI 2.69.1
+-	Terraform 1.1.2
 -	VIM - Vi IMproved 8.2
--	yq 4.16.1 (command-line YAML processor)
+-	yq 4.16.2 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 21.4.9 Build 24662
-	-	AppDynamics Controller 21.4.9 Build 1435
+-	AppDynamics Enterprise Console 21.4.10 Build 24688
+	-	AppDynamics Controller 21.4.10 Build 1472
 	-	AppDynamics Events Service 4.5.2 Build 20651
 -	Azure CLI 2.31.0
 -	Docker 20.10.11 CE
@@ -431,4 +431,4 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 21.3.1
 -	VIM - Vi IMproved 8.2
--	yq 4.16.1 (command-line YAML processor)
+-	yq 4.16.2 (command-line YAML processor)
