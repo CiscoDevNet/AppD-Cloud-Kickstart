@@ -1,4 +1,4 @@
-# @(#).bashrc       1.0 2021/03/11 SMI
+# @(#).bashrc       1.0 2021/12/16 SMI
 # bash resource configuration for kickstart users.
 
 # source global definitions.
@@ -42,6 +42,12 @@ export GIT_HOME
 GIT_FLOW_HOME=/usr/local/git/gitflow
 export GIT_FLOW_HOME
 
+# set go home paths.
+GOROOT=/usr/local/google/go
+export GOROOT
+GOPATH=$HOME/go
+export GOPATH
+
 # set appd kickstart home path.
 kickstart_home=/opt/appd-cloud-kickstart
 export kickstart_home
@@ -70,7 +76,7 @@ PS1="${reset}${cyan}\h${blue}[${green}\u${blue}]${white}\$ "
 export PS1
 
 # add local applications to main PATH.
-PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$M2:$GRADLE_HOME/bin:$GIT_HOME/bin:$GIT_FLOW_HOME/bin:$HOME/.local/bin:$PATH
+PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$M2:$GRADLE_HOME/bin:$GIT_HOME/bin:$GIT_FLOW_HOME/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.local/bin:$PATH
 export PATH
 
 # set options.
