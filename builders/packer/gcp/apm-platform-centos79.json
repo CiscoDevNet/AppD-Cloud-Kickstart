@@ -142,7 +142,7 @@
     "gcp_group": "centos",
     "gcp_zone": "{{env `gcp_zone`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.11",
+    "docker_completion_release": "20.10.12",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
