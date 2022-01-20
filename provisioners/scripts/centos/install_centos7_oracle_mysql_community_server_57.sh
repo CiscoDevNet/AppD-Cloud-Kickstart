@@ -33,7 +33,7 @@ mkdir -p ${kickstart_home}/provisioners/scripts/centos
 cd ${kickstart_home}/provisioners/scripts/centos
 
 # download mysql yum repository. -------------------------------------------------------------------
-mysql_yum_binary="mysql${mysql_yum_release}-community-release-el7-3.noarch.rpm"
+mysql_yum_binary="mysql${mysql_yum_release}-community-release-el7-5.noarch.rpm"
 
 # download the mysql yum repository.
 rm -f ${mysql_yum_binary}
