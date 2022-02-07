@@ -129,7 +129,8 @@
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_phantomjs_headless_browser.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_nodejs_javascript_runtime.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_serverless_framework_cli.sh",
-        "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_nodejs_serverless_tracer.sh"
+        "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_nodejs_serverless_tracer.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cloud9.sh"
       ],
       "type": "shell"
     }
