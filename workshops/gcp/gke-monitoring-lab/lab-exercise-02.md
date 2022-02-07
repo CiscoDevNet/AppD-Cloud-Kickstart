@@ -68,8 +68,8 @@ If the Controller has successfully started, an XML document such as the followin
   <serverinfo>
     <vendorname>AppDynamics</vendorname>
     <productname>AppDynamics Application Performance Management</productname>
-    <serverversion>021-004-011-000</serverversion>
-    <implementationVersion>Controller v21.4.11.0 Build 21.4.11-1492 Commit f6139e365138b6274f07fadf5111a8288044326a</implementationVersion>
+    <serverversion>021-004-012-000</serverversion>
+    <implementationVersion>Controller v21.4.12.0 Build 21.4.12-1500 Commit 2b232a07d61b716e89e3c959e6fcde7745b7bfa6</implementationVersion>
   </serverinfo>
   <startupTimeInSeconds>5</startupTimeInSeconds>
 </serverstatus>
