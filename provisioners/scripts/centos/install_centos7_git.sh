@@ -1,5 +1,16 @@
 #!/bin/sh -eux
-# install git distributed version control system.
+#---------------------------------------------------------------------------------------------------
+# Install Git distributed version control system.
+#
+# Git is a fast, scalable, distributed revision control system with an unusually rich command set
+# that provides both high-level operations and full access to internals.
+# 
+# For more details, please visit:
+#   https://git-scm.com/
+#   https://github.com/git/git/blob/master/INSTALL
+#
+# NOTE: Script should be run with 'root' privilege.
+#---------------------------------------------------------------------------------------------------
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] git flow install parameters [w/ defaults].
@@ -12,7 +23,7 @@ yum -y install gcc perl-ExtUtils-MakeMaker
 
 # install git binaries from source. ----------------------------------------------------------------
 githome="git"
-gitrelease="2.34.1"
+gitrelease="2.35.1"
 gitfolder="git-${gitrelease}"
 gitbinary="${gitfolder}.tar.gz"
 
@@ -24,15 +35,17 @@ cd /usr/local/src/git
 wget --no-verbose https://www.kernel.org/pub/software/scm/git/${gitbinary}
 
 # extract git source.
+rm -Rf ${gitfolder}
 tar -zxvf ${gitbinary} --no-same-owner --no-overwrite-dir
 chown -R root:root ./${gitfolder}
 rm -f ${gitbinary}
 
-# create git binary parent folder.
-mkdir -p /usr/local/git/${gitfolder}
-
 # build and install git binaries.
 cd ${gitfolder}
+CFLAGS="-DNO_UNCOMPRESS2"
+export CFLAGS
+
+./configure
 make prefix=/usr/local/git/${gitfolder} all
 make prefix=/usr/local/git/${gitfolder} install
 
