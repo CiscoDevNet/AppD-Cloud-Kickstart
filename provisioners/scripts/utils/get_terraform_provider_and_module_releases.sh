@@ -12,7 +12,12 @@ curl --silent https://api.github.com/repos/terraform-aws-modules/terraform-aws-e
 echo ""
 
 echo "Azure Providers:"
-curl --silent https://api.github.com/repos/terraform-providers/terraform-provider-azurerm/releases/latest | jq '. | {tag_name: .tag_name, html_url: .html_url}'
+curl --silent https://api.github.com/repos/hashicorp/terraform-provider-azurerm/releases/latest | jq '. | {tag_name: .tag_name, html_url: .html_url}'
+echo ""
+
+echo "Cisco Providers:"
+curl --silent https://api.github.com/repos/CiscoDevNet/terraform-provider-intersight/releases/latest | jq '. | {tag_name: .tag_name, html_url: .html_url}'
+curl --silent https://api.github.com/repos/terraform-cisco-modules/terraform-intersight-iks/releases/latest | jq '. | {tag_name: .tag_name, html_url: .html_url}'
 echo ""
 
 echo "Google Providers:"
