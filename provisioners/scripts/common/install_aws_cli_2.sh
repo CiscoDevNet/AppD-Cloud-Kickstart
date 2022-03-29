@@ -81,23 +81,21 @@ gpg --import ${aws_cli_pgpkey_file}
 gpg --verify ${aws_cli_sig_file} ${aws_cli_binary}
 
 # install aws cli 2. -------------------------------------------------------------------------------
+# uninstall existing aws cli 2 installation.
+rm -f ${aws_cli_bin_dir}/aws
+rm -f ${aws_cli_bin_dir}/aws_completer
+rm -Rf ${aws_cli_install_dir}
+
 rm -Rf ${aws_cli_folder}
 unzip ${aws_cli_binary}
 chown -R root:root ./${aws_cli_folder}
 ./${aws_cli_folder}/install --install-dir ${aws_cli_install_dir} --bin-dir ${aws_cli_bin_dir}
+#./${aws_cli_folder}/install --install-dir ${aws_cli_install_dir} --bin-dir ${aws_cli_bin_dir} --update
 
 # cleanup installer files.
 rm -f ${aws_cli_binary}
 rm -f ${aws_cli_sig_file}
 rm -Rf ${aws_cli_folder}
-
-# upgrade aws cli 2.
-#./${aws_cli_folder}/install --install-dir ${aws_cli_install_dir} --bin-dir ${aws_cli_bin_dir} --update
-
-# uninstall aws cli 2.
-#rm -f ${aws_cli_bin_dir}/aws
-#rm -f ${aws_cli_bin_dir}/aws_completer
-#rm -Rf ${aws_cli_install_dir}
 
 # verify installation. -----------------------------------------------------------------------------
 # set aws cli 2 environment variables.
