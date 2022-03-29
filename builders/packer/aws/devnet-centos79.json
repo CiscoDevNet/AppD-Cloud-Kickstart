@@ -101,6 +101,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_11.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_17.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_18.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_docker.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3.sh",
@@ -153,7 +154,7 @@
     "aws_ec2_group": "centos",
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.12",
+    "docker_completion_release": "20.10.14",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
