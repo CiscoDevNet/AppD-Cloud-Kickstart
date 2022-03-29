@@ -4,6 +4,7 @@
       "type": "amazon-ebs",
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
+      "token": "{{user `aws_session_token`}}",
       "region": "{{user `aws_ami_region`}}",
       "source_ami_filter": {
         "filters": {
@@ -107,6 +108,7 @@
         "appd_aws_ec2_extension_cloudwatch_monitoring={{user `appd_aws_ec2_extension_cloudwatch_monitoring`}}",
         "AWS_ACCESS_KEY_ID={{user `aws_access_key`}}",
         "AWS_SECRET_ACCESS_KEY={{user `aws_secret_key`}}",
+        "AWS_SESSION_TOKEN={{user `aws_session_token`}}",
         "user_name={{user `aws_ec2_username`}}",
         "user_group={{user `aws_ec2_group`}}",
         "user_docker_profile={{user `user_docker_profile`}}",
@@ -171,6 +173,7 @@
     "appd_aws_ec2_extension_cloudwatch_monitoring": "{{env `appd_aws_ec2_extension_cloudwatch_monitoring`}}",
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+    "aws_session_token": "{{env `AWS_SESSION_TOKEN`}}",
     "aws_ami_name": "EXT-2230-CentOS79-AMI",
     "aws_ami_description": "Machine Agent 22.3.0 deployment with AWS Extensions on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",

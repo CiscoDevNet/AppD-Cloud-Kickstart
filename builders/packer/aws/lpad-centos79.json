@@ -4,6 +4,7 @@
       "type": "amazon-ebs",
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
+      "token": "{{user `aws_session_token`}}",
       "region": "{{user `aws_ami_region`}}",
       "source_ami_filter": {
         "filters": {
@@ -82,6 +83,7 @@
       "environment_vars": [
         "AWS_ACCESS_KEY_ID={{user `aws_access_key`}}",
         "AWS_SECRET_ACCESS_KEY={{user `aws_secret_key`}}",
+        "AWS_SESSION_TOKEN={{user `aws_session_token`}}",
         "aws_cli_user_config={{user `aws_cli_user_config`}}",
         "aws_cli_default_region_name={{user `aws_cli_default_region_name`}}",
         "aws_cli_default_output_format={{user `aws_cli_default_output_format`}}",
@@ -138,6 +140,7 @@
   "variables": {
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+    "aws_session_token": "{{env `AWS_SESSION_TOKEN`}}",
     "aws_ami_name": "LPAD-CentOS79-AMI",
     "aws_ami_description": "AWS EC2 'launchpad' with pre-configured tooling for AWS CLI Operations on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. AMI generated using the AppDynamics Cloud Kickstart Project.",
     "aws_ami_owner": "{{env `aws_ami_owner`}}",
