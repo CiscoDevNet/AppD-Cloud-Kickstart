@@ -7,7 +7,7 @@ user_group="${user_group:-}"
 user_home="${user_home:-}"
 user_docker_profile="${user_docker_profile:-false}"
 user_prompt_color="${user_prompt_color:-green}"
-d_completion_release="${d_completion_release:-20.10.12}"
+d_completion_release="${d_completion_release:-20.10.14}"
 dc_completion_release="${dc_completion_release:-1.29.2}"
 
 # set default value for kickstart home environment variable if not set. ----------------------------
@@ -28,7 +28,7 @@ Usage:
                                                                 #            valid colors:
                                                                 #              'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
                                                                 #
-    [root]# export d_completion_release="20.10.12"              # [optional] docker completion for bash release (defaults to '20.10.12').
+    [root]# export d_completion_release="20.10.14"              # [optional] docker completion for bash release (defaults to '20.10.14').
     [root]# export dc_completion_release="1.29.2"               # [optional] docker compose completion for bash release (defaults to '1.29.2').
     [root]# export kickstart_home="/opt/appd-cloud-kickstart"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
     [root]# $0
@@ -123,6 +123,22 @@ chown ${user_name}:${user_group} ${vimrc_local}
 # download and install useful vim configuration based on developer pair stations at pivotal labs.
 runuser -c "git clone https://github.com/pivotal-legacy/vim-config.git ${user_home}/.vim" - ${user_name}
 
+# use the stream editor to substitute the terraform plugin into the vim config. --------------------
+vim_config_file="vimrc"
+cd ${vimrc_home}
+cp -p ${vim_config_file} ${vim_config_file}.orig
+
+# define stream editor search string.
+vim_config_search="  Plugin 'luan\/vim-concourse'"
+
+# define stream editor vim config substitution strings.
+vim_config_line="  Plugin 'hashivim\/vim-terraform'"
+
+# insert vim config lines after this line: '  Plugin 'luan/vim-concourse'.
+if ! grep -qF -- 'terraform' "${vimrc_home}/${vim_config_file}" ; then
+  runuser -c "sed -i -e \"s/^${vim_config_search}$/${vim_config_search}\n${vim_config_line}/g\" ${vimrc_home}/${vim_config_file}" - ${user_name}
+fi
+
 ###### vundle installer bug fix. ------------------------------------------------------------------------
 ###### append the bug fix into the vundle install script.
 #####vundle_install_file="${user_home}/.vim/bin/install"
@@ -140,6 +156,7 @@ runuser -c "git clone https://github.com/pivotal-legacy/vim-config.git ${user_ho
 #####fi
 
 # run the vundle install script. -------------------------------------------------------------------
+cd ${user_home}
 runuser -c "TERM=xterm-256color ${user_home}/.vim/bin/install" - ${user_name}
 
 # create final vimrc local file. -------------------------------------------------------------------
