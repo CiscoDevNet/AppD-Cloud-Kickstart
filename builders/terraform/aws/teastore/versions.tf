@@ -5,12 +5,12 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      version = ">= 4.4"
+      version = ">= 4.8"
     }
 
     local = {
       source = "hashicorp/local"
-      version = ">= 2.1"
+      version = ">= 2.2"
     }
 
     null = {
