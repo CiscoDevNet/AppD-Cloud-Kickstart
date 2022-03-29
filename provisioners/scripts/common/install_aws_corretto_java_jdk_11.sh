@@ -19,7 +19,7 @@
 # set amazon corretto 11 installation variables. ---------------------------------------------------
 jdk_home="jdk11"
 jdk_build="11.0.14.10.1"
-jdk_checksum="5d87f902f27001b2ce2daf731e99dce4"
+jdk_sha256="16933b0d35f412d05578bf9a9bfdfcbb6df287f53d151ae393884e56c7db98b3"
 jdk_folder="amazon-corretto-${jdk_build}-linux-x64"
 jdk_binary="amazon-corretto-${jdk_build}-linux-x64.tar.gz"
 #jdk_binary="amazon-corretto-${jdk_build:0:2}-x64-linux-jdk.tar.gz"
@@ -36,8 +36,8 @@ rm -f ${jdk_binary}
 wget --no-verbose https://corretto.aws/downloads/resources/${jdk_build}/${jdk_binary}
 #wget --no-verbose https://corretto.aws/downloads/latest/${jdk_binary}  # permanent (latest) url.
 
-# verify the downloaded binary using the md5 checksum.
-echo "${jdk_checksum} ${jdk_binary}" | md5sum --check -
+# verify the downloaded binary.
+echo "${jdk_sha256} ${jdk_binary}" | sha256sum --check
 # amazon-corretto-${jdk_build}-linux-x64.tar.gz: OK
 
 # download the corretto 11 pgp signature.
