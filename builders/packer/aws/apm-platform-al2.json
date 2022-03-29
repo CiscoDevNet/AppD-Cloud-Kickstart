@@ -16,6 +16,7 @@
         "most_recent": true
       },
       "ami_description": "{{user `aws_ami_description`}}",
+      "encrypt_boot": true,
       "instance_type": "{{user `aws_ec2_instance_type`}}",
       "ssh_username": "{{user `aws_ec2_username`}}",
       "temporary_security_group_source_cidrs": "{{user `aws_ec2_temporary_source_cidrs`}}",
@@ -23,6 +24,7 @@
       "launch_block_device_mappings": [
         {
           "device_name": "/dev/xvda",
+          "encrypted": true,
           "volume_size": "{{user `aws_ec2_boot_disk_size`}}",
           "volume_type": "gp2",
           "delete_on_termination": "true"
