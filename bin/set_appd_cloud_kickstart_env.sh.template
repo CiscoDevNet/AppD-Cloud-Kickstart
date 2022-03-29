@@ -31,12 +31,12 @@ export kickstart_home
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '21.4.12.24706').
-#appd_platform_release="21.4.12.24706"
+# [optional] platform release (defaults to '21.4.13.24717').
+#appd_platform_release="21.4.13.24717"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="634a866fb8ea04499a36b04cf287020a8bcef4111cbbccb8ad5199c91701539c"
+#appd_platform_sha256="143d093db0b7837fbb19f3ac5f8bdf9e61249f7457382b71bce7aac0b93b5137"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -190,12 +190,12 @@ export appd_controller_tenancy_mode
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '22.2.0.33545').
-#appd_java_agent_release="22.2.0.33545"
+# [optional] java agent release (defaults to '22.3.0.33637').
+#appd_java_agent_release="22.3.0.33637"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="415793e0c63b6db01f913dd588a3377f7a589352b94e1010f7665d4302ffc175"
+#appd_java_agent_sha256="568aa98cd15e8da77d1c1b40d50feafbe251447b14f24844c79ac8fa48de4866"
 #export appd_java_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ export appd_controller_tenancy_mode
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver22.2.0.33545/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver22.3.0.33637/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
