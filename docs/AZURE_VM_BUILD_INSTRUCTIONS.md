@@ -77,6 +77,8 @@ Perform the following steps to complete these tasks:
     $ az login
     $ az account set --subscription "AppDynamics Channel Workshop (EA)"
     $ az account show
+    $ az group create -l centralus -n Cloud-Kickstart-Workshop           # Change centralus to your region
+    $ az group create -l centralus -n Cloud-Kickstart-Workshop-Images    # Change centralus to your region
     ```
 
 ## Prepare for the Build
@@ -163,12 +165,12 @@ __NOTE:__ The following steps are repeated for each major element of the worksho
     az sig image-definition create \
       --gallery-name CloudKickstartWorkshopGallery \
       --resource-group Cloud-Kickstart-Workshop-Images \
-      --gallery-image-definition APM-Platform-CentOS79 \
+      --gallery-image-definition LPAD-CentOS79 \
       --publisher AppDynamics_Channel \
       --offer Workshop \
-      --sku APM_Platform \
+      --sku LPAD \
       --os-type linux \
-      --description "APM Platform VM on CentOS79. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. VM image generated using the AppDynamics Cloud Kickstart Project."
+      --description "LPAD VM on CentOS79. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. VM image generated using the AppDynamics Cloud Kickstart Project."
     ```
 
 	c.	Create the Image Definition for the __APM-Platform__ VM:
