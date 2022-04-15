@@ -33,9 +33,28 @@
       "tags": {
         "Name": "{{user `aws_ami_name`}}",
         "Owner": "{{user `aws_ami_owner`}}",
-        "Project": "AppDynamics Cloud Kickstart",
+        "Project": "{{user `app_name`}}",
         "Project_Image_Type": "LPAD-AL2",
-        "Base_AMI_Name": "{{.SourceAMIName}}"
+        "Base_AMI_Name": "{{.SourceAMIName}}",
+        "ApplicationName": "{{user `app_name`}}",
+        "CiscoMailAlias": "{{user `aws_user_email`}}",
+        "ContainsPII": "False",
+        "CostCenter": "{{user `org_cost_center`}}",
+        "CreatedBy": "{{user `aws_user_arn`}}",
+        "DataClassification": "Cisco Public",
+        "DataTaxonomy": "Cisco Operations Data",
+        "Date": "{{isotime `2006-01-02`}}",
+        "DeploymentEnvironment": "NonProd",
+        "Environment": "NonProd",
+        "EnvironmentHome": "Cisco One Lab",
+        "Event": "FSO Lab Demo",
+        "Exception": "NA",
+        "IntendedPublic": "True",
+        "JIRACreation": "NA",
+        "JIRAProject": "NA",
+        "ResourceOwner": "{{user `aws_user_email`}}",
+        "SecurityReview": "NA",
+        "Service": "{{user `app_service_name`}}"
       }
     }
   ],
@@ -137,6 +156,8 @@
     }
   ],
   "variables": {
+    "app_name": "AppDynamics Cloud Kickstart",
+    "app_service_name": "CloudKickstartLab",
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "aws_session_token": "{{env `AWS_SESSION_TOKEN`}}",
@@ -154,8 +175,11 @@
     "aws_ec2_username": "ec2-user",
     "aws_ec2_group": "ec2-user",
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
+    "aws_user_arn": "{{env `aws_user_arn`}}",
+    "aws_user_email": "{{env `aws_user_email`}}",
     "user_docker_profile": "true",
     "docker_completion_release": "20.10.7",
-    "kickstart_home": "/opt/appd-cloud-kickstart"
+    "kickstart_home": "/opt/appd-cloud-kickstart",
+    "org_cost_center": "{{env `org_cost_center`}}"
   }
 }
