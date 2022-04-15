@@ -385,11 +385,11 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.35.2
+-	Git 2.35.3
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.8.1 (Package Manager for Kubernetes)
+-	Helm CLI 3.8.2 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 312 (Amazon Corretto 8)
 -	Java SE JDK 11.0.13 (Amazon Corretto 11)
 -	Java SE JDK 17.0.1 (Amazon Corretto 17)
@@ -397,30 +397,30 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.19.7 (command-line interface)
 -	Node.js JavaScript runtime v16.14.2 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 8.6.0
+-	npm JavaScript Package Manager for Node.js 8.7.0
 -	nvm (Node Version Manager) bash script 0.39.1
 -	Packer 1.8.0
 -	Python 2.7.5
 	-	Pip 22.0.4
 -	Python 3.6.8
 	-	Pip 22.0.4
--	Serverless Framework CLI 3.13.0
+-	Serverless Framework CLI 3.14.0
 -	Terraform 1.1.8
 -	VIM - Vi IMproved 8.2
--	yq 4.24.4 (command-line YAML processor)
+-	yq 4.24.5 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 21.4.13 Build 24717
-	-	AppDynamics Controller 21.4.13 Build 1511
+-	AppDynamics Enterprise Console 21.4.14 Build 24728
+	-	AppDynamics Controller 21.4.14 Build 1533
 	-	AppDynamics Events Service 4.5.2 Build 20651
 -	Azure CLI 2.35.0
 -	Docker 20.10.14 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.35.2
+-	Git 2.35.3
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
@@ -432,4 +432,4 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 22.0.4
 -	VIM - Vi IMproved 8.2
--	yq 4.24.4 (command-line YAML processor)
+-	yq 4.24.5 (command-line YAML processor)

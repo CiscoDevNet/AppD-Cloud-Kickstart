@@ -31,12 +31,12 @@ export kickstart_home
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '21.4.13.24717').
-#appd_platform_release="21.4.13.24717"
+# [optional] platform release (defaults to '21.4.14.24728').
+#appd_platform_release="21.4.14.24728"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="143d093db0b7837fbb19f3ac5f8bdf9e61249f7457382b71bce7aac0b93b5137"
+#appd_platform_sha256="6eb22cff81a22545334cf5da5b9d6a05ebea74caeae73ba3c819bf8aff2cd81c"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -522,8 +522,8 @@ export azure_temporary_source_cidrs
 gcp_zone="us-central1-a"
 export gcp_zone
 
-# gcp image owner label for packer builds.
-gcp_image_owner="<your_firstname_here> <your_lastname_here>"
+# gcp image owner label for packer builds (all lowercase w/ no spaces).
+gcp_image_owner="<your_firstname_here>-<your_lastname_here>"
 export gcp_image_owner
 
 # [optional] kubectl release (defaults to '1.19.7').
@@ -533,3 +533,14 @@ export gcp_image_owner
 # [optional] kubectl sha-256 checksum (defaults to published value).
 #kubectl_sha256="d46eb3bbe2575e5b6bedbc6d3519424b4f2f57929d7da1ef7e11c09068f37297"
 #export kubectl_sha256
+
+# --------------------------------------------------------------------------------------------------
+# organization environment parameters.
+# --------------------------------------------------------------------------------------------------
+# set variables for aws resource tagging.
+org_cost_center="<your_org_cost_center_here>"
+export org_cost_center
+aws_user_arn="$(aws sts get-caller-identity --query "Arn" --output text)"
+export aws_user_arn
+aws_user_email="<your_aws_user_email_address_here>"
+export aws_user_email
