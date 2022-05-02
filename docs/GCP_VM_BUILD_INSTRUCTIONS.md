@@ -21,11 +21,11 @@ you are finished, such as purging old GCE images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Google Cloud SDK 381.0.0 (command-line interface)
+-	Google Cloud SDK 383.0.1 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [Google Cloud SDK 381.0.0](https://cloud.google.com/sdk/docs/quickstart#mac).  
+1.	Install [Google Cloud SDK 383.0.1](https://cloud.google.com/sdk/docs/quickstart#mac).  
     `$ brew install --cask google-cloud-sdk`  
 
     Depending on your shell, follow the on-screen instructions to source the SDK binaries to your `PATH`.  
@@ -41,7 +41,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ gcloud --version
-    Google Cloud SDK 381.0.0
+    Google Cloud SDK 383.0.1
     ...
     ```
 
@@ -58,11 +58,11 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Google Cloud SDK 381.0.0 (command-line interface)
+-	Google Cloud SDK 383.0.1 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [Google Cloud SDK 381.0.0](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) for Windows 64-bit.  
+1.	Install [Google Cloud SDK 383.0.1](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) for Windows 64-bit.  
     Run the downloaded EXE installer, follow the on-screen instructions, and accept the defaults until you get to the last step.  
 
     **NOTE:** For Windows users, the EXE installation package offers a familiar and convenient way to 
@@ -91,7 +91,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ gcloud --version
-    Google Cloud SDK 381.0.0
+    Google Cloud SDK 383.0.1
     ...
     ```
 
@@ -485,30 +485,30 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.35.3
+-	Git 2.36.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Google Cloud SDK 381.0.0
+-	Google Cloud SDK 383.0.1
 -	Helm CLI 3.8.2 (Package Manager for Kubernetes)
--	Java SE JDK 8 Update 312 (Amazon Corretto 8)
--	Java SE JDK 11.0.13 (Amazon Corretto 11)
--	Java SE JDK 17.0.1 (Amazon Corretto 17)
--	Java SE JDK 18.0.0 (Amazon Corretto 18)
+-	Java SE JDK 8 Update 332 (Amazon Corretto 8)
+-	Java SE JDK 11.0.15 (Amazon Corretto 11)
+-	Java SE JDK 17.0.3 (Amazon Corretto 17)
+-	Java SE JDK 18.0.1 (Amazon Corretto 18)
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.19.7 (command-line interface)
--	Node.js JavaScript runtime v16.14.2 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 8.7.0
+-	Node.js JavaScript runtime v16.15.0 (Latest LTS Version)
+-	npm JavaScript Package Manager for Node.js 8.8.0
 -	nvm (Node Version Manager) bash script 0.39.1
 -	Packer 1.8.0
 -	Python 2.7.5
 	-	Pip 22.0.4
 -	Python 3.6.8
 	-	Pip 22.0.4
--	Serverless Framework CLI 3.14.0
--	Terraform 1.1.8
+-	Serverless Framework CLI 3.16.0
+-	Terraform 1.1.9
 -	VIM - Vi IMproved 8.2
--	yq 4.24.5 (command-line YAML processor)
+-	yq 4.25.1 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
@@ -520,12 +520,12 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.35.3
+-	Git 2.36.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Google Cloud SDK 381.0.0
--	Java SE JDK 8 Update 312 (Amazon Corretto 8)
+-	Google Cloud SDK 383.0.1
+-	Java SE JDK 8 Update 332 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.27
 -	Python 2.7.5
@@ -533,4 +533,4 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 22.0.4
 -	VIM - Vi IMproved 8.2
--	yq 4.24.5 (command-line YAML processor)
+-	yq 4.25.1 (command-line YAML processor)
