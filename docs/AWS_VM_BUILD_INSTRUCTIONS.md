@@ -12,29 +12,29 @@ Before building the AppD Cloud Kickstart VM images for AWS, it is recommended th
 
 Here is a list of the recommended open source software to be installed on the host macOS machine:
 
--	Amazon AWS CLI 2.6.1 (command-line interface)
+-	Amazon AWS CLI 2.6.2 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.6.1](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
+1.	Install [AWS CLI 2.6.2](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
     `$ brew install awscli@2`  
 
 2.	Validate installed command-line tools:
 
     ```bash
     $ aws --version
-    aws-cli/2.6.1 Python/3.9.12 Darwin/21.4.0 source/x86_64 prompt/off
+    aws-cli/2.6.2 Python/3.9.12 Darwin/21.4.0 source/x86_64 prompt/off
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
 
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
--	Amazon AWS CLI 2.6.1 (command-line interface)
+-	Amazon AWS CLI 2.6.2 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.6.1](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
+1.	Install [AWS CLI 2.6.2](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
     Run the downloaded MSI installer and follow the on-screen instructions.  
 
     **NOTE:** For Windows users, the MSI installation package offers a familiar and convenient way to install the AWS CLI without installing any other prerequisites. However, when updates are released, you must repeat the installation process to get the latest version of the AWS CLI. If you prefer more frequent updates, consider using `pip` as described in the AWS CLI [install guide](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html).
@@ -43,7 +43,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ aws --version
-    aws-cli/2.6.1 Python/3.9.11 Windows/10 exe/AMD64 prompt/off
+    aws-cli/2.6.2 Python/3.9.11 Windows/10 exe/AMD64 prompt/off
     ```
 
 ## Prepare for the Build
@@ -138,13 +138,13 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Amazon AWS CLI 2.6.1 (command-line interface)
+-	Amazon AWS CLI 2.6.2 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.27
 -	AppDynamics Enterprise Console 21.4.14 Build 24728
 	-	AppDynamics Controller 21.4.14 Build 1533
 	-	AppDynamics Events Service 4.5.2 Build 20651
--	Docker 20.10.14 CE
+-	Docker 20.10.15 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -160,11 +160,11 @@ __APM-Platform VM__ - The following utilities and application performance manage
 
 __CWOM-Platform VM__ - The following utilities and workload optimization management applications are pre-installed:
 
--	Amazon AWS CLI 2.6.1 (command-line interface)
+-	Amazon AWS CLI 2.6.2 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.27
 -	Cisco Workload Optimization Manager (CWOM) 2.3.28
--	Docker 20.10.14 CE
+-	Docker 20.10.15 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -180,13 +180,13 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 2.6.1 (command-line interface)
+-	Amazon AWS CLI 2.6.2 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.95.0 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.96.0 (command-line interface)
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.21.2 (command-line interface)
 -	Ansible 2.9.27
 -	AppDynamics Node.js Serverless Tracer 21.11.348
--	Docker 20.10.14 CE
+-	Docker 20.10.15 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -201,7 +201,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Java SE JDK 18.0.1 (Amazon Corretto 18)
 -	jq 1.6 (command-line JSON processor)
 -	Node.js JavaScript runtime v16.15.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 8.8.0
+-	npm JavaScript Package Manager for Node.js 8.9.0
 -	nvm (Node Version Manager) bash script 0.39.1
 -	Python 2.7.5
 	-	Pip 22.0.4
