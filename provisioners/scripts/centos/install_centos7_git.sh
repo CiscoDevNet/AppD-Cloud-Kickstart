@@ -23,7 +23,7 @@ yum -y install gcc perl-ExtUtils-MakeMaker
 
 # install git binaries from source. ----------------------------------------------------------------
 githome="git"
-gitrelease="2.36.0"
+gitrelease="2.36.1"
 gitfolder="git-${gitrelease}"
 gitbinary="${gitfolder}.tar.gz"
 
@@ -32,7 +32,7 @@ mkdir -p /usr/local/src/git
 cd /usr/local/src/git
 
 # download git source from kernel.org.
-wget --no-verbose https://www.kernel.org/pub/software/scm/git/${gitbinary}
+curl --silent --location https://mirrors.edge.kernel.org/pub/software/scm/git/${gitbinary} --output ${gitbinary}
 
 # extract git source.
 rm -Rf ${gitfolder}
@@ -71,7 +71,7 @@ mkdir -p /usr/share/man
 cd /usr/share/man
 
 # download git man pages from kernel.org.
-wget --no-verbose https://www.kernel.org/pub/software/scm/git/${gitmanbinary}
+curl --silent --location https://mirrors.edge.kernel.org/pub/software/scm/git/${gitmanbinary} --output ${gitmanbinary}
 
 # extract git man pages.
 tar -zxvf ${gitmanbinary} --no-same-owner --no-overwrite-dir
