@@ -57,15 +57,15 @@ SSH to communicate with your cloud resources and managed nodes.
 
 The following open source software needs to be installed on the host macOS machine:
 
--	Homebrew 3.4.10
+-	Homebrew 3.4.11
 -	Git 2.36.1
 -	Packer 1.8.0
--	Terraform 1.1.9
+-	Terraform 1.2.0
 -	jq 1.6
 
 Perform the following steps to install the needed software:
 
-1.	Install the [Homebrew 3.4.10](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
+1.	Install the [Homebrew 3.4.11](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     ```bash
     $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
@@ -81,7 +81,7 @@ Perform the following steps to install the needed software:
     $ brew install hashicorp/tap/packer
     ```
 
-4.	Install [Terraform 1.1.9](https://www.terraform.io/downloads.html) for macOS 64-bit.  
+4.	Install [Terraform 1.2.0](https://www.terraform.io/downloads.html) for macOS 64-bit.  
     ```bash
     $ brew tap hashicorp/tap
     $ brew install hashicorp/tap/terraform
@@ -96,7 +96,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ brew --version
-    Homebrew 3.4.10
+    Homebrew 3.4.11
     $ brew doctor
     Your system is ready to brew.
 
@@ -107,7 +107,7 @@ Perform the following steps to install the needed software:
     1.8.0
 
     $ terraform --version
-    Terraform v1.1.9
+    Terraform v1.2.0
 
     $ jq --version
     jq-1.6
@@ -127,7 +127,7 @@ To build the AppD Cloud Kickstart immutable VM images, the following open source
 
 -	Git 2.36.1 for Win64
 -	Packer 1.8.0
--	Terraform 1.1.9
+-	Terraform 1.2.0
 -	jq 1.6
 
 Perform the following steps to install the needed software:
@@ -138,7 +138,7 @@ Perform the following steps to install the needed software:
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\bin`  
 
-3.	Install [Terraform 1.1.9](https://releases.hashicorp.com/terraform/1.1.9/terraform_1.1.9_windows_amd64.zip) for Windows 64-bit.  
+3.	Install [Terraform 1.2.0](https://releases.hashicorp.com/terraform/1.2.0/terraform_1.2.0_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\bin`  
 
@@ -169,7 +169,7 @@ Perform the following steps to install the needed software:
     1.8.0
 
     $ terraform --version
-    Terraform v1.1.9
+    Terraform v1.2.0
 
     $ jq --version
     jq-1.6
