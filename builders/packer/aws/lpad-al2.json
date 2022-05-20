@@ -178,7 +178,7 @@
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.7",
+    "docker_completion_release": "20.10.13",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }
