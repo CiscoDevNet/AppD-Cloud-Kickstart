@@ -381,7 +381,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Ansible 2.9.27
 -	AppDynamics Node.js Serverless Tracer 21.11.348
 -	Azure CLI 2.36.0
--	Docker 20.10.15 CE
+-	Docker 20.10.16 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -389,7 +389,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.8.2 (Package Manager for Kubernetes)
+-	Helm CLI 3.9.0 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 332 (Amazon Corretto 8)
 -	Java SE JDK 11.0.15 (Amazon Corretto 11)
 -	Java SE JDK 17.0.3 (Amazon Corretto 17)
@@ -397,15 +397,15 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.19.7 (command-line interface)
 -	Node.js JavaScript runtime v16.15.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 8.9.0
+-	npm JavaScript Package Manager for Node.js 8.10.0
 -	nvm (Node Version Manager) bash script 0.39.1
 -	Packer 1.8.0
 -	Python 2.7.5
-	-	Pip 22.0.4
+	-	Pip 22.1
 -	Python 3.6.8
-	-	Pip 22.0.4
--	Serverless Framework CLI 3.16.0
--	Terraform 1.1.9
+	-	Pip 22.1
+-	Serverless Framework CLI 3.18.1
+-	Terraform 1.2.0
 -	VIM - Vi IMproved 8.2
 -	yq 4.25.1 (command-line YAML processor)
 
@@ -416,7 +416,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	AppDynamics Controller 21.4.14 Build 1533
 	-	AppDynamics Events Service 4.5.2 Build 20651
 -	Azure CLI 2.36.0
--	Docker 20.10.15 CE
+-	Docker 20.10.16 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -428,8 +428,8 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.27
 -	Python 2.7.5
-	-	Pip 22.0.4
+	-	Pip 22.1
 -	Python 3.6.8
-	-	Pip 22.0.4
+	-	Pip 22.1
 -	VIM - Vi IMproved 8.2
 -	yq 4.25.1 (command-line YAML processor)
