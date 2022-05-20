@@ -101,7 +101,7 @@ module "security_group" {
 
 module "apm_platform_vm" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = ">= 3.5"
+  version = ">= 4.0"
 
   for_each = local.lab_for_each
 
