@@ -21,11 +21,11 @@ you are finished, such as purging old VM images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Azure CLI 2.36.0
+-	Azure CLI 2.37.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.36.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
+1.	Install [Azure CLI 2.37.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
     ```bash
     $ brew install azure-cli
     ```
@@ -34,7 +34,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ az --version
-    azure-cli                         2.36.0
+    azure-cli                         2.37.0
     ...
     ```
 
@@ -51,18 +51,18 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Azure CLI 2.36.0
+-	Azure CLI 2.37.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.36.0](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
+1.	Install [Azure CLI 2.37.0](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
     Run the downloaded MSI installer, follow the on-screen instructions, and accept the defaults.  
 
 2.	Using the **Git Bash** Terminal, validate the installed command-line tool:
 
     ```bash
     $ az --version
-    azure-cli                         2.36.0
+    azure-cli                         2.37.0
     ...
     ```
 
@@ -380,7 +380,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 
 -	Ansible 2.9.27
 -	AppDynamics Node.js Serverless Tracer 21.11.348
--	Azure CLI 2.36.0
+-	Azure CLI 2.37.0
 -	Docker 20.10.16 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
@@ -401,11 +401,11 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	nvm (Node Version Manager) bash script 0.39.1
 -	Packer 1.8.0
 -	Python 2.7.5
-	-	Pip 22.1
+	-	Pip 22.1.1
 -	Python 3.6.8
-	-	Pip 22.1
--	Serverless Framework CLI 3.18.1
--	Terraform 1.2.0
+	-	Pip 22.1.1
+-	Serverless Framework CLI 3.18.2
+-	Terraform 1.2.1
 -	VIM - Vi IMproved 8.2
 -	yq 4.25.1 (command-line YAML processor)
 
@@ -415,7 +415,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	AppDynamics Enterprise Console 21.4.14 Build 24728
 	-	AppDynamics Controller 21.4.14 Build 1533
 	-	AppDynamics Events Service 4.5.2 Build 20651
--	Azure CLI 2.36.0
+-	Azure CLI 2.37.0
 -	Docker 20.10.16 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
@@ -428,8 +428,8 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.27
 -	Python 2.7.5
-	-	Pip 22.1
+	-	Pip 22.1.1
 -	Python 3.6.8
-	-	Pip 22.1
+	-	Pip 22.1.1
 -	VIM - Vi IMproved 8.2
 -	yq 4.25.1 (command-line YAML processor)
