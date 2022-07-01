@@ -1,6 +1,6 @@
 #!/bin/sh -eux
 #---------------------------------------------------------------------------------------------------
-# Install Vim 8 - Vi IMproved, a programmer's text editor.
+# Install Vim 9 - Vi IMproved, a programmer's text editor.
 #
 # Vim is a text editor that is upwards compatible to Vi. It can be used to edit all kinds
 # of plain text. It is especially useful for editing programs.
@@ -19,19 +19,19 @@
 # NOTE: Script should be run with 'root' privilege.
 #---------------------------------------------------------------------------------------------------
 
-# prepare yum packages. ----------------------------------------------------------------------------
-# install packages needed to build vim from source.
-yum -y install gcc make ncurses ncurses-devel
-yum -y install ctags tcl-devel ruby ruby-devel python3-devel perl perl-devel
-yum -y install perl-ExtUtils-ParseXS perl-ExtUtils-XSpp perl-ExtUtils-CBuilder perl-ExtUtils-Embed
-
-# remove existing vim installation.
-yum -y remove vim-enhanced vim-common vim-filesystem
+# install tools needed to build vim from source. ---------------------------------------------------
+apt -y install make clang libtool-bin
 
 # install vim binaries from source. ----------------------------------------------------------------
 # create vim source parent folder.
 mkdir -p /usr/local/src
 cd /usr/local/src
+
+# set environment variables.
+GIT_HOME=/usr/local/git/git
+export GIT_HOME
+PATH=${GIT_HOME}/bin:/usr/local/bin:$PATH
+export PATH
 
 # download vim source from github.com.
 rm -Rf ./vim

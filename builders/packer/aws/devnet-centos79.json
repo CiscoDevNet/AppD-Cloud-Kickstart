@@ -141,7 +141,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_eksctl_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_kubectl_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_helm_cli.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_8.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_9.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_apache_ant.sh",
@@ -182,7 +182,7 @@
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.16",
+    "docker_completion_release": "20.10.17",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }

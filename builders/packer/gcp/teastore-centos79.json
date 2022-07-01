@@ -68,6 +68,7 @@
         "user_group={{user `gcp_group`}}",
         "user_docker_profile={{user `user_docker_profile`}}",
         "d_completion_release={{user `docker_completion_release`}}",
+        "mongodb_enable_access_control={{user `mongodb_enable_access_control`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `gcp_username`}}"
       ],
@@ -94,12 +95,13 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_git_flow.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_kubectl_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_helm_cli.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_8.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_9.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_apache_ant.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_apache_maven.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_gradle.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_mongodb_community_server_5.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_teastore_application_on_docker.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_nodejs_javascript_runtime.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_serverless_framework_cli.sh",
@@ -123,7 +125,8 @@
     "gcp_group": "centos",
     "gcp_zone": "{{env `gcp_zone`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.16",
+    "docker_completion_release": "20.10.17",
+    "mongodb_enable_access_control": "false",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }

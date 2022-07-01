@@ -75,9 +75,9 @@ sudo ./install_jq_json_processor.sh
 cd ${kickstart_home}/provisioners/scripts/common
 sudo -E ./install_aws_cli_2.sh
 
-# download, build, and install vim 8 text editor from source.
+# download, build, and install vim 9 text editor from source.
 cd ${kickstart_home}/provisioners/scripts/ubuntu
-sudo ./install_ubuntu_vim_8.sh
+sudo ./install_ubuntu_vim_9.sh
 
 # create default command-line environment profile for the 'root' user.
 cd ${kickstart_home}/provisioners/scripts/common

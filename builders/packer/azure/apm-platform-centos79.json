@@ -119,7 +119,7 @@
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_git.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_git_flow.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_oracle_mysql_shell_8.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_8.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_vim_9.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_appdynamics_enterprise_console.sh",
@@ -158,7 +158,7 @@
     "azure_vm_size": "Standard_B4ms",
     "azure_os_disk_size": "128",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.16",
+    "docker_completion_release": "20.10.17",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
 }
