@@ -53,3 +53,8 @@ output "resource_tags" {
   description = "List of AWS resource tags."
   value       = flatten([for vm in module.teastore_vm : vm.tags_all])
 }
+
+output "teastore_urls" {
+  description = "List of TeaStore URLs."
+  value       = format("%s\n", join("\n", [for dns in tolist([for vm in module.teastore_vm : vm.public_dns]) : format("http://%s:8080/tools.descartes.teastore.webui/", dns)]))
+}
