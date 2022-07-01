@@ -22,7 +22,7 @@ apt -y install libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cma
 
 # install git binaries from source. ----------------------------------------------------------------
 githome="git"
-gitrelease="2.36.1"
+gitrelease="2.37.0"
 gitfolder="git-${gitrelease}"
 gitbinary="${gitfolder}.tar.gz"
 
