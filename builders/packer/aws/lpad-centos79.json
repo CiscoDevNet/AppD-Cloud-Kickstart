@@ -184,7 +184,7 @@
     "aws_user_email": "{{env `aws_user_email`}}",
     "user_docker_profile": "true",
     "docker_completion_release": "20.10.17",
-    "mongodb_enable_access_control": "false",
+    "mongodb_enable_access_control": "true",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }

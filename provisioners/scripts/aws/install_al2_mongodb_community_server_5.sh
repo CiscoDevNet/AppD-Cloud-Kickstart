@@ -24,8 +24,8 @@ mongodb_server_admin_password="${mongodb_server_admin_password:-welcome1}"      
 set -x  # turn command display back ON.
 mongodb_enable_access_control="${mongodb_enable_access_control:-false}"         # [optional] enable access control for mongodb (defaults to 'false').
 
-# [OPTIONAL] fso lab devops home folder [w/ default].
-devops_home="${devops_home:-/opt/fso-lab-devops}"                               # [optional] devops home (defaults to '/opt/fso-lab-devops').
+# [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
+kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"                   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
 
 # prepare the mongodb repository for installation. -------------------------------------------------
 # create the mongodb repository.
@@ -67,8 +67,8 @@ mongosh --version
 # create mongodb user admin (conditional). ---------------------------------------------------------
 if [ "$mongodb_enable_access_control" == "true" ]; then
   # create scripts directory (if needed).
-  mkdir -p ${devops_home}/provisioners/scripts/centos/mongodb
-  cd ${devops_home}/provisioners/scripts/centos/mongodb
+  mkdir -p ${kickstart_home}/provisioners/scripts/centos/mongodb
+  cd ${kickstart_home}/provisioners/scripts/centos/mongodb
 
   # generate the create mongodb admin user script.
   rm -f createMongoDBAdminUser.js
