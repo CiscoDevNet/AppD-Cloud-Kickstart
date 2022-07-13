@@ -1,4 +1,4 @@
-#!/bin/sh -eux
+#!/bin/bash -eux
 # create default command-line environment profile for appdynamics cloud kickstart user.
 
 # set default values for input environment variables if not set. -----------------------------------
@@ -77,8 +77,14 @@ user_bashrc="${kickstart_home}/provisioners/scripts/common/users/user-kickstart-
 
 # copy environment profiles to user home.
 cd ${user_home}
-cp -p .bash_profile .bash_profile.orig
-cp -p .bashrc .bashrc.orig
+
+if [ -f ".bash_profile" ]; then
+  cp -p .bash_profile .bash_profile.orig
+fi
+
+if [ -f ".bashrc" ]; then
+  cp -p .bashrc .bashrc.orig
+fi
 
 cp -f ${user_bashprofile} .bash_profile
 cp -f ${user_bashrc} .bashrc
@@ -123,7 +129,7 @@ chown ${user_name}:${user_group} ${vimrc_local}
 # download and install useful vim configuration based on developer pair stations at pivotal labs.
 runuser -c "git clone https://github.com/pivotal-legacy/vim-config.git ${user_home}/.vim" - ${user_name}
 
-# use the stream editor to substitute the terraform plugin into the vim config. --------------------
+# use the stream editor to add the terraform plugin into the vim config. ---------------------------
 vim_config_file="vimrc"
 cd ${vimrc_home}
 cp -p ${vim_config_file} ${vim_config_file}.orig

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #---------------------------------------------------------------------------------------------------
 # Delete the AppDynamics Cloud Kickstart project-specific AWS AMI's for the specified region.
 #
@@ -10,7 +10,7 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 appd_platform_name="${appd_platform_name-AppDynamics Cloud Kickstart}"
-appd_project_image_types="${appd_project_image_types-APM-Platform-AL2 APM-Platform-CentOS APM-Platform-HA-AL2 APM-Platform-HA-CentOS CWOM-Platform-CentOS DEVNET-CentOS EXT-CentOS LPAD-AL2 LPAD-CentOS K8S-CentOS TeaStore-CentOS}"
+appd_project_image_types="${appd_project_image_types-APM-Platform-AL2 APM-Platform-CentOS APM-Platform-HA-AL2 APM-Platform-HA-CentOS CWOM-Platform-CentOS DEVNET-CentOS EXT-CentOS LPAD-AL2 LPAD-CentOS LPAD-Ubuntu-Focal LPAD-Ubuntu-Jammy K8S-CentOS TeaStore-CentOS}"
 aws_ami_region="${aws_ami_region-us-east-1}"
 aws_ami_keep_last="${aws_ami_keep_last-true}"
 
@@ -30,7 +30,7 @@ appd_project_image_types_array_length=${#appd_project_image_types_array[@]}
 # loop for each project image type.
 for image_type in "${appd_project_image_types_array[@]}"; do
   # retrieve ami image data.
-  ami_image_data=$(aws ec2 describe-images --region ${aws_ami_region} --filters "Name=tag:Project,Values=${appd_platform_name}" "Name=tag:Project_Image_Type,Values=${image_type}" --output json | jq '[.Images[] | {Name: .Name, ImageId: .ImageId, SnapshotId: .BlockDeviceMappings[].Ebs.SnapshotId, CreationDate: .CreationDate}] | sort_by(.CreationDate)')
+  ami_image_data=$(aws ec2 describe-images --region ${aws_ami_region} --filters "Name=tag:Project,Values=${appd_platform_name}" "Name=tag:Project_Image_Type,Values=${image_type}" --output json | jq '[.Images[] | {Name: .Name, ImageId: .ImageId, SnapshotId: .BlockDeviceMappings[0].Ebs.SnapshotId, CreationDate: .CreationDate}] | sort_by(.CreationDate)')
 
   # build individual ami image attribute arrays.
   image_name_array=( $(echo "${ami_image_data}" | jq '.' | awk '/Name/ {print $2}') )
