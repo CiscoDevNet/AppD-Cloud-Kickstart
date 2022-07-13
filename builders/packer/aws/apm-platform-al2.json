@@ -186,7 +186,7 @@
     "aws_cli_default_region_name": "{{env `aws_cli_default_region_name`}}",
     "aws_cli_default_output_format": "{{env `aws_cli_default_output_format`}}",
     "aws_ec2_boot_disk_size": "128",
-    "aws_ec2_hostname": "apm-al2",
+    "aws_ec2_hostname": "apm",
     "aws_ec2_domain": "localdomain",
     "aws_ec2_instance_type": "m5a.xlarge",
     "aws_ec2_username": "ec2-user",
