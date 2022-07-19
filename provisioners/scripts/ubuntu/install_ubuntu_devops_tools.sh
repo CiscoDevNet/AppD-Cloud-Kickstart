@@ -15,4 +15,4 @@ apt -y install python-setuptools
 #easy_install --version
 
 # install additional developer tools. --------------------------------------------------------------
-apt -y install curl git tree wget unzip man
+apt -y install curl git tree wget unzip man net-tools
