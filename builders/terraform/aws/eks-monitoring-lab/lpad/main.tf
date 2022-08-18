@@ -41,7 +41,7 @@ module "vpc" {
 
 module "security_group" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = ">= 4.9"
+  version = ">= 4.11"
 
   name        = "SG-${var.resource_name_prefix}-${local.current_date}"
   description = "Security group for example usage with EC2 instance"
@@ -76,6 +76,11 @@ module "lpad_vm" {
   iam_instance_profile = aws_iam_instance_profile.ec2_instance_profile.id
   key_name             = var.aws_ec2_ssh_pub_key_name
   tags                 = var.resource_tags
+
+  capacity_reservation_specification = {
+    capacity_reservation_preference = "none"
+#   capacity_reservation_preference = "open"
+  }
 
   subnet_id                   = tolist(module.vpc.public_subnets)[0]
   vpc_security_group_ids      = [module.security_group.security_group_id]
