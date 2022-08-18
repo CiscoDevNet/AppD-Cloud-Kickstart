@@ -9,11 +9,10 @@
       "source_ami_filter": {
         "filters": {
           "virtualization-type": "hvm",
-          "name": "CentOS Linux 7 x86_64 HVM EBS*",
-          "product-code": "aw0evgkw8e5c1q413zgy5pjce",
+          "name": "CentOS 7.9.2009 x86_64",
           "root-device-type": "ebs"
         },
-        "owners": ["aws-marketplace"],
+        "owners": ["125523088429"],
         "most_recent": true
       },
       "ami_description": "{{user `aws_ami_description`}}",
