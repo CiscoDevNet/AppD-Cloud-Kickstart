@@ -16,15 +16,16 @@
 #
 # For secure enviroments, you can restrict incoming traffic to only the IP address ranges that AWS
 # Cloud9 uses to connect over SSH to AWS cloud compute instances (for example, Amazon EC2 instances)
-# in an Amazon VPC or your own servers in your network. Download the 'ip-ranges.json' file and
-# filter the IP CIDR blocks for a specific AWS region using 'jq':
+# in an Amazon VPC or your own servers in your network. To determine the correct CIDR blocks, use
+# the following command to download the 'ip-ranges.json' file and filter the IP CIDR blocks for a
+# specific AWS region ('us-west-1' in this example) using 'jq':
 #
-#   https://ip-ranges.amazonaws.com/ip-ranges.json
-#   jq '.prefixes[] | select(.service=="CLOUD9") | select(.region=="us-west-1")' < ./ip-ranges.json
+#   curl -sL https://ip-ranges.amazonaws.com/ip-ranges.json | jq '.prefixes[] | select(.service=="CLOUD9") | select(.region=="us-west-1")'
 #
 # For more details, please visit:
 #   https://aws.amazon.com/cloud9/
 #   https://docs.aws.amazon.com/cloud9/latest/user-guide/ip-ranges.html
+#   https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html
 #
 # NOTE: Script should be run with 'root' privilege.
 #---------------------------------------------------------------------------------------------------
