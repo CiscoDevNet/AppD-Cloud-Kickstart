@@ -498,7 +498,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.21.14 (command-line interface)
 -	Node.js JavaScript runtime v16.17.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 8.19.1
+-	npm JavaScript Package Manager for Node.js 8.19.2
 -	nvm (Node Version Manager) bash script 0.39.1
 -	Packer 1.8.3
 -	Python 2.7.5

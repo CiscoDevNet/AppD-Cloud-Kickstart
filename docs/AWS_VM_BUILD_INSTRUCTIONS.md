@@ -208,7 +208,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Maven 3.8.6
 -	MongoDB Community Server 5.0.9
 -	Node.js JavaScript runtime v16.17.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 8.19.1
+-	npm JavaScript Package Manager for Node.js 8.19.2
 -	nvm (Node Version Manager) bash script 0.39.1
 -	Packer 1.8.3
 -	Python 2.7.5
