@@ -34,14 +34,14 @@ aws_cloud9_public_key_07="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCoy2S+6UkE3xLPOe
 aws_cloud9_public_key_08="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDHYZJeASDhc0iR6yEO4obi6p5lOBzkauzOWfh33BedNA9mD2Foccb/m1dNlK9D247xMqIW6+wFRt3Njp+s6qyTG1kFCVlWVXw5KWe2GDdnTDZXQCuBWDglNRJItCdQAxOTo30ma4rUFciV5Zahyb1R4VbX7tjJVO80DY9bAxuCxrQf24TdeEcZAsdhzPjtk4pCvqfh27q3tm1B50EiXG2kPGOOlC4Vo2YNdAX2yQsQrhhABjetKqBc0zaef33AZiK8BdziHYRpSXvOkZ1/kKwl3q0tSWaoQXSz3J2WL52zx1WhbQ5sCOQ3fk/hoViLApPqVE/3qyyFTodcwn3vQ0C/XFnc/BgwyFCvGod2J/I8FhV9gSuE1jwC20X0djgvOMEhQx8Kw5L8qOhk0VkvTP+5j6dPD5EqhUedep0ImSg2i1/HsHaI6v10jVSFCzKTQKgHvG1M+3uRVPumOZ70eeiLxQHIo/E35p9FDG+XV2HO6DwrX+UvHS6BNPJW1ay5QOdDsFugZZCxyqsCi4YdoHTizefkExmzhNNh14+WwBuGBXHry6kBjpx+UzMe4Tu+Mx37axCL2joqo8UNDo7cqoKQ2UlsmRFVHRHUUbYXTmDVG7R+s/ETfmerqogP/KRqiiMECXFGd0kWhiVdeWpwxj4LC4dR8Ro8JTATW5aoOQ2HBw== AWSReservedSSO_appd-aws-975944588697-dev_35531c6d12fd4c96+975944588697@cloud9.amazon.com"
 
 # 'grep' to see if the aws cloud9 public key is already present, if not, append to the file.
-grep -qF "${aws_cloud9_public_key_01}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_01}}" >> ${user_authorized_keys_file}
-grep -qF "${aws_cloud9_public_key_02}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_02}}" >> ${user_authorized_keys_file}
-grep -qF "${aws_cloud9_public_key_03}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_03}}" >> ${user_authorized_keys_file}
-grep -qF "${aws_cloud9_public_key_04}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_04}}" >> ${user_authorized_keys_file}
-grep -qF "${aws_cloud9_public_key_05}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_05}}" >> ${user_authorized_keys_file}
-grep -qF "${aws_cloud9_public_key_06}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_06}}" >> ${user_authorized_keys_file}
-grep -qF "${aws_cloud9_public_key_07}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_07}}" >> ${user_authorized_keys_file}
-grep -qF "${aws_cloud9_public_key_08}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_08}}" >> ${user_authorized_keys_file}
+grep -qF "${aws_cloud9_public_key_01}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_01}" >> ${user_authorized_keys_file}
+grep -qF "${aws_cloud9_public_key_02}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_02}" >> ${user_authorized_keys_file}
+grep -qF "${aws_cloud9_public_key_03}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_03}" >> ${user_authorized_keys_file}
+grep -qF "${aws_cloud9_public_key_04}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_04}" >> ${user_authorized_keys_file}
+grep -qF "${aws_cloud9_public_key_05}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_05}" >> ${user_authorized_keys_file}
+grep -qF "${aws_cloud9_public_key_06}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_06}" >> ${user_authorized_keys_file}
+grep -qF "${aws_cloud9_public_key_07}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_07}" >> ${user_authorized_keys_file}
+grep -qF "${aws_cloud9_public_key_08}" ${user_authorized_keys_file} || echo "${aws_cloud9_public_key_08}" >> ${user_authorized_keys_file}
 
 chmod 600 ${user_authorized_keys_file}
 
