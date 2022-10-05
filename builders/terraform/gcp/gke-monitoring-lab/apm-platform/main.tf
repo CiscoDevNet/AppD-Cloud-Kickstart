@@ -140,7 +140,7 @@ resource "google_compute_firewall" "allow-apm-platform" {
 
   allow {
     protocol = "tcp"
-    ports = ["80", "443", "3306", "8080", "8090", "9080", "9191"]
+    ports = ["80", "443", "8080", "8090", "9080", "9191"]
   }
 
   source_ranges = ["0.0.0.0/0"]
