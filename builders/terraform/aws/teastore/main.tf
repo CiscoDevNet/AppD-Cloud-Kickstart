@@ -23,7 +23,7 @@ data "aws_ami" "teastore-centos79" {
 # Modules ------------------------------------------------------------------------------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = ">= 3.14"
+  version = ">= 3.16"
 
   name = "VPC-${var.resource_name_prefix}-${local.current_date}"
   cidr = var.aws_vpc_cidr
@@ -49,7 +49,7 @@ module "security_group" {
   tags        = var.resource_tags
 
   ingress_cidr_blocks               = ["0.0.0.0/0"]
-  ingress_rules                     = ["http-80-tcp", "http-8080-tcp", "https-443-tcp", "mysql-tcp"]
+  ingress_rules                     = ["http-80-tcp", "http-8080-tcp", "https-443-tcp"]
   egress_rules                      = ["all-all"]
   ingress_with_self                 = [{rule = "all-all"}]
   computed_ingress_with_cidr_blocks = [

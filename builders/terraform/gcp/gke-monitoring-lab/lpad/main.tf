@@ -140,7 +140,7 @@ resource "google_compute_firewall" "allow-lpad" {
 
   allow {
     protocol = "tcp"
-    ports = ["80", "443", "3306", "8080"]
+    ports = ["80", "443", "8080"]
   }
 
   source_ranges = ["0.0.0.0/0"]

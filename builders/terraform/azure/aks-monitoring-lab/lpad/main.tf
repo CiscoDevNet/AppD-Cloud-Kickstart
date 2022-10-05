@@ -95,7 +95,7 @@ resource "azurerm_network_security_rule" "allow_lpad" {
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
-  destination_port_ranges     = ["80", "443", "3306", "8080"]
+  destination_port_ranges     = ["80", "443", "8080"]
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = data.azurerm_resource_group.cloud_workshop.name

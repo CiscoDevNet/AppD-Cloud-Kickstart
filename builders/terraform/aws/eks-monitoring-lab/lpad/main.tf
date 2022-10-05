@@ -1,6 +1,6 @@
 # Providers ----------------------------------------------------------------------------------------
 provider "aws" {
-  region  = var.aws_region
+  region = var.aws_region
 }
 
 # Locals -------------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ data "aws_ami" "lpad_ami" {
   owners      = ["self"]
 
   filter {
-    name = "name"
+    name   = "name"
     values = [var.aws_ec2_source_ami_filter]
   }
 }
@@ -68,13 +68,13 @@ data "aws_ami" "lpad_ami" {
 # Modules ------------------------------------------------------------------------------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = ">= 3.14"
+  version = ">= 3.16"
 
   name = "VPC-${var.resource_name_prefix}-${local.current_date}"
   cidr = var.aws_vpc_cidr_block
 
-  azs             = data.aws_availability_zones.available.names
-  public_subnets  = var.aws_vpc_public_subnets
+  azs            = data.aws_availability_zones.available.names
+  public_subnets = var.aws_vpc_public_subnets
 
   enable_nat_gateway   = true
   enable_vpn_gateway   = false
@@ -94,7 +94,7 @@ module "security_group" {
   tags        = local.resource_tags
 
   ingress_cidr_blocks               = ["0.0.0.0/0"]
-  ingress_rules                     = ["http-80-tcp", "http-8080-tcp", "https-443-tcp", "mysql-tcp"]
+  ingress_rules                     = ["http-80-tcp", "http-8080-tcp", "https-443-tcp"]
   egress_rules                      = ["all-all"]
   ingress_with_self                 = [{rule = "all-all"}]
   computed_ingress_with_cidr_blocks = [
