@@ -385,18 +385,18 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.37.3
+-	Git 2.38.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.9.4 (Package Manager for Kubernetes)
+-	Helm CLI 3.10.0 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 342 (Amazon Corretto 8)
 -	Java SE JDK 11.0.16 (Amazon Corretto 11)
 -	Java SE JDK 17.0.4 (Amazon Corretto 17)
--	Java SE JDK 18.0.2 (Amazon Corretto 18)
+-	Java SE JDK 19.0.0 (Amazon Corretto 19)
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.21.14 (command-line interface)
--	Node.js JavaScript runtime v16.17.0 (Latest LTS Version)
+-	Node.js JavaScript runtime v16.17.1 (Latest LTS Version)
 -	npm JavaScript Package Manager for Node.js 8.19.2
 -	nvm (Node Version Manager) bash script 0.39.1
 -	Packer 1.8.3
@@ -405,9 +405,9 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Python 3.6.8
 	-	Pip 22.2.2
 -	Serverless Framework CLI 3.22.0
--	Terraform 1.2.9
+-	Terraform 1.3.1
 -	VIM - Vi IMproved 9.0
--	yq 4.27.5 (command-line YAML processor)
+-	yq 4.28.1 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
@@ -420,7 +420,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.37.3
+-	Git 2.38.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
@@ -432,4 +432,4 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 22.2.2
 -	VIM - Vi IMproved 9.0
--	yq 4.27.5 (command-line YAML processor)
+-	yq 4.28.1 (command-line YAML processor)
