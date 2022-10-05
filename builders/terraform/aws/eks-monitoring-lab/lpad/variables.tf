@@ -7,15 +7,14 @@ variable "aws_region" {
 
 variable "aws_vpc_cidr_block" {
   description = "The CIDR block for the VPC."
-  type    = string
-  default = "10.0.0.0/16"
+  type        = string
+  default     = "10.0.0.0/16"
 }
 
 variable "aws_vpc_public_subnets" {
   description = "A list of public subnets inside the VPC."
-  type    = list(string)
-  default = ["10.0.1.0/24", "10.0.2.0/24"]
-# default = ["10.0.1.0/24"]
+  type        = list(string)
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
 variable "aws_ssh_ingress_cidr_blocks" {
