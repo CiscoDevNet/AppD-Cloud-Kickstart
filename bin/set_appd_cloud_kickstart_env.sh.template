@@ -345,7 +345,7 @@ export appd_controller_tenancy_mode
 #export appd_aws_ec2_extension_display_account_name
 
 # [optional] whitespace separated list of aws regions to monitor (defaults to 'us-east-1' [N. Virginia]).
-#appd_aws_ec2_extension_aws_regions="ap-south-1 ap-southeast-2 eu-central-1 eu-west-2 eu-west-3 sa-east-1 us-east-1 us-east-2 us-west-1 us-west-2"
+#appd_aws_ec2_extension_aws_regions="ap-south-1 ap-southeast-1 ap-southeast-2 eu-central-1 eu-west-2 eu-west-3 sa-east-1 us-east-1 us-east-2 us-west-1 us-west-2"
 #export appd_aws_ec2_extension_aws_regions
 
 # [optional] aws cloudwatch monitoring type (defaults to 'Basic').
@@ -461,7 +461,7 @@ export aws_ami_owner
 
 # aws region to create packer build ami's.
 # current valid regions are:
-#   'ap-south-1', 'ap-southeast-2', 'eu-central-1', 'eu-west-2', 'eu-west-3', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'
+#   'ap-south-1', 'ap-southeast-1', 'ap-southeast-2', 'eu-central-1', 'eu-west-2', 'eu-west-3', 'sa-east-1', 'us-east-1', 'us-east-2', 'us-west-1', 'us-west-2'
 aws_ami_region="us-east-1"
 export aws_ami_region
 

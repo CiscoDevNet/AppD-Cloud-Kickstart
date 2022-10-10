@@ -13,7 +13,6 @@
 #
 # NOTE: All inputs are defined by external environment variables.
 #       Optional variables have reasonable defaults, but you may override as needed.
-#       See 'usage()' function below for environment variable descriptions.
 #       Script should be run with 'root' privilege.
 #---------------------------------------------------------------------------------------------------
 
