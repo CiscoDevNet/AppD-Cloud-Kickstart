@@ -1,29 +1,88 @@
 #!/bin/sh -eux
-# install tomcat 9 web server by apache.
-# all inputs are defined by external environment variables.
-# script should be run with 'root' privilege.
-# NOTE: This script is still a work-in-progress.
+#---------------------------------------------------------------------------------------------------
+# Install Apache Tomcat 9.x Web Server by Apache on RHEL-based Linux 7.x distros.
+#
+# Apache Tomcat is an open source software implementation of a subset of the Jakarta EE (formally
+# Java EE) technologies. Apache Tomcat 9.x builds on Tomcat 8.0.x and 8.5.x and implements the
+# Servlet 4.0, JSP 2.3, EL 3.0, WebSocket 1.1 and JASPIC 1.1 specifications (the versions required
+# by Java EE 8 platform).
+#
+# Tomcat 9.0 was designed to run on Java SE 8 or later.
+#
+# For more details, please visit:
+#   https://tomcat.apache.org/tomcat-9.0-doc/index.html
+#   https://tomcat.apache.org/download-90.cgi
+#   https://tomcat.apache.org/whichversion.html
+#
+# NOTE: All inputs are defined by external environment variables.
+#       Optional variables have reasonable defaults, but you may override as needed.
+#       See 'usage()' function below for environment variable descriptions.
+#       Script should be run with 'root' privilege.
+#---------------------------------------------------------------------------------------------------
 
 # set default values for input environment variables if not set. -----------------------------------
-# tomcat web server install parameters.
-tomcat_home="${tomcat_home:-apache-tomcat-9}"                       # [optional] tomcat home (defaults to 'apache-tomcat-9').
-tomcat_release="${tomcat_release:-9.0.67}"                          # [optional] tomcat release (defaults to '9.0.67').
-                                                                    # [optional] tomcat sha-512 checksum (defaults to published value).
-tomcat_sha512="${tomcat_sha512:-f3c4841754640a21842de9d8ec4674b1a072d42f3ba9d1accea143a61ac4f77b06c789fbcc395c23ed2154ec7e7cd76e6d39743e544f7c6f2022967e8a2334d5}"
+# [OPTIONAL] tomcat web server install parameters [w/ defaults].
+tomcat_home="${tomcat_home:-apache-tomcat-9}"
+tomcat_release="${tomcat_release:-9.0.68}"
+tomcat_sha512="${tomcat_sha512:-840b21c5cd2bfea7bbfed99741c166608fa1515bb00475ebd4eccfd4f3ed2a1be6bfffd590b2a6600003205b62f271b6ba0937e557fc65a536df61cb4f7b7c8f}"
+tomcat_username="${tomcat_username:-centos}"
+tomcat_group="${tomcat_group:-centos}"
 
-tomcat_username="${tomcat_username:-centos}"                        # [optional] tomcat user name (defaults to 'centos').
-tomcat_group="${tomcat_group:-centos}"                              # [optional] tomcat group (defaults to 'centos').
-
-tomcat_admin_username="${tomcat_admin_username:-admin}"             # [optional] tomcat admin user name (defaults to 'admin').
-tomcat_admin_password="${tomcat_admin_password:-welcome1}"          # [optional] tomcat admin password (defaults to 'welcome1').
-tomcat_admin_roles="${tomcat_admin_roles:-manager-gui,admin-gui}"   # [optional] tomcat admin roles (defaults to 'manager-gui,admin-gui').
-                                                                    #            NOTE: for appd java agent, use 'manager-script'.
-tomcat_jdk_home="${tomcat_jdk_home:-/usr/local/java/jdk180}"        # [optional] tomcat jdk home (defaults to '/usr/local/java/jdk180').
-                                                                    # [optional] tomcat catalina opts (defaults to '-Xms512M -Xmx1024M -server -XX:+UseParallelGC').
-                                                                    #            NOTE: for appd java agent, add '-javaagent:/opt/appdynamics/appagent/javaagent.jar'.
-tomcat_catalina_opts="${tomcat_catalina_opts:--Xms512M -Xmx1024M -server -XX:+UseParallelGC}"
-                                                                    # [optional] tomcat java opts (defaults to '-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom').
+# [OPTIONAL] tomcat web server config parameters [w/ defaults].
+tomcat_admin_username="${tomcat_admin_username:-admin}"
+set +x  # temporarily turn command display OFF.
+tomcat_admin_password="${tomcat_admin_password:-welcome1}"
+set -x  # turn command display back ON.
+tomcat_admin_roles="${tomcat_admin_roles:-manager-gui,admin-gui}"
+tomcat_jdk_home="${tomcat_jdk_home:-/usr/local/java/jdk180}"
+tomcat_catalina_opts="${tomcat_catalina_opts:--Xms1024M -Xmx4096M -server -XX:+UseParallelGC}"
 tomcat_java_opts="${tomcat_java_opts:--Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom}"
+tomcat_enable_service="${tomcat_enable_service:-true}"
+tomcat_manager_apps_remote_access="${tomcat_manager_apps_remote_access:-true}"
+
+# define usage function. ---------------------------------------------------------------------------
+usage() {
+  cat <<EOF
+Usage:
+  Install AppDynamics Machine Agent by AppDynamics.
+  Install Apache Tomcat 9.x Web Server by Apache on RHEL-based Linux 7.x distros.
+
+  NOTE: All inputs are defined by external environment variables.
+        Optional variables have reasonable defaults, but you may override as needed.
+        Script should be run with 'root' privilege.
+
+  -------------------------------------
+  Description of Environment Variables:
+  -------------------------------------
+  [OPTIONAL] tomcat web server install parameters [w/ defaults].
+    [root] # export tomcat_home="apache-tomcat-9"                       # [optional] tomcat home (defaults to 'apache-tomcat-9').
+    [root] # export tomcat_release="9.0.68"                             # [optional] tomcat release (defaults to '9.0.68').
+                                                                        # [optional] tomcat sha-512 checksum (defaults to published value).
+    [root] # export tomcat_sha512="840b21c5cd2bfea7bbfed99741c166608fa1515bb00475ebd4eccfd4f3ed2a1be6bfffd590b2a6600003205b62f271b6ba0937e557fc65a536df61cb4f7b7c8f"
+
+    [root] # export tomcat_username="centos"                            # [optional] tomcat user name (defaults to 'centos').
+    [root] # export tomcat_group="centos"                               # [optional] tomcat group (defaults to 'centos').
+
+  [OPTIONAL] tomcat web server config parameters [w/ defaults].
+    [root] # export tomcat_admin_username="admin"                       # [optional] tomcat admin user name (defaults to 'admin').
+    [root] # export tomcat_admin_password="welcome1"                    # [optional] tomcat admin password (defaults to 'welcome1').
+    [root] # export tomcat_admin_roles="manager-gui,admin-gui"          # [optional] tomcat admin roles (defaults to 'manager-gui,admin-gui').
+                                                                        #            NOTE: for appd java agent, use 'manager-script'.
+    [root] # export tomcat_jdk_home="/usr/local/java/jdk180"            # [optional] tomcat jdk home (defaults to '/usr/local/java/jdk180').
+                                                                        # [optional] tomcat catalina opts (defaults to '-Xms512M -Xmx1024M -server -XX:+UseParallelGC').
+                                                                        #            NOTE: for appd java agent, add '-javaagent:/opt/appdynamics/appagent/javaagent.jar'.
+    [root] # export tomcat_catalina_opts="-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+                                                                        # [optional] tomcat java opts (defaults to '-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom').
+    [root] # export tomcat_java_opts="-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
+    [root] # export tomcat_enable_service="true"                        # [optional] enable tomcat service (defaults to 'true').
+    [root] # export tomcat_manager_apps_remote_access="true"            # [optional] allow remote access for tomcat manager apps (defaults to 'true').
+
+  --------
+  Example:
+  --------
+    [root]# $0
+EOF
+}
 
 # install apache tomcat. ---------------------------------------------------------------------------
 # set tomcat web server installation variables.
@@ -96,11 +155,62 @@ if [ -d "${CATALINA_HOME}/conf" ]; then
   tomcat_users_file="tomcat-users.xml"
   cp -p ${tomcat_users_file} ${tomcat_users_file}.orig
 
-  # add entry for a new user before the last line of the file as in this example:
+  # add entries for a new user before the last line of the file as in this example:
+  #   <role rolename="manager-gui"/>
+  #   <role rolename="admin-gui"/>
   #   <user username="admin" password="welcome1" roles="manager-gui,admin-gui"/>
   tomcat_search_string="<\/tomcat-users>"
+  set +x  # temporarily turn command display OFF.
   tomcat_user_string="  <user username=\\\"${tomcat_admin_username}\\\" password=\\\"${tomcat_admin_password}\\\" roles=\\\"${tomcat_admin_roles}\\\"\/>"
+  set -x  # turn command display back ON.
+  tomcat_admin_roles_array=( $(echo $tomcat_admin_roles | tr ',' ' ') )
+
+# loop to add role entries for the new user before the last line of the file.
+# echo "Number of Tomcat Roles: ${#tomcat_admin_roles_array[@]}"
+  for tomcat_admin_role in "${tomcat_admin_roles_array[@]}"; do
+#   echo "Tomcat Role: ${tomcat_admin_role}"
+    tomcat_role_string="  <role rolename=\\\"${tomcat_admin_role}\\\"\/>"
+    sed -i "s/^${tomcat_search_string}/${tomcat_role_string}\n${tomcat_search_string}/g" ${tomcat_users_file}
+  done
+
+# add user entry with the specified roles before the last line of the file.
+  set +x  # temporarily turn command display OFF.
   sed -i "s/^${tomcat_search_string}/${tomcat_user_string}\n${tomcat_search_string}/g" ${tomcat_users_file}
+  set -x  # turn command display back ON.
+fi
+
+# configure the tomcat manager apps context files for remote access. -------------------------------
+if [ "$tomcat_manager_apps_remote_access" == "true" ]; then
+  # initialize tomcat manager apps array.
+  tomcat_manager_apps_array=( "manager" "host-manager" )
+
+  # loop for each tomcat manager app.
+  for tomcat_manager_app in "${tomcat_manager_apps_array[@]}"; do
+
+    if [ -d "${CATALINA_HOME}/webapps/${tomcat_manager_app}/META-INF" ]; then
+      cd ${CATALINA_HOME}/webapps/${tomcat_manager_app}/META-INF
+
+      # save a copy of the original file.
+      tomcat_context_file="context.xml"
+      cp -p ${tomcat_context_file} ${tomcat_context_file}.orig
+
+      # enable remote access for the tomcat manager app by commenting out the '<Valve/>' element:
+      #   <!--
+      #   <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+      #          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
+      #   -->
+
+      # add xml begin comment string.
+      tomcat_begin_search_string=".*Valve.*"
+      tomcat_begin_comment_string="  <\!--"
+      sed -i "s/^${tomcat_begin_search_string}/${tomcat_begin_comment_string}\n&/g" ${tomcat_context_file}
+
+      # add xml end comment string.
+      tomcat_end_search_string=".*allow.*"
+      tomcat_end_comment_string="  -->"
+      sed -i "s/^${tomcat_end_search_string}/&\n${tomcat_end_comment_string}/g" ${tomcat_context_file}
+    fi
+  done
 fi
 
 # configure the tomcat web server as a service. ----------------------------------------------------
@@ -137,9 +247,17 @@ fi
 # reload systemd manager configuration.
 systemctl daemon-reload
 
-# enable the controller service to start at boot time.
-systemctl enable "${tomcat_service}"
+# enable the controller service to start at boot time, if 'true'.
+if [ "$tomcat_enable_service" == "true" ]; then
+  systemctl enable "${tomcat_service}"
+else
+  systemctl disable "${tomcat_service}"
+fi
+
+# confirm enable status.
+set +e  # temporarily turn 'exit pipeline on non-zero return status' OFF.
 systemctl is-enabled "${tomcat_service}"
+set -e  # turn 'exit pipeline on non-zero return status' back ON.
 
 # check current status.
 #systemctl status "${tomcat_service}"
