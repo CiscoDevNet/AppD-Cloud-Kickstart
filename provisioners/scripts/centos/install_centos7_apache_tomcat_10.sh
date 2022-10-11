@@ -1,29 +1,49 @@
 #!/bin/sh -eux
-# install tomcat 10 web server by apache.
-# all inputs are defined by external environment variables.
-# script should be run with 'root' privilege.
-# NOTE: This script is still a work-in-progress.
+#---------------------------------------------------------------------------------------------------
+# Install Apache Tomcat 10.0.x Web Server by Apache on RHEL-based Linux 7.x distros.
+#
+# Apache Tomcat is an open source software implementation of a subset of the Jakarta EE (formally
+# Java EE) technologies. Apache Tomcat 10.0.x builds on Tomcat 9.0.x and implements the Servlet 5.0,
+# JSP 3.0, EL 4.0, WebSocket 2.0 and Authentication 2.0 specifications (the versions required
+# by Java EE 9 platform).
+#
+# Tomcat 10.0 was designed to run on Java SE 8 or later.
+#
+# For more details, please visit:
+#   https://tomcat.apache.org/tomcat-10.0-doc/index.html
+#   https://tomcat.apache.org/download-10.cgi
+#   https://tomcat.apache.org/whichversion.html
+#
+# NOTE: All inputs are defined by external environment variables.
+#       Optional variables have reasonable defaults, but you may override as needed.
+#       Script should be run with 'root' privilege.
+#---------------------------------------------------------------------------------------------------
 
 # set default values for input environment variables if not set. -----------------------------------
-# tomcat web server install parameters.
+# [OPTIONAL] tomcat web server install parameters [w/ defaults].
 tomcat_home="${tomcat_home:-apache-tomcat-10}"                      # [optional] tomcat home (defaults to 'apache-tomcat-10').
 tomcat_release="${tomcat_release:-10.0.27}"                         # [optional] tomcat release (defaults to '10.0.27').
                                                                     # [optional] tomcat sha-512 checksum (defaults to published value).
 tomcat_sha512="${tomcat_sha512:-33c51be9410eaa0ce1393f8ce80a42a9639b68c7b7af1e9e642045614c170a12f8841ce4142933d1f4d18ba7efc85c630f91c312e959dcdc64aae396c46bdd97}"
-
 tomcat_username="${tomcat_username:-centos}"                        # [optional] tomcat user name (defaults to 'centos').
 tomcat_group="${tomcat_group:-centos}"                              # [optional] tomcat group (defaults to 'centos').
 
+# [OPTIONAL] tomcat web server config parameters [w/ defaults].
 tomcat_admin_username="${tomcat_admin_username:-admin}"             # [optional] tomcat admin user name (defaults to 'admin').
+set +x  # temporarily turn command display OFF.
 tomcat_admin_password="${tomcat_admin_password:-welcome1}"          # [optional] tomcat admin password (defaults to 'welcome1').
+set -x  # turn command display back ON.
 tomcat_admin_roles="${tomcat_admin_roles:-manager-gui,admin-gui}"   # [optional] tomcat admin roles (defaults to 'manager-gui,admin-gui').
-                                                                    #            NOTE: for appd java agent, use 'manager-script'.
-tomcat_jdk_home="${tomcat_jdk_home:-/usr/local/java/jdk11}"         # [optional] tomcat jdk home (defaults to '/usr/local/java/jdk11').
+                                                                    #            NOTE: for appd java agent, add 'manager-script'.
+tomcat_jdk_home="${tomcat_jdk_home:-/usr/local/java/jdk180}"        # [optional] tomcat jdk home (defaults to '/usr/local/java/jdk180').
                                                                     # [optional] tomcat catalina opts (defaults to '-Xms512M -Xmx1024M -server -XX:+UseParallelGC').
                                                                     #            NOTE: for appd java agent, add '-javaagent:/opt/appdynamics/appagent/javaagent.jar'.
 tomcat_catalina_opts="${tomcat_catalina_opts:--Xms512M -Xmx1024M -server -XX:+UseParallelGC}"
                                                                     # [optional] tomcat java opts (defaults to '-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom').
 tomcat_java_opts="${tomcat_java_opts:--Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom}"
+tomcat_enable_service="${tomcat_enable_service:-true}"              # [optional] enable tomcat service (defaults to 'true').
+                                                                    # [optional] allow remote access for tomcat manager apps (defaults to 'true').
+tomcat_manager_apps_remote_access="${tomcat_manager_apps_remote_access:-true}"
 
 # install apache tomcat. ---------------------------------------------------------------------------
 # set tomcat web server installation variables.
@@ -35,7 +55,7 @@ mkdir -p /usr/local/apache
 cd /usr/local/apache
 
 # download tomcat binary from apache.org.
-wget --no-verbose http://archive.apache.org/dist/tomcat/${tomcat_home:7}/v${tomcat_release}/bin/${tomcat_binary}
+wget --no-verbose https://archive.apache.org/dist/tomcat/${tomcat_home:7}/v${tomcat_release}/bin/${tomcat_binary}
 
 # verify the downloaded binary.
 echo "${tomcat_sha512} ${tomcat_binary}" | sha512sum --check
@@ -96,11 +116,62 @@ if [ -d "${CATALINA_HOME}/conf" ]; then
   tomcat_users_file="tomcat-users.xml"
   cp -p ${tomcat_users_file} ${tomcat_users_file}.orig
 
-  # add entry for a new user before the last line of the file as in this example:
+  # add entries for a new user before the last line of the file as in this example:
+  #   <role rolename="manager-gui"/>
+  #   <role rolename="admin-gui"/>
   #   <user username="admin" password="welcome1" roles="manager-gui,admin-gui"/>
   tomcat_search_string="<\/tomcat-users>"
+  set +x  # temporarily turn command display OFF.
   tomcat_user_string="  <user username=\\\"${tomcat_admin_username}\\\" password=\\\"${tomcat_admin_password}\\\" roles=\\\"${tomcat_admin_roles}\\\"\/>"
+  set -x  # turn command display back ON.
+  tomcat_admin_roles_array=( $(echo $tomcat_admin_roles | tr ',' ' ') )
+
+# loop to add role entries for the new user before the last line of the file.
+# echo "Number of Tomcat Roles: ${#tomcat_admin_roles_array[@]}"
+  for tomcat_admin_role in "${tomcat_admin_roles_array[@]}"; do
+#   echo "Tomcat Role: ${tomcat_admin_role}"
+    tomcat_role_string="  <role rolename=\\\"${tomcat_admin_role}\\\"\/>"
+    sed -i "s/^${tomcat_search_string}/${tomcat_role_string}\n${tomcat_search_string}/g" ${tomcat_users_file}
+  done
+
+# add user entry with the specified roles before the last line of the file.
+  set +x  # temporarily turn command display OFF.
   sed -i "s/^${tomcat_search_string}/${tomcat_user_string}\n${tomcat_search_string}/g" ${tomcat_users_file}
+  set -x  # turn command display back ON.
+fi
+
+# configure the tomcat manager apps context files for remote access. -------------------------------
+if [ "$tomcat_manager_apps_remote_access" == "true" ]; then
+  # initialize tomcat manager apps array.
+  tomcat_manager_apps_array=( "manager" "host-manager" )
+
+  # loop for each tomcat manager app.
+  for tomcat_manager_app in "${tomcat_manager_apps_array[@]}"; do
+
+    if [ -d "${CATALINA_HOME}/webapps/${tomcat_manager_app}/META-INF" ]; then
+      cd ${CATALINA_HOME}/webapps/${tomcat_manager_app}/META-INF
+
+      # save a copy of the original file.
+      tomcat_context_file="context.xml"
+      cp -p ${tomcat_context_file} ${tomcat_context_file}.orig
+
+      # enable remote access for the tomcat manager app by commenting out the '<Valve/>' element:
+      #   <!--
+      #   <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+      #          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
+      #   -->
+
+      # add xml begin comment string.
+      tomcat_begin_search_string=".*Valve.*"
+      tomcat_begin_comment_string="  <\!--"
+      sed -i "s/^${tomcat_begin_search_string}/${tomcat_begin_comment_string}\n&/g" ${tomcat_context_file}
+
+      # add xml end comment string.
+      tomcat_end_search_string=".*allow.*"
+      tomcat_end_comment_string="  -->"
+      sed -i "s/^${tomcat_end_search_string}/&\n${tomcat_end_comment_string}/g" ${tomcat_context_file}
+    fi
+  done
 fi
 
 # configure the tomcat web server as a service. ----------------------------------------------------
@@ -137,9 +208,17 @@ fi
 # reload systemd manager configuration.
 systemctl daemon-reload
 
-# enable the controller service to start at boot time.
-systemctl enable "${tomcat_service}"
+# enable the controller service to start at boot time, if 'true'.
+if [ "$tomcat_enable_service" == "true" ]; then
+  systemctl enable "${tomcat_service}"
+else
+  systemctl disable "${tomcat_service}"
+fi
+
+# confirm enable status.
+set +e  # temporarily turn 'exit pipeline on non-zero return status' OFF.
 systemctl is-enabled "${tomcat_service}"
+set -e  # turn 'exit pipeline on non-zero return status' back ON.
 
 # check current status.
 #systemctl status "${tomcat_service}"

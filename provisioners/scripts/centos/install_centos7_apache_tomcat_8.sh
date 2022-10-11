@@ -5,7 +5,7 @@
 # Apache Tomcat is an open source software implementation of a subset of the Jakarta EE (formally
 # Java EE) technologies. Apache Tomcat 8.5.x builds on Tomcat 7.0.x and 8.0.x and implements the
 # Servlet 3.1, JSP 2.3, EL 3.0, WebSocket 1.1 and JASPIC 1.1 specifications (the versions required
-# by Java EE 8 platform).
+# by Java EE 7 platform).
 #
 # Tomcat 8.5 was designed to run on Java SE 7 or later.
 #
@@ -55,7 +55,7 @@ mkdir -p /usr/local/apache
 cd /usr/local/apache
 
 # download tomcat binary from apache.org.
-wget --no-verbose http://archive.apache.org/dist/tomcat/${tomcat_home:7}/v${tomcat_release}/bin/${tomcat_binary}
+wget --no-verbose https://archive.apache.org/dist/tomcat/${tomcat_home:7}/v${tomcat_release}/bin/${tomcat_binary}
 
 # verify the downloaded binary.
 echo "${tomcat_sha512} ${tomcat_binary}" | sha512sum --check
