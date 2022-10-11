@@ -505,7 +505,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Pip 22.2.2
 -	Python 3.6.8
 	-	Pip 22.2.2
--	Serverless Framework CLI 3.22.0
+-	Serverless Framework CLI 3.23.0
 -	Terraform 1.3.2
 -	VIM - Vi IMproved 9.0
 -	yq 4.28.1 (command-line YAML processor)
@@ -527,7 +527,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Google Cloud SDK 405.0.0
 -	Java SE JDK 8 Update 342 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
--	MySQL Shell 8.0.27
+-	MySQL Shell 8.0.31
 -	Python 2.7.5
 	-	Pip 22.2.2
 -	Python 3.6.8
