@@ -1,6 +1,6 @@
 #!/bin/sh -eux
 #---------------------------------------------------------------------------------------------------
-# Install MariaDB Community Server 10.6 by MariaDB on CentOS Linux 7.x.
+# Install MariaDB Community Server 10.9 by MariaDB on CentOS Linux 7.x.
 #
 # MariaDB Server is one of the most popular open source relational databases. It’s made by the
 # original developers of MySQL and guaranteed to stay open source. It is part of most cloud
