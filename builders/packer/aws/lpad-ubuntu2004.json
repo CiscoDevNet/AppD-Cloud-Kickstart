@@ -93,8 +93,8 @@
     {
       "expect_disconnect": true,
       "inline": [
-        "sudo apt -y update",
-        "sudo apt -y upgrade",
+        "sudo DEBIAN_FRONTEND=noninteractive apt-get update",
+        "sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade",
         "sudo systemctl reboot"
       ],
       "type": "shell"
@@ -104,6 +104,7 @@
         "AWS_ACCESS_KEY_ID={{user `aws_access_key`}}",
         "AWS_SECRET_ACCESS_KEY={{user `aws_secret_key`}}",
         "AWS_SESSION_TOKEN={{user `aws_session_token`}}",
+        "DEBIAN_FRONTEND=noninteractive",
         "aws_cli_user_config={{user `aws_cli_user_config`}}",
         "aws_cli_default_region_name={{user `aws_cli_default_region_name`}}",
         "aws_cli_default_output_format={{user `aws_cli_default_output_format`}}",
@@ -180,7 +181,7 @@
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.19",
+    "docker_completion_release": "20.10.20",
     "mongodb_enable_access_control": "true",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"

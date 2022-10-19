@@ -136,7 +136,7 @@
     "azure_vm_size": "Standard_D2as_v4",
     "azure_os_disk_size": "48",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.19",
+    "docker_completion_release": "20.10.20",
     "mongodb_enable_access_control": "false",
     "kickstart_home": "/opt/appd-cloud-kickstart"
   }
