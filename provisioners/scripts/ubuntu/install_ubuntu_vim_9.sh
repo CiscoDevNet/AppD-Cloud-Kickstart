@@ -19,8 +19,11 @@
 # NOTE: Script should be run with 'root' privilege.
 #---------------------------------------------------------------------------------------------------
 
+# update the apt repository package indexes. -------------------------------------------------------
+apt-get update
+
 # install tools needed to build vim from source. ---------------------------------------------------
-apt -y install make clang libtool-bin
+apt-get -y install make clang libtool-bin
 
 # install vim binaries from source. ----------------------------------------------------------------
 # create vim source parent folder.

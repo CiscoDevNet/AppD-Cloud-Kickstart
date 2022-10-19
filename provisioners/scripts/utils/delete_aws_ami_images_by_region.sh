@@ -10,7 +10,7 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 appd_platform_name="${appd_platform_name-AppDynamics Cloud Kickstart}"
-appd_project_image_types="${appd_project_image_types-APM-Platform-AL2 APM-Platform-CentOS APM-Platform-HA-AL2 APM-Platform-HA-CentOS CWOM-Platform-CentOS DEVNET-CentOS EXT-CentOS LPAD-AL2 LPAD-CentOS LPAD-Ubuntu-Focal LPAD-Ubuntu-Jammy K8S-CentOS PoV-Playbook1-AL2 PoV-Playbook1-CentOS TeaStore-CentOS}"
+appd_project_image_types="${appd_project_image_types-APM-Platform-AL2 APM-Platform-CentOS APM-Platform-HA-AL2 APM-Platform-HA-CentOS CWOM-Platform-CentOS DEVNET-CentOS EXT-CentOS LPAD-AL2 LPAD-CentOS LPAD-Ubuntu-Bionic LPAD-Ubuntu-Focal LPAD-Ubuntu-Jammy K8S-CentOS PoV-Playbook1-AL2 PoV-Playbook1-CentOS PoV-Playbook1-Ubuntu-Bionic PoV-Playbook1-Ubuntu-Focal PoV-Playbook1-Ubuntu-Jammy TeaStore-CentOS}"
 aws_ami_region="${aws_ami_region-us-east-1}"
 aws_ami_keep_last="${aws_ami_keep_last-true}"
 

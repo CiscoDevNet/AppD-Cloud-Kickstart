@@ -15,9 +15,11 @@
 # NOTE: Script should be run with 'root' privilege.
 #---------------------------------------------------------------------------------------------------
 
+# update the apt repository package indexes. -------------------------------------------------------
+apt-get update
+
 # install tools needed to install docker. ----------------------------------------------------------
-apt update
-apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 
 # add the docker repository. -----------------------------------------------------------------------
 # import the gpg key.
@@ -31,8 +33,8 @@ apt-key fingerprint 0EBFCD88
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 # install docker on ubuntu. ------------------------------------------------------------------------
-apt update
-apt -y install docker-ce docker-ce-cli containerd.io
+apt-get update
+apt-get -y install docker-ce docker-ce-cli containerd.io
 
 # verify the docker installation. ------------------------------------------------------------------
 # start the docker service and configure it to start at boot time.

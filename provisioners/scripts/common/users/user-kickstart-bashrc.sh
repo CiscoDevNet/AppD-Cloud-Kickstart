@@ -1,4 +1,4 @@
-# @(#).bashrc       1.0 2022/09/21 SMI
+# @(#).bashrc       1.0 2022/10/19 SMI
 # bash resource configuration for kickstart users.
 
 # source global definitions.
@@ -48,6 +48,14 @@ GOROOT=/usr/local/google/go
 export GOROOT
 GOPATH=$HOME/go
 export GOPATH
+
+# set phantomjs environment variables (if needed).
+# if ubuntu release is '22.04', apply fix for incompatible openssl.
+user_host_os=$(hostnamectl | awk '/Operating System/ {printf "%s %s %s", $3, $4, $5}')
+if [ "$user_host_os" == "Ubuntu 22.04.1 LTS" ]; then
+  OPENSSL_CONF=/dev/null
+  export OPENSSL_CONF
+fi
 
 # set appd kickstart home path.
 kickstart_home=/opt/appd-cloud-kickstart

@@ -110,7 +110,7 @@ fi
 
 # run the vundle install script. -------------------------------------------------------------------
 cd ${user_home}
-${user_home}/.vim/bin/install
+sudo runuser -c "${user_home}/.vim/bin/install" - root
 
 # create final vimrc local file. -------------------------------------------------------------------
 rm -f ${vimrc_local}

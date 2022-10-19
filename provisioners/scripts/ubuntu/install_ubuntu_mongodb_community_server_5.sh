@@ -33,7 +33,7 @@ ubuntu_release=$(lsb_release -rs)
 
 if [ -n "$ubuntu_release" ]; then
   case $ubuntu_release in
-      20.04|18.04|16.04)
+      16.04|18.04|20.04)
         ;;
       *)
         echo "Error: MongoDB NOT supported on Ubuntu release: '$(lsb_release -ds)'."
@@ -42,9 +42,11 @@ if [ -n "$ubuntu_release" ]; then
   esac
 fi
 
+# update the apt repository package indexes. -------------------------------------------------------
+apt-get update
+
 # install tools needed to install mongodb. ---------------------------------------------------------
-apt update
-apt -y install gnupg
+apt-get -y install gnupg
 
 # prepare the mongodb package for installation. ----------------------------------------------------
 # import the gpg key.
@@ -57,8 +59,8 @@ wget -qO- https://www.mongodb.org/static/pgp/server-5.0.asc | sudo tee /etc/apt/
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
 
 # install the mongodb database. --------------------------------------------------------------------
-apt update
-apt -y install mongodb-org
+apt-get update
+apt-get -y install mongodb-org
 
 # configure mongodb community server service. ------------------------------------------------------
 # reload systemd manager configuration.

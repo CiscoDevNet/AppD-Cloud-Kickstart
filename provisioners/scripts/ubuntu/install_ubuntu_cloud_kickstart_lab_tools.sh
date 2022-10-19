@@ -40,12 +40,12 @@ if [ "$user_name" == "root" ]; then
 fi
 
 # install basic utilities needed for the install scripts. ------------------------------------------
-# update apt packages for ubuntu.
-sudo apt -y update
-sudo apt -y upgrade
+# update apt repository package indexes for ubuntu.
+sudo apt-get update
+sudo apt-get -y upgrade
 
 # install core linux utilities.
-sudo apt -y install curl git tree wget unzip man
+sudo apt-get -y install curl git tree wget unzip man
 
 # download the cloud kickstart lab project from github.com. ----------------------------------------
 cd ${user_home}
