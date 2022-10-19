@@ -39,37 +39,68 @@ if [ -z "$all_cloud9_envs" ]; then
   exit 1
 fi
 
-# print list of cloud9 environment ids.
-#echo $all_cloud9_envs
+# create array of cloud9 environment ids.
+all_cloud9_envs_array=()
+all_cloud9_envs_array+=( $all_cloud9_envs )
+
+# print array of all cloud9 environment ids.
+#echo "all_cloud9_envs_array(length): ${#all_cloud9_envs_array[@]}"
+#for all_cloud9_env_id in "${all_cloud9_envs_array[@]}"; do
+#  echo $all_cloud9_env_id
+#done
 #echo ""
 
 # retrieve metadata for pov playbook1 cloud9 environments. -----------------------------------------
 echo "Retrieving metadata for '${pov_playbook1_name_prefix}' Cloud9 environments in '${aws_region_name}'..."
-pov_playbook1_cloud9_envs_metadata=$(aws cloud9 --region ${aws_region_name} describe-environments --environment-ids $all_cloud9_envs --query "environments[*]" | jq -r --arg POV_PLAYBOOK1_NAME_PREFIX "${pov_playbook1_name_prefix}" '[.[] | select(.name | contains($POV_PLAYBOOK1_NAME_PREFIX)) | {name: .name, id: .id}] | sort_by(.name)')
 
-# check if any pov playbook1 cloud9 environments were found.
-if [ -z "$(echo $pov_playbook1_cloud9_envs_metadata | jq '. | select(length > 0)')" ]; then
+pov_playbook1_cloud9_env_names_array=()
+pov_playbook1_cloud9_env_ids_array=()
+
+# loop for each cloud9 environment id,
+for all_cloud9_env_id in "${all_cloud9_envs_array[@]}"; do
+  # retrieve metadata for pov playbook1 cloud9 environment.
+  pov_playbook1_cloud9_env_metadata=$(aws cloud9 --region ${aws_region_name} describe-environments --environment-ids $all_cloud9_env_id --query "environments[*]" | jq -r --arg POV_PLAYBOOK1_NAME_PREFIX "${pov_playbook1_name_prefix}" '[.[] | select(.name | contains($POV_PLAYBOOK1_NAME_PREFIX)) | {name: .name, id: .id}] | sort_by(.name)')
+
+  # check if any pov playbook1 cloud9 environments were found. if not, continue to next environent.
+  if [ -z "$(echo $pov_playbook1_cloud9_env_metadata | jq '. | select(length > 0)')" ]; then
+    continue
+  fi
+
+  # print list of pov playbook1 cloud9 environment metadata.
+  echo $pov_playbook1_cloud9_env_metadata | jq '. | select(length > 0)'
+
+  # create array of names for pov playbook1 cloud9 environments.
+  pov_playbook1_cloud9_env_names_array+=( $(echo $pov_playbook1_cloud9_env_metadata | jq -r '.[] | .name') )
+
+  # create array of ids for pov playbook1 cloud9 environments.
+  pov_playbook1_cloud9_env_ids_array+=( $(echo $pov_playbook1_cloud9_env_metadata | jq -r '.[] | .id') )
+done
+
+echo ""
+
+# check if any pov playbook1 cloud9 environment names were found.
+if [ "${#pov_playbook1_cloud9_env_names_array[@]}" -lt 1 ]; then
   echo "Error: No '${pov_playbook1_name_prefix}' Cloud9 environments found in AWS '${aws_region_name}' region."
+  echo "       Cloud9 environment 'names' array is empty."
   exit 1
 fi
 
-# print list of pov playbook1 cloud9 environment metadata.
-echo $pov_playbook1_cloud9_envs_metadata | jq '. | select(length > 0)'
-echo ""
-
-# create array of names for pov playbook1 cloud9 environments.
-pov_playbook1_cloud9_env_names_array=()
-pov_playbook1_cloud9_env_names_array+=( $(echo $pov_playbook1_cloud9_envs_metadata | jq -r '.[] | .name') )
-
+# print array of pov playbook1 cloud9 environment names.
+#echo "pov_playbook1_cloud9_env_names_array[length]: ${#pov_playbook1_cloud9_env_names_array[@]}"
 #for pov_playbook1_cloud9_env_name in "${pov_playbook1_cloud9_env_names_array[@]}"; do
 #  echo $pov_playbook1_cloud9_env_name
 #done
 #echo ""
 
-# create array of ids for pov playbook1 cloud9 environments.
-pov_playbook1_cloud9_env_ids_array=()
-pov_playbook1_cloud9_env_ids_array+=( $(echo $pov_playbook1_cloud9_envs_metadata | jq -r '.[] | .id') )
+# check if any pov playbook1 cloud9 environment ids were found.
+if [ "${#pov_playbook1_cloud9_env_ids_array[@]}" -lt 1 ]; then
+  echo "Error: No '${pov_playbook1_name_prefix}' Cloud9 environments found in AWS '${aws_region_name}' region."
+  echo "       Cloud9 environment 'ids' array is empty."
+  exit 1
+fi
 
+# print array of pov playbook1 cloud9 environment ids.
+#echo "pov_playbook1_cloud9_env_ids_array[length]: ${#pov_playbook1_cloud9_env_ids_array[@]}"
 #for pov_playbook1_cloud9_env_id in "${pov_playbook1_cloud9_env_ids_array[@]}"; do
 #  echo $pov_playbook1_cloud9_env_id
 #done
