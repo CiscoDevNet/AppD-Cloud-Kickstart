@@ -381,19 +381,19 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Ansible 2.9.27
 -	AppDynamics Node.js Serverless Tracer 21.11.348
 -	Azure CLI 2.40.0
--	Docker 20.10.19 CE
+-	Docker 20.10.20 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.38.0
+-	Git 2.38.1
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
 -	Helm CLI 3.10.1 (Package Manager for Kubernetes)
--	Java SE JDK 8 Update 342 (Amazon Corretto 8)
--	Java SE JDK 11.0.16 (Amazon Corretto 11)
--	Java SE JDK 17.0.4 (Amazon Corretto 17)
--	Java SE JDK 19.0.0 (Amazon Corretto 19)
+-	Java SE JDK 8 Update 352 (Amazon Corretto 8)
+-	Java SE JDK 11.0.17 (Amazon Corretto 11)
+-	Java SE JDK 17.0.5 (Amazon Corretto 17)
+-	Java SE JDK 19.0.1 (Amazon Corretto 19)
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.21.14 (command-line interface)
 -	Node.js JavaScript runtime v16.18.0 (Latest LTS Version)
@@ -405,9 +405,9 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Python 3.6.8
 	-	Pip 22.3
 -	Serverless Framework CLI 3.23.0
--	Terraform 1.3.2
+-	Terraform 1.3.3
 -	VIM - Vi IMproved 9.0
--	yq 4.28.1 (command-line YAML processor)
+-	yq 4.28.2 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
@@ -416,15 +416,15 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	AppDynamics Controller 21.4.17 Build 1609
 	-	AppDynamics Events Service 4.5.2 Build 20670
 -	Azure CLI 2.40.0
--	Docker 20.10.19 CE
+-	Docker 20.10.20 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
--	Git 2.38.0
+-	Git 2.38.1
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Java SE JDK 8 Update 342 (Amazon Corretto 8)
+-	Java SE JDK 8 Update 352 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.31
 -	Python 2.7.5
@@ -432,4 +432,4 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 22.3
 -	VIM - Vi IMproved 9.0
--	yq 4.28.1 (command-line YAML processor)
+-	yq 4.28.2 (command-line YAML processor)
