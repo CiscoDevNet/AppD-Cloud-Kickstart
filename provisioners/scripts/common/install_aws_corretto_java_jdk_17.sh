@@ -18,8 +18,8 @@
 
 # set amazon corretto 17 installation variables. ---------------------------------------------------
 jdk_home="jdk17"
-jdk_build="17.0.4.9.1"
-jdk_sha256="e2b130979ecd21c78bef2c6c21ea1dc4c2e73b8a422fd98428025895f9517349"
+jdk_build="17.0.5.8.1"
+jdk_sha256="aeec1a4fb34ffabbac931ba430601807133659a4bd02703c33044e80c925bed2"
 jdk_folder="amazon-corretto-${jdk_build}-linux-x64"
 jdk_binary="amazon-corretto-${jdk_build}-linux-x64.tar.gz"
 #jdk_binary="amazon-corretto-${jdk_build:0:2}-x64-linux-jdk.tar.gz"

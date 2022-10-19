@@ -18,8 +18,8 @@
 
 # set amazon corretto 11 installation variables. ---------------------------------------------------
 jdk_home="jdk11"
-jdk_build="11.0.16.9.1"
-jdk_sha256="a707cf68983a16a2e01e19d236aeecdd5bfe7e461158e9f934f9cb978eae7340"
+jdk_build="11.0.17.8.1"
+jdk_sha256="9628b1c1ec298a6e0f277afe383b342580086cfd7eee2be567b8d00529ca9449"
 jdk_folder="amazon-corretto-${jdk_build}-linux-x64"
 jdk_binary="amazon-corretto-${jdk_build}-linux-x64.tar.gz"
 #jdk_binary="amazon-corretto-${jdk_build:0:2}-x64-linux-jdk.tar.gz"
