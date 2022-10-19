@@ -8,11 +8,21 @@ locals {
   # format current date for convenience.
   current_date = formatdate("YYYY-MM-DD", timestamp())
 
+  # format random string for uniqueness.
+  unique_string = lower(random_string.suffix.result)
+
   # create range of formatted lab numbers.
   lab_for_each = toset([ for i in range(var.lab_start_number, var.lab_count + var.lab_start_number) : format("%02d", i) ])
 
   # create vm ssh ingress cidr block list without duplicates.
   vm_ssh_ingress_cidr_blocks = join(",", distinct(tolist([var.aws_ssh_ingress_cidr_blocks, var.cisco_ssh_ingress_cidr_blocks, var.aws_cloud9_ssh_ingress_cidr_blocks, var.aws_ec2_instance_connect_ssh_ingress_cidr_blocks])))
+
+  # define resource names here to ensure standardized naming conventions.
+  vpc_name                  = "${var.resource_name_prefix}-${local.unique_string}-VPC"
+  security_group_name       = "${var.resource_name_prefix}-${local.unique_string}-Security-Group"
+  ec2_access_role_name      = "${var.resource_name_prefix}-${local.unique_string}-EC2-Access-Role"
+  ec2_access_policy_name    = "${var.resource_name_prefix}-${local.unique_string}-EC2-Access-Policy"
+  ec2_instance_profile_name = "${var.resource_name_prefix}-${local.unique_string}-EC2-Instance-Profile"
 
   # define resource tagging here to ensure standardized naming conventions.
   # pov playbook1 tag names for aws resources.
@@ -70,7 +80,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = ">= 3.16"
 
-  name = "VPC-${var.resource_name_prefix}-${local.current_date}"
+  name = local.vpc_name
   cidr = var.aws_vpc_cidr_block
 
   azs            = data.aws_availability_zones.available.names
@@ -88,7 +98,7 @@ module "security_group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = ">= 4.13"
 
-  name        = "SG-${var.resource_name_prefix}-${local.current_date}"
+  name        = local.security_group_name
   description = "Security group for example usage with EC2 instance"
   vpc_id      = module.vpc.vpc_id
   tags        = local.resource_tags
@@ -115,7 +125,7 @@ module "pov_playbook1_vm" {
 
   for_each = local.lab_for_each
 
-  name                 = var.lab_count > 1 || var.lab_use_num_suffix ? "${var.resource_name_prefix}-${each.key}-VM-${local.current_date}" : "${var.resource_name_prefix}-VM-${local.current_date}"
+  name                 = var.lab_count > 1 || var.lab_use_num_suffix ? "${var.resource_name_prefix}-${each.key}-${local.unique_string}-VM" : "${var.resource_name_prefix}-${local.unique_string}-VM"
   ami                  = data.aws_ami.pov_playbook1_ami.id
   instance_type        = var.aws_ec2_instance_type
   iam_instance_profile = aws_iam_instance_profile.ec2_instance_profile.id
@@ -141,14 +151,19 @@ module "pov_playbook1_vm" {
 }
 
 # Resources ----------------------------------------------------------------------------------------
+resource "random_string" "suffix" {
+  length  = 5
+  special = false
+}
+
 resource "aws_iam_role" "ec2_access_role" {
-  name               = "EC2-Access-Role-${var.resource_name_prefix}-${local.current_date}"
+  name               = local.ec2_access_role_name
   assume_role_policy = file("${path.module}/policies/ec2-assume-role-policy.json")
   tags               = local.resource_tags
 }
 
 resource "aws_iam_role_policy" "ec2_access_policy" {
-  name   = "EC2-Access-Policy-${var.resource_name_prefix}-${local.current_date}"
+  name   = local.ec2_access_policy_name
   role   = aws_iam_role.ec2_access_role.id
   policy = templatefile("${path.module}/policies/ec2-access-policy-template.json", {
     aws_region_name   = var.aws_region
@@ -158,7 +173,7 @@ resource "aws_iam_role_policy" "ec2_access_policy" {
 }
 
 resource "aws_iam_instance_profile" "ec2_instance_profile" {
-  name = "EC2-Instance-Profile-${var.resource_name_prefix}-${local.current_date}"
+  name = local.ec2_instance_profile_name
   role = aws_iam_role.ec2_access_role.name
 }
 
