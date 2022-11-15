@@ -9,10 +9,10 @@
       "source_ami_filter": {
         "filters": {
           "virtualization-type": "hvm",
-          "name": "CentOS 7.9.2009 x86_64",
+          "name": "CentOS-7-2111*",
           "root-device-type": "ebs"
         },
-        "owners": ["125523088429"],
+        "owners": ["aws-marketplace"],
         "most_recent": true
       },
       "ami_description": "{{user `aws_ami_description`}}",
@@ -157,7 +157,7 @@
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.20",
+    "docker_completion_release": "20.10.21",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }
