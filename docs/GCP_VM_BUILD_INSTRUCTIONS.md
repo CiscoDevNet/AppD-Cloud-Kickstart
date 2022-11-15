@@ -21,11 +21,11 @@ you are finished, such as purging old GCE images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Google Cloud SDK 406.0.0 (command-line interface)
+-	Google Cloud SDK 410.0.0 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [Google Cloud SDK 406.0.0](https://cloud.google.com/sdk/docs/quickstart#mac).  
+1.	Install [Google Cloud SDK 410.0.0](https://cloud.google.com/sdk/docs/quickstart#mac).  
     `$ brew install --cask google-cloud-sdk`  
 
     Depending on your shell, follow the on-screen instructions to source the SDK binaries to your `PATH`.  
@@ -41,7 +41,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ gcloud --version
-    Google Cloud SDK 406.0.0
+    Google Cloud SDK 410.0.0
     ...
     ```
 
@@ -58,11 +58,11 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Google Cloud SDK 406.0.0 (command-line interface)
+-	Google Cloud SDK 410.0.0 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [Google Cloud SDK 406.0.0](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) for Windows 64-bit.  
+1.	Install [Google Cloud SDK 410.0.0](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) for Windows 64-bit.  
     Run the downloaded EXE installer, follow the on-screen instructions, and accept the defaults until you get to the last step.  
 
     **NOTE:** For Windows users, the EXE installation package offers a familiar and convenient way to 
@@ -91,7 +91,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ gcloud --version
-    Google Cloud SDK 406.0.0
+    Google Cloud SDK 410.0.0
     ...
     ```
 
@@ -481,7 +481,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 
 -	Ansible 2.9.27
 -	AppDynamics Node.js Serverless Tracer 21.11.348
--	Docker 20.10.20 CE
+-	Docker 20.10.21 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -489,8 +489,8 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Google Cloud SDK 406.0.0
--	Helm CLI 3.10.1 (Package Manager for Kubernetes)
+-	Google Cloud SDK 410.0.0
+-	Helm CLI 3.10.2 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 352 (Amazon Corretto 8)
 -	Java SE JDK 11.0.17 (Amazon Corretto 11)
 -	Java SE JDK 17.0.5 (Amazon Corretto 17)
@@ -498,25 +498,25 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.21.14 (command-line interface)
 -	Node.js JavaScript runtime v16.18.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 8.19.2
+-	npm JavaScript Package Manager for Node.js 9.1.1
 -	nvm (Node Version Manager) bash script 0.39.2
--	Packer 1.8.3
+-	Packer 1.8.4
 -	Python 2.7.5
-	-	Pip 22.3
+	-	Pip 22.3.1
 -	Python 3.6.8
-	-	Pip 22.3
--	Serverless Framework CLI 3.23.0
--	Terraform 1.3.3
+	-	Pip 22.3.1
+-	Serverless Framework CLI 3.24.1
+-	Terraform 1.3.4
 -	VIM - Vi IMproved 9.0
--	yq 4.28.2 (command-line YAML processor)
+-	yq 4.30.4 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 21.4.17 Build 24779
-	-	AppDynamics Controller 21.4.17 Build 1609
+-	AppDynamics Enterprise Console 21.4.19 Build 24836
+	-	AppDynamics Controller 21.4.19 Build 1681
 	-	AppDynamics Events Service 4.5.2 Build 20670
--	Docker 20.10.20 CE
+-	Docker 20.10.21 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -524,13 +524,13 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Google Cloud SDK 406.0.0
+-	Google Cloud SDK 410.0.0
 -	Java SE JDK 8 Update 352 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.31
 -	Python 2.7.5
-	-	Pip 22.3
+	-	Pip 22.3.1
 -	Python 3.6.8
-	-	Pip 22.3
+	-	Pip 22.3.1
 -	VIM - Vi IMproved 9.0
--	yq 4.28.2 (command-line YAML processor)
+-	yq 4.30.4 (command-line YAML processor)
