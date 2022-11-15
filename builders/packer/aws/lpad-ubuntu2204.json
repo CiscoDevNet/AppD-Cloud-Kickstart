@@ -108,6 +108,8 @@
         "aws_cli_user_config={{user `aws_cli_user_config`}}",
         "aws_cli_default_region_name={{user `aws_cli_default_region_name`}}",
         "aws_cli_default_output_format={{user `aws_cli_default_output_format`}}",
+        "npm_release={{user `npm_release`}}",
+        "nodejs_release={{user `nodejs_release`}}",
         "user_name={{user `aws_ec2_username`}}",
         "user_group={{user `aws_ec2_group`}}",
         "user_docker_profile={{user `user_docker_profile`}}",
@@ -178,8 +180,10 @@
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
+    "npm_release": "9.0.1",
+    "nodejs_release": "--lts",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.20",
+    "docker_completion_release": "20.10.21",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }

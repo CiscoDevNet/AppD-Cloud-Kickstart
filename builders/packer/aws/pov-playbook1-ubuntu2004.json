@@ -125,6 +125,8 @@
         "aws_cli_default_output_format={{user `aws_cli_default_output_format`}}",
         "mysql_server_release={{user `mysql_server_release`}}",
         "mysql_enable_secure_access={{user `mysql_enable_secure_access`}}",
+        "npm_release={{user `npm_release`}}",
+        "nodejs_release={{user `nodejs_release`}}",
         "tomcat_release={{user `tomcat_release`}}",
         "tomcat_sha512={{user `tomcat_sha512`}}",
         "tomcat_username={{user `aws_ec2_username`}}",
@@ -210,6 +212,8 @@
     "aws_user_email": "{{env `aws_user_email`}}",
     "mysql_server_release": "mysql-8.0",
     "mysql_enable_secure_access": "false",
+    "npm_release": "9.0.1",
+    "nodejs_release": "--lts",
     "pov_playbook1_lab_artifacts_dir": "/opt/appdynamics/lab-artifacts",
     "pov_playbook1_lab_artifacts_file": "lab-artifacts.zip",
     "pov_playbook1_lab_artifacts_url": "https://povplaybook.appdpartnerlabs.net/zip/lab-artifacts.zip",
@@ -221,7 +225,7 @@
     "tomcat_enable_service": "false",
     "tomcat_manager_apps_remote_access": "true",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.20",
+    "docker_completion_release": "20.10.21",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }
