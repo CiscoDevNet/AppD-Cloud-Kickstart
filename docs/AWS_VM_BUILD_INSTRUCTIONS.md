@@ -183,7 +183,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Amazon AWS CLI 2.8.12 (command-line interface)
 -	Amazon AWS Cloud9 IDE
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.118.0 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.119.0 (command-line interface)
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.21.14 (command-line interface)
 -	Ansible 2.9.27
 -	Ant 1.10.12
