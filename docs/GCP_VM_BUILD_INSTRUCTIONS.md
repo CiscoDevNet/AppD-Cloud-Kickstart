@@ -498,15 +498,15 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.21.14 (command-line interface)
 -	Node.js JavaScript runtime v16.18.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 9.1.1
+-	npm JavaScript Package Manager for Node.js 9.1.2
 -	nvm (Node Version Manager) bash script 0.39.2
 -	Packer 1.8.4
 -	Python 2.7.5
 	-	Pip 22.3.1
 -	Python 3.6.8
 	-	Pip 22.3.1
--	Serverless Framework CLI 3.24.1
--	Terraform 1.3.4
+-	Serverless Framework CLI 3.25.0
+-	Terraform 1.3.5
 -	VIM - Vi IMproved 9.0
 -	yq 4.30.4 (command-line YAML processor)
 
