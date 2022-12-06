@@ -21,11 +21,11 @@ you are finished, such as purging old VM images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Azure CLI 2.42.0
+-	Azure CLI 2.43.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.42.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
+1.	Install [Azure CLI 2.43.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
     ```bash
     $ brew install azure-cli
     ```
@@ -34,7 +34,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ az --version
-    azure-cli                         2.42.0
+    azure-cli                         2.43.0
     ...
     ```
 
@@ -51,18 +51,18 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Azure CLI 2.42.0
+-	Azure CLI 2.43.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.42.0](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
+1.	Install [Azure CLI 2.43.0](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
     Run the downloaded MSI installer, follow the on-screen instructions, and accept the defaults.  
 
 2.	Using the **Git Bash** Terminal, validate the installed command-line tool:
 
     ```bash
     $ az --version
-    azure-cli                         2.42.0
+    azure-cli                         2.43.0
     ...
     ```
 
@@ -380,7 +380,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 
 -	Ansible 2.9.27
 -	AppDynamics Node.js Serverless Tracer 21.11.348
--	Azure CLI 2.42.0
+-	Azure CLI 2.43.0
 -	Docker 20.10.21 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
@@ -412,10 +412,10 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 21.4.19 Build 24836
-	-	AppDynamics Controller 21.4.19 Build 1681
+-	AppDynamics Enterprise Console 21.4.20 Build 24850
+	-	AppDynamics Controller 21.4.20 Build 1696
 	-	AppDynamics Events Service 4.5.2 Build 20670
--	Azure CLI 2.42.0
+-	Azure CLI 2.43.0
 -	Docker 20.10.21 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
