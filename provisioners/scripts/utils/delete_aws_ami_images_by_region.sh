@@ -15,7 +15,7 @@ aws_ami_region="${aws_ami_region-us-east-1}"
 aws_ami_keep_last="${aws_ami_keep_last-true}"
 
 # check if 'jq' is installed. ----------------------------------------------------------------------
-if [ ! -f "/usr/local/bin/jq" ]; then
+if [ ! -f "/usr/local/bin/jq" ] && [ ! -f "/opt/homebrew/bin/jq" ]; then
   echo "Error: 'jq' command-line json processor utility not found."
   echo "NOTE: This script uses the 'jq' command-line json processor utility for formatting the output"
   echo "      returned by the AWS CLI."

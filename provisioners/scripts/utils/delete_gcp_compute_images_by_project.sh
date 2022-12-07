@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #---------------------------------------------------------------------------------------------------
 # Delete the AppDynamics Cloud Kickstart project-specific GCP Compute images.
 #
@@ -13,7 +13,7 @@ appd_project_image_families="${appd_project_image_families-apm-platform-centos79
 gcp_image_keep_last="${gcp_image_keep_last-true}"
 
 # check if 'jq' is installed. ----------------------------------------------------------------------
-if [ ! -f "/usr/local/bin/jq" ]; then
+if [ ! -f "/usr/local/bin/jq" ] && [ ! -f "/opt/homebrew/bin/jq" ]; then
   echo "Error: 'jq' command-line json processor utility not found."
   echo "NOTE: This script uses the 'jq' command-line json processor utility for formatting the output"
   echo "      returned by the AWS CLI."
