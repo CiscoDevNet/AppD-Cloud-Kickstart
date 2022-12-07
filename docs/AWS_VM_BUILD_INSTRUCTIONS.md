@@ -196,7 +196,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Go 1.19.3
+-	Go 1.19.4
 -	Gradle 7.6
 -	Helm CLI 3.10.2 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 352 (Amazon Corretto 8)
