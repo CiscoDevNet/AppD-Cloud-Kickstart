@@ -217,7 +217,7 @@
     "tomcat_enable_service": "false",
     "tomcat_manager_apps_remote_access": "true",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.21",
+    "docker_completion_release": "20.10.22",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }
