@@ -186,7 +186,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Amazon AWS EKS CLI [eksctl] 0.124.0 (command-line interface)
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.21.14 (command-line interface)
 -	Ansible 2.9.27
--	Ant 1.10.12
+-	Ant 1.10.13
 -	AppDynamics Node.js Serverless Tracer 21.11.348
 -	Docker 20.10.22 CE
 	-	Docker Bash Completion
