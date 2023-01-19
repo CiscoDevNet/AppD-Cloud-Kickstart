@@ -389,7 +389,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.10.3 (Package Manager for Kubernetes)
+-	Helm CLI 3.11.0 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 362 (Amazon Corretto 8)
 -	Java SE JDK 11.0.18 (Amazon Corretto 11)
 -	Java SE JDK 17.0.6 (Amazon Corretto 17)
@@ -413,7 +413,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 
 -	Ansible 2.9.27
 -	AppDynamics Enterprise Console 21.4.21 Build 24882
-	-	AppDynamics Controller 21.4.20 Build 1696
+	-	AppDynamics Controller 21.4.21 Build 1740
 	-	AppDynamics Events Service 4.5.2 Build 20670
 -	Azure CLI 2.44.1
 -	Docker 20.10.22 CE
