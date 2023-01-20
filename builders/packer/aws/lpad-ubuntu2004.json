@@ -185,7 +185,7 @@
     "npm_release": "9.0.1",
     "nodejs_release": "--lts",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.22",
+    "docker_completion_release": "20.10.23",
     "mongodb_enable_access_control": "true",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
