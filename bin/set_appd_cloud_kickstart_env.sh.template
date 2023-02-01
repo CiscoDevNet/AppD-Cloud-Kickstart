@@ -31,12 +31,12 @@ export kickstart_home
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '21.4.21.24882').
-#appd_platform_release="21.4.21.24882"
+# [optional] platform release (defaults to '23.1.0.5').
+#appd_platform_release="23.1.0.5"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="0d81e27a6c993cca1997259086f3ca1c21f4b88d4ac7f9e4e5ee015d104e6b9f"
+#appd_platform_sha256="e56a3736a3cbb03d1f55649f5d6d64f38b321579d3b4df6e11edbed491bbc184"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -190,12 +190,12 @@ export appd_controller_tenancy_mode
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '22.12.0.34603').
-#appd_java_agent_release="22.12.0.34603"
+# [optional] java agent release (defaults to '23.1.0.34620').
+#appd_java_agent_release="23.1.0.34620"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="4d52c8c8153fcc801b6c0c4043fa0ed26b5166c7e6952f6d995b28068e54b8db"
+#appd_java_agent_sha256="d10ab863884cef387f6271d10cfab4e3adc1a70f0dc1a097b045924191cec1fd"
 #export appd_java_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ export appd_controller_tenancy_mode
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver22.12.0.34603/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver23.1.0.34620/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
@@ -245,12 +245,12 @@ export appd_controller_tenancy_mode
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '22.12.0.3535').
-#appd_machine_agent_release="22.12.0.3535"
+# [optional] machine agent release (defaults to '23.1.0.3555').
+#appd_machine_agent_release="23.1.0.3555"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="8916047f17a85638c82f30c04456d5b1d1fa6f30fbbc390115d01bcc80f586d9"
+#appd_machine_agent_sha256="ec5d65f3473cfe77a8a89dfe4fab6642b933933bf83fe59c1d8c7b14ca3a097a"
 #export appd_machine_agent_sha256
 
 # --------------------------------------------------------------------------------------------------

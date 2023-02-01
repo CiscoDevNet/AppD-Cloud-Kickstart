@@ -397,14 +397,14 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.21.14 (command-line interface)
 -	Node.js JavaScript runtime v16.19.0 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 9.3.1
+-	npm JavaScript Package Manager for Node.js 9.4.0
 -	nvm (Node Version Manager) bash script 0.39.3
 -	Packer 1.8.5
 -	Python 2.7.5
-	-	Pip 22.3.1
+	-	Pip 23.0
 -	Python 3.6.8
-	-	Pip 22.3.1
--	Serverless Framework CLI 3.26.0
+	-	Pip 23.0
+-	Serverless Framework CLI 3.27.0
 -	Terraform 1.3.7
 -	VIM - Vi IMproved 9.0
 -	yq 4.30.8 (command-line YAML processor)
@@ -412,9 +412,9 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 21.4.21 Build 24882
-	-	AppDynamics Controller 21.4.21 Build 1740
-	-	AppDynamics Events Service 4.5.2 Build 20670
+-	AppDynamics Enterprise Console 23.1.0 Build 5
+	-	AppDynamics Controller 23.1.0 Build 17
+	-	AppDynamics Events Service 4.5.2 Build 20822
 -	Azure CLI 2.44.1
 -	Docker 20.10.23 CE
 	-	Docker Bash Completion
@@ -428,8 +428,8 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.32
 -	Python 2.7.5
-	-	Pip 22.3.1
+	-	Pip 23.0
 -	Python 3.6.8
-	-	Pip 22.3.1
+	-	Pip 23.0
 -	VIM - Vi IMproved 9.0
 -	yq 4.30.8 (command-line YAML processor)
