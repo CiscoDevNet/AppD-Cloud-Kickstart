@@ -107,7 +107,7 @@ set -x    # turn command display back ON.
 
 # improve mysql server installation security. ------------------------------------------------------
 # if secure access is enabled, remove anonymous users, disallow remote 'root' logins, and remove test database.
-if [ "$mysql_enable_secure_access" == "true" ]; then
+if [ "$mysql_enable_secure_access" = "true" ]; then
   # run the mysql secure install command with the following pre-set answers using the 'here string' (<<<) defined below:
   #   Would you like to setup VALIDATE PASSWORD component? Press y|Y for Yes, any other key for No: Y
   #   There are three levels of password validation policy: Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 2

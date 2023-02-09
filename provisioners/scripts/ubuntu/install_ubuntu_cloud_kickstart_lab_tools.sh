@@ -34,7 +34,7 @@ kickstart_home="${user_home}/appd-cloud-kickstart"          # cloud kickstart la
 export kickstart_home
 
 # validate environment variables. ------------------------------------------------------------------
-if [ "$user_name" == "root" ]; then
+if [ "$user_name" = "root" ]; then
   echo "Error: 'user_name' should NOT be 'root'."
   exit 1
 fi

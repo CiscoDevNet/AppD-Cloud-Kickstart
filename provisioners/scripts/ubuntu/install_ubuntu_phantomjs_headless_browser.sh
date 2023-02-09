@@ -60,7 +60,7 @@ export PATH
 
 # if ubuntu release is '22.04', apply fix for incompatible openssl.
 ubuntu_release=$(lsb_release -rs)
-if [ "$ubuntu_release" == "22.04" ]; then
+if [ "$ubuntu_release" = "22.04" ]; then
   OPENSSL_CONF=/dev/null
   export OPENSSL_CONF
 fi
