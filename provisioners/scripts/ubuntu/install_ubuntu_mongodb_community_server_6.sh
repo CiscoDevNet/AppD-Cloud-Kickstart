@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 #---------------------------------------------------------------------------------------------------
-# Install MongoDB Community Server 5.0 on Ubuntu Linux.
+# Install MongoDB Community Server 6.0 on Ubuntu Linux.
 #
 # MongoDB is a document database designed for ease of development and scaling. It is
 # source-available, cross-platform, and classified as a NoSQL database program, MongoDB uses
@@ -55,10 +55,10 @@ apt-get -y install gnupg
 # NOTE: when adding the repository that is provided by mongodb, because of ubuntu security
 #       restrictions, you cannot just add a repository. you also need to include the gpg key and
 #       import it as a trusted key on the local operating system.
-wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
 
 # create a list file for mongodb.
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 
 # install the mongodb database. --------------------------------------------------------------------
 apt-get update
@@ -80,9 +80,6 @@ systemctl status mongod
 # set mongodb shell environment variables.
 PATH=/usr/bin:$PATH
 export PATH
-
-# verify mongodb version.
-mongo --version
 
 # verify mongodb shell version.
 mongosh --version
