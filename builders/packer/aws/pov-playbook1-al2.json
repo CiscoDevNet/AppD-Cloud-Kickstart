@@ -61,6 +61,7 @@
   "provisioners": [
     {
       "inline": [
+        "sudo hostnamectl | awk '/Operating System/ {print $0}'",
         "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
         "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `kickstart_home`}}",
         "sudo mkdir -p {{user `pov_playbook1_lab_artifacts_dir`}}",
@@ -132,6 +133,8 @@
         "user_group={{user `aws_ec2_group`}}",
         "user_docker_profile={{user `user_docker_profile`}}",
         "d_completion_release={{user `docker_completion_release`}}",
+        "nodejs_release={{user `nodejs_release`}}",
+        "npm_release={{user `npm_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -215,6 +218,8 @@
     "tomcat_manager_apps_remote_access": "true",
     "user_docker_profile": "true",
     "docker_completion_release": "20.10.17",
+    "nodejs_release": "16",
+    "npm_release": "latest",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }

@@ -61,6 +61,7 @@
   "provisioners": [
     {
       "inline": [
+        "sudo hostnamectl | awk '/Operating System/ {print $0}'",
         "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
         "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `kickstart_home`}}"
       ],
@@ -111,6 +112,8 @@
         "user_docker_profile={{user `user_docker_profile`}}",
         "d_completion_release={{user `docker_completion_release`}}",
         "mongodb_enable_access_control={{user `mongodb_enable_access_control`}}",
+        "nodejs_release={{user `nodejs_release`}}",
+        "npm_release={{user `npm_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -173,7 +176,7 @@
     "aws_ec2_boot_disk_size": "48",
     "aws_ec2_hostname": "lpad",
     "aws_ec2_domain": "localdomain",
-    "aws_ec2_instance_type": "t2.micro",
+    "aws_ec2_instance_type": "t2.large",
     "aws_ec2_username": "ec2-user",
     "aws_ec2_group": "ec2-user",
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
@@ -182,6 +185,8 @@
     "user_docker_profile": "true",
     "docker_completion_release": "20.10.17",
     "mongodb_enable_access_control": "true",
+    "nodejs_release": "16",
+    "npm_release": "latest",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }

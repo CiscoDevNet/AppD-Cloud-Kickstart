@@ -12,7 +12,7 @@
           "name": "CentOS-7-2111*",
           "root-device-type": "ebs"
         },
-        "owners": ["aws-marketplace"],
+        "owners": ["125523088429"],
         "most_recent": true
       },
       "ami_description": "{{user `aws_ami_description`}}",
@@ -34,7 +34,7 @@
         "Name": "{{user `aws_ami_name`}}",
         "Owner": "{{user `aws_ami_owner`}}",
         "Project": "{{user `app_name`}}",
-        "Project_Image_Type": "CWOM-Platform-CentOS",
+        "Project_Image_Type": "CWOM-Platform-CentOS7",
         "Base_AMI_Name": "{{.SourceAMIName}}",
         "ApplicationName": "{{user `app_name`}}",
         "CiscoMailAlias": "{{user `aws_user_email`}}",
@@ -61,6 +61,7 @@
   "provisioners": [
     {
       "inline": [
+        "sudo hostnamectl | awk '/Operating System/ {print $0}'",
         "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
         "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `kickstart_home`}}"
       ],
