@@ -56,21 +56,50 @@ if [ -z "$user_name" ]; then
   exit 1
 fi
 
-if [ "$user_name" == "root" ]; then
+if [ "$user_name" = "root" ]; then
   echo "Error: 'user_name' should NOT be 'root'."
   usage
   exit 1
 fi
 
 # install cloud9 runtime enviroment. ---------------------------------------------------------------
-user_host_os=$(hostnamectl | awk '/Operating System/ {printf "%s %s %s", $3, $4, $5}')
-if [ "$user_host_os" == "CentOS Linux 7" ]; then
-  # add 'glibc-static' library for centos 7.9 installations.
-  yum -y install glibc-static
-fi
+# add 'glibc-static' library for centos-like installations.
+user_host_os=$(hostnamectl | awk '/Operating System/ {printf "%s %s %s %s %s", $3, $4, $5, $6, $7}' | xargs)
+case $user_host_os in
+  "CentOS Linux 7 (Core)")
+    yum -y install glibc-static
+    ;;
+  "Amazon Linux 2023"|"Fedora 34 (Cloud Edition)")
+    dnf -y install glibc-static
+    ;;
+  # in centos 8 like environments, the 'glibc-static' library is found in the 'powertools' repo.
+  "AlmaLinux 8.7 (Stone Smilodon)"|"CentOS Stream 8"|"Rocky Linux 8.6 (Green Obsidian)")
+    dnf -y install dnf-plugins-core
+    dnf -y install epel-release
+    dnf config-manager --set-enabled powertools
+    dnf -y install glibc-static
+    ;;
+  # in centos 9 like environments, the 'glibc-static' library is found in the 'crb' repo.
+  "AlmaLinux 9.1 (Lime Lynx)"|"CentOS Stream 9"|"Rocky Linux 9.1 (Blue Onyx)")
+    dnf -y install dnf-plugins-core
+    dnf -y install epel-release
+    dnf config-manager --set-enabled crb
+    dnf -y install glibc-static
+    ;;
+  *)
+    ;;
+esac
 
 # install the cloud9 runtime environment in the user's home directory ('~/.c9').
-runuser -c "${kickstart_home}/provisioners/scripts/aws/c9-install.sh" - ${user_name}
+case $user_host_os in
+  # for newer os environments that don't have 'python2', we need to run the new c9 v2.0.0 installer script.
+  "AlmaLinux 9.1 (Lime Lynx)"|"Amazon Linux 2023"|"CentOS Stream 9"|"Fedora 34 (Cloud Edition)"|"Rocky Linux 9.1 (Blue Onyx)")
+    runuser -c "${kickstart_home}/provisioners/scripts/aws/c9-install-2.0.0.sh" - ${user_name}
+    ;;
+  *)
+    runuser -c "${kickstart_home}/provisioners/scripts/aws/c9-install.sh" - ${user_name}
+    ;;
+esac
 
 # aws toolkit uses a file watcher utility that monitors changes to files and directories.
 # increase the maximum number of files that can be handled by file watcher to avoid errors.
