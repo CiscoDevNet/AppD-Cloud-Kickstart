@@ -35,7 +35,7 @@ ubuntu_release=$(lsb_release -rs)
 
 if [ -n "$ubuntu_release" ]; then
   case $ubuntu_release in
-      16.04|18.04|20.04)
+      16.04|18.04|20.04|22.04)
         ;;
       *)
         echo "Error: MongoDB NOT supported on Ubuntu release: '$(lsb_release -ds)'."
@@ -72,6 +72,7 @@ systemctl daemon-reload
 systemctl start mongod
 systemctl enable mongod
 systemctl is-enabled mongod
+sleep 10
 
 # check that the mongodb service is running.
 systemctl status mongod

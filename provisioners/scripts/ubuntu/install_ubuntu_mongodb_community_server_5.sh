@@ -72,6 +72,7 @@ systemctl daemon-reload
 systemctl start mongod
 systemctl enable mongod
 systemctl is-enabled mongod
+sleep 10
 
 # check that the mongodb service is running.
 systemctl status mongod
