@@ -15,7 +15,7 @@ if [ -n "$ubuntu_release" ]; then
         apt_get_install_python2_cmd="apt-get -y install python"
         python2_version_cmd="python --version"
         ;;
-      20.04|22.04)
+      20.04|22.04|22.10)
         apt_get_install_python2_cmd="apt-get -y install python2"
         python2_version_cmd="python2 --version"
         ;;

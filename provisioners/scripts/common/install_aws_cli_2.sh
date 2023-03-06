@@ -75,7 +75,9 @@ YLZATHZKTJyiqA==
 EOF
 
 # import the aws cli 2 public key.
+set +e  # temporarily turn 'exit pipeline on non-zero return status' OFF.
 gpg --import ${aws_cli_pgpkey_file}
+set -e  # turn 'exit pipeline on non-zero return status' back ON.
 
 # verify the downloaded binary.
 gpg --verify ${aws_cli_sig_file} ${aws_cli_binary}

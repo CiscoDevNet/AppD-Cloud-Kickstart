@@ -80,7 +80,9 @@ y2VhKc09A8RwSI69vDs=
 EOF
 
 # import the corretto 19 public key.
+set +e  # temporarily turn 'exit pipeline on non-zero return status' OFF.
 gpg --import ${jdk_pgpkey_file}
+set -e  # turn 'exit pipeline on non-zero return status' back ON.
 
 # verify the downloaded binary using the pgp signature.
 gpg --verify ${jdk_sig_file} ${jdk_binary}

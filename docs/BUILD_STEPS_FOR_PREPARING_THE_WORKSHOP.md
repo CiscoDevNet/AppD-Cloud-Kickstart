@@ -57,15 +57,15 @@ SSH to communicate with your cloud resources and managed nodes.
 
 The following open source software needs to be installed on the host macOS machine:
 
--	Homebrew 3.6.21
+-	Homebrew 4.0.5
 -	Git 2.39.2
--	Packer 1.8.5
+-	Packer 1.8.6
 -	Terraform 1.3.8
 -	jq 1.6
 
 Perform the following steps to install the needed software:
 
-1.	Install the [Homebrew 3.6.21](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
+1.	Install the [Homebrew 4.0.5](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     ```bash
     $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
@@ -75,7 +75,7 @@ Perform the following steps to install the needed software:
     $ brew install git
     ```
 
-3.	Install [Packer 1.8.5](https://www.packer.io/downloads.html) for macOS 64-bit.  
+3.	Install [Packer 1.8.6](https://www.packer.io/downloads.html) for macOS 64-bit.  
     ```bash
     $ brew tap hashicorp/tap
     $ brew install hashicorp/tap/packer
@@ -96,7 +96,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ brew --version
-    Homebrew 3.6.21
+    Homebrew 4.0.5
     $ brew doctor
     Your system is ready to brew.
 
@@ -104,7 +104,7 @@ Perform the following steps to install the needed software:
     git version 2.39.2
 
     $ packer --version
-    1.8.5
+    1.8.6
 
     $ terraform --version
     Terraform v1.3.8
@@ -126,7 +126,7 @@ Perform the following steps to install the needed software:
 To build the AppD Cloud Kickstart immutable VM images, the following open source software needs to be installed on the host Windows machine:
 
 -	Git 2.39.2 for Win64
--	Packer 1.8.5
+-	Packer 1.8.6
 -	Terraform 1.3.8
 -	jq 1.6
 
@@ -134,7 +134,7 @@ Perform the following steps to install the needed software:
 
 1.	Install [Git 2.39.2](https://github.com/git-for-windows/git/releases/download/v2.39.2.windows.1/Git-2.39.2-64-bit.exe) for Windows 64-bit.
 
-2.	Install [Packer 1.8.5](https://releases.hashicorp.com/packer/1.8.5/packer_1.8.5_windows_amd64.zip) for Windows 64-bit.  
+2.	Install [Packer 1.8.6](https://releases.hashicorp.com/packer/1.8.6/packer_1.8.6_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\bin`  
 
@@ -166,7 +166,7 @@ Perform the following steps to install the needed software:
     git version 2.39.2.windows.1
 
     $ packer --version
-    1.8.5
+    1.8.6
 
     $ terraform --version
     Terraform v1.3.8
