@@ -24,6 +24,7 @@
   "provisioners": [
     {
       "inline": [
+        "sudo hostnamectl | awk '/Operating System/ {print $0}'",
         "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
         "sudo chown -R {{user `gcp_username`}}:{{user `gcp_group`}} {{user `kickstart_home`}}"
       ],
@@ -69,6 +70,8 @@
         "user_docker_profile={{user `user_docker_profile`}}",
         "d_completion_release={{user `docker_completion_release`}}",
         "mongodb_enable_access_control={{user `mongodb_enable_access_control`}}",
+        "nodejs_release={{user `nodejs_release`}}",
+        "npm_release={{user `npm_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `gcp_username`}}"
       ],
@@ -113,6 +116,8 @@
     }
   ],
   "variables": {
+    "app_name": "AppDynamics Cloud Kickstart",
+    "app_service_name": "CloudKickstartLab",
     "gcp_account_file": "../../../shared/keys/gcp-devops.json",
     "gcp_disk_size": "48",
     "gcp_disk_type": "pd-standard",
@@ -128,7 +133,10 @@
     "gcp_zone": "{{env `gcp_zone`}}",
     "user_docker_profile": "true",
     "docker_completion_release": "23.0.1",
-    "mongodb_enable_access_control": "false",
-    "kickstart_home": "/opt/appd-cloud-kickstart"
+    "mongodb_enable_access_control": "true",
+    "nodejs_release": "16",
+    "npm_release": "latest",
+    "kickstart_home": "/opt/appd-cloud-kickstart",
+    "org_cost_center": "{{env `org_cost_center`}}"
   }
 }

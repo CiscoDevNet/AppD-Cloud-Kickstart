@@ -139,8 +139,8 @@
         "user_group={{user `aws_ec2_group`}}",
         "user_docker_profile={{user `user_docker_profile`}}",
         "d_completion_release={{user `docker_completion_release`}}",
-        "npm_release={{user `npm_release`}}",
         "nodejs_release={{user `nodejs_release`}}",
+        "npm_release={{user `npm_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -225,8 +225,8 @@
     "tomcat_manager_apps_remote_access": "true",
     "user_docker_profile": "true",
     "docker_completion_release": "23.0.1",
-    "npm_release": "latest",
     "nodejs_release": "--lts",
+    "npm_release": "latest",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }

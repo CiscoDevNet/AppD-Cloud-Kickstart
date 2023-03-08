@@ -119,7 +119,7 @@
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
-      "execute_command": "echo '{{user `aws_ec2_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "execute_command": "echo '{{user `aws_ec2_username`}}' | {{.Vars}} sudo -S -E bash -eux '{{.Path}}'",
       "expect_disconnect": true,
       "pause_before": "10s",
       "scripts": [

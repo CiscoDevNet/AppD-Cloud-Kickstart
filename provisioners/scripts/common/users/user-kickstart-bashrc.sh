@@ -1,4 +1,4 @@
-# @(#).bashrc       1.0 2022/10/19 SMI
+# @(#).bashrc       1.0 2023/03/07 SMI
 # bash resource configuration for kickstart users.
 
 # source global definitions.
@@ -51,8 +51,8 @@ export GOPATH
 
 # set phantomjs environment variables (if needed).
 # if ubuntu release is '22.04', apply fix for incompatible openssl.
-user_host_os=$(hostnamectl | awk '/Operating System/ {printf "%s %s %s", $3, $4, $5}')
-if [ "$user_host_os" == "Ubuntu 22.04.1 LTS" ]; then
+user_host_os=$(hostnamectl | awk '/Operating System/ {printf "%s %s %s %s %s", $3, $4, $5, $6, $7}' | xargs)
+if [ "$user_host_os" = "Ubuntu 22.04.2 LTS" ]; then
   OPENSSL_CONF=/dev/null
   export OPENSSL_CONF
 fi
@@ -134,5 +134,5 @@ function psgrep {
 }
 
 function netstatgrep {
-  netstat -an | grep "Active\|Proto\|$@"
+  netstat -ant | grep "Active\|Proto\|$@"
 }
