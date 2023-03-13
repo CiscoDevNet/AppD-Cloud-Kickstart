@@ -35,6 +35,7 @@
         "Owner": "{{user `aws_ami_owner`}}",
         "Project": "{{user `app_name`}}",
         "Project_Image_Type": "LPAD-CentOS7",
+        "VM_Username": "{{user `aws_ec2_username`}}",
         "Base_AMI_Name": "{{.SourceAMIName}}",
         "ApplicationName": "{{user `app_name`}}",
         "CiscoMailAlias": "{{user `aws_user_email`}}",

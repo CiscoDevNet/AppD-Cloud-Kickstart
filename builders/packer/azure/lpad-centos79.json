@@ -27,7 +27,8 @@
       "azure_tags": {
         "Owner": "{{user `azure_image_owner`}}",
         "Project": "AppDynamics Cloud Kickstart",
-        "Project_Image_Type": "LPAD-CentOS7"
+        "Project_Image_Type": "LPAD-CentOS7",
+        "VM_Username": "{{user `azure_ssh_username`}}"
       }
     }
   ],
