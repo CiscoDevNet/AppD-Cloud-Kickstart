@@ -215,3 +215,27 @@ runuser -c "TERM=xterm-256color vim -c colorscheme -c quitall" - ${user_name}
 # set directory ownership and file permissions. ----------------------------------------------------
 chown -R ${user_name}:${user_group} .
 chmod 644 .bash_profile .bashrc
+
+# create docker profile for the user. --------------------------------------------------------------
+if [ "$user_docker_profile" == "true" ]; then
+  # add user to the 'docker' group.
+  usermod -aG docker ${user_name}
+
+  # install docker completion for bash.
+  d_completion_binary=".docker-completion.sh"
+
+  # download docker completion for bash from github.com.
+  rm -f ${user_home}/${d_completion_binary}
+  curl --silent --location "https://github.com/docker/cli/raw/v${d_completion_release}/contrib/completion/bash/docker" --output ${user_home}/${d_completion_binary}
+  chown -R ${user_name}:${user_group} ${user_home}/${d_completion_binary}
+  chmod 644 ${user_home}/${d_completion_binary}
+
+  # install docker compose completion for bash.
+  dc_completion_binary=".docker-compose-completion.sh"
+
+  # download docker completion for bash from github.com.
+  rm -f ${user_home}/${dc_completion_binary}
+  curl --silent --location "https://github.com/docker/compose/raw/${dc_completion_release}/contrib/completion/bash/docker-compose" --output ${user_home}/${dc_completion_binary}
+  chown -R ${user_name}:${user_group} ${user_home}/${dc_completion_binary}
+  chmod 644 ${user_home}/${dc_completion_binary}
+fi
