@@ -506,7 +506,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Python 3.6.8
 	-	Pip 23.0.1
 -	Serverless Framework CLI 3.28.1
--	Terraform 1.4.0
+-	Terraform 1.4.1
 -	VIM - Vi IMproved 9.0
 -	yq 4.31.2 (command-line YAML processor)
 
