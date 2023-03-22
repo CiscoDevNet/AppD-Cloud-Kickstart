@@ -1,5 +1,5 @@
 #!/bin/sh -eux
-# install python 3.x for centos 8.x.
+# install python 3.x for centos 9.x.
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] python 3.x install parameters [w/ defaults].
