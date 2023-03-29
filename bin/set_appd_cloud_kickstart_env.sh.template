@@ -190,12 +190,12 @@ export appd_controller_tenancy_mode
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '23.2.0.34668').
-#appd_java_agent_release="23.2.0.34668"
+# [optional] java agent release (defaults to '23.3.0.34728').
+#appd_java_agent_release="23.3.0.34728"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="7eb87c31d5cc6861505d9834cf1675142998b98c9377d071cca15abefed7640a"
+#appd_java_agent_sha256="c4759b793c1736ab9f897b46aec91b4778581d5929fc0c13b7705787931a795b"
 #export appd_java_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ export appd_controller_tenancy_mode
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver23.2.0.34668/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver23.3.0.34728/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
