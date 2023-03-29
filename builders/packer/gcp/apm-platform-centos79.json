@@ -153,7 +153,7 @@
     "gcp_group": "centos",
     "gcp_zone": "{{env `gcp_zone`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "23.0.1",
+    "docker_completion_release": "23.0.2",
     "nodejs_release": "16",
     "npm_release": "latest",
     "kickstart_home": "/opt/appd-cloud-kickstart",
