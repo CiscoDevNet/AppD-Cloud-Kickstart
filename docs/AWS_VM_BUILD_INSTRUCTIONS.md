@@ -12,29 +12,29 @@ Before building the AppD Cloud Kickstart VM images for AWS, it is recommended th
 
 Here is a list of the recommended open source software to be installed on the host macOS machine:
 
--	Amazon AWS CLI 2.11.6 (command-line interface)
+-	Amazon AWS CLI 2.11.8 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.11.6](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
+1.	Install [AWS CLI 2.11.8](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
     `$ brew install awscli@2`  
 
 2.	Validate installed command-line tools:
 
     ```bash
     $ aws --version
-    aws-cli/2.11.6 Python/3.11.2 Darwin/22.4.0 source/arm64 prompt/off
+    aws-cli/2.11.8 Python/3.11.2 Darwin/22.4.0 source/arm64 prompt/off
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
 
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
--	Amazon AWS CLI 2.11.6 (command-line interface)
+-	Amazon AWS CLI 2.11.8 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.11.6](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
+1.	Install [AWS CLI 2.11.8](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
     Run the downloaded MSI installer and follow the on-screen instructions.  
 
     **NOTE:** For Windows users, the MSI installation package offers a familiar and convenient way to install the AWS CLI without installing any other prerequisites. However, when updates are released, you must repeat the installation process to get the latest version of the AWS CLI. If you prefer more frequent updates, consider using `pip` as described in the AWS CLI [install guide](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html).
@@ -43,7 +43,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ aws --version
-    aws-cli/2.11.6 Python/3.9.11 Windows/10 exe/AMD64 prompt/off
+    aws-cli/2.11.8 Python/3.9.11 Windows/10 exe/AMD64 prompt/off
     ```
 
 ## Prepare for the Build
@@ -138,11 +138,11 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Amazon AWS CLI 2.11.6 (command-line interface)
+-	Amazon AWS CLI 2.11.8 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 23.1.1 Build 18
-	-	AppDynamics Controller 23.1.1 Build 25
+-	AppDynamics Enterprise Console 23.1.2 Build 22
+	-	AppDynamics Controller 23.1.2 Build 53
 	-	AppDynamics Events Service 4.5.2 Build 20822
 -	Docker 23.0.2 CE
 	-	Docker Bash Completion
@@ -156,11 +156,11 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 23.0.1
 -	VIM - Vi IMproved 9.0
--	yq 4.33.1 (command-line YAML processor)
+-	yq 4.33.2 (command-line YAML processor)
 
 __CWOM-Platform VM__ - The following utilities and workload optimization management applications are pre-installed:
 
--	Amazon AWS CLI 2.11.6 (command-line interface)
+-	Amazon AWS CLI 2.11.8 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.27
 -	Cisco Workload Optimization Manager (CWOM) 2.3.28
@@ -176,15 +176,15 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	Python 3.6.8
 	-	Pip 23.0.1
 -	VIM - Vi IMproved 9.0
--	yq 4.33.1 (command-line YAML processor)
+-	yq 4.33.2 (command-line YAML processor)
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 2.11.6 (command-line interface)
+-	Amazon AWS CLI 2.11.8 (command-line interface)
 -	Amazon AWS Cloud9 IDE
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.135.0 (command-line interface)
--	Amazon AWS Kubernetes Control CLI [kubectl] 1.24.10 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.136.0 (command-line interface)
+-	Amazon AWS Kubernetes Control CLI [kubectl] 1.24.11 (command-line interface)
 -	Ansible 2.9.27
 -	Ant 1.10.13
 -	AppDynamics Node.js Serverless Tracer 21.11.348
@@ -208,7 +208,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Maven 3.9.1
 -	MongoDB Community Server 5.0.15
 -	Node.js JavaScript runtime v16.19.1 (Latest LTS Version)
--	npm JavaScript Package Manager for Node.js 9.6.2
+-	npm JavaScript Package Manager for Node.js 9.6.3
 -	nvm (Node Version Manager) bash script 0.39.3
 -	Packer 1.8.6
 -	Python 2.7.5
@@ -216,7 +216,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Python 3.6.8
 	-	Pip 23.0.1
 -	Serverless Framework CLI 3.29.0
--	Terraform 1.4.2
+-	Terraform 1.4.4
 -	VIM - Vi IMproved 9.0
 -	XMLStarlet 1.6.1 (command-line XML processor)
--	yq 4.33.1 (command-line YAML processor)
+-	yq 4.33.2 (command-line YAML processor)
