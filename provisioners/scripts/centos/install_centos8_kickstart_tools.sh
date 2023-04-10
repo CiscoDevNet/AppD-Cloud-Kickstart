@@ -37,6 +37,17 @@ dnf -y install epel-release
 dnf config-manager --set-enabled powertools
 dnf repolist
 
+# install neofetch system information tool. ---------------------------------------------------------
+dnf -y install neofetch
+
+# verify installation.
+set +e  # temporarily turn 'exit pipeline on non-zero return status' OFF.
+neofetch --version
+set -e  # turn 'exit pipeline on non-zero return status' back ON.
+
+# display system information.
+neofetch
+
 # install python 2.x, pip2, and setuptools. ---------------------------------------------------------
 # install python2.
 dnf -y install python2

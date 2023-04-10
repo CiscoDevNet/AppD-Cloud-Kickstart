@@ -97,6 +97,8 @@
       "expect_disconnect": true,
       "inline": [
         "sudo dnf -y install git",
+        "sudo dnf -y install neofetch",
+        "sudo neofetch",
         "sudo dnf -y install xmlstarlet",
         "sudo dnf -y update",
         "sudo systemctl reboot"
