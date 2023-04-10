@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 echo "--------------------------------------"
 echo "Terraform Provider and Module Releases"
 echo "--------------------------------------"
@@ -30,6 +30,7 @@ echo ""
 
 echo "Terraform Providers:"
 curl --silent https://api.github.com/repos/hashicorp/terraform/releases/latest | jq '. | {name: .name, html_url: .html_url}'
+curl --silent https://api.github.com/repos/ansible/terraform-provider-ansible/tags | jq '.[0] | {name: .name, tarball_url: .tarball_url}'
 curl --silent https://api.github.com/repos/hashicorp/terraform-provider-helm/tags | jq '.[0] | {name: .name, tarball_url: .tarball_url}'
 curl --silent https://api.github.com/repos/hashicorp/terraform-provider-http/tags | jq '.[0] | {name: .name, tarball_url: .tarball_url}'
 curl --silent https://api.github.com/repos/gavinbunney/terraform-provider-kubectl/tags | jq '.[0] | {name: .name, tarball_url: .tarball_url}'

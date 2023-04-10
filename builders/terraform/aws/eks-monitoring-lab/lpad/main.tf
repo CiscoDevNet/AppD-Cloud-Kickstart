@@ -75,7 +75,7 @@ data "aws_ami" "lpad_ami" {
 # Modules ------------------------------------------------------------------------------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = ">= 3.19"
+  version = ">= 4.0"
 
   name = local.vpc_name
   cidr = var.aws_vpc_cidr_block
@@ -83,7 +83,7 @@ module "vpc" {
   azs            = data.aws_availability_zones.available.names
   public_subnets = var.aws_vpc_public_subnets
 
-  enable_nat_gateway   = true
+  enable_nat_gateway   = false
   enable_vpn_gateway   = false
   enable_dns_hostnames = true
   enable_dns_support   = true
