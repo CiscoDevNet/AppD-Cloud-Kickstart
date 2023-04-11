@@ -481,7 +481,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 
 -	Ansible 2.9.27
 -	AppDynamics Node.js Serverless Tracer 21.11.348
--	Docker 23.0.2 CE
+-	Docker 23.0.3 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -497,7 +497,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Java SE JDK 19.0.2 (Amazon Corretto 19)
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.24.12 (command-line interface)
--	Node.js JavaScript runtime v16.19.1 (Latest LTS Version)
+-	Node.js JavaScript runtime v16.20.0 (Latest LTS Version)
 -	npm JavaScript Package Manager for Node.js 9.6.4
 -	nvm (Node Version Manager) bash script 0.39.3
 -	Packer 1.8.6
@@ -508,7 +508,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Serverless Framework CLI 3.30.1
 -	Terraform 1.4.4
 -	VIM - Vi IMproved 9.0
--	yq 4.33.2 (command-line YAML processor)
+-	yq 4.33.3 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
@@ -516,7 +516,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	AppDynamics Enterprise Console 23.1.2 Build 22
 	-	AppDynamics Controller 23.1.2 Build 53
 	-	AppDynamics Events Service 4.5.2 Build 20827
--	Docker 23.0.2 CE
+-	Docker 23.0.3 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -533,4 +533,4 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 23.0.1
 -	VIM - Vi IMproved 9.0
--	yq 4.33.2 (command-line YAML processor)
+-	yq 4.33.3 (command-line YAML processor)

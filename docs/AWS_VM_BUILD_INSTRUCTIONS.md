@@ -23,7 +23,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ aws --version
-    aws-cli/2.11.11 Python/3.11.2 Darwin/22.4.0 source/arm64 prompt/off
+    aws-cli/2.11.11 Python/3.11.3 Darwin/22.4.0 source/arm64 prompt/off
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
@@ -144,7 +144,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	AppDynamics Enterprise Console 23.1.2 Build 22
 	-	AppDynamics Controller 23.1.2 Build 53
 	-	AppDynamics Events Service 4.5.2 Build 20827
--	Docker 23.0.2 CE
+-	Docker 23.0.3 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -156,7 +156,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 23.0.1
 -	VIM - Vi IMproved 9.0
--	yq 4.33.2 (command-line YAML processor)
+-	yq 4.33.3 (command-line YAML processor)
 
 __CWOM-Platform VM__ - The following utilities and workload optimization management applications are pre-installed:
 
@@ -164,7 +164,7 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.27
 -	Cisco Workload Optimization Manager (CWOM) 2.3.28
--	Docker 23.0.2 CE
+-	Docker 23.0.3 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -176,19 +176,19 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	Python 3.6.8
 	-	Pip 23.0.1
 -	VIM - Vi IMproved 9.0
--	yq 4.33.2 (command-line YAML processor)
+-	yq 4.33.3 (command-line YAML processor)
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
 -	Amazon AWS CLI 2.11.11 (command-line interface)
 -	Amazon AWS Cloud9 IDE
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.136.0 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.137.0 (command-line interface)
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.24.11 (command-line interface)
 -	Ansible 2.9.27
 -	Ant 1.10.13
 -	AppDynamics Node.js Serverless Tracer 21.11.348
--	Docker 23.0.2 CE
+-	Docker 23.0.3 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -207,7 +207,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	jq 1.6 (command-line JSON processor)
 -	Maven 3.9.1
 -	MongoDB Community Server 5.0.16
--	Node.js JavaScript runtime v16.19.1 (Latest LTS Version)
+-	Node.js JavaScript runtime v16.20.0 (Latest LTS Version)
 -	npm JavaScript Package Manager for Node.js 9.6.4
 -	nvm (Node Version Manager) bash script 0.39.3
 -	Packer 1.8.6
@@ -219,4 +219,4 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Terraform 1.4.4
 -	VIM - Vi IMproved 9.0
 -	XMLStarlet 1.6.1 (command-line XML processor)
--	yq 4.33.2 (command-line YAML processor)
+-	yq 4.33.3 (command-line YAML processor)
