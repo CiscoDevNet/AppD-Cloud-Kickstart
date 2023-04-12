@@ -77,7 +77,7 @@ fi
 
 if [ -n "$appd_aws_eks_version" ]; then
   case $appd_aws_eks_version in
-      1.22|1.23|1.24|1.25)
+      1.22|1.23|1.24|1.25|1.26)
         ;;
       *)
         echo "Error: invalid 'appd_aws_eks_version'."
