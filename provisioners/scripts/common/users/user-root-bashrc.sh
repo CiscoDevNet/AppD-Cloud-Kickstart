@@ -1,4 +1,4 @@
-# @(#).bashrc       1.0 2023/03/07 SMI
+# @(#).bashrc       1.0 2023/04/12 SMI
 # bash resource configuration for kickstart administrators.
 
 # user 'root' specific aliases and functions.
@@ -18,7 +18,7 @@ umask 022
 JAVA_HOME=/usr/local/java/jdk180
 #JAVA_HOME=/usr/local/java/jdk11
 #JAVA_HOME=/usr/local/java/jdk17
-#JAVA_HOME=/usr/local/java/jdk19
+#JAVA_HOME=/usr/local/java/jdk20
 export JAVA_HOME
 
 # set maven home environment variables.
