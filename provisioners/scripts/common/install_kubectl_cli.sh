@@ -21,6 +21,8 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] kubectl install parameters [w/ defaults].
+#kubectl_release="${kubectl_release:-1.27.0}"
+#kubectl_sha256="${kubectl_sha256:-71a78259d70da9c5540c4cf4cff121f443e863376f68f89a759d90cef3f51e87}"
 #kubectl_release="${kubectl_release:-1.26.3}"
 #kubectl_sha256="${kubectl_sha256:-026c8412d373064ab0359ed0d1a25c975e9ce803a093d76c8b30c5996ad73e75}"
 #kubectl_release="${kubectl_release:-1.25.8}"
