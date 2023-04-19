@@ -491,10 +491,10 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git-Flow Bash Completion
 -	Google Cloud SDK 427.0.0
 -	Helm CLI 3.11.3 (Package Manager for Kubernetes)
--	Java SE JDK 8 Update 362 (Amazon Corretto 8)
--	Java SE JDK 11.0.18 (Amazon Corretto 11)
--	Java SE JDK 17.0.6 (Amazon Corretto 17)
--	Java SE JDK 20.0.0 (Amazon Corretto 20)
+-	Java SE JDK 8 Update 372 (Amazon Corretto 8)
+-	Java SE JDK 11.0.19 (Amazon Corretto 11)
+-	Java SE JDK 17.0.7 (Amazon Corretto 17)
+-	Java SE JDK 20.0.1 (Amazon Corretto 20)
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.24.13 (command-line interface)
 -	Node.js JavaScript runtime v16.20.0 (Latest LTS Version)
@@ -525,7 +525,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
 -	Google Cloud SDK 427.0.0
--	Java SE JDK 8 Update 362 (Amazon Corretto 8)
+-	Java SE JDK 8 Update 372 (Amazon Corretto 8)
 -	jq 1.6 (command-line JSON processor)
 -	MySQL Shell 8.0.33
 -	Python 2.7.5

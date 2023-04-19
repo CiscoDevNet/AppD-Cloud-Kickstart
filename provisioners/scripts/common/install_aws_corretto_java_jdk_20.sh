@@ -18,8 +18,8 @@
 
 # set amazon corretto 20 installation variables. ---------------------------------------------------
 jdk_home="jdk20"
-jdk_build="20.0.0.36.1"
-jdk_sha256="7c27bb94823f904d8ebf8c5b0bafcba8b37bf4a6ae9b64653fcc4565a0d5c718"
+jdk_build="20.0.1.9.1"
+jdk_sha256="32a6ce43ec641b0bd55d21bc4aa17995407581fb1c5142703805960aea95d2db"
 jdk_folder="amazon-corretto-${jdk_build}-linux-x64"
 jdk_binary="amazon-corretto-${jdk_build}-linux-x64.tar.gz"
 #jdk_binary="amazon-corretto-${jdk_build:0:2}-x64-linux-jdk.tar.gz"
