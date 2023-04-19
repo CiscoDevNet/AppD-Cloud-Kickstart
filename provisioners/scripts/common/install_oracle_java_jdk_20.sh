@@ -3,10 +3,10 @@
 
 # install java se 20 development kit. --------------------------------------------------------------
 jdk_home="jdk20"
-jdk_build="20"
+jdk_build="20.0.1"
 jdk_folder="jdk-${jdk_build}"
 jdk_binary="${jdk_folder}_linux-x64_bin.tar.gz"
-jdk_sha256="1157bba2126efd115b5133cc078e6bcc52b15583657e980a5197f34a7505222e"
+jdk_sha256="bb118683feb4d66476198c8176a9845a9125bf5b303089b56b4b59ff9a544ccf"
 
 # create java home parent folder.
 mkdir -p /usr/local/java
