@@ -11,4 +11,3 @@ dnf -y update
 
 # remove package kit utility to turn-off auto-update of packages. ----------------------------------
 dnf -y remove PackageKit
-

@@ -57,20 +57,20 @@ SSH to communicate with your cloud resources and managed nodes.
 
 The following open source software needs to be installed on the host macOS machine:
 
--	Homebrew 4.0.14
--	Git 2.40.0
+-	Homebrew 4.0.15
+-	Git 2.40.1
 -	Packer 1.8.6
 -	Terraform 1.4.5
 -	jq 1.6
 
 Perform the following steps to install the needed software:
 
-1.	Install the [Homebrew 4.0.14](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
+1.	Install the [Homebrew 4.0.15](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     ```bash
     $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
 
-2.	Install [Git 2.40.0](https://git-scm.com/downloads) for macOS 64-bit.  
+2.	Install [Git 2.40.1](https://git-scm.com/downloads) for macOS 64-bit.  
     ```bash
     $ brew install git
     ```
@@ -96,12 +96,12 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ brew --version
-    Homebrew 4.0.14
+    Homebrew 4.0.15
     $ brew doctor
     Your system is ready to brew.
 
     $ git --version
-    git version 2.40.0
+    git version 2.40.1
 
     $ packer --version
     1.8.6
@@ -125,14 +125,14 @@ Perform the following steps to install the needed software:
 
 To build the AppD Cloud Kickstart immutable VM images, the following open source software needs to be installed on the host Windows machine:
 
--	Git 2.40.0 for Win64
+-	Git 2.40.1 for Win64
 -	Packer 1.8.6
 -	Terraform 1.4.5
 -	jq 1.6
 
 Perform the following steps to install the needed software:
 
-1.	Install [Git 2.40.0](https://github.com/git-for-windows/git/releases/download/v2.40.0.windows.1/Git-2.40.0-64-bit.exe) for Windows 64-bit.
+1.	Install [Git 2.40.1](https://github.com/git-for-windows/git/releases/download/v2.40.1.windows.1/Git-2.40.1-64-bit.exe) for Windows 64-bit.
 
 2.	Install [Packer 1.8.6](https://releases.hashicorp.com/packer/1.8.6/packer_1.8.6_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
@@ -163,7 +163,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ git --version
-    git version 2.40.0.windows.1
+    git version 2.40.1.windows.1
 
     $ packer --version
     1.8.6

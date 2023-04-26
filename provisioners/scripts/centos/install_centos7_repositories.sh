@@ -11,4 +11,3 @@ yum -y update
 
 # remove package kit utility to turn-off auto-update of packages. ----------------------------------
 yum -y remove PackageKit
-
