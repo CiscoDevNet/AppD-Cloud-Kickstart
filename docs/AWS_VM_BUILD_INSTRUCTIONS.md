@@ -144,7 +144,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	AppDynamics Enterprise Console 23.1.2 Build 22
 	-	AppDynamics Controller 23.1.2 Build 53
 	-	AppDynamics Events Service 4.5.2 Build 20827
--	Docker 23.0.4 CE
+-	Docker 23.0.5 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -164,7 +164,7 @@ __CWOM-Platform VM__ - The following utilities and workload optimization managem
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.27
 -	Cisco Workload Optimization Manager (CWOM) 2.3.28
--	Docker 23.0.4 CE
+-	Docker 23.0.5 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -188,7 +188,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Ansible 2.9.27
 -	Ant 1.10.13
 -	AppDynamics Node.js Serverless Tracer 21.11.348
--	Docker 23.0.4 CE
+-	Docker 23.0.5 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
 	-	Docker Compose Bash Completion
@@ -216,7 +216,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Python 3.6.8
 	-	Pip 23.1.2
 -	Serverless Framework CLI 3.30.1
--	Terraform 1.4.5
+-	Terraform 1.4.6
 -	VIM - Vi IMproved 9.0
 -	XMLStarlet 1.6.1 (command-line XML processor)
 -	yq 4.33.3 (command-line YAML processor)
