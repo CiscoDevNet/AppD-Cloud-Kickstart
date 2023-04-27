@@ -60,7 +60,7 @@ The following open source software needs to be installed on the host macOS machi
 -	Homebrew 4.0.15
 -	Git 2.40.1
 -	Packer 1.8.6
--	Terraform 1.4.5
+-	Terraform 1.4.6
 -	jq 1.6
 
 Perform the following steps to install the needed software:
@@ -81,7 +81,7 @@ Perform the following steps to install the needed software:
     $ brew install hashicorp/tap/packer
     ```
 
-4.	Install [Terraform 1.4.5](https://www.terraform.io/downloads.html) for macOS 64-bit.  
+4.	Install [Terraform 1.4.6](https://www.terraform.io/downloads.html) for macOS 64-bit.  
     ```bash
     $ brew tap hashicorp/tap
     $ brew install hashicorp/tap/terraform
@@ -107,7 +107,7 @@ Perform the following steps to install the needed software:
     1.8.6
 
     $ terraform --version
-    Terraform v1.4.5
+    Terraform v1.4.6
 
     $ jq --version
     jq-1.6
@@ -127,7 +127,7 @@ To build the AppD Cloud Kickstart immutable VM images, the following open source
 
 -	Git 2.40.1 for Win64
 -	Packer 1.8.6
--	Terraform 1.4.5
+-	Terraform 1.4.6
 -	jq 1.6
 
 Perform the following steps to install the needed software:
@@ -138,7 +138,7 @@ Perform the following steps to install the needed software:
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\bin`  
 
-3.	Install [Terraform 1.4.5](https://releases.hashicorp.com/terraform/1.4.5/terraform_1.4.5_windows_amd64.zip) for Windows 64-bit.  
+3.	Install [Terraform 1.4.6](https://releases.hashicorp.com/terraform/1.4.6/terraform_1.4.6_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\bin`  
 
@@ -169,7 +169,7 @@ Perform the following steps to install the needed software:
     1.8.6
 
     $ terraform --version
-    Terraform v1.4.5
+    Terraform v1.4.6
 
     $ jq --version
     jq-1.6
