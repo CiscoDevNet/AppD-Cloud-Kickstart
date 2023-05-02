@@ -118,7 +118,7 @@ module "security_group" {
 
 module "lpad_vm" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = ">= 4.5"
+  version = ">= 5.0"
 
   for_each = local.lab_for_each
 
