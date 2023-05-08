@@ -7,7 +7,7 @@ In this exercise you will use the [AWS Management Console](https://aws.amazon.co
 
 This EC2 instance will be referenced in the lab steps as the 'Controller EC2'.
 
-You will need to use an existing AMI image named **APM-Platform-2312-CentOS79-AMI** and located in the AWS region that you are working in:
+You will need to use an existing AMI image named **APM-Platform-2340-CentOS79-AMI** and located in the AWS region that you are working in:
 
 - The AMI image for the **ap-south-1** region can be found [here](https://ap-south-1.console.aws.amazon.com/ec2/v2/home?region=ap-south-1#Images:sort=tag:Name).
 - The AMI image for the **us-east-1** region can be found [here](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:sort=tag:Name).
@@ -20,7 +20,7 @@ You will need to use an existing AMI image named **APM-Platform-2312-CentOS79-AM
 
 Once you have identified the appropriate AMI, launch an instance of it via:
 
-  1. Select the **APM-Platform-2312-CentOS79-AMI** and click the **Launch** button.
+  1. Select the **APM-Platform-2340-CentOS79-AMI** and click the **Launch** button.
   2. Select Memory optimized: **m5a.xlarge** with 4 vCPUs and 16 GiB RAM.
   3. Click '**Next: Configure Instance Details**' in the bottom right.
   4. Keep all default values; scroll to the bottom and expand '**Advanced Details**'.
@@ -75,8 +75,8 @@ If the Controller has successfully started, an XML document such as the followin
   <serverinfo>
     <vendorname>AppDynamics</vendorname>
     <productname>AppDynamics Application Performance Management</productname>
-    <serverversion>023-001-002-000</serverversion>
-    <implementationVersion>Controller v23.1.2.0 Build 23.1.2-53 Commit 22c9cb1f045e5b692205061b3bcb5de211937015</implementationVersion>
+    <serverversion>023-004-000-002</serverversion>
+    <implementationVersion>Controller v23.4.0.2 Build 23.4.0-10019 Commit 54918cc53818714b592ea40a43ca5d5f2d0f2a65</implementationVersion>
   </serverinfo>
   <startupTimeInSeconds>8</startupTimeInSeconds>
 </serverstatus>
