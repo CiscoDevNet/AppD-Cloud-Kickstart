@@ -245,12 +245,12 @@ export appd_controller_tenancy_mode
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '23.4.0.3592').
-#appd_machine_agent_release="23.4.0.3592"
+# [optional] machine agent release (defaults to '23.4.1.3609').
+#appd_machine_agent_release="23.4.1.3609"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="4cdcc853bc02d8d8763deb06cba95bf83835849a099d21607af81ed8e2bad8f4"
+#appd_machine_agent_sha256="b62168c64a6f13555db051265f2bd50acf715e08ab861c98903c92f52defa338"
 #export appd_machine_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
