@@ -134,6 +134,7 @@
         "{{template_dir}}/../../../provisioners/scripts/aws/install_al2023_docker.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_ansible.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_ansible_collection.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_ec2_instance_metadata_query_tool.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_jq_json_processor.sh",
