@@ -28,13 +28,15 @@ module "vpc" {
   name = "VPC-${var.resource_name_prefix}-${local.current_date}"
   cidr = var.aws_vpc_cidr
 
-  azs             = var.aws_availability_zones
-  public_subnets  = var.aws_vpc_public_subnets
+  azs            = var.aws_availability_zones
+  public_subnets = var.aws_vpc_public_subnets
 
-  enable_nat_gateway   = false
-  enable_vpn_gateway   = false
-  enable_dns_hostnames = true
-  enable_dns_support   = true
+  enable_nat_gateway         = false
+  enable_vpn_gateway         = false
+  enable_dns_hostnames       = true
+  enable_dns_support         = true
+  manage_default_network_acl = false
+  map_public_ip_on_launch    = true
 
   tags = var.resource_tags
 }
