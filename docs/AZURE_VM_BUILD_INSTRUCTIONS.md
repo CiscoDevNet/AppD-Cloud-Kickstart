@@ -389,7 +389,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.11.3 (Package Manager for Kubernetes)
+-	Helm CLI 3.12.0 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 372 (Amazon Corretto 8)
 -	Java SE JDK 11.0.19 (Amazon Corretto 11)
 -	Java SE JDK 17.0.7 (Amazon Corretto 17)
