@@ -80,7 +80,7 @@ case $user_host_os in
     dnf -y install glibc-static
     ;;
   # in centos 9 like environments, the 'glibc-static' library is found in the 'crb' repo.
-  "AlmaLinux 9.1 (Lime Lynx)"|"CentOS Stream 9"|"Rocky Linux 9.1 (Blue Onyx)")
+  "AlmaLinux 9.2 (Turquoise Kodkod)"|"CentOS Stream 9"|"Rocky Linux 9.1 (Blue Onyx)")
     dnf -y install dnf-plugins-core
     dnf -y install epel-release
     dnf config-manager --set-enabled crb
@@ -93,7 +93,7 @@ esac
 # install the cloud9 runtime environment in the user's home directory ('~/.c9').
 case $user_host_os in
   # for newer os environments that don't have 'python2', we need to run the new c9 v2.0.0 installer script.
-  "AlmaLinux 9.1 (Lime Lynx)"|"Amazon Linux 2023"|"CentOS Stream 9"|"Fedora 34 (Cloud Edition)"|"Rocky Linux 9.1 (Blue Onyx)"|"Ubuntu 20.04.6 LTS"|"Ubuntu 22.04.2 LTS"|"Ubuntu 22.10")
+  "AlmaLinux 9.2 (Turquoise Kodkod)"|"Amazon Linux 2023"|"CentOS Stream 9"|"Fedora 34 (Cloud Edition)"|"Rocky Linux 9.1 (Blue Onyx)"|"Ubuntu 20.04.6 LTS"|"Ubuntu 22.04.2 LTS"|"Ubuntu 22.10")
     runuser -c "${kickstart_home}/provisioners/scripts/aws/c9-install-2.0.0.sh" - ${user_name}
     ;;
   *)
