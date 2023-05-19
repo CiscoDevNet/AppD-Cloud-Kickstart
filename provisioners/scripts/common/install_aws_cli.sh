@@ -97,7 +97,7 @@ fi
 runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} pip3 --version" - ${user_name}
 
 # install aws cli. ---------------------------------------------------------------------------------
-runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} pip3 install awscli --upgrade --user" - ${user_name}
+runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} python3 -m pip install awscli --upgrade --user" - ${user_name}
 
 # verify installation.
 runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} aws --version" - ${user_name}

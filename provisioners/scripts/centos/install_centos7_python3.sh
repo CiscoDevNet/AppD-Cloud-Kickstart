@@ -13,5 +13,5 @@ python3 --version
 pip3 --version
 
 # upgrade python 3.x pip. --------------------------------------------------------------------------
-runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} pip3 install pip --upgrade --user" - ${user_name}
+runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} python3 -m pip install pip --upgrade --user" - ${user_name}
 runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} pip3 --version" - ${user_name}

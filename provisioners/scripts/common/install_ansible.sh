@@ -1,5 +1,5 @@
 #!/bin/sh -eux
-# install ansible 2.x with pip3 linux 202x.
+# install ansible 2.x with python3 for linux.
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] ansible 2.x install parameters [w/ defaults].
@@ -32,5 +32,8 @@ fi
 
 # install ansible. ---------------------------------------------------------------------------------
 # install and upgrade ansible in the user's home account.
-runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} pip3 install ansible --user" - ${user_name}
-runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} pip3 install --upgrade ansible --user" - ${user_name}
+runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} python3 -m pip install ansible --user" - ${user_name}
+runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} python3 -m pip install ansible --upgrade --user" - ${user_name}
+
+# verify ansible installation.
+runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} ansible --version" - ${user_name}

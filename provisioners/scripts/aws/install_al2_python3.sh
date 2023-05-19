@@ -11,8 +11,8 @@ PATH=/usr/local/bin:$PATH
 export PATH
 
 # upgrade python 3.x pip and setup tools.
-pip3 install --upgrade pip
-pip3 install --upgrade setuptools
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade setuptools
 
 # verify installation.
 pip --version
