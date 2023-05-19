@@ -227,7 +227,7 @@
     "tomcat_enable_service": "false",
     "tomcat_manager_apps_remote_access": "true",
     "user_docker_profile": "true",
-    "docker_completion_release": "23.0.6",
+    "docker_completion_release": "24.0.0",
     "nodejs_release": "--lts",
     "npm_release": "latest",
     "kickstart_home": "/opt/appd-cloud-kickstart",

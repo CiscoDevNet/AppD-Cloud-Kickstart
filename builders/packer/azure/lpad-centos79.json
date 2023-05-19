@@ -145,7 +145,7 @@
     "azure_vm_size": "Standard_B1s",
     "azure_os_disk_size": "48",
     "user_docker_profile": "true",
-    "docker_completion_release": "23.0.6",
+    "docker_completion_release": "24.0.0",
     "mongodb_enable_access_control": "true",
     "nodejs_release": "16",
     "npm_release": "latest",
