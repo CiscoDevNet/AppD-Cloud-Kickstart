@@ -52,7 +52,7 @@ if [ "$user_name" = "root" ]; then
 fi
 
 # validate required ansible core version. ----------------------------------------------------------
-current_core_version=$(runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} ansible --version" - ec2-user | awk '/core/ {print $3}' | awk -F ']' '{print $1}')
+current_core_version=$(runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} ansible --version" - ${user_name} | awk '/core/ {print $3}' | awk -F ']' '{print $1}')
 minmum_core_version="2.12.0"
 
 echo "current_core_version: ${current_core_version}"

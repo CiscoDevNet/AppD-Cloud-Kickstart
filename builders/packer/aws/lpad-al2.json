@@ -131,7 +131,6 @@
         "{{template_dir}}/../../../provisioners/scripts/aws/install_al2_docker.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/aws/install_al2_python3.sh",
-        "{{template_dir}}/../../../provisioners/scripts/aws/install_al2_ansible.sh",
         "{{template_dir}}/../../../provisioners/scripts/aws/install_al2_python3_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_ansible.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_ansible_collection.sh",
