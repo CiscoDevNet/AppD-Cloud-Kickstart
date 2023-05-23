@@ -22,9 +22,9 @@
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] tomcat web server install parameters [w/ defaults].
 tomcat_home="${tomcat_home:-apache-tomcat-10.1}"                    # [optional] tomcat home (defaults to 'apache-tomcat-10.1').
-tomcat_release="${tomcat_release:-10.1.8}"                          # [optional] tomcat release (defaults to '10.1.8').
+tomcat_release="${tomcat_release:-10.1.9}"                          # [optional] tomcat release (defaults to '10.1.9').
                                                                     # [optional] tomcat sha-512 checksum (defaults to published value).
-tomcat_sha512="${tomcat_sha512:-bf1a80582d3fc6e7e32c8b72f6b9c2703d39832a8a337f660b8c201196a555c717647825b495169bef61845a1905507b10d62c2d76dfd8ca180bcd49e44d0d5e}"
+tomcat_sha512="${tomcat_sha512:-cfdc182e62b33b98ce61f084f51c9cf0bcc5e5f4fff341d6e8bcb7c54b12c058faa2e164a587100ba1c6172b9ae2b32ff4a7193a859b368d1f67baca6aa1680f}"
 tomcat_username="${tomcat_username:-centos}"                        # [optional] tomcat user name (defaults to 'centos').
 tomcat_group="${tomcat_group:-centos}"                              # [optional] tomcat group (defaults to 'centos').
 
