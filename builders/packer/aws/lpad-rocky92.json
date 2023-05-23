@@ -9,7 +9,7 @@
       "source_ami_filter": {
         "filters": {
           "virtualization-type": "hvm",
-          "name": "Rocky-9-EC2-Base-9*x86_64*",
+          "name": "Rocky-9*x86_64*",
           "root-device-type": "ebs"
         },
         "owners": ["aws-marketplace"],
