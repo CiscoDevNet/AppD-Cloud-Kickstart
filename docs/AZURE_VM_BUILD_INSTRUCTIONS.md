@@ -21,11 +21,11 @@ you are finished, such as purging old VM images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Azure CLI 2.48.1
+-	Azure CLI 2.49.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.48.1](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
+1.	Install [Azure CLI 2.49.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
     ```bash
     $ brew install azure-cli
     ```
@@ -34,7 +34,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ az --version
-    azure-cli                         2.48.1
+    azure-cli                         2.49.0
     ...
     ```
 
@@ -51,18 +51,18 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Azure CLI 2.48.1
+-	Azure CLI 2.49.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.48.1](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
+1.	Install [Azure CLI 2.49.0](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
     Run the downloaded MSI installer, follow the on-screen instructions, and accept the defaults.  
 
 2.	Using the **Git Bash** Terminal, validate the installed command-line tool:
 
     ```bash
     $ az --version
-    azure-cli                         2.48.1
+    azure-cli                         2.49.0
     ...
     ```
 
@@ -380,7 +380,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 
 -	Ansible 2.9.27
 -	AppDynamics Node.js Serverless Tracer 21.11.348
--	Azure CLI 2.48.1
+-	Azure CLI 2.49.0
 -	Docker 24.0.0 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
@@ -407,7 +407,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Serverless Framework CLI 3.31.0
 -	Terraform 1.4.6
 -	VIM - Vi IMproved 9.0
--	yq 4.33.3 (command-line YAML processor)
+-	yq 4.34.1 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
@@ -415,7 +415,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	AppDynamics Enterprise Console 23.4.0 Build 10041
 	-	AppDynamics Controller 23.4.0.2 Build 10019
 	-	AppDynamics Events Service 4.5.2 Build 20827
--	Azure CLI 2.48.1
+-	Azure CLI 2.49.0
 -	Docker 24.0.0 CE
 	-	Docker Bash Completion
 	-	Docker Compose 1.29.2
@@ -432,4 +432,4 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip 23.1.2
 -	VIM - Vi IMproved 9.0
--	yq 4.33.3 (command-line YAML processor)
+-	yq 4.34.1 (command-line YAML processor)
