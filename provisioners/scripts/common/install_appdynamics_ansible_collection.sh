@@ -51,6 +51,10 @@ if [ "$user_name" = "root" ]; then
   exit 1
 fi
 
+# create ansible home directory (if needed). -------------------------------------------------------
+mkdir -p /home/${user_name}/.ansible
+chown -R ${user_name}:${user_name} /home/${user_name}/.ansible
+
 # validate required ansible core version. ----------------------------------------------------------
 current_core_version=$(runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} ansible --version" - ${user_name} | awk '/core/ {print $3}' | awk -F ']' '{print $1}')
 minmum_core_version="2.12.0"

@@ -24,7 +24,7 @@ if [ -z "$user_name" ]; then
   exit 1
 fi
 
-if [ "$user_name" == "root" ]; then
+if [ "$user_name" = "root" ]; then
   echo "Error: 'user_name' should NOT be 'root'."
   usage
   exit 1
@@ -32,8 +32,8 @@ fi
 
 # install ansible. ---------------------------------------------------------------------------------
 # install and upgrade ansible in the user's home account.
-runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} python3 -m pip install ansible --user" - ${user_name}
-runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} python3 -m pip install ansible --upgrade --user" - ${user_name}
+runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} pip3 install ansible --user" - ${user_name}
+runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} pip3 install ansible --upgrade --user" - ${user_name}
 
 # verify ansible installation.
 runuser -c "PATH=/home/${user_name}/.local/bin:/usr/local/bin:${PATH} ansible --version" - ${user_name}
