@@ -136,7 +136,7 @@
     "gcp_group": "centos",
     "gcp_zone": "{{env `gcp_zone`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "24.0.1",
+    "docker_completion_release": "24.0.2",
     "mongodb_enable_access_control": "true",
     "nodejs_release": "16",
     "npm_release": "latest",

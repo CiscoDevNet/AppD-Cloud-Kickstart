@@ -189,7 +189,7 @@
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "24.0.1",
+    "docker_completion_release": "24.0.2",
     "mongodb_enable_access_control": "true",
     "nodejs_release": "--lts",
     "npm_release": "latest",
