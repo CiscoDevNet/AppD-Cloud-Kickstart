@@ -1,0 +1,196 @@
+{
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "token": "{{user `aws_session_token`}}",
+      "region": "{{user `aws_ami_region`}}",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "name": "Fedora-Cloud-Base-36*x86_64-hvm-*",
+          "root-device-type": "ebs"
+        },
+        "owners": ["125523088429"],
+        "most_recent": true
+      },
+      "ami_description": "{{user `aws_ami_description`}}",
+      "encrypt_boot": true,
+      "instance_type": "{{user `aws_ec2_instance_type`}}",
+      "ssh_username": "{{user `aws_ec2_username`}}",
+      "temporary_security_group_source_cidrs": "{{user `aws_ec2_temporary_source_cidrs`}}",
+      "ami_name": "{{user `aws_ami_name`}}-{{timestamp}}",
+      "launch_block_device_mappings": [
+        {
+          "device_name": "/dev/sda1",
+          "encrypted": true,
+          "volume_size": "{{user `aws_ec2_boot_disk_size`}}",
+          "volume_type": "gp2",
+          "delete_on_termination": "true"
+        }
+      ],
+      "tags": {
+        "Name": "{{user `aws_ami_name`}}",
+        "Owner": "{{user `aws_ami_owner`}}",
+        "Project": "{{user `app_name`}}",
+        "Project_Image_Type": "LPAD-Fedora36",
+        "VM_Username": "{{user `aws_ec2_username`}}",
+        "Base_AMI_Name": "{{.SourceAMIName}}",
+        "ApplicationName": "{{user `app_name`}}",
+        "CiscoMailAlias": "{{user `aws_user_email`}}",
+        "ContainsPII": "False",
+        "CostCenter": "{{user `org_cost_center`}}",
+        "CreatedBy": "{{user `aws_user_arn`}}",
+        "DataClassification": "Cisco Public",
+        "DataTaxonomy": "Cisco Operations Data",
+        "Date": "{{isotime `2006-01-02`}}",
+        "DeploymentEnvironment": "NonProd",
+        "Environment": "NonProd",
+        "EnvironmentHome": "Cisco One Lab",
+        "Event": "FSO Lab Demo",
+        "Exception": "NA",
+        "IntendedPublic": "True",
+        "JIRACreation": "NA",
+        "JIRAProject": "NA",
+        "ResourceOwner": "{{user `aws_user_email`}}",
+        "SecurityReview": "NA",
+        "Service": "{{user `app_service_name`}}"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "inline": [
+        "sudo hostnamectl | awk '/Operating System/ {print $0}'",
+        "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `kickstart_home`}}"
+      ],
+      "type": "shell"
+    },
+    {
+      "destination": "{{user `kickstart_home`}}/provisioners/scripts",
+      "source": "{{template_dir}}/../../../provisioners/scripts/",
+      "type": "file"
+    },
+    {
+      "inline": [
+        "sudo chown -R root:root {{user `kickstart_home`}}"
+      ],
+      "type": "shell"
+    },
+    {
+      "environment_vars": [
+        "aws_ec2_hostname={{user `aws_ec2_hostname`}}",
+        "aws_ec2_domain={{user `aws_ec2_domain`}}",
+        "kickstart_home={{user `kickstart_home`}}",
+        "HOME_DIR=/home/{{user `aws_ec2_username`}}"
+      ],
+      "execute_command": "echo '{{user `aws_ec2_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "scripts": [
+        "{{template_dir}}/../../../provisioners/scripts/aws/config_al2_system_hostname.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos8_repositories.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "expect_disconnect": true,
+      "inline": [
+        "sudo dnf -y install git",
+        "sudo dnf -y install neofetch",
+        "sudo neofetch",
+        "sudo dnf -y install xmlstarlet",
+        "sudo dnf -y update",
+        "sudo systemctl reboot"
+      ],
+      "type": "shell"
+    },
+    {
+      "environment_vars": [
+        "AWS_ACCESS_KEY_ID={{user `aws_access_key`}}",
+        "AWS_SECRET_ACCESS_KEY={{user `aws_secret_key`}}",
+        "AWS_SESSION_TOKEN={{user `aws_session_token`}}",
+        "aws_cli_user_config={{user `aws_cli_user_config`}}",
+        "aws_cli_default_region_name={{user `aws_cli_default_region_name`}}",
+        "aws_cli_default_output_format={{user `aws_cli_default_output_format`}}",
+        "user_name={{user `aws_ec2_username`}}",
+        "user_group={{user `aws_ec2_group`}}",
+        "user_docker_profile={{user `user_docker_profile`}}",
+        "mongodb_enable_access_control={{user `mongodb_enable_access_control`}}",
+        "nodejs_release={{user `nodejs_release`}}",
+        "npm_release={{user `npm_release`}}",
+        "kickstart_home={{user `kickstart_home`}}",
+        "HOME_DIR=/home/{{user `aws_ec2_username`}}"
+      ],
+      "execute_command": "echo '{{user `aws_ec2_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "expect_disconnect": true,
+      "pause_before": "10s",
+      "scripts": [
+        "{{template_dir}}/../../../provisioners/scripts/common/motd.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_8.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_11.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_17.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_20.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos9_python3.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_fedora_podman.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos8_podman_compose.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_ansible.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_ansible_collection.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_ec2_instance_metadata_query_tool.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_jq_json_processor.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_yq_yaml_processor.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_hashicorp_packer.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_hashicorp_terraform.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos8_git.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_git_flow.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_eksctl_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_kubectl_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_helm_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos8_vim_9.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_apache_ant.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_apache_maven.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_gradle.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_google_golang.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_jmespath_jp_json_processor.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_fedora_mongodb_community_server_5.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_nodejs_javascript_runtime.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_serverless_framework_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_nodejs_serverless_tracer.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cloud9.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "app_name": "AppDynamics Cloud Kickstart",
+    "app_service_name": "CloudKickstartLab",
+    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+    "aws_session_token": "{{env `AWS_SESSION_TOKEN`}}",
+    "aws_ami_name": "LPAD-Fedora36-AMI",
+    "aws_ami_description": "AWS EC2 'launchpad' with pre-configured tooling for AWS CLI Operations on Fedora 36. Log-in with user 'fedora' using an SSH key-pair. AMI generated using the AppDynamics Cloud Kickstart Project.",
+    "aws_ami_owner": "{{env `aws_ami_owner`}}",
+    "aws_ami_region": "{{env `aws_ami_region`}}",
+    "aws_cli_user_config": "{{env `aws_cli_user_config`}}",
+    "aws_cli_default_region_name": "{{env `aws_cli_default_region_name`}}",
+    "aws_cli_default_output_format": "{{env `aws_cli_default_output_format`}}",
+    "aws_ec2_boot_disk_size": "48",
+    "aws_ec2_hostname": "lpad",
+    "aws_ec2_domain": "localdomain",
+    "aws_ec2_instance_type": "t2.large",
+    "aws_ec2_username": "fedora",
+    "aws_ec2_group": "fedora",
+    "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
+    "aws_user_arn": "{{env `aws_user_arn`}}",
+    "aws_user_email": "{{env `aws_user_email`}}",
+    "user_docker_profile": "false",
+    "mongodb_enable_access_control": "true",
+    "nodejs_release": "--lts",
+    "npm_release": "latest",
+    "kickstart_home": "/opt/appd-cloud-kickstart",
+    "org_cost_center": "{{env `org_cost_center`}}"
+  }
+}

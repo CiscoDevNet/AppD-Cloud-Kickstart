@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 #---------------------------------------------------------------------------------------------------
-# Install MongoDB Community Server 5.0 on Fedora Linux (Cloud Edition).
+# Install MongoDB Community Server 6.0 on Fedora Linux (Cloud Edition).
 #
 # MongoDB is a document database designed for ease of development and scaling. It is
 # source-available, cross-platform, and classified as a NoSQL database program, MongoDB uses
@@ -31,17 +31,17 @@ kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"               # [o
 
 # prepare the mongodb repository for installation. -------------------------------------------------
 # create the mongodb repository.
-cat <<EOF > /etc/yum.repos.d/mongodb-org-5.0.repo
-[mongodb-org-5.0]
+cat <<EOF > /etc/yum.repos.d/mongodb-org-6.0.repo
+[mongodb-org-6.0]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/5.0/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/9/mongodb-org/6.0/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
 EOF
 
 # install the mongodb database. --------------------------------------------------------------------
-dnf -y install mongodb-org-server mongodb-org-shell mongodb-database-tools mongodb-org-mongos
+dnf -y install mongodb-org
 
 # configure mongodb community server service. ------------------------------------------------------
 # reload systemd manager configuration.
@@ -61,11 +61,8 @@ systemctl status mongod
 PATH=/usr/bin:$PATH
 export PATH
 
-# verify mongodb version.
-mongod --version
-
 # verify mongodb shell version.
-mongo --version
+mongosh --version
 
 # create mongodb user admin (conditional). ---------------------------------------------------------
 if [ "$mongodb_enable_access_control" == "true" ]; then
@@ -91,16 +88,16 @@ db.createUser(
 EOF
 
   # create the mongodb admin user.
-  runuser -c "mongo ${kickstart_home}/provisioners/scripts/centos/mongodb/createMongoDBAdminUser.js" - ${user_name}
+  runuser -c "mongosh --file ${kickstart_home}/provisioners/scripts/centos/mongodb/createMongoDBAdminUser.js" - ${user_name}
 fi
 
 # perform general mongodb housekeeping tasks. ------------------------------------------------------
 # disable the mongodb free monitoring solution.
-runuser -c "mongo --quiet --eval \"db.disableFreeMonitoring()\"" - ${user_name}
+runuser -c "mongosh --quiet --eval \"db.disableFreeMonitoring()\"" - ${user_name}
 
 # shutdown the mongodb database. -------------------------------------------------------------------
 systemctl stop mongod
-#runuser -c "mongo --quiet --eval \"db.adminCommand( { shutdown: 1 } )\"" - ${user_name}
+#runuser -c "mongosh --quiet --eval \"db.adminCommand( { shutdown: 1 } )\"" - ${user_name}
 
 # configure the mongodb service for access control (conditional). ----------------------------------
 if [ "$mongodb_enable_access_control" == "true" ]; then
@@ -165,20 +162,20 @@ systemctl status mongod
 # verify completed mongodb database configuration. -------------------------------------------------
 # list mongodb users.
 if [ "$mongodb_enable_access_control" == "true" ]; then
-  echo "mongo mongodb://localhost/admin --eval \"db.system.users.find()\" --authenticationDatabase \"admin\" -u \"${mongodb_server_admin_username}\" -p \"########\""
+  echo "mongosh mongodb://localhost/admin --eval \"db.system.users.find()\" --authenticationDatabase \"admin\" -u \"${mongodb_server_admin_username}\" -p \"########\""
   set +x  # temporarily turn command display OFF.
-  runuser -c "mongo mongodb://localhost/admin --eval \"db.system.users.find()\" --authenticationDatabase \"admin\" -u \"${mongodb_server_admin_username}\" -p \"${mongodb_server_admin_password}\"" - ${user_name}
+  runuser -c "mongosh mongodb://localhost/admin --eval \"db.system.users.find()\" --authenticationDatabase \"admin\" -u \"${mongodb_server_admin_username}\" -p \"${mongodb_server_admin_password}\"" - ${user_name}
   set -x  # turn command display back ON.
 else
-  runuser -c "mongo --eval \"db.system.users.find()\"" - ${user_name}
+  runuser -c "mongosh --eval \"db.system.users.find()\"" - ${user_name}
 fi
 
 # list mongodb installed databases.
 if [ "$mongodb_enable_access_control" == "true" ]; then
-  echo "mongo --eval \"db.adminCommand( { listDatabases: 1, nameOnly: true} )\" --authenticationDatabase \"admin\" -u \"${mongodb_server_admin_username}\" -p \"########\""
+  echo "mongosh --eval \"db.adminCommand( { listDatabases: 1, nameOnly: true} )\" --authenticationDatabase \"admin\" -u \"${mongodb_server_admin_username}\" -p \"########\""
   set +x  # temporarily turn command display OFF.
-  runuser -c "mongo --eval \"db.adminCommand( { listDatabases: 1, nameOnly: true} )\" --authenticationDatabase \"admin\" -u \"${mongodb_server_admin_username}\" -p \"${mongodb_server_admin_password}\"" - ${user_name}
+  runuser -c "mongosh --eval \"db.adminCommand( { listDatabases: 1, nameOnly: true} )\" --authenticationDatabase \"admin\" -u \"${mongodb_server_admin_username}\" -p \"${mongodb_server_admin_password}\"" - ${user_name}
   set -x  # turn command display back ON.
 else
-  runuser -c "mongo --eval \"db.adminCommand( { listDatabases: 1, nameOnly: true} )\"" - ${user_name}
+  runuser -c "mongosh --eval \"db.adminCommand( { listDatabases: 1, nameOnly: true} )\"" - ${user_name}
 fi
