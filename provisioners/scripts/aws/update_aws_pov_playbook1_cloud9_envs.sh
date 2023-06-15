@@ -26,7 +26,7 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] update cloud9 memberships parameters [w/ defaults].
-aws_region_name="${aws_region_name:-ap-southeast-1}"
+aws_region_name="${aws_region_name:-us-east-2}"
 pov_playbook1_name_prefix="${pov_playbook1_name_prefix:-PoV-Playbook1}"
 
 # retrieve list of all cloud9 environments. --------------------------------------------------------
