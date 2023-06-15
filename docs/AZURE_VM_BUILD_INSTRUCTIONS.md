@@ -389,13 +389,13 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.12.0 (Package Manager for Kubernetes)
+-	Helm CLI 3.12.1 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 372 (Amazon Corretto 8)
 -	Java SE JDK 11.0.19 (Amazon Corretto 11)
 -	Java SE JDK 17.0.7 (Amazon Corretto 17)
 -	Java SE JDK 20.0.1 (Amazon Corretto 20)
 -	jq 1.6 (command-line JSON processor)
--	Kubernetes CLI [kubectl] 1.24.14 (command-line interface)
+-	Kubernetes CLI [kubectl] 1.24.15 (command-line interface)
 -	Node.js JavaScript runtime v16.20.0 (Latest LTS Version)
 -	npm JavaScript Package Manager for Node.js 9.7.1
 -	nvm (Node Version Manager) bash script 0.39.3
