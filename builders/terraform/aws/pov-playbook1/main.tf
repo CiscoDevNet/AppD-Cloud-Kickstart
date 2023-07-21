@@ -78,7 +78,7 @@ data "aws_ami" "pov_playbook1_ami" {
 # Modules ------------------------------------------------------------------------------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = ">= 5.0"
+  version = ">= 5.1"
 
   name = local.vpc_name
   cidr = var.aws_vpc_cidr_block
@@ -123,7 +123,7 @@ module "security_group" {
 
 module "pov_playbook1_vm" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = ">= 5.1"
+  version = ">= 5.2"
 
   for_each = local.lab_for_each
 
