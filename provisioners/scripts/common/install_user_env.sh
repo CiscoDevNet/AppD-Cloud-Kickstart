@@ -7,8 +7,7 @@ user_group="${user_group:-}"
 user_home="${user_home:-}"
 user_docker_profile="${user_docker_profile:-false}"
 user_prompt_color="${user_prompt_color:-green}"
-d_completion_release="${d_completion_release:-24.0.2}"
-dc_completion_release="${dc_completion_release:-1.29.2}"
+d_completion_release="${d_completion_release:-24.0.4}"
 
 # set default value for kickstart home environment variable if not set. ----------------------------
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"
@@ -28,8 +27,7 @@ Usage:
                                                                 #            valid colors:
                                                                 #              'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
                                                                 #
-    [root]# export d_completion_release="24.0.2"                # [optional] docker completion for bash release (defaults to '24.0.2').
-    [root]# export dc_completion_release="1.29.2"               # [optional] docker compose completion for bash release (defaults to '1.29.2').
+    [root]# export d_completion_release="24.0.4"                # [optional] docker completion for bash release (defaults to '24.0.4').
     [root]# export kickstart_home="/opt/appd-cloud-kickstart"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
     [root]# $0
 EOF
@@ -229,13 +227,4 @@ if [ "$user_docker_profile" == "true" ]; then
   curl --silent --location "https://github.com/docker/cli/raw/v${d_completion_release}/contrib/completion/bash/docker" --output ${user_home}/${d_completion_binary}
   chown -R ${user_name}:${user_group} ${user_home}/${d_completion_binary}
   chmod 644 ${user_home}/${d_completion_binary}
-
-  # install docker compose completion for bash.
-  dc_completion_binary=".docker-compose-completion.sh"
-
-  # download docker completion for bash from github.com.
-  rm -f ${user_home}/${dc_completion_binary}
-  curl --silent --location "https://github.com/docker/compose/raw/${dc_completion_release}/contrib/completion/bash/docker-compose" --output ${user_home}/${dc_completion_binary}
-  chown -R ${user_name}:${user_group} ${user_home}/${dc_completion_binary}
-  chmod 644 ${user_home}/${dc_completion_binary}
 fi
