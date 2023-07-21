@@ -30,15 +30,6 @@ kubectl_sha256="315d7d49192e5675a6e271401e2b37c310d82668ae5eb533e2b9fc53d27078d6
 #kubectl_release="1.23.17"
 #kubectl_date="2023-05-11"
 #kubectl_sha256="b48ae5c8c046762113b47fe057d469a30236ec96ef9d29329a26b087c877ae0f"
-#kubectl_release="1.22.17"
-#kubectl_date="2023-05-11"
-#kubectl_sha256="5c69d431cf829271d38db563b35e076c41ce1f14202df56f6f4e2856054e0b01"
-#kubectl_release="1.21.14"
-#kubectl_date="2023-01-30"
-#kubectl_sha256="c85e4fc9be3c45a0eec59ac1d6ad74f79862544d06f641f847af62586dd94aeb"
-#kubectl_release="1.20.15"
-#kubectl_date="2022-10-31"
-#kubectl_sha256="7e82f3c15c380c422218a12640f7fc054147386c8340356824bf2166892d5ac1"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
