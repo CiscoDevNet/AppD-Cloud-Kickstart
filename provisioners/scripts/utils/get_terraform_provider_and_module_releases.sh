@@ -9,8 +9,8 @@ curl --silent https://api.github.com/repos/terraform-aws-modules/terraform-aws-s
 curl --silent https://api.github.com/repos/terraform-aws-modules/terraform-aws-vpc/tags | jq '.[0] | {name: .name, tarball_url: .tarball_url}'
 curl --silent https://api.github.com/repos/terraform-aws-modules/terraform-aws-eks/releases/latest | jq '. | {name: .name, html_url: .html_url}'
 curl --silent https://api.github.com/repos/aws-ia/terraform-aws-eks-blueprints/tags | jq '.[0] | {name: .name, tarball_url: .tarball_url}'
-curl --silent https://api.github.com/repos/aws-ia/terraform-aws-eks-blueprints-addon/tags | jq '.[0] | {name: .name, tarball_url: .tarball_url}'
 curl --silent https://api.github.com/repos/aws-ia/terraform-aws-eks-blueprints-addons/tags | jq '.[0] | {name: .name, tarball_url: .tarball_url}'
+curl --silent https://api.github.com/repos/aws-ia/terraform-aws-eks-blueprints-addon/tags | jq '.[0] | {name: .name, tarball_url: .tarball_url}'
 curl --silent https://api.github.com/repos/aws-ia/terraform-aws-eks-blueprints-teams/tags | jq '.[0] | {name: .name, tarball_url: .tarball_url}'
 curl --silent https://api.github.com/repos/terraform-aws-modules/terraform-aws-elb/tags | jq '.[0] | {name: .name, tarball_url: .tarball_url}'
 echo ""

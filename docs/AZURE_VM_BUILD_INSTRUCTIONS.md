@@ -383,19 +383,19 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Azure CLI 2.50.0
 -	Docker 24.0.5 CE
 	-	Docker Bash Completion
-	-	Docker Compose 2.20.2
+	-	Docker Compose 2.20.3
 -	Git 2.41.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Helm CLI 3.12.2 (Package Manager for Kubernetes)
+-	Helm CLI 3.12.3 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 382 (Amazon Corretto 8)
 -	Java SE JDK 11.0.20 (Amazon Corretto 11)
 -	Java SE JDK 17.0.8 (Amazon Corretto 17)
 -	Java SE JDK 20.0.2 (Amazon Corretto 20)
 -	jq 1.6 (command-line JSON processor)
 -	Kubernetes CLI [kubectl] 1.24.16 (command-line interface)
--	Node.js JavaScript runtime v16.20.1
+-	Node.js JavaScript runtime v16.20.2
 -	npm JavaScript Package Manager for Node.js 9.8.1
 -	nvm (Node Version Manager) bash script 0.39.4
 -	Packer 1.9.2
@@ -403,21 +403,21 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Pip 23.2.1
 -	Python 3.6.8
 	-	Pip3 23.2.1
--	Serverless Framework CLI 3.33.0
--	Terraform 1.5.4
+-	Serverless Framework CLI 3.34.0
+-	Terraform 1.5.5
 -	VIM - Vi IMproved 9.0
--	yq 4.34.2 (command-line YAML processor)
+-	yq 4.35.1 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 23.4.0 Build 10041
-	-	AppDynamics Controller 23.4.0.2 Build 10019
+-	AppDynamics Enterprise Console 23.7.0 Build 10073
+	-	AppDynamics Controller 23.7.0.1 Build 10034
 	-	AppDynamics Events Service 4.5.2 Build 20827
 -	Azure CLI 2.50.0
 -	Docker 24.0.5 CE
 	-	Docker Bash Completion
-	-	Docker Compose 2.20.2
+	-	Docker Compose 2.20.3
 -	Git 2.41.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
@@ -430,4 +430,4 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip3 23.2.1
 -	VIM - Vi IMproved 9.0
--	yq 4.34.2 (command-line YAML processor)
+-	yq 4.35.1 (command-line YAML processor)
