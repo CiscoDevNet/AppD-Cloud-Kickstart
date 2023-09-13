@@ -79,8 +79,8 @@ variable "aws_ec2_instance_type" {
   description = "AWS EC2 instance type."
   type        = string
   default     = "t2.micro"
-# default     = "m5a.large"
-# default     = "m5a.xlarge"
+# default     = "t3a.large"
+# default     = "t3a.xlarge"
 }
 
 variable "lab_count" {
