@@ -35,7 +35,7 @@ ubuntu_release=$(lsb_release -rs)
 
 if [ -n "$ubuntu_release" ]; then
   case $ubuntu_release in
-      16.04|18.04|20.04|22.04)
+      18.04|20.04|22.04)
         ;;
       *)
         echo "Error: MongoDB NOT supported on Ubuntu release: '$(lsb_release -ds)'."
@@ -111,10 +111,6 @@ EOF
   # create the mongodb admin user.
   runuser -c "mongosh --file ${kickstart_home}/provisioners/scripts/centos/mongodb/createMongoDBAdminUser.js" - ${user_name}
 fi
-
-# perform general mongodb housekeeping tasks. ------------------------------------------------------
-# disable the mongodb free monitoring solution.
-runuser -c "mongosh --quiet --eval \"db.disableFreeMonitoring()\"" - ${user_name}
 
 # shutdown the mongodb database. -------------------------------------------------------------------
 systemctl stop mongod

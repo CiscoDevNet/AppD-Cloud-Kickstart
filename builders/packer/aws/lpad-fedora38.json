@@ -155,7 +155,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_gradle.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_google_golang.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_jmespath_jp_json_processor.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_fedora_mongodb_community_server_6.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_fedora_mongodb_community_server_7.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_nodejs_javascript_runtime.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_serverless_framework_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_nodejs_serverless_tracer.sh"

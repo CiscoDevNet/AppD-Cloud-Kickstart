@@ -41,7 +41,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
 EOF
 
 # install the mongodb database. --------------------------------------------------------------------
-dnf -y install mongodb-org
+dnf -y install mongodb-org mongodb-mongosh-shared-openssl3
 
 # configure mongodb community server service. ------------------------------------------------------
 # reload systemd manager configuration.
@@ -90,10 +90,6 @@ EOF
   # create the mongodb admin user.
   runuser -c "mongosh --file ${kickstart_home}/provisioners/scripts/centos/mongodb/createMongoDBAdminUser.js" - ${user_name}
 fi
-
-# perform general mongodb housekeeping tasks. ------------------------------------------------------
-# disable the mongodb free monitoring solution.
-runuser -c "mongosh --quiet --eval \"db.disableFreeMonitoring()\"" - ${user_name}
 
 # shutdown the mongodb database. -------------------------------------------------------------------
 systemctl stop mongod

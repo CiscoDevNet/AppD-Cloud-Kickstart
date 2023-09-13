@@ -94,10 +94,6 @@ EOF
   runuser -c "mongo ${kickstart_home}/provisioners/scripts/centos/mongodb/createMongoDBAdminUser.js" - ${user_name}
 fi
 
-# perform general mongodb housekeeping tasks. ------------------------------------------------------
-# disable the mongodb free monitoring solution.
-runuser -c "mongo --quiet --eval \"db.disableFreeMonitoring()\"" - ${user_name}
-
 # shutdown the mongodb database. -------------------------------------------------------------------
 systemctl stop mongod
 #runuser -c "mongo --quiet --eval \"db.adminCommand( { shutdown: 1 } )\"" - ${user_name}
