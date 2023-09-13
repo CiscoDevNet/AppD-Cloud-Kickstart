@@ -14,9 +14,9 @@
 #---------------------------------------------------------------------------------------------------
 
 # install eksctl cli. ------------------------------------------------------------------------------
-eksctl_release="0.152.0"
+eksctl_release="0.156.0"
 eksctl_binary="eksctl_$(uname -s)_amd64.tar.gz"
-eksctl_sha256="6db59568327a16ca9b33535c3ddc19f99e5e95c0da05c5a1d89049c7013e8478"
+eksctl_sha256="087c242ecb55255f1ac9a180769e0c0c1ab0d6c72f9d5d761523d5565798e2a5"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
