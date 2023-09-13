@@ -68,7 +68,7 @@ module "security_group" {
 
 module "teastore_vm" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = ">= 5.3"
+  version = ">= 5.5"
 
   for_each = local.lab_for_each
 
