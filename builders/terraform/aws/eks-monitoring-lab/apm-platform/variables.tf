@@ -71,16 +71,14 @@ variable "aws_ec2_ssh_pub_key_name" {
 variable "aws_ec2_source_ami_filter" {
   description = "AWS EC2 source AMI disk image filter."
   type        = string
-  default     = "APM-Platform-2370-AL2-AMI-*"
-# default     = "APM-Platform-2370-CentOS79-AMI-*"
+  default     = "APM-Platform-2380-AL2-AMI-*"
+# default     = "APM-Platform-2380-CentOS79-AMI-*"
 }
 
 variable "aws_ec2_instance_type" {
   description = "AWS EC2 instance type."
   type        = string
-# default     = "t2.micro"
-# default     = "m5a.large"
-  default     = "m5a.xlarge"
+  default     = "t3a.xlarge"
 }
 
 variable "lab_count" {
