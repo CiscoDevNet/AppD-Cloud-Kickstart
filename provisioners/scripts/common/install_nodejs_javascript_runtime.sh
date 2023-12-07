@@ -26,7 +26,7 @@
 # [OPTIONAL] node.js nvm install parameters [w/ defaults].
 user_name="${user_name:-centos}"
 nodejs_release="${nodejs_release:-16}"
-npm_release="${npm_release:-9.8.1}"
+npm_release="${npm_release:-9.9.2}"
 
 # install nvm (node version mannager). -------------------------------------------------------------
 nvm_binary="nvm-linux-amd64"
@@ -37,7 +37,7 @@ curdate=$(date +"%Y-%m-%d.%H-%M-%S")
 # retrieve version number of latest release.
 curl --silent --dump-header curl-nvm.${curdate}.out https://github.com/nvm-sh/nvm/releases/latest --output /dev/null
 nvm_release=$(awk '{ sub("\r$", ""); print }' curl-nvm.${curdate}.out | awk '/Location/ {print $2}' | awk -F "/" '{print $8}')
-nvm_release="v0.39.5"
+nvm_release="v0.39.7"
 rm -f curl-nvm.${curdate}.out
 
 # install nvm.
