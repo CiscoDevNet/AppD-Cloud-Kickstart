@@ -28,12 +28,14 @@ appd_eum_private_host="${appd_eum_private_host:-}"
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_eum_server_home="${appd_eum_server_home:-eum}"
-appd_eum_server_release="${appd_eum_server_release:-21.4.6.34822}"
-appd_eum_server_sha256="${appd_eum_server_sha256:-17da6c60f6caf6fb00f9a32afcfd17cff8b1a1324e76aea2a9f3117c51a0064d}"
+appd_eum_server_release="${appd_eum_server_release:-23.8.0.35125}"
+appd_eum_server_sha256="${appd_eum_server_sha256:-159a5d18d20dd4f58846b5298cbf11692e1cf42dcd27d934947801cd89ca7cb3}"
 appd_platform_user_name="${appd_platform_user_name:-centos}"
 appd_platform_user_group="${appd_platform_user_group:-centos}"
 appd_eum_server_jvm_xms="${appd_eum_server_jvm_xms:-1024}"
 appd_eum_server_jvm_xmx="${appd_eum_server_jvm_xmx:-4096}"
+appd_eum_server_jdk_08="${appd_eum_server_jdk_08:-/usr/local/java/jdk180}"
+appd_eum_server_jdk_17="${appd_eum_server_jdk_17:-/usr/local/java/jdk17}"
 set +x  # temporarily turn command display OFF.
 appd_platform_keystore_password="${appd_platform_keystore_password:-welcome1}"
 appd_platform_db_password="${appd_platform_db_password:-welcome1}"
@@ -68,9 +70,9 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_eum_server_home="eum"                           # [optional] platform home folder (defaults to 'eum').
-    [root]# export appd_eum_server_release="21.4.6.34822"               # [optional] platform release (defaults to '21.4.6.34822').
+    [root]# export appd_eum_server_release="23.8.0.35125"               # [optional] platform release (defaults to '23.8.0.35125').
                                                                         # [optional] platform sha-256 checksum (defaults to published value).
-    [root]# export appd_eum_server_sha256="17da6c60f6caf6fb00f9a32afcfd17cff8b1a1324e76aea2a9f3117c51a0064d"
+    [root]# export appd_eum_server_sha256="159a5d18d20dd4f58846b5298cbf11692e1cf42dcd27d934947801cd89ca7cb3"
     [root]# export appd_platform_user_name="appd"                       # [optional] platform user name (defaults to 'appd').
     [root]# export appd_platform_user_group="appd"                      # [optional] platform group (defaults to 'appd').
     [root]# export appd_eum_server_jvm_xms=1024"                        # [optional] platform JVM XMS (defaults to '1024').
@@ -478,10 +480,10 @@ if [ -d "$systemd_dir" ]; then
     echo "Group=${appd_platform_user_group}" >> "${service_filepath}"
   fi
 
-  echo "Environment=JAVA_HOME=${appd_platform_folder}/jre" >> "${service_filepath}"
-  echo "WorkingDirectory=${appd_platform_folder}/mysql/" >> "${service_filepath}"
-  echo "ExecStart=${appd_platform_folder}/orcha/orcha-master/bin/orcha-master -d mysql.groovy -p ${appd_platform_folder}/orcha/playbooks/mysql-orcha/start-mysql.orcha -o ${appd_platform_folder}/orcha/orcha-master/conf/orcha.properties -c local" >> "${service_filepath}"
-  echo "ExecStop=${appd_platform_folder}/orcha/orcha-master/bin/orcha-master -d mysql.groovy -p ${appd_platform_folder}/orcha/playbooks/mysql-orcha/stop-mysql.orcha -o ${appd_platform_folder}/orcha/orcha-master/conf/orcha.properties -c local" >> "${service_filepath}"
+  echo "Environment=JAVA_HOME=${appd_eum_server_jdk_08}" >> "${service_filepath}"
+  echo "WorkingDirectory=${appd_platform_folder}/orcha/orcha-manager/bin/" >> "${service_filepath}"
+  echo "ExecStart=${appd_platform_folder}/orcha/orcha-manager/bin/orcha-manager -d mysql.groovy -p ${appd_platform_folder}/orcha/playbooks/mysql-orcha/start-mysql.orcha -o ${appd_platform_folder}/orcha/orcha-manager/conf/orcha.properties -c local" >> "${service_filepath}"
+  echo "ExecStop=${appd_platform_folder}/orcha/orcha-manager/bin/orcha-manager -d mysql.groovy -p ${appd_platform_folder}/orcha/playbooks/mysql-orcha/stop-mysql.orcha -o ${appd_platform_folder}/orcha/orcha-manager/conf/orcha.properties -c local" >> "${service_filepath}"
   echo "" >> "${service_filepath}"
   echo "[Install]" >> "${service_filepath}"
   echo "WantedBy=multi-user.target" >> "${service_filepath}"
@@ -495,7 +497,7 @@ systemctl enable "${appd_eum_db_service}"
 systemctl is-enabled "${appd_eum_db_service}"
 
 # stop eum mysql db
-#${appd_platform_folder}/orcha/orcha-master/bin/orcha-master -d mysql.groovy -p ${appd_platform_folder}/orcha/playbooks/mysql-orcha/stop-mysql.orcha -o ${appd_platform_folder}/orcha/orcha-master/conf/orcha.properties -c local
+#${appd_platform_folder}/orcha/orcha-manager/bin/orcha-manager -d mysql.groovy -p ${appd_platform_folder}/orcha/playbooks/mysql-orcha/stop-mysql.orcha -o ${appd_platform_folder}/orcha/orcha-manager/conf/orcha.properties -c local
 pkill -f mysql
 
 
@@ -523,6 +525,7 @@ if [ -d "$systemd_dir" ]; then
     echo "Group=${appd_platform_user_group}" >> "${service_filepath}"
   fi
 
+  echo "Environment=JAVA_HOME=${appd_platform_folder}/jre" >> "${service_filepath}"
   echo "WorkingDirectory=${appd_platform_folder}/eum-processor/" >> "${service_filepath}"
   echo "ExecStart=${appd_platform_folder}/eum-processor/start_eum.sh" >> "${service_filepath}"
   echo "ExecStop=${appd_platform_folder}/eum-processor/stop_eum.sh" >> "${service_filepath}"
