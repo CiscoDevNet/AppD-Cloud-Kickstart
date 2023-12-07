@@ -109,7 +109,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_8.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_11.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_17.sh",
-        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_20.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_21.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_docker.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose_2.sh",
@@ -165,9 +165,9 @@
     "azure_vm_size": "Standard_B4ms",
     "azure_os_disk_size": "128",
     "user_docker_profile": "true",
-    "docker_completion_release": "24.0.6",
+    "docker_completion_release": "24.0.7",
     "nodejs_release": "16",
-    "npm_release": "9.8.1",
+    "npm_release": "9.9.2",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }
