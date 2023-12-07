@@ -26,7 +26,7 @@ variable "aws_ssh_ingress_cidr_blocks" {
 variable "cisco_ssh_ingress_cidr_blocks" {
   description = "The ingress CIDR blocks for inbound ssh traffic from Cisco networks."
   type        = string
-  default     = "128.107.248.205/32,72.163.220.53/32,209.234.175.138/32,173.38.208.173/32"
+  default     = "128.107.241.0/24,72.163.220.53/32,209.234.175.138/32,173.38.208.173/32"
 }
 
 # Ingress CIDR block IP ranges for 'CLOUD9' service in ["us-east-1", "us-east-2", "us-west-1", "us-west-2"].
@@ -71,8 +71,8 @@ variable "aws_ec2_ssh_pub_key_name" {
 variable "aws_ec2_source_ami_filter" {
   description = "AWS EC2 source AMI disk image filter."
   type        = string
-  default     = "APM-Platform-2380-AL2-AMI-*"
-# default     = "APM-Platform-2380-CentOS79-AMI-*"
+  default     = "APM-Platform-23110-AL2-AMI-*"
+# default     = "APM-Platform-23110-CentOS79-AMI-*"
 }
 
 variable "aws_ec2_instance_type" {
