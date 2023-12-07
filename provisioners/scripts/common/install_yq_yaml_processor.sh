@@ -15,10 +15,10 @@
 #---------------------------------------------------------------------------------------------------
 
 # install yq yaml processor. -----------------------------------------------------------------------
-yq_release="v4.35.1"
+yq_release="v4.40.4"
 yq_exe="yq_linux_amd64"
 yq_binary="${yq_exe}.tar.gz"
-yq_sha256="bd695a6513f1196aeda17b174a15e9c351843fb1cef5f9be0af170f2dd744f08"
+yq_sha256="f9163412d9aa2aa55e888fdcaf2b4053ada20074be35f701424caa7163100704"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin

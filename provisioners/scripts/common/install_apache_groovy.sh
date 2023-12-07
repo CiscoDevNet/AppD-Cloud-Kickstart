@@ -3,10 +3,10 @@
 
 # install apache groovy. ---------------------------------------------------------------------------
 groovy_home="groovy"
-groovy_release="4.0.15"
+groovy_release="4.0.16"
 groovy_folder="${groovy_home}-${groovy_release}"
 groovy_sdk="apache-groovy-sdk-${groovy_release}.zip"
-groovy_sha256="f1c30a8ff9a14692b05156e22ab75f6ae86212e4ebe955df074d0026d49b6307"
+groovy_sha256="09e705f7d7ba175e0e0d39b7aa121685958cf9e7bd7da37a8a7cf97f98de70c2"
 
 #groovy_binary="apache-groovy-binary-${groovy_release}.zip"
 #groovy_docs="apache-groovy-docs-${groovy_release}.zip"
@@ -15,7 +15,7 @@ groovy_sha256="f1c30a8ff9a14692b05156e22ab75f6ae86212e4ebe955df074d0026d49b6307"
 mkdir -p /usr/local/apache
 cd /usr/local/apache
 
-# download groovy sdk bundle from apache.org.
+# download groovy sdk bundle from the apache mirror at jfrog.io.
 wget --no-verbose https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/${groovy_sdk}
 
 # verify the downloaded binary.
