@@ -130,6 +130,10 @@ if [ "${aws_account_id}" == "395719258032" ]; then
   pov_playbook1_cloud9_user_share_array+=( "arn:aws:iam::395719258032:user/pov-playbook-lab-user-01" )
   pov_playbook1_cloud9_user_share_array+=( "arn:aws:iam::395719258032:user/ed.barberis" )
   pov_playbook1_cloud9_user_share_array+=( "arn:aws:iam::395719258032:user/james.schneider" )
+  pov_playbook1_cloud9_user_share_array+=( "arn:aws:sts::395719258032:assumed-role/admin/ebarberi@cisco.com" )
+  pov_playbook1_cloud9_user_share_array+=( "arn:aws:sts::395719258032:assumed-role/admin/james101@cisco.com" )
+# pov_playbook1_cloud9_user_share_array+=( "arn:aws:sts::395719258032:assumed-role/admin/avkumar7@cisco.com" )
+# pov_playbook1_cloud9_user_share_array+=( "arn:aws:sts::395719258032:assumed-role/devops/wiwan@cisco.com" )
 else
   echo "Error: aws_account_id: IAM users undefined for AWS Account: '${aws_account_id}'."
   exit 1
