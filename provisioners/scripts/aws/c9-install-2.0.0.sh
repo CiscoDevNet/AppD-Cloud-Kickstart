@@ -24,8 +24,8 @@ else
   exit 1
 fi
 
-# Specify the CDN URL using `PROD_CLOUDFRONT_URL=...`. Defaults to us-west-2 region url
-PROD_CLOUDFRONT_URL=${PROD_CLOUDFRONT_URL:-'https://dhj20r2nmszcd.cloudfront.net/static'}
+# Specify the CDN URL using `PROD_CLOUDFRONT_URL=...`. Defaults to us-east-1 region url
+PROD_CLOUDFRONT_URL=${PROD_CLOUDFRONT_URL:-'https://d3kgj69l4ph6w4.cloudfront.net/static'}
 C9_DIR=$HOME/.c9
 if [[ ${1-} == -d ]]; then
     C9_DIR=$2
@@ -38,15 +38,13 @@ if [ ! -d "$C9_DIR" ]; then
 fi
 
 VERSION=1
-NODE_VERSION=v12.16.1
 NPM=$C9_DIR/node/bin/npm
 NODE=$C9_DIR/node/bin/node
 
 export TMP=$C9_DIR/tmp
 export TMPDIR=$TMP
 
-PYTHON=python
-PIP=pip
+PYTHON=python3
 
 # node-gyp uses sytem node or fails with command not found if
 # we don't bump this node up in the path
@@ -207,56 +205,32 @@ check_python() {
   elif type -P python &> /dev/null; then
     PYTHON="python"
   fi
+
+  PYTHON_VERSION=$($PYTHON -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
   
-  if ! type -P "$PYTHON" &> /dev/null; then
-    echo "Python is required to install pty.js. Please install python and try again. You can find more information on how to install Python in the docs: https://docs.aws.amazon.com/cloud9/latest/user-guide/ssh-settings.html#ssh-settings-requirements"
+  if [[ $PYTHON_VERSION != "3."* ]]; then
+    echo "Python 3 is required to install pty.js. Please install python and try again. You can find more information on how to install Python in the docs: https://docs.aws.amazon.com/cloud9/latest/user-guide/ssh-settings.html#ssh-settings-requirements"
     exit 100
   fi
 
-  if which pip2 &> /dev/null; then
-      PIP="pip2"
-  elif which pip3 &> /dev/null; then
-      PIP="pip3"
-  fi
-
-  if ! which "$PIP" &> /dev/null; then
-    echo "pip is required to install CodeIntel. Please install pip and try again"
+  if $PYTHON -c 'import venv,ensurepip' &>/dev/null; then
+    echo "venv is installed"
+  else
+    if which apt &> /dev/null; then
+      echo "venv and ensurepip is required to create virtual environment. Please run command 'sudo apt install python3-venv' to install dependencies."
+    else
+      echo "venv and ensurepip is required to create virtual environment. Please install and try again."
+    fi
     exit 100
   fi
 }
 
 # NodeJS
 
-download_virtualenv() {
-  VIRTUALENV_VERSION="virtualenv-12.0.7"
-  DOWNLOAD "$PROD_CLOUDFRONT_URL/$VIRTUALENV_VERSION.tar.gz" $VIRTUALENV_VERSION.tar.gz
-  tar xzf $VIRTUALENV_VERSION.tar.gz
-  rm $VIRTUALENV_VERSION.tar.gz
-  mv $VIRTUALENV_VERSION virtualenv
-}
-
-ensure_local_gyp() {
-  # when gyp is installed globally npm install pty.js won't work
-  # to test this use `sudo apt-get install gyp`
-  if [ `"$PYTHON" -c 'import gyp; print gyp.__file__' 2> /dev/null` ]; then
-    echo "You have a global gyp installed. Setting up VirtualEnv without global pakages"
-    rm -rf virtualenv
-    rm -rf python
-    if has virtualenv; then
-      virtualenv -p python2 "$C9_DIR/python"
-    else
-      download_virtualenv
-      "$PYTHON" virtualenv/virtualenv.py "$C9_DIR/python"
-    fi
-    if [[ -f "$C9_DIR/python/bin/python2" ]]; then
-      PYTHON="$C9_DIR/python/bin/python2"
-    else
-      echo "Unable to setup virtualenv"
-      exit 1
-    fi
-  fi
-  "$NPM" config -g set python "$PYTHON"
-  "$NPM" config -g set unsafe-perm true
+setup_gyp_config() {
+  set_npm_global_config python3 "$PYTHON"
+  set_npm_global_config python "$PYTHON"
+  set_npm_global_config unsafe-perm "true"
   
   local GYP_PATH=$C9_DIR/node/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js
   if [ -f  "$GYP_PATH" ]; then
@@ -264,7 +238,106 @@ ensure_local_gyp() {
   fi
 }
 
+set_npm_global_config() {
+  if "$NPM" config -g set $1 $2 >/dev/null 2>&1; then
+    return 0
+  else
+    GLOBAL_NPMRC=$C9_DIR/node/etc/npmrc
+    grep "$1 = " $GLOBAL_NPMRC || echo "$1 = $2" >> $GLOBAL_NPMRC
+  fi
+}
+
+get_node_version() {
+  if minimum_kernel_version 4 18 && \
+     supports_c_standard gnu++17 && \
+     verify_lib_dependency libc.so.6 GLIBC_2.28 && \
+     verify_lib_dependency libstdc++.so.6 GLIBCXX_3.4.25 CXXABI_1.3.9; then
+    printf "%s" "v18.16.1"
+  elif supports_c_standard gnu++14; then
+    printf "%s" "v16.20.1"
+  else
+    printf "%s" "v12.16.1"
+  fi
+}
+
+minimum_kernel_version() {
+  KERNEL_MAJOR_VERSION=`uname -r | cut -d '.' -f 1`
+  KERNEL_MINOR_VERSION=`uname -r | cut -d '.' -f 2`
+  minimum_version_check $KERNEL_MAJOR_VERSION $KERNEL_MINOR_VERSION $1 $2
+}
+
+minimum_version_check() {
+  # minimum_version_check(4, 19, 4, 18) will check if version 4.19 is greater than or equal to 4.18
+  MAJOR_VERSION_1=$1
+  MINOR_VERSION_1=$2
+  MAJOR_VERSION_2=$3
+  MINOR_VERSION_2=$4
+  if [ $MAJOR_VERSION_1 -gt $MAJOR_VERSION_2 ]; then
+    return 0
+  elif [ $MAJOR_VERSION_1 -eq $MAJOR_VERSION_2 ] && [ $MINOR_VERSION_1 -ge $MINOR_VERSION_2 ]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+supports_c_standard() {
+  gcc -v --help 2> /dev/null | grep -q "std=$1"
+}
+
+
+verify_lib_dependency() {
+  LIB_NAME=$1
+  shift 1
+  for path in $(get_lib_paths $LIB_NAME); do
+    verify_symbols_in_lib_object "$path" "$@" && return 0
+  done
+  return 1
+}
+
+verify_symbols_in_lib_object() {
+  if has "nm"; then
+    # Only verify if nm is available to read symbols from object files
+    LIB_PATH=$1
+    shift 1
+    NUM_SYMBOLS=$#
+    REGEX=$(make_symbol_regex "$@")
+    COUNT=$(nm -gDPA $LIB_PATH | grep -oE "$REGEX" | sort -u | wc -l)
+    if [ $COUNT -eq $NUM_SYMBOLS ]; then
+      return 0
+    fi
+  fi
+  return 1
+}
+
+make_symbol_regex() {
+  REGEX=""
+  while [ $# -gt 0 ]; do
+    REGEX="$REGEX\s$1\s"
+    if [ $# -gt 1 ]; then
+      REGEX="$REGEX|"
+    fi
+    shift 1
+  done
+  echo "$REGEX"
+}
+
+get_lib_paths() {
+  if has "whereis"; then
+    for path in $(whereis $1 | cut -d ' ' -f 2-); do
+      if [[ "$path" =~ "$1" ]]; then
+        printf "%s " "$path"
+      fi
+    done | sed 's/ $/\n/'
+  elif has "ldconfig"; then
+    for line in $(ldconfig -p | grep $1 | sed 's/.* => \(.*\)$/\1/'); do
+      printf "%s " "$line"
+    done | sed 's/ $/\n/'
+  fi
+}
+
 node(){
+  NODE_VERSION=$(get_node_version)
   # clean up 
   rm -rf node 
   rm -rf node.tar.gz
@@ -278,7 +351,7 @@ node(){
 
   # use local npm cache
   "$NPM" config -g set cache  "$C9_DIR/tmp/.npm"
-  ensure_local_gyp
+  setup_gyp_config
 
 }
 
@@ -380,8 +453,7 @@ tmux_install(){
 
 collab(){
   echo :Installing Collab Dependencies
-  "$NPM" install sqlite3@4.1.1
-  "$NPM" install sequelize@2.0.0-beta.0
+  "$NPM" install sqlite3@4.2.0
   mkdir -p "$C9_DIR"/lib
   cd "$C9_DIR"/lib
   DOWNLOAD "$PROD_CLOUDFRONT_URL/sqlite3.tar.gz" sqlite3.tar.gz
@@ -439,21 +511,44 @@ stylus(){
 }
 
 codeintel(){
-  echo :Installing CodeIntel
-  $PIP install inflector==2.0.12
+  local CODEINTEL_ENV="$C9_DIR/python3_codeintel"
+  local PYTHON3
+  
+  if which python3 &> /dev/null; then
+    PYTHON3="python3"
+  elif [[ `python --version` =~ 'Python 3' ]]; then
+    PYTHON3="python"
+  else
+    echo "Skipping CodeIntel installation because python3 is not installed."
+    return
+  fi
 
-  CUR_DIR=$(pwd)
+  if ! $PYTHON3 -c "import venv" 1> /dev/null; then
+    echo "Skipping CodeIntel installation because python3 venv module is not installed."
+    return
+  fi
 
-  mkdir -p /tmp/codeintel
-  cd /tmp/codeintel
-  $PIP download -d /tmp/codeintel codeintel==2.0.0 inflector==2.0.12
-  tar xf CodeIntel-2.0.0.tar.gz
-# mv CodeIntel-2.0.0/SilverCity CodeIntel-2.0.0/silvercity
-  tar czf CodeIntel-2.0.0.tar.gz CodeIntel-2.0.0
-  $PIP install -U --no-index --find-links=/tmp/codeintel codeintel inflector==2.0.12
+  INCLUDEPY=$($PYTHON3 -c "from distutils import sysconfig; print(sysconfig.get_config_vars()['INCLUDEPY'])")
+  if [[ ! -f "$INCLUDEPY/Python.h" ]]; then
+      echo "Skipping CodeIntel installation because python3 dev files aren't present."
+      return
+  fi
 
-  cd $CUR_DIR
-  rm -rf /tmp/codeintel
+  echo "Creating a CodeIntel venv at $CODEINTEL_ENV"
+  rm -rf $CODEINTEL_ENV
+  $PYTHON3 -m venv "$CODEINTEL_ENV"
+
+  echo "Activating a CodeIntel venv"
+  source "$CODEINTEL_ENV/bin/activate"
+
+  if ! pip --version &> /dev/null; then
+    echo "Skipping CodeIntel installation because pip is not installed."
+  fi
+
+  echo "Installing CodeIntel"
+  pip install "$PROD_CLOUDFRONT_URL/CodeIntel-2.0.0.post1.tar.gz" inflector==3.1.0
+
+  echo "Successfully installed CodeIntel."
 }
 
 start "$@"
