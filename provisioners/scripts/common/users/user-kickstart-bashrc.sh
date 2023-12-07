@@ -1,4 +1,4 @@
-# @(#).bashrc       1.0 2023/04/12 SMI
+# @(#).bashrc       1.0 2023/12/06 SMI
 # bash resource configuration for kickstart users.
 
 # source global definitions.
@@ -16,7 +16,7 @@ umask 022
 JAVA_HOME=/usr/local/java/jdk180
 #JAVA_HOME=/usr/local/java/jdk11
 #JAVA_HOME=/usr/local/java/jdk17
-#JAVA_HOME=/usr/local/java/jdk20
+#JAVA_HOME=/usr/local/java/jdk21
 export JAVA_HOME
 
 # set ant home path.
@@ -32,6 +32,10 @@ MAVEN_OPTS=-Dfile.encoding="UTF-8"
 export MAVEN_OPTS
 M2=$M2_HOME/bin
 export M2
+
+# set groovy home environment variables.
+GROOVY_HOME=/usr/local/apache/groovy
+export GROOVY_HOME
 
 # set gradle home path.
 GRADLE_HOME=/usr/local/gradle/gradle
@@ -52,7 +56,7 @@ export GOPATH
 # set phantomjs environment variables (if needed).
 # if ubuntu release is '22.04', apply fix for incompatible openssl.
 user_host_os=$(hostnamectl | awk '/Operating System/ {printf "%s %s %s %s %s", $3, $4, $5, $6, $7}' | xargs)
-if [ "$user_host_os" = "Ubuntu 22.04.2 LTS" ]; then
+if [ "$user_host_os" = "Ubuntu 22.04.3 LTS" ]; then
   OPENSSL_CONF=/dev/null
   export OPENSSL_CONF
 fi
@@ -85,7 +89,7 @@ PS1="${reset}${cyan}\h${blue}[${green}\u${blue}]${white}\$ "
 export PS1
 
 # add local applications to main PATH.
-PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$M2:$GRADLE_HOME/bin:$GIT_HOME/bin:$GIT_FLOW_HOME/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.local/bin:$PATH
+PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$M2:${GROOVY_HOME}/bin:$GRADLE_HOME/bin:$GIT_HOME/bin:$GIT_FLOW_HOME/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.local/bin:$PATH
 export PATH
 
 # set options.

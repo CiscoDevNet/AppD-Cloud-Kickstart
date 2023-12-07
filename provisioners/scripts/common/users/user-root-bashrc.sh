@@ -18,7 +18,7 @@ umask 022
 JAVA_HOME=/usr/local/java/jdk180
 #JAVA_HOME=/usr/local/java/jdk11
 #JAVA_HOME=/usr/local/java/jdk17
-#JAVA_HOME=/usr/local/java/jdk20
+#JAVA_HOME=/usr/local/java/jdk21
 export JAVA_HOME
 
 # set maven home environment variables.
