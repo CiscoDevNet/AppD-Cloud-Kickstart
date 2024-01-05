@@ -75,7 +75,7 @@ data "aws_ami" "lpad_ami" {
 # Modules ------------------------------------------------------------------------------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = ">= 5.2"
+  version = ">= 5.4"
 
   name = local.vpc_name
   cidr = var.aws_vpc_cidr_block
@@ -120,7 +120,7 @@ module "security_group" {
 
 module "lpad_vm" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = ">= 5.5"
+  version = ">= 5.6"
 
   for_each = local.lab_for_each
 
