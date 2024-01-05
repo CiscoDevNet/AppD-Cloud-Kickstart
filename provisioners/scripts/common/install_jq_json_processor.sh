@@ -17,9 +17,9 @@
 #---------------------------------------------------------------------------------------------------
 
 # install jq yaml processor. -----------------------------------------------------------------------
-jq_release="jq-1.7"
+jq_release="jq-1.7.1"
 jq_binary="jq-linux-amd64"
-jq_sha256="2f312b9587b1c1eddf3a53f9a0b7d276b9b7b94576c85bda22808ca950569716"
+jq_sha256="5942c9b0934e510ee61eb3e30273f1b3fe2590df93933a93d7c58b81d19c8ff5"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin

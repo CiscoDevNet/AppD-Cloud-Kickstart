@@ -1,7 +1,5 @@
 # AppD Cloud Kickstart
 
-**NEW!!** Announcing support for Azure Kubernetes Service (AKS).  
-
 The Cloud Kickstart is an enablement workshop demonstrating AppDynamics ability to monitor cloud native 
 workloads. AWS, Azure, and GCP support is currently available. The idea is to deliver different chapters 
 within each cloud provider bucket. The first chapter available within the AWS bucket is **AWS EKS Monitoring**. 

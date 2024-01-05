@@ -21,11 +21,11 @@ you are finished, such as purging old GCE images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Google Cloud SDK 456.0.0 (command-line interface)
+-	Google Cloud SDK 458.0.1 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [Google Cloud SDK 456.0.0](https://cloud.google.com/sdk/docs/quickstart#mac).  
+1.	Install [Google Cloud SDK 458.0.1](https://cloud.google.com/sdk/docs/quickstart#mac).  
     `$ brew install --cask google-cloud-sdk`  
 
     Depending on your shell, follow the on-screen instructions to source the SDK binaries to your `PATH`.  
@@ -41,7 +41,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ gcloud --version
-    Google Cloud SDK 456.0.0
+    Google Cloud SDK 458.0.1
     ...
     ```
 
@@ -58,11 +58,11 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Google Cloud SDK 456.0.0 (command-line interface)
+-	Google Cloud SDK 458.0.1 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [Google Cloud SDK 456.0.0](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) for Windows 64-bit.  
+1.	Install [Google Cloud SDK 458.0.1](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) for Windows 64-bit.  
     Run the downloaded EXE installer, follow the on-screen instructions, and accept the defaults until you get to the last step.  
 
     **NOTE:** For Windows users, the EXE installation package offers a familiar and convenient way to 
@@ -91,7 +91,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ gcloud --version
-    Google Cloud SDK 456.0.0
+    Google Cloud SDK 458.0.1
     ...
     ```
 
@@ -488,32 +488,32 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Google Cloud SDK 456.0.0
--	Helm CLI 3.13.2 (Package Manager for Kubernetes)
+-	Google Cloud SDK 458.0.1
+-	Helm CLI 3.13.3 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 392 (Amazon Corretto 8)
 -	Java SE JDK 11.0.21 (Amazon Corretto 11)
 -	Java SE JDK 17.0.9 (Amazon Corretto 17)
 -	Java SE JDK 21.0.1 (Amazon Corretto 21)
--	jq 1.7 (command-line JSON processor)
--	Kubernetes CLI [kubectl] 1.28.4 (command-line interface)
+-	jq 1.7.1 (command-line JSON processor)
+-	Kubernetes CLI [kubectl] 1.28.5 (command-line interface)
 -	Node.js JavaScript runtime v16.20.2
 -	npm JavaScript Package Manager for Node.js 9.9.2
 -	nvm (Node Version Manager) bash script 0.39.7
 -	Packer 1.10.0
 -	Python 2.7.5
-	-	Pip 23.3.1
+	-	Pip 23.3.2
 -	Python 3.6.8
-	-	Pip3 23.3.1
+	-	Pip3 23.3.2
 -	Serverless Framework CLI 3.38.0
--	Terraform 1.6.5
+-	Terraform 1.6.6
 -	VIM - Vi IMproved 9.0
--	yq 4.40.4 (command-line YAML processor)
+-	yq 4.40.5 (command-line YAML processor)
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 23.11.0 Build 10102
-	-	AppDynamics Controller 23.11.0.1 Build 10089
+-	AppDynamics Enterprise Console 23.11.1 Build 10113
+	-	AppDynamics Controller 23.11.1 Build 10118
 	-	AppDynamics Events Service 4.5.2 Build 20827
 -	Docker 24.0.7 CE
 	-	Docker Bash Completion
@@ -522,13 +522,13 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Google Cloud SDK 456.0.0
+-	Google Cloud SDK 458.0.1
 -	Java SE JDK 8 Update 392 (Amazon Corretto 8)
--	jq 1.7 (command-line JSON processor)
+-	jq 1.7.1 (command-line JSON processor)
 -	MySQL Shell 8.0.35
 -	Python 2.7.5
-	-	Pip 23.3.1
+	-	Pip 23.3.2
 -	Python 3.6.8
-	-	Pip3 23.3.1
+	-	Pip3 23.3.2
 -	VIM - Vi IMproved 9.0
--	yq 4.40.4 (command-line YAML processor)
+-	yq 4.40.5 (command-line YAML processor)

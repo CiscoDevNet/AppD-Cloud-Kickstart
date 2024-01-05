@@ -57,15 +57,15 @@ SSH to communicate with your cloud resources and managed nodes.
 
 The following open source software needs to be installed on the host macOS machine:
 
--	Homebrew 4.1.24
+-	Homebrew 4.2.2
 -	Git 2.43.0
 -	Packer 1.10.0
--	Terraform 1.6.5
--	jq 1.7
+-	Terraform 1.6.6
+-	jq 1.7.1
 
 Perform the following steps to install the needed software:
 
-1.	Install the [Homebrew 4.1.24](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
+1.	Install the [Homebrew 4.2.2](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     ```bash
     $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
@@ -81,13 +81,13 @@ Perform the following steps to install the needed software:
     $ brew install hashicorp/tap/packer
     ```
 
-4.	Install [Terraform 1.6.5](https://www.terraform.io/downloads.html) for macOS 64-bit.  
+4.	Install [Terraform 1.6.6](https://www.terraform.io/downloads.html) for macOS 64-bit.  
     ```bash
     $ brew tap hashicorp/tap
     $ brew install hashicorp/tap/terraform
     ```
 
-5.	Install [jq 1.7](https://jqlang.github.io/jq/) for macOS 64-bit.  
+5.	Install [jq 1.7.1](https://jqlang.github.io/jq/) for macOS 64-bit.  
     `$ brew install jq`  
 
 ### Configuration and Validation - macOS
@@ -96,7 +96,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ brew --version
-    Homebrew 4.1.24
+    Homebrew 4.2.2
     $ brew doctor
     Your system is ready to brew.
 
@@ -107,10 +107,10 @@ Perform the following steps to install the needed software:
     1.10.0
 
     $ terraform --version
-    Terraform v1.6.5
+    Terraform v1.6.6
 
     $ jq --version
-    jq-1.7
+    jq-1.7.1
     ```
 
 2.	Configure Git for local user:
@@ -127,8 +127,8 @@ To build the AppD Cloud Kickstart immutable VM images, the following open source
 
 -	Git 2.43.0 for Win64
 -	Packer 1.10.0
--	Terraform 1.6.5
--	jq 1.7
+-	Terraform 1.6.6
+-	jq 1.7.1
 
 Perform the following steps to install the needed software:
 
@@ -138,11 +138,11 @@ Perform the following steps to install the needed software:
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\bin`  
 
-3.	Install [Terraform 1.6.5](https://releases.hashicorp.com/terraform/1.6.5/terraform_1.6.5_windows_amd64.zip) for Windows 64-bit.  
+3.	Install [Terraform 1.6.6](https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\bin`  
 
-4.	Install [jq 1.7](https://github.com/jqlang/jq/releases/download/jq-1.7/jq-win64.exe) for Windows 64-bit.  
+4.	Install [jq 1.7.1](https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-win64.exe) for Windows 64-bit.  
     Create suggested install folder and rename binary to:  
     `C:\Program Files\Git\usr\local\bin\jq.exe`
 
@@ -169,10 +169,10 @@ Perform the following steps to install the needed software:
     1.10.0
 
     $ terraform --version
-    Terraform v1.6.5
+    Terraform v1.6.6
 
     $ jq --version
-    jq-1.7
+    jq-1.7.1
     ```
 
 5.	Configure Git for local user:
