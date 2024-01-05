@@ -252,7 +252,7 @@ get_node_version() {
      supports_c_standard gnu++17 && \
      verify_lib_dependency libc.so.6 GLIBC_2.28 && \
      verify_lib_dependency libstdc++.so.6 GLIBCXX_3.4.25 CXXABI_1.3.9; then
-    printf "%s" "v18.16.1"
+    printf "%s" "v18.19.0"
   elif supports_c_standard gnu++14; then
     printf "%s" "v16.20.1"
   else
