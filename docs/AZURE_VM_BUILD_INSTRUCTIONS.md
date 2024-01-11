@@ -21,11 +21,11 @@ you are finished, such as purging old VM images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Azure CLI 2.55.0
+-	Azure CLI 2.56.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.55.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
+1.	Install [Azure CLI 2.56.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
     ```bash
     $ brew install azure-cli
     ```
@@ -34,7 +34,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ az --version
-    azure-cli                         2.55.0
+    azure-cli                         2.56.0
     ...
     ```
 
@@ -51,18 +51,18 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Azure CLI 2.55.0
+-	Azure CLI 2.56.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.55.0](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
+1.	Install [Azure CLI 2.56.0](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
     Run the downloaded MSI installer, follow the on-screen instructions, and accept the defaults.  
 
 2.	Using the **Git Bash** Terminal, validate the installed command-line tool:
 
     ```bash
     $ az --version
-    azure-cli                         2.55.0
+    azure-cli                         2.56.0
     ...
     ```
 
@@ -382,7 +382,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	AppDynamics Enterprise Console 23.11.1 Build 10113
 	-	AppDynamics Controller 23.11.1 Build 10118
 	-	AppDynamics Events Service 4.5.2 Build 20827
--	Azure CLI 2.55.0
+-	Azure CLI 2.56.0
 -	Docker 24.0.7 CE
 	-	Docker Bash Completion
 	-	Docker Compose 2.23.3
@@ -405,7 +405,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Ansible 2.9.27
 -	Ant 1.10.14
 -	AppDynamics Node.js Serverless Tracer 21.11.348
--	Azure CLI 2.55.0
+-	Azure CLI 2.56.0
 -	Docker 24.0.7 CE
 	-	Docker Bash Completion
 	-	Docker Compose 2.23.3
@@ -413,7 +413,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Go 1.21.5
+-	Go 1.21.6
 -	Gradle 8.5
 -	Groovy 4.0.17
 -	Helm CLI 3.13.3 (Package Manager for Kubernetes)
