@@ -66,7 +66,9 @@
         "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
         "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `kickstart_home`}}",
         "sudo mkdir -p {{user `pov_playbook1_lab_artifacts_dir`}}",
-        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `pov_playbook1_lab_artifacts_dir`}}/../"
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `pov_playbook1_lab_artifacts_dir`}}/../",
+        "sudo mkdir -p /home/{{user `aws_ec2_username`}}/environment",
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} /home/{{user `aws_ec2_username`}}/environment"
       ],
       "type": "shell"
     },
@@ -219,7 +221,7 @@
     "tomcat_enable_service": "false",
     "tomcat_manager_apps_remote_access": "true",
     "user_docker_profile": "true",
-    "docker_completion_release": "20.10.23",
+    "docker_completion_release": "20.10.25",
     "nodejs_release": "16",
     "npm_release": "9.9.2",
     "kickstart_home": "/opt/appd-cloud-kickstart",
