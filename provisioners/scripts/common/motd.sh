@@ -1,7 +1,7 @@
 #!/bin/sh -eux
 
 kickstart='
-This system was built with the AppD Cloud Kickstart project by the AppDynamics Cloud Channel Sales Team.
+This system was built with the AppD Cloud Kickstart project by the Cisco AppDynamics Cloud Channel Sales Team.
 More information can be found at: https://github.com/CiscoDevNet/AppD-Cloud-Kickstart'
 
 if [ -d /etc/update-motd.d ]; then
