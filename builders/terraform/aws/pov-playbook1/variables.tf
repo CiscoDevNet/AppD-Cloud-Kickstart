@@ -26,21 +26,21 @@ variable "aws_ssh_ingress_cidr_blocks" {
 variable "cisco_ssh_ingress_cidr_blocks" {
   description = "The ingress CIDR blocks for inbound ssh traffic from Cisco networks."
   type        = string
-  default     = "128.107.241.0/24,72.163.220.53/32,209.234.175.138/32,173.38.208.173/32"
+  default     = "128.107.241.0/24,72.163.220.53/32,209.234.175.138/32,173.38.208.173/32,173.38.220.54/32,72.163.220.0/24,173.39.121.0/24"
 }
 
 # Ingress CIDR block IP ranges for 'CLOUD9' service in ["us-east-1", "us-east-2", "us-west-1", "us-west-2"].
 variable "aws_cloud9_ssh_ingress_cidr_blocks" {
   description = "The ingress CIDR blocks for inbound ssh traffic from AWS Cloud9 System Manager."
   type        = string
-  default     = "35.172.155.192/27,35.172.155.96/27,18.188.9.0/27,18.188.9.32/27,13.52.232.224/27,18.144.158.0/27,34.217.141.224/27,34.218.119.32/27"
+  default     = "35.172.155.192/27,35.172.155.96/27,18.188.9.0/27,18.188.9.32/27,13.52.232.224/27,18.144.158.0/27,34.217.141.224/27,34.218.119.32/27,18.184.138.224/27,18.184.203.128/27,3.10.127.32/27,3.10.201.64/27,13.250.186.128/27,13.250.186.160/27"
 }
 
 # Ingress CIDR block IP ranges for 'EC2_INSTANCE_CONNECT' service in ["us-east-1", "us-east-2", "us-west-1", "us-west-2"].
 variable "aws_ec2_instance_connect_ssh_ingress_cidr_blocks" {
   description = "The ingress CIDR blocks for inbound ssh traffic from AWS EC2 Instance Connect."
   type        = string
-  default     = "18.206.107.24/29,3.16.146.0/29,13.52.6.112/29,18.237.140.160/29"
+  default     = "18.206.107.24/29,3.16.146.0/29,13.52.6.112/29,18.237.140.160/29,3.120.181.40/29,3.8.37.24/29,3.0.5.32/29"
 }
 
 variable "aws_ec2_pov_playbook1_vm_hostname_prefix" {
