@@ -162,6 +162,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_nodejs_javascript_runtime.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_serverless_framework_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_nodejs_serverless_tracer.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_aws_ec2_instance_connect.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cloud9.sh"
       ],
       "type": "shell"
@@ -190,7 +191,7 @@
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "25.0.0",
+    "docker_completion_release": "25.0.1",
     "mongodb_enable_access_control": "true",
     "nodejs_release": "16",
     "npm_release": "9.9.2",
