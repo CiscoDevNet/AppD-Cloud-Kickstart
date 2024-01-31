@@ -57,15 +57,15 @@ SSH to communicate with your cloud resources and managed nodes.
 
 The following open source software needs to be installed on the host macOS machine:
 
--	Homebrew 4.2.5
+-	Homebrew 4.2.6
 -	Git 2.43.0
--	Packer 1.10.0
--	Terraform 1.7.0
+-	Packer 1.10.1
+-	Terraform 1.7.1
 -	jq 1.7.1
 
 Perform the following steps to install the needed software:
 
-1.	Install the [Homebrew 4.2.5](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
+1.	Install the [Homebrew 4.2.6](https://brew.sh/) package manager for macOS 64-bit. Paste the following into a macOS Terminal prompt:  
     ```bash
     $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     ```
@@ -75,13 +75,13 @@ Perform the following steps to install the needed software:
     $ brew install git
     ```
 
-3.	Install [Packer 1.10.0](https://www.packer.io/downloads.html) for macOS 64-bit.  
+3.	Install [Packer 1.10.1](https://www.packer.io/downloads.html) for macOS 64-bit.  
     ```bash
     $ brew tap hashicorp/tap
     $ brew install hashicorp/tap/packer
     ```
 
-4.	Install [Terraform 1.7.0](https://www.terraform.io/downloads.html) for macOS 64-bit.  
+4.	Install [Terraform 1.7.1](https://www.terraform.io/downloads.html) for macOS 64-bit.  
     ```bash
     $ brew tap hashicorp/tap
     $ brew install hashicorp/tap/terraform
@@ -96,7 +96,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ brew --version
-    Homebrew 4.2.5
+    Homebrew 4.2.6
     $ brew doctor
     Your system is ready to brew.
 
@@ -104,10 +104,10 @@ Perform the following steps to install the needed software:
     git version 2.43.0
 
     $ packer --version
-    1.10.0
+    1.10.1
 
     $ terraform --version
-    Terraform v1.7.0
+    Terraform v1.7.1
 
     $ jq --version
     jq-1.7.1
@@ -126,19 +126,19 @@ Perform the following steps to install the needed software:
 To build the AppD Cloud Kickstart immutable VM images, the following open source software needs to be installed on the host Windows machine:
 
 -	Git 2.43.0 for Win64
--	Packer 1.10.0
--	Terraform 1.7.0
+-	Packer 1.10.1
+-	Terraform 1.7.1
 -	jq 1.7.1
 
 Perform the following steps to install the needed software:
 
 1.	Install [Git 2.43.0](https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe) for Windows 64-bit.
 
-2.	Install [Packer 1.10.0](https://releases.hashicorp.com/packer/1.10.0/packer_1.10.0_windows_amd64.zip) for Windows 64-bit.  
+2.	Install [Packer 1.10.1](https://releases.hashicorp.com/packer/1.10.1/packer_1.10.1_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\bin`  
 
-3.	Install [Terraform 1.7.0](https://releases.hashicorp.com/terraform/1.7.0/terraform_1.7.0_windows_amd64.zip) for Windows 64-bit.  
+3.	Install [Terraform 1.7.1](https://releases.hashicorp.com/terraform/1.7.1/terraform_1.7.1_windows_amd64.zip) for Windows 64-bit.  
     Create suggested install folder and extract contents of ZIP file to:  
     `C:\HashiCorp\bin`  
 
@@ -166,10 +166,10 @@ Perform the following steps to install the needed software:
     git version 2.43.0.windows.1
 
     $ packer --version
-    1.10.0
+    1.10.1
 
     $ terraform --version
-    Terraform v1.7.0
+    Terraform v1.7.1
 
     $ jq --version
     jq-1.7.1

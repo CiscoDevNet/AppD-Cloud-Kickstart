@@ -35,7 +35,7 @@ yum -y install openssl-devel bzip2-devel libffi-devel xz-devel
 
 # install python3 binaries from source. ------------------------------------------------------------
 python3_home="python3"
-python3_release="3.8.16"
+python3_release="3.8.18"
 python3_folder="Python-${python3_release}"
 python3_binary="${python3_folder}.tgz"
 

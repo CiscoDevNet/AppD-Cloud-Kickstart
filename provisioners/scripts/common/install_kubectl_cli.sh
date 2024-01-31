@@ -1,4 +1,4 @@
-#!/bin/sh -eux
+#!/bin/bash -eux
 #---------------------------------------------------------------------------------------------------
 # Install kubectl CLI for Linux.
 #
@@ -68,13 +68,10 @@ PATH=/usr/local/bin:$PATH
 export PATH
 
 # verify installation.
-case $kubectl_release in
-  1.28.6|1.29.1)
-    kubectl version --client
-    ;;
-  *)
-    kubectl version --short --client
-    ;;
-esac
+if [[ "$kubectl_release" < "1.28.0" ]]; then
+  kubectl version --short --client
+else
+  kubectl version --client
+fi
 
 #export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config

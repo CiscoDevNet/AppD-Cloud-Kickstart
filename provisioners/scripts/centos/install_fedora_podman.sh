@@ -1,5 +1,5 @@
 #!/bin/sh -eux
-# install the podman container tools on fedora 34 (cloud edition).
+# install the podman container tools on fedora linux (cloud edition).
 #
 # The Container Tools encompass software packages required to build and run Linux Containers on
 # RHEL-based Linux operating systems. The primary piece of software core to this set is Podman,

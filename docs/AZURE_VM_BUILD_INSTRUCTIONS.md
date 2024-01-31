@@ -383,9 +383,9 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	AppDynamics Controller 23.11.1 Build 10118
 	-	AppDynamics Events Service 4.5.2 Build 20827
 -	Azure CLI 2.56.0
--	Docker 25.0.0 CE
+-	Docker 25.0.1 CE
 	-	Docker Bash Completion
-	-	Docker Compose 2.24.2
+	-	Docker Compose 2.24.5
 -	Git 2.43.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
@@ -397,7 +397,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Pip 23.3.2
 -	Python 3.6.8
 	-	Pip3 23.3.2
--	VIM - Vi IMproved 9.0
+-	VIM - Vi IMproved 9.1
 -	yq 4.40.5 (command-line YAML processor)
 
 __LPAD VM__ - The following CLI command-line tools and utilities are pre-installed:
@@ -406,9 +406,9 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Ant 1.10.14
 -	AppDynamics Node.js Serverless Tracer 21.11.348
 -	Azure CLI 2.56.0
--	Docker 25.0.0 CE
+-	Docker 25.0.1 CE
 	-	Docker Bash Completion
-	-	Docker Compose 2.24.2
+	-	Docker Compose 2.24.5
 -	Git 2.43.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
@@ -429,13 +429,13 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Node.js JavaScript runtime v16.20.2
 -	npm JavaScript Package Manager for Node.js 9.9.2
 -	nvm (Node Version Manager) bash script 0.39.7
--	Packer 1.10.0
+-	Packer 1.10.1
 -	Python 2.7.5
 	-	Pip 23.3.2
 -	Python 3.6.8
 	-	Pip3 23.3.2
 -	Serverless Framework CLI 3.38.0
--	Terraform 1.7.0
--	VIM - Vi IMproved 9.0
+-	Terraform 1.7.1
+-	VIM - Vi IMproved 9.1
 -	XMLStarlet 1.6.1 (command-line XML processor)
 -	yq 4.40.5 (command-line YAML processor)
