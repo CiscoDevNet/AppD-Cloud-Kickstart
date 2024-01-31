@@ -10,7 +10,7 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 appd_platform_name="${appd_platform_name-AppDynamics Cloud Kickstart}"
-appd_project_image_types="${appd_project_image_types-APM-Platform-AL2 APM-Platform-CentOS7 CWOM-Platform-CentOS7 DEVNET-CentOS7 EXT-AL2 EXT-CentOS7 LPAD-AlmaLinux8 LPAD-AlmaLinux9 LPAD-AL2 LPAD-AL2023 LPAD-CentOS7 LPAD-CentOS8-Stream LPAD-CentOS9-Stream LPAD-Fedora36 LPAD-Fedora37 LPAD-Fedora38 LPAD-Fedora39 LPAD-Rocky8 LPAD-Rocky9 LPAD-Ubuntu-Bionic LPAD-Ubuntu-Focal LPAD-Ubuntu-Jammy LPAD-Ubuntu-Lunar LPAD-Ubuntu-Mantic K8S-CentOS7 PoV-Playbook1-AL2 PoV-Playbook1-CentOS7 PoV-Playbook1-Ubuntu-Bionic PoV-Playbook1-Ubuntu-Focal PoV-Playbook1-Ubuntu-Jammy TeaStore-CentOS7}"
+appd_project_image_types="${appd_project_image_types-APM-Platform-AL2 APM-Platform-CentOS7 CWOM-Platform-CentOS7 DEVNET-CentOS7 EXT-AL2 EXT-CentOS7 LPAD-AlmaLinux8 LPAD-AlmaLinux9 LPAD-AL2 LPAD-AL2023 LPAD-CentOS7 LPAD-CentOS8-Stream LPAD-CentOS9-Stream LPAD-Fedora36 LPAD-Fedora37 LPAD-Fedora38 LPAD-Fedora39 LPAD-OracleLinux7 LPAD-OracleLinux8 LPAD-OracleLinux9 LPAD-Rocky8 LPAD-Rocky9 LPAD-Ubuntu-Bionic LPAD-Ubuntu-Focal LPAD-Ubuntu-Jammy LPAD-Ubuntu-Lunar LPAD-Ubuntu-Mantic K8S-CentOS7 PoV-Playbook1-AL2 PoV-Playbook1-CentOS7 PoV-Playbook1-Ubuntu-Bionic PoV-Playbook1-Ubuntu-Focal PoV-Playbook1-Ubuntu-Jammy TeaStore-CentOS7}"
 aws_ami_region="${aws_ami_region-us-east-1}"
 aws_ami_keep_last="${aws_ami_keep_last-true}"
 

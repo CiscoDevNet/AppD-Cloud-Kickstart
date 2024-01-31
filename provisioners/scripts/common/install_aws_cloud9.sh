@@ -66,7 +66,7 @@ fi
 # add 'glibc-static' library for centos-like installations.
 user_host_os=$(hostnamectl | awk '/Operating System/ {printf "%s %s %s %s %s", $3, $4, $5, $6, $7}' | xargs)
 case $user_host_os in
-  "CentOS Linux 7 (Core)")
+  "CentOS Linux 7 (Core)"|"Oracle Linux Server 7.9")
     yum -y install glibc-static
     ;;
 
@@ -79,6 +79,22 @@ case $user_host_os in
     dnf -y install dnf-plugins-core
     dnf -y install epel-release
     dnf config-manager --set-enabled powertools
+    dnf -y install glibc-static
+    ;;
+
+  # in oracle linux 8 environments, the 'glibc-static' library is found in the 'ol8_codeready_builder' repo.
+  "Oracle Linux Server 8.9")
+    dnf -y install dnf-plugins-core
+    dnf -y install epel-release
+    dnf config-manager --set-enabled ol8_codeready_builder
+    dnf -y install glibc-static
+    ;;
+
+  # in oracle linux 9 environments, the 'glibc-static' library is found in the 'ol9_codeready_builder' repo.
+  "Oracle Linux Server 9.3")
+    dnf -y install dnf-plugins-core
+    dnf -y install epel-release
+    dnf config-manager --set-enabled ol9_codeready_builder
     dnf -y install glibc-static
     ;;
 
@@ -108,7 +124,7 @@ esac
 # install the cloud9 runtime environment in the user's home directory ('~/.c9').
 case $user_host_os in
   # for newer os environments that don't have 'python2', we need to run the new c9 v2.0.0 installer script.
-  "AlmaLinux 9.3 (Shamrock Pampas Cat)"|"Amazon Linux 2023"|"CentOS Stream 9"|"Fedora Linux 36 (Cloud Edition)"|"Fedora Linux 37 (Cloud Edition)"|"Fedora Linux 38 (Cloud Edition)"|"Fedora Linux 39 (Cloud Edition)"|"Rocky Linux 9.3 (Blue Onyx)"|"Ubuntu 20.04.6 LTS"|"Ubuntu 22.04.3 LTS"|"Ubuntu 23.04"|"Ubuntu 23.10")
+  "AlmaLinux 9.3 (Shamrock Pampas Cat)"|"Amazon Linux 2023"|"CentOS Stream 9"|"Fedora Linux 36 (Cloud Edition)"|"Fedora Linux 37 (Cloud Edition)"|"Fedora Linux 38 (Cloud Edition)"|"Fedora Linux 39 (Cloud Edition)"|"Oracle Linux Server 9.3"|"Rocky Linux 9.3 (Blue Onyx)"|"Ubuntu 20.04.6 LTS"|"Ubuntu 22.04.3 LTS"|"Ubuntu 23.04"|"Ubuntu 23.10")
     runuser -c "${kickstart_home}/provisioners/scripts/aws/c9-install-2.0.0.sh" - ${user_name}
     ;;
 
