@@ -1,4 +1,4 @@
-#!/bin/sh -eux
+#!/bin/bash -eux
 #---------------------------------------------------------------------------------------------------
 # Install kubectl CLI for Amazon EKS.
 #
@@ -15,6 +15,9 @@
 #---------------------------------------------------------------------------------------------------
 
 # install kubectl cli. -----------------------------------------------------------------------------
+#kubectl_release="1.29.0"
+#kubectl_date="2024-01-04"
+#kubectl_sha256="583af4521caa28404f306ff700fd3eb1ba93ce7188d03703986df49530abea94"
 kubectl_release="1.28.5"
 kubectl_date="2024-01-04"
 kubectl_sha256="bf039cfa331ed5edd47877ab37ee078ae1af3ea500958750eba74638211e8085"
@@ -55,13 +58,10 @@ PATH=/usr/local/bin:$PATH
 export PATH
 
 # verify installation.
-case $kubectl_release in
-  1.28.5|1.29.0)
-    kubectl version --client
-    ;;
-  *)
-    kubectl version --short --client
-    ;;
-esac
+if [[ "$kubectl_release" < "1.28.0" ]]; then
+  kubectl version --short --client
+else
+  kubectl version --client
+fi
 
 #export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
