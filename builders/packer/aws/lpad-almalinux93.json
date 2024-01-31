@@ -96,7 +96,7 @@
     {
       "expect_disconnect": true,
       "inline": [
-        "sudo dnf -y update",
+        "sudo dnf -y upgrade",
         "sudo systemctl reboot"
       ],
       "type": "shell"
@@ -129,6 +129,8 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_17.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_21.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos9_python3.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_fedora_podman.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos8_podman_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_ansible.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_ansible_collection.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
@@ -156,6 +158,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_nodejs_javascript_runtime.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_serverless_framework_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_nodejs_serverless_tracer.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos9_aws_ec2_instance_connect.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cloud9.sh"
       ],
       "type": "shell"
