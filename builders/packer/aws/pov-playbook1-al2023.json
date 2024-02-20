@@ -9,7 +9,7 @@
       "source_ami_filter": {
         "filters": {
           "virtualization-type": "hvm",
-          "name": "al2023-ami-*-2023*x86_64*",
+          "name": "al2023-ami-2023.3*x86_64*",
           "root-device-type": "ebs"
         },
         "owners": ["amazon"],
