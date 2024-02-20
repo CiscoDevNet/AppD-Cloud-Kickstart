@@ -168,7 +168,7 @@
     "azure_vm_size": "Standard_B4ms",
     "azure_os_disk_size": "128",
     "user_docker_profile": "true",
-    "docker_completion_release": "25.0.1",
+    "docker_completion_release": "25.0.3",
     "nodejs_release": "16",
     "npm_release": "9.9.2",
     "kickstart_home": "/opt/appd-cloud-kickstart",
