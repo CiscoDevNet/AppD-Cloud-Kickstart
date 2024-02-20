@@ -69,7 +69,7 @@ If the Controller has successfully started, an XML document such as the followin
     <vendorname>AppDynamics</vendorname>
     <productname>AppDynamics Application Performance Management</productname>
     <serverversion>023-011-001-000</serverversion>
-    <implementationVersion>Controller v23.11.1.0 Build 23.11.1-10118 Commit 2418cebd766899336583536a8f2f4e73984c0a2f</implementationVersion>
+    <implementationVersion>Controller v23.11.1.0 Build 23.11.1-10136 Commit 96c6d9c3ef29a606a5e5c2a5337759dec9ec6a42</implementationVersion>
   </serverinfo>
   <startupTimeInSeconds>5</startupTimeInSeconds>
 </serverstatus>

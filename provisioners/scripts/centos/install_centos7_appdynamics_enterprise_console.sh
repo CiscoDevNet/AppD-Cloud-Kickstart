@@ -24,8 +24,8 @@ local_hostname="$(hostname --short)"                            # initialize sho
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-23.11.1.10113}"
-appd_platform_sha256="${appd_platform_sha256:-cca88eed9d062be3e981b41eb774552b98abed3352b479f9d01516d2d5278b36}"
+appd_platform_release="${appd_platform_release:-23.11.2.10126}"
+appd_platform_sha256="${appd_platform_sha256:-32408f2f2a94c0ade7b31f0aae2450776592b889d83b8c34558ec0c3afd39503}"
 appd_platform_user_name="${appd_platform_user_name:-centos}"
 appd_platform_user_group="${appd_platform_user_group:-centos}"
 set +x  # temporarily turn command display OFF.
@@ -57,9 +57,9 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="23.11.1.10113"                # [optional] platform release (defaults to '23.11.1.10113').
+    [root]# export appd_platform_release="23.11.2.10126"                # [optional] platform release (defaults to '23.11.2.10126').
                                                                         # [optional] platform sha-256 checksum (defaults to published value).
-    [root]# export appd_platform_sha256="cca88eed9d062be3e981b41eb774552b98abed3352b479f9d01516d2d5278b36"
+    [root]# export appd_platform_sha256="32408f2f2a94c0ade7b31f0aae2450776592b889d83b8c34558ec0c3afd39503"
     [root]# export appd_platform_user_name="centos"                     # [optional] platform user name (defaults to 'centos').
     [root]# export appd_platform_user_group="centos"                    # [optional] platform group (defaults to 'centos').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
@@ -98,6 +98,7 @@ cd ${kickstart_home}/provisioners/scripts/centos/appdynamics
 distro_name=$(cat /etc/system-release | awk 'NR==1 {print $1}')
 version_name=$(cat /etc/os-release | awk -F '"' '/^VERSION_ID/ {print $2}')
 if ([ "$distro_name" = "Amazon" ] && [ "${version_name}" = "2" ]) || \
+   ([ "$distro_name" = "Amazon" ] && [ "${version_name}" = "2023" ]) || \
    ([ "$distro_name" = "CentOS" ] && [ "${version_name:0:1}" = "8" ]) || \
    ([ "$distro_name" = "Red" ] && [ "${version_name:0:1}" = "8" ]); then
   # force install of ncurses 5 packages.
