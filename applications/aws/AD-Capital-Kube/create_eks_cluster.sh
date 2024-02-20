@@ -21,7 +21,7 @@ appd_aws_eks_region="${appd_aws_eks_region:-}"
 
 # [OPTIONAL] eksctl command parameters [w/ defaults].
 appd_aws_eks_zones="${appd_aws_eks_zones:-}"
-appd_aws_eks_version="${appd_aws_eks_version:-1.28}"
+appd_aws_eks_version="${appd_aws_eks_version:-1.29}"
 appd_aws_eks_name="${appd_aws_eks_name:-AD-Capital-${appd_aws_eks_user_name}}"
 appd_aws_eks_environment="${appd_aws_eks_environment:-Lab-Env-${appd_aws_eks_user_name}}"
 appd_aws_eks_nodes="${appd_aws_eks_nodes:-2}"
@@ -46,7 +46,7 @@ Usage:
 
   [OPTIONAL] eksctl command parameters [w/ defaults].
     [centos]$ export appd_aws_eks_zones="us-east-1a,us-east-1b,us-east-1c"      # [optional] aws availability zones.
-    [centos]$ export appd_aws_eks_version="1.28"                                # [optional] kubernetes version (defaults to '1.28').
+    [centos]$ export appd_aws_eks_version="1.29"                                # [optional] kubernetes version (defaults to '1.29').
                                                                                 #            valid versions:
                                                                                 #              '1.24', '1.25', '1.26', '1.27', '1.28', and '1.29'
     [centos]$ export appd_aws_eks_name="AD-Capital-Lab-User-01"                 # [optional] eks cluster name (defaults to 'AD-Capital-${appd_aws_eks_user_name}')

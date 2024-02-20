@@ -15,12 +15,12 @@
 #---------------------------------------------------------------------------------------------------
 
 # install kubectl cli. -----------------------------------------------------------------------------
-#kubectl_release="1.29.0"
-#kubectl_date="2024-01-04"
-#kubectl_sha256="583af4521caa28404f306ff700fd3eb1ba93ce7188d03703986df49530abea94"
-kubectl_release="1.28.5"
+kubectl_release="1.29.0"
 kubectl_date="2024-01-04"
-kubectl_sha256="bf039cfa331ed5edd47877ab37ee078ae1af3ea500958750eba74638211e8085"
+kubectl_sha256="583af4521caa28404f306ff700fd3eb1ba93ce7188d03703986df49530abea94"
+#kubectl_release="1.28.5"
+#kubectl_date="2024-01-04"
+#kubectl_sha256="bf039cfa331ed5edd47877ab37ee078ae1af3ea500958750eba74638211e8085"
 #kubectl_release="1.27.9"
 #kubectl_date="2024-01-04"
 #kubectl_sha256="7b132591fd333cb6714f1bd81ea5e87eef9f466ccb790f3dfda8b4890eddd339"
