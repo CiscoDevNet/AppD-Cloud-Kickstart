@@ -1,5 +1,5 @@
 #!/bin/sh -eux
-# install oracle mysql shell command-line utility on centos linux 7.x.
+# install oracle mysql shell command-line utility on centos stream 9 linux.
 
 # set default value for appdynamics cloud kickstart home environment variable if not set. ----------
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').

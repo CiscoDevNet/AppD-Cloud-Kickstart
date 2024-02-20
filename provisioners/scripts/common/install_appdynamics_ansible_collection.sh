@@ -1,4 +1,4 @@
-#!/bin/sh -eux
+#!/bin/bash -eux
 #---------------------------------------------------------------------------------------------------
 # Install AppDynamics Ansible Collection for Agent Management.
 #
@@ -63,7 +63,7 @@ echo "current_core_version: ${current_core_version}"
 echo "minmum_core_version: ${minmum_core_version}"
 
 # is current ansible core version < minimum appd-required ansible core version. --------------------
-if [ "$current_core_version" \< "$minmum_core_version" ]; then
+if [[ "$current_core_version" < "$minmum_core_version" ]]; then
   echo "Error: AppDynamics Ansible Collection requires Ansible Core version '${current_core_version}' to be >= '${minimum_core_version}'."
   usage
   exit 1
