@@ -56,7 +56,7 @@ export GOPATH
 # set phantomjs environment variables (if needed).
 # if ubuntu release is '22.04', apply fix for incompatible openssl.
 user_host_os=$(hostnamectl | awk '/Operating System/ {printf "%s %s %s %s %s", $3, $4, $5, $6, $7}' | xargs)
-if [ "$user_host_os" = "Ubuntu 22.04.3 LTS" ]; then
+if [ "$user_host_os" = "Ubuntu 22.04.4 LTS" ]; then
   OPENSSL_CONF=/dev/null
   export OPENSSL_CONF
 fi
