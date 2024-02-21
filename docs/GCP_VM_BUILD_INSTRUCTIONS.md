@@ -21,11 +21,11 @@ you are finished, such as purging old GCE images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Google Cloud SDK 464.0.0 (command-line interface)
+-	Google Cloud SDK 465.0.0 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [Google Cloud SDK 464.0.0](https://cloud.google.com/sdk/docs/install-sdk#mac) for macOS 64-bit.  
+1.	Install [Google Cloud SDK 465.0.0](https://cloud.google.com/sdk/docs/install-sdk#mac) for macOS 64-bit.  
     `$ brew install --cask google-cloud-sdk`  
 
     Depending on your shell, follow the on-screen instructions to source the SDK binaries to your `PATH`.  
@@ -41,7 +41,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ gcloud --version
-    Google Cloud SDK 464.0.0
+    Google Cloud SDK 465.0.0
     ...
     ```
 
@@ -58,11 +58,11 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Google Cloud SDK 464.0.0 (command-line interface)
+-	Google Cloud SDK 465.0.0 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [Google Cloud SDK 464.0.0](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) for Windows 64-bit.  
+1.	Install [Google Cloud SDK 465.0.0](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) for Windows 64-bit.  
     Run the downloaded EXE installer, follow the on-screen instructions, and accept the defaults until you get to the last step.  
 
     **NOTE:** For Windows users, the EXE installation package offers a familiar and convenient way to 
@@ -91,7 +91,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ gcloud --version
-    Google Cloud SDK 464.0.0
+    Google Cloud SDK 465.0.0
     ...
     ```
 
@@ -488,8 +488,8 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Google Cloud SDK 464.0.0
--	Helm CLI 3.14.1 (Package Manager for Kubernetes)
+-	Google Cloud SDK 465.0.0
+-	Helm CLI 3.14.2 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 402 (Amazon Corretto 8)
 -	Java SE JDK 11.0.22 (Amazon Corretto 11)
 -	Java SE JDK 17.0.10 (Amazon Corretto 17)
@@ -505,7 +505,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Python 3.6.8
 	-	Pip3 24.0
 -	Serverless Framework CLI 3.38.0
--	Terraform 1.7.3
+-	Terraform 1.7.4
 -	VIM - Vi IMproved 9.1
 -	yq 4.41.1 (command-line YAML processor)
 
@@ -522,7 +522,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Google Cloud SDK 464.0.0
+-	Google Cloud SDK 465.0.0
 -	Java SE JDK 8 Update 402 (Amazon Corretto 8)
 -	jq 1.7.1 (command-line JSON processor)
 -	MySQL Shell 8.0.36

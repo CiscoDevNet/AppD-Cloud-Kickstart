@@ -181,7 +181,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Go 1.22.0
 -	Gradle 8.6
 -	Groovy 4.0.18
--	Helm CLI 3.14.1 (Package Manager for Kubernetes)
+-	Helm CLI 3.14.2 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 402 (Amazon Corretto 8)
 -	Java SE JDK 11.0.22 (Amazon Corretto 11)
 -	Java SE JDK 17.0.10 (Amazon Corretto 17)
@@ -189,7 +189,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	JMESPath jp 0.2.1 (command-line JSON processor)
 -	jq 1.7.1 (command-line JSON processor)
 -	Maven 3.9.6
--	MongoDB Community Server 5.0.24
+-	MongoDB Community Server 5.0.25
 -	Node.js JavaScript runtime v16.20.2
 -	npm JavaScript Package Manager for Node.js 9.9.2
 -	nvm (Node Version Manager) bash script 0.39.7
@@ -199,7 +199,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Python 3.6.8
 	-	Pip3 24.0
 -	Serverless Framework CLI 3.38.0
--	Terraform 1.7.3
+-	Terraform 1.7.4
 -	VIM - Vi IMproved 9.1
 -	XMLStarlet 1.6.1 (command-line XML processor)
 -	yq 4.41.1 (command-line YAML processor)
