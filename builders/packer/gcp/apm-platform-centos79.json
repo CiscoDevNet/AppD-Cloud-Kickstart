@@ -146,9 +146,9 @@
     "gcp_disk_type": "pd-standard",
     "gcp_hostname": "apm",
     "gcp_domain": "localdomain",
-    "gcp_image_description": "APM Platform 23.11.2.10126 on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. Compute image generated using the AppDynamics Cloud Kickstart Project.",
+    "gcp_image_description": "APM Platform 24.2.0.10027 on CentOS 7.9. Log-in with user 'centos' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. Compute image generated using the AppDynamics Cloud Kickstart Project.",
     "gcp_image_family": "apm-platform-centos79-images",
-    "gcp_image_name": "apm-platform-23112-centos79",
+    "gcp_image_name": "apm-platform-2420-centos79",
     "gcp_machine_type": "e2-standard-4",
     "gcp_project_id": "gcp-appdcloudplatfo-nprd-68190",
     "gcp_username": "centos",
@@ -157,7 +157,7 @@
     "user_docker_profile": "true",
     "docker_completion_release": "25.0.3",
     "nodejs_release": "16",
-    "npm_release": "9.9.2",
+    "npm_release": "9.9.3",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }
