@@ -9,9 +9,9 @@
 #---------------------------------------------------------------------------------------------------
 
 # set default values for input environment variables if not set. -----------------------------------
-appd_project_image_types="${appd_project_image_types-APM-Platform LPAD TeaStore}"
+appd_project_image_types="${appd_project_image_types-APM-Platform-CentOS79 LPAD-CentOS79 LPAD-CentOS8-Stream LPAD-OracleLinux8 LPAD-Ubuntu-Jammy TeaStore-CentOS79}"
 azurerm_resource_group_name="${azurerm_resource_group_name-Cloud-Kickstart-Workshop-Images}"
-azurerm_image_gallery_name="${azurerm_image_gallery_name-CloudKickstartWorkshopGallery }"
+azurerm_image_gallery_name="${azurerm_image_gallery_name-CloudKickstartWorkshopGallery}"
 azurerm_image_keep_last="${azurerm_image_keep_last-true}"
 
 # check if 'jq' is installed. ----------------------------------------------------------------------
@@ -30,7 +30,7 @@ appd_project_image_types_array_length=${#appd_project_image_types_array[@]}
 # loop for each project image type.
 for image_type in "${appd_project_image_types_array[@]}"; do
   # retrieve azure shared image gallery version data.
-  azurerm_sig_versions=$(az sig image-version list --resource-group ${azurerm_resource_group_name} --gallery-name ${azurerm_image_gallery_name} --gallery-image-definition ${image_type}-CentOS79 | jq -rs '.[] | sort_by(.publishingProfile.publishedDate) | .[] | {name: .name} | .[] | values')
+  azurerm_sig_versions=$(az sig image-version list --resource-group ${azurerm_resource_group_name} --gallery-name ${azurerm_image_gallery_name} --gallery-image-definition ${image_type} | jq -rs '.[] | sort_by(.publishingProfile.publishedDate) | .[] | {name: .name} | .[] | values')
 
   # build individual azure shared image gallery versions arrays.
   azurerm_sig_versions_array=( $azurerm_sig_versions )
@@ -44,9 +44,9 @@ for image_type in "${appd_project_image_types_array[@]}"; do
   ii=0
   for sig_version in "${azurerm_sig_versions_array[@]}"; do
     if [ "$ii" -lt ${azurerm_sig_versions_array_length} ]; then
-      echo "Deleting Azure Shared Image Gallery version: '${image_type}-CentOS79:${sig_version}':"
-      echo "  az sig image-version delete --resource-group ${azurerm_resource_group_name} --gallery-name ${azurerm_image_gallery_name} --gallery-image-definition ${image_type}-CentOS79 --gallery-image-version ${sig_version}"
-      az sig image-version delete --resource-group ${azurerm_resource_group_name} --gallery-name ${azurerm_image_gallery_name} --gallery-image-definition ${image_type}-CentOS79 --gallery-image-version ${sig_version}
+      echo "Deleting Azure Shared Image Gallery version: '${image_type}:${sig_version}':"
+      echo "  az sig image-version delete --resource-group ${azurerm_resource_group_name} --gallery-name ${azurerm_image_gallery_name} --gallery-image-definition ${image_type} --gallery-image-version ${sig_version}"
+      az sig image-version delete --resource-group ${azurerm_resource_group_name} --gallery-name ${azurerm_image_gallery_name} --gallery-image-definition ${image_type} --gallery-image-version ${sig_version}
     fi
 
     # increment array index.
@@ -59,8 +59,8 @@ echo ""
 # loop for each project image type.
 for image_type in "${appd_project_image_types_array[@]}"; do
   # retrieve azure image data.
-  azurerm_image_names=$(az image list --resource-group ${azurerm_resource_group_name} --query "[?contains(@.name, '${image_type}')==\`true\`]" | jq -rs '.[] | sort_by(.name) | .[] | {name: .name} | .[] | values')
-# azurerm_image_ids=$(az image list --resource-group ${azurerm_resource_group_name} --query "[?contains(@.name, '${image_type}')==\`true\`]" | jq -rs '.[] | sort_by(.name) | .[] | {id: .id} | .[] | values')
+  azurerm_image_names=$(az image list --resource-group ${azurerm_resource_group_name} --query "[?contains(@.name, '${image_type}')]" | jq -rs '.[] | sort_by(.name) | .[] | {name: .name} | .[] | values')
+# azurerm_image_ids=$(az image list --resource-group ${azurerm_resource_group_name} --query "[?contains(@.name, '${image_type}')]" | jq -rs '.[] | sort_by(.name) | .[] | {id: .id} | .[] | values')
 
   # build individual azure vm image attribute arrays.
   azurerm_image_names_array=( $azurerm_image_names )

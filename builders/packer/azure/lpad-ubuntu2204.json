@@ -1,0 +1,148 @@
+{
+  "builders": [
+    {
+      "type": "azure-arm",
+      "use_azure_cli_auth": true,
+      "shared_image_gallery_destination": {
+        "subscription": "{{user `azure_subscription_id`}}",
+        "resource_group": "{{user `azure_resource_group`}}",
+        "gallery_name": "{{user `azure_gallery_name`}}",
+        "image_name": "{{user `azure_image_name`}}",
+        "image_version": "{{user `azure_image_version`}}",
+        "replication_regions": "{{user `azure_image_replication_regions`}}"
+      },
+      "managed_image_name": "{{user `azure_image_name`}}-Image-{{isotime | clean_resource_name}}",
+      "managed_image_resource_group_name": "{{user `azure_resource_group`}}",
+      "location": "{{user `azure_location`}}",
+      "vm_size": "{{user `azure_vm_size`}}",
+      "ssh_username": "{{user `azure_ssh_username`}}",
+      "allowed_inbound_ip_addresses": "{{user `azure_temporary_source_cidrs`}}",
+      "temp_resource_group_name": "{{user `azure_resource_group`}}-Packer-Builds-{{isotime | clean_resource_name}}",
+      "os_type": "Linux",
+      "os_disk_size_gb": "{{user `azure_os_disk_size`}}",
+      "image_publisher": "canonical",
+      "image_offer": "0001-com-ubuntu-server-jammy",
+      "image_sku": "22_04-lts-gen2",
+      "image_version": "latest",
+      "azure_tags": {
+        "Owner": "{{user `azure_image_owner`}}",
+        "Project": "AppDynamics Cloud Kickstart",
+        "Project_Image_Type": "LPAD-Ubuntu-Jammy",
+        "VM_Username": "{{user `azure_ssh_username`}}"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "execute_command": "echo '{{user `azure_ssh_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "inline": [
+        "sudo hostnamectl | awk '/Operating System/ {print $0}'",
+        "mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
+        "chown -R {{user `azure_ssh_username`}}:{{user `azure_ssh_group`}} {{user `kickstart_home`}}"
+      ],
+      "type": "shell"
+    },
+    {
+      "destination": "{{user `kickstart_home`}}/provisioners/scripts",
+      "source": "{{template_dir}}/../../../provisioners/scripts/",
+      "type": "file"
+    },
+    {
+      "execute_command": "echo '{{user `azure_ssh_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "inline": [
+        "chown -R root:root {{user `kickstart_home`}}"
+      ],
+      "type": "shell"
+    },
+    {
+      "execute_command": "echo '{{user `azure_ssh_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "expect_disconnect": true,
+      "inline": [
+        "sudo DEBIAN_FRONTEND=noninteractive apt-get update",
+        "sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade",
+        "systemctl reboot"
+      ],
+      "type": "shell"
+    },
+    {
+      "environment_vars": [
+        "DEBIAN_FRONTEND=noninteractive",
+        "user_name={{user `azure_ssh_username`}}",
+        "user_group={{user `azure_ssh_group`}}",
+        "user_docker_profile={{user `user_docker_profile`}}",
+        "d_completion_release={{user `docker_completion_release`}}",
+        "mongodb_enable_access_control={{user `mongodb_enable_access_control`}}",
+        "nodejs_release={{user `nodejs_release`}}",
+        "npm_release={{user `npm_release`}}",
+        "kickstart_home={{user `kickstart_home`}}",
+        "HOME_DIR=/home/{{user `azure_ssh_username`}}"
+      ],
+      "execute_command": "echo '{{user `azure_ssh_username`}}' | {{.Vars}} sudo -S -E bash -eux '{{.Path}}'",
+      "expect_disconnect": true,
+      "pause_before": "10s",
+      "scripts": [
+        "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_devops_tools.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/motd.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_8.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_11.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_17.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_21.sh",
+        "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_python3.sh",
+        "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_docker.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose_2.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_ansible.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_ansible_collection.sh",
+        "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_azure_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_jq_json_processor.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_yq_yaml_processor.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_hashicorp_packer.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_hashicorp_terraform.sh",
+        "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_git.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_git_flow.sh",
+        "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_neofetch_repo.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_kubectl_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_helm_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_vim_9.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_apache_ant.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_apache_maven.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_apache_groovy.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_gradle.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_google_golang.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_jmespath_jp_json_processor.sh",
+        "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_xmlstarlet_xml_processor.sh",
+        "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_mongodb_community_server_7.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_nodejs_javascript_runtime.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_serverless_framework_cli.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_nodejs_serverless_tracer.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "app_name": "AppDynamics Cloud Kickstart",
+    "app_service_name": "CloudKickstartLab",
+    "azure_gallery_name": "CloudKickstartWorkshopGallery",
+    "azure_image_name": "LPAD-Ubuntu-Jammy",
+    "azure_image_owner": "{{env `azure_image_owner`}}",
+    "azure_image_replication_regions": "{{env `azure_image_replication_regions`}}",
+    "azure_image_version": "{{env `azure_image_version`}}",
+    "azure_location": "{{env `azure_location`}}",
+    "azure_resource_group": "Cloud-Kickstart-Workshop-Images",
+    "azure_ssh_username": "ubuntu",
+    "azure_ssh_group": "ubuntu",
+    "azure_subscription_id": "{{env `azure_subscription_id`}}",
+    "azure_temporary_source_cidrs": "{{env `azure_temporary_source_cidrs`}}",
+    "azure_vm_size": "Standard_D2as_v5",
+    "azure_os_disk_size": "48",
+    "user_docker_profile": "true",
+    "docker_completion_release": "25.0.3",
+    "mongodb_enable_access_control": "true",
+    "nodejs_release": "--lts",
+    "npm_release": "latest",
+    "kickstart_home": "/opt/appd-cloud-kickstart",
+    "org_cost_center": "{{env `org_cost_center`}}"
+  }
+}
