@@ -379,14 +379,14 @@ to manually browse the cloud provider and delete any resources that are in confl
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 23.11.2 Build 10126
-	-	AppDynamics Controller 23.11.1 Build 10136
+-	AppDynamics Enterprise Console 24.2.0 Build 10027
+	-	AppDynamics Controller 24.2.0 Build 10039
 	-	AppDynamics Events Service 4.5.2 Build 20827
 -	Azure CLI 2.57.0
 -	Docker 25.0.3 CE
 	-	Docker Bash Completion
 	-	Docker Compose 2.24.6
--	Git 2.43.2
+-	Git 2.44.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
@@ -398,7 +398,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 3.6.8
 	-	Pip3 24.0
 -	VIM - Vi IMproved 9.1
--	yq 4.41.1 (command-line YAML processor)
+-	yq 4.42.1 (command-line YAML processor)
 
 __LPAD VM__ - The following CLI command-line tools and utilities are pre-installed:
 
@@ -409,13 +409,13 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Docker 25.0.3 CE
 	-	Docker Bash Completion
 	-	Docker Compose 2.24.6
--	Git 2.43.2
+-	Git 2.44.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
 -	Go 1.22.0
 -	Gradle 8.6
--	Groovy 4.0.18
+-	Groovy 4.0.19
 -	Helm CLI 3.14.2 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 402 (Amazon Corretto 8)
 -	Java SE JDK 11.0.22 (Amazon Corretto 11)
@@ -427,7 +427,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Maven 3.9.6
 -	MongoDB Community Server 5.0.25
 -	Node.js JavaScript runtime v16.20.2
--	npm JavaScript Package Manager for Node.js 9.9.2
+-	npm JavaScript Package Manager for Node.js 9.9.3
 -	nvm (Node Version Manager) bash script 0.39.7
 -	Packer 1.10.1
 -	Python 2.7.5
@@ -438,4 +438,4 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Terraform 1.7.4
 -	VIM - Vi IMproved 9.1
 -	XMLStarlet 1.6.1 (command-line XML processor)
--	yq 4.41.1 (command-line YAML processor)
+-	yq 4.42.1 (command-line YAML processor)

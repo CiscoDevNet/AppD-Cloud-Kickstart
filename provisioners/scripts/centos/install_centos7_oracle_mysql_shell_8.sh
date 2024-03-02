@@ -19,7 +19,7 @@ wget --no-verbose --no-check-certificate --no-cookies --header "Cookie: oracleli
 
 # verify the downloaded binary using the md5 checksum.
 echo "${mysqlsh_checksum} ${mysqlsh_binary}" | md5sum --check -
-# amazon-corretto-${jdk_build}-linux-x64.tar.gz: OK
+# mysql-shell-${mysqlsh_release}.el7.x86_64.rpm: OK
 
 # install mysql shell. -----------------------------------------------------------------------------
 yum -y install ${mysqlsh_binary}

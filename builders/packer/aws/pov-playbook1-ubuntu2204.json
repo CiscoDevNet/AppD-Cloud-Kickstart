@@ -66,7 +66,9 @@
         "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
         "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `kickstart_home`}}",
         "sudo mkdir -p {{user `pov_playbook1_lab_artifacts_dir`}}",
-        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `pov_playbook1_lab_artifacts_dir`}}/../"
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `pov_playbook1_lab_artifacts_dir`}}/../",
+        "sudo mkdir -p /home/{{user `aws_ec2_username`}}/environment",
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} /home/{{user `aws_ec2_username`}}/environment"
       ],
       "type": "shell"
     },
@@ -159,7 +161,8 @@
         "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_docker.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose_2.sh",
-        "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_ansible.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_ansible.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_ansible_collection.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_ec2_instance_metadata_query_tool.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_jq_json_processor.sh",
