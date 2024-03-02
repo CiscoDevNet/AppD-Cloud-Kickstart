@@ -12,9 +12,15 @@ variable "azurerm_workshop_resource_group_name" {
 }
 
 variable "azurerm_source_address_prefixes" {
-  description = "The source range for inbound ssh traffic"
+  description = "The source range for inbound ssh traffic external to Azure."
   type        = list
   default     = ["0.0.0.0/0"]
+}
+
+variable "cisco_source_address_prefixes" {
+  description = "The source range for inbound ssh traffic from Cisco networks."
+  type        = list
+  default     = ["128.107.241.0/24", "72.163.220.53/32", "209.234.175.138/32", "173.38.208.173/32"]
 }
 
 variable "azurerm_ssh_username" {
@@ -38,7 +44,7 @@ variable "azurerm_shared_image_gallery" {
 variable "azurerm_shared_image_definition" {
   description = "The shared image gallery image definition."
   type        = string
-  default     = "LPAD-CentOS79"
+  default     = "LPAD-Ubuntu-Jammy"
 }
 
 variable "azurerm_shared_image_version" {
@@ -46,6 +52,30 @@ variable "azurerm_shared_image_version" {
   type        = string
   default     = "latest"
 # default     = "1.0.0"
+}
+
+variable "include_azure_marketplace_image_plan" {
+  description = "Indicates whether the Azure Marketplace image plan block should be included."
+  type        = bool
+  default     = false
+}
+
+variable "azure_marketplace_image_publisher" {
+  description = "The Azure Marketplace image publisher."
+  type        = string
+  default     = ""
+}
+
+variable "azure_marketplace_image_product" {
+  description = "The Azure Marketplace image product name (offer)."
+  type        = string
+  default     = ""
+}
+
+variable "azure_marketplace_image_name" {
+  description = "The Azure Marketplace image name (sku)."
+  type        = string
+  default     = ""
 }
 
 variable "azurerm_vm_size" {
@@ -58,12 +88,6 @@ variable "azurerm_vm_size" {
 
 variable "azurerm_lpad_vm_hostname_prefix" {
   description = "Azure LPAD VM hostname prefix."
-  type        = string
-  default     = "lpad"
-}
-
-variable "azurerm_resource_name_prefix" {
-  description = "Resource name prefix."
   type        = string
   default     = "lpad"
 }
@@ -99,6 +123,12 @@ variable "lab_use_num_suffix" {
   description = "Always append numerical suffix to instance name, even if instance_count is 1."
   type        = bool
   default     = true
+}
+
+variable "resource_name_prefix" {
+  description = "Resource name prefix."
+  type        = string
+  default     = "lpad"
 }
 
 variable "resource_tags" {

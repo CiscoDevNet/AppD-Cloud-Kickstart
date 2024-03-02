@@ -26,12 +26,12 @@ output "azurerm_vm_size" {
 
 output "lpad_private_ips" {
   description = "The private IP addresses assigned to the LPAD VM instances."
-  value       = flatten([toset(azurerm_linux_virtual_machine.lpad.*.private_ip_address)])
+  value       = flatten([for vm in azurerm_linux_virtual_machine.lpad : vm.private_ip_address])
 }
 
 output "lpad_public_ips" {
   description = "The public IP addresses assigned to the LPAD VM instances."
-  value       = flatten([toset(azurerm_linux_virtual_machine.lpad.*.public_ip_address)])
+  value       = flatten([for vm in azurerm_linux_virtual_machine.lpad : vm.public_ip_address])
 }
 
 output "lab_count" {
