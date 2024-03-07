@@ -26,7 +26,7 @@ variable "aws_ssh_ingress_cidr_blocks" {
 variable "cisco_ssh_ingress_cidr_blocks" {
   description = "The ingress CIDR blocks for inbound ssh traffic from Cisco networks."
   type        = string
-  default     = "128.107.241.0/24,72.163.220.53/32,209.234.175.138/32,173.38.208.173/32,173.38.220.54/32,72.163.220.0/24,173.39.121.0/24"
+  default     = "128.107.241.0/24,128.107.248.0/24,72.163.220.53/32,209.234.175.138/32,173.38.208.173/32,173.38.220.54/32,72.163.220.0/24,173.39.121.0/24"
 }
 
 # Ingress CIDR block IP ranges for 'CLOUD9' service in ["us-east-1", "us-east-2", "us-west-1", "us-west-2"].

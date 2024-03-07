@@ -20,7 +20,7 @@ variable "azurerm_source_address_prefixes" {
 variable "cisco_source_address_prefixes" {
   description = "The source range for inbound ssh traffic from Cisco networks."
   type        = list
-  default     = ["128.107.241.0/24", "72.163.220.53/32", "209.234.175.138/32", "173.38.208.173/32"]
+  default     = ["128.107.241.0/24", "128.107.248.0/24", "72.163.220.53/32", "209.234.175.138/32", "173.38.208.173/32"]
 }
 
 variable "azurerm_ssh_username" {
