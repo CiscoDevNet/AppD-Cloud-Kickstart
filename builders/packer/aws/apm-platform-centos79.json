@@ -209,7 +209,7 @@
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "25.0.3",
+    "docker_completion_release": "25.0.4",
     "nodejs_release": "16",
     "npm_release": "9.9.3",
     "kickstart_home": "/opt/appd-cloud-kickstart",
