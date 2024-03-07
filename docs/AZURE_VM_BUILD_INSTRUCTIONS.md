@@ -383,9 +383,9 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	AppDynamics Controller 24.2.0 Build 10039
 	-	AppDynamics Events Service 4.5.2 Build 20827
 -	Azure CLI 2.57.0
--	Docker 25.0.3 CE
+-	Docker 25.0.4 CE
 	-	Docker Bash Completion
-	-	Docker Compose 2.24.6
+	-	Docker Compose 2.24.7
 -	Git 2.44.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
@@ -406,14 +406,14 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Ant 1.10.14
 -	AppDynamics Node.js Serverless Tracer 21.11.348
 -	Azure CLI 2.57.0
--	Docker 25.0.3 CE
+-	Docker 25.0.4 CE
 	-	Docker Bash Completion
-	-	Docker Compose 2.24.6
+	-	Docker Compose 2.24.7
 -	Git 2.44.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Go 1.22.0
+-	Go 1.22.1
 -	Gradle 8.6
 -	Groovy 4.0.19
 -	Helm CLI 3.14.2 (Package Manager for Kubernetes)
@@ -429,7 +429,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Node.js JavaScript runtime v16.20.2
 -	npm JavaScript Package Manager for Node.js 9.9.3
 -	nvm (Node Version Manager) bash script 0.39.7
--	Packer 1.10.1
+-	Packer 1.10.2
 -	Python 2.7.5
 	-	Pip 24.0
 -	Python 3.6.8
