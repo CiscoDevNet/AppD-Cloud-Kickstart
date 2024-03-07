@@ -70,7 +70,7 @@ case $user_host_os in
     yum -y install glibc-static
     ;;
 
-  "Amazon Linux 2023"|"Fedora Linux 36 (Cloud Edition)"|"Fedora Linux 37 (Cloud Edition)"|"Fedora Linux 38 (Cloud Edition)"|"Fedora Linux 39 (Cloud Edition)")
+  "Amazon Linux 2023.3.20240304"|"Fedora Linux 36 (Cloud Edition)"|"Fedora Linux 37 (Cloud Edition)"|"Fedora Linux 38 (Cloud Edition)"|"Fedora Linux 39 (Cloud Edition)")
     dnf -y install glibc-static
     ;;
 
@@ -124,7 +124,7 @@ esac
 # install the cloud9 runtime environment in the user's home directory ('~/.c9').
 case $user_host_os in
   # for newer os environments that don't have 'python2', we need to run the new c9 v2.0.0 installer script.
-  "AlmaLinux 9.3 (Shamrock Pampas Cat)"|"Amazon Linux 2023"|"CentOS Stream 9"|"Fedora Linux 36 (Cloud Edition)"|"Fedora Linux 37 (Cloud Edition)"|"Fedora Linux 38 (Cloud Edition)"|"Fedora Linux 39 (Cloud Edition)"|"Oracle Linux Server 9.3"|"Rocky Linux 9.3 (Blue Onyx)"|"Ubuntu 20.04.6 LTS"|"Ubuntu 22.04.4 LTS"|"Ubuntu 23.04"|"Ubuntu 23.10")
+  "AlmaLinux 9.3 (Shamrock Pampas Cat)"|"Amazon Linux 2023.3.20240304"|"CentOS Stream 9"|"Fedora Linux 36 (Cloud Edition)"|"Fedora Linux 37 (Cloud Edition)"|"Fedora Linux 38 (Cloud Edition)"|"Fedora Linux 39 (Cloud Edition)"|"Oracle Linux Server 9.3"|"Rocky Linux 9.3 (Blue Onyx)"|"Ubuntu 20.04.6 LTS"|"Ubuntu 22.04.4 LTS"|"Ubuntu 23.04"|"Ubuntu 23.10")
     runuser -c "${kickstart_home}/provisioners/scripts/aws/c9-install-2.0.0.sh" - ${user_name}
     ;;
 
