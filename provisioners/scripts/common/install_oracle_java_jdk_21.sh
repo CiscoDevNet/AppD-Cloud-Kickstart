@@ -3,10 +3,10 @@
 
 # install java se 21 development kit. --------------------------------------------------------------
 jdk_home="jdk21"
-jdk_build="21.0.1"
+jdk_build="21.0.2"
 jdk_folder="jdk-${jdk_build}"
 jdk_binary="${jdk_folder}_linux-x64_bin.tar.gz"
-jdk_sha256="7c1f7689db0f4b48ee6978029c4a1aecd1442a8a7637cdf43a5471d0c79712a8"
+jdk_sha256="9f1f4a7f25ef6a73255657c40a6d7714f2d269cf15fb2ff1dc9c0c8b56623a6f"
 
 # create java home parent folder.
 mkdir -p /usr/local/java
