@@ -26,7 +26,7 @@
 # [OPTIONAL] node.js nvm install parameters [w/ defaults].
 user_name="${user_name:-centos}"
 nodejs_release="${nodejs_release:-16}"
-npm_release="${npm_release:-9.9.2}"
+npm_release="${npm_release:-9.9.3}"
 
 # install nvm (node version mannager). -------------------------------------------------------------
 nvm_binary="nvm-linux-amd64"
