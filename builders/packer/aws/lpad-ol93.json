@@ -9,7 +9,7 @@
       "source_ami_filter": {
         "filters": {
           "virtualization-type": "hvm",
-          "name": "*Oracle-Linux-9.3-x86_64*",
+          "name": "*Oracle-Linux-9.3-x86_64*Minimal*",
           "root-device-type": "ebs"
         },
         "owners": ["aws-marketplace"],
