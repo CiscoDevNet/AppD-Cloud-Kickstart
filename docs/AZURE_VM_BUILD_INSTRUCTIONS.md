@@ -27,12 +27,25 @@ Perform the following steps to install the needed software:
 
 1.	Install [Azure CLI 2.57.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
     ```bash
+    brew install azure-cli
+    ```
+
+    ```bash
+    # example
     $ brew install azure-cli
+    ...
+    ==> Fetching azure-cli
+    ...
     ```
 
 2.	Validate installed command-line tool:
 
     ```bash
+    az --version
+    ```
+
+    ```bash
+    # example
     $ az --version
     azure-cli                         2.57.0
     ...
@@ -61,6 +74,11 @@ Perform the following steps to install the needed software:
 2.	Using the **Git Bash** Terminal, validate the installed command-line tool:
 
     ```bash
+    az --version
+    ```
+
+    ```bash
+    # example
     $ az --version
     azure-cli                         2.57.0
     ...
@@ -73,10 +91,52 @@ Perform the following steps to complete these tasks:
 
 1.	Configure Azure CLI and authenticate to the Azure Cloud:
 
+	a.	Log in to the Azure Cloud.
+
     ```bash
+    az login
+    ```
+
+    ```bash
+    # example
     $ az login
-    $ az account set --subscription "AppDynamics Channel Workshop (EA)"
+    A web browser has been opened at https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize. Please continue the login in the web browser. If no web browser is available or if the web browser fails to open, use device code flow with `az login --use-device-code`.
+    ...
+    ```
+
+	b.	Set the 'AppDyanmics Channel Workshop (EA)' subscription to be the current active subscription.
+
+    ```bash
+    az account set --subscription "AppDynamics Channel Workshop (EA)"
+    ```
+
+	c.	Verify the details of the current subscription.
+
+    ```bash
+    az account show
+    ```
+
+    ```bash
+    # example
     $ az account show
+    {
+      "environmentName": "AzureCloud",
+      "homeTenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "isDefault": true,
+      "managedByTenants": [
+        {
+          "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        }
+      ],
+      "name": "AppDynamics Channel Workshop (EA)",
+      "state": "Enabled",
+      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "user": {
+        "name": "cecuser@cisco.com",
+        "type": "user"
+      }
+    }
     ```
 
 ## Prepare for the Build
@@ -93,9 +153,9 @@ To prepare for the build, perform the following steps:
     environment variables for your environment.
 
     ```bash
-    $ cd /<drive>/projects/AppD-Cloud-Kickstart/bin
-    $ cp -p set_appd_cloud_kickstart_env.sh.template set_appd_cloud_kickstart_env.sh
-    $ vi set_appd_cloud_kickstart_env.sh
+    cd ~/projects/AppD-Cloud-Kickstart/bin
+    cp -p set_appd_cloud_kickstart_env.sh.template set_appd_cloud_kickstart_env.sh
+    vi set_appd_cloud_kickstart_env.sh
     ```
 
     The following environment variables are the most common to be overridden. They are grouped by sections in 
@@ -121,19 +181,36 @@ To prepare for the build, perform the following steps:
     az account show --query "{name:name, subscriptionId:id}" | jq -r '.subscriptionId'
     ```
 
+    ```bash
+    # example
+    $ az account show --query "{name:name, subscriptionId:id}" | jq -r '.subscriptionId'
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ```
+
     Please note there is no __*overwrite*__ feature for image versions, so if the version already exists, the 
     build will fail.
 
     Save and source the environment variables file in order to define the variables in your shell.
 
     ```bash
-    $ source ./set_appd_cloud_kickstart_env.sh
+    source ./set_appd_cloud_kickstart_env.sh
     ```
 
     Validate the newly-defined environment variables via the following commands:
 
     ```bash
+    env | grep -i ^azure_ | sort
+    ```
+
+    ```bash
+    # example
     $ env | grep -i ^azure_ | sort
+    azure_image_owner=Ed Barberis
+    azure_image_replication_regions=Central US,East US
+    azure_image_version=1.0.1
+    azure_location=Central US
+    azure_subscription_id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ...
     ```
 
 2.	Supply a valid AppDynamics Controller license file:
@@ -146,9 +223,9 @@ To prepare for the build, perform the following steps:
 
 3.	Create Shared Image Gallery and Image Definitions for the Packer builds of the __LPAD__ and __APM-Platform__ VMs:
 
-__NOTE:__ The following steps are repeated for each major element of the workshop.
+	__NOTE:__ The following steps are repeated for each major element of the workshop.
 
-	a.	Create the Shared Image Gallery:
+	a.	Create the Shared Image Gallery:  
 
     ```bash
     az sig create \
@@ -203,8 +280,8 @@ __Packer Build Flow for Azure__
     because the size of the root volume for the AMI image is much smaller.
 
     ```bash
-    $ cd /<drive>/projects/AppD-Cloud-Kickstart/builders/packer/azure
-    $ packer build lpad-centos79.json
+    cd ~/projects/AppD-Cloud-Kickstart/builders/packer/azure
+    packer build lpad-centos79.json
     ```
 
 2.	Build the __APM-Platform VM__ CentOS 7.9 AMI image:
@@ -212,8 +289,8 @@ __Packer Build Flow for Azure__
     This will take several minutes to run.
 
     ```bash
-    $ cd /<drive>/projects/AppD-Cloud-Kickstart/builders/packer/azure
-    $ packer build apm-platform-centos79.json
+    cd ~/projects/AppD-Cloud-Kickstart/builders/packer/azure
+    packer build apm-platform-centos79.json
     ```
 
     If the build fails, check to ensure the accuracy of all variables edited above.
@@ -252,10 +329,14 @@ __NOTE:__ The following steps are repeated for each major element of the worksho
     <br>
 
     ```bash
-    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/lpad
-    $ vi terraform.tfvars
+    cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/lpad
+    vi terraform.tfvars
+    ```
+
+    ```bash
+    # example edit of 'terraform.tfvars'
     ...
-    # set number of lab environments to launch with starting lab number.
+    # set number of lab environments to launch along with the starting lab number.
     lab_count = 10
     lab_start_number = 1
     ...
@@ -264,12 +345,27 @@ __NOTE:__ The following steps are repeated for each major element of the worksho
 	b.	Deploy the Lab infrastructure on Azure. Execute the following Terraform lifecycle commands in sequence:
 
     ```bash
-    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/lpad
-    $ terraform --version
-    $ terraform init
-    $ terraform validate
-    $ terraform plan -out terraform-lpad.tfplan
-    $ terraform apply terraform-lpad.tfplan
+    cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/lpad
+    ```
+
+    ```bash
+    terraform --version
+    ```
+
+    ```bash
+    terraform init
+    ```
+
+    ```bash
+    terraform validate
+    ```
+
+    ```bash
+    terraform plan -out terraform-lpad.tfplan
+    ```
+
+    ```bash
+    terraform apply terraform-lpad.tfplan
     ```
 
 2.	Deploy the APM Platform stand-alone VMs.
@@ -286,10 +382,14 @@ __NOTE:__ The following steps are repeated for each major element of the worksho
     <br>
 
     ```bash
-    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/apm-platform
-    $ vi terraform.tfvars
+    cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/apm-platform
+    vi terraform.tfvars
+    ```
+
+    ```bash
+    # example edit of 'terraform.tfvars'
     ...
-    # set number of lab environments to launch with starting lab number.
+    # set number of lab environments to launch along with the starting lab number.
     lab_count = 10
     lab_start_number = 1
     ...
@@ -298,13 +398,27 @@ __NOTE:__ The following steps are repeated for each major element of the worksho
 	b.	Deploy the Lab infrastructure on Azure. Execute the following Terraform lifecycle commands in sequence:
 
     ```bash
-    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/apm-platform
-    $ terraform --version
-    $ terraform init
-    $ terraform validate
-    $ terraform plan -out terraform-apm-platform.tfplan
-            
-    $ terraform apply terraform-apm-platform.tfplan
+    cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/apm-platform
+    ```
+
+    ```bash
+    terraform --version
+    ```
+
+    ```bash
+    terraform init
+    ```
+
+    ```bash
+    terraform validate
+    ```
+
+    ```bash
+    terraform plan -out terraform-apm-platform.tfplan
+    ```
+
+    ```bash
+    terraform apply terraform-apm-platform.tfplan
     ```
 
 3.	Deploy the AKS Kubernetes Clusters.
@@ -321,10 +435,14 @@ __NOTE:__ The following steps are repeated for each major element of the worksho
     <br>
 
     ```bash
-    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/aks-cluster
-    $ vi terraform.tfvars
+    cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/aks-cluster
+    vi terraform.tfvars
+    ```
+
+    ```bash
+    # example edit of 'terraform.tfvars'
     ...
-    # set number of lab environments to launch with starting lab number.
+    # set number of lab environments to launch along with the starting lab number.
     lab_count = 10
     lab_start_number = 1
     ...
@@ -333,12 +451,27 @@ __NOTE:__ The following steps are repeated for each major element of the worksho
 	b.	Deploy the Lab infrastructure on Azure. Execute the following Terraform lifecycle commands in sequence:
 
     ```bash
-    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/aks-cluster
-    $ terraform --version
-    $ terraform init
-    $ terraform validate
-    $ terraform plan -out terraform-aks-cluster.tfplan
-    $ terraform apply terraform-aks-cluster.tfplan
+    cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/aks-cluster
+    ```
+
+    ```bash
+    terraform --version
+    ```
+
+    ```bash
+    terraform init
+    ```
+
+    ```bash
+    terraform validate
+    ```
+
+    ```bash
+    terraform plan -out terraform-aks-cluster.tfplan
+    ```
+
+    ```bash
+    terraform apply terraform-aks-cluster.tfplan
     ```
 
 ## Cleaning-Up when the Workshop is Over
@@ -346,14 +479,18 @@ __NOTE:__ The following steps are repeated for each major element of the worksho
 1.	To teardown the Lab infrastructure on Azure, execute the following Terraform command:
 
     ```bash
-    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/lpad
-    $ terraform destroy -auto-approve
+    cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/lpad
+    terraform destroy -auto-approve
+    ```
 
-    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/apm-platform
-    $ terraform destroy -auto-approve
+    ```bash
+    cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/apm-platform
+    terraform destroy -auto-approve
+    ```
 
-    $ cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/aks-cluster
-    $ terraform destroy -auto-approve
+    ```bash
+    cd ~/projects/AppD-Cloud-Kickstart/builders/terraform/azure/aks-monitoring-lab/aks-cluster
+    terraform destroy -auto-approve
     ```
 
 ## When Things Go Wrong
@@ -385,7 +522,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Azure CLI 2.57.0
 -	Docker 25.0.4 CE
 	-	Docker Bash Completion
-	-	Docker Compose 2.24.7
+	-	Docker Compose 2.25.0
 -	Git 2.44.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
@@ -408,15 +545,15 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Azure CLI 2.57.0
 -	Docker 25.0.4 CE
 	-	Docker Bash Completion
-	-	Docker Compose 2.24.7
+	-	Docker Compose 2.25.0
 -	Git 2.44.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
 -	Go 1.22.1
 -	Gradle 8.6
--	Groovy 4.0.19
--	Helm CLI 3.14.2 (Package Manager for Kubernetes)
+-	Groovy 4.0.20
+-	Helm CLI 3.14.3 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 402 (Amazon Corretto 8)
 -	Java SE JDK 11.0.22 (Amazon Corretto 11)
 -	Java SE JDK 17.0.10 (Amazon Corretto 17)
@@ -435,7 +572,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Python 3.6.8
 	-	Pip3 24.0
 -	Serverless Framework CLI 3.38.0
--	Terraform 1.7.4
+-	Terraform 1.7.5
 -	VIM - Vi IMproved 9.1
 -	XMLStarlet 1.6.1 (command-line XML processor)
 -	yq 4.42.1 (command-line YAML processor)
