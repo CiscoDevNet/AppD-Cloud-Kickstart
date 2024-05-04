@@ -23,7 +23,7 @@ yum -y install gcc perl-ExtUtils-MakeMaker
 
 # install git binaries from source. ----------------------------------------------------------------
 githome="git"
-gitrelease="2.44.0"
+gitrelease="2.45.0"
 gitfolder="git-${gitrelease}"
 gitbinary="${gitfolder}.tar.gz"
 
