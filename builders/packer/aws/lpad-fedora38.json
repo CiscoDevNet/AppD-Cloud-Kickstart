@@ -9,7 +9,7 @@
       "source_ami_filter": {
         "filters": {
           "virtualization-type": "hvm",
-          "name": "Fedora-Cloud-Base-38*x86_64-hvm-*",
+          "name": "Fedora-Cloud-Base-38*.*.x86_64-hvm-*",
           "root-device-type": "ebs"
         },
         "owners": ["125523088429"],
@@ -131,6 +131,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_11.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_17.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_21.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_22.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos9_python3.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_fedora_podman.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos8_podman_compose.sh",

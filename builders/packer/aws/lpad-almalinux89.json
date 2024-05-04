@@ -128,6 +128,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_11.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_17.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_21.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_22.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos8_python3.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos8_python3_9.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos8_podman.sh",

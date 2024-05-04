@@ -18,8 +18,8 @@
 
 # set amazon corretto 8 installation variables. ----------------------------------------------------
 jdk_home="jdk180"
-jdk_build="8.402.08.1"
-jdk_sha256="0d20a34ac2b3cf50f370d8a3ca16085c4b1e73038a7b1dd60b167405198e78ee"
+jdk_build="8.412.08.1"
+jdk_sha256="f3061601f1774aa0a52804a4a744b8c3eae93a9e6d289ad80576faa3e8d99cb1"
 jdk_folder="amazon-corretto-${jdk_build}-linux-x64"
 jdk_binary="amazon-corretto-${jdk_build}-linux-x64.tar.gz"
 #jdk_binary="amazon-corretto-${jdk_build:0:1}-x64-linux-jdk.tar.gz"     # permanent (latest) binary.
