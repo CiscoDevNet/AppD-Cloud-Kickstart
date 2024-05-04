@@ -1,12 +1,12 @@
-#!/bin/sh -eux
+#!/bin/bash -eux
 # install java se 21 development kit by oracle.
 
 # install java se 21 development kit. --------------------------------------------------------------
 jdk_home="jdk21"
-jdk_build="21.0.2"
+jdk_build="21.0.3"
 jdk_folder="jdk-${jdk_build}"
 jdk_binary="${jdk_folder}_linux-x64_bin.tar.gz"
-jdk_sha256="9f1f4a7f25ef6a73255657c40a6d7714f2d269cf15fb2ff1dc9c0c8b56623a6f"
+jdk_sha256="c245aeec0b82b3fc56c8696968b6b88220495f512b4353b3c42702db215fd595"
 
 # create java home parent folder.
 mkdir -p /usr/local/java
