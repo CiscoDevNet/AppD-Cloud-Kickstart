@@ -21,8 +21,8 @@ appd_controller_root_password="${appd_controller_root_password:-welcome1}"
 set -x  # turn command display back ON.
 appd_java_agent_home="${appd_java_agent_home:-appagent}"
 appd_java_agent_user="${appd_java_agent_user:-centos}"
-appd_java_agent_release="${appd_java_agent_release:-24.2.0.35552}"
-appd_java_agent_sha256="${appd_java_agent_sha256:-d1bb7d2801a950db67110ba3d09bf710399125453b2c8122887740b9325f2e5e}"
+appd_java_agent_release="${appd_java_agent_release:-24.4.0.35842}"
+appd_java_agent_sha256="${appd_java_agent_sha256:-e7f88f3452e857813531c86fea41fa829a643c5c090fc154d20f9af9bf669cbe}"
 
 # [OPTIONAL] appdynamics java agent config parameters [w/ defaults].
 appd_java_agent_config="${appd_java_agent_config:-false}"
@@ -52,9 +52,9 @@ Usage:
     [root]# export appd_controller_root_password="welcome1"             # [optional] controller root password (defaults to 'welcome1').
     [root]# export appd_java_agent_home="appagent"                      # [optional] java agent home (defaults to 'appagent').
     [root]# export appd_java_agent_user="centos"                        # [optional] java agent user (defaults to user 'centos').
-    [root]# export appd_java_agent_release="24.2.0.35552"               # [optional] java agent release (defaults to '24.2.0.35552').
+    [root]# export appd_java_agent_release="24.4.0.35842"               # [optional] java agent release (defaults to '24.4.0.35842').
                                                                         # [optional] java agent sha-256 checksum (defaults to published value).
-    [root]# export appd_java_agent_sha256="d1bb7d2801a950db67110ba3d09bf710399125453b2c8122887740b9325f2e5e"
+    [root]# export appd_java_agent_sha256="e7f88f3452e857813531c86fea41fa829a643c5c090fc154d20f9af9bf669cbe"
 
   [OPTIONAL] appdynamics java agent config parameters [w/ defaults].
     [root]# export appd_java_agent_config="true"                        # [optional] configure appd java agent? [boolean] (defaults to 'false').
@@ -66,7 +66,7 @@ Usage:
           environment.
 
           In either case, you will need to validate the configuration before starting the Java Agent. The
-          configuration file can be found here: '<java_agent_home>/appagent/ver24.2.0.35552/conf/controller-info.xml'
+          configuration file can be found here: '<java_agent_home>/appagent/ver24.4.0.35842/conf/controller-info.xml'
 
     [root]# export appd_controller_host="apm"                           # [optional] controller host (defaults to 'apm').
     [root]# export appd_controller_port="8090"                          # [optional] controller port (defaults to '8090').
