@@ -20,9 +20,9 @@
 #---------------------------------------------------------------------------------------------------
 
 # install hashicorp packer. ------------------------------------------------------------------------
-packer_release="1.10.2"
+packer_release="1.10.3"
 packer_binary="packer_${packer_release}_linux_amd64.zip"
-packer_sha256="6ed412d212e6948f956a92099d6f941ddb470ff30ab40432622f5e68d594ec46"
+packer_sha256="12977fde5f4fbbb0a88b4e8dc59c2f899113e57292d02a8bdc0efecf8cb3a9a2"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin

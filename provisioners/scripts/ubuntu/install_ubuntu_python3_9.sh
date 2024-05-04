@@ -1,4 +1,4 @@
-#!/bin/sh -eux
+#!/bin/bash -eux
 # install python 3.9 on ubuntu linux.
 
 # set default values for input environment variables if not set. -----------------------------------
