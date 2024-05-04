@@ -22,10 +22,10 @@
 set +x  # temporarily turn command display OFF.
 mysql_server_root_password="${mysql_server_root_password:-Welcome1!}"   # [optional] root password (defaults to 'Welcome1!').
 set -x  # turn command display back ON.
-mysql_apt_repo_release="${mysql_apt_repo_release:-0.8.29-1}"            # [optional] apt repository version (defaults to '0.8.29-1').
+mysql_apt_repo_release="${mysql_apt_repo_release:-0.8.30-1}"            # [optional] apt repository version (defaults to '0.8.30-1').
 mysql_server_release="${mysql_server_release:-mysql-8.0}"               # [optional] mysql server version (defaults to 'mysql-8.0').
                                                                         # [optional] mysql apt repository md5 checksum (defaults to published value).
-mysql_apt_checksum="${mysql_apt_checksum:-f732dd7d61d18dd67877c820d690756d}"
+mysql_apt_checksum="${mysql_apt_checksum:-830ae275a5fdc535f49f6f7c5e438816}"
 mysql_enable_secure_access="${mysql_enable_secure_access:-true}"        # [optional] enable secure access for mysql server (defaults to 'true').
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].

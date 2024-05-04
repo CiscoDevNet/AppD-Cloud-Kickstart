@@ -9,9 +9,9 @@ mkdir -p ${kickstart_home}/provisioners/scripts/centos
 cd ${kickstart_home}/provisioners/scripts/centos
 
 # install mysql shell. -----------------------------------------------------------------------------
-mysqlsh_release="8.0.36-1"
+mysqlsh_release="8.0.37-1"
 mysqlsh_binary="mysql-shell-${mysqlsh_release}.el9.x86_64.rpm"
-mysqlsh_checksum="088b73e893bfdcebd92333a4dd4c1c59"
+mysqlsh_checksum="e1943fb65639ab889d344b385d5883d0"
 
 # download mysql shell repository.
 rm -f ${mysqlsh_binary}
@@ -19,7 +19,7 @@ wget --no-verbose --no-check-certificate --no-cookies --header "Cookie: oracleli
 
 # verify the downloaded binary using the md5 checksum.
 echo "${mysqlsh_checksum} ${mysqlsh_binary}" | md5sum --check -
-# amazon-corretto-${jdk_build}-linux-x64.tar.gz: OK
+# mysql-shell-${mysqlsh_release}.el9.x86_64.rpm: OK
 
 # install mysql shell. -----------------------------------------------------------------------------
 dnf -y install ${mysqlsh_binary}
