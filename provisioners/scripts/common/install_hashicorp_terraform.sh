@@ -28,9 +28,9 @@
 #---------------------------------------------------------------------------------------------------
 
 # install hashicorp terraform. ---------------------------------------------------------------------
-terraform_release="1.7.4"
+terraform_release="1.8.2"
 terraform_binary="terraform_${terraform_release}_linux_amd64.zip"
-terraform_sha256="285539a6fd62fb79f05edc15cc207ca90f282901c32261085ea0642a0d638dfd"
+terraform_sha256="74f3cc4151e52d94e0ecbe900552adc9b8440b4a8dc12f7fdaab2d0280788acc"
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
@@ -44,8 +44,8 @@ wget --no-verbose https://releases.hashicorp.com/terraform/${terraform_release}/
 echo "${terraform_sha256} ${terraform_binary}" | sha256sum --check
 # terraform_${terraform_release}_linux_amd64.zip: OK
 
-# extract terraform binary.
-rm -f terraform
+# extract terraform binary and license.
+rm -f terraform LICENSE.txt
 unzip ${terraform_binary}
 chmod 755 terraform
 rm -f ${terraform_binary}
