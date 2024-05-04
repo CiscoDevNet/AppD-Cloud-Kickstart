@@ -9,7 +9,7 @@
 #---------------------------------------------------------------------------------------------------
 
 # set default values for input environment variables if not set. -----------------------------------
-appd_project_image_families="${appd_project_image_families-apm-platform-centos79-images apm-platform-ha-centos79-images lpad-centos79-images teastore-centos79-images}"
+appd_project_image_families="${appd_project_image_families-apm-platform-centos79-images apm-platform-ubuntu-jammy-images lpad-centos79-images lpad-ubuntu-jammy-images teastore-centos79-images}"
 gcp_image_keep_last="${gcp_image_keep_last-true}"
 
 # check if 'jq' is installed. ----------------------------------------------------------------------

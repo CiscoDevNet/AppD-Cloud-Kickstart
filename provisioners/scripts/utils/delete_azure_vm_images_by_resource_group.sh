@@ -9,7 +9,7 @@
 #---------------------------------------------------------------------------------------------------
 
 # set default values for input environment variables if not set. -----------------------------------
-appd_project_image_types="${appd_project_image_types-APM-Platform-CentOS79 LPAD-CentOS79 LPAD-CentOS8-Stream LPAD-OracleLinux8 LPAD-Ubuntu-Jammy TeaStore-CentOS79}"
+appd_project_image_types="${appd_project_image_types-APM-Platform-CentOS79 APM-Platform-Ubuntu-Jammy LPAD-CentOS79 LPAD-CentOS8-Stream LPAD-OracleLinux8 LPAD-Ubuntu-Jammy TeaStore-CentOS79}"
 azurerm_resource_group_name="${azurerm_resource_group_name-Cloud-Kickstart-Workshop-Images}"
 azurerm_image_gallery_name="${azurerm_image_gallery_name-CloudKickstartWorkshopGallery}"
 azurerm_image_keep_last="${azurerm_image_keep_last-true}"

@@ -1,4 +1,4 @@
-#!/bin/sh -eux
+#!/bin/bash -eux
 # install useful command-line developer tools on ubuntu linux.
 
 # set default values for input environment variables if not set. -----------------------------------
@@ -74,7 +74,7 @@ if [ -n "$ubuntu_release" ]; then
       ;;
 
     # skip python 2.x installation.
-    23.04|23.10)
+    23.04|23.10|24.04)
       ;;
 
     *)
@@ -87,7 +87,7 @@ fi
 # modify python 3.x installation command based on ubuntu release.
 if [ -n "$ubuntu_release" ]; then
   case $ubuntu_release in
-    23.04|23.10)
+    23.04|23.10|24.04)
       apt-get -y install python3
       apt-get -y install python3-pip
       apt-get -y install python3-full
