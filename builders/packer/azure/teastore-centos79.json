@@ -56,6 +56,19 @@
     },
     {
       "environment_vars": [
+        "azurerm_vm_hostname={{user `azure_vm_hostname`}}",
+        "azurerm_vm_domain={{user `azure_vm_domain`}}",
+        "kickstart_home={{user `kickstart_home`}}",
+        "HOME_DIR=/home/{{user `azure_ssh_username`}}"
+      ],
+      "execute_command": "echo '{{user `azure_ssh_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "scripts": [
+        "{{template_dir}}/../../../provisioners/scripts/azure/config_azure_vm_instance_hostname.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "environment_vars": [
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `azure_ssh_username`}}"
       ],
@@ -96,6 +109,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_11.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_17.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_21.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_aws_corretto_java_jdk_22.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_docker.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose_2.sh",
@@ -141,15 +155,17 @@
     "azure_image_replication_regions": "{{env `azure_image_replication_regions`}}",
     "azure_image_version": "{{env `azure_image_version`}}",
     "azure_location": "{{env `azure_location`}}",
+    "azure_os_disk_size": "48",
     "azure_resource_group": "Cloud-Kickstart-Workshop-Images",
     "azure_ssh_username": "centos",
     "azure_ssh_group": "centos",
     "azure_subscription_id": "{{env `azure_subscription_id`}}",
     "azure_temporary_source_cidrs": "{{env `azure_temporary_source_cidrs`}}",
-    "azure_vm_size": "Standard_D2as_v4",
-    "azure_os_disk_size": "48",
+    "azure_vm_hostname": "lpad",
+    "azure_vm_domain": "localdomain",
+    "azure_vm_size": "Standard_D2as_v5",
     "user_docker_profile": "true",
-    "docker_completion_release": "25.0.4",
+    "docker_completion_release": "26.1.1",
     "mongodb_enable_access_control": "true",
     "nodejs_release": "16",
     "npm_release": "9.9.3",
