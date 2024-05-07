@@ -516,8 +516,8 @@ to manually browse the cloud provider and delete any resources that are in confl
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 24.2.1 Build 10054
-	-	AppDynamics Controller 24.2.1 Build 10085
+-	AppDynamics Enterprise Console 24.4.0 Build 10054
+	-	AppDynamics Controller 24.4.0 Build 10067
 	-	AppDynamics Events Service 4.5.2 Build 20827
 -	Azure CLI 2.60.0
 -	Docker 26.1.1 CE

@@ -31,12 +31,12 @@ export kickstart_home
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '24.2.1.10054').
-#appd_platform_release="24.2.1.10054"
+# [optional] platform release (defaults to '24.4.0.10054').
+#appd_platform_release="24.4.0.10054"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="e51b7ca469439e9ccb9ffdb50a3d3bfe2f6ac228ff7b2abf6f920190fdcff210"
+#appd_platform_sha256="a65f3a31b43ce27525e3075d97f801687d232e78c2737fcfb6b7cc951875ed4a"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').

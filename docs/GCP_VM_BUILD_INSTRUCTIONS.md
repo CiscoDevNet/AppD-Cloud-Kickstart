@@ -513,8 +513,8 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 24.2.1 Build 10054
-	-	AppDynamics Controller 24.2.1 Build 10085
+-	AppDynamics Enterprise Console 24.4.0 Build 10054
+	-	AppDynamics Controller 24.4.0 Build 10067
 	-	AppDynamics Events Service 4.5.2 Build 20827
 -	Docker 26.1.1 CE
 	-	Docker Bash Completion

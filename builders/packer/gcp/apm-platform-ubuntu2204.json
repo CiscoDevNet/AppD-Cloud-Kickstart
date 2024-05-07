@@ -150,7 +150,7 @@
     "gcp_disk_type": "pd-standard",
     "gcp_hostname": "apm",
     "gcp_domain": "localdomain",
-    "gcp_image_description": "GCP Compute APM Platform 24.2.1.10054 on Ubuntu Linux 22.04 LTS. Log-in with user 'ubuntu' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. Compute image generated using the AppDynamics Cloud Kickstart Project.",
+    "gcp_image_description": "GCP Compute APM Platform 24.4.0.10054 on Ubuntu Linux 22.04 LTS. Log-in with user 'ubuntu' using an SSH key-pair. All 'admin' and database passwords are 'welcome1'. Compute image generated using the AppDynamics Cloud Kickstart Project.",
     "gcp_image_family": "apm-platform-ubuntu-jammy-images",
     "gcp_image_name": "apm-platform-ubuntu-jammy",
     "gcp_machine_type": "e2-standard-4",
