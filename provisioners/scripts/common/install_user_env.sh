@@ -7,7 +7,7 @@ user_group="${user_group:-}"
 user_home="${user_home:-}"
 user_docker_profile="${user_docker_profile:-false}"
 user_prompt_color="${user_prompt_color:-green}"
-d_completion_release="${d_completion_release:-26.1.1}"
+d_completion_release="${d_completion_release:-26.1.2}"
 
 # set default value for kickstart home environment variable if not set. ----------------------------
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"
@@ -27,7 +27,7 @@ Usage:
                                                                 #            valid colors:
                                                                 #              'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
                                                                 #
-    [root]# export d_completion_release="26.1.1"                # [optional] docker completion for bash release (defaults to '26.1.1').
+    [root]# export d_completion_release="26.1.2"                # [optional] docker completion for bash release (defaults to '26.1.2').
     [root]# export kickstart_home="/opt/appd-cloud-kickstart"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
     [root]# $0
 EOF
@@ -156,10 +156,11 @@ if [ -f "$vim_config_file" ]; then
   fi
 fi
 
-# add the terraform plugin into the vim config. ----------------------------------------------------
+# add the terraform and copilot plugins into the vim config. ---------------------------------------
 # define vim search and replace strings for the stream editor.
 vim_config_search="  Plugin 'luan\/vim-concourse'"
-vim_config_line="  Plugin 'hashivim\/vim-terraform'"
+vim_config_line_01="  Plugin 'hashivim\/vim-terraform'"
+vim_config_line_02="  Plugin 'github\/copilot.vim'"
 
 # modify the vim config to add the terraform plugin.
 vim_config_file="${vimrc_home}/vimrc"
@@ -169,7 +170,7 @@ if [ -f "$vim_config_file" ]; then
 
   # use the stream editor to add the plugin.
   if ! grep -qF -- 'terraform' "${vim_config_file}" ; then
-    runuser -c "sed -i -e \"s/^${vim_config_search}$/${vim_config_search}\n${vim_config_line}/g\" ${vim_config_file}" - ${user_name}
+    runuser -c "sed -i -e \"s/^${vim_config_search}$/${vim_config_search}\n${vim_config_line_01}\n${vim_config_line_02}/g\" ${vim_config_file}" - ${user_name}
   fi
 fi
 
