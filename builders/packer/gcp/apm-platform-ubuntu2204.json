@@ -159,7 +159,7 @@
     "gcp_group": "ubuntu",
     "gcp_zone": "{{env `gcp_zone`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "26.1.1",
+    "docker_completion_release": "26.1.2",
     "nodejs_release": "--lts",
     "npm_release": "latest",
     "kickstart_home": "/opt/appd-cloud-kickstart",
