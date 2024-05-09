@@ -12,29 +12,29 @@ Before building the AppD Cloud Kickstart VM images for AWS, it is recommended th
 
 Here is a list of the recommended open source software to be installed on the host macOS machine:
 
--	Amazon AWS CLI 2.15.44 (command-line interface)
+-	Amazon AWS CLI 2.15.46 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.15.44](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
+1.	Install [AWS CLI 2.15.46](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
     `$ brew install awscli@2`  
 
 2.	Validate installed command-line tools:
 
     ```bash
     $ aws --version
-    aws-cli/2.15.44 Python/3.11.9 Darwin/23.4.0 source/arm64 prompt/off
+    aws-cli/2.15.46 Python/3.11.9 Darwin/23.4.0 source/arm64 prompt/off
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
 
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
--	Amazon AWS CLI 2.15.44 (command-line interface)
+-	Amazon AWS CLI 2.15.46 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.15.44](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
+1.	Install [AWS CLI 2.15.46](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
     Run the downloaded MSI installer and follow the on-screen instructions.  
 
     **NOTE:** For Windows users, the MSI installation package offers a familiar and convenient way to install the AWS CLI without installing any other prerequisites. However, when updates are released, you must repeat the installation process to get the latest version of the AWS CLI. If you prefer more frequent updates, consider using `pip` as described in the AWS CLI [install guide](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html).
@@ -43,7 +43,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ aws --version
-    aws-cli/2.15.44 Python/3.11.6 Windows/10 exe/AMD64 prompt/off
+    aws-cli/2.15.46 Python/3.11.6 Windows/10 exe/AMD64 prompt/off
     ```
 
 ## Prepare for the Build
@@ -138,13 +138,13 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Amazon AWS CLI 2.15.44 (command-line interface)
+-	Amazon AWS CLI 2.15.46 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.27
 -	AppDynamics Enterprise Console 24.4.0 Build 10054
 	-	AppDynamics Controller 24.4.0 Build 10067
 	-	AppDynamics Events Service 4.5.2 Build 20827
--	Docker 26.1.1 CE
+-	Docker 26.1.2 CE
 	-	Docker Bash Completion
 	-	Docker Compose 2.27.0
 -	Git 2.45.0
@@ -163,7 +163,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 2.15.44 (command-line interface)
+-	Amazon AWS CLI 2.15.46 (command-line interface)
 -	Amazon AWS Cloud9 IDE
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Amazon AWS EKS CLI [eksctl] 0.176.0 (command-line interface)
@@ -171,14 +171,14 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Ansible 2.9.27
 -	Ant 1.10.14
 -	AppDynamics Node.js Serverless Tracer 21.11.348
--	Docker 26.1.1 CE
+-	Docker 26.1.2 CE
 	-	Docker Bash Completion
 	-	Docker Compose 2.27.0
 -	Git 2.45.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Go 1.22.2
+-	Go 1.22.3
 -	Gradle 8.7
 -	Groovy 4.0.21
 -	Helm CLI 3.14.4 (Package Manager for Kubernetes)
@@ -200,7 +200,7 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 -	Python 3.6.8
 	-	Pip3 24.0
 -	Serverless Framework CLI 3.38.0
--	Terraform 1.8.2
+-	Terraform 1.8.3
 -	VIM - Vi IMproved 9.1
 -	XMLStarlet 1.6.1 (command-line XML processor)
 -	yq 4.43.1 (command-line YAML processor)

@@ -520,7 +520,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	AppDynamics Controller 24.4.0 Build 10067
 	-	AppDynamics Events Service 4.5.2 Build 20827
 -	Azure CLI 2.60.0
--	Docker 26.1.1 CE
+-	Docker 26.1.2 CE
 	-	Docker Bash Completion
 	-	Docker Compose 2.27.0
 -	Git 2.45.0
@@ -543,14 +543,14 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Ant 1.10.14
 -	AppDynamics Node.js Serverless Tracer 21.11.348
 -	Azure CLI 2.60.0
--	Docker 26.1.1 CE
+-	Docker 26.1.2 CE
 	-	Docker Bash Completion
 	-	Docker Compose 2.27.0
 -	Git 2.45.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Go 1.22.2
+-	Go 1.22.3
 -	Gradle 8.7
 -	Groovy 4.0.21
 -	Helm CLI 3.14.4 (Package Manager for Kubernetes)
@@ -573,7 +573,7 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Python 3.6.8
 	-	Pip3 24.0
 -	Serverless Framework CLI 3.38.0
--	Terraform 1.8.2
+-	Terraform 1.8.3
 -	VIM - Vi IMproved 9.1
 -	XMLStarlet 1.6.1 (command-line XML processor)
 -	yq 4.43.1 (command-line YAML processor)
