@@ -21,12 +21,14 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] kubectl install parameters [w/ defaults].
-kubectl_release="${kubectl_release:-1.29.4}"
-kubectl_sha256="${kubectl_sha256:-10e343861c3cb0010161e703307ba907add2aeeeaffc6444779ad915f9889c88}"
-#kubectl_release="${kubectl_release:-1.28.9}"
-#kubectl_sha256="${kubectl_sha256:-b4693d0b22f509250694b10c7727c42b427d570af04f2065fe23a55d6c0051f1}"
-#kubectl_release="${kubectl_release:-1.27.13}"
-#kubectl_sha256="${kubectl_sha256:-e991f163197cbd85bbff22f656a74d48b69db5addfa43cc04cca0cf5328f57f1}"
+#kubectl_release="${kubectl_release:-1.30.2}"
+#kubectl_sha256="${kubectl_sha256:-c6e9c45ce3f82c90663e3c30db3b27c167e8b19d83ed4048b61c1013f6a7c66e}"
+kubectl_release="${kubectl_release:-1.29.6}"
+kubectl_sha256="${kubectl_sha256:-339553c919874ebe3b719e9e1fcd68b55bc8875f9b5a005cf4c028738d54d309}"
+#kubectl_release="${kubectl_release:-1.28.11}"
+#kubectl_sha256="${kubectl_sha256:-1dba63e1a5c9520fc516c6e817924d927b9b83b8e08254c8fe2a2edb65da7a9c}"
+#kubectl_release="${kubectl_release:-1.27.15}"
+#kubectl_sha256="${kubectl_sha256:-c12cf17ec30fb162f8f5fb168e67d4e5b7d6826e08c7648a5f1c6b4e9ba23f39}"
 #kubectl_release="${kubectl_release:-1.26.15}"
 #kubectl_sha256="${kubectl_sha256:-b75f359e6fad3cdbf05a0ee9d5872c43383683bb8527a9e078bb5b8a44350a41}"
 #kubectl_release="${kubectl_release:-1.25.16}"
