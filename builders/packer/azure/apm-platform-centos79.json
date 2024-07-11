@@ -184,7 +184,7 @@
     "azure_vm_domain": "localdomain",
     "azure_vm_size": "Standard_B4as_v2",
     "user_docker_profile": "true",
-    "docker_completion_release": "26.1.2",
+    "docker_completion_release": "26.1.4",
     "nodejs_release": "16",
     "npm_release": "9.9.3",
     "kickstart_home": "/opt/appd-cloud-kickstart",

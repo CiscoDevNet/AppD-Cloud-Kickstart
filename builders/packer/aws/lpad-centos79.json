@@ -116,6 +116,7 @@
         "mongodb_enable_access_control={{user `mongodb_enable_access_control`}}",
         "nodejs_release={{user `nodejs_release`}}",
         "npm_release={{user `npm_release`}}",
+        "serverless_release={{user `serverless_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -192,10 +193,11 @@
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "26.1.2",
+    "docker_completion_release": "26.1.4",
     "mongodb_enable_access_control": "true",
     "nodejs_release": "16",
     "npm_release": "9.9.3",
+    "serverless_release": "3.38.0",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }

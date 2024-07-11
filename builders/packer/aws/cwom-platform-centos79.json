@@ -116,6 +116,7 @@
         "d_completion_release={{user `docker_completion_release`}}",
         "nodejs_release={{user `nodejs_release`}}",
         "npm_release={{user `npm_release`}}",
+        "serverless_release={{user `serverless_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -136,6 +137,7 @@
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3_scl.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_ansible.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_ansible_collection.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_ec2_instance_metadata_query_tool.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_jq_json_processor.sh",
@@ -176,9 +178,10 @@
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "26.1.2",
+    "docker_completion_release": "26.1.4",
     "nodejs_release": "16",
     "npm_release": "9.9.3",
+    "serverless_release": "3.38.0",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }

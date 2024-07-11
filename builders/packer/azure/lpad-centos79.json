@@ -164,7 +164,7 @@
     "azure_vm_domain": "localdomain",
     "azure_vm_size": "Standard_D2as_v5",
     "user_docker_profile": "true",
-    "docker_completion_release": "26.1.2",
+    "docker_completion_release": "26.1.4",
     "mongodb_enable_access_control": "true",
     "nodejs_release": "16",
     "npm_release": "9.9.3",
