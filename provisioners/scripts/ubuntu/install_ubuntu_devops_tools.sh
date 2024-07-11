@@ -24,7 +24,7 @@ if [ -z "$user_name" ]; then
   exit 1
 fi
 
-if [ "$user_name" == "root" ]; then
+if [ "$user_name" = "root" ]; then
   echo "Error: 'user_name' should NOT be 'root'."
   usage
   exit 1
@@ -32,6 +32,7 @@ fi
 
 # update the apt repository package indexes. -------------------------------------------------------
 apt-get update
+dpkg --configure -a
 
 # install python 2.x. ------------------------------------------------------------------------------
 # retrieve ubuntu release version.
@@ -96,6 +97,9 @@ if [ -n "$ubuntu_release" ]; then
 
       apt-get -y install python3-setuptools
       apt-get -y install python3-wheel
+      ;;
+
+    *)
       ;;
   esac
 fi

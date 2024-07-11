@@ -54,6 +54,7 @@ mkdir -p /usr/local/bin
 cd /usr/local/bin
 ln -sf ../share/${phantomjs_home}/bin/phantomjs phantomjs
 
+# verify phantomjs installation. -------------------------------------------------------------------
 # set path environment variable.
 PATH=/usr/local/bin:$PATH
 export PATH

@@ -24,7 +24,7 @@ if [ -z "$user_name" ]; then
   exit 1
 fi
 
-if [ "$user_name" == "root" ]; then
+if [ "$user_name" = "root" ]; then
   echo "Error: 'user_name' should NOT be 'root'."
   usage
   exit 1

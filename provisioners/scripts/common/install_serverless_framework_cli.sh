@@ -23,6 +23,7 @@
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] node.js nvm install parameters [w/ defaults].
 user_name="${user_name:-centos}"
+serverless_release="${serverless_release:-3.38.0}"
 
 # check if 'npm' is configured. --------------------------------------------------------------------
 #if [ ! -f "/home/${user_name}/.nvm" ]; then
@@ -33,7 +34,8 @@ user_name="${user_name:-centos}"
 #fi
 
 # install serverless framework cli. ----------------------------------------------------------------
-runuser -c "npm install -g serverless@latest" - ${user_name}
+runuser -c "npm install -g serverless@${serverless_release}" - ${user_name}
+#runuser -c "npm install -g serverless@latest" - ${user_name}
 
 # verify serverless installation.
 runuser -c "serverless --version" - ${user_name}
