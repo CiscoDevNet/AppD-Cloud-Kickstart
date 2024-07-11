@@ -1,4 +1,4 @@
-# @(#).bashrc       1.0 2023/12/06 SMI
+# @(#).bashrc       1.0 2024/07/10 SMI
 # bash resource configuration for kickstart users.
 
 # source global definitions.
@@ -54,12 +54,23 @@ GOPATH=$HOME/go
 export GOPATH
 
 # set phantomjs environment variables (if needed).
-# if ubuntu release is '22.04', apply fix for incompatible openssl.
 user_host_os=$(hostnamectl | awk '/Operating System/ {printf "%s %s %s %s %s", $3, $4, $5, $6, $7}' | xargs)
-if [ "$user_host_os" = "Ubuntu 22.04.4 LTS" ]; then
-  OPENSSL_CONF=/dev/null
-  export OPENSSL_CONF
+
+# trim excess version characters from amazon linux 2023 release.
+if [ "${user_host_os:0:17}" = "Amazon Linux 2023" ]; then
+  user_host_os="${user_host_os:0:17}"
 fi
+
+# if needed, apply fix for incompatible openssl.
+case $user_host_os in
+  "Amazon Linux 2023"|"Ubuntu 22.04.4 LTS")
+    OPENSSL_CONF=/dev/null
+    export OPENSSL_CONF
+    ;;
+
+  *)
+    ;;
+esac
 
 # set appd kickstart home path.
 kickstart_home=/opt/appd-cloud-kickstart
