@@ -24,8 +24,8 @@ local_hostname="$(hostname --short)"                            # initialize sho
 # appd platform install parameters.
 appd_home="${appd_home:-/opt/appdynamics}"
 appd_platform_home="${appd_platform_home:-platform}"
-appd_platform_release="${appd_platform_release:-24.4.0.10054}"
-appd_platform_sha256="${appd_platform_sha256:-a65f3a31b43ce27525e3075d97f801687d232e78c2737fcfb6b7cc951875ed4a}"
+appd_platform_release="${appd_platform_release:-24.4.1.10064}"
+appd_platform_sha256="${appd_platform_sha256:-1dff0236457664bd6444abf64ffc904b94b6c313536635c5109bf95c71b595aa}"
 appd_platform_user_name="${appd_platform_user_name:-centos}"
 appd_platform_user_group="${appd_platform_user_group:-centos}"
 set +x  # temporarily turn command display OFF.
@@ -57,9 +57,9 @@ Usage:
   [OPTIONAL] appdynamics platform install parameters [w/ defaults].
     [root]# export appd_home="/opt/appdynamics"                         # [optional] appd home (defaults to '/opt/appdynamics').
     [root]# export appd_platform_home="platform"                        # [optional] platform home folder (defaults to 'platform').
-    [root]# export appd_platform_release="24.4.0.10054"                 # [optional] platform release (defaults to '24.4.0.10054').
+    [root]# export appd_platform_release="24.4.1.10064"                 # [optional] platform release (defaults to '24.4.1.10064').
                                                                         # [optional] platform sha-256 checksum (defaults to published value).
-    [root]# export appd_platform_sha256="a65f3a31b43ce27525e3075d97f801687d232e78c2737fcfb6b7cc951875ed4a"
+    [root]# export appd_platform_sha256="1dff0236457664bd6444abf64ffc904b94b6c313536635c5109bf95c71b595aa"
     [root]# export appd_platform_user_name="centos"                     # [optional] platform user name (defaults to 'centos').
     [root]# export appd_platform_user_group="centos"                    # [optional] platform group (defaults to 'centos').
     [root]# export appd_platform_admin_username="admin"                 # [optional] platform admin user name (defaults to user 'admin').
