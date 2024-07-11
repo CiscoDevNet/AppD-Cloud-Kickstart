@@ -9,7 +9,7 @@
       "source_ami_filter": {
         "filters": {
           "virtualization-type": "hvm",
-          "name": "al2023-ami-2023.4*x86_64*",
+          "name": "al2023-ami-2023.5*x86_64*",
           "root-device-type": "ebs"
         },
         "owners": ["amazon"],
@@ -106,7 +106,7 @@
       "execute_command": "echo '{{user `aws_ec2_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
       "scripts": [
         "{{template_dir}}/../../../provisioners/scripts/aws/config_al2_system_hostname.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos8_repositories.sh"
+        "{{template_dir}}/../../../provisioners/scripts/aws/install_al2023_repositories.sh"
       ],
       "type": "shell"
     },
@@ -127,6 +127,8 @@
         "aws_cli_user_config={{user `aws_cli_user_config`}}",
         "aws_cli_default_region_name={{user `aws_cli_default_region_name`}}",
         "aws_cli_default_output_format={{user `aws_cli_default_output_format`}}",
+        "mysql_server_release={{user `mysql_server_release`}}",
+        "mysql_enable_secure_access={{user `mysql_enable_secure_access`}}",
         "tomcat_release={{user `tomcat_release`}}",
         "tomcat_sha512={{user `tomcat_sha512`}}",
         "tomcat_username={{user `aws_ec2_username`}}",
@@ -142,6 +144,7 @@
         "d_completion_release={{user `docker_completion_release`}}",
         "nodejs_release={{user `nodejs_release`}}",
         "npm_release={{user `npm_release`}}",
+        "serverless_release={{user `serverless_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -180,6 +183,10 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_apache_maven.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_apache_groovy.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_gradle.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_apache_tomcat_9.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos9_oracle_mysql_community_server_84.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/initialize_pov_playbook1_supercar_trader_application_db.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_phantomjs_headless_browser.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_google_golang.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_jmespath_jp_json_processor.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_xmlstarlet_xml_processor.sh",
@@ -214,6 +221,8 @@
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
+    "mysql_server_release": "mysql-8.4-lts-community",
+    "mysql_enable_secure_access": "false",
     "pov_playbook1_lab_artifacts_dir": "/opt/appdynamics/lab-artifacts",
     "pov_playbook1_lab_artifacts_file": "lab-artifacts.zip",
     "pov_playbook1_lab_artifacts_url": "https://povplaybook.appdpartnerlabs.net/zip/lab-artifacts.zip",
@@ -228,6 +237,7 @@
     "docker_completion_release": "25.0.3",
     "nodejs_release": "--lts",
     "npm_release": "latest",
+    "serverless_release": "latest",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }

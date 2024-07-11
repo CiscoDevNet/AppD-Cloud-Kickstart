@@ -66,7 +66,9 @@
         "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
         "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `kickstart_home`}}",
         "sudo mkdir -p {{user `pov_playbook1_lab_artifacts_dir`}}",
-        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `pov_playbook1_lab_artifacts_dir`}}/../"
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `pov_playbook1_lab_artifacts_dir`}}/../",
+        "sudo mkdir -p /home/{{user `aws_ec2_username`}}/environment",
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} /home/{{user `aws_ec2_username`}}/environment"
       ],
       "type": "shell"
     },
@@ -142,6 +144,7 @@
         "d_completion_release={{user `docker_completion_release`}}",
         "nodejs_release={{user `nodejs_release`}}",
         "npm_release={{user `npm_release`}}",
+        "serverless_release={{user `serverless_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -160,7 +163,8 @@
         "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_docker.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose_2.sh",
-        "{{template_dir}}/../../../provisioners/scripts/ubuntu/install_ubuntu_ansible.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_ansible.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_ansible_collection.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_ec2_instance_metadata_query_tool.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_jq_json_processor.sh",
@@ -230,9 +234,10 @@
     "tomcat_enable_service": "false",
     "tomcat_manager_apps_remote_access": "true",
     "user_docker_profile": "true",
-    "docker_completion_release": "26.1.2",
+    "docker_completion_release": "27.0.3",
     "nodejs_release": "--lts",
     "npm_release": "latest",
+    "serverless_release": "latest",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }
