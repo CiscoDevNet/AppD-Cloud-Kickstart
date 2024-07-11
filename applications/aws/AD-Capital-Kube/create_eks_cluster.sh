@@ -48,7 +48,7 @@ Usage:
     [centos]$ export appd_aws_eks_zones="us-east-1a,us-east-1b,us-east-1c"      # [optional] aws availability zones.
     [centos]$ export appd_aws_eks_version="1.29"                                # [optional] kubernetes version (defaults to '1.29').
                                                                                 #            valid versions:
-                                                                                #              '1.24', '1.25', '1.26', '1.27', '1.28', and '1.29'
+                                                                                #              '1.24', '1.25', '1.26', '1.27', '1.28', 1.29, and '1.30'
     [centos]$ export appd_aws_eks_name="AD-Capital-Lab-User-01"                 # [optional] eks cluster name (defaults to 'AD-Capital-${appd_aws_eks_user_name}')
     [centos]$ export appd_aws_eks_environment="Lab-Env-Lab-User-01"             # [optional] eks environment decription (defaults to 'Lab-Env-${appd_aws_eks_user_name}')
     [centos]$ export appd_aws_eks_nodes="2"                                     # [optional] number of eks worker nodes (defaults to '2')
@@ -77,7 +77,7 @@ fi
 
 if [ -n "$appd_aws_eks_version" ]; then
   case $appd_aws_eks_version in
-      1.24|1.25|1.26|1.27|1.28|1.29)
+      1.24|1.25|1.26|1.27|1.28|1.29|1.30)
         ;;
       *)
         echo "Error: invalid 'appd_aws_eks_version'."
