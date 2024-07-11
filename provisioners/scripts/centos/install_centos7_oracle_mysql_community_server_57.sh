@@ -10,6 +10,8 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/
 #   https://dev.mysql.com/doc/refman/5.7/en/linux-installation-yum-repo.html
 #   https://dev.mysql.com/downloads/repo/yum/
+#   https://www.mysql.com/support/supportedplatforms/database.html
+#   https://dev.mysql.com/doc/refman/5.7/en/socket-pluggable-authentication.html
 #
 # NOTE: All inputs are defined by external environment variables.
 #       Optional variables have reasonable defaults, but you may override as needed.
@@ -21,7 +23,8 @@
 set +x  # temporarily turn command display OFF.
 mysql_server_root_password="${mysql_server_root_password:-Welcome1!}"   # [optional] root password (defaults to 'Welcome1!').
 set -x  # turn command display back ON.
-mysql_yum_release="${mysql_server_release:-80}"                         # [optional] yum repository version (defaults to '80').
+mysql_yum_release="${mysql_yum_release:-80}"                            # [optional] yum repository version (defaults to '80').
+mysql_server_default="${mysql_server_default:-80}"                      # [optional] mysql server version (defaults to '80').
 mysql_server_release="${mysql_server_release:-57}"                      # [optional] mysql server version (defaults to '57').
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
@@ -43,7 +46,7 @@ wget --no-verbose --no-check-certificate --no-cookies --header "Cookie: oracleli
 yum -y localinstall ${mysql_yum_binary}
 
 # enable/disable mysql subrepositories.
-yum-config-manager --disable mysql${mysql_yum_release}-community
+yum-config-manager --disable mysql${mysql_server_default}-community
 yum-config-manager --enable mysql${mysql_server_release}-community
 
 # install mysql server binaries.

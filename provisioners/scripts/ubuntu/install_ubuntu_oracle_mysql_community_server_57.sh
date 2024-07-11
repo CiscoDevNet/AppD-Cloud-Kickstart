@@ -22,10 +22,10 @@
 set +x  # temporarily turn command display OFF.
 mysql_server_root_password="${mysql_server_root_password:-Welcome1!}"   # [optional] root password (defaults to 'Welcome1!').
 set -x  # turn command display back ON.
-mysql_apt_repo_release="${mysql_apt_repo_release:-0.8.30-1}"            # [optional] apt repository version (defaults to '0.8.30-1').
+mysql_apt_repo_release="${mysql_apt_repo_release:-0.8.32-1}"            # [optional] apt repository version (defaults to '0.8.32-1').
 mysql_server_release="${mysql_server_release:-mysql-5.7}"               # [optional] mysql server version (defaults to 'mysql-5.7').
                                                                         # [optional] mysql apt repository md5 checksum (defaults to published value).
-mysql_apt_checksum="${mysql_apt_checksum:-830ae275a5fdc535f49f6f7c5e438816}"
+mysql_apt_checksum="${mysql_apt_checksum:-9be3e6b23b09bd452d3e52470c4b385f}"
 mysql_enable_secure_access="${mysql_enable_secure_access:-true}"        # [optional] enable secure access for mysql server (defaults to 'true').
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
@@ -39,6 +39,7 @@ if [ -n "$ubuntu_release" ]; then
   case $ubuntu_release in
       18.04)
         ;;
+
       *)
         echo "Error: MySQL Community Server 5.7 NOT supported on Ubuntu release: '$(lsb_release -ds)'."
         exit 1
