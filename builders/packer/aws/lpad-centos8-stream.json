@@ -9,7 +9,7 @@
       "source_ami_filter": {
         "filters": {
           "virtualization-type": "hvm",
-          "name": "CentOS 8 Stream x86_64*",
+          "name": "CentOS Stream 8 x86_64*",
           "root-device-type": "ebs"
         },
         "owners": ["125523088429"],
@@ -115,6 +115,7 @@
         "mongodb_enable_access_control={{user `mongodb_enable_access_control`}}",
         "nodejs_release={{user `nodejs_release`}}",
         "npm_release={{user `npm_release`}}",
+        "serverless_release={{user `serverless_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -192,6 +193,7 @@
     "mongodb_enable_access_control": "true",
     "nodejs_release": "--lts",
     "npm_release": "latest",
+    "serverless_release": "latest",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }
