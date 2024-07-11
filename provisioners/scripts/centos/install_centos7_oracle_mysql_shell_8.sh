@@ -9,9 +9,9 @@ mkdir -p ${kickstart_home}/provisioners/scripts/centos
 cd ${kickstart_home}/provisioners/scripts/centos
 
 # install mysql shell. -----------------------------------------------------------------------------
-mysqlsh_release="8.0.37-1"
+mysqlsh_release="8.0.38-1"
 mysqlsh_binary="mysql-shell-${mysqlsh_release}.el7.x86_64.rpm"
-mysqlsh_checksum="25d5a8a228e9f6b7e924721899184326"
+mysqlsh_checksum="9c2e5e5d9d464b80d983280ef68b5625"
 
 # download mysql shell repository.
 rm -f ${mysqlsh_binary}
