@@ -35,20 +35,25 @@ fi
 # change to the lab artifacts supercar trader sql scripts directory.
 cd ${pov_playbook1_lab_artifacts_dir}/db-scripts
 
-# upgrade supercar trader sql script for mysql server 8.0 by commenting out the 'SET GLOBAL' statements.
-if [ "$mysql_server_release" == "mysql-8.0" ]; then
-  # save a copy of the original file.
-  sql_command_file="mysql-01.sql"
-  cp -p ${sql_command_file} ${sql_command_file}.orig
+# upgrade supercar trader sql script for mysql server 8.x and 9.x by commenting out the 'SET GLOBAL' statements.
+case $mysql_server_release in
+  "mysql80-community"|"mysql-8.0"|"mysql-8.4-lts-community"|"mysql-8.4-lts"|"mysql-innovation-community"|"mysql-innovation")
+    # save a copy of the original file.
+    sql_command_file="mysql-01.sql"
+    cp -p ${sql_command_file} ${sql_command_file}.orig
 
-  # comment out 'query_cache_size' and 'query_cache_type' since they don't exist in mysql server 8.0.
-  #   -- SET GLOBAL query_cache_size = 0;
-  #   -- SET GLOBAL query_cache_type = 0;
+    # comment out 'query_cache_size' and 'query_cache_type' since they don't exist in mysql server 8.x.
+    #   -- SET GLOBAL query_cache_size = 0;
+    #   -- SET GLOBAL query_cache_type = 0;
 
-  # add sql comment string.
-  sql_statement_search_string=".*SET GLOBAL.*"
-  sed -i "s/^${sql_statement_search_string}/-- &/g" ${sql_command_file}
-fi
+    # add sql comment string.
+    sql_statement_search_string=".*SET GLOBAL.*"
+    sed -i "s/^${sql_statement_search_string}/-- &/g" ${sql_command_file}
+    ;;
+
+  *)
+    ;;
+esac
 
 # these 3 scripts must be run in order.
 set +x  # temporarily turn command display OFF.
