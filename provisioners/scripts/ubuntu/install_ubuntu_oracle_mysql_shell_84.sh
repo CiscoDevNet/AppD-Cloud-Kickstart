@@ -1,18 +1,18 @@
 #!/bin/bash -eux
 #---------------------------------------------------------------------------------------------------
-# Install MySQL Shell 8.0 by Oracle on Ubuntu Linux.
+# Install MySQL Shell 8.4 by Oracle on Ubuntu Linux.
 #
 # MySQL Shell is an advanced client and code editor for MySQL. In addition to the provided SQL
 # functionality, similar to 'mysql', MySQL Shell provides scripting capabilities for JavaScript
 # and Python and includes APIs for working with MySQL.
 #
-# MySQL Shell 8.0 is highly recommended for use with both MySQL Server 8.0 and 5.7.
+# MySQL Shell 8.4 is highly recommended for use with both MySQL Server 8.0 and 8.4.
 #
 # For more details, please visit:
-#   https://dev.mysql.com/doc/mysql-shell/8.0/en/
-#   https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-shell-install-linux-quick.html
+#   https://dev.mysql.com/doc/mysql-shell/8.4/en/
+#   https://dev.mysql.com/doc/mysql-shell/8.4/en/mysql-shell-install-linux-quick.html
 #   https://dev.mysql.com/downloads/shell
-#   https://dev.mysql.com/doc/relnotes/mysql-shell/8.0/en/
+#   https://dev.mysql.com/doc/relnotes/mysql-shell/8.4/en/
 #
 # NOTE: All inputs are defined by external environment variables.
 #       Optional variables have reasonable defaults, but you may override as needed.
@@ -22,7 +22,7 @@
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] mysql shell install parameters [w/ defaults].
 mysql_apt_repo_release="${mysql_apt_repo_release:-0.8.32-1}"            # [optional] apt repository version (defaults to '0.8.32-1').
-mysql_server_release="${mysql_server_release:-mysql-8.0}"               # [optional] mysql server version (defaults to 'mysql-8.0').
+mysql_server_release="${mysql_server_release:-mysql-8.4-lts}"           # [optional] mysql server version (defaults to 'mysql-8.4-lts').
                                                                         # [optional] mysql apt repository md5 checksum (defaults to published value).
 mysql_apt_checksum="${mysql_apt_checksum:-9be3e6b23b09bd452d3e52470c4b385f}"
 
@@ -38,7 +38,7 @@ if [ -n "$ubuntu_release" ]; then
       18.04|20.04|22.04|24.04)
         ;;
       *)
-        echo "Error: MySQL Shell 8.0 NOT supported on Ubuntu release: '$(lsb_release -ds)'."
+        echo "Error: MySQL Shell 8.4 NOT supported on Ubuntu release: '$(lsb_release -ds)'."
         exit 1
         ;;
   esac
