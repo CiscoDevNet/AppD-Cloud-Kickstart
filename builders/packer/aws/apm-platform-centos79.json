@@ -166,6 +166,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_jmespath_jp_json_processor.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_xmlstarlet_xml_processor.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_nodejs_javascript_runtime.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_aws_ec2_instance_connect.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cloud9.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_appdynamics_enterprise_console.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_appdynamics_platform_services.sh"

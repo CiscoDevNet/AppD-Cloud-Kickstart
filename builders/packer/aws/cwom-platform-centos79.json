@@ -150,6 +150,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_root_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_user_env.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_nodejs_javascript_runtime.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_aws_ec2_instance_connect.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cloud9.sh"
       ],
       "type": "shell"
