@@ -222,7 +222,7 @@
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
     "mysql_server_release": "mysql-8.4-lts",
-    "mysql_enable_secure_access": "true",
+    "mysql_enable_secure_access": "false",
     "pov_playbook1_lab_artifacts_dir": "/opt/appdynamics/lab-artifacts",
     "pov_playbook1_lab_artifacts_file": "lab-artifacts.zip",
     "pov_playbook1_lab_artifacts_url": "https://povplaybook.appdpartnerlabs.net/zip/lab-artifacts.zip",
