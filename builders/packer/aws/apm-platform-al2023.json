@@ -90,7 +90,7 @@
       "execute_command": "echo '{{user `aws_ec2_username`}}' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
       "scripts": [
         "{{template_dir}}/../../../provisioners/scripts/aws/config_al2_system_hostname.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos8_repositories.sh"
+        "{{template_dir}}/../../../provisioners/scripts/aws/install_al2023_repositories.sh"
       ],
       "type": "shell"
     },
