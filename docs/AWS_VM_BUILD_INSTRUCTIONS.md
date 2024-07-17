@@ -12,29 +12,29 @@ Before building the AppD Cloud Kickstart VM images for AWS, it is recommended th
 
 Here is a list of the recommended open source software to be installed on the host macOS machine:
 
--	Amazon AWS CLI 2.17.11 (command-line interface)
+-	Amazon AWS CLI 2.17.13 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.17.11](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
+1.	Install [AWS CLI 2.17.13](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html).  
     `$ brew install awscli@2`  
 
 2.	Validate installed command-line tools:
 
     ```bash
     $ aws --version
-    aws-cli/2.17.11 Python/3.11.9 Darwin/23.5.0 source/arm64
+    aws-cli/2.17.13 Python/3.11.9 Darwin/23.5.0 source/arm64
     ```
 
 ## AWS-Specific Installation Instructions - Windows 64-Bit
 
 Here is a list of the recommended open source software to be installed on the host Windows machine:
 
--	Amazon AWS CLI 2.17.11 (command-line interface)
+-	Amazon AWS CLI 2.17.13 (command-line interface)
 
 Perform the following steps to install the needed software:
 
-1.	Install [AWS CLI 2.17.11](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
+1.	Install [AWS CLI 2.17.13](https://awscli.amazonaws.com/AWSCLIV2.msi) for Windows 64-bit.  
     Run the downloaded MSI installer and follow the on-screen instructions.  
 
     **NOTE:** For Windows users, the MSI installation package offers a familiar and convenient way to install the AWS CLI without installing any other prerequisites. However, when updates are released, you must repeat the installation process to get the latest version of the AWS CLI. If you prefer more frequent updates, consider using `pip` as described in the AWS CLI [install guide](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html).
@@ -43,7 +43,7 @@ Perform the following steps to install the needed software:
 
     ```bash
     $ aws --version
-    aws-cli/2.17.11 Python/3.11.6 Windows/10 exe/AMD64 prompt/off
+    aws-cli/2.17.13 Python/3.11.6 Windows/10 exe/AMD64 prompt/off
     ```
 
 ## Prepare for the Build
@@ -138,7 +138,7 @@ To prepare for the build, perform the following steps:
 
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
--	Amazon AWS CLI 2.17.11 (command-line interface)
+-	Amazon AWS CLI 2.17.13 (command-line interface)
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
 -	Ansible 2.9.27
 -	AppDynamics Enterprise Console 24.4.1 Build 10064
@@ -151,7 +151,7 @@ __APM-Platform VM__ - The following utilities and application performance manage
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Java SE JDK 8 Update 412 (Amazon Corretto 8)
+-	Java SE JDK 8 Update 422 (Amazon Corretto 8)
 -	jq 1.7.1 (command-line JSON processor)
 -	MySQL Shell 8.0.38
 -	Python 2.7.5
@@ -163,10 +163,10 @@ __APM-Platform VM__ - The following utilities and application performance manage
 
 __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-installed:
 
--	Amazon AWS CLI 2.17.11 (command-line interface)
+-	Amazon AWS CLI 2.17.13 (command-line interface)
 -	Amazon AWS Cloud9 IDE
 -	Amazon AWS EC2 Instance Metadata Query Tool (command-line interface)
--	Amazon AWS EKS CLI [eksctl] 0.185.0 (command-line interface)
+-	Amazon AWS EKS CLI [eksctl] 0.187.0 (command-line interface)
 -	Amazon AWS Kubernetes Control CLI [kubectl] 1.29.3 (command-line interface)
 -	Ansible 2.9.27
 -	Ant 1.10.14
@@ -179,14 +179,14 @@ __LPAD VM__ - The following AWS CLI command-line tools and utilities are pre-ins
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
 -	Go 1.22.5
--	Gradle 8.8
+-	Gradle 8.9
 -	Groovy 4.0.22
 -	Helm CLI 3.15.3 (Package Manager for Kubernetes)
--	Java SE JDK 8 Update 412 (Amazon Corretto 8)
--	Java SE JDK 11.0.23 (Amazon Corretto 11)
--	Java SE JDK 17.0.11 (Amazon Corretto 17)
--	Java SE JDK 21.0.3 (Amazon Corretto 21)
--	Java SE JDK 22.0.1 (Amazon Corretto 22)
+-	Java SE JDK 8 Update 422 (Amazon Corretto 8)
+-	Java SE JDK 11.0.24 (Amazon Corretto 11)
+-	Java SE JDK 17.0.12 (Amazon Corretto 17)
+-	Java SE JDK 21.0.4 (Amazon Corretto 21)
+-	Java SE JDK 22.0.2 (Amazon Corretto 22)
 -	JMESPath jp 0.2.1 (command-line JSON processor)
 -	jq 1.7.1 (command-line JSON processor)
 -	Maven 3.9.8
