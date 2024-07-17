@@ -67,7 +67,7 @@ wget --no-verbose --no-check-certificate --no-cookies --header "Cookie: oracleli
 echo "${mysql_apt_checksum} ${mysql_apt_binary}" | md5sum --check -
 # mysql-apt-config_${mysql_apt_repo_release}_all.deb: OK
 
-# download the corretto 21 pgp signature.
+# download the mysql apt pgp signature.
 rm -f ${mysql_apt_sig_file}
 curl --silent --location "https://dev.mysql.com/downloads/gpg/?file=${mysql_apt_binary}&p=37" --output ${mysql_apt_sig_file}
 

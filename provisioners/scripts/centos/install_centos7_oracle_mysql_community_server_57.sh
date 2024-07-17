@@ -24,8 +24,11 @@ set +x  # temporarily turn command display OFF.
 mysql_server_root_password="${mysql_server_root_password:-Welcome1!}"   # [optional] root password (defaults to 'Welcome1!').
 set -x  # turn command display back ON.
 mysql_yum_release="${mysql_yum_release:-80}"                            # [optional] yum repository version (defaults to '80').
-mysql_server_default="${mysql_server_default:-80}"                      # [optional] mysql server version (defaults to '80').
-mysql_server_release="${mysql_server_release:-57}"                      # [optional] mysql server version (defaults to '57').
+mysql_server_default="${mysql_server_default:-mysql80-community}"       # [optional] mysql server version (defaults to 'mysql80-community').
+mysql_server_release="${mysql_server_release:-mysql57-community}"       # [optional] mysql server version (defaults to 'mysql57-community').
+                                                                        # [optional] mysql yum repository md5 checksum (defaults to published value).
+mysql_yum_checksum="${mysql_yum_checksum:-e2bd920ba15cd3d651c1547661c60c7c}"
+mysql_enable_secure_access="${mysql_enable_secure_access:-true}"        # [optional] enable secure access for mysql server (defaults to 'true').
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"           # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
@@ -41,34 +44,109 @@ mysql_yum_binary="mysql${mysql_yum_release}-community-release-el7-5.noarch.rpm"
 rm -f ${mysql_yum_binary}
 wget --no-verbose --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://dev.mysql.com/get/${mysql_yum_binary}
 
+# verify the downloaded binary using the md5 checksum.
+echo "${mysql_yum_checksum} ${mysql_yum_binary}" | md5sum --check -
+# mysql${mysql_yum_release}-community-release-el7-5.noarch.rpm: OK
+
 # install mysql server. ----------------------------------------------------------------------------
 # install mysql yum repository.
 yum -y localinstall ${mysql_yum_binary}
 
 # enable/disable mysql subrepositories.
-yum-config-manager --disable mysql${mysql_server_default}-community
-yum-config-manager --enable mysql${mysql_server_release}-community
+yum-config-manager --disable ${mysql_server_default}
+yum-config-manager --enable ${mysql_server_release}
 
 # install mysql server binaries.
 #yum -y remove mariadb-libs                 # [optional] if running in the desktop.
 yum -y install mysql-community-server
 #yum -y install mysql-workbench-community   # [optional]
 
+# verify mysql server installation
+mysql --version
+mysqladmin --version
+
 # configure mysql server. --------------------------------------------------------------------------
 # start the mysql service and configure it to start at boot time.
 systemctl start mysqld
 systemctl enable mysqld
+systemctl is-enabled mysqld
 
 # check that the mysql service is running.
 systemctl status mysqld
 
-# set the root password.
+# create mysql server 'root' user password. --------------------------------------------------------
+# set the 'root' user password and change authentication method to 'mysql_native_password'.
 mysql_server_temp_password=$(awk '/temporary password/ {print $11}' /var/log/mysqld.log)
 set +x  # temporarily turn command display OFF.
-mysql -u root -p${mysql_server_temp_password} --connect-expired-password -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${mysql_server_root_password}';"
+mysql_cmd="mysql -u root --password='${mysql_server_temp_password}' --connect-expired-password -e \"ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '${mysql_server_root_password}';\""
+#echo "mysql_cmd: \"${mysql_cmd}\""
+eval ${mysql_cmd}
 set -x  # turn command display back ON.
+
+# verify 'root' user authentication method.
+set +x  # temporarily turn command display OFF.
+mysql -u root -p${mysql_server_root_password} -e "SELECT user, plugin FROM mysql.user WHERE user IN ('root')\G;"
+set -x    # turn command display back ON.
+
+# improve mysql server installation security. ------------------------------------------------------
+# if secure access is enabled, remove anonymous users, disallow remote 'root' logins, and remove test database.
+if [ "$mysql_enable_secure_access" = "true" ]; then
+  # run the mysql secure install command with the following pre-set answers using the 'here string' (<<<) defined below:
+  #   The 'validate_password' component is installed on the server.
+  #   Change the password for root ? ((Press y|Y for Yes, any other key for No) : N
+  #   Remove anonymous users? (Press y|Y for Yes, any other key for No) : Y
+  #   Disallow root login remotely? (Press y|Y for Yes, any other key for No) : Y
+  #   Remove test database and access to it? (Press y|Y for Yes, any other key for No) : Y
+  #   Reload privilege tables now? (Press y|Y for Yes, any other key for No) : Y
+  set +x  # temporarily turn command display OFF.
+  mysql_secure_install_cmd=$(printf "mysql_secure_installation -u root -p%s <<< \$\'%s\\\\n%s\\\\n%s\\\\n%s\\\\n%s\\\\n\'\n" ${mysql_server_root_password} N Y Y Y Y)
+  #echo "mysql_secure_install_cmd: \"${mysql_secure_install_cmd}\""
+  eval ${mysql_secure_install_cmd}
+  set -x    # turn command display back ON.
+else
+  # run the mysql secure install command with the following pre-set answers using the 'here string' (<<<) defined below:
+  #   The 'validate_password' component is installed on the server.
+  #   Change the password for root ? ((Press y|Y for Yes, any other key for No) : N
+  #   Remove anonymous users? (Press y|Y for Yes, any other key for No) : N
+  #   Disallow root login remotely? (Press y|Y for Yes, any other key for No) : N
+  #   Remove test database and access to it? (Press y|Y for Yes, any other key for No) : N
+  #   Reload privilege tables now? (Press y|Y for Yes, any other key for No) : Y
+  set +x  # temporarily turn command display OFF.
+  mysql_secure_install_cmd=$(printf "mysql_secure_installation -u root -p%s <<< \$\'%s\\\\n%s\\\\n%s\\\\n%s\\\\n%s\\\\n\'\n" ${mysql_server_root_password} N N N N Y)
+  #echo "mysql_secure_install_cmd: \"${mysql_secure_install_cmd}\""
+  eval ${mysql_secure_install_cmd}
+  set -x    # turn command display back ON.
+fi
 
 # display configuration info and verify version. ---------------------------------------------------
 set +x  # temporarily turn command display OFF.
 mysqladmin -u root -p${mysql_server_root_password} version
 set -x  # turn command display back ON.
+
+# if secure access is enabled, install the 'auth_socket' plugin via the mysql config file. ---------
+if [ "$mysql_enable_secure_access" = "true" ]; then
+  # stop the mysql service to edit the mysql config file.
+  systemctl stop mysqld
+
+  # add the following options under the '[mysqld]' option group.
+  mysql_config_filepath="/etc/my.cnf"
+  if [ -f "$mysql_config_filepath" ]; then
+    echo "" >> "${mysql_config_filepath}"
+    echo "plugin-load-add=auth_socket.so" >> "${mysql_config_filepath}"
+    echo "auth_socket=FORCE_PLUS_PERMANENT" >> "${mysql_config_filepath}"
+  fi
+
+  # start the mysql service.
+  systemctl start mysqld
+
+  # for secure access, change the 'root' user authentication method back to 'auth_socket'.
+  set +x  # temporarily turn command display OFF.
+  mysql -u root -p${mysql_server_root_password} -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;"
+  mysql -u root -p${mysql_server_root_password} -e "SELECT user, plugin FROM mysql.user WHERE user IN ('root')\G;"
+  set -x    # turn command display back ON.
+fi
+
+# display installed plugins.
+set +x  # temporarily turn command display OFF.
+mysql -u root -p${mysql_server_root_password} -e "SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE PLUGIN_STATUS LIKE '%ACTIVE%'\G;"
+set -x    # turn command display back ON.
