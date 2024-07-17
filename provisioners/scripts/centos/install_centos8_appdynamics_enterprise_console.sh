@@ -105,11 +105,11 @@ if ([ "$distro_name" = "Amazon" ] && [ "${version_name}" = "2" ]) || \
   ncurses_5_base_package="ncurses-base-5.9-14.20130511.el7_4.noarch.rpm"
   ncurses_5_libs_package="ncurses-libs-5.9-14.20130511.el7_4.x86_64.rpm"
   rm -f ${ncurses_5_base_package}
-  curl --silent --location "http://mirror.centos.org/centos/7/os/x86_64/Packages/${ncurses_5_base_package}" --output ${ncurses_5_base_package}
+  curl --silent --location "https://vault.centos.org/7.9.2009/os/x86_64/Packages/${ncurses_5_base_package}" --output ${ncurses_5_base_package}
   rpm -ivh --force ${ncurses_5_base_package}
 
   rm -f ${ncurses_5_libs_package}
-  curl --silent --location "http://mirror.centos.org/centos/7/os/x86_64/Packages/${ncurses_5_libs_package}" --output ${ncurses_5_libs_package}
+  curl --silent --location "https://vault.centos.org/7.9.2009/os/x86_64/Packages/${ncurses_5_libs_package}" --output ${ncurses_5_libs_package}
   rpm -ivh --force ${ncurses_5_libs_package}
 else
   # for all other distros, install standard ncurses 5 packages.
