@@ -18,8 +18,8 @@
 
 # set amazon corretto 22 installation variables. ---------------------------------------------------
 jdk_home="jdk22"
-jdk_build="22.0.1.8.1"
-jdk_sha256="b840a424ef007c2951e7af3562492e67e984e311c978a6cbbbb60c36421f67ae"
+jdk_build="22.0.2.9.1"
+jdk_sha256="cb4a931f717aea0d715083411106d8aec3c916316525511bb0d20d4084ae85e0"
 jdk_folder="amazon-corretto-${jdk_build}-linux-x64"
 jdk_binary="amazon-corretto-${jdk_build}-linux-x64.tar.gz"
 #jdk_binary="amazon-corretto-${jdk_build:0:2}-x64-linux-jdk.tar.gz"
