@@ -66,7 +66,9 @@
         "sudo mkdir -p {{user `kickstart_home`}}/provisioners/scripts",
         "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `kickstart_home`}}",
         "sudo mkdir -p {{user `pov_playbook1_lab_artifacts_dir`}}",
-        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `pov_playbook1_lab_artifacts_dir`}}/../"
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} {{user `pov_playbook1_lab_artifacts_dir`}}/../",
+        "sudo mkdir -p /home/{{user `aws_ec2_username`}}/environment",
+        "sudo chown -R {{user `aws_ec2_username`}}:{{user `aws_ec2_group`}} /home/{{user `aws_ec2_username`}}/environment"
       ],
       "type": "shell"
     },
@@ -83,13 +85,6 @@
     {
       "inline": [
         "sudo chown -R root:root {{user `kickstart_home`}}"
-      ],
-      "type": "shell"
-    },
-    {
-      "inline": [
-        "sudo yum -y install unzip",
-        "unzip {{user `pov_playbook1_lab_artifacts_dir`}}/{{user `pov_playbook1_lab_artifacts_file`}} -d {{user `pov_playbook1_lab_artifacts_dir`}}"
       ],
       "type": "shell"
     },
@@ -116,6 +111,13 @@
       "type": "shell"
     },
     {
+      "inline": [
+        "sudo yum -y install unzip",
+        "unzip {{user `pov_playbook1_lab_artifacts_dir`}}/{{user `pov_playbook1_lab_artifacts_file`}} -d {{user `pov_playbook1_lab_artifacts_dir`}}"
+      ],
+      "type": "shell"
+    },
+    {
       "environment_vars": [
         "AWS_ACCESS_KEY_ID={{user `aws_access_key`}}",
         "AWS_SECRET_ACCESS_KEY={{user `aws_secret_key`}}",
@@ -123,6 +125,8 @@
         "aws_cli_user_config={{user `aws_cli_user_config`}}",
         "aws_cli_default_region_name={{user `aws_cli_default_region_name`}}",
         "aws_cli_default_output_format={{user `aws_cli_default_output_format`}}",
+        "mysql_server_release={{user `mysql_server_release`}}",
+        "mysql_enable_secure_access={{user `mysql_enable_secure_access`}}",
         "tomcat_release={{user `tomcat_release`}}",
         "tomcat_sha512={{user `tomcat_sha512`}}",
         "tomcat_username={{user `aws_ec2_username`}}",
@@ -157,8 +161,8 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_docker_compose_2.sh",
         "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3_scl.sh",
-        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_ansible.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_python3_8.sh",
+        "{{template_dir}}/../../../provisioners/scripts/common/install_ansible.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_ansible_collection.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cli_2.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_ec2_instance_metadata_query_tool.sh",
@@ -189,6 +193,7 @@
         "{{template_dir}}/../../../provisioners/scripts/common/install_nodejs_javascript_runtime.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_serverless_framework_cli.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_appdynamics_nodejs_serverless_tracer.sh",
+        "{{template_dir}}/../../../provisioners/scripts/centos/install_centos7_aws_ec2_instance_connect.sh",
         "{{template_dir}}/../../../provisioners/scripts/common/install_aws_cloud9.sh"
       ],
       "type": "shell"
@@ -216,6 +221,8 @@
     "aws_ec2_temporary_source_cidrs": "{{env `aws_ec2_temporary_source_cidrs`}}",
     "aws_user_arn": "{{env `aws_user_arn`}}",
     "aws_user_email": "{{env `aws_user_email`}}",
+    "mysql_server_release": "mysql57-community",
+    "mysql_enable_secure_access": "false",
     "pov_playbook1_lab_artifacts_dir": "/opt/appdynamics/lab-artifacts",
     "pov_playbook1_lab_artifacts_file": "lab-artifacts.zip",
     "pov_playbook1_lab_artifacts_url": "https://povplaybook.appdpartnerlabs.net/zip/lab-artifacts.zip",
