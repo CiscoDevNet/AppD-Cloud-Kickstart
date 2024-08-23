@@ -23,7 +23,7 @@ data "aws_ami" "teastore-centos79" {
 # Modules ------------------------------------------------------------------------------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = ">= 5.9"
+  version = ">= 5.13"
 
   name = "VPC-${var.resource_name_prefix}-${local.current_date}"
   cidr = var.aws_vpc_cidr

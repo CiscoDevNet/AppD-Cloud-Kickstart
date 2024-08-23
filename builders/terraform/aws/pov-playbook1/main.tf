@@ -78,7 +78,7 @@ data "aws_ami" "pov_playbook1_ami" {
 # Modules ------------------------------------------------------------------------------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = ">= 5.9"
+  version = ">= 5.13"
 
   name = local.vpc_name
   cidr = var.aws_vpc_cidr_block
