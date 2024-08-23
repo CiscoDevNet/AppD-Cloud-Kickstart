@@ -21,11 +21,11 @@ you are finished, such as purging old VM images created by Packer.
 
 Here is a list of the additional recommended software to be installed on the host macOS machine:
 
--	Azure CLI 2.62.0
+-	Azure CLI 2.63.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.62.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
+1.	Install [Azure CLI 2.63.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-macos?view=azure-cli-latest) for macOS 64-bit.  
     ```bash
     brew install azure-cli
     ```
@@ -47,7 +47,7 @@ Perform the following steps to install the needed software:
     ```bash
     # example
     $ az --version
-    azure-cli                         2.62.0
+    azure-cli                         2.63.0
     ...
     ```
 
@@ -64,11 +64,11 @@ the usage of the **Git Bash** terminal for consistency.
 
 Here is a list of the additional recommended software to be installed on the host Windows machine:
 
--	Azure CLI 2.62.0
+-	Azure CLI 2.63.0
 
 Perform the following steps to install the needed software:
 
-1.	Install [Azure CLI 2.62.0](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
+1.	Install [Azure CLI 2.63.0](https://aka.ms/installazurecliwindows) for Windows 64-bit.  
     Run the downloaded MSI installer, follow the on-screen instructions, and accept the defaults.  
 
 2.	Using the **Git Bash** Terminal, validate the installed command-line tool:
@@ -80,7 +80,7 @@ Perform the following steps to install the needed software:
     ```bash
     # example
     $ az --version
-    azure-cli                         2.62.0
+    azure-cli                         2.63.0
     ...
     ```
 
@@ -516,14 +516,14 @@ to manually browse the cloud provider and delete any resources that are in confl
 __APM-Platform VM__ - The following utilities and application performance management applications are pre-installed:
 
 -	Ansible 2.9.27
--	AppDynamics Enterprise Console 24.4.1 Build 10064
-	-	AppDynamics Controller 24.4.1 Build 10096
+-	AppDynamics Enterprise Console 24.7.0 Build 10038
+	-	AppDynamics Controller 24.7.0 Build 10070
 	-	AppDynamics Events Service 4.5.2 Build 20827
--	Azure CLI 2.62.0
+-	Azure CLI 2.63.0
 -	Docker 26.1.4 CE
 	-	Docker Bash Completion
-	-	Docker Compose 2.28.1
--	Git 2.45.2
+	-	Docker Compose 2.29.2
+-	Git 2.46.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
@@ -533,27 +533,27 @@ __APM-Platform VM__ - The following utilities and application performance manage
 -	Python 2.7.5
 	-	Pip 24.0
 -	Python 3.6.8
-	-	Pip3 24.0
+	-	Pip3 24.2
 -	VIM - Vi IMproved 9.1
--	yq 4.44.2 (command-line YAML processor)
+-	yq 4.44.3 (command-line YAML processor)
 
 __LPAD VM__ - The following CLI command-line tools and utilities are pre-installed:
 
 -	Ansible 2.9.27
 -	Ant 1.10.14
 -	AppDynamics Node.js Serverless Tracer 21.11.348
--	Azure CLI 2.62.0
+-	Azure CLI 2.63.0
 -	Docker 26.1.4 CE
 	-	Docker Bash Completion
-	-	Docker Compose 2.28.1
--	Git 2.45.2
+	-	Docker Compose 2.29.2
+-	Git 2.46.0
 	-	Git Bash Completion
 	-	Git-Flow 1.12.3 (AVH Edition)
 	-	Git-Flow Bash Completion
--	Go 1.22.5
--	Gradle 8.9
+-	Go 1.23.0
+-	Gradle 8.10
 -	Groovy 4.0.22
--	Helm CLI 3.15.3 (Package Manager for Kubernetes)
+-	Helm CLI 3.15.4 (Package Manager for Kubernetes)
 -	Java SE JDK 8 Update 422 (Amazon Corretto 8)
 -	Java SE JDK 11.0.24 (Amazon Corretto 11)
 -	Java SE JDK 17.0.12 (Amazon Corretto 17)
@@ -561,19 +561,19 @@ __LPAD VM__ - The following CLI command-line tools and utilities are pre-install
 -	Java SE JDK 22.0.2 (Amazon Corretto 22)
 -	JMESPath jp 0.2.1 (command-line JSON processor)
 -	jq 1.7.1 (command-line JSON processor)
--	Kubernetes CLI [kubectl] 1.29.7 (command-line interface)
--	Maven 3.9.8
+-	Kubernetes CLI [kubectl] 1.29.8 (command-line interface)
+-	Maven 3.9.9
 -	MongoDB Community Server 5.0.28
 -	Node.js JavaScript runtime v16.20.2
 -	npm JavaScript Package Manager for Node.js 9.9.3
--	nvm (Node Version Manager) bash script 0.39.7
--	Packer 1.11.1
+-	nvm (Node Version Manager) bash script 0.40.0
+-	Packer 1.11.2
 -	Python 2.7.5
 	-	Pip 24.0
 -	Python 3.6.8
-	-	Pip3 24.0
--	Serverless Framework CLI 4.1.11
--	Terraform 1.9.2
+	-	Pip3 24.2
+-	Serverless Framework CLI 4.1.23
+-	Terraform 1.9.5
 -	VIM - Vi IMproved 9.1
 -	XMLStarlet 1.6.1 (command-line XML processor)
--	yq 4.44.2 (command-line YAML processor)
+-	yq 4.44.3 (command-line YAML processor)
