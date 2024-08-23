@@ -139,7 +139,7 @@
     "gcp_group": "ubuntu",
     "gcp_zone": "{{env `gcp_zone`}}",
     "user_docker_profile": "true",
-    "docker_completion_release": "27.0.3",
+    "docker_completion_release": "27.1.2",
     "mongodb_enable_access_control": "true",
     "nodejs_release": "--lts",
     "npm_release": "latest",

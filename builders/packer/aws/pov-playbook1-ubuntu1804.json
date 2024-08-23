@@ -233,7 +233,7 @@
     "tomcat_enable_service": "false",
     "tomcat_manager_apps_remote_access": "true",
     "user_docker_profile": "true",
-    "docker_completion_release": "27.0.3",
+    "docker_completion_release": "27.1.2",
     "nodejs_release": "16",
     "npm_release": "9.9.3",
     "serverless_release": "3.38.0",
