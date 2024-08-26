@@ -481,8 +481,8 @@ export azure_location
 # azure subscription id.
 # NOTE: to retrieve your current subscription id, run the following azure cli command:
 #       az account show --query "{name:name, subscriptionId:id}"
-azure_subscription_id="<your_azure_subscription_id_here>"
-export azure_subscription_id
+ARM_SUBSCRIPTION_ID="<your_azure_subscription_id_here>"
+export ARM_SUBSCRIPTION_ID
 
 # azure shared image version.
 # legal format for the shared image version is: majorversion.minorversion.patch

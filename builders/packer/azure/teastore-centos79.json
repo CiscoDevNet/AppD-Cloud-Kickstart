@@ -96,6 +96,7 @@
         "mongodb_enable_access_control={{user `mongodb_enable_access_control`}}",
         "nodejs_release={{user `nodejs_release`}}",
         "npm_release={{user `npm_release`}}",
+        "serverless_release={{user `serverless_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `azure_ssh_username`}}"
       ],
@@ -159,7 +160,7 @@
     "azure_resource_group": "Cloud-Kickstart-Workshop-Images",
     "azure_ssh_username": "centos",
     "azure_ssh_group": "centos",
-    "azure_subscription_id": "{{env `azure_subscription_id`}}",
+    "azure_subscription_id": "{{env `ARM_SUBSCRIPTION_ID`}}",
     "azure_temporary_source_cidrs": "{{env `azure_temporary_source_cidrs`}}",
     "azure_vm_hostname": "lpad",
     "azure_vm_domain": "localdomain",
@@ -169,6 +170,7 @@
     "mongodb_enable_access_control": "true",
     "nodejs_release": "16",
     "npm_release": "9.9.3",
+    "serverless_release": "3.38.0",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }

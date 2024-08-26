@@ -166,7 +166,7 @@ To prepare for the build, perform the following steps:
     the `Central US` region, the region-related variables can be left alone.  
 
     ```bash
-    azure_subscription_id="<your_azure_subscription_id_here>"
+    ARM_SUBSCRIPTION_ID="<your_azure_subscription_id_here>"
     azure_image_version="1.0.0"                     # legal format: 'MajorVersion.MinorVersion.Patch'
     azure_image_owner="<your_firstname_here> <your_lastname_here>"
 
@@ -175,7 +175,7 @@ To prepare for the build, perform the following steps:
     azure_temporary_source_cidrs="0.0.0.0/0"        # example for restricted cidr: '79.24.30.104/32'
     ```
 
-    You can retrieve the current `azure_subscription_id` by running the following command:
+    You can retrieve the current `ARM_SUBSCRIPTION_ID` by running the following command:
 
     ```bash
     az account show --query "{name:name, subscriptionId:id}" | jq -r '.subscriptionId'
@@ -209,8 +209,17 @@ To prepare for the build, perform the following steps:
     azure_image_replication_regions=Central US,East US
     azure_image_version=1.0.1
     azure_location=Central US
-    azure_subscription_id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ...
+    ```
+
+    ```bash
+    env | grep -i ^ARM_ | sort
+    ```
+
+    ```bash
+    # example
+    $ env | grep -i ^ARM_ | sort
+    ARM_SUBSCRIPTION_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ```
 
 2.	Supply a valid AppDynamics Controller license file:
