@@ -108,7 +108,7 @@ resource "azurerm_public_ip" "apm_platform" {
 
   resource_group_name     = data.azurerm_resource_group.cloud_workshop.name
   location                = data.azurerm_resource_group.cloud_workshop.location
-  allocation_method       = "Dynamic"
+  allocation_method       = "Static"
   idle_timeout_in_minutes = var.azurerm_lab_tcp_idle_timeout
   tags                    = var.resource_tags
 }
