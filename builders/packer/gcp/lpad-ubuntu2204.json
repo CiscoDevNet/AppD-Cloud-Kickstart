@@ -75,6 +75,7 @@
         "mongodb_enable_access_control={{user `mongodb_enable_access_control`}}",
         "nodejs_release={{user `nodejs_release`}}",
         "npm_release={{user `npm_release`}}",
+        "serverless_release={{user `serverless_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `gcp_username`}}"
       ],
@@ -143,6 +144,7 @@
     "mongodb_enable_access_control": "true",
     "nodejs_release": "--lts",
     "npm_release": "latest",
+    "serverless_release": "latest",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }

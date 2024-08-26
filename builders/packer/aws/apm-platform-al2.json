@@ -129,7 +129,6 @@
         "d_completion_release={{user `docker_completion_release`}}",
         "nodejs_release={{user `nodejs_release`}}",
         "npm_release={{user `npm_release`}}",
-        "serverless_release={{user `serverless_release`}}",
         "kickstart_home={{user `kickstart_home`}}",
         "HOME_DIR=/home/{{user `aws_ec2_username`}}"
       ],
@@ -213,7 +212,6 @@
     "docker_completion_release": "25.0.5",
     "nodejs_release": "16",
     "npm_release": "9.9.3",
-    "serverless_release": "3.38.0",
     "kickstart_home": "/opt/appd-cloud-kickstart",
     "org_cost_center": "{{env `org_cost_center`}}"
   }
