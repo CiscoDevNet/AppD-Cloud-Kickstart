@@ -1,0 +1,14 @@
+[Unit]
+Description="Install a demo licence for Appdynamics controller on boot"
+After=network.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/opt/get_apm_platform_license.env
+ExecStart=/opt/config_aws_cli_2.sh
+ExecStart=/opt/get_apm_platform_license.sh
+RemainAfterExit=true
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

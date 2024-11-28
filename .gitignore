@@ -46,3 +46,6 @@ ansible.cfg
 
 # macOS .DS_Store files.
 .DS_Store
+
+# Secrets
+get_apm_platform_license.env
