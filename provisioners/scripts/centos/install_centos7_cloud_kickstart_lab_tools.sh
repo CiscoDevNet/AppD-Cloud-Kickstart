@@ -56,6 +56,7 @@ git fetch origin
 # download and install the custom utilities. -------------------------------------------------------
 # download, build, and install git from source.
 cd ${kickstart_home}/provisioners/scripts/centos
+sudo -E ./install_centos7_curl.sh
 sudo -E ./install_centos7_git.sh
 
 # download and install packer by hashicorp.
