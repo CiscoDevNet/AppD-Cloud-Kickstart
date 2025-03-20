@@ -16,14 +16,31 @@
 # NOTE: Script should be run with 'root' privilege.
 #---------------------------------------------------------------------------------------------------
 
+# retrieve the current cpu architecture. -----------------------------------------------------------
+cpu_arch=$(uname -m)
+
 # set amazon corretto 21 installation variables. ---------------------------------------------------
 jdk_home="jdk21"
-jdk_build="21.0.4.7.1"
-jdk_sha256="ee88014fe758f93180f34cfca2158de4e1834472136296521998f52e146afb3c"
-jdk_folder="amazon-corretto-${jdk_build}-linux-x64"
-jdk_binary="amazon-corretto-${jdk_build}-linux-x64.tar.gz"
-#jdk_binary="amazon-corretto-${jdk_build:0:2}-x64-linux-jdk.tar.gz"
+jdk_build="21.0.6.7.1"
 jdk_pgpkey_file="B04F24E3.pub"
+
+# set the jdk sha256 and arch values based on cpu architecture.
+if [ "$cpu_arch" = "x86_64" ]; then
+  # set the amd64 variables.
+  jdk_sha256="a935c870c56c3a6d9fad6411fa20e026471c9842f50dd84aa7b2fdda3edeb5f3"
+  jdk_arch="x64"
+elif [ "$cpu_arch" = "aarch64" ]; then
+  # set the arm64 variables.
+  jdk_sha256="3cb9d8553655ffb5e3992f8ee1822ed8e179b69d56058b0eb6a1aacc30668c8f"
+  jdk_arch="aarch64"
+else
+  echo "Error: Unsupported CPU architecture: '${cpu_arch}'."
+  exit 1
+fi
+
+jdk_folder="amazon-corretto-${jdk_build}-linux-${jdk_arch}"
+jdk_binary="amazon-corretto-${jdk_build}-linux-${jdk_arch}.tar.gz"
+#jdk_binary="amazon-corretto-${jdk_build:0:2}-${jdk_arch}-linux-jdk.tar.gz" # permanent (latest) binary.
 jdk_sig_file="${jdk_binary}.sig"
 
 # create java home parent folder. ------------------------------------------------------------------
@@ -34,11 +51,11 @@ cd /usr/local/java
 # download the corretto 21 binary.
 rm -f ${jdk_binary}
 wget --no-verbose https://corretto.aws/downloads/resources/${jdk_build}/${jdk_binary}
-#wget --no-verbose https://corretto.aws/downloads/latest/${jdk_binary}  # permanent (latest) url.
+#wget --no-verbose https://corretto.aws/downloads/latest/${jdk_binary}      # permanent (latest) url.
 
 # verify the downloaded binary.
 echo "${jdk_sha256} ${jdk_binary}" | sha256sum --check
-# amazon-corretto-${jdk_build}-linux-x64.tar.gz: OK
+# amazon-corretto-${jdk_build}-linux-${jdk_arch}.tar.gz: OK
 
 # download the corretto 21 pgp signature.
 rm -f ${jdk_sig_file}
