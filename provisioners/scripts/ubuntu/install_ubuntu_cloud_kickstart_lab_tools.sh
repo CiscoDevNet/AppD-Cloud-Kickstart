@@ -13,6 +13,9 @@
 #   jq:         jq is a command-line json processor for linux 64-bit.
 #   AWS CLI v2: AWS CLI is an open source tool that enables you to interact with AWS services.
 #
+# To install, run:
+#   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/CiscoDevNet/AppD-Cloud-Kickstart/refs/heads/master/provisioners/scripts/ubuntu/install_ubuntu_cloud_kickstart_lab_tools.sh)"
+#
 # For more details, please visit:
 #   https://git-scm.com/
 #   https://packer.io/
@@ -32,6 +35,8 @@ user_home="$(eval echo "~${user_name}")"                    # current user home 
 export user_home
 kickstart_home="${user_home}/appd-cloud-kickstart"          # cloud kickstart lab home folder.
 export kickstart_home
+DEBIAN_FRONTEND=noninteractive                              # set non-interactive mode.
+export DEBIAN_FRONTEND
 
 # validate environment variables. ------------------------------------------------------------------
 if [ "$user_name" = "root" ]; then
@@ -41,11 +46,12 @@ fi
 
 # install basic utilities needed for the install scripts. ------------------------------------------
 # update apt repository package indexes for ubuntu.
-sudo apt-get update
-sudo apt-get -y upgrade
+sudo -E apt-get update
+sudo -E apt-get -y upgrade
+sudo hostnamectl | awk '/Operating System/ {print $0}'
 
 # install core linux utilities.
-sudo apt-get -y install curl git tree wget unzip man
+sudo -E apt-get -y install curl git tree wget unzip man net-tools debconf-utils
 
 # download the cloud kickstart lab project from github.com. ----------------------------------------
 cd ${user_home}
@@ -77,7 +83,7 @@ sudo -E ./install_aws_cli_2.sh
 
 # download, build, and install vim 9 text editor from source.
 cd ${kickstart_home}/provisioners/scripts/ubuntu
-sudo ./install_ubuntu_vim_9.sh
+sudo -E ./install_ubuntu_vim_9.sh
 
 # create default command-line environment profile for the 'root' user.
 cd ${kickstart_home}/provisioners/scripts/common
@@ -95,7 +101,7 @@ touch ~/.bashrc
 sudo -E ./install_user_env.sh
 
 # use the stream editor to update the correct 'kickstart_home'.
-#sed -i -e "/^kickstart_home/c\kickstart_home=\"${kickstart_home}\"" ~/.bashrc
+sed -i -e "/^kickstart_home/c\kickstart_home=\"${kickstart_home}\"" ~/.bashrc
 
 # change ownership of any 'root' owned files and folders.
 cd ${user_home}
@@ -127,6 +133,7 @@ unset user_name
 unset user_group
 unset user_home
 unset kickstart_home
+unset DEBIAN_FRONTEND
 
 # print completion message.
 echo "Cloud Kickstart Lab Tools installation complete."
