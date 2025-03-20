@@ -75,7 +75,7 @@ if [ -n "$ubuntu_release" ]; then
       ;;
 
     # skip python 2.x installation.
-    24.04)
+    24.04|24.10)
       ;;
 
     *)
@@ -88,7 +88,7 @@ fi
 # modify python 3.x installation command based on ubuntu release.
 if [ -n "$ubuntu_release" ]; then
   case $ubuntu_release in
-    24.04)
+    24.04|24.10)
       apt-get -y install python3
       apt-get -y install python3-pip
       apt-get -y install python3-full
