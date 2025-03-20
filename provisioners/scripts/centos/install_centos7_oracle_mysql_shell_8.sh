@@ -21,18 +21,32 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] mysql shell install parameters [w/ defaults].
-mysqlsh_release="${mysqlsh_release:-8.0.38-1}"                              # [optional] mysql release version (defaults to '8.0.38-1').
-mysqlsh_checksum="${mysqlsh_checksum:-9c2e5e5d9d464b80d983280ef68b5625}"    # [optional] mysql shell repository md5 checksum (defaults to published value).
+mysqlsh_release="${mysqlsh_release:-8.0.41-1}"                              # [optional] mysql release version (defaults to '8.0.41-1').
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"               # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
+
+# retrieve the current cpu architecture. -----------------------------------------------------------
+cpu_arch=$(uname -m)
+
+# set the mysql shell md5 values based on cpu architecture.
+if [ "$cpu_arch" = "x86_64" ]; then
+  # set the amd64 variables.
+  mysqlsh_checksum="${mysqlsh_checksum:-872b9aa7273deb1bc721f7e19ff6d4cc}"  # [optional] mysql shell repository amd64 md5 checksum (defaults to published value).
+elif [ "$cpu_arch" = "aarch64" ]; then
+  # set the arm64 variables.
+  mysqlsh_checksum="${mysqlsh_checksum:-7841b52733b1d075fa950750b9f50047}"  # [optional] mysql shell repository arm64 md5 checksum (defaults to published value).
+else
+  echo "Error: Unsupported CPU architecture: '${cpu_arch}'."
+  exit 1
+fi
 
 # create scripts directory (if needed). ------------------------------------------------------------
 mkdir -p ${kickstart_home}/provisioners/scripts/centos
 cd ${kickstart_home}/provisioners/scripts/centos
 
 # install mysql shell. -----------------------------------------------------------------------------
-mysqlsh_binary="mysql-shell-${mysqlsh_release}.el7.x86_64.rpm"
+mysqlsh_binary="mysql-shell-${mysqlsh_release}.el7.${cpu_arch}.rpm"
 
 # download mysql shell repository.
 rm -f ${mysqlsh_binary}
@@ -41,6 +55,7 @@ wget --no-verbose --no-check-certificate --no-cookies --header "Cookie: oracleli
 # verify the downloaded binary using the md5 checksum.
 echo "${mysqlsh_checksum} ${mysqlsh_binary}" | md5sum --check -
 # mysql-shell-${mysqlsh_release}.el7.x86_64.rpm: OK
+# mysql-shell-${mysqlsh_release}.el7.aarch64.rpm: OK
 
 # install mysql shell. -----------------------------------------------------------------------------
 yum -y install ${mysqlsh_binary}

@@ -1,6 +1,6 @@
 #!/bin/sh -eux
 #---------------------------------------------------------------------------------------------------
-# Install MySQL Shell 8.0 by Oracle on CentOS Linux 8.x.
+# Install MySQL Shell 8.0 by Oracle on CentOS Linux 9.x.
 #
 # MySQL Shell is an advanced client and code editor for MySQL. In addition to the provided SQL
 # functionality, similar to 'mysql', MySQL Shell provides scripting capabilities for JavaScript
@@ -21,18 +21,32 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] mysql shell install parameters [w/ defaults].
-mysqlsh_release="${mysqlsh_release:-8.0.38-1}"                              # [optional] mysql release version (defaults to '8.0.38-1').
-mysqlsh_checksum="${mysqlsh_checksum:-c9ea16c1871e78e52cfc3b30d362e912}"    # [optional] mysql shell repository md5 checksum (defaults to published value).
+mysqlsh_release="${mysqlsh_release:-8.0.41-1}"                              # [optional] mysql release version (defaults to '8.0.41-1').
 
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"               # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
+
+# retrieve the current cpu architecture. -----------------------------------------------------------
+cpu_arch=$(uname -m)
+
+# set the mysql shell md5 values based on cpu architecture.
+if [ "$cpu_arch" = "x86_64" ]; then
+  # set the amd64 variables.
+  mysqlsh_checksum="${mysqlsh_checksum:-1ba6f404ef500cae16d5d1e266b09acf}"  # [optional] mysql shell repository amd64 md5 checksum (defaults to published value).
+elif [ "$cpu_arch" = "aarch64" ]; then
+  # set the arm64 variables.
+  mysqlsh_checksum="${mysqlsh_checksum:-55b9aef5d13060047fa3b69f2f370481}"  # [optional] mysql shell repository arm64 md5 checksum (defaults to published value).
+else
+  echo "Error: Unsupported CPU architecture: '${cpu_arch}'."
+  exit 1
+fi
 
 # create scripts directory (if needed). ------------------------------------------------------------
 mkdir -p ${kickstart_home}/provisioners/scripts/centos
 cd ${kickstart_home}/provisioners/scripts/centos
 
 # install mysql shell. -----------------------------------------------------------------------------
-mysqlsh_binary="mysql-shell-${mysqlsh_release}.el9.x86_64.rpm"
+mysqlsh_binary="mysql-shell-${mysqlsh_release}.el9.${cpu_arch}.rpm"
 
 # download mysql shell repository.
 rm -f ${mysqlsh_binary}
@@ -41,6 +55,7 @@ wget --no-verbose --no-check-certificate --no-cookies --header "Cookie: oracleli
 # verify the downloaded binary using the md5 checksum.
 echo "${mysqlsh_checksum} ${mysqlsh_binary}" | md5sum --check -
 # mysql-shell-${mysqlsh_release}.el9.x86_64.rpm: OK
+# mysql-shell-${mysqlsh_release}.el9.aarch64.rpm: OK
 
 # install mysql shell. -----------------------------------------------------------------------------
 dnf -y install ${mysqlsh_binary}
