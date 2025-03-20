@@ -1,4 +1,4 @@
-# @(#).bashrc       1.0 2024/07/10 SMI
+# @(#).bashrc       1.0 2025/03/19 SMI
 # bash resource configuration for kickstart users.
 
 # source global definitions.
@@ -13,10 +13,12 @@ fi
 umask 022
 
 # set java home path.
-JAVA_HOME=/usr/local/java/jdk180
+#JAVA_HOME=/usr/local/java/jdk180
 #JAVA_HOME=/usr/local/java/jdk11
-#JAVA_HOME=/usr/local/java/jdk17
+JAVA_HOME=/usr/local/java/jdk17
 #JAVA_HOME=/usr/local/java/jdk21
+#JAVA_HOME=/usr/local/java/jdk23
+#JAVA_HOME=/usr/local/java/jdk24
 export JAVA_HOME
 
 # set ant home path.
@@ -63,7 +65,7 @@ fi
 
 # if needed, apply fix for incompatible openssl.
 case $user_host_os in
-  "Amazon Linux 2023"|"Ubuntu 22.04.4 LTS")
+  "Amazon Linux 2023"|"Ubuntu 22.04.5 LTS")
     OPENSSL_CONF=/dev/null
     export OPENSSL_CONF
     ;;
