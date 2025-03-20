@@ -22,40 +22,40 @@ yum -y install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
 yum -y install gcc perl-ExtUtils-MakeMaker
 
 # install git binaries from source. ----------------------------------------------------------------
-githome="git"
-gitrelease="2.46.0"
-gitfolder="git-${gitrelease}"
-gitbinary="${gitfolder}.tar.gz"
+git_home="git"
+git_release="2.49.0"
+git_folder="git-${git_release}"
+git_binary="${git_folder}.tar.gz"
 
 # create git source parent folder.
 mkdir -p /usr/local/src/git
 cd /usr/local/src/git
 
 # download git source from kernel.org.
-curl --silent --location https://mirrors.edge.kernel.org/pub/software/scm/git/${gitbinary} --output ${gitbinary}
+curl --silent --location https://mirrors.edge.kernel.org/pub/software/scm/git/${git_binary} --output ${git_binary}
 
 # extract git source.
-rm -Rf ${gitfolder}
-tar -zxvf ${gitbinary} --no-same-owner --no-overwrite-dir
-chown -R root:root ./${gitfolder}
-rm -f ${gitbinary}
+rm -Rf ${git_folder}
+tar -zxvf ${git_binary} --no-same-owner --no-overwrite-dir
+chown -R root:root ./${git_folder}
+rm -f ${git_binary}
 
 # build and install git binaries.
-cd ${gitfolder}
+cd ${git_folder}
 CFLAGS="-DNO_UNCOMPRESS2"
 export CFLAGS
 
 ./configure
-make prefix=/usr/local/git/${gitfolder} all
-make prefix=/usr/local/git/${gitfolder} install
+make prefix=/usr/local/git/${git_folder} all
+make prefix=/usr/local/git/${git_folder} install
 
 # create soft link to git binary.
 cd /usr/local/git
-rm -f ${githome}
-ln -s ${gitfolder} ${githome}
+rm -f ${git_home}
+ln -s ${git_folder} ${git_home}
 
 # set git home environment variables.
-GIT_HOME=/usr/local/git/${githome}
+GIT_HOME=/usr/local/git/${git_home}
 export GIT_HOME
 PATH=${GIT_HOME}/bin:$PATH
 export PATH
@@ -64,7 +64,7 @@ export PATH
 git --version
 
 # install git man pages. ---------------------------------------------------------------------------
-gitmanbinary="git-manpages-${gitrelease}.tar.gz"
+gitmanbinary="git-manpages-${git_release}.tar.gz"
 
 # create git man pages parent folder if needed.
 mkdir -p /usr/share/man
@@ -83,7 +83,7 @@ gcfolder="/home/${user_name}"
 
 # download git completion for bash from github.com.
 rm -f ${gcfolder}/${gcbin}
-curl --silent --location "https://raw.githubusercontent.com/git/git/v${gitrelease}/contrib/completion/git-completion.bash" --output ${gcfolder}/${gcbin}
+curl --silent --location "https://raw.githubusercontent.com/git/git/v${git_release}/contrib/completion/git-completion.bash" --output ${gcfolder}/${gcbin}
 
 chown -R ${user_name}:${user_group} ${gcfolder}/${gcbin}
 chmod 644 ${gcfolder}/${gcbin}

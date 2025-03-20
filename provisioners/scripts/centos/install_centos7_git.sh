@@ -16,6 +16,7 @@
 # [OPTIONAL] git flow install parameters [w/ defaults].
 user_name="${user_name:-centos}"                                # user name.
 user_group="${user_group:-centos}"                              # user login group.
+git_release="${git_release:-2.49.0}"                            # git release version.
 
 # install tools needed to build git from source. ---------------------------------------------------
 yum -y install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
@@ -23,8 +24,7 @@ yum -y install gcc perl-ExtUtils-MakeMaker
 
 # install git binaries from source. ----------------------------------------------------------------
 githome="git"
-gitrelease="2.45.2"
-gitfolder="git-${gitrelease}"
+gitfolder="git-${git_release}"
 gitbinary="${gitfolder}.tar.gz"
 
 # create git source parent folder.
@@ -45,6 +45,10 @@ cd ${gitfolder}
 CFLAGS="-DNO_UNCOMPRESS2"
 export CFLAGS
 
+# set path environment variable for '/usr/local/bin'.
+PATH=/usr/local/bin:$PATH
+export PATH
+
 ./configure
 make prefix=/usr/local/git/${gitfolder} all
 make prefix=/usr/local/git/${gitfolder} install
@@ -64,7 +68,7 @@ export PATH
 git --version
 
 # install git man pages. ---------------------------------------------------------------------------
-gitmanbinary="git-manpages-${gitrelease}.tar.gz"
+gitmanbinary="git-manpages-${git_release}.tar.gz"
 
 # create git man pages parent folder if needed.
 mkdir -p /usr/share/man
@@ -83,7 +87,7 @@ gcfolder="/home/${user_name}"
 
 # download git completion for bash from github.com.
 rm -f ${gcfolder}/${gcbin}
-curl --silent --location "https://raw.githubusercontent.com/git/git/v${gitrelease}/contrib/completion/git-completion.bash" --output ${gcfolder}/${gcbin}
+curl --silent --location "https://raw.githubusercontent.com/git/git/v${git_release}/contrib/completion/git-completion.bash" --output ${gcfolder}/${gcbin}
 
 chown -R ${user_name}:${user_group} ${gcfolder}/${gcbin}
 chmod 644 ${gcfolder}/${gcbin}
