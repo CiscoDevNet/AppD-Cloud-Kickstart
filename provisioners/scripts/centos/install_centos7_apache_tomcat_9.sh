@@ -22,9 +22,9 @@
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] tomcat web server install parameters [w/ defaults].
 tomcat_home="${tomcat_home:-apache-tomcat-9}"                       # [optional] tomcat home (defaults to 'apache-tomcat-9').
-tomcat_release="${tomcat_release:-9.0.93}"                          # [optional] tomcat release (defaults to '9.0.93').
+tomcat_release="${tomcat_release:-9.0.102}"                         # [optional] tomcat release (defaults to '9.0.102').
                                                                     # [optional] tomcat sha-512 checksum (defaults to published value).
-tomcat_sha512="${tomcat_sha512:-3069924eb7041ccc0f2aeceb7d8626793a1a073a5b739a840d7974a18ebeb26cc3374cc5f4a3ffc74d3b019c0cb33e3d1fe96296e6663ac75a73c1171811726d}"
+tomcat_sha512="${tomcat_sha512:-cbe407f17c813d9f83cab459e603df171f2e5782c3a0cdb4cfa00b0391a89cedf865c6d8972fc7e12210c69a8467ede5939f35bb0f3b41fa173b9ee83199768a}"
 tomcat_username="${tomcat_username:-centos}"                        # [optional] tomcat user name (defaults to 'centos').
 tomcat_group="${tomcat_group:-centos}"                              # [optional] tomcat group (defaults to 'centos').
 
@@ -35,12 +35,12 @@ tomcat_admin_password="${tomcat_admin_password:-welcome1}"          # [optional]
 set -x  # turn command display back ON.
 tomcat_admin_roles="${tomcat_admin_roles:-manager-gui,admin-gui}"   # [optional] tomcat admin roles (defaults to 'manager-gui,admin-gui').
                                                                     #            NOTE: for appd java agent, add 'manager-script'.
-tomcat_jdk_home="${tomcat_jdk_home:-/usr/local/java/jdk180}"        # [optional] tomcat jdk home (defaults to '/usr/local/java/jdk180').
-                                                                    # [optional] tomcat catalina opts (defaults to '-Xms512M -Xmx1024M -server -XX:+UseParallelGC').
+tomcat_jdk_home="${tomcat_jdk_home:-/usr/local/java/jdk17}"         # [optional] tomcat jdk home (defaults to '/usr/local/java/jdk17').
+                                                                    # [optional] tomcat catalina opts (defaults to '-Xms1024m -Xmx2048m -server -XX:+UseParallelGC').
                                                                     #            NOTE: for appd java agent, add '-javaagent:/opt/appdynamics/appagent/javaagent.jar'.
-tomcat_catalina_opts="${tomcat_catalina_opts:--Xms512M -Xmx1024M -server -XX:+UseParallelGC}"
-                                                                    # [optional] tomcat java opts (defaults to '-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom').
-tomcat_java_opts="${tomcat_java_opts:--Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom}"
+tomcat_catalina_opts="${tomcat_catalina_opts:--Xms1024m -Xmx2048m -server -XX:+UseParallelGC}"
+                                                                    # [optional] tomcat java opts (defaults to '-Dsecurerandom.source=file:/dev/urandom').
+tomcat_java_opts="${tomcat_java_opts:--Dsecurerandom.source=file:/dev/urandom}"
 tomcat_enable_service="${tomcat_enable_service:-true}"              # [optional] enable tomcat service (defaults to 'true').
                                                                     # [optional] allow remote access for tomcat manager apps (defaults to 'true').
 tomcat_manager_apps_remote_access="${tomcat_manager_apps_remote_access:-true}"
@@ -55,6 +55,7 @@ mkdir -p /usr/local/apache
 cd /usr/local/apache
 
 # download tomcat binary from apache.org.
+rm -f ${tomcat_binary}
 wget --no-verbose https://archive.apache.org/dist/tomcat/${tomcat_home:7}/v${tomcat_release}/bin/${tomcat_binary}
 
 # verify the downloaded binary.
@@ -63,6 +64,7 @@ echo "${tomcat_sha512} ${tomcat_binary}" | sha512sum --check
 
 # extract tomcat binary.
 rm -f ${tomcat_home}
+rm -Rf ${tomcat_folder}
 tar -zxvf ${tomcat_binary} --no-same-owner --no-overwrite-dir
 chown -R ${tomcat_username}:${tomcat_group} ./${tomcat_folder}
 ln -s ${tomcat_folder} ${tomcat_home}

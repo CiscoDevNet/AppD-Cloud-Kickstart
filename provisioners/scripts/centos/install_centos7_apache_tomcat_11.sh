@@ -1,11 +1,12 @@
 #!/bin/sh -eux
 #---------------------------------------------------------------------------------------------------
-# Install Apache Tomcat 10.1.x Web Server by Apache on RHEL-based Linux 7.x distros.
+# Install Apache Tomcat 11.0.x Web Server by Apache on RHEL-based Linux 64-bit distros.
 #
 # Apache Tomcat is an open source software implementation of a subset of the Jakarta EE (formally
-# Java EE) technologies. Apache Tomcat 10.1.x builds on Tomcat 10.0.x and implements the
-# Servlet 6.0, JSP 3.1, EL 5.0, WebSocket 2.1 and Authentication 3.0 specifications (the versions
-# required by Java EE 10 platform).
+# Java EE) technologies. Apache Tomcat 11.0.x implements the Servlet 6.1, JSP 4.0, EL 6.0,
+# WebSocket 2.2 and Authentication 3.1 specifications (the versions required by Java EE 11
+# platform), and includes many additional features that make it a useful platform for developing
+# and deploying web applications and web services.
 #
 # NOTE: Users of Tomcat 10 onwards should be aware that, as a result of the move from Java EE to
 # Jakarta EE as part of the transfer of Java EE to the Eclipse Foundation, the primary package for
@@ -13,11 +14,11 @@
 # code changes to enable applications to migrate from Tomcat 9 and earlier to Tomcat 10 and later.
 # A migration tool is available to aid this process.
 #
-# Tomcat 10.1 was designed to run on Java SE 11 and later.
+# Tomcat 11.0 was designed to run on Java SE 17 and later.
 #
 # For more details, please visit:
-#   https://tomcat.apache.org/tomcat-10.1-doc/index.html
-#   https://tomcat.apache.org/download-10.cgi
+#   https://tomcat.apache.org/tomcat-11.0-doc/index.html
+#   https://tomcat.apache.org/download-11.cgi
 #   https://tomcat.apache.org/whichversion.html
 #
 # NOTE: All inputs are defined by external environment variables.
@@ -27,10 +28,10 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] tomcat web server install parameters [w/ defaults].
-tomcat_home="${tomcat_home:-apache-tomcat-10.1}"                    # [optional] tomcat home (defaults to 'apache-tomcat-10.1').
-tomcat_release="${tomcat_release:-10.1.39}"                         # [optional] tomcat release (defaults to '10.1.39').
+tomcat_home="${tomcat_home:-apache-tomcat-11.0}"                    # [optional] tomcat home (defaults to 'apache-tomcat-11.0').
+tomcat_release="${tomcat_release:-11.0.5}"                          # [optional] tomcat release (defaults to '11.0.5').
                                                                     # [optional] tomcat sha-512 checksum (defaults to published value).
-tomcat_sha512="${tomcat_sha512:-55998c7e906a37340f4b56ca66d4a1ef7c0f7a061a9b868e7ed90cce8188f469495ee590d9971eb8d9870dc34ed89b63d6b870a281cb7e84de14a7555fc100e1}"
+tomcat_sha512="${tomcat_sha512:-99c4b3acafd5bd1a10c15b52b97ed7ff3ac7b943bf324aba0645d9894aa6f2868ebb746571332f4fa826209aa4d48b70a66e96998cecb3eac93b74f3f29170f2}"
 tomcat_username="${tomcat_username:-centos}"                        # [optional] tomcat user name (defaults to 'centos').
 tomcat_group="${tomcat_group:-centos}"                              # [optional] tomcat group (defaults to 'centos').
 
