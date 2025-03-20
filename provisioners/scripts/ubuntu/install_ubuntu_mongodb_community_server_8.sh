@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 #---------------------------------------------------------------------------------------------------
-# Install MongoDB Community Server 7.0 on Ubuntu Linux.
+# Install MongoDB Community Server 8.0 on Ubuntu Linux.
 #
 # MongoDB is a document database designed for ease of development and scaling. It is
 # source-available, cross-platform, and classified as a NoSQL database program, MongoDB uses
@@ -35,7 +35,7 @@ ubuntu_release=$(lsb_release -rs)
 
 if [ -n "$ubuntu_release" ]; then
   case $ubuntu_release in
-      20.04|22.04)
+      20.04|22.04|24.04)
         ;;
       *)
         echo "Error: MongoDB NOT supported on Ubuntu release: '$(lsb_release -ds)'."
@@ -55,10 +55,10 @@ apt-get -y install gnupg
 # NOTE: when adding the repository that is provided by mongodb, because of ubuntu security
 #       restrictions, you cannot just add a repository. you also need to include the gpg key and
 #       import it as a trusted key on the local operating system.
-wget -qO - https://www.mongodb.org/static/pgp/server-7.0.asc | sudo apt-key add -
+wget -qO - https://www.mongodb.org/static/pgp/server-8.0.asc | sudo apt-key add -
 
 # create a list file for mongodb.
-echo "deb [arch=amd64,arm64] https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+echo "deb [arch=amd64,arm64] https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 
 # install the mongodb database. --------------------------------------------------------------------
 apt-get update

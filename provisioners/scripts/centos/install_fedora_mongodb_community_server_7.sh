@@ -29,12 +29,15 @@ mongodb_enable_access_control="${mongodb_enable_access_control:-false}"     # [o
 # [OPTIONAL] appdynamics cloud kickstart home folder [w/ default].
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"               # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
 
+# retrieve the current cpu architecture. -----------------------------------------------------------
+cpu_arch=$(uname -m)
+
 # prepare the mongodb repository for installation. -------------------------------------------------
 # create the mongodb repository.
 cat <<EOF > /etc/yum.repos.d/mongodb-org-7.0.repo
 [mongodb-org-7.0]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/9/mongodb-org/7.0/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/9/mongodb-org/7.0/${cpu_arch}/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
