@@ -31,12 +31,12 @@ export kickstart_home
 #appd_platform_home="platform"
 #export appd_platform_home
 
-# [optional] platform release (defaults to '24.7.0.10038').
-#appd_platform_release="24.7.0.10038"
+# [optional] platform release (defaults to '25.1.1.10031').
+#appd_platform_release="25.1.1.10031"
 #export appd_platform_release
 
 # [optional] platform sha-256 checksum (defaults to published value).
-#appd_platform_sha256="63f8b49426799adf6facc1f866ed2547b4a01e1f69f2413f28c42cd15998fc7c"
+#appd_platform_sha256="3f575173aa643f3f628d73b369266334a8fa1e9353152b6c8974e9d921251e27"
 #export appd_platform_sha256
 
 # [optional] platform user name (defaults to 'centos').
@@ -190,12 +190,12 @@ export appd_controller_tenancy_mode
 #appd_java_agent_user="centos"
 #export appd_java_agent_user
 
-# [optional] java agent release (defaults to '24.7.0.36185').
-#appd_java_agent_release="24.7.0.36185"
+# [optional] java agent release (defaults to '25.2.0.36823').
+#appd_java_agent_release="25.2.0.36823"
 #export appd_java_agent_release
 
 # [optional] java agent sha-256 checksum (defaults to published value).
-#appd_java_agent_sha256="7a813f8b7436deb077d299e11a7ad8bb84213fbe79ff70ba2244e363bfc2ab12"
+#appd_java_agent_sha256="51206616e498ae427a93628994fc9419c56d993b6bad9ee195795c51ce2db980"
 #export appd_java_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ export appd_controller_tenancy_mode
 #       using valid entries for your environment.
 #
 #       In either case, you will need to validate the configuration before starting the Java Agent. The
-#       configuration file can be found here: '<java_agent_home>/appagent/ver24.7.0.36185/conf/controller-info.xml'
+#       configuration file can be found here: '<java_agent_home>/appagent/ver25.2.0.36823/conf/controller-info.xml'
 
 # [optional] associate java agent with application (defaults to ''My App).
 #appd_java_agent_application_name="My App"
@@ -245,12 +245,12 @@ export appd_controller_tenancy_mode
 #appd_machine_agent_user="centos"
 #export appd_machine_agent_user
 
-# [optional] machine agent release (defaults to '24.7.0.4315').
-#appd_machine_agent_release="24.7.0.4315"
+# [optional] machine agent release (defaults to '25.1.0.4532').
+#appd_machine_agent_release="25.1.0.4532"
 #export appd_machine_agent_release
 
 # [optional] machine agent sha-256 checksum (defaults to published value).
-#appd_machine_agent_sha256="5c8b3a8b37fbd0849572ec37c41a4d52bf9b1e2c743b7cafec8c79758f22335c"
+#appd_machine_agent_sha256="fb199ed5dd6a29ea226518c6d16fbc3b7dcd3f541675a2a397ca63ef2ad81ae1"
 #export appd_machine_agent_sha256
 
 # --------------------------------------------------------------------------------------------------
@@ -435,6 +435,7 @@ AWS_ACCESS_KEY_ID="<your_AWS_ACCESS_KEY_ID_here>"
 export AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY="<your_AWS_SECRET_ACCESS_KEY_here>"
 export AWS_SECRET_ACCESS_KEY
+unset AWS_SESSION_TOKEN
 
 # [optional] configure aws cli for user? [boolean] (defaults to 'false').
 aws_cli_user_config="false"
