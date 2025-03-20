@@ -22,7 +22,7 @@ dpkg --configure -a
 # install tools needed to install docker. ----------------------------------------------------------
 apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 
-# add the docker repository. -----------------------------------------------------------------------
+# import the gpg key and add the docker repository. ------------------------------------------------
 # import the gpg key.
 # NOTE: when adding the repository that is provided by docker, because of ubuntu security
 #       restrictions, you cannot just add a repository. you also need to include the gpg key and
@@ -31,7 +31,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 apt-key fingerprint 0EBFCD88
 
 # add the docker repository.
-add-apt-repository --yes "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+add-apt-repository --yes "deb [arch=amd64,arm64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 # install docker on ubuntu. ------------------------------------------------------------------------
 apt-get update
