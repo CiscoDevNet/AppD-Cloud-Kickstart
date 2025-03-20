@@ -68,7 +68,7 @@ data "aws_ami" "apm_platform_al2" {
 # Modules ------------------------------------------------------------------------------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = ">= 5.13"
+  version = ">= 5.19"
 
   name = "VPC-${var.resource_name_prefix}-${local.current_date}"
   cidr = var.aws_vpc_cidr_block
@@ -88,7 +88,7 @@ module "vpc" {
 
 module "security_group" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = ">= 5.1"
+  version = ">= 5.3"
 
   name        = "SG-${var.resource_name_prefix}-${local.current_date}"
   description = "Security group for example usage with EC2 instance"
@@ -148,7 +148,7 @@ module "security_group" {
 
 module "apm_platform_vm" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = ">= 5.6"
+  version = ">= 5.7"
 
   for_each = local.lab_for_each
 

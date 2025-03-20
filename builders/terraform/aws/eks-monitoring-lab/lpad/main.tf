@@ -75,7 +75,7 @@ data "aws_ami" "lpad_ami" {
 # Modules ------------------------------------------------------------------------------------------
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = ">= 5.13"
+  version = ">= 5.19"
 
   name = local.vpc_name
   cidr = var.aws_vpc_cidr_block
@@ -95,7 +95,7 @@ module "vpc" {
 
 module "security_group" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = ">= 5.1"
+  version = ">= 5.3"
 
   name        = local.security_group_name
   description = "Security group for example usage with EC2 instance"
@@ -120,7 +120,7 @@ module "security_group" {
 
 module "lpad_vm" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = ">= 5.6"
+  version = ">= 5.7"
 
   for_each = local.lab_for_each
 

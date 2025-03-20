@@ -27,10 +27,25 @@
 # NOTE: Script should be run with 'root' privilege.
 #---------------------------------------------------------------------------------------------------
 
+# retrieve the current cpu architecture. -----------------------------------------------------------
+cpu_arch=$(uname -m)
+
 # install hashicorp terraform. ---------------------------------------------------------------------
-terraform_release="1.9.5"
-terraform_binary="terraform_${terraform_release}_linux_amd64.zip"
-terraform_sha256="9cf727b4d6bd2d4d2908f08bd282f9e4809d6c3071c3b8ebe53558bee6dc913b"
+terraform_release="1.11.2"
+
+# set the terraform cli binary and sha256 values based on cpu architecture.
+if [ "$cpu_arch" = "x86_64" ]; then
+  # set the amd64 variables.
+  terraform_binary="terraform_${terraform_release}_linux_amd64.zip"
+  terraform_sha256="b94f7c5080196081ea5180e8512edd3c2037f28445ce3562cfb0adfd0aab64ca"
+elif [ "$cpu_arch" = "aarch64" ]; then
+  # set the arm64 variables.
+  terraform_binary="terraform_${terraform_release}_linux_arm64.zip"
+  terraform_sha256="1f162f947e346f75ac3f6ccfdf5e6910924839f688f0773de9a79bc2e0b4ca94"
+else
+  echo "Error: Unsupported CPU architecture: '${cpu_arch}'."
+  exit 1
+fi
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
@@ -43,10 +58,11 @@ wget --no-verbose https://releases.hashicorp.com/terraform/${terraform_release}/
 # verify the downloaded binary.
 echo "${terraform_sha256} ${terraform_binary}" | sha256sum --check
 # terraform_${terraform_release}_linux_amd64.zip: OK
+# terraform_${terraform_release}_linux_arm64.zip: OK
 
 # extract terraform binary and license.
 rm -f terraform LICENSE.txt
-unzip ${terraform_binary}
+unzip ${terraform_binary} terraform
 chmod 755 terraform
 rm -f ${terraform_binary}
 
