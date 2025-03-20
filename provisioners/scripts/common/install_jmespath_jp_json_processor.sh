@@ -21,10 +21,25 @@
 # NOTE: Script should be run with 'root' privilege.
 #---------------------------------------------------------------------------------------------------
 
+# retrieve the current cpu architecture. -----------------------------------------------------------
+cpu_arch=$(uname -m)
+
 # install jp json processor. -----------------------------------------------------------------------
 jp_release="0.2.1"
-jp_binary="jp-linux-amd64"
-jp_sha256="f3c5d4cd38a971d9c1666555deb208f080b62708b89d0f5f615e4ae605a0cb8e"
+
+# set the jp cli binary and sha256 values based on cpu architecture.
+if [ "$cpu_arch" = "x86_64" ]; then
+  # set the amd64 variables.
+  jp_binary="jp-linux-amd64"
+  jp_sha256="f3c5d4cd38a971d9c1666555deb208f080b62708b89d0f5f615e4ae605a0cb8e"
+elif [ "$cpu_arch" = "aarch64" ]; then
+  # set the arm64 variables.
+  jp_binary="jp-linux-arm64"
+  jp_sha256="eba658170bfbcad1b5a49c0b087ce153544575e082f77b049de3563f0c5dd536"
+else
+  echo "Error: Unsupported CPU architecture: '${cpu_arch}'."
+  exit 1
+fi
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
@@ -37,6 +52,7 @@ curl --silent --location "https://github.com/jmespath/jp/releases/download/${jp_
 # verify the downloaded binary.
 echo "${jp_sha256} ${jp_binary}" | sha256sum --check
 # jp-linux-amd64: OK
+# jp-linux-arm64: OK
 
 # rename executable and change execute permissions.
 mv -f ${jp_binary} jp

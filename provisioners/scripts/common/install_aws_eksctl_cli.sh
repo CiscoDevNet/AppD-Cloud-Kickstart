@@ -13,10 +13,25 @@
 # NOTE: Script should be run with 'root' privilege.
 #---------------------------------------------------------------------------------------------------
 
+# retrieve the current cpu architecture. -----------------------------------------------------------
+cpu_arch=$(uname -m)
+
 # install eksctl cli. ------------------------------------------------------------------------------
-eksctl_release="0.189.0"
-eksctl_binary="eksctl_$(uname -s)_amd64.tar.gz"
-eksctl_sha256="b92e4b297eb4a2c5f1859a9b5e5620cf270732122cac1a5eba4922c79122298f"
+eksctl_release="0.205.0"
+
+# set the eksctl cli binary and sha256 values based on cpu architecture.
+if [ "$cpu_arch" = "x86_64" ]; then
+  # set the amd64 variables.
+  eksctl_binary="eksctl_$(uname -s)_amd64.tar.gz"
+  eksctl_sha256="52f52276276d421f03790fbdc1b02e783c369f4863fc6dc83cf116f2f89ca5c4"
+elif [ "$cpu_arch" = "aarch64" ]; then
+  # set the arm64 variables.
+  eksctl_binary="eksctl_$(uname -s)_arm64.tar.gz"
+  eksctl_sha256="182f1104fdf886d613eada1aee120bf7627d77d9886f30c3f78c28a5a3bf8c08"
+else
+  echo "Error: Unsupported CPU architecture: '${cpu_arch}'."
+  exit 1
+fi
 
 # create local bin directory (if needed).
 mkdir -p /usr/local/bin
@@ -29,6 +44,7 @@ curl --silent --location "https://github.com/weaveworks/eksctl/releases/download
 # verify the downloaded binary.
 echo "${eksctl_sha256} ${eksctl_binary}" | sha256sum --check
 # eksctl_$(uname -s)_amd64.tar.gz: OK
+# eksctl_$(uname -s)_arm64.tar.gz: OK
 
 # extract eksctl binary.
 rm -f eksctl

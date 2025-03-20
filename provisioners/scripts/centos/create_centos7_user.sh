@@ -31,7 +31,7 @@ Usage:
     [root]# export user_comment="user1"                         # [optional] user comment [full name] (defaults to 'user_name').
     [root]# export user_supplementary_groups="grp2,grp3"        # [optional] comma separated list of groups.
     [root]# export user_sudo_privileges="true"                  # [optional] user sudo privileges boolean (defaults to 'false').
-    [root]# export user_home="/home/user1"                      # [optional] user home directory path.
+    [root]# export user_home="/home/user1"                      # [optional] user home directory path (defaults to '/home/user_name').
     [root]# export user_install_env="true"                      # [optional] user install environment (defaults to 'false').
 
     NOTE: if 'user_install_env' is 'true':

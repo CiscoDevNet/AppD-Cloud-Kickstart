@@ -2,11 +2,13 @@
 # get the latest aws source ami id's for amazon linux 2 in each region. (currently supports north america and europe.)
 # NOTE: this script uses the 'jq' command-line json processor utility for formatting the output returned by the AWS CLI.
 
-# check if 'jq' is installed.
+# check if 'jq' is installed. ----------------------------------------------------------------------
 if [ ! -f "/usr/local/bin/jq" ] && [ ! -f "/opt/homebrew/bin/jq" ]; then
   echo "Error: 'jq' command-line json processor utility not found."
-  echo "NOTE: This script uses the 'jq' command-line json processor utility for formatting the output returned by the AWS CLI."
+  echo "NOTE: This script uses the 'jq' command-line json processor utility for formatting the output"
+  echo "      returned by the AWS CLI."
   echo "      For more information, visit: https://github.com/stedolan/jq/releases/"
+  exit 1
 fi
 
 # print comment line with date. --------------------------------------------------------------------

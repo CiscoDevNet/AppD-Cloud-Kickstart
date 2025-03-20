@@ -95,9 +95,12 @@ EOF
 # check if 'kubectl' command-line utility is installed. --------------------------------------------
 path_to_kubectl=$(runuser -c "which kubectl" - ${appd_cluster_agent_user})
 if [ ! -x "$path_to_kubectl" ] ; then
+  set +x  # temporarily turn command display OFF.
   echo "Error: 'kubectl' command-line utility not found."
   echo "NOTE: This script requires the 'kubectl' command-line utility to communicate with the Kubernetes cluster."
-  echo "      For more information, visit: https://kubernetes.io/docs/reference/kubectl/overview/"
+  echo "      For more information, visit: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/"
+  set -x  # turn command display back ON.
+  exit 1
 fi
 
 # set appdynamics cluster agent installation variables. --------------------------------------------

@@ -76,39 +76,40 @@ chown ${user_name}:${user_group} ${vimrc_local}
 # download and install useful vim configuration based on developer pair stations at pivotal labs.
 git clone https://github.com/pivotal-legacy/vim-config.git ${user_home}/.vim
 
-# vundle plugin url bug fix. -----------------------------------------------------------------------
-# define vundle search and replace strings for the stream editor.
-vundle_string_search="VundleVim"
-vundle_string_replace="ed-barberis"
+###### vundle plugin url bug fix. -----------------------------------------------------------------------
+###### define vundle search and replace strings for the stream editor.
+#####vundle_string_search="VundleVim"
+#####vundle_string_replace="ed-barberis"
+#####
+###### modify the installer to point to the new vundle vim repository.
+#####vundle_install_file="${vimrc_home}/bin/install"
+#####if [ -f "$vundle_install_file" ]; then
+#####  # copy the original file using the current date.
+#####  cp -p ${vundle_install_file} ${vundle_install_file}.${curdate}.orig1
+#####
+#####  # use the stream editor to modify the plugin repository url.
+#####  if ! grep -qF -- "${vundle_string_replace}" "${vundle_install_file}" ; then
+#####    sed -i -e "s/${vundle_string_search}/${vundle_string_replace}/g" ${vundle_install_file}
+#####  fi
+#####fi
+#####
+###### modify the vim config to point to the new vundle vim plugin.
+#####vim_config_file="${vimrc_home}/vimrc"
+#####if [ -f "$vim_config_file" ]; then
+#####  # copy the original file using the current date.
+#####  cp -p ${vim_config_file} ${vim_config_file}.${curdate}.orig1
+#####
+#####  # use the stream editor to modify the plugin.
+#####  if ! grep -qF -- "${vundle_string_replace}" "${vim_config_file}" ; then
+#####    sed -i -e "s/${vundle_string_search}/${vundle_string_replace}/g" ${vim_config_file}
+#####  fi
+#####fi
 
-# modify the installer to point to the new vundle vim repository.
-vundle_install_file="${vimrc_home}/bin/install"
-if [ -f "$vundle_install_file" ]; then
-  # copy the original file using the current date.
-  cp -p ${vundle_install_file} ${vundle_install_file}.${curdate}.orig1
-
-  # use the stream editor to modify the plugin repository url.
-  if ! grep -qF -- "${vundle_string_replace}" "${vundle_install_file}" ; then
-    sed -i -e "s/${vundle_string_search}/${vundle_string_replace}/g" ${vundle_install_file}
-  fi
-fi
-
-# modify the vim config to point to the new vundle vim plugin.
-vim_config_file="${vimrc_home}/vimrc"
-if [ -f "$vim_config_file" ]; then
-  # copy the original file using the current date.
-  cp -p ${vim_config_file} ${vim_config_file}.${curdate}.orig1
-
-  # use the stream editor to modify the plugin.
-  if ! grep -qF -- "${vundle_string_replace}" "${vim_config_file}" ; then
-    sed -i -e "s/${vundle_string_search}/${vundle_string_replace}/g" ${vim_config_file}
-  fi
-fi
-
-# add the terraform plugin into the vim config. ----------------------------------------------------
+# add the terraform and copilot plugins into the vim config. ---------------------------------------
 # define vim search and replace strings for the stream editor.
 vim_config_search="  Plugin 'luan\/vim-concourse'"
-vim_config_line="  Plugin 'hashivim\/vim-terraform'"
+vim_config_line_01="  Plugin 'hashivim\/vim-terraform'"
+vim_config_line_02="  Plugin 'github\/copilot.vim'"
 
 # modify the vim config to add the terraform plugin.
 vim_config_file="${vimrc_home}/vimrc"
@@ -118,7 +119,7 @@ if [ -f "$vim_config_file" ]; then
 
   # use the stream editor to add the plugin.
   if ! grep -qF -- 'terraform' "${vim_config_file}" ; then
-    sed -i -e "s/^${vim_config_search}$/${vim_config_search}\n${vim_config_line}/g" ${vim_config_file}
+    sed -i -e "s/^${vim_config_search}$/${vim_config_search}\n${vim_config_line_01}\n${vim_config_line_02}/g" ${vim_config_file}
   fi
 fi
 

@@ -7,7 +7,7 @@ user_group="${user_group:-}"
 user_home="${user_home:-}"
 user_docker_profile="${user_docker_profile:-false}"
 user_prompt_color="${user_prompt_color:-green}"
-d_completion_release="${d_completion_release:-27.1.2}"
+d_completion_release="${d_completion_release:-28.0.2}"
 
 # set default value for kickstart home environment variable if not set. ----------------------------
 kickstart_home="${kickstart_home:-/opt/appd-cloud-kickstart}"
@@ -27,7 +27,7 @@ Usage:
                                                                 #            valid colors:
                                                                 #              'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', 'yellow'
                                                                 #
-    [root]# export d_completion_release="27.1.2"                # [optional] docker completion for bash release (defaults to '27.1.2').
+    [root]# export d_completion_release="28.0.2"                # [optional] docker completion for bash release (defaults to '28.0.2').
     [root]# export kickstart_home="/opt/appd-cloud-kickstart"   # [optional] kickstart home (defaults to '/opt/appd-cloud-kickstart').
     [root]# $0
 EOF
@@ -127,34 +127,34 @@ chown ${user_name}:${user_group} ${vimrc_local}
 # download and install useful vim configuration based on developer pair stations at pivotal labs.
 runuser -c "git clone https://github.com/pivotal-legacy/vim-config.git ${user_home}/.vim" - ${user_name}
 
-# vundle plugin url bug fix. -----------------------------------------------------------------------
-# define vundle search and replace strings for the stream editor.
-vundle_string_search="VundleVim"
-vundle_string_replace="ed-barberis"
-
-# modify the installer to point to the new vundle vim repository.
-vundle_install_file="${vimrc_home}/bin/install"
-if [ -f "$vundle_install_file" ]; then
-  # copy the original file using the current date.
-  runuser -c "cp -p ${vundle_install_file} ${vundle_install_file}.${curdate}.orig1" - ${user_name}
-
-  # use the stream editor to modify the plugin repository url.
-  if ! grep -qF -- "${vundle_string_replace}" "${vundle_install_file}" ; then
-    runuser -c "sed -i -e \"s/${vundle_string_search}/${vundle_string_replace}/g\" ${vundle_install_file}" - ${user_name}
-  fi
-fi
-
-# modify the vim config to point to the new vundle vim plugin.
-vim_config_file="${vimrc_home}/vimrc"
-if [ -f "$vim_config_file" ]; then
-  # copy the original file using the current date.
-  runuser -c "cp -p ${vim_config_file} ${vim_config_file}.${curdate}.orig1" - ${user_name}
-
-  # use the stream editor to modify the plugin.
-  if ! grep -qF -- "${vundle_string_replace}" "${vim_config_file}" ; then
-    runuser -c "sed -i -e \"s/${vundle_string_search}/${vundle_string_replace}/g\" ${vim_config_file}" - ${user_name}
-  fi
-fi
+###### vundle plugin url bug fix. -----------------------------------------------------------------------
+###### define vundle search and replace strings for the stream editor.
+#####vundle_string_search="VundleVim"
+#####vundle_string_replace="ed-barberis"
+#####
+###### modify the installer to point to the new vundle vim repository.
+#####vundle_install_file="${vimrc_home}/bin/install"
+#####if [ -f "$vundle_install_file" ]; then
+#####  # copy the original file using the current date.
+#####  runuser -c "cp -p ${vundle_install_file} ${vundle_install_file}.${curdate}.orig1" - ${user_name}
+#####
+#####  # use the stream editor to modify the plugin repository url.
+#####  if ! grep -qF -- "${vundle_string_replace}" "${vundle_install_file}" ; then
+#####    runuser -c "sed -i -e \"s/${vundle_string_search}/${vundle_string_replace}/g\" ${vundle_install_file}" - ${user_name}
+#####  fi
+#####fi
+#####
+###### modify the vim config to point to the new vundle vim plugin.
+#####vim_config_file="${vimrc_home}/vimrc"
+#####if [ -f "$vim_config_file" ]; then
+#####  # copy the original file using the current date.
+#####  runuser -c "cp -p ${vim_config_file} ${vim_config_file}.${curdate}.orig1" - ${user_name}
+#####
+#####  # use the stream editor to modify the plugin.
+#####  if ! grep -qF -- "${vundle_string_replace}" "${vim_config_file}" ; then
+#####    runuser -c "sed -i -e \"s/${vundle_string_search}/${vundle_string_replace}/g\" ${vim_config_file}" - ${user_name}
+#####  fi
+#####fi
 
 # add the terraform and copilot plugins into the vim config. ---------------------------------------
 # define vim search and replace strings for the stream editor.

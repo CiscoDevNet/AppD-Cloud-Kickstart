@@ -37,9 +37,11 @@ user_name="${user_name:-centos}"
 
 # check if 'npm' is configured. --------------------------------------------------------------------
 #if [ ! -f "/home/${user_name}/.nvm" ]; then
+#  set +x  # temporarily turn command display OFF.
 #  echo "Error: 'npm' cli not found."
 #  echo "NOTE: This script requires the 'npm' (node package manager) cli for installation."
 #  echo "      For more information, visit: https://www.npmjs.com/"
+#  set -x  # turn command display back ON.
 #  exit 1
 #fi
 

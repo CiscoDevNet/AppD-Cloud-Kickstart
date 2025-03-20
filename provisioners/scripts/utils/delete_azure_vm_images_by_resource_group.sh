@@ -20,6 +20,7 @@ if [ ! -f "/usr/local/bin/jq" ] && [ ! -f "/opt/homebrew/bin/jq" ]; then
   echo "NOTE: This script uses the 'jq' command-line json processor utility for formatting the output"
   echo "      returned by the AWS CLI."
   echo "      For more information, visit: https://github.com/stedolan/jq/releases/"
+  exit 1
 fi
 
 # delete the project-specific azure images's by resource group. ------------------------------------

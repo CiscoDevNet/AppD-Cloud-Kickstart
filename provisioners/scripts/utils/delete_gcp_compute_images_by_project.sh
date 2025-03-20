@@ -9,7 +9,7 @@
 #---------------------------------------------------------------------------------------------------
 
 # set default values for input environment variables if not set. -----------------------------------
-appd_project_image_families="${appd_project_image_families-apm-platform-centos79-images apm-platform-ubuntu-jammy-images lpad-centos79-images lpad-ubuntu-jammy-images teastore-centos79-images}"
+appd_project_image_families="${appd_project_image_families-apm-platform-centos79-images apm-platform-centos9-stream-images apm-platform-ubuntu-jammy-images lpad-centos79-images lpad-centos9-stream-images lpad-ubuntu-focal-images lpad-ubuntu-jammy-images teastore-centos79-images}"
 gcp_image_keep_last="${gcp_image_keep_last-true}"
 
 # check if 'jq' is installed. ----------------------------------------------------------------------
@@ -18,6 +18,7 @@ if [ ! -f "/usr/local/bin/jq" ] && [ ! -f "/opt/homebrew/bin/jq" ]; then
   echo "NOTE: This script uses the 'jq' command-line json processor utility for formatting the output"
   echo "      returned by the AWS CLI."
   echo "      For more information, visit: https://github.com/stedolan/jq/releases/"
+  exit 1
 fi
 
 # delete the project-specific gcp compute images for the curent default project. -------------------
